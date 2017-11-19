@@ -1,18 +1,24 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Alle Mittelwerte werden berechnet mit:
+\begin{equation}
+\bar{x} = \sum_{i=1}^{n}x_i/n \label{eq:quer}
+\end{equation}
+Die Abweichungen ergeben sich nach:
+\begin{equation}
+\bar{\sigma} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(\bar{x}-x_i)^2}  \label{eq:sigma}
+\end{equation}
 
 \subsection{Statische Methode}
 
 Messwerte für $T_.1$, $T_.4$, $T_.5$ und $T_.8$ nach $\SI{700}{\second}$
-
 \begin{align*}
 T_\text{1}=\SI{316.46}{\kelvin}\\
 T_\text{4}=\SI{314.43}{\kelvin}\\
 T_\text{5}=\SI{320.15}{\kelvin}\\
 T_\text{8}=\SI{305.88}{\kelvin}
 \end{align*}
-
 Der Wärmestrom pro Zeit $\frac{\mathrm{d}Q}{\mathrm{d}t}$
 lässt sich nach Formel\eqref{eq:dQ/dt} berechnen. Die gemessenen Werte lassen sich gemeinsam mit den für $\frac{\mathrm{d}Q}{\mathrm{d}t}$ berechneten Werten in Tabelle \ref{tab:tab1} ablesen. Die Graphen der Temperaturdifferenzen $T_\text{2}-T_\text{1}$ und $T_\text{7}-T_\text{8}$ sind in Abbildung (3) und (4) im Anhang zu sehen.
 Es werden die Wärmeleitungsfähigkeit $\kappa$ aus der Literatur\cite{kappa} und die Querschnitsfläche $A$ aus der Anleitung\cite{V204} entnommen. Dabei wird für $\kappa_\text{Messing}$ der Mittelwert des angegeben Bereichs genommen.
@@ -45,11 +51,15 @@ A_\text{Edelstahl} 		&= \SI{ 48e-6}{\metre\squared}
 
 \subsection{Dynamische Methode}
 
-Für die dynamischen Methode wird $\kappa$ über Formel \eqref{eq:k}
+Für die dynamischen Methode wird $\kappa$ über Formel \eqref{eq:k} berechnet.
+Die gemessenen Werte für die Periodendauer $\Delta t$ und für die beiden Amplituden $A_\text{nah}$ und $A_\text{fern}$ des näheren und des weiter entfernteren Thermoelements lassen sich aus den Tabellen \ref{tab:tab2}, \ref{tab:tab3} und \ref{tab:tab4} ablesen. Die Materialkonstanten $\rho$ und $c$ werden aus der Anleitung entnommen\cite{V204}. Die Distanz $\Delta x$ ist dabei dieselbe, wie bei der statischen Methode.\\
 
-berechnet die gemessenen Werte für die Periodendauer $\Delta t$ und für die beiden Amplituden $A_\text{nah}$ und $A_\text{fern}$ des näheren und des weiter entfernteren Thermoelements lassen sich aus Tabelle \ref{tab:tab2}, \ref{tab:tab3} und \ref{tab:tab4} ablesen. Die Materialkonstanten $\rho$und $c$ werden aus der Anleitung entnommen\cite{V204}. Die Distanz $\Delta x$ ist dabei dieselbe, wie bei der statischen Methode.
+Für Messing ergibt sich damit \[\kappa = \SI{120(28)}{\watt\per\metre\per\kelvin}\].
 
-Der Fehler für $\kappa$ errechnet sich dabei über Formel %\eqref{eq:}
+Für Aluminium ergibt sich damit \[\kappa = \SI{205(41)}{\watt\per\metre\per\kelvin}\].
+
+Für Edelstahl ergibt sich damit \[\kappa = \SI{30(4)}{\watt\per\metre\per\kelvin}\].
+
 
 \begin{table}
 
@@ -95,8 +105,6 @@ Der Fehler für $\kappa$ errechnet sich dabei über Formel %\eqref{eq:}
 
 \end{table}
 
-Für Messing ergibt sich damit \[\kappa = \SI{120(28)}{\watt\per\metre\per\kelvin}\].
-
 \begin{table}
 
 	\centering
@@ -141,8 +149,6 @@ Für Messing ergibt sich damit \[\kappa = \SI{120(28)}{\watt\per\metre\per\kelvi
 
 \end{table}
 
-Für Aluminium ergibt sich damit \[\kappa = \SI{205(41)}{\watt\per\metre\per\kelvin}\].
-
 \begin{table}
 
 	\centering
@@ -176,5 +182,3 @@ Für Aluminium ergibt sich damit \[\kappa = \SI{205(41)}{\watt\per\metre\per\kel
 	\label{tab:tab4}
 
 \end{table}
-
-Für Edelstahl ergibt sich damit \[\kappa = \SI{30(4)}{\watt\per\metre\per\kelvin}\].
