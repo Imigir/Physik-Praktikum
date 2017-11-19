@@ -52,3 +52,140 @@ Des Weiteren ist der Abfall nach erreichen des Maximums bei beiden Graphen in ab
 Dies hängt mit den unterschiedlichen Wärmeleitfähigkeiten $\kappa$ zusammen:
 Da Messing eine wesentlich höhere Wärmeleitfähigkeit hat, als Edelstahl verteilt sich die Wärme im Messingstab schneller und die Temperaturdifferenz wird schneller ausgeglichen.
 Das Maximum entsteht dadurch, dass zu Beginn die Heizung stärker ist als die Wärmeleitfähigkeit.
+
+
+\subsection{Dynamische Methode}
+
+Für die dynamischen Methode wird $\kappa$ über Formel \eqref{eq:k}
+
+berechnet die gemessenen Werte für die Periodendauer $\mathrm{d}t$ und für die beiden Amplituden $A_\text{nah}$ und $A_\text{fern}$ des näheren und des weiter entfernteren Thermoelements lassen sich aus Tabelle \ref{tab:tab2}, \ref{tab:tab3} und \ref{tab:tab4} ablesen. Die Materialkonstanten $\rho$und $c$ werden aus der Anleitung entnommen\cite{V204}. Die Distanz $\Delta x$ ist dabei dieselbe, wie bei der statischen Methode.
+
+Der Fehler für $\kappa$ errechnet sich dabei über Formel %\eqref{eq:}
+
+\begin{table}
+
+	\centering
+
+	\caption{Temperatur des breiten Messingstabs mit Periodendauer 80 s.}
+
+	\sisetup{table-format=1.2}
+
+	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]}
+
+		\toprule
+
+		{$\mathrm{d}t/\si[per-mode=reciprocal]{\second}$}&{$A_\text{nah}/\si[per-mode=reciprocal]{\kelvin}$}&{$A_\text{fern}/\si[per-mode=reciprocal]{\kelvin}$} \\
+
+		\midrule
+
+		13.33 & 7.27 & 3.41 \\
+
+		11.11 & 6.36 & 3.18 \\
+
+		13.33 & 6.14 & 2.73 \\
+
+		13.33 & 5.91 & 2.50 \\
+
+		13.33 & 5.68 & 2.27 \\
+
+		13.33 & 5.45 & 2.27 \\
+
+		13.33 & 5.45 & 2.05 \\
+
+		17.78 & 5.45 & 1.82 \\
+
+		17.78 & 5.23 & 1.82 \\
+
+		17.78 & 5.23 & 1.82 \\
+
+		\bottomrule
+
+	\end{tabular}
+
+	\label{tab:tab2}
+
+\end{table}
+
+Für Messing ergibt sich damit \[\kappa = \SI{120(28)}{\watt\per\metre\per\kelvin}\].
+
+\begin{table}
+
+	\centering
+
+	\caption{Temperatur des breiten Aluminiumstabs mit Periodendauer 80 s.}
+
+	\sisetup{table-format=1.2}
+
+	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]}
+
+		\toprule
+
+		{$\mathrm{d}t/\si[per-mode=reciprocal]{\second}$}&{$A_\text{nah}/\si[per-mode=reciprocal]{\kelvin}$}&{$A_\text{fern}/\si[per-mode=reciprocal]{\kelvin}$} \\
+
+		\midrule
+
+		8.89 & 10.20 & 6.60 \\
+
+		8.89 & 8.80 & 5.40 \\
+
+		8.89 & 8.20 & 4.80 \\
+
+		6.67 & 8.00 & 4.40 \\
+
+		11.11 & 7.80 & 4.00 \\
+
+		8.89 & 7.60 & 4.00 \\
+
+		6.67 & 7.60 & 3.80 \\
+
+		8.89 & 7.40 & 3.80 \\
+
+		8.89 & 7.40 & 3.60 \\
+
+		8.89 & 7.20 & 3.60 \\
+
+		\bottomrule
+
+	\end{tabular}
+
+	\label{tab:tab3}
+
+\end{table}
+
+Für Aluminium ergibt sich damit \[\kappa = \SI{205(41)}{\watt\per\metre\per\kelvin}\].
+
+\begin{table}
+
+	\centering
+
+	\caption{Temperatur des breiten Edelstahlstabs mit Periodendauer 200 s.}
+
+	\sisetup{table-format=1.2}
+
+	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]}
+
+		\toprule
+
+		{$\mathrm{d}t/\si[per-mode=reciprocal]{\second}$}&{$A_\text{nah}/\si[per-mode=reciprocal]{\kelvin}$}&{$A_\text{fern}/\si[per-mode=reciprocal]{\kelvin}$} \\
+
+		\midrule
+
+		30.30 & 13.33 & 3.56 \\
+
+		36.36 & 11.33 & 3.11 \\
+
+		30.30 & 10.67 & 2.67 \\
+
+		36.36 & 10.22 & 2.22 \\
+
+		36.36 & 10.00 & 2.00 \\
+
+		\bottomrule
+
+	\end{tabular}
+
+	\label{tab:tab4}
+
+\end{table}
+
+Für Edelstahl ergibt sich damit \[\kappa = \SI{30(4)}{\watt\per\metre\per\kelvin}\].
