@@ -1,0 +1,28 @@
+
+\section{Theorie}
+\label{sec:Theorie}
+
+Befindet sich ein Körper nicht im Temperaturgleichgewicht, so kommt es nach dem zweiten Hauptsatz der Thermodynamik zu einem Wärmeaustausch, da die Wärmeenergie vom wärmeren Gebiet ins kältere Gebiet transportiert wird. Der Wärmetransport geschieht in diesem Versuch nur durch Wärmeleitung, also über Phononen und frei bewegliche Elektronen. Dabei wird ein eventueller Gitterbeitrag aufgrund seiner geringen Größe bei Metallen vernachlässigt.
+
+In einem Stab mit Länge $L$, Querschnittsfläche $A$, Dichte $\rho$, spezifischer Wärmekapazität $c$ und Wärmeleitfähigkeit $\kappa$ gilt für den Fluss der Wärmemenge $\mathrm{d}Q$ pro Zeit $\mathrm{d}t$:
+\begin{equation}
+\frac{\mathrm{d}Q}{\mathrm{d}t} = A j_.w \label{eq:dQ/dt}
+\end{equation}    
+Dabei entspricht $j_.w = -\kappa \frac{\partial T}{\partial x}$ der Wärmestromdichte. 
+Für die eindimensionale Wärmeleitungsgleichung folgt mit $\frac{\partial \rho_.T}{\partial t} = -\frac{\partial j_.T}{\partial x}$:
+\begin{equation}
+\frac{\partial T}{\partial t} = \sigma_.T \frac{\partial^2 T}{\partial x^2} \label{eq:T/t}
+\end{equation}
+Wobei $\sigma_.T = \frac{\kappa}{\rho c}$ die Temperaturleitfähigkeit darstellt.
+Wird der Stab periodisch erhitzt, so breitet sich eine Temperaturwelle der Form
+\begin{equation}
+T(x, t) = T_.{max} e^{-\sqrt{\frac{\omega\rho c}{2\kappa}} x}cos\left(\omega t-\sqrt{\frac{\omega\rho c}{2\kappa}}x\right) \label{eq:T}
+\end{equation}
+in dem Stab aus. Diese besitzt die Phasengeschwindigkeit:
+\begin{equation}
+v = \sqrt{\frac{2\kappa\omega}{\rho c}} \label{eq:v}
+\end{equation}
+Für die Wärmeleitfähigkeit gilt entsprechend mit den Amplituden $A_.{nah}$ und $A_.{fern}$, sowie dem Abstand $\Delta x$ und der Temperaturdifferenz $\Delta t$  zwischen zwei Messstellen: 
+\begin{equation}
+\kappa = \frac{\rho c(\Delta x)^2}{2\Delta t ln(A_.{nah}/A_.{fern})} \label{eq:k}
+\end{equation}
