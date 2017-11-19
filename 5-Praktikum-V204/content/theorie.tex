@@ -9,11 +9,13 @@ In einem Stab mit Länge $L$, Querschnittsfläche $A$, Dichte $\rho$, spezifisch
 \frac{\mathrm{d}Q}{\mathrm{d}t} = A j_.w \label{eq:dQ/dt}
 \end{equation}    
 Dabei entspricht $j_.w = -\kappa \frac{\partial T}{\partial x}$ der Wärmestromdichte. 
+
 Für die eindimensionale Wärmeleitungsgleichung folgt mit $\frac{\partial \rho_.T}{\partial t} = -\frac{\partial j_.T}{\partial x}$:
 \begin{equation}
 \frac{\partial T}{\partial t} = \sigma_.T \frac{\partial^2 T}{\partial x^2} \label{eq:T/t}
 \end{equation}
 Wobei $\sigma_.T = \frac{\kappa}{\rho c}$ die Temperaturleitfähigkeit darstellt.
+
 Wird der Stab periodisch erhitzt, so breitet sich eine Temperaturwelle der Form
 \begin{equation}
 T(x, t) = T_.{max} e^{-\sqrt{\frac{\omega\rho c}{2\kappa}} x}cos\left(\omega t-\sqrt{\frac{\omega\rho c}{2\kappa}}x\right) \label{eq:T}
