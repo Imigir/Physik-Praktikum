@@ -2,39 +2,53 @@
 \label{sec:Auswertung}
 
 Mithilfe der Messdaten soll die Molwärme von Blei, Kupfer und Graphit berechnet werden. Dazu müssen die Wärmekapazität des Kalorimeters, sowie die spezifischen Wärmekapazitäten der einzelnen Materialien bestimmt werden.
-Die Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Alle Mittelwerte werden berechnet mit:
+\begin{equation}
+\bar{x} = \sum_{i=1}^{n}x_i/n \label{eq:quer}
+\end{equation}
+Die Abweichungen ergeben sich nach:
+\begin{equation}
+\bar{\sigma} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(\bar{x}-x_i)^2}  \label{eq:sigma}
+\end{equation}
 
 \subsection{Die Wärmekapazität des Kalorimeters}
 
 Die Wärmekapazität $c_\text{g}m_\text{g}$ des Kalorimeters lässt sich gemäß Formel \eqref{eq:cgmg} bestimmen. Die spezifische Wärmekapazität ist als $c_\text{w} = \SI{4.18}{\joule\per\gram\per\kelvin}$ \cite{V201} gegeben. Die zugehörigen Messwerte befinden sich in Tabelle \ref{tab:tab1}.
-
 \begin{table}
 	\centering
 	\caption{Die gemessenen Daten für die Massen und Temperaturen.}
 	\input{build/tab1.tex}
 	\label{tab:tab1}
 \end{table}
-
 Es folgt:
 \begin{displaymath}
 	c_\text{g}m_\text{g} = \SI{1842,47}{\joule\per\kelvin}
 \end{displaymath}
-
 \subsection{Bestimmung der Molwärme von verschiedenen Matearialien}
 
 Die Molwärme der Materialien wird über die spezifische Wärmekapazität berechnet. Diese wird aus den Messergebnissen bestimmt.
-Die Werte für $\alpha$, $\kappa$, $M$ und $\rho$ werden aus derTabelle der Versuchsanleitung übernommen\cite{V201}.
+Die Werte für $\rho$, $M$, $\alpha$ und $\kappa$ werden aus der Tabelle der Versuchsanleitung\cite{V201} übernommen und befinden sich in Tabelle \ref{tab:tabWerte}.
+\begin{table}
+	\centering
+	\caption{Die Werte für $\rho$, $M$, $\alpha$ und $\kappa$ }
+	\input{build/tabWerte.tex}
+	\label{tab:tabWerte}
+\end{table}
 
 \subsubsection{Kupfer}
 
-Mit den Messwerten aus Tabelle \ref{tab:tab2} und den Formeln \eqref{eq:ck} und \eqref{eq:ckCV} folgen die jeweiligen Werte $c_\text{k}$ und $C_\text{V}$ aus Tabelle \ref{tab:tab3}.
+Mit den Messwerten aus Tabelle \ref{tab:tab2} und den Formeln \eqref{eq:ck} und \eqref{eq:ckCV} folgen die jeweiligen Werte $c_\text{k}$ und $C_\text{V}$ aus Tabelle \ref{tab:tab3}. Dabei wird in Formel \eqref{eq:ckCV} für die Temperatur $T$ die Mischtemperatur $T_\text{m}$ eingesetzt. Die Masse des verwendeten Kupfers beträgt \[m_k = \SI{235,55}{\gram}.\]
+Für die Mittelwerte gilt:
+\begin{align*}
+	c_\text{k} = \SI{0,69(7)}{\joule\per\gram\per\kelvin} \\
+	C_\text{V} = (43,00\pm5)\si{\joule\per\mol\per\kelvin}
+\end{align*}
 \begin{table}
 	\centering
 	\caption{Die Messwerte für Kupfer.}
 	\input{build/tab2-1.tex}
 	\label{tab:tab2}
 \end{table}
-
 \begin{table}
 	\centering
 	\caption{Die berechneten Werte für $c_\text{k}$ und $C_\text{V}$ von Kupfer.}
@@ -42,23 +56,20 @@ Mit den Messwerten aus Tabelle \ref{tab:tab2} und den Formeln \eqref{eq:ck} und 
 	\label{tab:tab3}
 \end{table}
 
-Für die Mittelwerte gilt:
-\begin{align*}
-	c_\text{k} = \SI{0,69(7)}{\joule\per\gram\per\kelvin} \\
-	C_\text{V} = \SI{43(5)}{\joule\per\mol\per\kelvin}
-\end{align*}
-Verglichen mit dem Literaturwert $c_\text{l}=\SI{0,381}{\joule\per\gram\per\kelvin}$ \cite{clit} ergibt sich für $c_\text{k}$ eine Abweichung von $\SI{80,6}{\percent}$ und für $C_\text{V}$ im Vergleich zu den erwarteten $3R$ eine Abweichung von $\SI{72,4}{\percent}$ .
-
 \subsubsection{Blei}
 
-Mit den Messwerten aus Tabelle \ref{tab:tab4} und den Formeln \eqref{eq:ck} und \eqref{eq:ckCV} folgen die jeweiligen Werte $c_\text{k}$ und $C_\text{V}$ aus Tabelle \ref{tab:tab5}.\\
+Mit den Messwerten aus Tabelle \ref{tab:tab4} und den Formeln \eqref{eq:ck} und \eqref{eq:ckCV} folgen die jeweiligen Werte $c_\text{k}$ und $C_\text{V}$ aus Tabelle \ref{tab:tab5}. Dabei wird in Formel \eqref{eq:ckCV} für die Temperatur $T$ die Mischtemperatur $T_\text{m}$ eingesetzt. Die Masse des verwendeten Bleis beträgt \[m_k = \SI{541,89}{\gram}.\]
+Für die Mittelwerte gilt:
+\begin{align*}
+	c_\text{k} = \SI{0,30(1)}{\joule\per\gram\per\kelvin}\\
+	C_\text{V} =(61,00\pm1)\si{\joule\per\mol\per\kelvin}
+\end{align*}
 \begin{table}
 	\centering
 	\caption{Die Messwerte für Blei.}
 	\input{build/tab3-1.tex}
 	\label{tab:tab4}
 \end{table}
-
 \begin{table}
 	\centering
 	\caption{Die berechneten Werte für $c_\text{k}$ und $C_\text{V}$ von Blei.}
@@ -66,34 +77,23 @@ Mit den Messwerten aus Tabelle \ref{tab:tab4} und den Formeln \eqref{eq:ck} und 
 	\label{tab:tab5}
 \end{table}
 
-Für die Mittelwerte gilt:
-\begin{align*}
-	c_\text{k} = \SI{0,304(5)}{\joule\per\gram\per\kelvin}\\
-	C_\text{V} = \SI{61(1)}{\joule\per\mol\per\kelvin}
-\end{align*}
-Verglichen mit dem Literaturwert $c_\text{l}=\SI{0,129}{\joule\per\gram\per\kelvin}$ \cite{clit} ergibt sich für $c_\text{k}$ eine Abweichung von $\SI{133,8}{\percent}$ und für $C_\text{V}$ im Vergleich zu den erwarteten $3R$ eine Abweichung von $\SI{145,4}{\percent}$ .
-
 \subsubsection{Graphit}
 
-Mit den Messwerten aus Tabelle \ref{tab:tab6} und den Formeln \eqref{eq:ck} und \eqref{eq:ckCV} folgen die jeweiligen Werte $c_\text{k}$ und $C_\text{V}$ aus Tabelle \ref{tab:tab7}.\\
-
+Mit den Messwerten aus Tabelle \ref{tab:tab6} und den Formeln \eqref{eq:ck} und \eqref{eq:ckCV} folgen die jeweiligen Werte $c_\text{k}$ und $C_\text{V}$ aus Tabelle \ref{tab:tab7}. Dabei wird in Formel \eqref{eq:ckCV} für die Temperatur $T$ die Mischtemperatur $T_\text{m}$ eingesetzt. Die Masse des verwendeten Graphits beträgt \[m_k = \SI{106,43}{\gram}.\]
 Für die Mittelwerte gilt:
 \begin{align*}
-	c_\text{k} = \SI{1,6(1)}{\joule\per\gram\per\kelvin} \\
-	C_\text{V} = \SI{19(1)}{\joule\per\mol\per\kelvin}
+	c_\text{k} = (1,60\pm0,1)\si{\joule\per\gram\per\kelvin} \\
+	C_\text{V} = (19,00\pm1)\si{\joule\per\mol\per\kelvin}
 \end{align*}
-Verglichen mit dem Literaturwert $c_\text{l}=\SI{0,715}{\joule\per\gram\per\kelvin}$ \cite{clit} ergibt sich für $c_\text{k}$ eine Abweichung von $\SI{127,1}{\percent}$ und für $C_\text{V}$ im Vergleich zu den erwarteten $3R$ eine Abweichung von $\SI{-22,6}{\percent}$ .
-
 \begin{table}
 	\centering
 	\caption{Die Messwerte für Graphit.}
 	\input{build/tab4-1.tex}
 	\label{tab:tab6}
 \end{table}
-
 \begin{table}
 	\centering
-	\caption{Die berechneten Werte für $c_\text{k}$ und $C_\text{V}$ von Grphit.}
+	\caption{Die berechneten Werte für $c_\text{k}$ und $C_\text{V}$ von Graphit.}
 	\input{build/tab4-2.tex}
 	\label{tab:tab7}
 \end{table}
