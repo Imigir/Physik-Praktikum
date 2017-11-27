@@ -10,6 +10,7 @@ Die Abweichungen ergeben sich nach:
 \begin{equation}
 \bar{\sigma} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(\bar{x}-x_i)^2}  \label{eq:sigma}
 \end{equation}
+Die Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
 \subsection{Approximation der Temperaturverläufe durch Polynome zweiten Grades}
 
@@ -75,7 +76,7 @@ Dabei besitzt das Wasser eine spezifische Wärmekapazität von $c_.W=\SI{4.18}{\
  	 L &= -\ln{p} RT\\
 	    &= - A R
 \end{align*}
-Dabei ist A die Steigung des Graphen, wenn $\ln{p}$ gegen $1/T$ aufgetragen wird. $R = \num{8.3144598(48)}$ \cite{R} ist die allgemeine Gaskonstante.
+Dabei ist A die Steigung des Graphen, wenn $\ln{p}$ gegen $1/T$ aufgetragen wird und kann durch eine lineare Ausgleichsrechnung ermittelt werden. $R = \num{8.3144598(48)}$ \cite{R} ist die allgemeine Gaskonstante.
 Mit $p=p_.b$ und $T=T_.1$ folgt:
 \begin{align*}
  	 L = \SI{1.94(4)e+4}{\joule\per\kilo\per\gram}\text{.}
