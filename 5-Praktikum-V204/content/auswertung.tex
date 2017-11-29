@@ -37,7 +37,7 @@ A_\text{Edelstahl} 		&= \SI{ 48e-6}{\metre\squared}
 		\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
-		{$t/\si[per-mode=reciprocal]{\second}$}&{$T_\text{2-1}/\si[per-mode=reciprocal]{\kelvin}$}&{$\frac{\mathrm{d}Q_\text{2-1}}{\mathrm{d}t}/\si[per-mode=reciprocal]{\watt}$}&{$T_\text{7-8}/\si[per-mode=reciprocal]{\kelvin}$}&{$\frac{\mathrm{d}Q_\text{7-8}}{\mathrm{d}t}/\si[per-mode=reciprocal]{\watt}$}\\
+		{$t/\si[per-mode=reciprocal]{\second}$}&{$T_\text{2-1}/\si[per-mode=reciprocal]{\kelvin}$}&{$\frac{\mathrm{d}Q_\text{2-1}}{\mathrm{d}t}/\si[per-mode=reciprocal]{\milli\watt}$}&{$T_\text{7-8}/\si[per-mode=reciprocal]{\kelvin}$}&{$\frac{\mathrm{d}Q_\text{7-8}}{\mathrm{d}t}/\si[per-mode=reciprocal]{\milli\watt}$}\\
 		\midrule
 		5     & 0.35 & -5.34   & -0.08  & 0.26 \\
 		200 & 4.49 & -66.81 & 11.90 & -38.08 \\
@@ -52,14 +52,10 @@ A_\text{Edelstahl} 		&= \SI{ 48e-6}{\metre\squared}
 \subsection{Dynamische Methode}
 
 Für die dynamischen Methode wird $\kappa$ über Formel \eqref{eq:k} berechnet.
-Die gemessenen Werte für die Periodendauer $\Delta t$ und für die beiden Amplituden $A_\text{nah}$ und $A_\text{fern}$ des näheren und des weiter entfernteren Thermoelements lassen sich aus den Tabellen \ref{tab:tab2}, \ref{tab:tab3} und \ref{tab:tab4} ablesen. Die Materialkonstanten $\rho$ und $c$ werden aus der Anleitung entnommen\cite{V204}. Die Distanz $\Delta x$ ist dabei dieselbe, wie bei der statischen Methode.\\
-
-Für Messing ergibt sich damit \[\kappa = \SI{120(11)}{\watt\per\metre\per\kelvin}\].
-
-Für Aluminium ergibt sich damit \[\kappa = \SI{205(14)}{\watt\per\metre\per\kelvin}\].
-
-Für Edelstahl ergibt sich damit \[\kappa = \SI{30(2)}{\watt\per\metre\per\kelvin}\].
-
+Die gemessenen Werte für die Periodendauer $\Delta t$ und für die beiden Amplituden $A_\text{nah}$ und $A_\text{fern}$ des näheren und des weiter entfernteren Thermoelements lassen sich aus den Tabellen \ref{tab:tab2}, \ref{tab:tab3} und \ref{tab:tab4} ablesen. Die Materialkonstanten $\rho$ und $c$ werden aus der Anleitung entnommen\cite{V204}. Die Distanz $\Delta x$ ist dabei dieselbe, wie bei der statischen Methode.\newline
+Für Messing ergibt sich damit: \[\kappa = \SI{120(11)}{\watt\per\metre\per\kelvin}\]\newline
+Für Aluminium ergibt sich damit: \[\kappa = \SI{205(14)}{\watt\per\metre\per\kelvin}\]\newline
+Für Edelstahl ergibt sich damit: \[\kappa = \SI{30(2)}{\watt\per\metre\per\kelvin}\]
 
 \begin{table}
 
@@ -109,7 +105,7 @@ Für Edelstahl ergibt sich damit \[\kappa = \SI{30(2)}{\watt\per\metre\per\kelvi
 
 	\centering
 
-	\caption{Temperatur des breiten Aluminiumstabs mit Periodendauer 80 s.}
+	\caption{Temperatur des Aluminiumstabs mit Periodendauer 80 s.}
 
 	\sisetup{table-format=1.2}
 
@@ -153,7 +149,7 @@ Für Edelstahl ergibt sich damit \[\kappa = \SI{30(2)}{\watt\per\metre\per\kelvi
 
 	\centering
 
-	\caption{Temperatur des breiten Edelstahlstabs mit Periodendauer 200 s.}
+	\caption{Temperatur des Edelstahlstabs mit Periodendauer 200 s.}
 
 	\sisetup{table-format=1.2}
 
