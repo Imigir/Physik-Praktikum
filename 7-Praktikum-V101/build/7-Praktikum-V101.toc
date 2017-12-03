@@ -4,5 +4,8 @@
 \contentsline {section}{\numberline {3}Aufbau}{3}{section.3}
 \contentsline {section}{\numberline {4}Durchf\IeC {\"u}hrung}{3}{section.4}
 \contentsline {section}{\numberline {5}Auswertung}{3}{section.5}
-\contentsline {section}{\numberline {6}Diskussion}{3}{section.6}
-\contentsline {section}{\nonumberline Literatur}{4}{section*.3}
+\contentsline {subsection}{\numberline {5.1}Die Drillachse}{3}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Die Winkelrichtgr\IeC {\"o}\IeC {\ss }e}{3}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Eigendrehmoment}{4}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}Das Drehmoment einer Kugel}{5}{subsection.5.2}
+\contentsline {section}{\numberline {6}Diskussion}{5}{section.6}
