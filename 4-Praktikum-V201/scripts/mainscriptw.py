@@ -50,12 +50,12 @@ import scipy.constants as const
 
 cw = 4.18
 ml = 193.25
-Tm = 46.6
+Tm = 46.6 + 273.15
 mx = 270.16
-Tx = 21.1
+Tx = 21.1 + 273.15
 mw = 691.3
 my = mw-ml
-Ty = 83
+Ty = 83 +273.15
 
 makeNewTable([[Tx], [Ty], [mx], [my]],r'{$T_\text{x}/\si[per-mode=reciprocal]{\kelvin}$}&{$T_\text{y}/\si[per-mode=reciprocal]{\kelvin}$}&{$m_\text{x}/\si[per-mode=reciprocal]{\gram}$}&{$m_\text{y}/\si[per-mode=reciprocal]{\gram}$}','tab1', ['S[table-format=3.2] ','S[table-format=3.2]',r'S[table-format=3.2]','S[table-format=3.2]'], [r'{:5.2f}',r'{:5.2f}',r'{:5.2f}',r'{:5.2f}'])
 
@@ -90,19 +90,19 @@ def CV(b):
 
 
 mcu = 235.55
-cu1 = [mcu, 84, 712.92, 22, 24.9]
-cu2 = [mcu, 83.9, 716.42, 22.6, 24.7]
-cu3 = [mcu, 85, 676.5, 22.1, 24.4]
+cu1 = [mcu, 84+273.15, 712.92, 22+273.15, 24.9+273.15]
+cu2 = [mcu, 83.9+273.15, 716.42, 22.6+273.15, 24.7+273.15]
+cu3 = [mcu, 85+273.15, 676.5, 22.1+273.15, 24.4+273.15]
 
 mpb = 541.89
-pb1 = [mpb, 83, 691.58, 23.0, 25.4]
-pb2 = [mpb, 85.3, 693.24, 21.6, 24.1]
-pb3 = [mpb, 93, 713.6, 21.3, 24.2]
+pb1 = [mpb, 83+273.15, 691.58, 23.0+273.15, 25.4+273.15]
+pb2 = [mpb, 85.3+273.15, 693.24, 21.6+273.15, 24.1+273.15]
+pb3 = [mpb, 93+273.15, 713.6, 21.3+273.15, 24.2+273.15]
 
 mgr = 106.43
-gr1 = [mgr, 83.3, 703.94, 21.6, 24.5]
-gr2 = [mgr, 84.0, 669.04, 21.6, 24.1]
-gr3 = [mgr, 84.4, 697.62, 21.6, 24.0]
+gr1 = [mgr, 83.3+273.15, 703.94, 21.6+273.15, 24.5+273.15]
+gr2 = [mgr, 84.0+273.15, 669.04, 21.6+273.15, 24.1+273.15]
+gr3 = [mgr, 84.4+273.15, 697.62, 21.6+273.15, 24.0+273.15]
 	
 ccu1 = c(cu1) 
 ccu2 = c(cu2)
@@ -181,45 +181,45 @@ print('CVgr2: ',CVgr2)
 print('CVgr3: ',CVgr3)
 print('CVgrm: ',CVgrm)
 
-ersteSpalte = convert((r'$m_\text{K}/\si{\gram}$',r'$m_\text{W}/\si{\gram}$',r'$T_\text{K}/\si{\kelvin}$',r'$T_\text{W}/\si{\kelvin}$',r'$T_\text{M}/\si{\kelvin}$'),strFormat)
-zweiteSpalte = convert(np.array([cu1[0],cu1[2],cu1[1]]+cu1[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
-dritteSpalte = convert(np.array([cu2[0],cu2[2],cu2[1]]+cu2[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
-vierteSpalte = convert(np.array([cu3[0],cu3[2],cu3[1]]+cu3[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+ersteSpalte = convert((r'$m_\text{W}/\si{\gram}$',r'$T_\text{k}/\si{\kelvin}$',r'$T_\text{W}/\si{\kelvin}$',r'$T_\text{m}/\si{\kelvin}$'),strFormat)
+zweiteSpalte = convert(np.array([cu1[2],cu1[1]]+cu1[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+dritteSpalte = convert(np.array([cu2[2],cu2[1]]+cu2[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+vierteSpalte = convert(np.array([cu3[2],cu3[1]]+cu3[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
 makeNewTable([ersteSpalte,zweiteSpalte, dritteSpalte, vierteSpalte],'{}&{Messung 1}&{Messung 2}&{Messung 3}','tab2-1', ['c','S[table-format=3.2]',r'S[table-format=3.2]','S[table-format=3.2]'])
 
 
-ersteSpalte = convert((r'$c_\text{K}/\si[per-mode=fraction]{\joule\per\gram\per\kelvin}$',r'$C_\text{V}/\si[per-mode=fraction]{\joule\per\mol\per\kelvin}$'),strFormat)
+ersteSpalte = convert((r'$c_\text{k}/\si[per-mode=fraction]{\joule\per\gram\per\kelvin}$',r'$C_\text{V}/\si[per-mode=fraction]{\joule\per\mol\per\kelvin}$'),strFormat)
 zweiteSpalte = convert(np.array([ccu1]+[CVcu1]),floatFormat,['',r'1.2f',False])
-dritteSpalte = convert(np.array([ccu1]+[CVcu2]),floatFormat,['',r'1.2f',False])
-vierteSpalte = convert(np.array([ccu1]+[CVcu3]),floatFormat,['',r'1.2f',False])
+dritteSpalte = convert(np.array([ccu2]+[CVcu2]),floatFormat,['',r'1.2f',False])
+vierteSpalte = convert(np.array([ccu3]+[CVcu3]),floatFormat,['',r'1.2f',False])
 makeNewTable([ersteSpalte,zweiteSpalte, dritteSpalte, vierteSpalte],'{}&{Messung 1}&{Messung 2}&{Messung 3}','tab2-2', ['c','S[table-format=3.2]',r'S[table-format=3.2]','S[table-format=3.2]'])
 
 
 
-ersteSpalte = convert((r'$m_\text{K}/\si{\gram}$',r'$m_\text{W}/\si{\gram}$',r'$T_\text{K}/\si{\kelvin}$',r'$T_\text{W}/\si{\kelvin}$',r'$T_\text{M}/\si{\kelvin}$'),strFormat)
-zweiteSpalte = convert(np.array([pb1[0],pb1[2],pb1[1]]+pb1[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
-dritteSpalte = convert(np.array([pb2[0],pb2[2],pb2[1]]+pb2[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
-vierteSpalte = convert(np.array([pb3[0],pb3[2],pb3[1]]+pb3[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+ersteSpalte = convert((r'$m_\text{W}/\si{\gram}$',r'$T_\text{k}/\si{\kelvin}$',r'$T_\text{W}/\si{\kelvin}$',r'$T_\text{m}/\si{\kelvin}$'),strFormat)
+zweiteSpalte = convert(np.array([pb1[2],pb1[1]]+pb1[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+dritteSpalte = convert(np.array([pb2[2],pb2[1]]+pb2[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+vierteSpalte = convert(np.array([pb3[2],pb3[1]]+pb3[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
 makeNewTable([ersteSpalte,zweiteSpalte, dritteSpalte, vierteSpalte],'{}&{Messung 1}&{Messung 2}&{Messung 3}','tab3-1', ['c','S[table-format=3.2]',r'S[table-format=3.2]','S[table-format=3.2]'])
 
 
-ersteSpalte = convert((r'$c_\text{K}/\si[per-mode=fraction]{\joule\per\gram\per\kelvin}$',r'$C_\text{V}/\si[per-mode=fraction]{\joule\per\mol\per\kelvin}$'),strFormat)
+ersteSpalte = convert((r'$c_\text{k}/\si[per-mode=fraction]{\joule\per\gram\per\kelvin}$',r'$C_\text{V}/\si[per-mode=fraction]{\joule\per\mol\per\kelvin}$'),strFormat)
 zweiteSpalte = convert(np.array([cpb1]+[CVpb1]),floatFormat,['',r'1.2f',False])
-dritteSpalte = convert(np.array([cpb1]+[CVpb2]),floatFormat,['',r'1.2f',False])
-vierteSpalte = convert(np.array([cpb1]+[CVpb3]),floatFormat,['',r'1.2f',False])
+dritteSpalte = convert(np.array([cpb2]+[CVpb2]),floatFormat,['',r'1.2f',False])
+vierteSpalte = convert(np.array([cpb3]+[CVpb3]),floatFormat,['',r'1.2f',False])
 makeNewTable([ersteSpalte,zweiteSpalte, dritteSpalte, vierteSpalte],'{}&{Messung 1}&{Messung 2}&{Messung 3}','tab3-2', ['c','S[table-format=3.2]',r'S[table-format=3.2]','S[table-format=3.2]'])
 
 
 
-ersteSpalte = convert((r'$m_\text{K}/\si{\gram}$',r'$m_\text{W}/\si{\gram}$',r'$T_\text{K}/\si{\kelvin}$',r'$T_\text{W}/\si{\kelvin}$',r'$T_\text{M}/\si{\kelvin}$'),strFormat)
-zweiteSpalte = convert(np.array([gr1[0],gr1[2],gr1[1]]+gr1[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
-dritteSpalte = convert(np.array([gr2[0],gr2[2],gr2[1]]+gr2[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
-vierteSpalte = convert(np.array([gr3[0],gr3[2],gr3[1]]+gr3[3:]),floatFormat,[['',r'1.2f',False],['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+ersteSpalte = convert((r'$m_\text{W}/\si{\gram}$',r'$T_\text{k}/\si{\kelvin}$',r'$T_\text{W}/\si{\kelvin}$',r'$T_\text{m}/\si{\kelvin}$'),strFormat)
+zweiteSpalte = convert(np.array([gr1[2],gr1[1]]+gr1[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+dritteSpalte = convert(np.array([gr2[2],gr2[1]]+gr2[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
+vierteSpalte = convert(np.array([gr3[2],gr3[1]]+gr3[3:]),floatFormat,[['',r'1.2f',False],['',r'1.1f',False],['',r'1.1f',False],['',r'1.1f',False]])
 makeNewTable([ersteSpalte,zweiteSpalte, dritteSpalte, vierteSpalte],'{}&{Messung 1}&{Messung 2}&{Messung 3}','tab4-1', ['c','S[table-format=3.2]',r'S[table-format=3.2]','S[table-format=3.2]'])
 
 
-ersteSpalte = convert((r'$c_\text{K}/\si[per-mode=fraction]{\joule\per\gram\per\kelvin}$',r'$C_\text{V}/\si[per-mode=fraction]{\joule\per\mol\per\kelvin}$'),strFormat)
+ersteSpalte = convert((r'$c_\text{k}/\si[per-mode=fraction]{\joule\per\gram\per\kelvin}$',r'$C_\text{V}/\si[per-mode=fraction]{\joule\per\mol\per\kelvin}$'),strFormat)
 zweiteSpalte = convert(np.array([cgr1]+[CVgr1]),floatFormat,['',r'1.2f',False])
-dritteSpalte = convert(np.array([cgr1]+[CVgr2]),floatFormat,['',r'1.2f',False])
-vierteSpalte = convert(np.array([cgr1]+[CVgr3]),floatFormat,['',r'1.2f',False])
+dritteSpalte = convert(np.array([cgr2]+[CVgr2]),floatFormat,['',r'1.2f',False])
+vierteSpalte = convert(np.array([cgr3]+[CVgr3]),floatFormat,['',r'1.2f',False])
 makeNewTable([ersteSpalte,zweiteSpalte, dritteSpalte, vierteSpalte],'{}&{Messung 1}&{Messung 2}&{Messung 3}','tab4-2', ['c','S[table-format=3.2]',r'S[table-format=3.2]','S[table-format=3.2]'])

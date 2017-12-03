@@ -1,0 +1,106 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. 
+Alle Mittelwerte werden berechnet mit:
+\begin{equation}
+\bar{x} = \sum_{i=1}^{n}x_i/n \label{eq:quer}
+\end{equation}
+Die Abweichungen ergeben sich nach:
+\begin{equation}
+\bar{\sigma} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(\bar{x}-x_i)^2}  \label{eq:sigma}
+\end{equation}
+Die Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\subsection{Approximation der Temperaturverläufe durch Polynome zweiten Grades}
+
+Die Temperaturverläufe der beiden Wärmeresevoirs sind in Abbildung \ref{fig:Temperaturverläufe} dargestsellt.
+\noindent  Eine nichtlineare Ausgleichsrechnung der Form $y = At²+Bt+C$ mittels SciPy \cite{scipy} liefert mit den Werten aus Tabelle \ref{tab:Messdaten} für das wärmere Reservoir folgende Parameter:
+\begin{align*}
+	A &= \num{-2(1)e-7}\\
+	B &= \num{2.8(2)e-2}\\
+	C &= \num{292.1(4)}
+\end{align*}
+Für das kältere Reservoir ergibt sich entsprechend:
+\begin{align*}
+	A &= \num{6(3)e-6}\\
+	B &= \num{-31(3)e-3}\\
+	C &= \num{298.2(8)}
+\end{align*}
+Die zugehörigen Graphen befinden sich in Abbildung \ref{fig:Temp1} und \ref{fig:Temp2}.
+Für die Differentialquotienten $\frac{\text{d}T_1}{\text{d}t}$ und $\frac{\text{d}T_2}{\text{d}t}$ ergeben sich die Werte aus Tabelle \ref{tab:Ableitungen}.
+\begin{table}
+ 	\centering
+  	\caption{Die minütlich aufgenommenen Messdaten}	
+   	\input{build/tabges.tex}\label{tab:Messdaten}
+\end{table}
+\begin{figure}
+	\centering
+	\includegraphics[scale = 1,keepaspectratio]
+	{build/Temperaturen.pdf}
+	\caption{Die Temperaturverläufe der Wärmeresevoirs}
+	\label{fig:Temperaturverläufe}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale = 1,keepaspectratio]
+	{build/T1.pdf}
+	\caption{Der Temperaturverlauf im wärmeren Reservoir mit Approximation }
+	\label{fig:Temp1}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale = 1,keepaspectratio]
+	{build/T2.pdf}
+	\caption{Der Temperaturverlauf im kälteren Reservoir mit Approximation }
+	\label{fig:Temp2}
+\end{figure}
+\begin{table}
+  	\centering
+  	\caption{Die Differenzenquotienten $\frac{\text{d}T_1}{\text{d}t}$ und $\frac{\text{d}T_2}{\text{d}t}$ zu 4 verschiedenen Zeiten.}
+  	\input{build/taba.tex}\label{tab:Ableitungen}
+\end{table}
+
+\subsection{Bestimmung der Güteziffer der Wärmepumpe und des Massendurchsatzes von Dichlordifluormethan }
+
+Die Güteziffer der Wärmepumpe wird nach den Formeln \eqref{eq:Q2/dt} und \eqref{eq:ny} berechnet. Die Ideale Güte folgt aus Formel \eqref{eq:nyideal}. 
+Dabei besitzt das Wasser eine spezifische Wärmekapazität von $c_.W=\SI{4.18}{\joule\per\gram\per\kelvin}$. Die Apparatur hat nach Angabe eine Wärmekapazität von $\SI{660}{\joule\per\kelvin}$\cite{V206}. In den Wärmereservoirs befindet sich jeweils eine Wassermenge von drei Litern. Mithilfe der zuvor bestimmten vier Temperaturen ergeben sich die Werte aus Tabelle \ref{tab:Güte}. 
+\begin{table}
+	\centering
+	\caption{Die reale Güte der Wärmepumpe zu vier Zeiten und der zugehörige ideale Wert}
+ 	\input{build/tabv.tex}\label{tab:Güte}
+\end{table}
+\newline
+\noindent Um den Massendurchsatz von Dichlordifluormethan bestimmen zu können, muss die Verdampfungswärme des Transportgases bestimmt werden. Es gilt:
+\begin{align*}
+ 	 L &= -\ln{p} RT\\
+	    &= - A R
+\end{align*}
+Dabei ist A die Steigung des Graphen, wenn $\ln{p}$ gegen $1/T$ aufgetragen wird und kann durch eine lineare Ausgleichsrechnung ermittelt werden. $R = \num{8.3144598(48)}$ \cite{R} ist die allgemeine Gaskonstante.
+Mit $p=p_.b$ und $T=T_.1$ folgt:
+\begin{align*}
+ 	 L = \SI{1.94(4)e+4}{\joule\per\kilo\per\gram}\text{.}
+\end{align*}
+\begin{figure}
+ 	\centering
+ 	\caption{Der Verlauf der Dampfdruckkurve von Dichlordifluormethan in Abhängigkeit der reziproken Temperatur.}
+ 	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{build/Dampdruck.pdf}
+ 	\label{fig:Dampfdruck}
+\end{figure}
+\newline
+\noindent Mit Formel \eqref{eq:Md2} ergibt sich der Massendurchsatz aus Tabelle \ref{tab:Massendurchsatz}.
+ \begin{table}
+   	\centering
+   	\caption{Der bestimmte Massendurchsatz zu 4 verschiedenen Zeitpunkten.}
+   	\input{build/tabm.tex}\label{tab:Massendurchsatz}
+ \end{table}
+
+\subsection{Bestimmung der Leistung des Kompressors}
+
+Die Leistung des Kompressors lässt sich nach den Formeln \eqref{eq:P} und \eqref{eq:rho} bestimmen. Mit einem $\rho_0 = \SI{5.51}{\gram\per\litre}$ \cite{V206}, einer Normaltemperatur $T_0 = \SI{273.15}{\kelvin}$,  einem Normaldruck $p_0 = \SI{1}{\bar}$ und einem $\kappa = 1.44$ \cite{V206} ergeben sich die Leistungen in Tabelle \ref{tab:tabn}.
+
+ \begin{table}
+  \centering
+  \caption{Die bestimmte Leistung zu 4 verschiedenen Zeitpunkten.}
+  \input{build/tabn.tex}\label{tab:Leistung}
+\end{table}
