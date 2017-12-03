@@ -2,12 +2,38 @@
 \section{Theorie}
 \label{sec:Theorie}
 
+Das Trägheitsmoment einer punktförmigen Masse $m$ im Abstand $r$ von einer Drehachse $\vec{\omega}$ lässt sich berechnen durch:
 \begin{equation}
-\sqrt{\frac{a}{\ln{b}}} = e^{c}\cdot d_.f \label{eq:1}
+I_.S = m\cdot r^2 
 \end{equation}
-
-Formel\eqref{eq:1}
-
+Für mehrere Punktmassen in einem starren Körper gilt dann:
 \begin{equation}
-m = \SI{0,035}{\metre} \label{eq:m}
+I_.S = \sum_i m_i\cdot r_i^2
 \end{equation}
+Verallgemeinert auf eine kontinuierliche Massenverteilung ergibt sich:
+\begin{equation}
+I_.S = \int \rho r^2 dV \label{eq:I_S}
+\end{equation}
+Dabei bezieht sich $I_.S$ immer auf die Drehachse bezüglich des Schwerpunktes des Körpers.  
+Ist die Drehachse um den Abstand $\vec{a}$ vom Schwerpunkt verschoben, so lässt sich das Trägheitsmoment nach dem Satz von Steiner berechnen:
+\begin{equation}
+I = I_.S+m a^2 \label{eq:Satz von Steiner}
+\end{equation}
+Dabei ist $a$ die Länge von $\vec{a}$. Das Drehmoment eines Körpers lässt sich berechnen nach:
+\begin{equation}
+\vec{M} = \vec{F}x\vec{r} \label{eq;M}
+\end{equation}
+Dabei ist $\vec{F}$ die Kraft, die im Abstand $\vec{r}$ von der Drehachse auf den Körper wirkt. Wirkt $\vec{F}$ als rückwirkende Kraft, so schwingt das System bei kleinen Auslenkungen mit:
+\begin{equation}
+T = 2\pi\sqrt{\frac{I}{D}} \label{eq;M}
+\end{equation}
+Dabei ist $D$ die Winkelrichtgröße und berechnet sich bei senkrecht wirkender Kraft durch: 
+\begin{align}
+D 	&= \frac{M}{\phi}\nonumber\\ 
+	&= \frac{F\cdot r}{\phi} \label{eq:D}
+\end{align}
+Sind $\vec{a}$ und $T$ eines schwingenden Systems bekannt, so lässt sich das Eigenträgheitsmoment $I_.D$ nach der in Kapitel\ref{sec:Durchführung} beschriebenen Methode bestimmen durch:
+\begin{equation}
+I_.D = \frac{nD}{4\pi^2}-\sum I_.S \label{eq:I_D}
+\end{equation}
+Dabei entspricht $n$ dem y-Achsenabschnitt, wenn $T^2$ gegen $a^2$ aufgetragen wird.
