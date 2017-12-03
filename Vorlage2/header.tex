@@ -4,53 +4,23 @@
   titlepage=firstiscover, % Titelseite ist Deckblatt
 ]{scrartcl}
 
-% Paket float verbessern
-\usepackage{scrhack}
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{wrapfig} %Für Bilder
+\usepackage{xcolor} %Farbe
 
-% Warnung, falls nochmal kompiliert werden muss
-\usepackage[aux]{rerunfilecheck}
+%\usepackage{scrpage2}
 
-% unverzichtbare Mathe-Befehle
-\usepackage{amsmath}
-% viele Mathe-Symbole
-\usepackage{amssymb}
-% Erweiterungen für amsmath
-\usepackage{mathtools}
+\usepackage{amssymb} % Mathe Symbole
+\usepackage{amsmath} % Mathe
+\usepackage{mathtools} % Erweiterungen für amsmath
+\usepackage{esvect} %Für vektoren
 
-% Fonteinstellungen
-\usepackage{fontspec}
-% Latin Modern Fonts werden automatisch geladen
-% Alternativ:
-%\setromanfont{Libertinus Serif}
-%\setsansfont{Libertinus Sans}
-%\setmonofont{Libertinus Mono}
-\recalctypearea % Wenn man andere Schriftarten gesetzt hat,
-% sollte man das Seiten-Layout neu berechnen lassen
-
-% deutsche Spracheinstellungen
-\usepackage{polyglossia}
-\setmainlanguage{german}
-
-
-\usepackage[
-  math-style=ISO,    % ┐
-  bold-style=ISO,    % │
-  sans-style=italic, % │ ISO-Standard folgen
-  nabla=upright,     % │
-  partial=upright,   % ┘
-  warnings-off={           % ┐
-    mathtools-colon,       % │ unnötige Warnungen ausschalten
-    mathtools-overbracket, % │
-  },                       % ┘
-]{unicode-math}
-
-% traditionelle Fonts für Mathematik
-\setmathfont{Latin Modern Math}
-% Alternativ:
-%\setmathfont{Libertinus Math}
-
-\setmathfont{XITS Math}[range={scr, bfscr}]
-\setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
+\usepackage{setspace} % Fuer eine Liste mit Abk.
+\usepackage{listings} % Um Code schoener aussehen zu lassen
 
 % Zahlen und Einheiten
 \usepackage[
@@ -72,9 +42,6 @@
 % schöne Brüche im Text
 \usepackage{xfrac}
 
-% automatische Zeilenumbrüche in z.B dmath-Umgebung packet unbekannt
-% \usepackage{breqn}
-
 % Standardplatzierung für Floats einstellen
 \usepackage{float}
 \floatplacement{figure}{htbp}
@@ -92,7 +59,6 @@
 
 \let\Oldsubsubsection\subsubsection
 \renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
-
 
 % Seite drehen für breite Tabellen: landscape Umgebung
 \usepackage{pdflscape}
@@ -114,8 +80,8 @@
 % schöne Tabellen
 \usepackage{booktabs}
 
-% Verbesserungen am Schriftbild
-\usepackage{microtype}
+% Verbesserungen am Schriftbild (scheint zu Fehlern zu führen)
+%\usepackage{microtype}
 
 % Literaturverzeichnis
 \usepackage[
@@ -131,8 +97,8 @@
   pdfusetitle,    % Titel, Autoren und Datum als PDF-Attribute
   pdfcreator={},  % ┐ PDF-Attribute säubern
   pdfproducer={}, % ┘
-  colorlinks
 ]{hyperref}
+
 % erweiterte Bookmarks im PDF
 \usepackage{bookmark}
 
