@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.3)  3 DEC 2017 23:21
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.3)  3 DEC 2017 19:04
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.3)  4 DEC 2017 10:22
 entering extended mode
 **./7-Praktikum-V101.tex
 (7-Praktikum-V101.tex
@@ -95,32 +91,29 @@ LaTeX Info: Redefining \textsubscript on input line 4161.
 Class scrartcl Info: Redefining `\numberline' on input line 5319.
 \bibindent=\dimen102
 )
-<<<<<<< HEAD
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2017/11/03 3.15 The Babel package
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\switch.def
-"
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def"
 File: switch.def 2017/11/03 3.15 Babel switching mechanism
 )
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-german\ngerm
-an.ldf"
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngerman.ldf"
 Language: ngerman 2016/11/02 v2.9 German support for babel (new orthography)
 
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-german\ngerm
-anb.ldf"
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngermanb.ldf"
 Language: ngermanb 2016/11/02 v2.9 German support for babel (new orthography)
 
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.def"
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2017/11/03 3.15 Babel common definitions
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\switch.def
-"
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def"
 File: switch.def 2017/11/03 3.15 Babel switching mechanism
 )
 \babel@savecnt=\count88
@@ -128,14 +121,7 @@ File: switch.def 2017/11/03 3.15 Babel switching mechanism
 )
 Package babel Info: Making " an active character on input line 125.
 )))
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty"
-=======
-("C:\Program Files\MiKTeX 2.9\tex\generic\german\ngerman.sty" v2.5e 1998-07-08
-Package: ngerman 1998/07/08 v2.5e Support for writing german texts (br)
-\grmnU@D=\dimen103
-ngerman -- \language number for naustrian undefined, default 45 used.
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
@@ -633,14 +619,8 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 Package: esvect 
 \symesvector=\mathgroup6
 )
-<<<<<<< HEAD
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.
-sty"
-\lst@mode=\count106
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
-\lst@mode=\count105
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
+\lst@mode=\count106
 \lst@gtempboxa=\box31
 \lst@token=\toks24
 \lst@length=\count107
@@ -1416,14 +1396,9 @@ Package: biblatex 2017/11/21 v3.9 programmable bibliographies (PK/JW/AB)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\logreq\logreq.sty"
 Package: logreq 2010/08/04 v1.0 xml request logger
-<<<<<<< HEAD
 \lrq@indent=\count306
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.def"
-=======
-\lrq@indent=\count305
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\logreq\logreq.def"
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
@@ -1752,32 +1727,20 @@ Package csquotes Info: ... found 'babel' package.
 Package biblatex Info: Trying to load language 'ngerman'...
 Package biblatex Info: ... file 'ngerman.lbx' found.
 
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\ngerm
-an.lbx"
+("C:\Program Files\MiKTeX 2.9\tex\latex\biblatex\lbx\ngerman.lbx"
 File: ngerman.lbx 2017/11/21 v3.9 biblatex localization (PK/JW/AB)
 Package biblatex Info: Trying to load language 'german'...
 Package biblatex Info: ... file 'german.lbx' found.
 
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\germa
-n.lbx"
+("C:\Program Files\MiKTeX 2.9\tex\latex\biblatex\lbx\german.lbx"
 File: german.lbx 2017/11/21 v3.9 biblatex localization (PK/JW/AB)
 ))
-(C:\Users\David\Documents\Studium\Physik-Praktikum\7-Praktikum-V101\build\7-Pra
-ktikum-V101.aux
+(C:\Users\Jonah\Desktop\Physik-Praktikum\7-Praktikum-V101\build\7-Praktikum-V10
+1.aux
 
-<<<<<<< HEAD
 LaTeX Warning: Label `eq;M' multiply defined.
 
 )
-=======
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-("C:\Program Files\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx"
-File: english.lbx 2017/11/21 v3.9 biblatex localization (PK/JW/AB)
-)
-(C:\Users\Jonah\Desktop\Physik-Praktikum\7-Praktikum-V101\build\7-Praktikum-V10
-1.aux)
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
 \openout1 = `7-Praktikum-V101.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -1794,11 +1757,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 11.
-<<<<<<< HEAD
- ("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
-=======
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 11.
@@ -1807,12 +1766,8 @@ LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 11.
-<<<<<<< HEAD
-("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
-=======
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
@@ -1952,7 +1907,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 13.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 13.
-<<<<<<< HEAD
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 13.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1969,9 +1923,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 13.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 13.
-=======
  [1
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
 
 {C:/Users/Jonah/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 (C:\Users\Jonah\Desktop\Physik-Praktikum\7-Praktikum-V101\build\7-Praktikum-V10
@@ -1989,7 +1941,6 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 15.
  [2
 
-<<<<<<< HEAD
 ] (content/zielsetzung.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 2.
@@ -2061,10 +2012,6 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 8.
  [4 <./content/images/Drillachse.png>]
-=======
-] (content/zielsetzung.tex) (content/theorie.tex) (content/aufbau.tex) (content
-/durchfuehrung.tex) (content/auswertung.tex
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
 Overfull \hbox (5.47499pt too wide) detected at line 17
  
  []
@@ -2169,12 +2116,12 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 31.
 Package epstopdf Info: Source file: <content/images/plot1.eps>
-(epstopdf)                    date: 2017-12-03 19:01:41
-(epstopdf)                    size: 16470 bytes
+(epstopdf)                    date: 2017-12-04 10:18:52
+(epstopdf)                    size: 24612 bytes
 (epstopdf)             Output file: <content/images/plot1-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2017-12-03 19:01:41
-(epstopdf)                    size: 10370 bytes
+(epstopdf)                    date: 2017-12-04 10:19:27
+(epstopdf)                    size: 16347 bytes
 (epstopdf)             Command: <epstopdf --outfile=content/images/plot1-eps-co
 nverted-to.pdf content/images/plot1.eps>
 (epstopdf)             \includegraphics on input line 36.
@@ -2299,7 +2246,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 24.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 24.
- ("C:\Users\David\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25.
@@ -2311,7 +2258,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 25.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 25.
-[8]
+ [8]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 25.
 
 (C:\Users\Jonah\Desktop\Physik-Praktikum\7-Praktikum-V101\build\7-Praktikum-V10
@@ -2327,60 +2274,32 @@ Package logreq Info: Writing requests to '7-Praktikum-V101.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 35762 strings out of 493346
- 659848 string characters out of 3130688
- 1173215 words of memory out of 3000000
- 38828 multiletter control sequences out of 15000+200000
+ 35759 strings out of 493312
+ 653076 string characters out of 3138899
+ 1173396 words of memory out of 3000000
+ 38837 multiletter control sequences out of 15000+200000
  629623 words of font info for 98 fonts, out of 3000000 for 9000
- 1131 hyphenation exceptions out of 8191
+ 1145 hyphenation exceptions out of 8191
  48i,16n,51p,10391b,1774s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
-c}{C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathi
-t.enc}{C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
-athex.enc}{C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
-lm-mathsy.enc}{C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips
-/lm/lm-rm.enc}<C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmbx10.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/lm/lmbx12.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmcsc10.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/lm/lmex10.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/lm/lmmi10.pfb><C:/Users/David/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/David/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Users/David/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Users/David/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/David/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Users/David/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/David/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/David/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
-Output written on C:\Users\David\Documents\Studium\Physik-Praktikum\7-Praktikum
--V101\build\7-Praktikum-V101.pdf (8 pages, 348318 bytes).
-=======
- 35147 strings out of 493312
- 642906 string characters out of 3138899
- 1144337 words of memory out of 3000000
- 38271 multiletter control sequences out of 15000+200000
- 622246 words of font info for 95 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 48i,16n,51p,10391b,1200s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/d
-vips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
-.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}<C:/Program 
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathex.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
+thsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}<C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
+c/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
+r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pf
+b>
 Output written on C:\Users\Jonah\Desktop\Physik-Praktikum\7-Praktikum-V101\buil
-d\7-Praktikum-V101.pdf (5 pages, 191918 bytes).
->>>>>>> a7ff3d7e55418890a223da7f150bbe70a1eb439e
+d\7-Praktikum-V101.pdf (8 pages, 354402 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
+ 232 PDF objects out of 1000 (max. 8388607)
  36 named destinations out of 1000 (max. 500000)
  115 words of extra memory for PDF output out of 10000 (max. 10000000)
 
