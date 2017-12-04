@@ -4,36 +4,35 @@
 
 Das Trägheitsmoment einer punktförmigen Masse $m$ im Abstand $r$ von einer Drehachse $\vec{\omega}$ lässt sich berechnen durch:
 \begin{equation}
-I_.S = m\cdot r^2 
+I = m\cdot r^2 
 \end{equation}
 Für mehrere Punktmassen in einem starren Körper gilt somit:
 \begin{equation}
-I_.S = \sum_i m_i\cdot r_i^2\label{eq:I_S}
+I = \sum_i m_i\cdot r_i^2\label{eq:I_S}
 \end{equation}
 Verallgemeinert auf eine kontinuierliche Massenverteilung ergibt sich:
 \begin{equation}
-I_.S = \int \rho r^2 dV \label{eq:I_S2}
+I = \int \rho r^2 dV \label{eq:I_S2}
 \end{equation}
-Dabei bezieht sich $I_.S$ immer auf die Drehachse bezüglich des Schwerpunktes des Körpers.\newline  
 Bei einer Kugel mit Masse $m$ und Radius $R$ ergibt sich:
 \begin{equation}
-I_.{SK} = \frac{2}{5}mR^2 \label{eq:I_SK}
+I_.{K} = \frac{2}{5}mR^2 \label{eq:I_SK}
 \end{equation}
 Bei einem aufrechten Zylinder mit Masse $m$, Radius $R$ und Höhe $h$ ergibt sich:
 \begin{equation}
-I_.{SZ} = \frac{mR^2}{2} \label{eq:I_SZ}
+I_.{Z} = \frac{mR^2}{2} \label{eq:I_SZ}
 \end{equation}
 Liegt der Zylinder gilt:
 \begin{equation}
-I_.{SZH} = m\left(\frac{R^2}{4}+\frac{h^2}{12}\right) \label{eq:I_SZH}
+I_.{ZH} = m\left(\frac{R^2}{4}+\frac{h^2}{12}\right) \label{eq:I_SZH}
 \end{equation}
-Ist die Drehachse um den Abstand $\vec{a}$ vom Schwerpunkt verschoben, so lässt sich das Trägheitsmoment nach dem Satz von Steiner berechnen:
+Ist die Drehachse um den Abstand $a$ vom Schwerpunkt verschoben, so lässt sich das Trägheitsmoment nach dem Satz von Steiner berechnen:
 \begin{equation}
 I = I_.S+m a^2 \label{eq:Satz von Steiner}
 \end{equation}
-Dabei ist $a$ die Länge von $\vec{a}$. Das Drehmoment eines Körpers lässt sich berechnen nach:
+Dabei ist $I_.S$ das Drehmoment bezüglich des Schwerpunktes des Systems. Das Drehmoment eines Körpers lässt sich berechnen nach:
 \begin{equation}
-\vec{M} = \vec{F}x\vec{r} \label{eq;M}
+\vec{M} = \vec{F}\times\vec{r} \label{eq;M}
 \end{equation}
 Dabei ist $\vec{F}$ die Kraft, die im Abstand $\vec{r}$ von der Drehachse auf den Körper wirkt. Wirkt $\vec{F}$ als rückwirkende Kraft, so schwingt das System bei kleinen Auslenkungen mit:
 \begin{equation}
@@ -44,7 +43,7 @@ Dabei ist $D$ die Winkelrichtgröße und berechnet sich bei senkrecht wirkender 
 D 	&= \frac{M}{\phi}\nonumber\\ 
 	&= \frac{F\cdot r}{\phi} \label{eq:D}
 \end{align}
-Sind $\vec{a}$ und $T$ eines schwingenden Systems bekannt, so lässt sich das Eigenträgheitsmoment $I_.D$ nach der in Kapitel\ref{sec:Durchführung} beschriebenen Methode bestimmen durch:
+Sind $a$ und $T$ eines schwingenden Systems bekannt, so lässt sich das Eigenträgheitsmoment $I_.D$ nach der in Kapitel \ref{sec:Durchführung} beschriebenen Methode bestimmen durch:
 \begin{equation}
 I_.D = \frac{T_.0^2D}{4\pi^2}-\sum I_.S \label{eq:I_D}
 \end{equation}

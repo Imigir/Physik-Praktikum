@@ -2,10 +2,10 @@
 \subsection{Die Drillachse}
 \subsubsection{Die Winkelrichtgröße}
 Um die Winkelrichtgröße $D$ der Drillachse zu bestimmen wird Gleichung
-\eqref{eq:??}
+\eqref{eq:D}
 verwendet. Die benötigten werte für die Kraft $F$, den Radius $r$ und den Winkel $\phi$ lassen sich der Tabelle \ref{tab:tab1}
 entnehmen.
-\[D=\SI{0,0256(6)}{\joule}\]
+\[D=\SI{2,56(6)e-2}{\joule}\]
 \begin{table}
 	\centering
 	\caption{Messdaten zur Winkelrichtgrößenbestimmung}
@@ -30,6 +30,10 @@ entnehmen.
 \end{table}
 \subsubsection{Eigenträgheitsmoment}
 Zur Bestimmung des Eigenträgheitsmoments werden zwei Zylinder mit dem Durchmesser $d = \SI{0,035}{\metre}$, der Höhe $h = \SI{0,03}{\metre}$ und der Masse $m = \SI{0,2218}{\kilogram}$ benutzt.\newline Die Verbindungsstange wird als masselos angenommen und wird daher nicht berücksichtigt.
+Die Werte für das Quadrat der Periodendauer $T$ und des Abstands $a$ aus Tabelle \ref{tab:tab2} sind im Graph \ref{fig:abb2} gegeneinander aufgetragen. Mittels linearer Regression ergibt sich hier als Achsenabschnitt \[T_.0^2=\SI{5,0(2)}{\second\squared}\]
+Mit Gleichung \eqref{eq:I_D}
+ergibt sich für das Trägheitsmoment $I_.D$ der Drillachse:
+\[I_.D=\SI{3,2(1)e-3}{\kilogram\metre\squared}\]
 \begin{figure}
 \centering
 \includegraphics[scale = .75,keepaspectratio]
@@ -58,12 +62,7 @@ Zur Bestimmung des Eigenträgheitsmoments werden zwei Zylinder mit dem Durchmess
 	\end{tabular}
 	\label{tab:tab2}
 \end{table}
-Die Werte für das Quadrat der Periodendauer $T$ und des Abstands $a$ aus Tabelle \ref{tab:tab2}
-sind im Graph \ref{fig:abb2}
-gegeneinander aufgetragen. Mittels linearer ergibt sich hier als Achsenabschnitt $T_.0^2=\SI{5,0(2)}{\second\squared}\]
-Mit Gleichung \eqref{eq:I_D}
-ergibt sich für das Trägheitsmoment $I_.D$ der Drillachse:
-\[I_.D=\SI{3,2(1)e-3}{\kilogram\metre\squared}\]
+
 \subsection{Das Trägheitsmomentmoment einer Kugel}
 \begin{table}
 	\centering
@@ -82,7 +81,7 @@ ergibt sich für das Trägheitsmoment $I_.D$ der Drillachse:
 	\end{tabular}
 	\label{tab:tab3}
 \end{table}
-Das Trägheitsmoment einer Kugel bestimmt sich nach Gleichung \eqref{eq:I_K}.
+\noindent Das Trägheitsmoment einer Kugel bestimmt sich nach Gleichung \eqref{eq:I_K}.
 Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle\ref{tab:tab3} entnehmen:
 \[I_.{Kugel}=\SI{-1,4(1)e-3}{\kilogram\metre\squared}\]
 Der Theoriewert nach Formel \eqref{eq:I_SK}
@@ -112,7 +111,7 @@ Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle\ref{tab:tab4}
 \[I_.{Zylinder}=\SI{-2,33(2)e-3}{\kilogram\metre\squared}\]
 Der Theoriewert nach Formel \eqref{eq:I_SZ}
 beträgt:
-\[\[I_.{Zylinder,Theorie}=\SI{7,9e-4}{\kilogram\metre\squared}\]\]
+\[I_.{Zylinder,Theorie}=\SI{7,9e-4}{\kilogram\metre\squared}\]
 \subsection{Trägheitsmomente einer Puppe}
 Da nur die Gesamtmasse der Puppe gemessen werden kann ($m_.P=\SI{0,3395}{\kilogram}$ und die Puppe näherungsweise in einfache geometrische Figuren zerlegt werden kann, wird bei der Ermittlung des Theoriewertes über das Verhältnis der Einzelvolumina zum Gesamtvolumen die Masse der jeweiligen Körper berechnet. 
 Der Kopf wird als Kugel und Arme, Beine und Rumpf als Zylinder genähert.
@@ -121,9 +120,9 @@ Die Masse $m$ der Durchmesser $d$ und die Höhe $h$ lassen sich aus Tabelle \ref
 	\centering
 	\caption{Messdaten zur Winkelrichtgrößenbestimmung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+	\begin{tabular}{cS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
-		{$/\si[per-mode=reciprocal]{}$}&{$m/\si[per-mode=reciprocal]{\kilogram}$}&{$d/\si[per-mode=reciprocal]{\metre}$}&{$h/\si[per-mode=reciprocal]{\metre}$} \\
+		{}&{$m/\si[per-mode=reciprocal]{\kilogram}$}&{$d/\si[per-mode=reciprocal]{\metre}$}&{$h/\si[per-mode=reciprocal]{\metre}$} \\
 		\midrule
 		Arme & 0,042 & 0,018 & 0,180 \\
 		Beine & 0,074 & 0,023 & 0,198 \\
@@ -151,11 +150,9 @@ Die Masse $m$ der Durchmesser $d$ und die Höhe $h$ lassen sich aus Tabelle \ref
 	\end{tabular}
 	\label{tab:tab6}
 \end{table}
-
-Aus Formel \eqref{eq:I_K} folgt mit den Messwerten aus Tabelle \ref{tab:tab6}
+\noindent Aus Formel \eqref{eq:I_K} folgt mit den Messwerten aus Tabelle \ref{tab:tab6}
 berechnen:
 \[I_.{Puppe,ausg}=\SI{-2,18(3)e-3}{\kilogram\metre\squared}\]
-
 Der genäherten Theoriewert berechnet sich durch Gleichung \eqref{eq:I_S} und mit dem Satz von Steiner
 \subsubsection{Puppe mit angelegten Armen}
 \begin{table}
@@ -175,8 +172,7 @@ Der genäherten Theoriewert berechnet sich durch Gleichung \eqref{eq:I_S} und mi
 	\end{tabular}
 	\label{tab:tab7}
 \end{table}
-
-Aus Formel \eqref{eq:I_K} ergibt sich mit den Messwerten aus Tabelle \ref{tab:tab7}:
+\noindent Aus Formel \eqref{eq:I_K} ergibt sich mit den Messwerten aus Tabelle \ref{tab:tab7}:
 \[I_.{Puppe,ang}=\SI{-2,71(1)e-3}{\kilogram\metre\squared}\]
 Der genäherten Theoriewert berechnet sich durch Gleichung \eqref{eq:I_S} und mit dem Satz von Steiner zu
 \[I_.{Puppe,ang,theo} \approx \SI{9,89e-5}{\kilogram\metre\squared} \]
