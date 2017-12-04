@@ -10,7 +10,11 @@
 \contentsline {section}{\numberline {5}Auswertung}{5}{section.5}
 \contentsline {subsection}{\numberline {5.1}Die Drillachse}{5}{subsection.5.1}
 \contentsline {subsubsection}{\numberline {5.1.1}Die Winkelrichtgr\IeC {\"o}\IeC {\ss }e}{5}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Eigendrehmoment}{6}{subsubsection.5.1.2}
-\contentsline {subsection}{\numberline {5.2}Das Drehmoment einer Kugel}{7}{subsection.5.2}
-\contentsline {section}{\numberline {6}Diskussion}{7}{section.6}
-\contentsline {section}{\nonumberline Literatur}{8}{section*.6}
+\contentsline {subsubsection}{\numberline {5.1.2}Eigentr\IeC {\"a}gheitsmoment}{6}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}Das Tr\IeC {\"a}gheitsmomentmoment einer Kugel}{7}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Das Tr\IeC {\"a}gheitsmoment eines Zylinders}{7}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Tr\IeC {\"a}gheitsmomente einer Puppe}{8}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Puppe mit ausgebreiteten Armen}{8}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Puppe mit angelegten Armen}{9}{subsubsection.5.4.2}
+\contentsline {section}{\numberline {6}Diskussion}{9}{section.6}
+\contentsline {section}{\nonumberline Literatur}{10}{section*.11}

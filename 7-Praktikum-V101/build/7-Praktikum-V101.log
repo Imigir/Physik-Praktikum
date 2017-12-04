@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.3)  4 DEC 2017 12:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.3)  4 DEC 2017 17:47
 entering extended mode
 **./7-Praktikum-V101.tex
 (7-Praktikum-V101.tex
@@ -1922,8 +1922,9 @@ Package babel Info: Redefining ngerman shorthand "~
  [1
 
 {C:/Users/Jonah/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\Jonah\Desktop\Physik-Praktikum\7-Praktikum-V101\build\7-Praktikum-V10
-1.toc)
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write5
 \openout5 = `7-Praktikum-V101.toc'.
 
@@ -1935,7 +1936,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 15.
- [2
+[2
 
 ] (content/zielsetzung.tex
 Package babel Info: Redefining ngerman shorthand "|
@@ -1955,13 +1956,20 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 41.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 41.
- [3])
-(content/aufbau.tex
+ [3]
+
+LaTeX Warning: Reference `sec:Durchf\IeC {\"u}hrung' on page 4 undefined on inp
+ut line 47.
+
+
+LaTeX Warning: Reference `eq:T' on page 4 undefined on input line 52.
+
+) (content/aufbau.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-<content/images/Drillachse.png, id=66, 277.035pt x 590.205pt>
+<content/images/Drillachse.png, id=39, 277.035pt x 590.205pt>
 File: content/images/Drillachse.png Graphic file (type png)
 <use content/images/Drillachse.png>
 Package pdftex.def Info: content/images/Drillachse.png  used on input line 6. o
@@ -1972,6 +1980,10 @@ e 6.
 Underfull \hbox (badness 10000) in paragraph at lines 7--7
 [][]|\T1/lmr/m/n/10 Dril-lach-
  []
+
+
+LaTeX Warning: Reference `fig:Drillachse' on page 4 undefined on input line 10.
+
 
 ) (content/durchfuehrung.tex
 Package babel Info: Redefining ngerman shorthand "|
@@ -2009,6 +2021,13 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 3.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 3.
+
+
+LaTeX Warning: Reference `eq:??' on page 5 undefined on input line 5.
+
+
+LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 6.
+
 
 Overfull \hbox (5.47499pt too wide) detected at line 17
  
@@ -2133,7 +2152,7 @@ Package epstopdf Info: Source file: <content/images/plot1.eps>
 nverted-to.pdf content/images/plot1.eps>
 (epstopdf)             \includegraphics on input line 36.
 Package epstopdf Info: Output file is already uptodate.
-<content/images/plot1-eps-converted-to.pdf, id=88, pagebox=cropbox, 462.72874pt
+<content/images/plot1-eps-converted-to.pdf, id=67, pagebox=cropbox, 462.72874pt
  x 346.29375pt>
 File: content/images/plot1-eps-converted-to.pdf Graphic file (type pdf)
 <use content/images/plot1-eps-converted-to.pdf>
@@ -2211,6 +2230,46 @@ Overfull \hbox (5.47499pt too wide) detected at line 56
  
  []
 
+
+LaTeX Warning: Reference `tab:tab2' on page 6 undefined on input line 61.
+
+
+LaTeX Warning: Reference `fig:abb2' on page 6 undefined on input line 62.
+
+
+! LaTeX Error: \begin{document} ended by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 ...itt $T_.0^2=\SI{5,0(2)}{\second\squared}\]
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.63 ...itt $T_.0^2=\SI{5,0(2)}{\second\squared}\]
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.63 ...itt $T_.0^2=\SI{5,0(2)}{\second\squared}\]
+                                                  
+Things are pretty mixed up, but I think the worst is over.
+
+
+LaTeX Warning: Reference `eq:I_D' on page 6 undefined on input line 64.
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2224,6 +2283,382 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 67.
+
+Overfull \hbox (10.94998pt too wide) detected at line 76
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 77
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 78
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 79
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 80
+ 
+ []
+
+
+LaTeX Warning: Reference `eq:I_K' on page 7 undefined on input line 85.
+
+
+LaTeX Warning: Reference `tab:tab3' on page 7 undefined on input line 86.
+
+
+LaTeX Warning: Reference `eq:I_SK' on page 7 undefined on input line 88.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 92.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 92.
+
+Overfull \hbox (10.94998pt too wide) detected at line 101
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 102
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 103
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 104
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 105
+ 
+ []
+
+
+LaTeX Warning: Reference `eq:I_K' on page 7 undefined on input line 110.
+
+
+LaTeX Warning: Reference `tab:tab4' on page 7 undefined on input line 111.
+
+
+LaTeX Warning: Reference `eq:I_SZ' on page 7 undefined on input line 113.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115 \[\[
+          I_.{Zylinder,Theorie}=\SI{7,9e-4}{\kilogram\metre\squared}\]\]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.115 ...e}=\SI{7,9e-4}{\kilogram\metre\squared}\]
+                                                  \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115 ...=\SI{7,9e-4}{\kilogram\metre\squared}\]\]
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115 ...=\SI{7,9e-4}{\kilogram\metre\squared}\]\]
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.115 ...=\SI{7,9e-4}{\kilogram\metre\squared}\]\]
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.115 ...=\SI{7,9e-4}{\kilogram\metre\squared}\]\]
+                                                  
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 115.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 115.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 115.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 115.
+[7]
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.115 ...=\SI{7,9e-4}{\kilogram\metre\squared}\]\]
+                                                  
+Things are pretty mixed up, but I think the worst is over.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 116.
+
+LaTeX Warning: Reference `tab:tab5' on page 8 undefined on input line 119.
+
+
+Overfull \hbox (21.62585pt too wide) detected at line 128
+ \T1/lmr/m/n/10.95 Arm
+ []
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! siunitx error: "invalid-number"
+! 
+! Invalid numerical input 'e'.
+! 
+! See the siunitx documentation for further information.
+! 
+! For immediate help type H <return>.
+!...............................................  
+                                                  
+l.128 		Arme &
+               0,042 & 0,018 & 0,180 \\
+|'''''''''''''''''''''''''''''''''''''''''''''''
+| The input given as a number does not make logical sense. This happens, for
+| example, if a number only contains a sign.
+|...............................................
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 128
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 128
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 128
+ 
+ []
+
+
+Overfull \hbox (7.75587pt too wide) detected at line 129
+ \T1/lmr/m/n/10.95 B
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 129
+\T1/lmr/m/n/10.95 ne 
+ []
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! siunitx error: "invalid-token-in-exponent"
+! 
+! Invalid exponent in numerical input 'ei'.
+! 
+! See the siunitx documentation for further information.
+! 
+! For immediate help type H <return>.
+!...............................................  
+                                                  
+l.129 		Beine &
+                0,074 & 0,023 & 0,198 \\
+|'''''''''''''''''''''''''''''''''''''''''''''''
+| The exponent part of a number cannot contain an uncertainty or complex part:
+| the input given appears to contain one of these in the exponent.
+|...............................................
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! siunitx error: "invalid-number"
+! 
+! Invalid numerical input 'ei'.
+! 
+! See the siunitx documentation for further information.
+! 
+! For immediate help type H <return>.
+!...............................................  
+                                                  
+l.129 		Beine &
+                0,074 & 0,023 & 0,198 \\
+|'''''''''''''''''''''''''''''''''''''''''''''''
+| The input given as a number does not make logical sense. This happens, for
+| example, if a number only contains a sign.
+|...............................................
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 129
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 129
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 129
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 130
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 130
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 130
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 131
+ 
+ []
+
+
+Overfull \hbox (5.47499pt too wide) detected at line 131
+ 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 136.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 136.
+
+Overfull \hbox (10.94998pt too wide) detected at line 145
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 146
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 147
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 148
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 149
+ 
+ []
+
+
+LaTeX Warning: Reference `eq:I_K' on page 8 undefined on input line 155.
+
+
+LaTeX Warning: Reference `tab:tab6' on page 8 undefined on input line 155.
+
+
+LaTeX Warning: Reference `eq:I_S' on page 8 undefined on input line 159.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 160.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 160.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 160.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 160.
+[8]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 160.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 160.
+
+Overfull \hbox (10.94998pt too wide) detected at line 169
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 170
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 171
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 172
+ 
+ []
+
+
+Overfull \hbox (10.94998pt too wide) detected at line 173
+ 
+ []
+
+
+LaTeX Warning: Reference `eq:I_K' on page 9 undefined on input line 179.
+
+
+LaTeX Warning: Reference `tab:tab7' on page 9 undefined on input line 179.
+
+
+LaTeX Warning: Reference `eq:I_S' on page 9 undefined on input line 181.
+
 ) (content/diskussion.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 2.
@@ -2238,14 +2673,14 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 22.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 22.
-
-[7]
+ [9]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 24.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 24.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 24.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25.
@@ -2257,29 +2692,39 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 25.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 25.
- [8]
+ [10]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 25.
 
 (C:\Users\Jonah\Desktop\Physik-Praktikum\7-Praktikum-V101\build\7-Praktikum-V10
 1.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 25.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 25.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+
 Package logreq Info: Writing requests to '7-Praktikum-V101.run.xml'.
 \openout1 = `7-Praktikum-V101.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35768 strings out of 493312
- 653169 string characters out of 3138899
- 1168528 words of memory out of 3000000
- 38842 multiletter control sequences out of 15000+200000
+ 35786 strings out of 493312
+ 653132 string characters out of 3138899
+ 1168796 words of memory out of 3000000
+ 38851 multiletter control sequences out of 15000+200000
  629623 words of font info for 98 fonts, out of 3000000 for 9000
  1145 hyphenation exceptions out of 8191
- 48i,16n,51p,10391b,1774s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,16n,51p,10391b,1650s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-mathex.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
-thsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}<C:/Program 
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
+thex.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}<C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmex10.pfb>
@@ -2289,12 +2734,12 @@ type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
 r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pf
-b>
+blic/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
 Output written on C:\Users\Jonah\Desktop\Physik-Praktikum\7-Praktikum-V101\buil
-d\7-Praktikum-V101.pdf (8 pages, 358096 bytes).
+d\7-Praktikum-V101.pdf (10 pages, 371394 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 115 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 258 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
