@@ -6,11 +6,11 @@
 \contentsline {section}{\numberline {3}Aufbau}{4}{section.3}
 \contentsline {section}{\numberline {4}Durchf\IeC {\"u}hrung}{4}{section.4}
 \contentsline {subsection}{\numberline {4.1}Bestimmung des Eigentr\IeC {\"a}gheitsmomentes und der Winkelrichtgr\IeC {\"o}\IeC {\ss }e der Drillachse}{4}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Bestimmung des Drehmomentes von Kugel, Zylinder und Puppe}{4}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.2}Bestimmung des Drehmomentes von Kugel, Zylinder und Puppe}{5}{subsection.4.2}
 \contentsline {section}{\numberline {5}Auswertung}{5}{section.5}
 \contentsline {subsection}{\numberline {5.1}Die Drillachse}{5}{subsection.5.1}
 \contentsline {subsubsection}{\numberline {5.1.1}Die Winkelrichtgr\IeC {\"o}\IeC {\ss }e}{5}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Eigendrehmoment}{5}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2}Eigendrehmoment}{6}{subsubsection.5.1.2}
 \contentsline {subsection}{\numberline {5.2}Das Drehmoment einer Kugel}{7}{subsection.5.2}
 \contentsline {section}{\numberline {6}Diskussion}{7}{section.6}
 \contentsline {section}{\nonumberline Literatur}{8}{section*.6}

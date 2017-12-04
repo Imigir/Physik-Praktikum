@@ -14,7 +14,19 @@ Verallgemeinert auf eine kontinuierliche Massenverteilung ergibt sich:
 \begin{equation}
 I_.S = \int \rho r^2 dV \label{eq:I_S}
 \end{equation}
-Dabei bezieht sich $I_.S$ immer auf die Drehachse bezüglich des Schwerpunktes des Körpers.  
+Dabei bezieht sich $I_.S$ immer auf die Drehachse bezüglich des Schwerpunktes des Körpers.\newline  
+Bei einer Kugel mit Masse $m$ und Radius $R$ ergibt sich:
+\begin{equation}
+I_.{SK} = \frac{2}{5}mR^2 \label{eq:I_SK}
+\end{equation}
+Bei einem aufrechten Zylinder mit Masse $m$, Radius $R$ und Höhe $h$ ergibt sich:
+\begin{equation}
+I_.{SZ} = \frac{mR^2}{2} \label{eq:I_SZ}
+\end{equation}
+Liegt der Zylinder gilt:
+\begin{equation}
+I_.{SZH} = m\left(\frac{R^2}{4}+\frac{h^2}{12}\right) \label{eq:I_SZH}
+\end{equation}
 Ist die Drehachse um den Abstand $\vec{a}$ vom Schwerpunkt verschoben, so lässt sich das Trägheitsmoment nach dem Satz von Steiner berechnen:
 \begin{equation}
 I = I_.S+m a^2 \label{eq:Satz von Steiner}
@@ -25,7 +37,7 @@ Dabei ist $a$ die Länge von $\vec{a}$. Das Drehmoment eines Körpers lässt sic
 \end{equation}
 Dabei ist $\vec{F}$ die Kraft, die im Abstand $\vec{r}$ von der Drehachse auf den Körper wirkt. Wirkt $\vec{F}$ als rückwirkende Kraft, so schwingt das System bei kleinen Auslenkungen mit:
 \begin{equation}
-T = 2\pi\sqrt{\frac{I}{D}} \label{eq;M}
+T = 2\pi\sqrt{\frac{I}{D}} \label{eq:T}
 \end{equation}
 Dabei ist $D$ die Winkelrichtgröße und berechnet sich bei senkrecht wirkender Kraft durch: 
 \begin{align}
@@ -34,6 +46,10 @@ D 	&= \frac{M}{\phi}\nonumber\\
 \end{align}
 Sind $\vec{a}$ und $T$ eines schwingenden Systems bekannt, so lässt sich das Eigenträgheitsmoment $I_.D$ nach der in Kapitel\ref{sec:Durchführung} beschriebenen Methode bestimmen durch:
 \begin{equation}
-I_.D = \frac{nD}{4\pi^2}-\sum I_.S \label{eq:I_D}
+I_.D = \frac{T_.0^2D}{4\pi^2}-\sum I_.S \label{eq:I_D}
 \end{equation}
-Dabei entspricht $n$ dem y-Achsenabschnitt, wenn $T^2$ gegen $a^2$ aufgetragen wird.
+Dabei entspricht $T_.0^2$ dem y-Achsenabschnitt, wenn $T^2$ gegen $a^2$ aufgetragen wird.
+Ist Das Eigenträgheitsmoment $I_.D$ bekannt, so kann Das Trägheitsmoment $I_.K$ des Körpers mit Formel \eqref{eq:T} bestimmt werden durch:
+\begin{equation}
+I_.K = \frac{T^2D}{4\pi^2}-I_.D  \label{eq:I_K}
+\end{equation}

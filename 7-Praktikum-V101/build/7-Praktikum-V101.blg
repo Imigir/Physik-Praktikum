@@ -1,17 +1,17 @@
 [0] Config.pm:302> INFO - This is Biber 2.9
 [0] Config.pm:305> INFO - Logfile is 'build\7-Praktikum-V101.blg'
-[28] biber-MSWIN64:313> INFO - === 
-[52] Biber.pm:371> INFO - Reading 'build\7-Praktikum-V101.bcf'
-[135] Biber.pm:857> INFO - Found 1 citekeys in bib section 0
-[148] Biber.pm:3981> INFO - Processing section 0
-[202] Biber.pm:4154> INFO - Looking for bibtex format file 'lit.bib' for section 0
-[205] bibtex.pm:1479> INFO - LaTeX decoding ...
-[250] bibtex.pm:1305> INFO - Found BibTeX data source 'lit.bib'
-[261] Utils.pm:169> WARN - BibTeX subsystem: C:\Users\Jonah\AppData\Local\Temp\_iHnN1I4P7\lit.bib_972.utf8, line 355, warning: 2 characters of junk seen at toplevel
-[270] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[270] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[271] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[271] Biber.pm:3815> INFO - No sort tailoring available for locale 'de-DE'
-[278] bbl.pm:617> INFO - Writing 'build\7-Praktikum-V101.bbl' with encoding 'UTF-8'
-[278] bbl.pm:720> INFO - Output to build\7-Praktikum-V101.bbl
-[278] Biber.pm:110> INFO - WARNINGS: 1
+[29] biber-MSWIN64:313> INFO - === 
+[55] Biber.pm:371> INFO - Reading 'build\7-Praktikum-V101.bcf'
+[139] Biber.pm:857> INFO - Found 1 citekeys in bib section 0
+[153] Biber.pm:3981> INFO - Processing section 0
+[167] Biber.pm:4154> INFO - Looking for bibtex format file 'lit.bib' for section 0
+[170] bibtex.pm:1479> INFO - LaTeX decoding ...
+[218] bibtex.pm:1305> INFO - Found BibTeX data source 'lit.bib'
+[229] Utils.pm:169> WARN - BibTeX subsystem: C:\Users\Jonah\AppData\Local\Temp\C4FlUoTItq\lit.bib_4620.utf8, line 355, warning: 2 characters of junk seen at toplevel
+[239] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[239] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[239] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[239] Biber.pm:3815> INFO - No sort tailoring available for locale 'de-DE'
+[245] bbl.pm:617> INFO - Writing 'build\7-Praktikum-V101.bbl' with encoding 'UTF-8'
+[247] bbl.pm:720> INFO - Output to build\7-Praktikum-V101.bbl
+[247] Biber.pm:110> INFO - WARNINGS: 1
