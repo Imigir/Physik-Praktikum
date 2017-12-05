@@ -2,36 +2,29 @@
 \label{sec:Auswertung}
 
 Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. 
-Alle Mittelwerte werden berechnet mit:
-\begin{equation}
-\bar{x} = \sum_{i=1}^{n}x_i/n \label{eq:quer}
-\end{equation}
-Die Abweichungen ergeben sich nach:
-\begin{equation}
-\bar{\sigma} = \sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}(\bar{x}-x_i)^2}  \label{eq:sigma}
-\end{equation}
+%hier gaußsche Fehlerfortpflanzung einfügen
 Die Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
 \subsection{Approximation der Temperaturverläufe durch Polynome zweiten Grades}
 
-Die Temperaturverläufe der beiden Wärmeresevoirs sind in Abbildung \ref{fig:Temperaturverläufe} dargestsellt.
+Die Temperaturverläufe der beiden Wärmeresevoirs sind in Abbildung \ref{fig:Temperaturverläufe} dargestellt.
 \noindent  Eine nichtlineare Ausgleichsrechnung der Form $y = At²+Bt+C$ mittels SciPy \cite{scipy} liefert mit den Werten aus Tabelle \ref{tab:Messdaten} für das wärmere Reservoir folgende Parameter:
 \begin{align*}
-	A &= \num{-2(1)e-7}\\
-	B &= \num{2.8(2)e-2}\\
-	C &= \num{292.1(4)}
+	A &= \SI{-2(1)e-7}{\kelvin\per\second\squared}\\
+	B &= \SI{2.8(2)e-2}{\kelvin\per\second}\\
+	C &= \SI{292.1(4)}{\kelvin}
 \end{align*}
 Für das kältere Reservoir ergibt sich entsprechend:
 \begin{align*}
-	A &= \num{6(3)e-6}\\
-	B &= \num{-31(3)e-3}\\
-	C &= \num{298.2(8)}
+	A &= \SI{6(3)e-6}{\kelvin\per\second\squared}\\
+	B &= \SI{-31(3)e-3}{\kelvin\per\second}\\
+	C &= \SI{298.2(8)}{\kelvin}
 \end{align*}
 Die zugehörigen Graphen befinden sich in Abbildung \ref{fig:Temp1} und \ref{fig:Temp2}.
 Für die Differentialquotienten $\frac{\text{d}T_1}{\text{d}t}$ und $\frac{\text{d}T_2}{\text{d}t}$ ergeben sich die Werte aus Tabelle \ref{tab:Ableitungen}.
 \begin{table}
  	\centering
-  	\caption{Die minütlich aufgenommenen Messdaten}	
+  	\caption{Die minütig aufgenommenen Messdaten}	
    	\input{build/tabges.tex}\label{tab:Messdaten}
 \end{table}
 \begin{figure}
@@ -63,8 +56,8 @@ Für die Differentialquotienten $\frac{\text{d}T_1}{\text{d}t}$ und $\frac{\text
 
 \subsection{Bestimmung der Güteziffer der Wärmepumpe und des Massendurchsatzes von Dichlordifluormethan }
 
-Die Güteziffer der Wärmepumpe wird nach den Formeln \eqref{eq:Q2/dt} und \eqref{eq:ny} berechnet. Die Ideale Güte folgt aus Formel \eqref{eq:nyideal}. 
-Dabei besitzt das Wasser eine spezifische Wärmekapazität von $c_.W=\SI{4.18}{\joule\per\gram\per\kelvin}$. Die Apparatur hat nach Angabe eine Wärmekapazität von $\SI{660}{\joule\per\kelvin}$\cite{V206}. In den Wärmereservoirs befindet sich jeweils eine Wassermenge von drei Litern. Mithilfe der zuvor bestimmten vier Temperaturen ergeben sich die Werte aus Tabelle \ref{tab:Güte}. 
+Die Güteziffer der Wärmepumpe wird nach den Formeln \eqref{eq:Q2/dt} und \eqref{eq:ny} berechnet. Die ideale Güte folgt aus Formel \eqref{eq:nyideal}. 
+Dabei besitzt das Wasser eine spezifische Wärmekapazität von $c_.W=\SI{4.18}{\joule\per\gram\per\kelvin}$\cite{V201}. Die Apparatur hat nach Angabe eine Wärmekapazität von $\SI{660}{\joule\per\kelvin}$. In den Wärmereservoirs befindet sich jeweils eine Wassermenge von drei Litern. Mithilfe der zuvor bestimmten vier Temperaturen ergeben sich die Werte aus Tabelle \ref{tab:Güte}. 
 \begin{table}
 	\centering
 	\caption{Die reale Güte der Wärmepumpe zu vier Zeiten und der zugehörige ideale Wert}
@@ -73,10 +66,10 @@ Dabei besitzt das Wasser eine spezifische Wärmekapazität von $c_.W=\SI{4.18}{\
 \newline
 \noindent Um den Massendurchsatz von Dichlordifluormethan bestimmen zu können, muss die Verdampfungswärme des Transportgases bestimmt werden. Es gilt:
 \begin{align*}
- 	 L &= -\ln{p} RT\\
+ 	 L &= -\ln{\frac{p}{p_0}} RT\\
 	    &= - A R
 \end{align*}
-Dabei ist A die Steigung des Graphen, wenn $\ln{p}$ gegen $1/T$ aufgetragen wird und kann durch eine lineare Ausgleichsrechnung ermittelt werden. $R = \num{8.3144598(48)}$ \cite{R} ist die allgemeine Gaskonstante.
+Dabei ist $p_0 = \SI{1}{\bar}$ und A die Steigung des Graphen, wenn $\ln{\frac{p}{p_0}}$ gegen $1/T$ aufgetragen wird und kann durch eine lineare Ausgleichsrechnung ermittelt werden. $R = \SI{8.3144598}{\joule\per\mol\per\kelvin}$ \cite{R} ist die allgemeine Gaskonstante.
 Mit $p=p_.b$ und $T=T_.1$ folgt:
 \begin{align*}
  	 L = \SI{1.94(4)e+4}{\joule\per\kilo\per\gram}\text{.}
@@ -84,7 +77,7 @@ Mit $p=p_.b$ und $T=T_.1$ folgt:
 \begin{figure}
  	\centering
  	\caption{Der Verlauf der Dampfdruckkurve von Dichlordifluormethan in Abhängigkeit der reziproken Temperatur.}
- 	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{build/Dampdruck.pdf}
+ 	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{build/Dampfdruck.pdf}
  	\label{fig:Dampfdruck}
 \end{figure}
 \newline

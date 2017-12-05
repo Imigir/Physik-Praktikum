@@ -65,7 +65,7 @@ plt.cla()
 plt.clf()
 #Fitgraph von T1
 plt.plot(Zeitab, T1, 'rx', label ="Temperatur von Reservoir 1")
-plt.plot(x_plot, Polynom(x_plot, *paramsPolynomT1), 'b-', label='Fit durch Polynom 2. Grades')
+plt.plot(x_plot, Polynom(x_plot, *paramsPolynomT1), 'b-', label='Ausgleichskurve durch Polynom 2. Grades')
 plt.xlim(0, 1140)
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$T / \si{\kelvin}$')
@@ -77,7 +77,7 @@ plt.cla()
 plt.clf()
 #Graphtemparatur2
 plt.plot(Zeitab, T2, 'gx', label = "Temperatur von Reservoir 2")
-plt.plot(x_plot, Polynom(x_plot, *paramsPolynomT2), 'b-', label='Fit durch Polynom 2. Grades')
+plt.plot(x_plot, Polynom(x_plot, *paramsPolynomT2), 'b-', label='Ausgleichskurve durch Polynom 2. Grades')
 plt.xlim(0, 1140)
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$T / \si{\kelvin}$')
@@ -136,9 +136,6 @@ Ableitungen2 =np.array(Ableitungen2)
 Ableitungenfe2 =np.array(Ableitungenfe2)
 
 
-
-
-
 guete = [unp.nominal_values(realGuete(Ableitung(Zeitab[4],A2T1,PolynomBT1),3,660,cWasser,Leistung[4])),
 unp.nominal_values(realGuete(Ableitung(Zeitab[8],A2T1,PolynomBT1),3,660,cWasser,Leistung[8])),
 unp.nominal_values(realGuete(Ableitung(Zeitab[12],A2T1,PolynomBT1),3,660,cWasser,Leistung[12])),
@@ -169,15 +166,15 @@ plt.cla()
 plt.clf()
 Dampf_plot = 1/np.linspace(273.15+20, 273.15+55)
 plt.plot(1/T1*1000, np.log(Pb), 'rx', label ="Druck gegen Temperatur")
-plt.plot(Dampf_plot*1000, linear(Dampf_plot, *Dampfdruck), 'b-', label='linearer Fit')
-plt.xlim(0.00305*1000, 0.003405*1000)
-plt.xlabel(r'$T^{-1}/\si[per-mode=reciprocal]{\per\kilo\kelvin}$')
-plt.ylabel(r'$\ln\left(p\right)/\si{\pascal}$')
+plt.plot(Dampf_plot*1000, linear(Dampf_plot, *Dampfdruck), 'b-', label='Ausgleichsgerade')
+plt.xlim(3.5, 3.405)
+plt.xlabel(r'$T^{-1}/\si[per-mode=reciprocal]{\per\mili\kelvin}$')
+plt.ylabel(r'$\ln\left(\frac{p}{p_0}\right)$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.legend(loc="best")
-plt.savefig("build/Dampdruck")
+plt.savefig("build/Dampfdruck")
 
-print('Dampdrucksteigung',Dampfdruck[0],'pm',errorsDampfdruck[0])
+print('Dampfdrucksteigung',Dampfdruck[0],'pm',errorsDampfdruck[0])
 print('Achsenabschnitt',Dampfdruck[1],'pm',errorsDampfdruck[1])
 m=unp.uarray(Dampfdruck[0], errorsDampfdruck[0])
 R = unp.uarray(8.3144598, 0.0000048)
@@ -242,7 +239,7 @@ Nfearray = [N1fe,N2fe,N3fe,N4fe]
 Nfearray = np.array(Nfearray)
 print(Narray)
 print(Nfearray)
-makeTable([zeiten, Narray,Nfearray], r'{'+r't/\si{\second}'+r'} & \multicolumn{2}{c}{'+r'$N_\text{mech}\si{\watt}$'+r'}', 'tabn', ['S[table-format=3.0]', 'S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.1]'], ["%3.0f", "%1.1f", "%1.1f"])
+makeTable([zeiten, Narray,Nfearray], r'{'+r't/\si{\second}'+r'} & \multicolumn{2}{c}{'+r'$P_\text{mech}/\si{\watt}$'+r'}', 'tabn', ['S[table-format=3.0]', 'S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.1]'], ["%3.0f", "%1.1f", "%1.1f"])
 
 
 makeTable([zeiten, Ableitungen,Ableitungenfe, Ableitungen2, Ableitungenfe2], r'{'+r't/\si{\second}'+r'} & \multicolumn{2}{c}{'+r'$\frac{\text{d}T_1}{\text{d}t}/\si[per-mode=reciprocal]{\kelvin\per\second}$'+r'} & \multicolumn{2}{c}{'+r'$\frac{\text{d}T_2}{\text{d}t}/\si[per-mode=reciprocal]{\kelvin\per\second}$'+r'}', 'taba', ['S[table-format=2.0]', 'S[table-format=2.3]', ' @{${}\pm{}$} S[table-format=1.3]','S[table-format=2.3]', ' @{${}\pm{}$} S[table-format=1.3]'], ["%2.0f", "%2.3f", "%2.3f", "%2.3f", "%2.3f"])
