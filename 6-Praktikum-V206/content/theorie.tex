@@ -4,13 +4,13 @@
 
 \subsection{Die Wärmepumpe}
 Dem 2. Hauptsatz der Thermodynamik nach fließt eine Wärmemenge nur von  einem  wärmeren in ein kälteres Wärmereservoir, solange keine mechanische Arbeit $W$ verrichtet wird.
-Bei der Wärmepumpe wird nun mithilfe dieser Arbeit aus einem kälteren Reservoir die Wärmemenge $Q_.{1}$ entnommen und an das wärmere abgegeben. Dem 1. Hauptsatz der Thermodynamik zufolge gilt für diese vom wärmeren Reservoir aufgenommene Wärmemenge:
+Bei der Wärmepumpe wird nun mithilfe dieser Arbeit aus einem kälteren Reservoir die Wärmemenge $Q_.{2}$ entnommen und an das wärmere abgegeben. Dem 1. Hauptsatz der Thermodynamik zufolge gilt für diese vom wärmeren Reservoir aufgenommene Wärmemenge:
 \begin{equation}
-Q_.2 = Q_.1 + W \label{eq:q2}
+Q_.1 = Q_.2 + W \label{eq:q2}
 \end{equation}
 Das Verhältnis 
 \begin{equation}
-\nu = \frac{Q_.{2}}{W} \label{eq:ny1}
+\nu = \frac{Q_.{1}}{W} \label{eq:ny1}
 \end{equation}
 bezeichnet die Güteziffer der Wärmepumpe.
 Wenn der Prozess der Wärmeübertragung ohne Verluste, also umkehrbar, verläuft, gilt außerdem die Beziehung\cite{V206}:
@@ -19,8 +19,8 @@ Wenn der Prozess der Wärmeübertragung ohne Verluste, also umkehrbar, verläuft
 \end{equation}
 Mit \eqref{eq:q2} folgt:
 \begin{align*}
-Q_.{2} &= \frac{T_.{2}}{T_.{1}}Q_.{2} + W\\
-	  &= W \frac{T_.{1}}{T_.{1}-T_.{2}} 
+Q_.{1} &= \frac{T_.{2}}{T_.{1}}Q_.{1} + W\\
+	   &= W \frac{T_.{1}}{T_.{1}-T_.{2}} 
 \end{align*}
 und damit für die Güteziffer einer idealen Wärmepumpe\cite{V206}:
 \begin{equation}
@@ -38,24 +38,24 @@ Für ähnliche Temperaturen $T_.{1}$ und $T_.{2}$ ist dieser Prozess energetisch
 \subsubsection{Die reale Güteziffer}
 Die pro Zeiteinheit gewonnene Wärmemenge lässt sich mit der Temperaturänderung $\frac{\Delta T_.{1}}{\Delta t}$ im wärmeren Reservoir und aus den Wärmekapazitäten des in diesem enthaltenen Wassers und der Kupferschlange errechnen als\cite{V206}:
 \begin{equation}
-\frac{\Delta Q_.{2}}{\Delta t}=(m_.{1}c_.{W} +m_.{K}c_.{K})\frac{\Delta T_.{1}}{\Delta t}\label{eq:Q2/dt}
+\frac{\Delta Q_.{1}}{\Delta t}=(m_.{1}c_.{W} +m_.{K}c_.{K})\frac{\Delta T_.{1}}{\Delta t}\label{eq:Q2/dt}
 \end{equation}
 Daraus folgt für die reale Güteziffer:
 \begin{equation}
-\nu = \frac{\Delta Q_.{2}}{\Delta t P}\label{eq:ny}
+\nu = \frac{\Delta Q_.{1}}{\Delta t P}\label{eq:ny}
 \end{equation}
 $P$ ist dabei die gemittelte Leistungsaufnahme des Kompressors \cite{V206}.
 \subsubsection{Der Massendurchsatz}
 Durch den Differenzenquotienten $\frac{\Delta T_.{2}}{\Delta t}$
 des kälteren Reservoirs und den Wärmekapazitäten lässt sich die pro Zeiteinheit entnommene Wärmemenge bestimmen als\cite{V206}:
-\[\frac{\Delta Q_.{1}}{\Delta t}=(m_.{1}c_.{W} +m_.{K}c_.{K})\frac{\Delta T_.{2}}{\Delta t}\]
+\[\frac{\Delta Q_.{2}}{\Delta t}=(m_.{2}c_.{W} +m_.{K}c_.{K})\frac{\Delta T_.{2}}{\Delta t}\]
 Ist die Verdampfungswärme $L$ des zum Wärmetransport benutzten Mediums bekannt, kann der Massendurchsatz berechnet werden durch
 \begin{equation*}
-\frac{\Delta m}{\Delta t} = \frac{\Delta Q_.{1}}{\Delta t L},\label{eq:Md1}
+\frac{\Delta m}{\Delta t} = \frac{\Delta Q_.{2}}{\Delta t L},\label{eq:Md1}
 \end{equation*}
 also
 \begin{equation}
-\frac{\Delta m}{\Delta t} = (m_.{1}c_.{W} +m_.{K}c_.{K})\frac{\Delta T_.{2}}{\Delta t L} \label{eq:Md2}
+\frac{\Delta m}{\Delta t} = (m_.{2}c_.{W} +m_.{K}c_.{K})\frac{\Delta T_.{2}}{\Delta t L} \label{eq:Md2}
 \end{equation}
 \subsubsection{Die mechanische Kompressorleistung}
 Bei der Verringerung eines Volumens durch einen Kompressor gilt für die geleistete Arbeit:
