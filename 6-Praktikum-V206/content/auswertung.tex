@@ -1,8 +1,11 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. 
-%hier gaußsche Fehlerfortpflanzung einfügen
+Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehler werden mittels der Gauß´schen Fehlerfortpflanzung berechnet:
+\begin{equation*}
+\Delta f = \sqrt{\sum_{i=1}^n \left(\frac{\partial f}{\partial x_i}\Delta x_i\right)^2}
+\end{equation*}
+Dabei ist $f$ eine Größe, die von $n$ fehlerbehafteten Messgrößen $x_i$ abhängt.
 Die Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
 \subsection{Approximation der Temperaturverläufe durch Polynome zweiten Grades}
