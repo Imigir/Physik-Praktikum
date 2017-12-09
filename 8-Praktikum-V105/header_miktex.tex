@@ -1,0 +1,133 @@
+\documentclass[
+  bibliography=totoc,     % Literatur im Inhaltsverzeichnis
+  captions=tableheading,  % Tabellenüberschriften
+  titlepage=firstiscover, % Titelseite ist Deckblatt
+]{scrartcl}
+
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{wrapfig} %Für Bilder
+\usepackage{xcolor} %Farbe
+
+%\usepackage{scrpage2}
+
+\usepackage{amssymb} % Mathe Symbole
+\usepackage{amsmath} % Mathe
+\usepackage{mathtools} % Erweiterungen für amsmath
+\usepackage{esvect} %Für vektoren
+
+\usepackage{setspace} % Fuer eine Liste mit Abk.
+\usepackage{listings} % Um Code schoener aussehen zu lassen
+
+% Zahlen und Einheiten
+\usepackage[
+  locale=DE,                   % deutsche Einstellungen
+  separate-uncertainty=true,   % immer Fehler mit \pm
+  per-mode=symbol-or-fraction, % / in inline math, fraction in display math
+]{siunitx}
+
+% chemische Formeln
+\usepackage[
+  version=4,
+  math-greek=default, % ┐ mit unicode-math zusammenarbeiten
+  text-greek=default, % ┘
+]{mhchem}
+
+% richtige Anführungszeichen
+\usepackage[autostyle]{csquotes}
+
+% schöne Brüche im Text
+\usepackage{xfrac}
+
+% Standardplatzierung für Floats einstellen
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+
+%keine Floats in anderen Sectionen
+\usepackage{placeins}
+
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+
+% Seite drehen für breite Tabellen: landscape Umgebung
+\usepackage{pdflscape}
+
+% Captions schöner machen.
+\usepackage[
+  labelfont=bf,        % Tabelle x: Abbildung y: ist jetzt fett
+  font=small,          % Schrift etwas kleiner als Dokument
+  width=0.9\textwidth, % maximale Breite einer Caption schmaler
+]{caption}
+% subfigure, subtable, subref
+\usepackage{subcaption}
+
+% Grafiken können eingebunden werden
+\usepackage{graphicx}
+% größere Variation von Dateinamen möglich
+\usepackage{grffile}
+
+% schöne Tabellen
+\usepackage{booktabs}
+
+% Verbesserungen am Schriftbild (scheint zu Fehlern zu führen)
+%\usepackage{microtype}
+
+% Literaturverzeichnis
+\usepackage[
+  backend=biber,
+]{biblatex}
+% Quellendatenbank
+\addbibresource{lit.bib}
+\addbibresource{programme.bib}
+
+% Hyperlinks im Dokument
+\usepackage[
+  unicode,        % Unicode in PDF-Attributen erlauben
+  pdfusetitle,    % Titel, Autoren und Datum als PDF-Attribute
+  pdfcreator={},  % ┐ PDF-Attribute säubern
+  pdfproducer={}, % ┘
+]{hyperref}
+
+% erweiterte Bookmarks im PDF
+\usepackage{bookmark}
+
+%erweiterte Aufzählungen
+\usepackage{paralist}
+
+% Trennung von Wörtern mit Strichen
+\usepackage[shortcuts]{extdash}
+
+\author{%
+  David Rolf%
+  \texorpdfstring{%
+    \\%
+    \href{mailto:david.rolf@tu-dortmund.de}{david.rolf@tu-dortmund.de}
+  }{}%
+  \texorpdfstring{\and}{, }%
+  Jonah Blank%
+  \texorpdfstring{%
+    \\%
+    \href{mailto:jonah.blank@tu-dortmund.de}{jonah.blank@tu-dortmund.de}
+  }{}%
+}
+%\publishers{TU Dortmund – Fakultät Physik}
+
+% Ableitungen mit \diff
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+
+% mache . zu einem aktiven Zeichen im Mathemodus 
+\mathcode`\.="8000 
+% Dann kommt die Umdefinition des Dezimalpunktes 
+\begingroup\lccode`~=`. 
+  \lowercase{\endgroup\def~}#1{\mathrm{#1}} 
