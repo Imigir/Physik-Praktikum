@@ -1,9 +1,54 @@
-
 \section{Theorie}
 \label{sec:Theorie}
-
+\subsection{Das Trägheitsmoment einer Vollkugel}
+Das Trägheitsmoment einer Vollkugel bestimmt sich als
 \begin{equation}
-\sqrt{\frac{a}{\ln{b}}} = e^{c}\cdot d_.f \label{eq:1}
+J_.K = \frac{2}{5} m r^2. \label{eq:J}\cite{V101}
+\end{equation}
+\subsection{Das magnetische Moment}
+Die kleinste Form des Magnetismus ist ein Dipol.
+Dieser besitzt ein magnetisches Moment $\vec{\mu}$ , das sich im Falle einer stromdurchflossenen Leiterschleife ergibt als
+\[\vec{\mu} = I\vec{A},\]
+wobei $I$ den fließenden Strom und $A$ die gerichtete Querschnittsfläche der Schleife ist.
+Das magnetische Moment eines Permanentmagnet lässt sich so allerdings nicht berechnen.
+Es wird zur Messung ein externes homogenes magnetisches Feld benötigt,
+das hier durch ein Helmholtz-Spulenpaar erzeugt wird, da diese in ihrem Zentrum ein nahezu homogenes Magnetfeld erzeugen.
+Die Feldstärke $B$ ergibt sich dabei mit dem vereinfachten Biot-Savart-Gesetz für eine stromdurchflossene Spule für das Zentrum
+\begin{equation}
+B(0) = \frac{\mu_.0IR^2}{(R^2+x^2)^{\frac{3}{2}}},\label{eq:B}\cite{V105}
+\end{equation}
+wobei $R$ der Radius der Spulen, $x=\frac{d}{2}$ die Hälfte des Abstands $d$ zu den Spulen und $\mu_.0 = \SI{4\pi e-7}{\newton\per\ampere\squared}$ die magnetische Feldkonstante ist.
+
+\subsubsection{Messung mithilfe der Gravitation}
+In einem externen Magnetfeld wirkt auf den magnetischen Dipol im Inneren der Kugel ein Drehmoment
+\[\vec{M}_.B = \vec{\mu}_.{Dipol}\times\vec{B}.\]
+Die Gravitation bewirkt wegen der außerhalb der Kugel im Abstand $r$ befestigten Masse $m$ das Drehmoment
+\[\vec{M}_.G = m\vec{r}\times\vec{g}.\]
+Gleichsetzen und umschreiben ergibt
+\[m r g sin(\theta)= \mu_.{Dipol} B sin(\theta).\]
+Auf Grund der Parallelität von Gewichtskraft und Magnetfeld kürzen sich die Sinus-Therme weg\cite{V105} und es ergibt sich
+\begin{equation}
+\mu_.{Dipol} = \frac{m r g}{B}.\label{eq:mu}
+\end{equation}
+\subsubsection{Messung mithilfe der Periodendauer}
+Durch Auslenkung der Kugel im homogenen $\vec{B}$-Feld entsteht eine harmonisch oszillierende Schwingung, die sich durch
+\[-|\vec{\mu}_.{Dipol}\times\vec{B}| = J_.K \frac{\mathrm{d}^2\theta}{\mathrm{d}t^2}\]
+beschreiben lässt\cite{V105}.\newline
+Eine Lösung dieser Gleichung ist die Periodendauer $T$ der Schwingung,
+weshalb sich für das magnetische Moment ergibt:
+\begin{equation}
+\mu_.{Dipol} = \frac{4\pi^2J_.K}{T^2B}\label{eq:mu2}
 \end{equation}
 
-Formel\eqref{eq:1}
+\subsubsection{Messung mithilfe der Präzessionsperiodendauer}
+Wirkt auf die rotierende aus der aufrechten Lage ausgelenkte Kugel ein externes Magnetfeld, so lässt sich die Bewegung der Kugel mit dem Drehimpuls 
+\[|\vec{L}_.K| = 2\pi J_.K \nu\], mit der Stroboskop-Frequenz $\nu$,
+beschreiben als
+\[\vec{\mu}_.{Dipol}\times\vec{B} = \frac{\mathrm{d}\vec{L}_.K}{\mathrm{d}t}\]
+dessen Lösung durch die Präzessionsfrequenz
+\[\Omega_.P = \frac{\mu B}{|\vec{L}_.K|}\]
+gegeben ist\cite{V105}.
+Dadurch ergibt sich für das magnetische Moment
+\begin{equation}
+\mu_.{Dipol} = \frac{2\pi\nu\Omega_.PJ_.K}{B}\label{eq:mu3}
+\end{equation}
