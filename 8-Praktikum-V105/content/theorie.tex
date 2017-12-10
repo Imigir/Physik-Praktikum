@@ -1,9 +1,9 @@
 \section{Theorie}
 \label{sec:Theorie}
 \subsection{Das Trägheitsmoment einer Vollkugel}
-Das Trägheitsmoment einer Vollkugel bestimmt sich als
+Das Trägheitsmoment einer Vollkugel bestimmt sich als \cite{V101}
 \begin{equation}
-J_.K = \frac{2}{5} m r^2. \label{eq:J}\cite{V101}
+J_.K = \frac{2}{5} m r^2\label{eq:J}
 \end{equation}
 \subsection{Das magnetische Moment}
 Die kleinste Form des Magnetismus ist ein Dipol.
@@ -13,22 +13,25 @@ wobei $I$ den fließenden Strom und $A$ die gerichtete Querschnittsfläche der S
 Das magnetische Moment eines Permanentmagnet lässt sich so allerdings nicht berechnen.
 Es wird zur Messung ein externes homogenes magnetisches Feld benötigt,
 das hier durch ein Helmholtz-Spulenpaar erzeugt wird, da diese in ihrem Zentrum ein nahezu homogenes Magnetfeld erzeugen.
-Die Feldstärke $B$ ergibt sich dabei mit dem vereinfachten Biot-Savart-Gesetz für eine stromdurchflossene Spule für das Zentrum
+Die Feldstärke $B$ ergibt sich dabei mit dem vereinfachten Biot-Savart-Gesetz für eine stromdurchflossene Spule für das Zentrum \cite{V105}
 \begin{equation}
-B(0) = \frac{\mu_.0IR^2}{(R^2+x^2)^{\frac{3}{2}}},\label{eq:B}\cite{V105}
+B(0) = \frac{\mu_.0IR^2}{(R^2+x^2)^{\frac{3}{2}}}\label{eq:B}
 \end{equation}
-wobei $R$ der Radius der Spulen, $x=\frac{d}{2}$ die Hälfte des Abstands $d$ zu den Spulen und $\mu_.0 = \SI{4\pi e-7}{\newton\per\ampere\squared}$ die magnetische Feldkonstante ist.
+wobei $R$ der Radius der Spulen ist. Die Hälfte des Abstands $d$ zu den Spulen
+ist dabei
+\[x=\frac{d}{2}\]
+und $\mu_.0 = \SI{4\pi e-7}{\newton\per\ampere\squared}$ die magnetische Feldkonstante ist.
 
 \subsubsection{Messung mithilfe der Gravitation}
 In einem externen Magnetfeld wirkt auf den magnetischen Dipol im Inneren der Kugel ein Drehmoment
-\[\vec{M}_.B = \vec{\mu}_.{Dipol}\times\vec{B}.\]
+\[\vec{M}_.B = \vec{\mu}_.{Dipol}\times\vec{B}\]
 Die Gravitation bewirkt wegen der außerhalb der Kugel im Abstand $r$ befestigten Masse $m$ das Drehmoment
-\[\vec{M}_.G = m\vec{r}\times\vec{g}.\]
+\[\vec{M}_.G = m\vec{r}\times\vec{g}\]
 Gleichsetzen und umschreiben ergibt
-\[m r g sin(\theta)= \mu_.{Dipol} B sin(\theta).\]
+\[m r g sin(\theta)= \mu_.{Dipol} B sin(\theta)\]
 Auf Grund der Parallelität von Gewichtskraft und Magnetfeld kürzen sich die Sinus-Therme weg\cite{V105} und es ergibt sich
 \begin{equation}
-\mu_.{Dipol} = \frac{m r g}{B}.\label{eq:mu}
+\mu_.{Dipol} = \frac{m r g}{B}\label{eq:mu}
 \end{equation}
 \subsubsection{Messung mithilfe der Periodendauer}
 Durch Auslenkung der Kugel im homogenen $\vec{B}$-Feld entsteht eine harmonisch oszillierende Schwingung, die sich durch
