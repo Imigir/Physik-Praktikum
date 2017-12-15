@@ -93,7 +93,7 @@ Die Werte für die Periodendauer $T_.1$ lassen sich dabei aus Tabelle \ref{tab:t
 Der Fehler errechnet sich dabei über
 \[\sigma_.{I_.{Kugel}}= \sqrt{(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0})^2+(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D)^2}(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D})^2,\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
-\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}{.}\]
+\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}\text{.}\]
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
 Damit ist
 \[I_.{Kugel}=\SI{-1,4(2)e-3}{\kilogram\metre\squared}\]
@@ -126,11 +126,11 @@ Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab4
 Der Fehler errechnet sich dabei über
 \[\sigma_.{I_.{Zylinder}}= \sqrt{(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0})^2+(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D)^2}(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D})^2,\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
-\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}{.}\]
+\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}\text{.}\]
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
 Der Zylinder besitzt die Masse $m = \SI{1,1193}{\kilogram}$, den Durchmesser 
 $d = 2R = \SI{0,0751}{\metre}$ und die Höhe $h = \SI{0,03}{\metre}$
-Damit ergibt sich der Theoriewert nach Formel \eqref{eq:I_SZ}
+Damit ergibt sich der Theoriewert für einen Zylinder dessen Körperachse identisch mit der Drehachse ist nach Formel \eqref{eq:I_SZ}
 beträgt:
 \[I_.{Zylinder,Theorie}=\SI{7,9e-4}{\kilogram\metre\squared}\]
 \subsection{Trägheitsmomente einer Puppe}
@@ -143,12 +143,12 @@ Die Masse $m$ der Durchmesser $d$ und die Höhe $h$ lassen sich aus Tabelle \ref
 	\sisetup{table-format=1.2}
 	\begin{tabular}{cS[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
 		\toprule
-		{}&{$d/\si[per-mode=reciprocal]{\metre}$}&{$h/\si[per-mode=reciprocal]{\metre}$}&{$V/\si[per-mode=reciprocal]{\metre\cubic}$}&{$m/\si[per-mode=reciprocal]{\kilogram}$}\\
+		{}&{$d/\si[per-mode=reciprocal]{\metre}$}&{$h/\si[per-mode=reciprocal]{\metre}$}&{$V/\si[per-mode=reciprocal]{\metre\cubic}$}&{$m/\si[per-mode=reciprocal]{\kilo\gram}$} \\
 		\midrule
 		Arme & 0,018 & 0,180 & 0,000093 & 0,062 \\
 		Beine & 0,023 & 0,198 & 0,000166 & 0,110 \\
 		Rumpf & 0,048 & 0,125 & 0,000226 & 0,151 \\
-		Kopf  & 0,036 & & & 0,000025 & 0,017 \\
+		Kopf  & 0,036 & & 0,000025 & 0,017 \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:tab5}
@@ -173,14 +173,14 @@ Die Masse $m$ der Durchmesser $d$ und die Höhe $h$ lassen sich aus Tabelle \ref
 \end{table}
 \noindent Aus Formel \eqref{eq:I_K} folgt mit den Werten für die Periodendauer $T_.1$ aus Tabelle \ref{tab:tab6}
 berechnen:
-\[I_.{Puppe,ausg}=\SI{-2,18(13)e-3}{\kilogram\metre\squared}\]
+\[I_.{Puppe,ausg}=\SI{-2,18(13)e-3}{\kilo\gram\metre\squared}\]
 Der Fehler errechnet sich dabei über
 \[\sigma_.{I_.{Puppe,ausg}}= \sqrt{(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0})^2+(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D)^2}(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D})^2,\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
-\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}{.}\]
+\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}\text{.}\]
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
 Der genäherte Theoriewert berechnet sich durch Gleichung \eqref{eq:I_S} und mit dem Satz von Steiner zu 
-\[I_.{Puppe,aus,theo}\approx\SI{2,07e-3}{\kilogram\metre\squared}\]
+\[I_.{Puppe,aus,theo}\approx\SI{2,07e-3}{\kilo\gram\metre\squared}\]
 \subsubsection{Puppe mit angelegten Armen und geschlossenen Beinen}
 \begin{table}
 	\centering
@@ -200,11 +200,11 @@ Der genäherte Theoriewert berechnet sich durch Gleichung \eqref{eq:I_S} und mit
 	\label{tab:tab7}
 \end{table}
 \noindent Aus Formel \eqref{eq:I_K} ergibt sich mit den Werten für die Periodendauer$T_.1$ aus Tabelle \ref{tab:tab7}:
-\[I_.{Puppe,ang}=\SI{-2,71(1)e-3}{\kilogram\metre\squared}\]
+\[I_.{Puppe,ang}=\SI{-2,71(1)e-3}{\kilo\gram\metre\squared}\]
 Der Fehler errechnet sich dabei über
 \[\sigma_.{I_.{Puppe,ang}}= \sqrt{(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0})^2+(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D)^2}(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D})^2,\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
-\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}{.}\]
+\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}\text{.}\]
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
 Der genäherten Theoriewert berechnet sich durch Gleichung \eqref{eq:I_S} und mit dem Satz von Steiner zu
-\[I_.{Puppe,an,theo} \approx \SI{1,52e-4}{\kilogram\metre\squared} \]
+\[I_.{Puppe,an,theo} \approx \SI{1,52e-4}{\kilo\gram\metre\squared} \]
