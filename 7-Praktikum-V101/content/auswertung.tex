@@ -93,9 +93,10 @@ Die Werte für die Periodendauer $T_.1$ lassen sich dabei aus Tabelle \ref{tab:t
 Damit ist
 \[I_.{Kugel}=\SI{-1,4(2)e-3}{\kilogram\metre\squared}\]
 Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
-\[\sigma_.{I_.{Kugel}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2}(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D})^2,\]
+\[\sigma_.{I_.{Kugel}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
-\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}\text{.}\]
+\[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2_.0})^2}\]
+berechnet.
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
 Die Kugel besitzt die Masse $m=\SI{0,8124}{\kilogram}$ und den Durchmesser $d=2R=\SI{0,1374}{\metre}$.
 Daraus ergibt sich der Theoriewert nach Formel \eqref{eq:I_SK}
@@ -126,7 +127,8 @@ Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab4
 Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
 \[\sigma_.{I_.{Zylinder}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
-\[\sigma_.x=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(x_.i-\bar{x})^2}\text{.}\]
+\[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2_.0})^2}\]
+ergibt.
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
 Der Zylinder besitzt die Masse $m = \SI{1,1193}{\kilogram}$, den Durchmesser 
 $d = 2R = \SI{0,0751}{\metre}$ und die Höhe $h = \SI{0,03}{\metre}$
@@ -177,7 +179,8 @@ berechnen:
 Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
 \[\sigma_.{I_.{Puppe,ausg}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
-\[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2}_.0)^2}\text{.}\]
+\[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2}_.0)^2}\]
+berechnet.
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
 Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch Gleichung \eqref{eq:I_S} und mit dem Satz von Steiner zu 
 \[I_.{Puppe,aus,theo}\approx\SI{1,05e-3}{\kilo\gram\metre\squared}\text{.}\]
@@ -204,7 +207,7 @@ Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:ta
 Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
 \[\sigma_.{I_.{Puppe,ang}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
-\[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2}_.0)^2}\text{.}\]
+\[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2}_.0)^2}\] ergibt.
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
 Der genäherten Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch Gleichung \eqref{eq:I_S} und mit dem Satz von Steiner zu
 \[I_.{Puppe,an,theo} \approx \SI{1,11e-4}{\kilo\gram\metre\squared} \text{.}\]
