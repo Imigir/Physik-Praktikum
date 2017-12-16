@@ -4,8 +4,8 @@
 Um die Winkelrichtgröße $D$ der Drillachse zu bestimmen wird Gleichung
 \eqref{eq:D}
 verwendet. Die Ergebnisse werden über die Formel für den Mittelwert
-\[\bar{D}=\frac{1}{N}\sum_{i=1}^ND_.i\] 
-gemittelt und für die Bestimmung der Standardabweichung wird die Formel 
+\[\bar{D}=\frac{1}{N}\sum_{i=1}^ND_.i\]
+gemittelt und für die Bestimmung der Standardabweichung wird die Formel
 \[\sigma_.D=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(D_.i-\bar{D})^2}\]
 verwendet.\newline
 Die benötigten Werte für die Kraft $F$, den Radius $r$ und den Winkel $\phi$, sowie die zugehörigen Werte für $D$ lassen sich der Tabelle \ref{tab:tab1}
@@ -20,7 +20,7 @@ entnehmen.
 		{$F/\si[per-mode=reciprocal]{\newton}$}&{$r/\si[per-mode=reciprocal]{\metre}$}&{$\phi/\si[per-mode=reciprocal]{\radian}$}&{$D/\si[per-mode=reciprocal]{\joule}$} \\
 		\midrule
 		0,12 & 0,119 & 0,524 & 0,0273 \\
-		0,19 & 0,119 & 0,873 & 0,0259 \\		
+		0,19 & 0,119 & 0,873 & 0,0259 \\
 		0,38 & 0,059 & 0,873 & 0,0257 \\
 		0,16 & 0,190 & 1,047 & 0,0290 \\
 		0,20 & 0,170 & 1,222 & 0,0278 \\
@@ -35,11 +35,11 @@ entnehmen.
 \end{table}
 \subsubsection{Eigenträgheitsmoment}\label{subsubsec:I_D}
 Zur Bestimmung des Eigenträgheitsmoments werden zwei Zylinder mit dem Durchmesser $d = \SI{0,035}{\metre}$, der Höhe $h = \SI{0,03}{\metre}$ und der Masse $m = \SI{0,2218}{\kilogram}$ benutzt.\newline Die Verbindungsstange wird als masselos angenommen und wird daher nicht berücksichtigt.
-Die Werte für das Quadrat der Periodendauer $T$ und des Abstands $a$ aus Tabelle \ref{tab:tab2} sind im Graph \ref{fig:abb2} gegeneinander aufgetragen. Mittels der linearer Regression $f(x) = m \cdot x + n$\cite{matplotlib}, ergibt sich hier als Achsenabschnitt \[T_.0^2=\SI{5,0(2)}{\second\squared}\]
+Die Werte für das Quadrat der Periodendauer $T$ und des Abstands $a$ aus Tabelle \ref{tab:tab2} sind im Graph \ref{fig:abb2} gegeneinander aufgetragen. Mittels der linearer Regression $f(x) = m \cdot x + n$\cite{matplotlib}, ergibt sich hier als Achsenabschnitt $n$: \[T_.0^2=\SI{5,0(2)}{\second\squared}\]
 Mit Gleichung \eqref{eq:I_D} ergibt sich für das Trägheitsmoment $I_.D$ der Drillachse:
 \[I_.D=\SI{3,2(1)e-3}{\kilogram\metre\squared}\]
 Die Messungenauigkeit ergibt sich dabei aus der Formel der Gaußschen Fehlerfortpflanzung
-\[\sigma_.{I_.D}= \sqrt{\left(\frac{\mathrm{d}(I_.D)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.D)}{\mathrm{d}D}\cdot\sigma_.D\right)^2},\]
+\[\sigma_.{I_.D}= \sqrt{\left(\frac{\partial (I_.D)}{\partial (T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\partial (I_.D)}{\partial D}\cdot\sigma_.D\right)^2},\]
 wobei $\sigma_.{T^2_.0}$ der Fehler des Achsenabschnitts und $\sigma_.D$ aus Abschnitt \ref{subsubsec:D} bekannt ist.
 \begin{figure}
 \centering
@@ -93,7 +93,7 @@ Die Werte für die Periodendauer $T_.1$ lassen sich dabei aus Tabelle \ref{tab:t
 Damit ist
 \[I_.{Kugel}=\SI{-1,4(2)e-3}{\kilogram\metre\squared}\]
 Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
-\[\sigma_.{I_.{Kugel}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
+\[\sigma_.{I_.{Kugel}}= \sqrt{\left(\frac{\partial (I_.K)}{\partial (T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\partial (I_.K)}{\partial D}\cdot\sigma_.D\right)^2+\left(\frac{\partial (I_.K)}{\partial (I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
 \[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2_.0})^2}\]
 berechnet.
@@ -125,18 +125,18 @@ Das Trägheitsmoment eines Zylinders berechnet sich nach Gleichung \eqref{eq:I_K
 Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab4} entnehmen:
 \[I_.{Zylinder}=\SI{-2,33(2)e-3}{\kilogram\metre\squared}\]
 Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
-\[\sigma_.{I_.{Zylinder}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
+\[\sigma_.{I_.{Zylinder}}= \sqrt{\left(\frac{\partial (I_.K)}{\partial (T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\partial (I_.K)}{\partial D}\cdot\sigma_.D\right)^2+\left(\frac{\partial (I_.K)}{\partial (I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
 \[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2_.0})^2}\]
 ergibt.
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
-Der Zylinder besitzt die Masse $m = \SI{1,1193}{\kilogram}$, den Durchmesser 
+Der Zylinder besitzt die Masse $m = \SI{1,1193}{\kilogram}$, den Durchmesser
 $d = 2R = \SI{0,0751}{\metre}$ und die Höhe $h = \SI{0,03}{\metre}$
 Damit ergibt sich der Theoriewert für einen Zylinder dessen Körperachse identisch mit der Drehachse ist nach Formel \eqref{eq:I_SZ}
 beträgt:
 \[I_.{Zylinder,Theorie}=\SI{7,9e-4}{\kilogram\metre\squared}\]
 \subsection{Trägheitsmomente einer Puppe}
-Da nur die Gesamtmasse der Puppe gemessen werden kann ($m_.P=\SI{0,3395}{\kilogram}$ und die Puppe näherungsweise in einfache geometrische Figuren zerlegt werden kann, wird bei der Ermittlung des Theoriewertes über das Verhältnis der Einzelvolumina zum Gesamtvolumen die Masse der jeweiligen Körper berechnet. 
+Da nur die Gesamtmasse der Puppe gemessen werden kann ($m_.P=\SI{0,3395}{\kilogram}$) und die Puppe näherungsweise in einfache geometrische Figuren zerlegt werden kann, wird bei der Ermittlung des Theoriewertes über das Verhältnis der Einzelvolumina zum Gesamtvolumen die Masse der jeweiligen Körper berechnet.
 Der Kopf wird als Kugel und Arme, Beine und Rumpf als Zylinder genähert.
 Die Masse $m$ der Durchmesser $d$ und die Höhe $h$ lassen sich aus Tabelle \ref{tab:tab5} ablesen.
 \begin{table}
@@ -177,12 +177,12 @@ Die Masse $m$ der Durchmesser $d$ und die Höhe $h$ lassen sich aus Tabelle \ref
 berechnen:
 \[I_.{Puppe,ausg}=\SI{-2,2(1)e-3}{\kilo\gram\metre\squared}\]
 Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
-\[\sigma_.{I_.{Puppe,ausg}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
+\[\sigma_.{I_.{Puppe,ausg}}= \sqrt{\left(\frac{\partial (I_.K)}{\partial (T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\partial (I_.K)}{\partial D}\cdot\sigma_.D\right)^2+\left(\frac{\partial (I_.K)}{\partial (I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
 \[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2}_.0)^2}\]
 berechnet.
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
-Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch Gleichung \eqref{eq:I_S} und mit dem Satz von Steiner zu 
+Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch Gleichung \eqref{eq:I_S} und mit dem Satz von Steiner zu
 \[I_.{Puppe,aus,theo}\approx\SI{1,05e-3}{\kilo\gram\metre\squared}\text{.}\]
 \subsubsection{Puppe mit angelegten Armen und geschlossenen Beinen}
 \begin{table}
@@ -205,7 +205,7 @@ Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:ta
 \noindent Aus Formel \eqref{eq:I_K} ergibt sich mit den Werten für die Periodendauer $T_.1$ aus Tabelle \ref{tab:tab7}:
 \[I_.{Puppe,ang}=\SI{-2,71(1)e-3}{\kilo\gram\metre\squared}\]
 Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
-\[\sigma_.{I_.{Puppe,ang}}= \sqrt{\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}D}\cdot\sigma_.D\right)^2+\left(\frac{\mathrm{d}(I_.K)}{\mathrm{d}(I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
+\[\sigma_.{I_.{Puppe,ang}}= \sqrt{\left(\frac{\partial (I_.K)}{\partial (T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\partial (I_.K)}{\partial D}\cdot\sigma_.D\right)^2+\left(\frac{\partial (I_.K)}{\partial (I_.D)} \cdot \sigma_.{I_.D}\right)^2},\]
 wobei sich die Messungenauigkeit $\sigma_.{T^2_.0}$ aus der Formel für die Standardabweichung
 \[\sigma_.{T^2_.0}=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T^2_.{0,i}-\bar{T^2}_.0)^2}\] ergibt.
 $\sigma_.{D}$ und $\sigma_.{I_.D}$ sind bereits aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
