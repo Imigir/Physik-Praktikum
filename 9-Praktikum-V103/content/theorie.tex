@@ -1,9 +1,58 @@
-
 \section{Theorie}
 \label{sec:Theorie}
 
+\subsection{Das Elastizitätsmodul}
+
+Wirkt auf die Oberfläche eines elastischen Körpers eine Kraft $F$ so kommt es zu Verformungen $\Delta L$.
+Das Verhältnis von Verformung zu Ausgangslänge $\frac{\Delta L}{L}$ wird als relative Längenänderung bezeichnet.
+Die Kraft lässt sich dann in die Normalspannung $\sigma$, die senkrecht zur Oberfläche angreift, und die Tangentialspannung, die entlang der Oberfläche wirkt, aufteilen.
+Nach dem Hookeschen Gesetz lässt sich die Normalspannung beschreiben als:
 \begin{equation}
-\sqrt{\frac{a}{\ln{b}}} = e^{c}\cdot d_.f \label{eq:1}
+\sigma = E \frac{\Delta L}{L} \label{eq:Hooke}
+\end{equation}
+Dabei wird der Proportionalitätsfaktor $E$ zwischen der Spannung und der relativen Längenänderung Elastizitätsmodul genannt.
+
+\subsection{Bestimmung des Elastizitätsmoduls eines Stabes durch einseitige Einspannung}
+
+Wird an das freie Ende eines stabförmigen Probekörpers, der auf der einen Seite eingespannt ist, ein Gewicht angehängt, dann bewirkt die Kraft $F_.G$ ein Drehmoment $M_.F$ auf einen Querschnitt $Q$ im Abstand $x$ vom Einspannungspunkt.
+Da das Gewicht am Ende des Stabs hängt, hat dieses Drehmoment einen Hebelarm von $L-x$ und damit den Betrag:
+\begin{equation}
+M_.F = F(L-x) \label{eq:M_F}
+\end{equation}
+Auf Grund der Elastizität des Stabs bewirken in seinem Inneren die entgegengesetzt gleich gerichteten Normal- und Tangentialspannungen ebenfalls ein Drehmoment $M_.{\sigma}$, dass der Deformierung entgegenwirkt und sich berechnen lässt als:
+\begin{equation}
+M_.{\sigma} = \int_Q y \sigma (y) dq, \label{M_s}
+\end{equation}
+wobei $y$ den Abstand vom Angriffspunkt der Spannung zur neutralen Faser, also dem Bereich des Stabes in dem sich beide Spannungen aufheben, bezeichnet.
+Für
+\begin{equation*}
+M_.F = M_.{\sigma}
+\end{equation*}
+stellt sich so eine Durchbiegung des Stabs $D(x)$ ein, also wenn mit Gleichung \eqref{eq:M_F} und \eqref{M_s} gilt:
+\begin{equation}
+F(L-x) = \int_Q y \sigma (y) dq \label{eq:Mom}
+\end{equation}
+Da nun die Längenänderung der Änderung in $x$-Richtung entspricht, kann das Hookesche Gesetz aus Gleichung \eqref{eq:Hooke} auch als 
+\[
+\sigma (y) = E \frac{\delta x}{\Delta x} 
+\]
+mit der Längenänderung $\delta x$ und der Ausgangslänge $\Delta x$ geschrieben werden.
+Für kleine $\delta x$ ergibt sich der Zusammenhang 
+\[
+\delta x = y \Delta\phi = \frac{y\Delta x}{R} \text{.}
+\]
+Ist der Krümmungsradius $R$ sehr groß, so lässt sich $\frac{1}{R}$ nähern als
+\[
+\frac{1}{R}\approx \frac{\mathrm{d}^2D}{\mathrm{d}x^2}\text{.}
+\]
+Damit ergibt sich:
+\[
+\sigm (y) = E y \frac{\mathrm{d}^2D}{\mathrm{d}x^2}
+\]
+und mit Gleichung \eqref{eq:Mom}
+\begin{equation}
+E \frac{\mathrm{d}^2D}{\mathrm{d}x^2} \int_Q y^2 dq = F(L-x) \label{eq:Mom2}
 \end{equation}
 
-Formel\eqref{eq:1}
+
+\subsection{Bestimmung des Elastizitätsmoduls eines Stabes durch beidseitige Lagerung}
