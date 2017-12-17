@@ -21,7 +21,7 @@ M_.F = F(L-x) \label{eq:M_F}
 \end{equation}
 Auf Grund der Elastizität des Stabs bewirken in seinem Inneren die entgegengesetzt gleich gerichteten Normal- und Tangentialspannungen ebenfalls ein Drehmoment $M_.{\sigma}$, dass der Deformierung entgegenwirkt und sich berechnen lässt als:
 \begin{equation}
-M_.{\sigma} = \int_Q y \sigma (y) dq, \label{M_s}
+M_.{\sigma} = \int_Q y \sigma (y) \mathrm{d}q, \label{M_s}
 \end{equation}
 wobei $y$ den Abstand vom Angriffspunkt der Spannung zur neutralen Faser, also dem Bereich des Stabes in dem sich beide Spannungen aufheben, bezeichnet.
 Für
@@ -30,7 +30,7 @@ M_.F = M_.{\sigma}
 \end{equation*}
 stellt sich so eine Durchbiegung des Stabs $D(x)$ ein, also wenn mit Gleichung \eqref{eq:M_F} und \eqref{M_s} gilt:
 \begin{equation}
-F(L-x) = \int_Q y \sigma (y) dq \label{eq:Mom}
+F(L-x) = \int_Q y \sigma (y) \mathrm{d}q \label{eq:Mom}
 \end{equation}
 Da nun die Längenänderung der Änderung in $x$-Richtung entspricht, kann das Hookesche Gesetz aus Gleichung \eqref{eq:Hooke} auch als 
 \[
@@ -51,8 +51,65 @@ Damit ergibt sich:
 \]
 und mit Gleichung \eqref{eq:Mom}
 \begin{equation}
-E \frac{\mathrm{d}^2D}{\mathrm{d}x^2} \int_Q y^2 dq = F(L-x) \label{eq:Mom2}
+E \frac{\mathrm{d}^2D}{\mathrm{d}x^2} \int_Q y^2 \mathrm{d}q = F(L-x)\text{.} \label{eq:Mom2}
+\end{equation}
+Das Integral wird als Flächenträgheitsmoment $I$ genannt:
+\[
+I \coloneqq \int_Q y^2 \mathrm{d}q
+\]
+Nach Integration ergibt sich für $0 \leq x \leq L$  damit für die Durchbiegung:
+\begin{equation*}
+D(x) = \frac{F}{2 E I}\left(L x^2 -\frac{x^3}{3}\right)
+\end{equation*}
+Dabei fallen die Integrationskonstanten weg, da für die Auslenkung an der Einspannungsstelle $D(0) \equiv 0$ gilt.
+Damit ergibt sich für das Elastiziätsmodul:
+\begin{equation}
+E = \frac{F}{2 D(x) I}\left(L x^2 -\frac{x^3}{3}\right)\label{eq:E}
 \end{equation}
 
-
 \subsection{Bestimmung des Elastizitätsmoduls eines Stabes durch beidseitige Lagerung}
+
+Wird ein Gewicht an die Mitte eines auf beiden Seiten gelagerten Stabes gehängt, so gibt es für das Drehmoment $M_.F$ und damit mit Gleichung \eqref{eq:Mom2} eine Fallunterscheidung:
+Für $0 \leq x \leq \frac{L}{2}$ greift die Kraft $\frac{F}{2}$ mit dem Hebelarm $x$ und es gilt:
+\[
+\frac{\mathrm{d}^2D}{\mathrm{d}x^2} = -\frac{F}{E I}\frac{x}{2}
+\]
+Für $\frac{L}{2} \leq x \leq L$ greift dieselbe Kraft mit dem Hebelarm $L-x$:
+\[
+\frac{\mathrm{d}^2D}{\mathrm{d}x^2} = -\frac{1}{2}\frac{F}{E I} (L-x)
+\]
+Integration bringt:
+\[
+\frac{\mathrm{d}D}{\mathrm{d}x} = -\frac{F}{E I}\frac{x^2}{4} + C_.1  \left(0 \leq x \leq \frac{L}{2}\right)
+\]
+bzw.
+\[
+\frac{\mathrm{d}D}{\mathrm{d}x} = -\frac{1}{2}\frac{F}{E I}\left(L x - \frac{x^2}{2}\right) + C_.2  \left(\frac{L}{2} \leq x \leq L\right) \text{.}
+\]
+Hier fallen die Konstanten nicht weg, da für $x = \frac{L}{2}$ die Durchbiegung ein Maximum und damit gelten muss:
+\[
+\frac{\mathrm{d}D(x)}{\mathrm{d}x}|_{x = \frac{L}{2}} = 0
+\]
+Daraus ergibt sich für $C_.1$ und $C_.2$:
+\begin{align*}
+C_.1 &= \frac{F}{E I}\frac{L^2}{16}
+C_.2 &= \frac{3}{16}\frac{F}{E I} L^2
+\end{align*}
+und mit Integration für $D(x)$:
+\begin{equation*}
+D(x) = \frac{F}{48 E I}\left(3 L^2 x - 4 x^3\right)
+\end{equation*}
+für $0 \leq x \leq \frac{L}{2}$ und
+\begin{equation*}
+D(x) = \frac{F}{48 E I}\left(4 x^3 - 12 L x^2 + 9 L^2 x - L^3\right)
+\end{equation*}
+für $\frac{L}{2} \leq x \leq L$.
+Da für die Durchbiegung an den Stabenden wieder \[D(0)=D(L)\eqiv 0 \] gilt, lässt sich das Elastizitätsmodul $E$ also über
+\begin{equation}
+E = \frac{F}{48 D I}\left(3 L^2 x - 4 x^3\right)   \left(0 \leq x \leq \frac{L}{2}\right)
+\end{equation}
+und
+\begin{equation}
+D(x) = \frac{F}{48 E I}\left(4 x^3 - 12 L x^2 + 9 L^2 x - L^3\right)  \left(\frac{L}{2} \leq x \leq L\right)
+\end{equation}
+berechnen.
