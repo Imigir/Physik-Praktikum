@@ -48,3 +48,29 @@ import scipy.constants as const
 # params = unp.uarray(params, np.sqrt(np.diag(covar)))
 # makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
 
+def linear(x, A, B):
+    return A*x+B
+	
+a,T = np.genfromtxt("scripts/data1.txt", unpack=True)
+a = a*0.01
+
+paramsLinear, errorsLinear, sigma_y = linregress(a**2, T**2)
+
+steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
+achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
+
+print('Steigung =', steigung)
+print('Achsenabschnitt =', achsenAbschnitt)
+
+plt.cla()
+plt.clf()
+x_plot = np.linspace(0,0.055)
+plt.plot(a**2, T**2, 'rx', label ="Messwerte")
+plt.plot(x_plot, linear(x_plot, *paramsLinear), 'b-', label='Ausgleichsgerade')
+plt.xlim(0,0.055)
+plt.ylim(0,46)
+plt.xlabel(r'$a^2/\si{\metre\squared}$')
+plt.ylabel(r'$T^2 / \si{\second\squared}$')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.legend(loc="best")
+plt.savefig("content/images/Graph")
