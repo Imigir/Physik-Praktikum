@@ -17,7 +17,7 @@ entnehmen. Es ergibt sich für $\bar{D}$:
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.2] S[table-format=2.1]S[table-format=1.3]S[table-format=1.4]}
 		\toprule
-		{$F/\si[per-mode=reciprocal]{\newton}$}&{$r/\si[per-mode=reciprocal]{\centi\metre}$}&{$\phi/\si[per-mode=reciprocal]{\radian}$}&{$D/\si[per-mode=reciprocal]{10^{-2}\joule}$} \\
+		{$F/\si[per-mode=reciprocal]{\newton}$}&{$r/\si[per-mode=reciprocal]{10^{-2}\metre}$}&{$\phi/\si[per-mode=reciprocal]{\radian}$}&{$D/\si[per-mode=reciprocal]{10^{-2}\joule}$} \\
 		\midrule
 		0,12 & 11,9 & 0,524 & 2,73 \\
 		0,19 & 11,9 & 0,873 & 2,59 \\
@@ -34,7 +34,7 @@ entnehmen. Es ergibt sich für $\bar{D}$:
 	\label{tab:tab1}
 \end{table}
 \subsubsection{Eigenträgheitsmoment}\label{subsubsec:I_D}
-Zur Bestimmung des Eigenträgheitsmoments werden zwei Zylinder mit dem Durchmesser $d = \SI{3,5}{\centi\metre}$, der Höhe $h = \SI{3}{\centi\metre}$ und der Masse $m = \SI{221,8}{\gram}$ verwendet.\newline
+Zur Bestimmung des Eigenträgheitsmoments werden zwei Zylinder mit dem Durchmesser $d = \SI{3,5e-2}{\metre}$, der Höhe $h = \SI{3e-2}{\metre}$ und der Masse $m = \SI{221,8e-3}{\kilogram}$ verwendet.\newline
 Die Verbindungsstange wird als masselos angenommen und wird daher nicht berücksichtigt.
 Die Werte für das Quadrat der Periodendauer $T$ und des Abstandes $a$ aus Tabelle \ref{tab:tab2} sind im Graph \ref{fig:abb2} gegeneinander aufgetragen. Mittels der linearer Regression $f(x) = m \cdot x + n$\cite{matplotlib}, ergibt sich hier als Achsenabschnitt $n$: \[T_.0^2=\SI{5,0(2)}{\second\squared}\]
 Die Trägheitsmomente der Zylinder berechnen sich nach Formel \eqref{eq:I_SZH} zu:
@@ -55,11 +55,11 @@ wobei $\sigma_.{T^2_.0}$ der Fehler des Achsenabschnitts und $D$ und $\sigma_.D$
 \end{figure}
 \begin{table}
 	\centering
-	\caption{Messdaten zur Eigenträgheitsmomentbestimmung, wobei $T_.{mess}$ bis $a=\SI{10,5}{\centi\metre}$ die vierfache Periodendauer und bei größeren Abständen die doppelte Periodendauer darstellt.}
+	\caption{Messdaten zur Eigenträgheitsmomentbestimmung, wobei $T_.{mess}$ bis $a=\SI{10,5e-2}{\metre}$ die vierfache Periodendauer und bei größeren Abständen die doppelte Periodendauer darstellt.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=2.1]S[table-format=2.2]S[table-format=1.2]}
 		\toprule
-		{$a/\si[per-mode=reciprocal]{\centi\metre}$}&{$T_.{mess}/\si[per-mode=reciprocal]{\second}$}&{$T/\si[per-mode=reciprocal]{\second}$} \\
+		{$a/\si[per-mode=reciprocal]{10^{-2}\metre}$}&{$T_.{mess}/\si[per-mode=reciprocal]{\second}$}&{$T/\si[per-mode=reciprocal]{\second}$} \\
 		\midrule
 		 4,5 & 10,21 & 2,55 \\
 		 6,5 & 11,44 & 2,86 \\
@@ -115,7 +115,7 @@ Der Fehler des Trägheitsmomentes errechnet sich dabei über die Gaußsche Fehle
 \label{eq:sIK}
 \end{align}
 Dabei sind $D$, $\sigma_.{D}$ und $\sigma_.{I_.D}$ aus den Abschnitten \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.\newpage
-\noindent Die Kugel besitzt die Masse $m=\SI{812,4}{\gram}$ und den Durchmesser $d=2R=\SI{13,74}{\centi\metre}$.
+\noindent Die Kugel besitzt die Masse $m=\SI{812,4e-3}{\kilogram}$ und den Durchmesser $d=2R=\SI{13,74e-2}{\metre}$.
 Daraus ergibt sich der Theoriewert nach Formel \eqref{eq:I_SK}
 zu:
 \[I_.{Kugel,Theorie}=\SI{1,5e-3}{\kilogram\metre\squared}\]
@@ -146,13 +146,13 @@ Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab4
 \noindent Für dass Trägheitsmoment des Zylinders ergibt sich:
 \[I_.{Zylinder}=\SI{-2,33(2)e-3}{\kilogram\metre\squared}\]
 Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.
-Der Zylinder besitzt die Masse $m = \SI{1119,3}{\gram}$, den Durchmesser
-$d = 2R = \SI{7,51}{\centi\metre}$ und die Höhe $h = \SI{3}{\centi\metre}$. Damit ergibt sich der Theoriewert für den Zylinder dessen Körperachse identisch mit der Drehachse ist nach Formel \eqref{eq:I_SZ}:
+Der Zylinder besitzt die Masse $m = \SI{1119,3e-3}{\kilogram}$, den Durchmesser
+$d = 2R = \SI{7,51e-2}{\metre}$ und die Höhe $h = \SI{3e-2}{\metre}$. Damit ergibt sich der Theoriewert für den Zylinder dessen Körperachse identisch mit der Drehachse ist nach Formel \eqref{eq:I_SZ}:
 \[I_.{Zylinder,Theorie}=\SI{7,9e-4}{\kilogram\metre\squared}\]
 
 \subsection{Trägheitsmomente einer Puppe}
 
-Da nur die Gesamtmasse der Puppe gemessen werden kann ($m_.P=\SI{339,5}{\gram}$) und die Puppe näherungsweise in einfache geometrische Figuren zerlegt werden kann, wird bei der Ermittlung des Theoriewertes die Masse der jeweiligen Körper über das Verhältnis der Einzelvolumina zum Gesamtvolumen berechnet.
+Da nur die Gesamtmasse der Puppe gemessen werden kann ($m_.P=\SI{339,5e-2}{\kilogram}$) und die Puppe näherungsweise in einfache geometrische Figuren zerlegt werden kann, wird bei der Ermittlung des Theoriewertes die Masse der jeweiligen Körper über das Verhältnis der Einzelvolumina zum Gesamtvolumen berechnet.
 Der Kopf wird als Kugel, die Arme, Beine und Rumpf als Zylinder genähert. Dabei wird angenommen, dass sich zwischen den einzelnen Körpern anders als in Abbildung \ref{fig:Puppe} keine Abstände befinden, sodass sich die für den Satz von Steiner benötigten Abstände $a$ aus den Abmessungen der Körper berechnen lassen.
 Der Durchmesser $d$ und die Höhe $h$, sowie die sich daraus ergebenden Werte für das Volumen $V$ und die Masse $m$ lassen sich aus Tabelle \ref{tab:tab5} ablesen.
 \begin{table}
@@ -161,7 +161,7 @@ Der Durchmesser $d$ und die Höhe $h$, sowie die sich daraus ergebenden Werte f�
 	\sisetup{table-format=1.2}
 	\begin{tabular}{cS[table-format=1.1]S[table-format=2.1]S[table-format=3.1]S[table-format=3.1]}
 		\toprule
-		{}&{$d/\si[per-mode=reciprocal]{\centi\metre}$}&{$h/\si[per-mode=reciprocal]{\centi\metre}$}&{$V/\si[per-mode=reciprocal]{\cubic\centi\metre}$}&{$m/\si[per-mode=reciprocal]{\gram}$} \\
+		{}&{$d/\si[per-mode=reciprocal]{10^{-2}\metre}$}&{$h/\si[per-mode=reciprocal]{10{-2}\metre}$}&{$V/\si[per-mode=reciprocal]{10^{-6}\cubic\metre}$}&{$m/\si[per-mode=reciprocal]{10^{-3}\kilogram}$} \\
 		\midrule
 		Arme 	& 1,8 & 18,0 &  45,8 &  30,7 \\
 		Beine 	& 2,3 & 19,8 &  82,3 &  55,1 \\
