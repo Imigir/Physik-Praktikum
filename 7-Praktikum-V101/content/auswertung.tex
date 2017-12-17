@@ -13,22 +13,22 @@ entnehmen. Es ergibt sich für $\bar{D}$:
 \[\bar{D}=\SI{2,56(6)e-2}{\joule}\]
 \begin{table}
 	\centering
-	\caption{Messdaten zur Winkelrichtgrößenbestimmung}
+	\caption{Messdaten zur Winkelrichtgrößenbestimmung.}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=1.2] S[table-format=2.1]S[table-format=1.3]S[table-format=2.1]}
+	\begin{tabular}{S[table-format=1.2] S[table-format=2.1]S[table-format=1.3]S[table-format=1.4]}
 		\toprule
-		{$F/\si[per-mode=reciprocal]{\newton}$}&{$r/\si[per-mode=reciprocal]{\centi\metre}$}&{$\phi/\si[per-mode=reciprocal]{\radian}$}&{$D/\si[per-mode=reciprocal]{\milli\joule}$} \\
+		{$F/\si[per-mode=reciprocal]{\newton}$}&{$r/\si[per-mode=reciprocal]{\centi\metre}$}&{$\phi/\si[per-mode=reciprocal]{\radian}$}&{$D/\si[per-mode=reciprocal]{10^{-2}\joule}$} \\
 		\midrule
-		0,12 & 11,9 & 0,524 & 27,3 \\
-		0,19 & 11,9 & 0,873 & 25,9 \\
-		0,38 &  5,9 & 0,873 & 25,7 \\
-		0,16 & 19,0 & 1,047 & 29,0 \\
-		0,20 & 17,0 & 1,222 & 27,8 \\
-		0,30 & 11,0 & 1,396 & 23,6 \\
-		0,28 & 13,9 & 1,571 & 24,8 \\
-		0,27 & 15,9 & 1,745 & 24,6 \\
-		0,30 & 17,0 & 2,094 & 24,3 \\
-		0,22 & 23,9 & 2,269 & 23,2 \\
+		0,12 & 11,9 & 0,524 & 2,73 \\
+		0,19 & 11,9 & 0,873 & 2,59 \\
+		0,38 &  5,9 & 0,873 & 2,57 \\
+		0,16 & 19,0 & 1,047 & 2,90 \\
+		0,20 & 17,0 & 1,222 & 2,78 \\
+		0,30 & 11,0 & 1,396 & 2,36 \\
+		0,28 & 13,9 & 1,571 & 2,48 \\
+		0,27 & 15,9 & 1,745 & 2,46 \\
+		0,30 & 17,0 & 2,094 & 2,43 \\
+		0,22 & 23,9 & 2,269 & 2,32 \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:tab1}
@@ -42,17 +42,20 @@ Die Trägheitsmomente der Zylinder berechnen sich nach Formel \eqref{eq:I_SZH} z
 Mit Gleichung \eqref{eq:I_D} ergibt sich für das Trägheitsmoment $I_.D$ der Drillachse:
 \[I_.D=\SI{3,2(1)e-3}{\kilogram\metre\squared}\]
 Die Messungenauigkeit ergibt sich dabei aus der Formel der Gaußschen Fehlerfortpflanzung
-\[\sigma_.{I_.D}= \sqrt{\left(\frac{\partial (I_.D)}{\partial (T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\partial (I_.D)}{\partial D}\cdot\sigma_.D\right)^2},\]
-wobei $\sigma_.{T^2_.0}$ der Fehler des Achsenabschnitts und $\sigma_.D$ aus Abschnitt \ref{subsubsec:D} bekannt ist.
+\begin{align*}
+\sigma_.{I_.D}	&= \sqrt{\left(\frac{\partial (I_.D)}{\partial (T^2_.0)} \cdot \sigma_.{T^2_.0}\right)^2+\left(\frac{\partial (I_.D)}{\partial D}\cdot\sigma_.D\right)^2}\\
+				&= \sqrt{\left(\frac{D}{4\pi^2}\cdot\sigma_.{T^2_.0}\right)^2+\left(\frac{T^2_.0}{4\pi^2}\cdot\sigma_.D\right)^2},
+\end{align*}
+wobei $\sigma_.{T^2_.0}$ der Fehler des Achsenabschnitts und $D$ und $\sigma_.D$ aus Abschnitt \ref{subsubsec:D} bekannt sind.
 \begin{figure}
 \centering
 \includegraphics[scale = .75,keepaspectratio]
 	{content/images/plot1.eps}
-\caption{Graph der Messdaten zur Bestimmung des Eigenträgheitsmoments der Drillachse}\label{fig:abb2}
+\caption{Graph der Messdaten zur Bestimmung des Eigenträgheitsmoments der Drillachse.}\label{fig:abb2}
 \end{figure}
 \begin{table}
 	\centering
-	\caption{Messdaten zur Eigenträgheitsmomentbestimmung, wobei $T_.{mess}$ die vierfache Periodendauer darstellt}
+	\caption{Messdaten zur Eigenträgheitsmomentbestimmung, wobei $T_.{mess}$ bis $a=\SI{10,5}{\centi\metre}$ die vierfache Periodendauer und bei größeren Abständen die doppelte Periodendauer darstellt.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=2.1]S[table-format=2.2]S[table-format=1.2]}
 		\toprule
@@ -62,12 +65,12 @@ wobei $\sigma_.{T^2_.0}$ der Fehler des Achsenabschnitts und $\sigma_.D$ aus Abs
 		 6,5 & 11,44 & 2,86 \\
 		 8,5 & 13,07 & 3,27 \\
 		10,5 & 14,52 & 3,63 \\
-		12,5 & 16,26 & 4,07 \\
-		14,5 & 18,30 & 4,58 \\
-		16,5 & 20,24 & 5,06 \\
-		18,5 & 22,40 & 5,60 \\
-		20,5 & 24,24 & 6,06 \\
-		22,5 & 26,12 & 6,53 \\
+		12,5 &  8,13 & 4,07 \\
+		14,5 &  9,15 & 4,58 \\
+		16,5 & 10,12 & 5,06 \\
+		18,5 & 11,20 & 5,60 \\
+		20,5 & 12,12 & 6,06 \\
+		22,5 & 13,06 & 6,53 \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:tab2}
@@ -76,7 +79,7 @@ wobei $\sigma_.{T^2_.0}$ der Fehler des Achsenabschnitts und $\sigma_.D$ aus Abs
 \subsection{Das Trägheitsmomentmoment einer Kugel} \label{subsec:Kugel}
 \begin{table}
 	\centering
-	\caption{Messdaten zur Trägheitsmomentbestimmung einer Kugel}
+	\caption{Messdaten zur Trägheitsmomentbestimmung einer Kugel, wobei die ersten vier Werte von $T_.{mess}$ vier Periodendauern entsprechen und der letzte fünf Periodendauern entspricht.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.2]S[table-format=1.2]}
 		\toprule
@@ -92,19 +95,27 @@ wobei $\sigma_.{T^2_.0}$ der Fehler des Achsenabschnitts und $\sigma_.D$ aus Abs
 	\label{tab:tab3}
 \end{table}
 \noindent Das Trägheitsmoment einer Kugel bestimmt sich nach Gleichung \eqref{eq:I_K}.
-Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab3} entnehmen. Dabei entsprechen die ersten vier Werte von $T_.{mess}$ vier Periodendauern und der letzte fünf Periodendauern.
-Der Mittelwert für $T$ ergibt sich mit
-\[\bar{T}=\frac{1}{N}\sum_{i=1}^NT_.i\]
-und 
-\[\sigma_.T=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T_.i-\bar{T})^2}\]
-zu:
+Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab3} entnehmen.
+Mit der Formel für den Mittelwert
+\begin{equation}
+\bar{T}=\frac{1}{N}\sum_{i=1}^NT_.i \label{eq:Tq}
+\end{equation}
+und der Formel für dessen Abweichung
+\begin{equation}
+\sigma_.T=\sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N(T_.i-\bar{T})^2} \label{eq:sT}
+\end{equation}
+ergibt sich der Mittelwert für $T$ zu:
 \[\bar{T}=\SI{1.68(4)}{\second}\]
-Damit ist
+Damit ergibt sich für das Trägheitsmoment der Kugel:  
 \[I_.{Kugel}=\SI{-1,4(2)e-3}{\kilogram\metre\squared}\]
-Der Fehler errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch
-\[\sigma_.{I_.{Kugel}}= \sqrt{\left(\frac{\partial (I_.K)}{\partial (T)} \cdot \sigma_.{T}\right)^2+\left(\frac{\partial (I_.K)}{\partial D}\cdot\sigma_.D\right)^2+\left(\frac{\partial (I_.K)}{\partial (I_.D)} \cdot \sigma_.{I_.D}\right)^2}\]
-Dabei sind $\sigma_.{D}$ und $\sigma_.{I_.D}$ aus Abschnitt \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.
-Die Kugel besitzt die Masse $m=\SI{812,4}{\gram}$ und den Durchmesser $d=2R=\SI{13,74}{\centi\metre}$.
+Der Fehler des Trägheitsmomentes errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch:
+\begin{align}
+\sigma_.{I_.K}	&= \sqrt{\left(\frac{\partial (I_.K)}{\partial (T)} \cdot \sigma_.T\right)^2+\left(\frac{\partial (I_.K)}{\partial D}\cdot\sigma_.D\right)^2+\left(\frac{\partial (I_.K)}{\partial (I_.D)} \cdot \sigma_.{I_.D}\right)^2} \nonumber\\
+				&= \sqrt{\left(\frac{2TD}{4\pi^2}\cdot \sigma_.T\right)^2 + \left(\frac{T^2}{4\pi^2}\cdot\sigma_.D\right)^2 + \left(-\sigma_.{I_.D}\right)^2}
+\label{eq:sIK}
+\end{align}
+Dabei sind $D$, $\sigma_.{D}$ und $\sigma_.{I_.D}$ aus den Abschnitten \ref{subsubsec:D} und \ref{subsubsec:I_D} bekannt.\newpage
+\noindent Die Kugel besitzt die Masse $m=\SI{812,4}{\gram}$ und den Durchmesser $d=2R=\SI{13,74}{\centi\metre}$.
 Daraus ergibt sich der Theoriewert nach Formel \eqref{eq:I_SK}
 zu:
 \[I_.{Kugel,Theorie}=\SI{1,5e-3}{\kilogram\metre\squared}\]
@@ -112,11 +123,11 @@ zu:
 \subsection{Das Trägheitsmoment eines Zylinders}
 
 Das Trägheitsmoment eines Zylinders berechnet sich nach Gleichung \eqref{eq:I_K}.
-Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab4} entnehmen. Für den Mittelwert von $T$ ergibt sich analog zu Abschnitt \ref{subsec:Kugel}:
+Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab4} entnehmen. Für den Mittelwert von $T$ ergibt sich mit Formel \eqref{eq:Tq} und \eqref{eq:sT}:
 \[\bar{T}=\SI{1.17(1)}{\second}\]
 \begin{table}
 	\centering
-	\caption{Messdaten zur Trägheitsmomentbestimmung eines Zylinders}
+	\caption{Messdaten zur Trägheitsmomentbestimmung eines Zylinders, wobei $T_.{mess}$ das vierfache der Periodendauer darstellt.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.2]S[table-format=1.2]}
 		\toprule
@@ -132,9 +143,9 @@ Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab4
 	\label{tab:tab4}
 \end{table}
 
-\noindent Für dass Trägheitsmoment ergibt sich:
+\noindent Für dass Trägheitsmoment des Zylinders ergibt sich:
 \[I_.{Zylinder}=\SI{-2,33(2)e-3}{\kilogram\metre\squared}\]
-Der Fehler errechnet sich dabei analog zu Abschnitt \ref{subsec:Kugel}.
+Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.
 Der Zylinder besitzt die Masse $m = \SI{1119,3}{\gram}$, den Durchmesser
 $d = 2R = \SI{7,51}{\centi\metre}$ und die Höhe $h = \SI{3}{\centi\metre}$. Damit ergibt sich der Theoriewert für den Zylinder dessen Körperachse identisch mit der Drehachse ist nach Formel \eqref{eq:I_SZ}:
 \[I_.{Zylinder,Theorie}=\SI{7,9e-4}{\kilogram\metre\squared}\]
@@ -146,7 +157,7 @@ Der Kopf wird als Kugel, die Arme, Beine und Rumpf als Zylinder genähert. Dabei
 Der Durchmesser $d$ und die Höhe $h$, sowie die sich daraus ergebenden Werte für das Volumen $V$ und die Masse $m$ lassen sich aus Tabelle \ref{tab:tab5} ablesen.
 \begin{table}
 	\centering
-	\caption{Abmessungen der Puppe}
+	\caption{Abmessungen der Puppe.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{cS[table-format=1.1]S[table-format=2.1]S[table-format=3.1]S[table-format=3.1]}
 		\toprule
@@ -163,7 +174,7 @@ Der Durchmesser $d$ und die Höhe $h$, sowie die sich daraus ergebenden Werte f�
 \begin{figure}
 \centering
 \includegraphics[scale=.4]{content/images/Puppe.png} 
-\caption{Die Haltungen der Puppe mit angelegten und mit ausgestreckten Armen\cite{V101}}
+\caption{Die Haltungen der Puppe mit angelegten und mit ausgestreckten Armen.\cite{V101}}
 \label{fig:Puppe}
 \end{figure}
 
@@ -171,7 +182,7 @@ Der Durchmesser $d$ und die Höhe $h$, sowie die sich daraus ergebenden Werte f�
 
 \begin{table}
 	\centering
-	\caption{Messdaten zur Periodendauer einer Puppe mit ausgebreiteten Armen}
+	\caption{Messdaten zur Periodendauer einer Puppe mit ausgebreiteten Armen, wobei $T_.{mess}$ das vierfache der Periodendauer darstellt.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.2]S[table-format=1.2]}
 		\toprule
@@ -187,11 +198,11 @@ Der Durchmesser $d$ und die Höhe $h$, sowie die sich daraus ergebenden Werte f�
 	\label{tab:tab6}
 \end{table}
 
-\noindent Für den Mittelwert von $T$ ergibt sich mit den Werten für die Periodendauer $T$ aus Tabelle \ref{tab:tab6} analog zu den vorherigen Abschnitten:
+\noindent Für den Mittelwert von $T$ ergibt sich mit den Werten für die Periodendauer $T$ aus Tabelle \ref{tab:tab6} mit Formel \eqref{eq:Tq} und \eqref{eq:sT}:
 \[\bar{T}=\SI{1.27(1)}{\second}\] 
 Aus Formel \eqref{eq:I_K} folgt für das Trägheitsmoment der Puppe mit ausgebreiteten Armen:
 \[I_.{Puppe,ausg}=\SI{-2,2(1)e-3}{\kilo\gram\metre\squared}\]
-Der Fehler errechnet sich dabei wie in Abschnitt \ref{subsec:Kugel}.
+Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.
 Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch die Summe der Trägheitsmomente der einzelnen Körper (vgl. Gleichung \eqref{eq:I_S}) und mit dem Satz von Steiner \eqref{eq:Satz von Steiner} zu:
 \[I_.{Puppe,aus,theo}\approx\SI{1,05e-3}{\kilo\gram\metre\squared}\text{.}\]
 
@@ -199,11 +210,11 @@ Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:ta
 
 \begin{table}
 	\centering
-	\caption{Messdaten zur Periodendauer einer Puppe mit angelegten Armen}
+	\caption{Messdaten zur Periodendauer einer Puppe mit angelegten Armen, wobei $T_.{mess}$ das vierfache der Periodendauer darstellt.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.2]S[table-format=1.2]}
 		\toprule
-		{$T_.4/\si[per-mode=reciprocal]{\second}$} &{$T_.1/\si[per-mode=reciprocal]{\second}$} \\
+		{$T_.{mess}/\si[per-mode=reciprocal]{\second}$} &{$T/\si[per-mode=reciprocal]{\second}$} \\
 		\midrule
 		3.55 & 0,89 \\
 		3.58 & 0,90 \\
@@ -214,10 +225,10 @@ Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:ta
 	\end{tabular}
 	\label{tab:tab7}
 \end{table}
-\noindent Für den Mittelwert von $T$ ergibt sich mit den Werten für die Periodendauer $T$ aus Tabelle \ref{tab:tab7} analog zu den vorherigen Abschnitten:
+\noindent Für den Mittelwert von $T$ ergibt sich mit den Werten für die Periodendauer $T$ aus Tabelle \ref{tab:tab7} mit Formel \eqref{eq:Tq} und \eqref{eq:sT}:
 \[\bar{T}=\SI{0.89(0)}{\second}\] 
 Aus Formel \eqref{eq:I_K} ergibt sich für das Trägheitsmoment der Puppe mit angelegten Armen:
 \[I_.{Puppe,ang}=\SI{-2,71(1)e-3}{\kilo\gram\metre\squared}\]
-Der Fehler errechnet sich dabei analog wie in Abschnitt \ref{subsec:Kugel}.
+Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.
 Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch die Summe der Trägheitsmomente der einzelnen Körper (vgl. Gleichung \eqref{eq:I_S}) und mit dem Satz von Steiner \eqref{eq:Satz von Steiner} zu:
 \[I_.{Puppe,an,theo} \approx \SI{1,11e-4}{\kilo\gram\metre\squared} \text{.}\]
