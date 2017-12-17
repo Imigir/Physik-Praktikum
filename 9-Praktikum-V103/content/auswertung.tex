@@ -1,21 +1,115 @@
+
 \section{Auswertung}
 \label{sec:Auswertung}
+Die Graphen in Abbildung \ref{fig:rund} bis \ref{fig:beidseitiglinear2} wurden jeweils sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wurde mit Unterstützung von Uncertainties \cite{uncertainties} durchgeführt.\newline 
+Die Gewichtskraft $F$ kann mit $g=\SI{9.81}{\newton\per\kilogram}$ \cite{g} berechnet werden durch:
+\begin{equation}
+	F = m \cdot g \text{.} \label{Gewichtskraft}
+\end{equation}
 
-
-Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die
-Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
-Die Konstanten $k$, $\hslash$, $e_0$, $m_0$, $u_0$ und $N_\text{A}$ sind vom NIST \cite{nistgov}.
-
-\begin{table}
+\subsection{Bestimmung des Elastizitätsmoduls über die Biegung eines runden, einseitig eingespannten Stabes}
+\begin{figure}
 	\centering
-	\caption{Test Tabelle}
-	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
-		\toprule
-		{$T_\text{x}/\si[per-mode=reciprocal]{\kelvin}$}&{$T_\text{y}/\si[per-mode=reciprocal]{\kelvin}$}&{$m_\text{x}/\si[per-mode=reciprocal]{\gram}$}&{$m_\text{y}/\si[per-mode=reciprocal]{\gram}$} \\
-		\midrule
-		21.10 & 83.00 & 270.16 & 498.05 \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:tab1}
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/StabRundEinseitig1.pdf}
+	\caption{Die gemessene Auslenkung $D(x)$ des runden, einseitig eingespannten Stabes in Abhängigkeit des horizontalen Abstandes zum fixierten Ende.}
+	\label{fig:rund}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/StabRundEinseitig2.pdf}
+	\caption{Die gemessene Auslenkung $D(x)$ des runden, einseitig eingespannten Stabes in Abhängigkeit des horizontalen Abstandes zum fixierten Ende in linearisierter Darstellung.}
+	\label{fig:rundlinear}
+\end{figure}
+\begin{table}
+	\caption{Die gemessene Auslenkung $D(x)$ des einseitig eingespannten, runden Stabes an den jeweiligen horizontalen Abständen $x$ zum fixierten Ende.}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabRundEinseitig1.tex}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabRundEinseitig2.tex}
+	\end{minipage}
 \end{table}
+Die Ausgleichskurve in Abbildung \ref{fig:rund} besitzt die Form $y = a ( L x^2 - \frac{x^3}{3} ) $ und die Ausgleichsgerade in Abbildung \ref{fig:rundlinear} die Form $y=a x$. Aus Formel \eqref{eq:??} ergibt sich das Flächenträgheitsmoment $I_.{Kreis}$ des runden Stabes  zu $\SI{4.91e-10}{\metre\tothe{4}}$. Die Kraft F berechnet sich aus dem angehängtem Gewicht von $\SI{522e-3}{\kilogram}$ mit Formel \eqref{Gewichtskraft} zu $\SI{5.12}{\newton}$. Eine nicht lineare Ausgleichsrechnung der Form $y = a ( L x^2 - \frac{x^3}{3})$ liefert mit der gemessenen Länge $L$ von $\SI{50.0e-2}{\metre}$ und den Wertepaaren aus Tabelle \ref{tab:tabStabRundEinseitig1} nach Formel \eqref{eq:??}:
+\begin{displaymath}
+	E = \SI{7.41(7)e10}{\pascal}\text{.}
+\end{displaymath}
+%Die linearisierte Darstellung in \ref{fig:rundlinear} belegt die Richtigkeit der vorangegangenen, theoretischen Überlegungen.
+
+\subsection{Bestimmung des Elastizitätsmoduls über die Biegung eines quadratischen, einseitig eingespannten Stabes}\label{subsec:QuadratischEinseitig}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/StabQuadratEinseitig1.pdf}
+	\caption{Die gemessene Auslenkung $D(x)$ des quadratischen, einseitig eingespannten Stabes in Abhängigkeit des horizontalen Abstandes zum fixierten Ende.}
+	\label{fig:quadratisch}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/StabQuadratEinseitig2.pdf}
+	\caption{Die gemessene Auslenkung $D(x)$ des quadratischen, einseitig eingespannten Stabes in Abhängigkeit des horizontalen Abstandes zum fixierten Ende in linearisierter Darstellung.}
+	\label{fig:quadratischlinear}
+\end{figure}
+\begin{table}
+	\caption{Die gemessene Auslenkung $D(x)$ des einseitig eingespannten, quadratischen Stabes an den jeweiligen horizontalen Abständen $x$ zum fixierten Ende.}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabQuadratEinseitig1.tex}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabQuadratEinseitig2.tex}
+	\end{minipage}
+\end{table}
+Die Ausgleichskurve in Abbildung \ref{fig:quadratisch} besitzt die Form $y = a ( L x^2 - \frac{x^3}{3} ) $ und die Ausgleichsgerade in Abbildung \ref{fig:quadratischlinear} die Form $y=a x$. Aus Formel \eqref{eq:??} ergibt sich das Flächenträgheitsmoment $I_.{Quadrat}$ des quadratischen Stabes zu $\SI{8.33e-10}{\metre\tothe{4}}$. Die Kraft F berechnet sich aus dem angehängtem Gewicht von $\SI{540,93e-3}{\kilogram}$ mit Formel \eqref{Gewichtskraft} zu $\SI{5.30}{\newton}$. Eine nicht lineare Ausgleichsrechnung der Form $y = a ( L x^2 - \frac{x^3}{3})$ liefert mit der gemessenen Länge $L$ von $\SI{54.0e-2}{\metre}$ und den Wertepaaren aus Tabelle \ref{tab:tabStabQuadratEinseitig1} nach Formel \eqref{eq:??}:
+\begin{displaymath}
+E = \SI{6.13(2)e10}{\pascal}\text{.}
+\end{displaymath}
+% Die Theorie wird wieder bestätigt.
+
+\subsection{Bestimmung des Elastizitätsmoduls über die Biegung eines quadratischen, beidseitig aufgelegten Stabes}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/StabQuadratBeidseitig1.pdf}
+	\caption{Die gemessene Auslenkung $D(x)$ des quadratischen, beidseitig aufliegenden Stabes in Abhängigkeit des horizontalen Abstandes zum rechten Auflagepunkt.}
+	\label{fig:beidseitig}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/StabQuadratBeidseitig2.pdf}
+	\caption{Die gemessene Auslenkung $D(x)$ des quadratischen, beidseitig aufliegenden Stabes von der rechten Seite bis zur Stabmitte in Abhängigkeit des horizontalen Abstandes zum rechten Auflagepunkt in linearisierter Form.}
+	\label{fig:beidseitiglinear1}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/StabQuadratBeidseitig3.pdf}
+	\caption{Die gemessene Auslenkung $D(x)$ des quadratischen, beidseitig aufliegenden Stabes von der linken Seite bis zur Stabmitte in Abhängigkeit des horizontalen Abstandes zum rechten Auflagepunkt in linearisierter Form.}
+	\label{fig:beidseitiglinear2}
+\end{figure}
+\begin{table}
+	\caption{Die gemessene Auslenkung $D(x)$ des beidseitig aufliegenden, quadratischen Stabes an den jeweiligen horizontalen Abständen $x$ zum rechten Auflagepunkt.}
+	\begin{minipage}[c]{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabQuadratBeidseitig1.tex}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabQuadratBeidseitig2.tex}
+	\end{minipage}
+\end{table}
+Die Ausgleichskurve in Abbildung \ref{fig:beidseitig} besitzt die Form:
+\begin{equation}
+	y =
+	\begin{cases}
+	a\left(3L^2 x-4x^3\right)& \text{für }0\leq x \leq \frac{L}{2} \\
+	a\left(4 x^3 -12 L x^2 + 9 L^2 x -L 3 \right)& \text{für }\frac{L}{2} < x \leq L
+	\end{cases} \label{FunktionBeidseitig}
+\end{equation}
+Die Ausgleichsgeraden in den Abbildungen \ref{fig:beidseitiglinear1} und \ref{fig:beidseitiglinear2} besitzen die Form $y=a x$.
+Das Flächenträgheitsmoment $I_.{Quadrat}$ des quadratischen Stabes ist aus Abschnitt \ref{subsec:QuadratischEinseitig} bekannt.  Die Kraft F berechnet sich aus dem angehängtem Gewicht von $\SI{4711e-3}{\kilogram}$ mit Formel \eqref{Gewichtskraft} zu $\SI{46.20}{\newton}$. Eine nicht lineare Ausgleichsrechnung der Form \eqref{FunktionBeidseitig} liefert mit der gemessenen Länge $L$ von $\SI{56.0e-2}{\metre}$ und den Wertepaaren aus Tabelle \ref{tab:tabbeidseitig1} nach Formel \eqref{eq:??} und \eqref{eq:??}:
+\begin{displaymath}
+E = \SI{7.01(4)e10}{\pascal}\text{.}
+\end{displaymath}
+%Auch hier zeigen die Graphen das vorhergesagte Verhalten auf.
