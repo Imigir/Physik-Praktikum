@@ -180,6 +180,18 @@ Der Durchmesser $d$ und die Höhe $h$, sowie die sich daraus ergebenden Werte f�
 
 \subsubsection{Puppe mit ausgebreiteten Armen und geschlossenen Beinen}
 
+\noindent Für den Mittelwert von $T$ ergibt sich mit den Werten für die Periodendauer $T$ aus Tabelle \ref{tab:tab6} mit Formel \eqref{eq:Tq} und \eqref{eq:sT}:
+\[\bar{T}=\SI{1.27(1)}{\second}\] 
+Aus Formel \eqref{eq:I_K} folgt für das Trägheitsmoment der Puppe mit ausgebreiteten Armen:
+\[I_.{Puppe,ausg}=\SI{-2,2(1)e-3}{\kilo\gram\metre\squared}\]
+Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.
+Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch die Summe der Trägheitsmomente der einzelnen Körper (vgl. Gleichung \eqref{eq:I_S}) und mit dem Satz von Steiner \eqref{eq:Satz von Steiner}:
+\begin{align*}
+I_.{Puppe,aus,theo} &= I_.{Rumpf}+I_.{Kopf}+2\left(I_.{Bein}+m_.{Bein}\left(\frac{d_.{Bein}}{2}\right)^2\right)\\
+					&+2\left(I_.{Arm,HZ}+m_.{Arm}\left(\frac{d_.{Rumpf}+h_.{Arm}}{2}\right)^2\right)\\
+					&\approx\SI{1,05e-3}{\kilo\gram\metre\squared}\text{.}
+\end{align*}
+Dabei berechnen sich $I_.{Rumpf}$ und $I_.{Bein}$ nach Formel \eqref{eq:I_SZ}. $I_.{Arm,HZ}$ berechnet sich nach Formel \eqref{eq:I_SZH} und $I_.{Kopf}$ berechnet sich nach Formel \eqref{eq:I_SK}.
 \begin{table}
 	\centering
 	\caption{Messdaten zur Periodendauer einer Puppe mit ausgebreiteten Armen, wobei $T_.{mess}$ das vierfache der Periodendauer darstellt.}
@@ -197,14 +209,6 @@ Der Durchmesser $d$ und die Höhe $h$, sowie die sich daraus ergebenden Werte f�
 	\end{tabular}
 	\label{tab:tab6}
 \end{table}
-
-\noindent Für den Mittelwert von $T$ ergibt sich mit den Werten für die Periodendauer $T$ aus Tabelle \ref{tab:tab6} mit Formel \eqref{eq:Tq} und \eqref{eq:sT}:
-\[\bar{T}=\SI{1.27(1)}{\second}\] 
-Aus Formel \eqref{eq:I_K} folgt für das Trägheitsmoment der Puppe mit ausgebreiteten Armen:
-\[I_.{Puppe,ausg}=\SI{-2,2(1)e-3}{\kilo\gram\metre\squared}\]
-Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.
-Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch die Summe der Trägheitsmomente der einzelnen Körper (vgl. Gleichung \eqref{eq:I_S}) und mit dem Satz von Steiner \eqref{eq:Satz von Steiner} zu:
-\[I_.{Puppe,aus,theo}\approx\SI{1,05e-3}{\kilo\gram\metre\squared}\text{.}\]
 
 \subsubsection{Puppe mit angelegten Armen und geschlossenen Beinen}
 
@@ -230,5 +234,10 @@ Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:ta
 Aus Formel \eqref{eq:I_K} ergibt sich für das Trägheitsmoment der Puppe mit angelegten Armen:
 \[I_.{Puppe,ang}=\SI{-2,71(1)e-3}{\kilo\gram\metre\squared}\]
 Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.
-Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch die Summe der Trägheitsmomente der einzelnen Körper (vgl. Gleichung \eqref{eq:I_S}) und mit dem Satz von Steiner \eqref{eq:Satz von Steiner} zu:
-\[I_.{Puppe,an,theo} \approx \SI{1,11e-4}{\kilo\gram\metre\squared} \text{.}\]
+Der genäherte Theoriewert berechnet sich mit den Werten aus Tabelle \ref{tab:tab5} durch die Summe der Trägheitsmomente der einzelnen Körper (vgl. Gleichung \eqref{eq:I_S}) und mit dem Satz von Steiner \eqref{eq:Satz von Steiner}:
+\begin{align*}
+I_.{Puppe,an,theo} &= I_.{Rumpf}+I_.{Kopf}+2\left(I_.{Bein}+m_.{Bein}\left(\frac{d_.{Bein}}{2}\right)^2\right)\\
+					&+2\left(I_.{Arm}+m_.{Arm}\left(\frac{d_.{Rumpf}+d_.{Arm}}{2}\right)^2\right)\\
+					&\approx \SI{1,11e-4}{\kilo\gram\metre\squared} \text{.}
+\end{align*}
+Dabei berechnen sich $I_.{Rumpf}$, $I_.{Arm}$ und $I_.{Bein}$ nach Formel \eqref{eq:I_SZ}. $I_.{Kopf}$ berechnet sich nach Formel \eqref{eq:I_SK}.
