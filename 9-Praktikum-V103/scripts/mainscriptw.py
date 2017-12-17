@@ -1,10 +1,5 @@
 ﻿from table import makeTable
-from table import makeNewTable
-from linregress import linregress
-from customFormatting import *
 from bereich import bereich
-from weightedavgandsem import weighted_avg_and_sem
-from weightedavgandsem import avg_and_sem
 import numpy as np
 from scipy import stats
 from scipy.optimize import curve_fit
@@ -12,39 +7,190 @@ import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
 import scipy.constants as const
 
-# BackwardsVNominal = []
-# BackwardsVStd = []
-# for value in BackwardsV:
-#     BackwardsVNominal.append(unp.nominal_values(value))
-#     BackwardsVStd.append(unp.std_devs(value))
-# BackwardsVNominal = np.array(BackwardsVNominal)
-# BackwardsVStd = np.array(BackwardsVStd)
+#Für alle#####################################
+namex = r'$x/\si{\centi\meter}$'
+namey = r'$D(x)/\si{\milli\meter}$'
+pi = const.pi
+g = const.g
 
-# einfacher:
-# BackwardsVNominal = unp.nominal_values(BackwardsV)
-# BackwardsVStd = unp.std_devs(BackwardsV)
+def line (x, a):
+	return a * x
 
-# makeTable([Gaenge, ForwardsVNominal, ForwardsVStd, ], r'{Gang} & \multicolumn{2}{c}{$v_\text{v}/\si[per-mode=reciprocal]{\centi\meter\per\second}$} & ', 'name', ['S[table-format=2.0]', 'S[table-format=2.3]', ' @{${}\pm{}$} S[table-format=1.3]', ], ["%2.0f", "%2.3f", "%2.3f",])
+#eineitig eingespannt#########################
 
-#[per-mode=reciprocal],[table-format=2.3,table-figures-uncertainty=1]
+#RUNDSTAB#####################################
+m_StabRund = 121.3 * 0.001
+r_StabRund = 1/200
+l_StabRund = 0.55-0.05 #Länge des Stabes - eingespannte Länge
+m_Gewicht = 522 * 0.001
+Ir = pi/4 * r_StabRund**4
+F = m_Gewicht * g
 
-# unp.uarray(np.mean(), stats.sem())
-# unp.uarray(*avg_and_sem(values)))
-# unp.uarray(*weighted_avg_and_sem(unp.nominal_values(bneuDiff), 1/unp.std_devs(bneuDiff)))
+print('StabRundEinseitig:')
+print('Ir:', Ir)
+print('F:', F)
 
-# plt.cla()
-# plt.clf()
-# plt.plot(ForwardsVNominal*100, DeltaVForwardsNominal, 'gx', label='Daten mit Bewegungsrichtung aufs Mikrofon zu')
-# plt.plot(BackwardsVNominal*100, DeltaVBackwardsNominal, 'rx', label='Daten mit Bewegungsrichtung vom Mikrofon weg')
-# plt.ylim(0, line(t[-1], *params)+0.1)
-# plt.xlim(0, t[-1]*100)
-# plt.xlabel(r'$v/\si{\centi\meter\per\second}$')
-# plt.ylabel(r'$\Delta f / \si{\hertz}$')
-# plt.legend(loc='best')
-# plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-# plt.savefig('build/'+'VgegenDeltaV')
+def DurchbiegungEinseitig1(x, a):
+	return a*(l_StabRund*x**2-(x**3)/3)
 
-# a = unp.uarray(params[0], np.sqrt(covar[0][0]))
-# params = unp.uarray(params, np.sqrt(np.diag(covar)))
-# makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
+x, y1, y2 = np.genfromtxt('scripts/data1.txt', unpack=True)
+x = x/100
+yd = (y1-y2)/1000
+params, covar = curve_fit(DurchbiegungEinseitig1, x, yd, maxfev=1000)
+print('a:', params)
+print('Kovarianz:', covar)
+t = np.linspace(0, l_StabRund, 500)
+plt.cla()
+plt.clf()
+plt.plot(x*100, yd*1000, 'rx', label='Daten')
+plt.plot(t*100, DurchbiegungEinseitig1(t, *params)*1000, 'b-', label='Ausgleichskurve')
+plt.xlim(t[0]*100, t[-1]*102)
+plt.xlabel(namex)
+plt.ylabel(namey)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/StabRundEinseitig1')
+a = unp.uarray(params[0], np.sqrt(covar[0][0]))
+E = F/(2*a*Ir)
+print('E1 =', E)
+
+makeTable([x[0:int(len(x)/2)]*100, np.around(yd[0:int(len(yd)/2)]*1000, decimals=2)], r'{'+namex+r'} & {'+namey+r'}', 'tabStabRundEinseitig1', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
+makeTable([x[int(len(x)/2):]*100, np.around(yd[int(len(yd)/2):]*1000, decimals=2)], r'{'+namex+r'} & {'+namey+r'}', 'tabStabRundEinseitig2', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
+
+
+plt.cla()
+plt.clf()
+plt.plot((l_StabRund*(x)**2-(x)**3/3)*10**3, yd*1000, 'rx', label='Daten')
+plt.plot((l_StabRund*(t)**2-(t)**3/3)*10**3, DurchbiegungEinseitig1(t, *params)*1000, 'b-', label='Ausgleichsgerade')
+plt.xlim(0, (l_StabRund*(t[-1])**2-(t[-1])**3/3)*1.02*10**3)
+plt.xlabel(r'$\left(L\cdot x^2-\frac{x^3}{3}\right)/\si{\centi\meter\cubed}$')
+plt.ylabel(namey)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/StabRundEinseitig2')
+
+
+#QUARDRATSTAB#################################
+a_StabQuadrat = 1/100
+l_StabQuadrat = 0.59-0.05 #Länge des Stabes - eingespannte Länge
+m_Gewicht = m_Gewicht + 18.93*0.001
+Iq = 1/12 * a_StabQuadrat**4
+F = m_Gewicht * g
+
+print('StabQuadratEinseitig:')
+print('Iq:', Iq)
+print('F:', F)
+
+def DurchbiegungEinseitig2(x, a):
+	return a*(0.5*x**2-(x**3)/3)
+
+x, y1, y2 = np.genfromtxt('scripts/data2.txt', unpack=True)
+x = x/100
+yd = (y1-y2)/1000
+params, covar = curve_fit(DurchbiegungEinseitig2, x, yd, maxfev=1000)
+print('a:', params)
+print('a_error:', covar)
+t = np.linspace(0, l_StabQuadrat, 500)
+plt.cla()
+plt.clf()
+plt.plot(x*100, yd*1000, 'rx', label='Daten')
+plt.plot(t*100, DurchbiegungEinseitig2(t, *params)*1000, 'b-', label='Fit')
+plt.xlim(t[0]*100, t[-1]*102)
+plt.xlabel(namex)
+plt.ylabel(namey)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/StabQuadratEinseitig1')
+a = unp.uarray(params[0], np.sqrt(covar[0][0]))
+E = F/(2*a*Iq)
+print('E2 =', E)
+
+
+makeTable([x[0:int(len(x)/2)]*100, np.around(yd[0:int(len(yd)/2)]*1000, decimals=2)], r'{'+namex+r'} & {'+namey+r'}', 'tabStabQuadratEinseitig1', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
+makeTable([x[int(len(x)/2):]*100, np.around(yd[int(len(yd)/2):]*1000, decimals=2)], r'{'+namex+r'} & {'+namey+r'}', 'tabStabQuadratEinseitig2', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
+
+plt.cla()
+plt.clf()
+plt.plot((l_StabQuadrat*(x)**2-(x)**3/3)*10**3, yd*1000, 'rx', label='Daten')
+plt.plot((l_StabQuadrat*(t)**2-(t)**3/3)*10**3, DurchbiegungEinseitig2(t, *params)*1000, 'b-', label='Fit')
+plt.xlim(0, (l_StabQuadrat*(t[-1])**2-(t[-1])**3/3)*1.02*10**3)
+plt.xlabel(r'$\left(L\cdot x^2-\frac{x^3}{3}\right)/\si{\centi\meter\cubed}$')
+plt.ylabel(namey)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/StabQuadratEinseitig2')
+
+#QUARDRATSTABBEIDSEITIG########################
+l_Beidseitig = 0.56
+m_Gewicht = (2359.5+2332.6+18.9)*0.001
+F = m_Gewicht * g
+
+print('StabQuadratBeidseitig:')
+print('Iq:', Iq)
+print('F:', F)
+
+def DurchbiegungBeidseitig(x, a):
+	links = a*(3*l_Beidseitig**2*x[x<l_Beidseitig/2]-4*(x[x<l_Beidseitig/2]**3))
+	rechts = a*(4*x[x>=l_Beidseitig/2]**3 -12* l_Beidseitig* x[x>=l_Beidseitig/2]**2 + 9 * l_Beidseitig**2 * x[x>=l_Beidseitig/2] -l_Beidseitig**3 )
+	return np.append(links, rechts)
+
+
+
+x, y1, y2 = np.genfromtxt('scripts/data3.txt', unpack=True)
+x = x/100
+yd = (y1-y2)/1000
+params, covar = curve_fit(DurchbiegungBeidseitig, x, yd, maxfev=1000)
+print('a:', params)
+print('a_error:', covar)
+t = np.linspace(0, l_Beidseitig, 500)
+plt.cla()
+plt.clf()
+plt.plot(x*100, yd*1000, 'rx', label='Daten')
+plt.plot(t*100, DurchbiegungBeidseitig(t, *params)*1000, 'b-', label='Fit')
+plt.xlim(t[0]*100, t[-1]*100)
+plt.xlabel(namex)
+plt.ylabel(namey)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/StabQuadratBeidseitig1')
+
+
+makeTable([x[0:int(len(x)/2)]*100, yd[0:int(len(yd)/2)]*1000], r'{'+namex+r'} & {'+namey+r'}', 'tabStabQuadratBeidseitig1', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
+makeTable([x[int(len(x)/2):]*100, yd[int(len(yd)/2):]*1000], r'{'+namex+r'} & {'+namey+r'}', 'tabStabQuadratBeidseitig2', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
+
+a = unp.uarray(params[0], np.sqrt(covar[0][0]))
+E = F/(48*a*Iq)
+print('E3 =', E)
+
+plt.cla()
+plt.clf()
+plt.plot((3*l_Beidseitig**2*x[x<l_Beidseitig/2]-4*(x[x<l_Beidseitig/2]**3))*10**3, yd[:int(len(yd)/2)]*1000, 'rx', label='Daten')
+plt.plot((3*l_Beidseitig**2*t[t<l_Beidseitig/2]-4*(t[t<l_Beidseitig/2]**3))*10**3, DurchbiegungBeidseitig(t[t<l_Beidseitig/2], *params)*1000, 'b-', label='Fit')
+#plt.xlim(0, (0.55*(t[-1])**2-(t[-1])**3/3)*1.02)
+plt.xlabel(r'$\left(3L^2 x-4x^3\right)/\si{\centi\meter\cubed}$')
+plt.ylabel(namey)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/StabQuadratBeidseitig2')
+
+
+plt.cla()
+plt.clf()
+plt.plot((4*x[x>=l_Beidseitig/2]**3 -12* l_Beidseitig* x[x>=l_Beidseitig/2]**2 + 9 * l_Beidseitig**2 * x[x>=l_Beidseitig/2] -l_Beidseitig**3 )*10**3, yd[int(len(yd)/2):]*1000, 'rx', label='Daten')
+plt.plot((4*t[t>=l_Beidseitig/2]**3 -12* l_Beidseitig* t[t>=l_Beidseitig/2]**2 + 9 * l_Beidseitig**2 * t[t>=l_Beidseitig/2] -l_Beidseitig**3 )*10**3, DurchbiegungBeidseitig(t[t>=l_Beidseitig/2], *params)*1000, 'b-', label='Fit')
+#plt.xlim(0, (0.55*(t[-1])**2-(t[-1])**3/3)*1.02)
+plt.xlabel(r'$\left(4 x^3 - 12L  x^2 + 9L^2  x - L^3 \right)/\si{\centi\meter\cubed}$')
+plt.ylabel(namey)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/StabQuadratBeidseitig3')
+
+
+
+
+
+
+
+
+
 
