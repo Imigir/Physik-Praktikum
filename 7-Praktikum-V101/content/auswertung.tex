@@ -36,26 +36,26 @@ entnehmen. Es ergibt sich für $\bar{D}$:
 \subsubsection{Eigenträgheitsmoment}\label{subsubsec:I_D}
 Zur Bestimmung des Eigenträgheitsmoments werden zwei Zylinder mit dem Durchmesser $d = \SI{3,5e-2}{\metre}$, der Höhe $h = \SI{3e-2}{\metre}$ und der Masse $m = \SI{221,8e-3}{\kilogram}$ verwendet.\newline
 Die Verbindungsstange wird als masselos angenommen und wird daher nicht berücksichtigt.
-Die Werte für das Quadrat der Periodendauer $T$ und des Abstandes $a$ aus Tabelle \ref{tab:tab2} sind im Graph \ref{fig:abb2} gegeneinander aufgetragen. Mittels der linearer Regression $f(x) = m \cdot x + n$, ergeben sich für die Parameter $m$ und $n$:
+Die Werte für das Quadrat der Periodendauer $T$ und des Abstandes $a$ aus Tabelle \ref{tab:tab2} sind im Graph \ref{fig:abb2} gegeneinander aufgetragen. Mittels der linearer Regression $T^2(a) = m \cdot a^2 + T_0^2$, ergeben sich mit Matplotlib \cite{matplotlib} für die Parameter $m$ und $T_0^2$:
 \begin{align*}
 m 	&= \SI{751(6)}{\second\squared\per\metre\squared} \\
 n 	&= T_.0^2 = \SI{5,1(2)}{\second\squared}
 \end{align*}
-Dabei berechnen sich die Werte für $m$ und $n$ über:
-\begin{align*}
-m 	&= \frac{N\sum_{i=1}^N a_i^2 T_i^2 -\sum_{i=1}^N a_i^2 \sum_{i=1}^N T_i^2}{\Delta}\\
-n 	&= \frac{\sum_{i=1}^N a_i^4 \sum_{i=1}^N T_i^2 -\sum_{i=1}^N a_i^2 \sum_{i=1}^N a_i^2 T_i^2}{\Delta}
-\end{align*}
-und deren Abweichungen über:
-\begin{align*}
-\sigma_.m 	&= \sigma_.y\sqrt{\frac{N}{\Delta}}\\
-\sigma_.n 	&= \sigma_.y\sqrt{\frac{\sum_{i=1}^N a_i^4}{\Delta}},
-\end{align*}
-wobei $\Delta$ und $\sigma_.y$ definiert sind als:
-\begin{align*}
-\Delta 		&= N\sum_{i=1}^N a_i^4 -\left(\sum_{i=1}^N a_i^2\right)^2\\
-\sigma_.y 	&= \sqrt{\frac{1}{N-2}\sum_{i=1}^N \left(T_i^2-n-ma_i^2\right)^2}
-\end{align*}
+%Dabei berechnen sich die Werte für $m$ und $n$ über:
+%\begin{align*}
+%m 	&= \frac{N\sum_{i=1}^N a_i^2 T_i^2 -\sum_{i=1}^N a_i^2 \sum_{i=1}^N T_i^2}{\Delta}\\
+%n 	&= \frac{\sum_{i=1}^N a_i^4 \sum_{i=1}^N T_i^2 -\sum_{i=1}^N a_i^2 \sum_{i=1}^N a_i^2 T_i^2}{\Delta}
+%\end{align*}
+%und deren Abweichungen über:
+%\begin{align*}
+%\sigma_.m 	&= \sigma_.y\sqrt{\frac{N}{\Delta}}\\
+%\sigma_.n 	&= \sigma_.y\sqrt{\frac{\sum_{i=1}^N a_i^4}{\Delta}},
+%\end{align*}
+%wobei $\Delta$ und $\sigma_.y$ definiert sind als:
+%\begin{align*}
+%\Delta 		&= N\sum_{i=1}^N a_i^4 -\left(\sum_{i=1}^N a_i^2\right)^2\\
+%\sigma_.y 	&= \sqrt{\frac{1}{N-2}\sum_{i=1}^N \left(T_i^2-n-ma_i^2\right)^2}
+%\end{align*}
 Die Trägheitsmomente der Zylinder berechnen sich nach Formel \eqref{eq:I_SZH} zu:
 \[I_.{ZH}=\SI{3,36e-5}{\kilogram\metre\squared}\]
 Mit Gleichung \eqref{eq:I_D} ergibt sich für das Trägheitsmoment $I_.D$ der Drillachse:
@@ -68,7 +68,7 @@ Die Messungenauigkeit ergibt sich dabei aus der Formel der Gaußschen Fehlerfort
 wobei $\sigma_.{T^2_.0}$ der Fehler des Achsenabschnitts und $D$ und $\sigma_.D$ aus Abschnitt \ref{subsubsec:D} bekannt sind.
 \begin{figure}
 \centering
-\includegraphics[scale = 1,keepaspectratio]
+\includegraphics[scale = 0.75,keepaspectratio]
 	{content/images/Graph.pdf}
 \caption{Graph der Messdaten zur Bestimmung des Eigenträgheitsmoments der Drillachse mit Ausgleichsgerade.}\label{fig:abb2}
 \end{figure}
@@ -113,7 +113,7 @@ Damit ergibt sich für das Trägheitsmoment der Kugel:
 \[I_.{Kugel}=\SI{-1,4(2)e-3}{\kilogram\metre\squared}\]
 Der Fehler des Trägheitsmomentes errechnet sich dabei über die Gaußsche Fehlerfortpflanzung durch:
 \begin{align}
-\sigma_.{I_.K}	&= \sqrt{\left(\frac{\partial (I_.K)}{\partial (T)} \cdot \sigma_.T\right)^2+\left(\frac{\partial (I_.K)}{\partial D}\cdot\sigma_.D\right)^2+\left(\frac{\partial (I_.K)}{\partial (I_.D)} \cdot \sigma_.{I_.D}\right)^2} \nonumber\\
+\sigma_.{I}	&= \sqrt{\left(\frac{\partial (I)}{\partial (T)} \cdot \sigma_.T\right)^2+\left(\frac{\partial (I)}{\partial D}\cdot\sigma_.D\right)^2+\left(\frac{\partial (I)}{\partial (I_.D)} \cdot \sigma_.{I_.D}\right)^2} \nonumber\\
 				&= \sqrt{\left(\frac{2TD}{4\pi^2}\cdot \sigma_.T\right)^2 + \left(\frac{T^2}{4\pi^2}\cdot\sigma_.D\right)^2 + \left(-\sigma_.{I_.D}\right)^2}
 \label{eq:sIK}
 \end{align}
@@ -146,7 +146,7 @@ Die Werte für die Periodendauer $T$ lassen sich dabei aus Tabelle \ref{tab:tab4
 \[\bar{T}=\SI{1.17(1)}{\second}\]
 Für dass Trägheitsmoment des Zylinders ergibt sich:
 \[I_.{Zylinder}=\SI{-2,33(2)e-3}{\kilogram\metre\squared}\]
-Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.\newpage
+Der Fehler errechnet sich dabei mit Formel \eqref{eq:sIK}.
 \noindent Der Zylinder besitzt die Masse $m = \SI{1119,3e-3}{\kilogram}$, den Durchmesser
 $d = 2R = \SI{7,51e-2}{\metre}$ und die Höhe $h = \SI{3e-2}{\metre}$. Damit ergibt sich der Theoriewert für den Zylinder dessen Körperachse identisch mit der Drehachse ist nach Formel \eqref{eq:I_SZ}:
 \[I_.{Zylinder,Theorie}=\SI{7,9e-4}{\kilogram\metre\squared}\]
