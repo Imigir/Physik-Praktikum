@@ -51,8 +51,8 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/StabRundEinseitig1')
 a = unp.uarray(params[0], np.sqrt(covar[0][0]))
-E = F/(2*a*Ir)
-print('E1 =', E)
+E1 = F/(2*a*Ir)
+print('E1 =', E1)
 
 makeTable([x[0:int(len(x)/2)]*100, np.around(yd[0:int(len(yd)/2)]*1000, decimals=2)], r'{'+namex+r'} & {'+namey+r'}', 'tabStabRundEinseitig1', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
 makeTable([x[int(len(x)/2):]*100, np.around(yd[int(len(yd)/2):]*1000, decimals=2)], r'{'+namex+r'} & {'+namey+r'}', 'tabStabRundEinseitig2', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
@@ -102,8 +102,8 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/StabQuadratEinseitig1')
 a = unp.uarray(params[0], np.sqrt(covar[0][0]))
-E = F/(2*a*Iq)
-print('E2 =', E)
+E2 = F/(2*a*Iq)
+print('E2 =', E2)
 
 
 makeTable([x[0:int(len(x)/2)]*100, np.around(yd[0:int(len(yd)/2)]*1000, decimals=2)], r'{'+namex+r'} & {'+namey+r'}', 'tabStabQuadratEinseitig1', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
@@ -163,8 +163,8 @@ makeTable([x[0:int(len(x)/2)]*100, yd[0:int(len(yd)/2)]*1000], r'{'+namex+r'} & 
 makeTable([x[int(len(x)/2):]*100, yd[int(len(yd)/2):]*1000], r'{'+namex+r'} & {'+namey+r'}', 'tabStabQuadratBeidseitig2', ['S[table-format=2.1]', 'S[table-format=1.2]'], ["%3.1f", "%3.2f"])
 
 a = unp.uarray(params[0], np.sqrt(covar[0][0]))
-E = F/(48*a*Iq)
-print('E3 =', E)
+E3 = F/(48*a*Iq)
+print('E3 =', E3)
 t = np.linspace(-3, l_Beidseitig, 50)
 plt.cla()
 plt.clf()
@@ -191,8 +191,8 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/StabQuadratBeidseitig3')
 
-
-
+Em = (E1+E2+E3)/3
+print('Em =', Em)
 
 
 
