@@ -54,9 +54,9 @@ und mit Gleichung \eqref{eq:Mom}
 E \frac{\mathrm{d}^2D}{\mathrm{d}x^2} \int_Q y^2 \mathrm{d}q = F(L-x)\text{.} \label{eq:Mom2}
 \end{equation}
 Das Integral wird Flächenträgheitsmoment $I$ genannt:
-\[
-I \coloneqq \int_Q y^2 \mathrm{d}q
-\]
+\begin{equation}
+I \coloneqq \int_Q y^2 \mathrm{d}q \label{eq:I}
+\end{equation}
 Nach Integration ergibt sich für $0 \leq x \leq L$  damit für die Durchbiegung:
 \begin{equation*}
 D(x) = \frac{F}{2 E I}\left(L x^2 -\frac{x^3}{3}\right)
@@ -106,10 +106,10 @@ D(x) = \frac{F}{48 E I}\left(4 x^3 - 12 L x^2 + 9 L^2 x - L^3\right)
 für $\frac{L}{2} \leq x \leq L$.
 Da für die Durchbiegung an den Stabenden wieder \[D(0)=D(L)\equiv 0 \] gilt, lässt sich das Elastizitätsmodul $E$ also über
 \begin{equation}
-E = \frac{F}{48 D I}\left(3 L^2 x - 4 x^3\right)   \left(0 \leq x \leq \frac{L}{2}\right)
+E = \frac{F}{48 D I}\left(3 L^2 x - 4 x^3\right)   \left(0 \leq x \leq \frac{L}{2}\right) \label{eq:E2}
 \end{equation}
 und
 \begin{equation}
-D(x) = \frac{F}{48 E I}\left(4 x^3 - 12 L x^2 + 9 L^2 x - L^3\right)  \left(\frac{L}{2} \leq x \leq L\right)
+E = \frac{F}{48 D I}\left(4 x^3 - 12 L x^2 + 9 L^2 x - L^3\right)  \left(\frac{L}{2} \leq x \leq L\right) \label{eq:E3}
 \end{equation}
 berechnen.
