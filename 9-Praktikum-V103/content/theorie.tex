@@ -1,6 +1,7 @@
 \section{Theorie}
 \label{sec:Theorie}
 
+
 \subsection{Das Elastizitätsmodul}
 
 Wirkt auf die Oberfläche eines elastischen Körpers eine Kraft $F$ so kommt es zu Verformungen $\Delta L$.
@@ -14,10 +15,14 @@ Dabei wird der Proportionalitätsfaktor $E$ zwischen der Spannung und der relati
 
 \subsection{Bestimmung des Elastizitätsmoduls eines Stabes durch einseitige Einspannung}
 
-Wird an das freie Ende eines stabförmigen Probekörpers, der auf der einen Seite eingespannt ist, ein Gewicht angehängt, dann bewirkt die Kraft $F_.G$ ein Drehmoment $M_.F$ auf einen Querschnitt $Q$ im Abstand $x$ vom Einspannungspunkt.
+Wird an das freie Ende eines stabförmigen Probekörpers, der auf der einen Seite eingespannt ist, ein Gewicht angehängt, dann bewirkt die Kraft $F$ ein Drehmoment $M_.F$ auf einen Querschnitt $Q$ im Abstand $x$ vom Einspannungspunkt.
 Da das Gewicht am Ende des Stabs hängt, hat dieses Drehmoment einen Hebelarm von $L-x$ und damit den Betrag:
 \begin{equation}
 M_.F = F(L-x) \label{eq:M_F}
+\end{equation}
+Die Gewichtskraft $F$ kann dabei mit $g=\SI{9.81}{\newton\per\kilogram}$ \cite{g} berechnet werden durch:
+\begin{equation}
+	F = m \cdot g \text{.} \label{eq:F}
 \end{equation}
 Auf Grund der Elastizität des Stabs bewirken in seinem Inneren die entgegengesetzt gleich gerichteten Normal- und Tangentialspannungen ebenfalls ein Drehmoment $M_.{\sigma}$, dass der Deformierung entgegenwirkt und sich berechnen lässt als:
 \begin{equation}
@@ -56,6 +61,14 @@ E \frac{\mathrm{d}^2D}{\mathrm{d}x^2} \int_Q y^2 \mathrm{d}q = F(L-x)\text{.} \l
 Das Integral wird Flächenträgheitsmoment $I$ genannt:
 \begin{equation}
 I \coloneqq \int_Q y^2 \mathrm{d}q \label{eq:I}
+\end{equation}
+Das Flächenträgheitsmoment eines Quadrats mit Seitenlänge $a$ berechnet sich nach Formel\eqref{eq:I} zu:
+\begin{equation}
+	I_.{Quadrat} = \frac{\pi}{12} a^4 \label{eq:I_Quadrat}
+\end{equation}
+Das Flächenträgheitsmoment eines Kreises mit Radius $r$ berechnet sich nach Formel\eqref{eq:I} zu:
+\begin{equation}
+	I_.{Kreis} = \frac{\pi}{4} r^4 \label{eq:I_Kreis}
 \end{equation}
 Nach Integration ergibt sich für $0 \leq x \leq L$  damit für die Durchbiegung:
 \begin{equation*}
@@ -113,15 +126,3 @@ und
 E = \frac{F}{48 D I}\left(4 x^3 - 12 L x^2 + 9 L^2 x - L^3\right)  \left(\frac{L}{2} \leq x \leq L\right) \label{eq:E3}
 \end{equation}
 berechnen.
-Die Gewichtskraft $F$ kann mit $g=\SI{9.81}{\newton\per\kilogram}$ \cite{g} berechnet werden durch:
-\begin{equation}
-	F = m \cdot g \text{.} \label{eq:F}
-\end{equation}
-Das Flächenträgheitsmoment eines Kreises mit Radius $r$ berechnet sich nach Formel\eqref{eq:I} zu:
-\begin{equation}
-	I_.{Kreis} = \frac{\pi}{4} r^4 \label{eq:I_Kreis}
-\end{equation}
-Das Flächenträgheitsmoment eines Quadrats mit Seitenlänge $a$ berechnet sich nach Formel\eqref{eq:I} zu:
-\begin{equation}
-	I_.{Quadrat} = \frac{\pi}{12} a^4 \label{eq:I_Quadrat}
-\end{equation}
