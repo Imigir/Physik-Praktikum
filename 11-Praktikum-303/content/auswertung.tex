@@ -9,8 +9,8 @@ Die Konstanten $k$, $\hslash$, $e_0$, $m_0$, $u_0$ und $N_\text{A}$ sind vom NIS
 \subsection{Apparatekonstanten}
 Der Ausgang "Oscillator" liefert eine konstante Spannung von $\SI{11,5}{\volt}$.
 Am Ausgang "Reference" lässt sich die Spannung regeln.
-\subsection{Ausgangssignal}
-\subsubsection{Ausgangssignal ohne Rauschen}
+
+\subsection{Ausgangssignal ohne Rauschen}
 \begin{figure}
 \centering
 \caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter}
@@ -34,14 +34,14 @@ Am Ausgang "Reference" lässt sich die Spannung regeln.
 \includegraphics[scale=0.6]{content/images/270.jpg}
 \label{fig:U}
 \end{figure}
-Die Spannung am "Reference"-Ausgang wurde auf $\SI{3,26}{\volt}$ bei $\SI{1000}{\hertz}$ eingestellt und der Gain des "Pre-Amplifier" auf 2 eingestellt. In Abbildung \ref{fig:U} sind die Spannungsverläufe für verschiedene Phasenverschiebungen $\Delta\phi$ abgebildet.
+Die Spannung am "Reference"-Ausgang wurde auf $\SI{10e-3}{\volt}$ bei $\SI{1000}{\hertz}$  und der Gain des "Pre-Amplifier" auf 2 eingestellt. In Abbildung \ref{fig:U} sind die Spannungsverläufe für verschiedene Phasenverschiebungen $\Delta\phi$ abgebildet.
 \begin{table}
 	\centering
 	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]}
 		\toprule
-		{$T\phi/\si[per-mode=reciprocal]{\degree}$}&{$U_.{out}/\si[per-mode=reciprocal]{\volt}$ \\
+		{$\phi/\si[per-mode=reciprocal]{\degree}$}&{$U_.{out}/\si[per-mode=reciprocal]{\volt}$ \\
 		\midrule
 		45 & 2,52 \\
 		90 & 4,08 \\
@@ -78,6 +78,53 @@ Damit ergibt sich eine Abweichung von den experimentellen zu den theoretischen W
 Die Graphen dazu sind in Abbildung \ref{fig:U2} zu sehen.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{content/images/plot.pdf}
+\includegraphics[scale=0.5]{content/images/plot.pdf}\label{fig:U2}
 \end{figure}
-\subsubsection{Ausgangssignal mit Rauschen}
+\subsection{Ausgangssignal mit Rauschen}
+Es wurde die Noise-Schaltung auf $10^-3$ gestellt. Die Spannungsverläufe für verschiedene Phasendifferenzen in Abbildung \ref{fig:U3}
+\begin{figure}
+\centering
+\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter mit Noise-Schaltung}
+\begin{minipage}{0.48\textwidth}
+\center{$\Delta\phi=\SI{0}{\degree}$}
+\includegraphics[scale=0.6]{content/images/noise0.jpg}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\center{$\Delta\phi=\SI{45}{\degree}$}
+\includegraphics[scale=0.6]{content/images/noise45.jpg}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\center{$\Delta\phi=\SI{90}{\degree}$}
+\includegraphics[scale=0.6]{content/images/noise90.jpg}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\center{$\Delta\phi=\SI{180}{\degree}$}
+\includegraphics[scale=0.6]{content/images/noise180.jpg}
+\end{minipage}
+\center{$\Delta\phi=\SI{270}{\degree}$}
+\includegraphics[scale=0.6]{content/images/noise270.jpg}
+\label{fig:U3}
+\end{figure}
+Die Messwerte nach zuschalten des Tiefpassfilters sind in Tabelle \ref{tab:tab2} zu sehen.
+\begin{table}
+	\centering
+	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter mit Noise-Schaltung}
+	\sisetup{table-format=1.2}
+	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]}
+		\toprule
+		{$\phi/\si[per-mode=reciprocal]{\degree}$}&{$U_.{out}/10^-3/\si[per-mode=reciprocal]{\volt}$ \\
+		\midrule
+		45 & 34,4\\
+		90 & 59,2 \\
+		105 & 60,8 \\
+		135 & 52,8 \\
+		150 & 34,4 \\
+		180 & 13,0 \\
+		225 & -32,8 \\
+		270 & -56,0 \\
+		315 & -48,0 \\
+		360 & -11,4 \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:tab2}
+\end{table}
