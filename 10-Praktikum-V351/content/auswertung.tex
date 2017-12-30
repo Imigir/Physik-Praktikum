@@ -1,0 +1,21 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+
+Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die
+Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Konstanten $k$, $\hslash$, $e_0$, $m_0$, $u_0$ und $N_\text{A}$ sind vom NIST \cite{nistgov}.
+
+\begin{table}
+	\centering
+	\caption{Test Tabelle}
+	\sisetup{table-format=1.2}
+	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+		\toprule
+		{$T_\text{x}/\si[per-mode=reciprocal]{\kelvin}$}&{$T_\text{y}/\si[per-mode=reciprocal]{\kelvin}$}&{$m_\text{x}/\si[per-mode=reciprocal]{\gram}$}&{$m_\text{y}/\si[per-mode=reciprocal]{\gram}$} \\
+		\midrule
+		21.10 & 83.00 & 270.16 & 498.05 \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:tab1}
+\end{table}
