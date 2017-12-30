@@ -1,3 +1,4 @@
+
 def bereich(x, u, o):
 	if(x>=u and x<=o):
 		return x

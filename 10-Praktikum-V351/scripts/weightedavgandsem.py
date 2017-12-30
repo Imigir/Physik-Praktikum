@@ -1,3 +1,4 @@
+
 ﻿import numpy as np
 from scipy import stats
 def weighted_avg_and_sem(values, weights):

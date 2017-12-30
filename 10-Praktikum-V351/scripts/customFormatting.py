@@ -1,10 +1,7 @@
+
 ﻿import uncertainties.unumpy as unp
 import numpy as np
 from test_dim import test_dim
-
-
-        
-
 
 class floatFormat(object):
     def __init__(self, Number, SI="", format="", SI2=False):
