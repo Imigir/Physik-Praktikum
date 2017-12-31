@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.13)  31 DEC 2017 21:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.13)  31 DEC 2017 21:39
 entering extended mode
 **./auswertung.tex
 (auswertung.tex
@@ -59,31 +59,14 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
-
-Overfull \hbox (20.0pt too wide) in paragraph at lines 1--4
-[]
- []
-
 ! Undefined control sequence.
-l.5 \subsubsection
+l.4 \subsubsection
                   {Rechteck-Spannung}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
-
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 \subsubsection{R
-                    echteck-Spannung}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
 
 Missing character: There is no R in font nullfont!
 Missing character: There is no e in font nullfont!
@@ -145,11 +128,11 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no z in font nullfont!
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 6.
+(Font)              <7> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 6.
+(Font)              <5> on input line 5.
 ! Undefined control sequence.
-l.6 ...nen-Generator wird auf eine Frequenz $f=\SI
+l.5 ...nen-Generator wird auf eine Frequenz $f=\SI
                                                   {50e3}{\hertz}$ und eine S...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -158,7 +141,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.6 ... wird auf eine Frequenz $f=\SI{50e3}{\hertz
+l.5 ... wird auf eine Frequenz $f=\SI{50e3}{\hertz
                                                   }$ und eine Spannung von $...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -185,7 +168,7 @@ Missing character: There is no v in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
-l.6 ... und eine Spannung von $U_.{Rechteck} = \SI
+l.5 ... und eine Spannung von $U_.{Rechteck} = \SI
                                                   {1e3}{\volt}$.\newline
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -194,7 +177,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.6 ...pannung von $U_.{Rechteck} = \SI{1e3}{\volt
+l.5 ...pannung von $U_.{Rechteck} = \SI{1e3}{\volt
                                                   }$.\newline
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -301,7 +284,7 @@ Missing character: There is no e in font nullfont!
 ! Undefined control sequence.
 <write> ... Reference `tab:tab1' on page \thepage 
                                                   \space undefined\on@line .
-l.7 ...1}$ bestimmt, was in Tabelle \ref{tab:tab1}
+l.6 ...1}$ bestimmt, was in Tabelle \ref{tab:tab1}
                                                    zu sehen ist.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -310,7 +293,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `tab:tab1' on page  undefined on input line 7.
+LaTeX Warning: Reference `tab:tab1' on page  undefined on input line 6.
 
 Missing character: There is no z in font nullfont!
 Missing character: There is no u in font nullfont!
@@ -330,7 +313,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.8 \begin{table}
+l.7 \begin{table}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -343,8 +326,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.10 	\caption
-              {Messdaten der Oberwellen einer Rechteck-Spannung}
+l.9 	\caption
+             {Messdaten der Oberwellen einer Rechteck-Spannung}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -393,7 +376,7 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no g in font nullfont!
 ! Undefined control sequence.
-l.11 	\sisetup
+l.10 	\sisetup
               {table-format=1.2}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -424,7 +407,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -436,7 +419,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -448,7 +431,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -460,7 +443,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -472,7 +455,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -484,7 +467,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -496,7 +479,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -508,7 +491,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -520,7 +503,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -532,7 +515,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -544,7 +527,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -556,7 +539,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -568,7 +551,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -580,7 +563,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -592,7 +575,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -604,7 +587,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -616,7 +599,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -628,7 +611,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -640,7 +623,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -652,7 +635,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -664,7 +647,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -676,7 +659,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -688,7 +671,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -700,7 +683,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -712,7 +695,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -724,7 +707,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -736,7 +719,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -748,7 +731,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -760,7 +743,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -772,7 +755,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -784,7 +767,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -796,7 +779,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -808,7 +791,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -820,7 +803,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -832,7 +815,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -844,7 +827,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -856,7 +839,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -868,7 +851,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -880,7 +863,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -892,7 +875,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -904,7 +887,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -916,7 +899,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -928,7 +911,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -940,7 +923,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -952,7 +935,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -964,7 +947,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -976,7 +959,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -988,7 +971,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1000,7 +983,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1012,7 +995,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1024,7 +1007,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1036,7 +1019,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1048,7 +1031,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1060,7 +1043,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1072,7 +1055,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1084,7 +1067,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1096,7 +1079,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1108,7 +1091,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1120,7 +1103,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1132,7 +1115,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1144,7 +1127,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1156,7 +1139,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1168,7 +1151,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1180,7 +1163,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1192,7 +1175,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1204,7 +1187,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1216,7 +1199,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1228,13 +1211,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ....2]S[table-format=3.2]S[table-format=3.2]}
+l.11 ....2]S[table-format=3.2]S[table-format=3.2]}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Undefined control sequence.
-l.13 		\toprule
+l.12 		\toprule
                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1243,7 +1226,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.14 		{$n/\si
+l.13 		{$n/\si
               [per-mode=reciprocal]{}$}&{$\nu/10^3/\si[per-mode=reciprocal]{...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1252,7 +1235,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.14 ...si[per-mode=reciprocal]{}$}&{$\nu/10^3/\si
+l.13 ...si[per-mode=reciprocal]{}$}&{$\nu/10^3/\si
                                                   [per-mode=reciprocal]{\her...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1261,7 +1244,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.14 ...{$\nu/10^3/\si[per-mode=reciprocal]{\hertz
+l.13 ...{$\nu/10^3/\si[per-mode=reciprocal]{\hertz
                                                   }$}&{$U_.n/\si[per-mode=re...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1270,7 +1253,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.14 ...[per-mode=reciprocal]{\hertz}$}&{$U_.n/\si
+l.13 ...[per-mode=reciprocal]{\hertz}$}&{$U_.n/\si
                                                   [per-mode=reciprocal]{\vol...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1279,7 +1262,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.14 ...z}$}&{$U_.n/\si[per-mode=reciprocal]{\volt
+l.13 ...z}$}&{$U_.n/\si[per-mode=reciprocal]{\volt
                                                   }$}&{$\frac{U_.n}{U_.1}/\s...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1288,7 +1271,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.14 ...ciprocal]{\volt}$}&{$\frac{U_.n}{U_.1}/\si
+l.13 ...ciprocal]{\volt}$}&{$\frac{U_.n}{U_.1}/\si
                                                   [per-mode=reciprocal]{}$} \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1299,7 +1282,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <recently read> \midrule 
                          
-l.15 		\midrule
+l.14 		\midrule
                
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1435,7 +1418,7 @@ Missing character: There is no 6 in font nullfont!
 ! Undefined control sequence.
 <recently read> \bottomrule 
                             
-l.25 		\bottomrule
+l.24 		\bottomrule
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1450,7 +1433,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.28 \end{table}
+l.27 \end{table}
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1470,7 +1453,7 @@ Missing character: There is no g in font nullfont!
 ! Undefined control sequence.
 <write> ...ng: Reference `fig:R' on page \thepage 
                                                   \space undefined\on@line .
-l.29 \noindent In Abbildung \ref{fig:R}
+l.28 \noindent In Abbildung \ref{fig:R}
                                         wird das Amplitudenverh√§ltnis gegen...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1479,7 +1462,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `fig:R' on page  undefined on input line 29.
+LaTeX Warning: Reference `fig:R' on page  undefined on input line 28.
 
 Missing character: There is no w in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -1572,14 +1555,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.30 \begin{figure}
+l.29 \begin{figure}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ! Undefined control sequence.
-l.32 \includegraphics
+l.31 \includegraphics
                      [scale=0.5]{content/images/rechteck.pdf}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1632,7 +1615,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.33 \caption
+l.32 \caption
              {Rechteck-Amplitudenverh√§ltnis in Abh√§ngigkeit von der Zahl d...
 
 You're in trouble here.  Try typing  <return>  to proceed.
@@ -1712,7 +1695,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.34 \end{figure}
+l.33 \end{figure}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1732,57 +1715,57 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 5--36
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--35
 []
  []
 
 
-Overfull \hbox (16.52777pt too wide) in paragraph at lines 5--36
+Overfull \hbox (16.52777pt too wide) in paragraph at lines 1--35
 \OML/cmm/m/it/10 f \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (19.65631pt too wide) in paragraph at lines 5--36
+Overfull \hbox (19.65631pt too wide) in paragraph at lines 1--35
 [][]$
  []
 
 
-Overfull \hbox (60.78963pt too wide) in paragraph at lines 5--36
+Overfull \hbox (60.78963pt too wide) in paragraph at lines 1--35
 \OML/cmm/m/it/10 U[][] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (14.6563pt too wide) in paragraph at lines 5--36
+Overfull \hbox (14.6563pt too wide) in paragraph at lines 1--35
 [][]$ 
  []
 
 
-Overfull \hbox (6.00235pt too wide) in paragraph at lines 5--36
+Overfull \hbox (6.00235pt too wide) in paragraph at lines 1--35
 \OML/cmm/m/it/10 n$
  []
 
 
-Overfull \hbox (15.58253pt too wide) in paragraph at lines 5--36
+Overfull \hbox (15.58253pt too wide) in paragraph at lines 1--35
 []$
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 5--36
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 1--35
 []
  []
 
 
-Overfull \hbox (537.37863pt too wide) in paragraph at lines 5--36
+Overfull \hbox (537.37863pt too wide) in paragraph at lines 1--35
 []
  []
 
 
-Overfull \hbox (10.86105pt too wide) in paragraph at lines 5--36
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 1--35
 []
  []
 
 
-Overfull \hbox (69.5512pt too wide) detected at line 38
+Overfull \hbox (69.5512pt too wide) detected at line 37
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 a \OM
 S/cmsy/m/n/10  \OML/cmm/m/it/10 n[][]
  []
@@ -1816,7 +1799,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (134.95375pt too wide) detected at line 42
+Overfull \hbox (134.95375pt too wide) detected at line 41
 \OML/cmm/m/it/10 b[][] \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 01
  \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 01
  []
@@ -1887,12 +1870,12 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (7.34332pt too wide) in paragraph at lines 42--44
+Overfull \hbox (7.34332pt too wide) in paragraph at lines 41--43
          $[]$
  []
 
 
-Overfull \hbox (89.35184pt too wide) detected at line 46
+Overfull \hbox (89.35184pt too wide) detected at line 45
 \OML/cmm/m/it/10 b[][] \OT1/cmr/m/n/10 = 1
  []
 
@@ -1923,7 +1906,7 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no t in font nullfont!
 ! Undefined control sequence.
-l.49 \Delta b = 1\% \text
+l.48 \Delta b = 1\% \text
                          {.}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1932,12 +1915,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (42.0694pt too wide) detected at line 50
+Overfull \hbox (42.0694pt too wide) detected at line 49
 \OT1/cmr/m/n/10 \OML/cmm/m/it/10 b \OT1/cmr/m/n/10 = 1%\OML/cmm/m/it/10 :
  []
 
 ! Undefined control sequence.
-l.51 \subsubsection
+l.50 \subsubsection
                    {S√§gezahn-Spannung}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2006,7 +1989,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no z in font nullfont!
 ! Undefined control sequence.
-l.52 ...en-Generator wird auf eine Frequenz $f=\SI
+l.51 ...en-Generator wird auf eine Frequenz $f=\SI
                                                   {100e3}{\hertz}$ und eine ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2015,7 +1998,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.52 ...ird auf eine Frequenz $f=\SI{100e3}{\hertz
+l.51 ...ird auf eine Frequenz $f=\SI{100e3}{\hertz
                                                   }$ und eine Spannung von $...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2042,132 +2025,14 @@ Missing character: There is no v in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 ! Undefined control sequence.
-l.52 ...nd eine Spannung von $U_.{S√§gezahn} = \SI
+l.51 ...nd eine Spannung von $U_.{S√§gezahn} = \SI
                                                   {1e3}{\volt}$.\newline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.52 ...nnung von $U_.{S√§gezahn} = \SI{1e3}{\volt
-                                                  }$.\newline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no √ in font cmr10!
-Missing character: There is no § in font cmr10!
-Missing character: There is no . in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no D in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no w in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no v in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no √ in font nullfont!
-Missing character: There is no § in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no O in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no w in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no z in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no w in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no T in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-! Undefined control sequence.
-<write> ... Reference `tab:tab2' on page \thepage 
-                                                  \space undefined\on@line .
-l.53 ...}$ bestimmt, was in Tabelle \ref{tab:tab2}
-                                                   zu sehen ist.
 (That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 23 strings out of 493312
- 510 string characters out of 3138898
- 57761 words of memory out of 3000000
- 3669 multiletter control sequences out of 15000+200000
+ 22 strings out of 493312
+ 500 string characters out of 3138898
+ 56761 words of memory out of 3000000
+ 3668 multiletter control sequences out of 15000+200000
  3948 words of font info for 15 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  18i,8n,16p,197b,104s stack positions out of 5000i,500n,10000p,200000b,50000s
