@@ -2,18 +2,18 @@
 \label{sec:Auswertung}
 \subsection{Fourier-Analyse}
 \subsubsection{Rechteck-Spannung}
-Der Funktionen-Generator wird auf eine Frequenz $f=\SI{50e3}{\hertz}$ und eine Spannung von $U_.{Rechteck} = \SI{1e3}{\volt}$.\newline
-Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$-ten Oberwelle zur ersten $\frac{U_.n}{U_.1}$ bestimmt, was in Tabelle \ref{tab:tab1} zu sehen ist.
+Der Funktionen-Generator wird auf eine Frequenz $f=\SI{50e3}{\hertz}$ und eine Spannung von $U_.{Rechteck} = \SI{1e3}{\volt}$ eingestellt.
+Aus den gemessenen Daten wird das Amplitudenverhältnis $\frac{U_.n}{U_.1}$ der $n$ten Oberwelle zur Grundschwingung bestimmt, was in Tabelle \ref{tab:tab1} zu sehen ist.
 \begin{table}
 	\centering
 	\caption{Messdaten der Oberwellen einer Rechteck-Spannung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+	\begin{tabular}{S[table-format=2.0] S[table-format=3.1]S[table-format=3.1]S[table-format=1.2]}
 		\toprule
-		{$n/\si[per-mode=reciprocal]{}$}&{$\nu/10^3/\si[per-mode=reciprocal]{\hertz}$}&{$U_.n/\si[per-mode=reciprocal]{\volt}$}&{$\frac{U_.n}{U_.1}/\si[per-mode=reciprocal]{}$} \\
+		{$n$}&{$\nu/10^3\si[per-mode=reciprocal]{\hertz}$}&{$U_.n/\si[per-mode=reciprocal]{\volt}$}&{$\frac{U_.n}{U_.1}$} \\
 		\midrule
-		1 & 43,75 & 424 & 1 \\
-		3 & 146,8 & 144 & 0,34 \\
+		1 & 43,8 & 424,0 & 1,00 \\
+		3 & 146,8 & 144,0 & 0,34 \\
 		5 & 234,3 & 80,0 & 0,19 \\
 		7 & 337,5 & 62,8 & 0,15 \\
 		9 & 431,2 & 41,6 & 0,10 \\
@@ -28,7 +28,7 @@ Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$-ten Oberwelle zu
 \noindent In Abbildung \ref{fig:R} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{content/images/rechteck.pdf}
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/rechteck.pdf}
 \caption{Rechteck-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle}\label{fig:R}
 \end{figure}
 Die Regression 
@@ -54,11 +54,11 @@ Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$-ten Oberwelle zu
 	\centering
 	\caption{Messdaten der Oberwellen einer Sägezahn-Spannung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+	\begin{tabular}{S[table-format=1.0] S[table-format=3.1]S[table-format=3.1]S[table-format=1.2]}
 		\toprule
-		{$n/\si[per-mode=reciprocal]{}$}&{$\nu/10^3/\si[per-mode=reciprocal]{\hertz}$}&{$U_.n/\si[per-mode=reciprocal]{\volt}$}&{$\frac{U_.n}{U_.1}/\si[per-mode=reciprocal]{}$} \\
+		{$n$}&{$\nu/10^3\si[per-mode=reciprocal]{\hertz}$}&{$U_.n/\si[per-mode=reciprocal]{\volt}$}&{$\frac{U_.n}{U_.1}$} \\
 		\midrule
-		1 & 87,5 & 208 & 1 \\
+		1 & 87,5 & 208,0 & 1,00 \\
 		2 & 187,5 & 96,0 & 0,46 \\
 		3 & 287,5 & 72,0 & 0,35 \\
 		4 & 387,5 & 54,4 & 0,26 \\
@@ -74,7 +74,7 @@ Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$-ten Oberwelle zu
 \noindent In Abbildung \ref{fig:S} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{content/images/saegezahn.pdf}
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/saegezahn.pdf}
 \caption{Sägezahn-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle}\label{fig:S}
 \end{figure}
 Die Regression nach Gleichung \eqref{eq:Reg} liefert:
@@ -92,18 +92,18 @@ Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$-ten Oberwelle zu
 	\centering
 	\caption{Messdaten der Oberwellen einer Dreieck-Spannung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]S[table-format=3.2]S[table-format=3.2]}
+	\begin{tabular}{S[table-format=2.0] S[table-format=4.0]S[table-format=3.1]S[table-format=3.1]}
 		\toprule
-		{$n/\si[per-mode=reciprocal]{}$}&{$\nu/10^3/\si[per-mode=reciprocal]{\hertz}$}&{$U_.n/\si[per-mode=reciprocal]{\volt}$}&{$\frac{U_.n}{U_.1}/\si[per-mode=reciprocal]{}$} \\
+		{$n$}&{$\nu/10^3\si[per-mode=reciprocal]{\hertz}$}&{$U_.n/\si[per-mode=reciprocal]{\volt}$}&{$\frac{U_.n}{U_.1}/10^{-2}$} \\
 		\midrule
-		1 & 85 & 270 & 1 \\
-		3 & 245 & 29,8 & 0,11 \\
-		5 & 405 & 11,0 & 0,04 \\
-		7 & 565 & 5,0 & 0,02 \\
-		9 & 725 & 3,4 & 0,01 \\
-		11 & 885 & 2,0 & 0,01 \\
-		13 & 1045 & 1,8 & 0,01 \\
-		15 & 1205 & 1,3 & 0,004 \\
+		1 & 85 & 270,0 & 100,0 \\
+		3 & 245 & 29,8 & 11,0 \\
+		5 & 405 & 11,0 & 4,1 \\
+		7 & 565 & 5,0 & 1,9 \\
+		9 & 725 & 3,4 & 1,3 \\
+		11 & 885 & 2,0 & 0,7 \\
+		13 & 1045 & 1,8 & 0,7 \\
+		15 & 1205 & 1,3 & 0,5 \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:tab3}
@@ -111,7 +111,7 @@ Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$-ten Oberwelle zu
 \noindent In Abbildung \ref{fig:D} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{content/images/dreieck.pdf}
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/dreieck.pdf}
 \caption{Dreeick-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle}\label{fig:D}
 \end{figure}
 Die Regression nach Gleichung \eqref{eq:Reg} liefert:
@@ -135,11 +135,11 @@ Eine Rechteck-Spannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:ta
 	\centering
 	\caption{Einstellungen zur Synthese einer Rechteck-Spannung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]}
+	\begin{tabular}{S[table-format=1.0] S[table-format=3.1]}
 		\toprule
-		{$n/\si[per-mode=reciprocal]{}$}&{$U/\si[per-mode=reciprocal]{\volt}$}\\
+		{$n$}&{$U/\si[per-mode=reciprocal]{\volt}$}\\
 		\midrule
-		1 & 127 \\
+		1 & 127,0 \\
 		3 & 42,4 \\
 		5 & 25,5 \\
 		7 & 18,2 \\
@@ -149,7 +149,8 @@ Eine Rechteck-Spannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:ta
 	\label{tab:tab4}
 \end{table}
 \begin{figure}
-\includegraphics[scale=0.8]{content/images/rechteck.jpg}
+\centering
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/rechteck.jpg}
 \caption{Synthetisierte Rechteck-Spannung}
 \label{fig:R2}
 \end{figure}
@@ -159,9 +160,9 @@ Eine Sägezahn-Spannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:t
 	\centering
 	\caption{Einstellungen zur Synthese einer Sägezahn-Spannung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]}
+	\begin{tabular}{S[table-format=1.0] S[table-format=2.1]}
 		\toprule
-		{$n/\si[per-mode=reciprocal]{}$}&{$U/\si[per-mode=reciprocal]{\volt}$}\\						\midrule
+		{$n$}&{$U/\si[per-mode=reciprocal]{\volt}$}\\						\midrule
 		1 & 63,7 \\
 		2 & 31,8 \\
 		3 & 21,2 \\
@@ -176,7 +177,8 @@ Eine Sägezahn-Spannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:t
 	\label{tab:tab5}
 \end{table}
 \begin{figure}
-\includegraphics[scale=0.8]{content/images/saegezahn.jpg}
+\centering
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/saegezahn.jpg}
 \caption{Synthetisierte Sägezahn-Spannung}
 \label{fig:S2}
 \end{figure}
@@ -186,9 +188,9 @@ Eine Rechteckspannung von $\SI{50}{\volt}$ wird aus den in Tabelle \ref{tab:tab6
 	\centering
 	\caption{Einstellungen zur Synthese einer Dreieck-Spannung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]}
+	\begin{tabular}{S[table-format=1.0] S[table-format=3.1]}
 		\toprule
-		{$n/\si[per-mode=reciprocal]{}$}&{$U/\si[per-mode=reciprocal]{\volt}$}\\
+		{$n$}&{$U/\si[per-mode=reciprocal]{\volt}$}\\
 		\midrule
 		1 & 127,3 \\
 		3 & 14,1 \\
@@ -199,6 +201,7 @@ Eine Rechteckspannung von $\SI{50}{\volt}$ wird aus den in Tabelle \ref{tab:tab6
 	\label{tab:tab6}
 \end{table}
 \begin{figure}
-\includegraphics[scale=0.8]{content/images/dreieck.jpg}
+\centering
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/dreieck.jpg}
 \caption{Synthetisierte Dreieck-Spannung}\label{fig:D2}
 \end{figure}
