@@ -1,8 +1,64 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Berechnung der theoretischen Fourier-Koeffizienten}
+\subsubsection{Rechteckspannung}
+Die zeitabhängige Funktion f(t) der Rechteckspannung wird definiert als:
+\[
+f(t)=
+	\begin{cases}
+     -U_.0 & \text{für } -\frac{T}{2}+nT \textless t \textless nT\\
+     0  & \text{für } x=n\frac{T}{2} \\
+     U_.0  & \text{für } nT \textless t \textless \frac{T}{2}+nT 
+   	\end{cases}
+\hspace{2em},n\in N
+\]
+Dabei entspricht $T$ der Periodendauer und $U_.0$ der Amplitude der Spannung. Da die Funktion ungerade definiert wurde, sind alle Koeffizienten $\mathrm{a}_n=0$ und die $\mathrm{b}_n$ ergeben sich nach Formel \eqref{eq:Koeffizienten} zu:
+\begin{equation}
+\mathrm{b}_n =
+	\begin{cases} 
+	\frac{4U_.0}{\pi n} & \text{bei ungeradem }n\\
+	0 & \text{bei geradem }n
+	\end{cases}
+\end{equation}
+
+\subsubsection{Sägezahnspannung}
+Die zeitabhängige Funktion f(t) der Sägezahnspannung wird definiert als:
+\[
+f(t)=
+	\begin{cases}
+     \frac{2U-.0}{T}t-U_.0 & \text{für } -\frac{T}{2}+nT \textless t \textless nT\\
+     0  & \text{für } x=nT
+   	\end{cases}
+\hspace{2em},n\in N
+\]
+Dabei entspricht $T$ der Periodendauer und $U_.0$ der Amplitude der Spannung. Da die Funktion ungerade definiert wurde, sind alle Koeffizienten $\mathrm{a}_n=0$ und die $\mathrm{b}_n$ ergeben sich nach Formel \eqref{eq:Koeffizienten} zu:
+\begin{equation}
+\mathrm{b}_n = \frac{-2U_.0}{\pi n} 
+\end{equation}
+
+\subsubsection{Dreieckspannung}
+Die zeitabhängige Funktion f(t) der Dreieckspannung wird definiert als:
+\[
+f(t)=
+	\begin{cases}
+     \frac{4U-.0}{T}t-U_.0 & \text{für } nT \le t \textless \frac{T}{2}+nT\\
+     \frac{-4U-.0}{T}t+3U_.0 & \text{für } \frac{T}{2}+nT \le t \textless nT
+   	\end{cases}
+\hspace{2em},n\in N
+\]
+Dabei entspricht $T$ der Periodendauer und $U_.0$ der Amplitude der Spannung. Da die Funktion gerade definiert wurde, sind alle Koeffizienten $\mathrm{b}_n=0$ und die $\mathrm{a}_n$ ergeben sich nach Formel \eqref{eq:Koeffizienten} zu:
+\begin{equation}
+\mathrm{a}_n =
+	\begin{cases} 
+	\frac{-8U_.0}{\pi^2 n^2} & \text{bei ungeradem }n\\
+	0 & \text{bei geradem }n
+	\end{cases}
+\end{equation}
+
 \subsection{Fourier-Analyse}
-\subsubsection{Rechteck-Spannung}
-Der Funktionen-Generator wird auf eine Frequenz $f=\SI{50e3}{\hertz}$ und eine Spannung von $U_.{Rechteck} = \SI{1e3}{\volt}$ eingestellt.
+\subsubsection{Rechteckspannung}
+Der Funktionsgenerator wird auf eine Frequenz $f=\SI{50e3}{\hertz}$ und eine Spannung von $U_.{Rechteck} = \SI{1e3}{\volt}$ eingestellt.
 Aus den gemessenen Daten wird das Amplitudenverhältnis $\frac{U_.n}{U_.1}$ der $n$ten Oberwelle zur Grundschwingung bestimmt, was in Tabelle \ref{tab:tab1} zu sehen ist.
 \begin{table}
 	\centering
@@ -39,7 +95,7 @@ liefert für den Koeffizienten:
 \[
 b_.{Rechteck,mess}= 1,01 \pm 0,01
 \]
-Der Theorie nach fällt die Kurve einer Rechteck-Spannung mit $\frac{1}{n}$ ab, also gilt:
+Der Theorie nach fällt die Kurve einer Rechteckspannung mit $\frac{1}{n}$ ab, also gilt:
 \[
 b_.{Rechteck,theo}= 1
 \]
@@ -47,12 +103,12 @@ Die Abweichung beträgt somit
 \[
 \Delta b = 1\% \text{.}
 \]
-\subsubsection{Sägezahn-Spannung}
-Der Funktionen-Generator wird auf eine Frequenz $f=\SI{100e3}{\hertz}$ und eine Spannung von $U_.{Saegezahn} = \SI{1e3}{\volt}$.\newline
-Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$-ten Oberwelle zur ersten $\frac{U_.n}{U_.1}$ bestimmt, was in Tabelle \ref{tab:tab2} zu sehen ist.
+\subsubsection{Sägezahnspannung}
+Der Funktionsgenerator wird auf eine Frequenz $f=\SI{100e3}{\hertz}$ und eine Spannung von $U_.{Saegezahn} = \SI{1e3}{\volt}$.\newline
+Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$ten Oberwelle zur ersten $\frac{U_.n}{U_.1}$ bestimmt, was in Tabelle \ref{tab:tab2} zu sehen ist.
 \begin{table}
 	\centering
-	\caption{Messdaten der Oberwellen einer Sägezahn-Spannung}
+	\caption{Messdaten der Oberwellen einer Sägezahnspannung}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.0] S[table-format=3.1]S[table-format=3.1]S[table-format=1.2]}
 		\toprule
@@ -85,12 +141,12 @@ Dies entspricht dem Theoriewert
 \[
 b_.{Sägezahn,theo} = 1
 \]
-\subsubsection{Dreieck-Spannung}
-Der Funktionen-Generator wird auf eine Frequenz $f=\SI{100e3}{\hertz}$ und eine Spannung von $U_.{Dreieck} = \SI{1e3}{\volt}$.\newline
-Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$-ten Oberwelle zur ersten $\frac{U_.n}{U_.1}$ bestimmt, was in Tabelle \ref{tab:tab3} zu sehen ist.
+\subsubsection{Dreieckspannung}
+Der Funktionsgenerator wird auf eine Frequenz $f=\SI{100e3}{\hertz}$ und eine Spannung von $U_.{Dreieck} = \SI{1e3}{\volt}$.\newline
+Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$ten Oberwelle zur ersten $\frac{U_.n}{U_.1}$ bestimmt, was in Tabelle \ref{tab:tab3} zu sehen ist.
 \begin{table}
 	\centering
-	\caption{Messdaten der Oberwellen einer Dreieck-Spannung}
+	\caption{Messdaten der Oberwellen einer Dreieckspannung}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=2.0] S[table-format=4.0]S[table-format=3.1]S[table-format=3.1]}
 		\toprule
@@ -118,7 +174,7 @@ Die Regression nach Gleichung \eqref{eq:Reg} liefert:
 \[
 b_.{Sägezahn,mess} = 2,01 \pm 0,01
 \]
-Da die Dreieck-Spannung theoretisch mit $\frac{1}{n^2}$ abfällt,  gibt es eine Abweichung zum Theoriewert
+Da die Dreieckspannung theoretisch mit $\frac{1}{n^2}$ abfällt,  gibt es eine Abweichung zum Theoriewert
 \[
 b_.{Sägezahn,theo} = 2
 \]
@@ -128,12 +184,12 @@ von
 \]
 \subsection{Fourier-Synthese}
 Bei allen Synthesen wurden die einzelnen Oberwellen über die Lissajous-Figuren so justiert, dass das bestmögliche Resultat erreicht wurde.
-\subsubsection{Rechteck-Spannung}
-Eine Rechteck-Spannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:tab4} aufgezählten Oberwellen synthetisiert. Das Ergebnis ist in Abbildung \ref{fig:R2} zu sehen.
+\subsubsection{Rechteckspannung}
+Eine Rechteckspannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:tab4} aufgezählten Oberwellen synthetisiert. Das Ergebnis ist in Abbildung \ref{fig:R2} zu sehen.
 
 \begin{table}
 	\centering
-	\caption{Einstellungen zur Synthese einer Rechteck-Spannung}
+	\caption{Einstellungen zur Synthese einer Rechteckspannung}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.0] S[table-format=3.1]}
 		\toprule
@@ -151,14 +207,14 @@ Eine Rechteck-Spannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:ta
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/rechteck.jpg}
-\caption{Synthetisierte Rechteck-Spannung}
+\caption{Synthetisierte Rechteckspannung}
 \label{fig:R2}
 \end{figure}
-\subsubsection{Sägezahn-Spannung}
-Eine Sägezahn-Spannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:tab5} aufgezählten Oberwellen synthetisiert. Das Ergebnis ist in Abbildung \ref{fig:S2} zu sehen.
+\subsubsection{Sägezahnspannung}
+Eine Sägezahnspannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:tab5} aufgezählten Oberwellen synthetisiert. Das Ergebnis ist in Abbildung \ref{fig:S2} zu sehen.
 \begin{table}
 	\centering
-	\caption{Einstellungen zur Synthese einer Sägezahn-Spannung}
+	\caption{Einstellungen zur Synthese einer Sägezahnspannung}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.0] S[table-format=2.1]}
 		\toprule
@@ -179,10 +235,10 @@ Eine Sägezahn-Spannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:t
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/saegezahn.jpg}
-\caption{Synthetisierte Sägezahn-Spannung}
+\caption{Synthetisierte Sägezahnspannung}
 \label{fig:S2}
 \end{figure}
-\subsubsection{Dreieck-Spannung}
+\subsubsection{Dreieckspannung}
 Eine Rechteckspannung von $\SI{50}{\volt}$ wird aus den in Tabelle \ref{tab:tab6} aufgezählten Oberwellen synthetisiert. Das Ergebnis ist in Abbildung \ref{fig:D2} zu sehen.
 \begin{table}
 	\centering
@@ -203,5 +259,5 @@ Eine Rechteckspannung von $\SI{50}{\volt}$ wird aus den in Tabelle \ref{tab:tab6
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/dreieck.jpg}
-\caption{Synthetisierte Dreieck-Spannung}\label{fig:D2}
+\caption{Synthetisierte Dreieckspannung}\label{fig:D2}
 \end{figure}
