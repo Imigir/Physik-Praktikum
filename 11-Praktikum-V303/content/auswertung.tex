@@ -2,7 +2,7 @@
 \label{sec:Auswertung}
 
 
-Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt.
 
 \subsection{Apparatekonstanten}
 \label{sec:Apparatekonstanten}
@@ -13,25 +13,36 @@ Am Ausgang "Reference" lässt sich die Spannung regeln.
 \label{sec:oR}
 \begin{figure}
 \centering
-\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter}
 \begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{0}{\degree}$}
-\includegraphics[scale=0.6]{content/images/00.jpg}
+\includegraphics[scale=.75]{content/images/00.jpg}
 \end{minipage}
 \begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{45}{\degree}$}
-\includegraphics[scale=0.6]{content/images/45.jpg}
+\includegraphics[scale=.75]{content/images/45.jpg}
 \end{minipage}
+
+\vspace{2em}
 \begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{90}{\degree}$}
-\includegraphics[scale=0.6]{content/images/90.jpg}
+\includegraphics[scale=.75]{content/images/90.jpg}
 \end{minipage}
 \begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{180}{\degree}$}
-\includegraphics[scale=0.6]{content/images/180.jpg}
+\includegraphics[scale=.75]{content/images/180.jpg}
 \end{minipage}
+
+\vspace{2em}
+\begin{minipage}{.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{270}{\degree}$}
-\includegraphics[scale=0.6]{content/images/270.jpg}
+\includegraphics[scale=.75]{content/images/270.jpg}
+\end{minipage}
+\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter}
 \label{fig:U}
 \end{figure}
 Die Signal-Spannung $U_.{Sig}$ am "Reference"-Ausgang wurde auf $\SI{10e-3}{\volt}$ bei $\SI{1000}{\hertz}$  und der Gain des "Pre-Amplifier" auf 2 eingestellt. Als Referenzspannung $U_.{ref}$ wird die in Abschnitt \ref{sec:Apparatekonstanten} genannte Spannung des "Oscillator"-Ausgangs verwendet und die Frequenz ebenfalls auf $\SI{1000}{\hertz}$ eingestellt. In Abbildung \ref{fig:U} sind die Spannungsverläufe für verschiedene Phasenverschiebungen $\Delta\phi$ abgebildet.
@@ -39,7 +50,7 @@ Die Signal-Spannung $U_.{Sig}$ am "Reference"-Ausgang wurde auf $\SI{10e-3}{\vol
 	\centering
 	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]}
+	\begin{tabular}{S[table-format=3.0] S[table-format=2.2]}
 		\toprule
 		{$\phi/\si{\degree}$}&{$U_.{out}/\si{\volt}$} \\
 		\midrule
@@ -82,7 +93,7 @@ Damit ergibt sich eine Abweichung von den experimentellen zu den theoretischen W
 Die Graphen dazu sind in Abbildung \ref{fig:U2} zu sehen.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{content/images/plot.pdf}
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/plot.pdf}
 \caption{Graphen der Messwerte mit Tiefpassfilter, ohne Noise-Schaltung}
 \label{fig:U2}
 \end{figure}
@@ -91,34 +102,45 @@ Die Graphen dazu sind in Abbildung \ref{fig:U2} zu sehen.
 Es wurde die Noise-Schaltung auf $10^-3$ gestellt. Die Spannungsverläufe für verschiedene Phasendifferenzen in Abbildung \ref{fig:U3}
 \begin{figure}
 \centering
-\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter mit Noise-Schaltung}
 \begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{0}{\degree}$}
-\includegraphics[scale=0.6]{content/images/noise0.jpg}
+\includegraphics[scale=0.75]{content/images/noise0.jpg}
 \end{minipage}
 \begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{45}{\degree}$}
-\includegraphics[scale=0.6]{content/images/noise45.jpg}
+\includegraphics[scale=0.75]{content/images/noise45.jpg}
 \end{minipage}
+
+\vspace{2em}
 \begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{90}{\degree}$}
-\includegraphics[scale=0.6]{content/images/noise90.jpg}
+\includegraphics[scale=0.75]{content/images/noise90.jpg}
 \end{minipage}
 \begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{180}{\degree}$}
-\includegraphics[scale=0.6]{content/images/noise180.jpg}
+\includegraphics[scale=0.75]{content/images/noise180.jpg}
 \end{minipage}
+
+\vspace{2em}
+\begin{minipage}{0.48\textwidth}
+\centering
 \center{$\Delta\phi=\SI{270}{\degree}$}
-\includegraphics[scale=0.6]{content/images/noise270.jpg}
+\includegraphics[scale=0.75]{content/images/noise270.jpg}
+\end{minipage}
+\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter mit Noise-Schaltung}
 \label{fig:U3}
 \end{figure}
 \begin{table}
 	\centering
 	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter mit Noise-Schaltung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]}
+	\begin{tabular}{S[table-format=3.0] S[table-format=3.1]}
 		\toprule
-		{$\phi/\si[per-mode=reciprocal]{\degree}$}&{$U_.{out}/10^-3/\si[per-mode=reciprocal]{\volt}$} \\
+		{$\phi/\si[per-mode=reciprocal]{\degree}$}&{$U_.{out}/10^{-3}\si[per-mode=reciprocal]{\volt}$} \\
 		\midrule
 		45 & 34,4 \\
 		90 & 59,2 \\
@@ -155,7 +177,7 @@ Damit ergeben sich die Abweichungen:
 Die Graphen dazu sind in Abbildung \ref{fig:U4} zu sehen.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{content/images/plot2.pdf}
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/plot2.pdf}
 \caption{Graphen der Messwerte mit Tiefpassfilter, mit Noise-Schaltung}\label{fig:U4}
 \end{figure}
 \subsubsection{Leuchtdiode}
@@ -164,11 +186,11 @@ Die Pulsfrequenz der LED wurde auf $\SI{200}{\hertz}$ und die Verstärkung am Pr
 	\centering
 	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter mit Noise-Schaltung}
 	\sisetup{table-format=1.2}
-	\begin{tabular}{S[table-format=3.2] S[table-format=3.2]}
+	\begin{tabular}{S[table-format=3.0] S[table-format=2.2]}
 		\toprule
 		{$r/10^2/\si[per-mode=reciprocal]{\metre}$}&{$U/\si[per-mode=reciprocal]{\volt}$} \\
 		\midrule
-		30 & 11,2 \\
+		30 & 11,20 \\
 		34 & 9,00 \\
 		38 & 7,40 \\
 		42 & 6,17 \\
@@ -188,13 +210,13 @@ Die Pulsfrequenz der LED wurde auf $\SI{200}{\hertz}$ und die Verstärkung am Pr
 		98 & 1,16 \\
 		102 & 1,08 \\
 		106 & 1,00 \\
-		110 & 0,925 \\
+		110 & 0,93 \\
 		114 & 0,86 \\
-		118 & 0,8 \\
+		118 & 0,80 \\
 		122 & 0,74 \\
-		126 & 0,7 \\
+		126 & 0,70 \\
 		130 & 0,65 \\
-		134 & 0,6 \\
+		134 & 0,60 \\
 		138 & 0,51 \\
 		\bottomrule
 	\end{tabular}
@@ -203,7 +225,7 @@ Die Pulsfrequenz der LED wurde auf $\SI{200}{\hertz}$ und die Verstärkung am Pr
 In Abbildung \ref{fig:U5} U gegen r aufgetragen.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{content/images/plot3.pdf}
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/plot3.pdf}
 \caption{Logarithmische Darstellung des Verhaltens der Spannung bei zunehmendem Abstand der Leuchtdiode}\label{fig:U5}
 \end{figure}
 Mittels der Regression $U(r)=a\cdot r^{-b}$ ergibt sich
