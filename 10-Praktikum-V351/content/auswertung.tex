@@ -20,6 +20,7 @@ Dabei entspricht $T$ der Periodendauer und $U_.0$ der Amplitude der Spannung. Da
 	\frac{4U_.0}{\pi n} & \text{bei ungeradem }n\\
 	0 & \text{bei geradem }n
 	\end{cases}
+\label{eq:KoeffRechteck}
 \end{equation}
 
 \subsubsection{Sägezahnspannung}
@@ -35,6 +36,7 @@ f(t)=
 Dabei entspricht $T$ der Periodendauer und $U_.0$ der Amplitude der Spannung. Da die Funktion ungerade definiert wurde, sind alle Koeffizienten $\mathrm{a}_n=0$ und die $\mathrm{b}_n$ ergeben sich nach Formel \eqref{eq:Koeffizienten} zu:
 \begin{equation}
 \mathrm{b}_n = \frac{-2U_.0}{\pi n} 
+\label{eq:KoeffSägezahn}
 \end{equation}
 
 \subsubsection{Dreieckspannung}
@@ -54,15 +56,17 @@ Dabei entspricht $T$ der Periodendauer und $U_.0$ der Amplitude der Spannung. Da
 	\frac{-8U_.0}{\pi^2 n^2} & \text{bei ungeradem }n\\
 	0 & \text{bei geradem }n
 	\end{cases}
+\label{eq:KoeffDreieck}
 \end{equation}
 
 \subsection{Fourier-Analyse}
 \subsubsection{Rechteckspannung}
 Der Funktionsgenerator wird auf eine Frequenz $f=\SI{50e3}{\hertz}$ und eine Spannung von $U_.{Rechteck} = \SI{1e3}{\volt}$ eingestellt.
 Aus den gemessenen Daten wird das Amplitudenverhältnis $\frac{U_.n}{U_.1}$ der $n$ten Oberwelle zur Grundschwingung bestimmt, was in Tabelle \ref{tab:tab1} zu sehen ist.
+
 \begin{table}
 	\centering
-	\caption{Messdaten der Oberwellen einer Rechteck-Spannung}
+	\caption{Messdaten der Oberwellen einer Rechteckspannung.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=2.0] S[table-format=3.1]S[table-format=3.1]S[table-format=1.2]}
 		\toprule
@@ -81,34 +85,45 @@ Aus den gemessenen Daten wird das Amplitudenverhältnis $\frac{U_.n}{U_.1}$ der 
 	\end{tabular}
 	\label{tab:tab1}
 \end{table}
-\noindent In Abbildung \ref{fig:R} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen.
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/rechteck.pdf}
-\caption{Rechteck-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle}\label{fig:R}
-\end{figure}
-Die Regression 
+
+\noindent In Abbildung \ref{fig:R} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen. Die Regression 
 \begin{equation}
 \frac{U_.n}{U_.1}(n) = a \cdot n^{-b}\label{eq:Reg}
 \end{equation}
 liefert für den Koeffizienten:
 \[
-b_.{Rechteck,mess}= 1,01 \pm 0,01
+b_.{Rechteck,mess}= 1,01 \pm 0,01\text{.}
 \]
-Der Theorie nach fällt die Kurve einer Rechteckspannung mit $\frac{1}{n}$ ab, also gilt:
+Nach \eqref{eq:KoeffRechteck} fällt die Kurve einer Rechteckspannung mit $\frac{1}{n}$ ab, also gilt:
 \[
-b_.{Rechteck,theo}= 1
+b_.{Rechteck,theo}= 1\text{.}
 \]
 Die Abweichung beträgt somit
 \[
 \Delta b = 1\% \text{.}
 \]
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/rechteck.pdf}
+\caption{Rechteck-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle.}\label{fig:R}
+\end{figure}
+
 \subsubsection{Sägezahnspannung}
 Der Funktionsgenerator wird auf eine Frequenz $f=\SI{100e3}{\hertz}$ und eine Spannung von $U_.{Saegezahn} = \SI{1e3}{\volt}$.\newline
-Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$ten Oberwelle zur ersten $\frac{U_.n}{U_.1}$ bestimmt, was in Tabelle \ref{tab:tab2} zu sehen ist.
+Aus den gemessenen Daten wird das Amplitudenverhältnis $\frac{U_.n}{U_.1}$ der $n$ten Oberwelle zur Grundschwingung bestimmt, was in Tabelle \ref{tab:tab2} zu sehen ist. In Abbildung \ref{fig:S} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen. Die Regression nach Gleichung \eqref{eq:Reg} liefert:
+\[
+b_.{Sägezahn,mess} = 1,00 \pm 0,02\text{.}
+\]
+Dies entspricht dem Theoriewert 
+\[
+b_.{Sägezahn,theo} = 1,
+\]
+da nach \eqref{eq:KoeffSägezahn} die Kurve mit $\frac{1}{n}$ abnimmt.
+
 \begin{table}
 	\centering
-	\caption{Messdaten der Oberwellen einer Sägezahnspannung}
+	\caption{Messdaten der Oberwellen einer Sägezahnspannung.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.0] S[table-format=3.1]S[table-format=3.1]S[table-format=1.2]}
 		\toprule
@@ -127,26 +142,20 @@ Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$ten Oberwelle zur
 	\end{tabular}
 	\label{tab:tab2}
 \end{table}
-\noindent In Abbildung \ref{fig:S} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen.
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/saegezahn.pdf}
-\caption{Sägezahn-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle}\label{fig:S}
+\caption{Sägezahn-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle.}\label{fig:S}
 \end{figure}
-Die Regression nach Gleichung \eqref{eq:Reg} liefert:
-\[
-b_.{Sägezahn,mess} = 1,00 \pm 0,02
-\]
-Dies entspricht dem Theoriewert 
-\[
-b_.{Sägezahn,theo} = 1
-\]
+
 \subsubsection{Dreieckspannung}
 Der Funktionsgenerator wird auf eine Frequenz $f=\SI{100e3}{\hertz}$ und eine Spannung von $U_.{Dreieck} = \SI{1e3}{\volt}$.\newline
-Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$ten Oberwelle zur ersten $\frac{U_.n}{U_.1}$ bestimmt, was in Tabelle \ref{tab:tab3} zu sehen ist.
+Aus den gemessenen Daten wird das Amplitudenverhältnis $\frac{U_.n}{U_.1}$ der $n$ten Oberwelle zur Grundschwingung bestimmt, was in Tabelle \ref{tab:tab3} zu sehen ist.
+
 \begin{table}
 	\centering
-	\caption{Messdaten der Oberwellen einer Dreieckspannung}
+	\caption{Messdaten der Oberwellen einer Dreieckspannung.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=2.0] S[table-format=4.0]S[table-format=3.1]S[table-format=3.1]}
 		\toprule
@@ -164,17 +173,12 @@ Aus den gemessenen Daten wird das Amplitudenverhältnis der $n$ten Oberwelle zur
 	\end{tabular}
 	\label{tab:tab3}
 \end{table}
-\noindent In Abbildung \ref{fig:D} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen.
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/dreieck.pdf}
-\caption{Dreeick-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle}\label{fig:D}
-\end{figure}
-Die Regression nach Gleichung \eqref{eq:Reg} liefert:
+
+\noindent In Abbildung \ref{fig:D} wird das Amplitudenverhältnis gegen die Anzahl der Oberwellen halblogarithmisch aufgetragen. Die Regression nach Gleichung \eqref{eq:Reg} liefert:
 \[
-b_.{Sägezahn,mess} = 2,01 \pm 0,01
+b_.{Sägezahn,mess} = 2,01 \pm 0,01\text{.}
 \]
-Da die Dreieckspannung theoretisch mit $\frac{1}{n^2}$ abfällt,  gibt es eine Abweichung zum Theoriewert
+Da die Dreieckspannung nach \eqref{eq:KoeffDreieck} theoretisch mit $\frac{1}{n^2}$ abfällt, gibt es eine Abweichung zum Theoriewert
 \[
 b_.{Sägezahn,theo} = 2
 \]
@@ -182,6 +186,13 @@ von
 \[
 \Delta b = 0,5\% \text{.}
 \]
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/dreieck.pdf}
+\caption{Dreieck-Amplitudenverhältnis in Abhängigkeit von der Zahl der Oberwelle.}\label{fig:D}
+\end{figure}
+
 \subsection{Fourier-Synthese}
 Bei allen Synthesen wurden die einzelnen Oberwellen über die Lissajous-Figuren so justiert, dass das bestmögliche Resultat erreicht wurde.
 \subsubsection{Rechteckspannung}
@@ -189,7 +200,7 @@ Eine Rechteckspannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:tab
 
 \begin{table}
 	\centering
-	\caption{Einstellungen zur Synthese einer Rechteckspannung}
+	\caption{Einstellungen zur Synthese einer Rechteckspannung.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.0] S[table-format=3.1]}
 		\toprule
@@ -204,17 +215,20 @@ Eine Rechteckspannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:tab
 	\end{tabular}
 	\label{tab:tab4}
 \end{table}
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/rechteck.jpg}
-\caption{Synthetisierte Rechteckspannung}
+\caption{Synthetisierte Rechteckspannung.}
 \label{fig:R2}
 \end{figure}
+
 \subsubsection{Sägezahnspannung}
 Eine Sägezahnspannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:tab5} aufgezählten Oberwellen synthetisiert. Das Ergebnis ist in Abbildung \ref{fig:S2} zu sehen.
+
 \begin{table}
 	\centering
-	\caption{Einstellungen zur Synthese einer Sägezahnspannung}
+	\caption{Einstellungen zur Synthese einer Sägezahnspannung.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.0] S[table-format=2.1]}
 		\toprule
@@ -232,17 +246,19 @@ Eine Sägezahnspannung von $\SI{100}{\volt}$ wird aus den in Tabelle \ref{tab:ta
 	\end{tabular}
 	\label{tab:tab5}
 \end{table}
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/saegezahn.jpg}
-\caption{Synthetisierte Sägezahnspannung}
+\caption{Synthetisierte Sägezahnspannung.}
 \label{fig:S2}
 \end{figure}
+
 \subsubsection{Dreieckspannung}
-Eine Rechteckspannung von $\SI{50}{\volt}$ wird aus den in Tabelle \ref{tab:tab6} aufgezählten Oberwellen synthetisiert. Das Ergebnis ist in Abbildung \ref{fig:D2} zu sehen.
+Eine Dreieckspannung von $\SI{157}{\volt}$ wird aus den in Tabelle \ref{tab:tab6} aufgezählten Oberwellen synthetisiert. Das Ergebnis ist in Abbildung \ref{fig:D2} zu sehen.
 \begin{table}
 	\centering
-	\caption{Einstellungen zur Synthese einer Dreieck-Spannung}
+	\caption{Einstellungen zur Synthese einer Dreieckspannung.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.0] S[table-format=3.1]}
 		\toprule
@@ -256,8 +272,9 @@ Eine Rechteckspannung von $\SI{50}{\volt}$ wird aus den in Tabelle \ref{tab:tab6
 	\end{tabular}
 	\label{tab:tab6}
 \end{table}
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/dreieck.jpg}
-\caption{Synthetisierte Dreieckspannung}\label{fig:D2}
+\caption{Synthetisierte Dreieckspannung.}\label{fig:D2}
 \end{figure}
