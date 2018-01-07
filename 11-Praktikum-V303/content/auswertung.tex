@@ -2,15 +2,12 @@
 \label{sec:Auswertung}
 
 
-Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt.
-
-\subsection{Apparatekonstanten}
-\label{sec:Apparatekonstanten}
-Der Ausgang "Oscillator" liefert eine konstante Spannung von $\SI{11,5}{\volt}$.
-Am Ausgang "Reference" lässt sich die Spannung regeln.
-
 \subsection{Ausgangssignal ohne Rauschen}
 \label{sec:oR}
+Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch mit NumPy \cite{numpy} erstellt.
+Der Oszillator-Ausgang liefert eine konstante Spannung von $\SI{11,5}{\volt}$.
+Am Referenz-Ausgang lässt sich die Spannung regeln.
+
 \begin{figure}
 \centering
 \begin{minipage}{0.48\textwidth}
@@ -42,13 +39,15 @@ Am Ausgang "Reference" lässt sich die Spannung regeln.
 \center{$\Delta\phi=\SI{270}{\degree}$}
 \includegraphics[scale=.75]{content/images/270.jpg}
 \end{minipage}
-\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter}
+\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter und ohne Rauschen.}
 \label{fig:U}
 \end{figure}
-Die Signal-Spannung $U_.{Sig}$ am "Reference"-Ausgang wurde auf $\SI{10e-3}{\volt}$ bei $\SI{1000}{\hertz}$  und der Gain des "Pre-Amplifier" auf 2 eingestellt. Als Referenzspannung $U_.{ref}$ wird die in Abschnitt \ref{sec:Apparatekonstanten} genannte Spannung des "Oscillator"-Ausgangs verwendet und die Frequenz ebenfalls auf $\SI{1000}{\hertz}$ eingestellt. In Abbildung \ref{fig:U} sind die Spannungsverläufe für verschiedene Phasenverschiebungen $\Delta\phi$ abgebildet.
+
+\noindent Die Signal-Spannung $U_.{Sig}$ am Referenz-Ausgang wurde auf $\SI{10e-3}{\volt}$ bei $\SI{1000}{\hertz}$  und der Gain des Vorverstärkers auf 2 eingestellt. Als Referenzspannung $U_.{ref}$ wird die oben genannte Spannung des Oszillator-Ausgangs verwendet. Dessen Frequenz ist gleich der des Referenz-Ausgangs. In Abbildung \ref{fig:U} sind die Spannungsverläufe für verschiedene Phasenverschiebungen $\Delta\phi$ abgebildet.
+
 \begin{table}
 	\centering
-	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter}
+	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter ohne Rauschen.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=3.0] S[table-format=2.2]}
 		\toprule
@@ -68,38 +67,43 @@ Die Signal-Spannung $U_.{Sig}$ am "Reference"-Ausgang wurde auf $\SI{10e-3}{\vol
 	\end{tabular}
 	\label{tab:tab1}
 \end{table}
+
 \noindent Mit den Messwerten mit eingeschaltetem Tiefpassfilter aus Tabelle \ref{tab:tab1} wird die Regression
 \begin{equation}
 U_.{out}(\phi) = U_.{max}\cdot cos(f\cdot\phi+\phi_.0)\label{eq:Reg}
 \end{equation}
 durchgeführt:
 \begin{align*}
-U_.{max} &= \SI{4,13(5)}{\volt} \\
-f 		 &= (17,5\pm0,1)\cdot 10^{-3} \\
-\phi_.0  &= 1,47 \pm0,03 \\
+U_.{max} &= \SI{4,13(5)}{\volt}, \\
+f 		 &= (17,5\pm0,1)\cdot 10^{-3}, \\
+\phi_.0  &= 1,47 \pm0,03 \text{.}\\
 \end{align*}
 Mit Gleichung \eqref{eq:} ergibt sich für die Theoriekurve:
 \begin{align*}
-U_.{max,theo} &= \SI{12,7e-3}{\volt} \\
-f_.{theo}	  &= \frac{\pi}{180} = 17,5 \cdot 10^{-3} \\
-\phi_.{0,theo}&= 0 \\,
+U_.{max,theo} &= \SI{12,7e-3}{\volt}, \\
+f_.{theo}	  &= \frac{\pi}{180} = 17,5 \cdot 10^{-3}, \\
+\phi_.{0,theo}&= 0, \\
 \end{align*}
 wobei $f$ der Umrechnungsfaktor von Grad zu Bogenmaß ist.
 Damit ergibt sich eine Abweichung von den experimentellen zu den theoretischen Werten von:
 \begin{align*}
-\Delta U_.{max} &= 32327\% \\
-\Delta f		&= 0,00\% \\
+\Delta U_.{max} &= 32327\% ,\\
+\Delta f		&= 0,00\% \text{.}\\
 \end{align*}
 Die Graphen dazu sind in Abbildung \ref{fig:U2} zu sehen.
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/plot.pdf}
-\caption{Graphen der Messwerte mit Tiefpassfilter, ohne Noise-Schaltung}
+\caption{Graphen der Messwerte mit Tiefpassfilter und ohne Rauschen.}
 \label{fig:U2}
 \end{figure}
+
+
 \subsection{Ausgangssignal mit Rauschen}
 \label{sec:mR}
-Es wurde die Noise-Schaltung auf $10^-3$ gestellt. Die Spannungsverläufe für verschiedene Phasendifferenzen in Abbildung \ref{fig:U3}
+Der Rauschgenerator ist auf $10^{-3}$ gestellt. Die Spannungsverläufe für verschiedene Phasendifferenzen sind in Abbildung \ref{fig:U3} dargestellt.
+
 \begin{figure}
 \centering
 \begin{minipage}{0.48\textwidth}
@@ -131,12 +135,13 @@ Es wurde die Noise-Schaltung auf $10^-3$ gestellt. Die Spannungsverläufe für v
 \center{$\Delta\phi=\SI{270}{\degree}$}
 \includegraphics[scale=0.75]{content/images/noise270.jpg}
 \end{minipage}
-\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter mit Noise-Schaltung}
+\caption{Spannungsverläufe bei Phase $\Delta\phi$ ohne Tiefpassfilter mit Rauschen.}
 \label{fig:U3}
 \end{figure}
+
 \begin{table}
 	\centering
-	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter mit Noise-Schaltung}
+	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter mit Rauschen.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=3.0] S[table-format=3.1]}
 		\toprule
@@ -156,35 +161,39 @@ Es wurde die Noise-Schaltung auf $10^-3$ gestellt. Die Spannungsverläufe für v
 	\end{tabular}
 	\label{tab:tab2}
 \end{table}
-Die Messwerte nach Zuschalten des Tiefpassfilters und Erhöhung des Pre-Amplifier-Gains auf 10 sind in Tabelle \ref{tab:tab2} zu sehen. Damit wird wird die lineare Regression nach Gleichung \eqref{eq:Reg} durchgeführt.
+
+\noindent Die Messwerte nach Zuschalten des Tiefpassfilters und Erhöhung des Vorverstärker-Gains auf 10 sind in Tabelle \ref{tab:tab2} zu sehen. Damit wird wird die lineare Regression nach Gleichung \eqref{eq:Reg} durchgeführt.
 Es ergeben sich:
 \begin{align*}
-U_.{max} &= \SI{5,9(1)e-2}{\volt} \\
-f 		 &= (17,4\pm0,1)\cdot 10^{-3} \\
-\phi_.0  &= 1,40\pm0,05 \\
+U_.{max} &= \SI{5,9(1)e-2}{\volt} ,\\
+f 		 &= (17,4\pm0,1)\cdot 10^{-3} ,\\
+\phi_.0  &= 1,40\pm0,05 \text{.}\\
 \end{align*}
 Mit Gleichung \eqref{eq:} ergibt sich für die Theoriekurve:
 \begin{align*}
-U_.{max,theo} &= \SI{6,3e-2}{\volt} \\
-f_.{theo}	  &= 17,5\cdot 10^{-3} \\
-\phi_.{0,theo}&= 0 \\
+U_.{max,theo} &= \SI{6,3e-2}{\volt} ,\\
+f_.{theo}	  &= 17,5\cdot 10^{-3} ,\\
+\phi_.{0,theo}&= 0 \text{.}\\
 \end{align*}
 Damit ergeben sich die Abweichungen:
 \begin{align*}
-\Delta U_.{max} &= 6,79\% \\
-\Delta f		&= 0,29\% \\
+\Delta U_.{max} &= 6,79\% ,\\
+\Delta f		&= 0,29\% \text{.}\\
 \end{align*}
 Die Graphen dazu sind in Abbildung \ref{fig:U4} zu sehen.
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/plot2.pdf}
-\caption{Graphen der Messwerte mit Tiefpassfilter, mit Noise-Schaltung}\label{fig:U4}
+\caption{Graphen der Messwerte mit Tiefpassfilter mit Rauschen.}\label{fig:U4}
 \end{figure}
+
+
 \subsubsection{Leuchtdiode}
-Die Pulsfrequenz der LED wurde auf $\SI{200}{\hertz}$ und die Verstärkung am Pre-Amplifier auf 50 eingestellt. Die gemessenen Werte der Spannung $U$ bei verschiedenen Abständen $r$ sind in Tabelle \ref{tab:tab3} zu sehen
+Die Pulsfrequenz der LED wurde auf $\SI{200}{\hertz}$ und die Verstärkung am Vorverstärker auf 50 eingestellt. Die gemessenen Werte der Spannung $U$ bei verschiedenen Abständen $r$ sind in Tabelle \ref{tab:tab3} zu sehen.
 \begin{table}
 	\centering
-	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter mit Noise-Schaltung}
+	\caption{Messwerte der Ausgangsspannung $U_.{out}$ nach dem Tiefpassfilter mit Rauschen.}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=3.0] S[table-format=2.2]}
 		\toprule
@@ -222,21 +231,24 @@ Die Pulsfrequenz der LED wurde auf $\SI{200}{\hertz}$ und die Verstärkung am Pr
 	\end{tabular}
 	\label{tab:tab3}
 \end{table}
-In Abbildung \ref{fig:U5} U gegen r aufgetragen.
+
+\noindent In Abbildung \ref{fig:U5} ist U gegen r aufgetragen.
+
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-75pt,height=\textheight-75pt,keepaspectratio]{content/images/plot3.pdf}
-\caption{Logarithmische Darstellung des Verhaltens der Spannung bei zunehmendem Abstand der Leuchtdiode}\label{fig:U5}
+\caption{Logarithmische Darstellung des Verhaltens der Spannung bei zunehmendem Abstand der Leuchtdiode.}\label{fig:U5}
 \end{figure}
-Mittels der Regression $U(r)=a\cdot r^{-b}$ ergibt sich
+
+\noindent Mittels der Regression $U(r)=a\cdot r^{-b}$ ergibt sich
 \[
-b_.{gemessen}=1,88\pm 0,02
+b_.{gemessen}=1,88\pm 0,02 \text{.}
 \]
 Der theoretische Wert für $b$ liegt bei 
 \[
-b_.{theo}=2
+b_.{theo}=2 \text{.}
 \]
 Somit beträgt die Abweichung
 \[
-\Delta b = 5,95 \%
+\Delta b = 5,95 \% \text{.}
 \]
