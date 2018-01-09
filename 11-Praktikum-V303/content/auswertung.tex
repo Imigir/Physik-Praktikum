@@ -1,10 +1,11 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch mit NumPy \cite{numpy} erstellt.
 
 \subsection{Ausgangssignal ohne Rauschen}
 \label{sec:oR}
-Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch mit NumPy \cite{numpy} erstellt.
+
 Der Oszillator-Ausgang liefert eine konstante Spannung von $\SI{11,5}{\volt}$.
 Am Referenz-Ausgang lässt sich die Spannung regeln.
 
@@ -43,7 +44,7 @@ Am Referenz-Ausgang lässt sich die Spannung regeln.
 \label{fig:U}
 \end{figure}
 
-\noindent Die Signal-Spannung $U_.{Sig}$ am Referenz-Ausgang wurde auf $\SI{10e-3}{\volt}$ bei $\SI{1000}{\hertz}$ eingestellt. Als Referenzspannung $U_.{ref}$ wird die oben genannte Spannung des Oszillator-Ausgangs verwendet. Dessen Frequenz ist gleich der des Referenz-Ausgangs. In Abbildung \ref{fig:U} sind die Spannungsverläufe für verschiedene Phasenverschiebungen $\Delta\phi$ abgebildet.
+\noindent Die Signal-Spannung $U_.{Sig}$ am Referenz-Ausgang wurde auf $\SI{10e-3}{\volt}$ bei $\SI{1000}{\hertz}$ und der Gain des Vorverstärkers auf 2 eingestellt. Als Referenzspannung $U_.{ref}$ wird die oben genannte Spannung des Oszillator-Ausgangs verwendet. Dessen Frequenz ist gleich der des Referenz-Ausgangs. In Abbildung \ref{fig:U} sind die Spannungsverläufe für verschiedene Phasenverschiebungen $\Delta\phi$ abgebildet.
 
 \begin{table}
 	\centering
@@ -78,7 +79,7 @@ U_.{max} &= \SI{4,13(5)}{\volt}, \\
 f 		 &= (17,5\pm0,1)\cdot 10^{-3}, \\
 \phi_.0  &= 1,47 \pm0,03 \text{.}\\
 \end{align*}
-Mit Gleichung \eqref{eq:Uout} ergibt sich für die Theoriekurve mit zugeschalteten Verstärkern:
+Mit Gleichung \eqref{eq:Uout} ergibt sich für die Theoriekurve mit einer Verstärkung um den Faktor 40:
 \begin{align*}
 U_.{max,theo} &= \SI{4,60}{\volt}, \\
 f_.{theo}	  &= \frac{\pi}{180} = 17,5 \cdot 10^{-3}, \\
@@ -162,7 +163,7 @@ Der Rauschgenerator ist auf $10^{-3}$ gestellt. Die Spannungsverläufe für vers
 	\label{tab:tab2}
 \end{table}
 
-\noindent Die Messwerte nach Zuschalten des Tiefpassfilters und Erhöhung des Vorverstärker-Gains auf 10 sind in Tabelle \ref{tab:tab2} zu sehen. Damit wird wird die lineare Regression nach Gleichung \eqref{eq:Reg} durchgeführt.
+\noindent Die Messwerte nach Zuschalten des Tiefpassfilters sind in Tabelle \ref{tab:tab2} zu sehen. Der Vorverstärker-Gain wurde auf 1 gestellt. Damit wird wird die lineare Regression nach Gleichung \eqref{eq:Reg} durchgeführt.
 Es ergeben sich:
 \begin{align*}
 U_.{max} &= \SI{5,9(1)e-2}{\volt} ,\\
