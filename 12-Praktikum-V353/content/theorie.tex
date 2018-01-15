@@ -1,22 +1,22 @@
 
 \section{Theorie}
 \label{sec:Theorie}
-\subsection{Relaxationsgleichung}
-\subsubsection{Allgemeine Relaxationsgleichung}
+%\subsection{Relaxationsgleichung}
+\subsection{Allgemeine Relaxationsgleichung}
 Für ein aus dem Grundzustand ausgelenktes System, das nicht-oszillierend zu diesem zurückkehrt, gilt für die physikalische Größe $A$ zur Zeit $t$:
 \begin{equation}
-\frac{\mathrm{d}A}{\mathrm{d}t}=c\left[A(t)-A(\inf)\right]
+\frac{\mathrm{d}A}{\mathrm{d}t}=c\left[A(t)-A(\infty)\right]\text{.}
 \end{equation}
 Die Integration von $0$ bis $t$
 \[
-\int_{A(0)}^{A(t)} \frac{\mathrm{d}A'}{A' - A(\inf)}=\int_0^tc\mathrm{d}t
+\int_{A(0)}^{A(t)} \frac{\mathrm{d}A'}{A' - A(\infty)}=\int_0^tc\mathrm{d}t
 \]
 liefert 
 \begin{equation}
-A(t) = A(\inf) + \left[A(0)-A(\inf)\right]e^{ct}\text{.}
+A(t) = A(\infty) + \left[A(0)-A(\infty)\right]e^{ct}\text{.}
 \end{equation}
 Daraus folgt für $c$ die Bedingung $c<0$, da A beschränkt sein muss.
-\subsubsection{Entladung eines Kondensators}
+\subsection{Auf- und Entladung eines Kondensators}
 \label{sec:Entladung}
 \begin{figure}
 \centering
@@ -31,7 +31,7 @@ U_.C=\frac{Q}{C}\label{eq:QC}
 \end{equation}
 an. Am Widerstand $R$ fließt außerdem der Strom
 \begin{equation}
-I = \frac{U_.C}{R}
+I = \frac{U_.C}{R},
 \end{equation}
 was zur Entladung führt.
 Die Ladung der Kondensatorplatten ändert sich deshalb um
@@ -43,24 +43,22 @@ Daraus folgt für den zeitlichen Verlauf von $Q$ die Differentialgleichung
 \frac{\mathrm{d}Q}{\mathrm{d}t} = - \frac{1}{RC}\cdot Q\text{.}
 \label{eq:DGL}
 \end{equation}
-Mit der Bedingung, dass die Ladung für $t\rightarrow\inf$ 0 sein muss ergibt sich die Lösung:
+Mit der Bedingung, dass die Ladung für $t\rightarrow\infty$ 0 sein muss ergibt sich die Lösung:
 \begin{equation}
-Q(t) = Q(0)\cdot e^{\frac{-t}{RC}} \label{eq:Q1}
+Q(t) = Q(0)\cdot e^{\frac{-t}{RC}} \text{.}\label{eq:Q1}
 \end{equation}
-$R\cdot C$ ist dabei die Zeitkonstante des Relaxationsvorgangs und bezeichnet die Zeitspanne, in der die Ladung sich um den Faktor $\frac{1}{e}$ ändert.
-\subsubsection{Aufladung eines Kondensators}
-\label{sec:Aufladung}
-Bei der Aufladung gelten dieselben Voraussetzungen wie bei der Entladung. Nur die Randbedingung ändern sich hier, da $Q(0)=0$ und $Q(t\rightarrow\inf)=U_.{max}=CU_.0$ gelten, wobei $U_.0$ die Spannung des Generator ist.
+$RC=\tau$ ist dabei die Zeitkonstante des Relaxationsvorgangs und bezeichnet die Zeitspanne, in der die Ladung sich um den Faktor $\frac{1}{e}$ ändert.\newline
+Bei der Aufladung gelten dieselben Voraussetzungen wie bei der Entladung. Nur die Randbedingung ändern sich hier zu $Q(0)=0$ und $Q(t\rightarrow\infty)=CU_.0$, wobei $U_.0$ die Spannung des Generators ist.
 Damit ergibt sich die Lösung
 \begin{equation}
-Q(t) = CU_.0\left(1-e^{\frac{-t}{RC}}\right) \label{eq:Q2}
+Q(t) = CU_.0\left(1-e^{\frac{-t}{RC}}\right) \text{.}\label{eq:Q2}
 \end{equation}
-\subsubsection{Relaxation eines RC-Gliedes bei periodischer Auslenkung aus dem Grundzustand}
+\subsection{Relaxation eines RC-Gliedes bei periodischer Auslenkung aus dem Grundzustand}
 Liegt an einem $RC$-Schwingkreis eine Wechselspannung
 \[
 U(t)= U_.0\cdot cos(\omega t)
 \]
-an, führt das zu periodisch auftretenden Auf- und Entladevorgängen des Kondensators, wie sie in Abschnitt \ref{sec:Entladung} und \ref{sec:Aufladung} erläutert wurden.
+an, führt das zu periodisch auftretenden Auf- und Entladevorgängen des Kondensators, wie sie in Abschnitt \ref{sec:Entladung} erläutert wurden.
 Solange für die Kreisfrequenz gilt $\omega << \frac{1}{RC}$, ist $U_.C(t)$ nahezu identisch mit $U(t)$. Bei steigender Frequenz ist jedoch der Auf- und Entladevorgang zu langsam und es bildet sich bei gleichzeitig abnehmender Amplitude $A$ eine Phasenverschiebung $\phi$ zwischen Kondensator- und Generatorspannung aus.
 Nach dem Kirchhoffschen Maschenregel gilt für einen RC-Stromkreis:
 \begin{equation}
@@ -77,24 +75,24 @@ U_.0\cdot cos(\omega t) = -A\omega RC\cdot sin(\omega t + \phi) + A(\omega)\cdot
 Da diese Gleichung für alle t gültig sein muss, kann die Frequenzabhängigkeit der Phase durch einsetzen von bestimmten Werten hergeleitet werden.
 Einsetzen von $\omega t=\frac{\pi}{2}$ liefert:
 \[
-0 = -\omega RC\cdot sin\left(\frac{\pi}{2}+\phi\right)+ cos\left(\frac{\pi}{2}+\phi\right)
+0 = -\omega RC\cdot sin\left(\frac{\pi}{2}+\phi\right)+ cos\left(\frac{\pi}{2}+\phi\right)\text{.}
 \]
 Umformen und Ausnutzen der trigonometrischen Identitäten liefert
 \begin{equation}
-\phi (\omega)= arctan(-\omega RC)\label{eq:phi}
-\end{equation}.
+\phi (\omega)= arctan(-\omega RC)\text{.}\label{eq:phi}
+\end{equation}
 Um $\phi$aus den Messwerten zu bestimmen wird
 \begin{equation}
 \phi = \frac{a}{b}\cdot 2\pi \label{eq:phi1}
 \end{equation}
 verwendet, wobei $a$ der Abstand der beiden Kurven an den Extremstellen und $b$ die Periodendauerdauer der Kondensatorspannung ist.
-Desweiteren liefert das Einsetzen von $\omega t + phi = \frac{\pi}{2}$
+Desweiteren liefert das Einsetzen von $\omega t + phi = \frac{\pi}{2}$:
 \[
 U_.0\cdot cos\left(\frac{\pi}{2}-\phi\right)= -A\omega RC
 \]
 und damit die Frequenzabhängigkeit der Amplitude $A$ der Kondensatorspannung
 \begin{equation}
-A(\omega)=-\frac{sin(\phi)}{\omega RC}\cdot U_.0\label{eq:A1}
+A(\omega)=-\frac{sin(\phi)}{\omega RC}\cdot U_.0 \text{.}\label{eq:A1}
 \end{equation}
 Mit Gleichung \eqref{eq:phi} und der Identität
 \[
@@ -102,15 +100,15 @@ sin^2(\phi)+cos^2(\phi)=1
 \]
 folgt daraus
 \begin{equation}
-A(\omega)=\frac{U_.0}{\sqrt{1+\omega^2R^2C^2}}\label{eq:A2}
+A(\omega)=\frac{U_.0}{\sqrt{1+\omega^2R^2C^2}}\text{.}\label{eq:A2}
 \end{equation}
 \subsection{Integrator-Eigenschaft des RC-Glieds}
 Aus den Gleichungen \eqref{eq:U1}, \eqref{eq:QC} und \eqref{eq:dQ}ergibt sich
 \[
-U(t)=RC\cdot\frac{\mathrm{d}U_.C}{\mathrm{d}t} + U_.C
+U(t)=RC\cdot\frac{\mathrm{d}U_.C}{\mathrm{d}t} + U_.C\text{.}
 \]
 Für Frequenzen $\omega >> \frac{1}{RC}$ gilt $U_.C << U_.R$. Damit fällt der 2. Term weg und eine Integration liefert
 \[
 U_.C(t)=\frac{1}{RC}\int_0^tU(t')\mathrm{d}t\text{.}
 \]
-Das RC-Glied integriert also die ankommende Spannung $U(t)$
+Das RC-Glied integriert also die eingehende Spannung $U(t)$.
