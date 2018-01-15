@@ -4,6 +4,7 @@
 Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt.
 
 \subsection{Bestimmung von RC mithilfe des Entladevorgangs des Kondensators}
+\label{subsec:1}
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Graph1.pdf}
@@ -11,7 +12,7 @@ Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 	\label{fig:Graph1}
 \end{figure}
 
-\noindent Nach Formel \eqref{eq:Q} ergibt sich mit $U_.C=\frac{Q}{C}$:
+\noindent Nach Formel \eqref{eq:Q1} ergibt sich mit Formel \eqref{eq:QC}:
 \[
 \mathrm{log}\left(\frac{U_.C}{U_.0}\right) = -\frac{1}{\tau}t 
 \]
@@ -30,54 +31,57 @@ Der Graph ist in Abbildung \ref{fig:Graph1} dargestellt.
 \end{table}
 
 \subsection{Bestimmung von RC mithilfe der Amplitude}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Graph2.pdf}
-	\caption{Die Amplitude $U$ in Abhängigkeit von der Frequenz $f$.}
-	\label{fig:Graph2}
-\end{figure}
-
-\noindent Eine nichtlineare Ausgleichsrechnung nach Formel \eqref{eq:U(w)} ergibt mit $U_.0 = \SI{96.0}{\volt}$ und den Werten aus Tabelle \ref{tab:b}:
+\label{subsec:2}
+Eine nichtlineare Ausgleichsrechnung nach Formel \eqref{eq:A2} ergibt mit $U_.0 = \SI{96.0}{\volt}$ und den Werten aus Tabelle \ref{tab:b}:
 \[
 \tau = RC = \SI{5.25(8)e-3}{\second}\text{.}
 \]
-Der Graph ist in Abbildung \ref{fig:Graph2} dargestellt.
+%Der Graph ist in Abbildung \ref{fig:Graph2} dargestellt.
 
 \begin{table}
 	\centering
-	\caption{Die Messwerte für die Frequenz $f$, die Amplitude $U$ und die Verschiebung $a$, sowie die berechneten Werte für $\frac{U}{U_.0}$ und die Phasenverschiebung $\phi$.}
+	\caption{Die Messwerte für die Frequenz $f$, die Amplitude $A$ und die Verschiebung $a$, sowie die berechneten Werte für $\frac{A}{U_.0}$ und die Phasenverschiebung $\phi$.}
 	\input{content/tables/tabb.tex}
 	\label{tab:b}
 \end{table}
 
-\subsection{Bestimmung von RC mithilfe der Phasenverschiebung}
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Graph3.pdf}
+	\includegraphics[width=\linewidth-100pt,height=\textheight-100pt,keepaspectratio]{content/images/Graph2.pdf}
+	\caption{Die Amplitude $A$ in Abhängigkeit von der Frequenz $f$.}
+	\label{fig:Graph2}
+\end{figure}
+
+
+\subsection{Bestimmung von RC mithilfe der Phasenverschiebung}
+\label{subsec:3}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-100pt,height=\textheight-100pt,keepaspectratio]{content/images/Graph3.pdf}
 	\caption{Die Phasenverschiebung $\phi$ in Abhängigkeit von der Frequenz $f$.}
 	\label{fig:Graph3}
 \end{figure}
 
-\noindent Eine nichtlineare Ausgleichsrechnung nach Formel \eqref{eq:phi(w)} ergibt mit den Werten aus Tabelle \ref{tab:b}:
+\noindent Eine nichtlineare Ausgleichsrechnung nach Formel \eqref{eq:phi} ergibt mit den Werten aus Tabelle \ref{tab:b}:
 \[
 \tau = RC = \SI{4.5(3)e-3}{\second}\text{.}
 \]
-Dabei werden die Werte für $\phi$ in der Tabelle nach Formel \eqref{eq:phi} berechnet. Der Graph ist in Abbildung \ref{fig:Graph3} dargestellt.
+Dabei werden die Werte für die Phasenverschiebung $\phi$ in der Tabelle nach Formel \eqref{eq:phi1} berechnet. Der Graph ist in Abbildung \ref{fig:Graph3} dargestellt.
 
 \subsection{Die RC-Kreis Relativamplitude in Abhängigkeit von der Phase}
+\label{subsec:4}
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Graph4.pdf}
-	\caption{Die Relativamplitude $\frac{U}{U_.0}$ in Abhängigkeit von der Phasenverschiebung $\phi$.}
+	\caption{Die Relativamplitude $\frac{A}{U_.0}$ in Abhängigkeit von der Phasenverschiebung $\phi$.}
 	\label{fig:Graph4}
 \end{figure}
 
-\noindent Nach Formel \eqref{eq:U(phi)} und \eqref{eq:phi(w)} ergibt sich:
+\noindent Nach Formel \eqref{eq:A1} und \eqref{eq:phi} ergibt sich:
 \begin{equation}
-\frac{U(\phi)}{U_0}=\frac{\mathrm{sin}(\phi)}{\mathrm{tan}(\phi)}=\mathrm{cos}(\phi) \label{eq:theo}
+\frac{A(\phi)}{U_0}=\frac{\mathrm{sin}(\phi)}{\mathrm{tan}(\phi)}=\mathrm{cos}(\phi) \label{eq:theo}
 \end{equation}
-In Abbildung \ref{fig:Graph4} ist die Relativamplitude $\frac{U}{U_.0}$ in einem Polardiagramm gegen die Phasenverschiebung $\phi$ aufgetragen. Die Messwerte werden Tabelle \ref{tab:b} entnommen, und die Theoriekurve wird nach Formel \eqref{eq:theo} berechnet. 
+In Abbildung \ref{fig:Graph4} ist die Relativamplitude $\frac{A}{U_.0}$ in einem Polardiagramm gegen die Phasenverschiebung $\phi$ aufgetragen. Die Messwerte werden Tabelle \ref{tab:b} entnommen, und die Theoriekurve wird nach Formel \eqref{eq:theo} berechnet. 
 
 \subsection{Der RC-Kreis als Integrator}
 \begin{figure}

@@ -2,4 +2,23 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
-%Abweichung könnte daran liegen, dass der Innenwiederstand $R_.i$ des Generators im Vergleich zu %R% relativ groß ist. Könnte durch entsprechende Messung überprüft werden.
+Die Fehler der einzelnen Messwerte sind in allen Messungen gering und auch die Messwerte in Abschnitt \ref{subsec:4} entsprechen bis auf einen kleinen Ausreißer der Theorie. Aus Abbildung \ref{fig:U} ist zu erkennen, dass der RC-Kreis als Integrator geeignet ist, da alle Messungen durch eine theoretische Funktion dargestellt werden können. Die Frequenzabhängigkeiten der Amplitude (Tiefpass) und der Phasenverschiebung sind in Abbildung \ref{fig:Graph2} und \ref{fig:Graph3} gut zu erkennen.\newline
+Es lässt sich jedoch zwischen den Werten von $RC$ aus Tabelle \ref{tab:tabRC} eine Abweichung von dem Ersten zu den beiden anderen Werten erkennen. Dies könnte daran liegen, dass der Innenwiederstand $R_.i$ des Generators im Vergleich zu $R$ relativ groß ist. Dies könnte durch eine entsprechende Messung von $R$ überprüft werden.
+
+\begin{table}
+	\centering
+	\caption{Die in den verschiedenen Versuchsteilen ermittelten Werte für $RC$.}
+	\sisetup{table-format=1.2}
+	\begin{tabular}{| c | S |}
+		\hline
+		{Abschnitt} & {$RC$ (Messung)} \\
+		\hline
+		\ref{subsec:1} & \SI{8.27(7)e-4}{\second} \\
+		\hline
+		\ref{subsec:2} & \SI{5.25(8)e-3}{\second} \\
+		\hline
+		\ref{subsec:3} & \SI{4.5(3)e-3}{\second} \\
+		\hline
+	\end{tabular}
+	\label{tab:tabRC}
+\end{table}

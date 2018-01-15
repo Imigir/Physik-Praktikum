@@ -72,13 +72,13 @@ plt.plot(t*1000, np.log(U/U_0), 'rx', label ="Messwerte")
 plt.plot(x_plot, x_plot/1000*paramsLinear[0], 'b-', label='Ausgleichsgerade')
 plt.xlim(-0.3,3.8)
 #plt.ylim(0,46)
-plt.xlabel(r'$t/\si{\milli\second}$')
+plt.xlabel(r'$t/10^{-3}\si{\second}$')
 plt.ylabel(r'$\mathrm{log}\left(\frac{U_\mathrm{C}}{U_0}\right)$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.legend(loc="best")
 plt.savefig("content/images/Graph1")
 
-makeTable([t*1000, U, np.log(U/U_0)], r'{'+r'$t/\si{\milli\second}$'+r'} & {'+r'$U/\si{\volt}$'+r'} & {'+r'$\mathrm{log}\left(\frac{U_\mathrm{C}}{U_0}\right)$'+r'}', 'taba', ['S[table-format=1.2]', 'S[table-format=2.1]', 'S[table-format=2.1]'], ["%1.2f", "%2.1f", "%2.1f"])
+makeTable([t*1000, U, np.log(U/U_0)], r'{'+r'$t/10^{-3}\si{\second}$'+r'} & {'+r'$U_\mathrm{C}/\si{\volt}$'+r'} & {'+r'$\mathrm{log}\left(\frac{U_\mathrm{C}}{U_0}\right)$'+r'}', 'taba', ['S[table-format=1.2]', 'S[table-format=2.1]', 'S[table-format=2.1]'], ["%1.2f", "%2.1f", "%2.1f"])
 
 #2
 print('2:')
@@ -102,7 +102,7 @@ plt.xscale('log')
 plt.xlim(6,15000)
 #plt.ylim(0,46)
 plt.xlabel(r'$f/\si{\hertz}$')
-plt.ylabel(r'$\frac{U}{U_0}$')
+plt.ylabel(r'$\frac{A}{U_0}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.legend(loc="best")
 plt.savefig("content/images/Graph2")
@@ -134,7 +134,7 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.legend(loc="best")
 plt.savefig("content/images/Graph3")
 
-makeTable([f, U, U/U_0, a*10000, phi], r'{'+r'$f/\si{\hertz}$'+r'} & {'+r'$U/\si{\volt}$'+r'} & {'+r'$\frac{U}{U_0}$'+r'} & {'+r'$a/10^{-4}\si{\second}$'+r'} & {'+r'$\phi/\si{\radian}$'+r'}', 'tabb', ['S[table-format=5.0]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=1.2]', 'S[table-format=1.2]'], ["%5.0f", "%2.2f", "%2.2f", "%1.2f", "%1.2f"])
+makeTable([f, U, U/U_0, a*10000, phi], r'{'+r'$f/\si{\hertz}$'+r'} & {'+r'$A/\si{\volt}$'+r'} & {'+r'$\frac{A}{U_0}$'+r'} & {'+r'$a/10^{-4}\si{\second}$'+r'} & {'+r'$\phi/\si{\radian}$'+r'}', 'tabb', ['S[table-format=5.0]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=1.2]', 'S[table-format=1.2]'], ["%5.0f", "%2.2f", "%2.2f", "%1.2f", "%1.2f"])
 
 #4
 def Amplitude(x):
