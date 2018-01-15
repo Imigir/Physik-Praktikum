@@ -50,102 +50,88 @@ import scipy.constants as const
 
 
 pi = const.pi
-#1
-print('1:')
-t, U = np.genfromtxt('scripts/data1.txt', unpack=True)
-t = (t-4.36)/1000
-U_0 = 49.6
 
-paramsLinear, errorsLinear, sigma_y = linregress(t, np.log(U/U_0))
+#5
+def Dreieck(x,a):
+	f=np.empty(len(x))
+	x=x%(a)
+	for i in range(0,len(x)):
+		if x[i]<=a/2:
+			f[i] = x[i]-a/4
+		if a/2<x[i]:
+			f[i] = -x[i]+3/4*a
+	return f
 
-steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
-achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
-
-print('Steigung =', steigung)
-print('Achsenabschnitt =', achsenAbschnitt)
-print('RC =', 1/steigung)
-
-plt.cla()
-plt.clf()
-x_plot = np.linspace(-1,5)
-plt.plot(t*1000, np.log(U/U_0), 'rx', label ="Messwerte")
-plt.plot(x_plot, x_plot/1000*paramsLinear[0], 'b-', label='Ausgleichsgerade')
-plt.xlim(-0.3,3.8)
-#plt.ylim(0,46)
-plt.xlabel(r'$t/\si{\milli\second}$')
-plt.ylabel(r'$\mathrm{log}\left(\frac{U_\mathrm{C}}{U_0}\right)$')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.legend(loc="best")
-plt.savefig("content/images/Graph1")
-
-makeTable([t*1000, U, np.log(U/U_0)], r'{'+r'$t/\si{\milli\second}$'+r'} & {'+r'$U/\si{\volt}$'+r'} & {'+r'$\mathrm{log}\left(\frac{U_\mathrm{C}}{U_0}\right)$'+r'}', 'taba', ['S[table-format=1.2]', 'S[table-format=2.1]', 'S[table-format=2.1]'], ["%1.2f", "%2.1f", "%2.1f"])
-
-#2
-print('2:')
-def Amplitude(x, c):
-	return 1/np.sqrt(1+x**2*c**2)
-
-f, U, a = np.genfromtxt('scripts/data2.txt', unpack=True)
-a = a/1000
-U_0 = 96
- 
-params, covar = curve_fit(Amplitude, f, U/U_0)
-RC = unp.uarray(params[0], np.sqrt(covar[0][0]))
-print('RC =', RC)
+def DreieckInt(x,a):
+	F=np.empty(len(x))
+	x=x%(a)
+	for i in range(0,len(x)):
+		if x[i]<=a/2:
+			F[i] = 1/2*x[i]**2-a/4*x[i]
+		if a/2<x[i]:
+			F[i] = -1/2*x[i]**2+3/4*a*x[i]-1/4*a**2
+	return F
 
 plt.cla()
 plt.clf()
-x_plot = np.logspace(0,5,100)
-plt.plot(f, U/U_0, 'rx', label ="Messwerte")
-plt.plot(x_plot, Amplitude(x_plot, *params), 'b-', label='Ausgleichskurve')
-plt.xscale('log')
-plt.xlim(6,15000)
-#plt.ylim(0,46)
-plt.xlabel(r'$f/\si{\hertz}$')
-plt.ylabel(r'$\frac{U}{U_0}$')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.legend(loc="best")
-plt.savefig("content/images/Graph2")
-
-#3
-print('3:')
-def Phase(x, c):
-	return np.arctan(-x*c)
-
-b = 1/f
-phi = a/b*2*pi
-
-params, covar = curve_fit(Phase, f, phi)
-RC = unp.uarray(params[0], np.sqrt(covar[0][0]))
-print('RC =', RC)
-
-plt.cla()
-plt.clf()
-x_plot = np.logspace(0,5,100)
-plt.plot(f, phi, 'rx', label ="Messwerte")
-plt.plot(x_plot, Phase(x_plot, *params), 'b-', label='Ausgleichskurve')
-plt.xscale('log')
-plt.xlim(6,15000)
-#plt.ylim(0,46)
-plt.yticks( [0, pi/4, pi/2],[r'$0$', r'$\pi/4$', r'$\pi/2$'])
-plt.xlabel(r'$f/\si{\hertz}$')
-plt.ylabel(r'$\phi/\si{\radian}$')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.legend(loc="best")
-plt.savefig("content/images/Graph3")
-
-makeTable([f, U, U/U_0, a*10000, phi], r'{'+r'$f/\si{\hertz}$'+r'} & {'+r'$U/\si{\volt}$'+r'} & {'+r'$\frac{U}{U_0}$'+r'} & {'+r'$a/10^{-4}\si{\second}$'+r'} & {'+r'$\phi/\si{\radian}$'+r'}', 'tabb', ['S[table-format=5.0]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=1.2]', 'S[table-format=1.2]'], ["%5.0f", "%2.2f", "%2.2f", "%1.2f", "%1.2f"])
-
-#4
-def Amplitude(x):
-	return np.cos(Phase(x,params[0]))
-
-plt.cla()
-plt.clf()
-plt.subplot(111, projection='polar')
-x_plot = np.logspace(0,5,100)
-plt.plot(phi,U/U_0, 'rx', label ="Messwerte")
-plt.plot(Phase(x_plot,*params), Amplitude(x_plot), 'b-', label='Theoriekurve')
+x_plot = np.linspace(0,32,1000)
+plt.plot(x_plot, 100*Dreieck(x_plot,6), 'b-', label='f(x)')
+plt.plot(x_plot, 100*DreieckInt(x_plot,6), 'r-', label='F(x)')
+plt.xlim(1,16)
+plt.ylim(-200,200)
+plt.xlabel(r'$t/\si{\micro\second}$')
+plt.ylabel(r'$U/\si{\volt}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.legend(framealpha=1, frameon=True)
-plt.savefig("content/images/Graph4")
+plt.savefig("content/images/Graph5")
+
+#6
+plt.cla()
+plt.clf()
+x_plot = np.linspace(-2,20,1000)
+plt.plot(x_plot, 100*np.sin(x_plot), 'b-', label='f(x)')
+plt.plot(x_plot, 100*(np.cos(x_plot)+0.2), 'r-', label='F(x)')
+plt.xlim(-pi/2,9/2*pi)
+plt.ylim(-180,180)
+#plt.xticks( [0, pi, 2*pi, 3*pi, 4*pi],[r'$0$', r'$\pi$', r'$2\pi$', r'$3\pi$', r'$4\pi$'])
+plt.xlabel(r'$t/\si{\micro\second}$')
+plt.ylabel(r'$U/\si{\volt}$')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.legend(framealpha=1, frameon=True)
+plt.savefig("content/images/Graph6")
+
+#7
+def Rechteck(x,a):
+	f=np.empty(len(x))
+	x=x%(a)
+	c=1
+	for i in range(0,len(x)):
+		if x[i]<=a/2:
+			f[i] = c
+		if a/2<x[i]:
+			f[i] = -c
+	return f
+
+def RechteckInt(x,a):
+	F=np.empty(len(x))
+	x=x%(a)
+	c=1
+	for i in range(0,len(x)):
+		if x[i]<=a/2:
+			F[i] = c*x[i]-a/4
+		if a/2<x[i]:
+			F[i] = -c*x[i]+3*a/4
+	return F
+
+plt.cla()
+plt.clf()
+x_plot = np.linspace(0,32,1000)
+plt.plot(x_plot, 100*Rechteck(x_plot,3), 'b-', label='f(x)')
+plt.plot(x_plot, 100*RechteckInt(x_plot,3), 'r-', label='F(x)')
+plt.xlim(2.5,10)
+plt.ylim(-180,180)
+plt.xlabel(r'$t/\si{\micro\second}$')
+plt.ylabel(r'$U/\si{\volt}$')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.legend(framealpha=1, frameon=True)
+plt.savefig("content/images/Graph7")
