@@ -1,5 +1,23 @@
 \section{Diskussion}
 \label{sec:Diskussion}
-Die bei der Fourier-Analyse auftretenden Fehler sind verschwindend gering.
-Bei allen drei Fourier-Analyse Sind annähernd periodische Nebenschwingungen zu erkennen, die auf das Gibbs'sche Phänomen zurückzuführen sind, da nicht unendlich viele, sondern nur wenige Oberwellen verwendet wurden. 
-Bei der Synthese der Dreieckspannung muss ein Schalter für die verschiebung um 90 grad umgelegt gewesen sein, da die entstandene Spannung weder achsen- noch punktsymmetrisch ist.
+Die bei der Fourier-Analyse auftretenden Fehler lassen sich Tabelle \ref{tab:tabd} entnehmen.
+\begin{table}
+	\centering
+	\caption{Einstellungen zur Synthese einer Dreieckspannung.}
+	\sisetup{table-format=1.2}
+	\begin{tabular}{c S[table-format=1.0] S[table-format=1.2] S[table-format=1.1]}
+		\toprule
+		{$Art der Spannung$}&{$b_.{theorie}$}&{$b_.{mess}$}&{$\Delta b$}\\
+		\midrule
+		 Rechteck & 1 & 1,01\pm 0,01 & 1\%  \\
+		 Sägezahn & 1 & 1,00\pm 0,02 & 0\% \\
+		 Dreieck & 2 & 2,05\pm 0,01 & 0,5\% \\
+		
+		\bottomrule
+	\end{tabular}
+	\label{tab:tabd}
+\end{table}
+Hieran wird deutlich, dass dieser Teil des Versuchs die Theoriewerte nahezu exakt belegen konnte.
+Bei allen drei Fourier-Synthesen sind annähernd periodische Nebenschwingungen zu erkennen, die darauf zurückzuführen sind, dass nicht unendlich viele, sondern nur wenige Oberwellen verwendet wurden. 
+Die besonders starken Störungen, die bei der Sägezahnspannung auftreten, obwohl hier die meisten Oberwellen zur Synthese verwendet wurden, sind womöglich auf fehlerhafte Justierung der Lissajous-Figuren zurückzuführen. 
+Die fehlende Punkt- oder Achsensymmetrie der synthetisierten Dreieckspannung lässt darauf schließen, dass dort ein Schalter zur Verschiebung der Phase um $\SI{90}{\degree}$ umgelegt war.
