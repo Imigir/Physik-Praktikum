@@ -132,12 +132,12 @@ print('Abweichung in Prozent = ', (qer-q)/qer * 100)
 
 
 #a = (RC**2-2*LC)/(2*LC**2)
-a = R/2*L
+a = R/(2*L)
 print('a = ', a)
 #w1 = unp.sqrt(-a - unp.sqrt(a**2 - (1-2/q**2)/LC**2))
-w1 = a + unp.sqrt(a**2 + 1/LC)
+w1 = -a + unp.sqrt(a**2 + 1/LC)
 #w2 = unp.sqrt(-a + unp.sqrt(a**2 - (1-2/q**2)/LC**2))
-w2 = a - unp.sqrt(a**2 + 1/LC)
+w2 = +a + unp.sqrt(a**2 + 1/LC)
 print('w- = ', w1)
 print('w+ = ', w2)
 print('f- = ', w1 / (2*np.pi))
