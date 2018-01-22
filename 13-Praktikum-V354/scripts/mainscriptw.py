@@ -53,10 +53,40 @@ C=unp.uarray(2.098,0.006)/10**9
 R=unp.uarray(115.486820946,1.2154265187)
 
 
+#a
+def f(x, A0, m):
+    return A0*np.exp(-2*np.pi*m*x)
+
+print('a)')
+x,y = np.genfromtxt('scripts/data1.txt', unpack = True)
+x=x/10**6
+U0=20
+	
+params, covar = curve_fit(f, x, y)
+x_plot = np.linspace(-20/10**6,420/10**6)
+plt.plot(x, y, 'rx', label='Messwerte')
+plt.plot(x_plot, f(x_plot, *params), 'b-', label='Ausgleichskurve')
+plt.xlabel('t / s')
+plt.ylabel('U / V')
+plt.xlim(-20/10**6,420/10**6)
+plt.legend(loc="best")
+plt.savefig('content/images/Grapha.pdf')
+
+A0 = unp.uarray(params[0], np.sqrt(covar[0][0]))
+m = unp.uarray(params[1], np.sqrt(covar[1][1]))
+print('A0 =', A0)
+print('m =', m)
+
+Reff=4*np.pi*m*L
+print('R_eff =', Reff)
+
+tau=1/(2*np.pi*m)
+print('tau =', tau)
+
+
 #c
 def AcT(f, a, b):
 	return 1/np.sqrt((1-(2*np.pi*f*a)**2)**2+(b*2*np.pi*f)**2)
-
 
 print('c)')
 f, Ac = np.genfromtxt('scripts/data2.txt', unpack=True)
@@ -66,18 +96,17 @@ A =  9.8
 Ar = Ac/A
 
 params, covar = curve_fit(AcT, f2, Ar)
-print(params)
 
 t = np.linspace(f[0]*0.98, f[-1]*1.02, 10**3)
 t2 = t / 10**3
 plt.cla()
 plt.clf()
-plt.plot(f, Ar, 'rx', label='Daten')
-plt.plot(t, AcT(t2, *params), 'b-', label='Fit')
+plt.plot(f, Ar, 'rx', label='Messwerte')
+plt.plot(t, AcT(t2, *params), 'b-', label='Ausgleichskurve')
 plt.xscale('log')
 plt.xlim(f[0]*0.98, f[-1]*1.02)
-plt.xlabel(r'$f_{\text{Antrieb}}/\si{\hertz}$')
-plt.ylabel(r'$A_C/A_{\text{Antrieb}}$')
+plt.xlabel(r'$\nu/\si{\hertz}$')
+plt.ylabel(r'$\frac{U_C}{U}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/Graphc1')
