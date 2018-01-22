@@ -171,3 +171,67 @@ plt.savefig('content/images/Graphc2')
 
 
 #d
+def bereich(x, u, o):
+	if(x>=u and x<=o):
+		return x
+	if(x<u):
+		return bereich(o - (u-x), u, o)
+	if(x>o):
+		return bereich(u + (x-o), u, o)
+
+def Phase(a, LCs, RC):
+	b = []
+	for x in a:
+		b.append(bereich(np.arctan((2*np.pi*x*RC)/(1-(LCs*2*np.pi*x)**2)), 0, np.pi))
+	return np.array(b)
+
+print('d)')
+
+x, y = np.genfromtxt('scripts/data3.txt', unpack=True)
+x = x*1000
+y = y*(10**(-6))*x*2*np.pi
+
+params, covar = curve_fit(Phase , x/10**6, y, p0=[np.sqrt(3.6*10**(-11))*10**6, 1.5])
+
+t = np.linspace(x[0]*0.98, x[-1]*1.02, 10**5)
+t2 = t / 10**6
+plt.cla()
+plt.clf()
+print(params, covar, sep='\n')
+plt.plot(x, y, 'rx', label='Daten')
+plt.plot(t, Phase(t2, *params), 'b-', label='Fit')
+plt.xlim(t[0], t[-1])
+plt.xlabel(r'$\nu/\si{\hertz}$')
+plt.ylabel(r'$\phi/\si{\radian}$')
+plt.xscale('log')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/Graphd1')
+
+LC = (unp.uarray(params[0], np.sqrt(covar[0][0]))/1000000)**2
+RC = unp.uarray(params[1], np.sqrt(covar[1][1]))/1000000
+print('LC = ', LC)
+print('RC = ', RC)
+print('fres = ', unp.sqrt(1/(LC) - (RC**2)/(2*LC**2))/(2*np.pi) )
+print('fres errechnet = ', unp.sqrt(1/(L*C) - (R**2)/(2*L**2))/(2*np.pi) )
+print('Abweichung in Prozent = ',(unp.sqrt(1/(L*C) - (R**2)/(2*L**2))/(2*np.pi)-unp.sqrt(1/(LC) - (RC**2)/(2*LC**2))/(2*np.pi))/(unp.sqrt(1/(L*C) - (R**2)/(2*L**2))/(2*np.pi))*100)
+print('f1 = ', (RC/(2*LC) + unp.sqrt(RC**2/(2*LC)**2 + 1/LC))/(2*np.pi) )
+print('f1 errechnet = ', (R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi) )
+print('Abweichung in Prozent = ', ((R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi)-(RC/(2*LC) + unp.sqrt(RC**2/(2*LC)**2 + 1/LC))/(2*np.pi))/((R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi))*100)
+print('f2 = ', (-RC/(2*LC) + unp.sqrt(RC**2/(2*LC)**2 + 1/LC))/(2*np.pi) )
+print('f2 errechnet = ', (-R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi) )
+print('Abweichung in Prozent = ', ( (-R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi)-(-RC/(2*LC) + unp.sqrt(RC**2/(2*LC)**2 + 1/LC))/(2*np.pi) )/( (-R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi))*100)
+
+
+t = np.linspace(x[0], x[-1], 100000)
+t2 = t / 1000000
+plt.cla()
+plt.clf()
+plt.plot(x, y, 'rx', label='Daten')
+plt.plot(t, Phase(t2, *params), 'b-', label='Fit')
+plt.xlim(x[3], x[-4])
+plt.xlabel(r'$\nu/\si{\hertz}$')
+plt.ylabel(r'$\phi/\si{\radian}$')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/Graphd2')
