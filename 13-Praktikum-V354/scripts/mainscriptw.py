@@ -84,6 +84,11 @@ tau=1/(2*np.pi*m)
 print('tau =', tau)
 
 
+#b
+print('b)')
+Rap = unp.sqrt(4 * L / C)
+
+
 #c
 def AcT(f, a, b):
 	return 1/np.sqrt((1-(2*np.pi*f*a)**2)**2+(b*2*np.pi*f)**2)
@@ -158,8 +163,11 @@ plt.clf()
 plt.plot(f2, Ar2, 'rx', label='Daten')
 plt.plot(t, AcT(t2, *params), 'b-', label='Fit')
 plt.xlim(f2[0]*0.98, f2[-1]*1.02)
-plt.xlabel(r'$f_{\text{Antrieb}}/\si{\hertz}$')
-plt.ylabel(r'$A_C/A_{\text{Antrieb}}$')
+plt.xlabel(r'$f_{\nu/\si{\hertz}$')
+plt.ylabel(r'$\frac{U_C}{U}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/Graphc2')
+
+
+#d
