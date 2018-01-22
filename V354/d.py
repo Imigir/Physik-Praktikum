@@ -11,6 +11,7 @@ L=10.11/1000
 x,y = np.genfromtxt('datad.txt', unpack = True)
 y=y/1000000
 phi=y*360*x*1000
+print(phi)
 plt.plot(x, phi, 'rx', label='Messwerte')
 plt.xlabel(r'$\nu$ / $10^3$Hz')
 plt.ylabel('$\phi$ / °')
