@@ -121,13 +121,13 @@ RC = unp.uarray(-params[1], np.sqrt(covar[1][1]))/10**3
 
 print('LC = ', LC)
 print('RC = ', RC)
-print('LC errechnet = ', L*C)
-print('RC errechnet = ', R*C)
+print('LC theorie = ', L*C)
+print('RC theorie = ', R*C)
 
 q = unp.sqrt(LC)/RC
 print('Güte q = ', q)
 qer = unp.sqrt(L*C)/(R*C)
-print('Güte q errechnet = ', qer)
+print('Güte q theorie = ', qer)
 print('Abweichung in Prozent = ', (qer-q)/qer * 100)
 
 
@@ -142,14 +142,14 @@ print('f+ = ', w2 / (2*np.pi))
 print('Breite der Ressonanzkurve = ', (w2 - w1) / (2*np.pi))
 
 aer = ((R*C)**2-2*L*C)/(2*(L*C)**2)
-print('a errechnet = ', aer)
+print('a theorie = ', aer)
 w1er = unp.sqrt(-aer - unp.sqrt(aer**2 - (1-2/qer**2)/(L*C)**2))
 w2er = unp.sqrt(-aer + unp.sqrt(aer**2 - (1-2/qer**2)/(L*C)**2))
-print('w- errechnet = ', w1er)
-print('w+ errechnet = ', w2er)
-print('f- errechnet = ', w1er / (2*np.pi))
-print('f+ errechnet = ', w2er / (2*np.pi))
-print('Breite der Ressonanzkurve errechnet = ', (w2er - w1er) / (2*np.pi))
+print('w- theorie = ', w1er)
+print('w+ theorie = ', w2er)
+print('f- theorie = ', w1er / (2*np.pi))
+print('f+ theorie = ', w2er / (2*np.pi))
+print('Breite der Ressonanzkurve theorie = ', (w2er - w1er) / (2*np.pi))
 print('Abweichung in Prozent = ',((w2 - w1) / (2*np.pi)-(w2er - w1er) / (2*np.pi))/((w2er - w1er) / (2*np.pi))*100)
 
 
@@ -213,13 +213,13 @@ RC = unp.uarray(params[1], np.sqrt(covar[1][1]))/1000000
 print('LC = ', LC)
 print('RC = ', RC)
 print('fres = ', unp.sqrt(1/(LC) - (RC**2)/(2*LC**2))/(2*np.pi) )
-print('fres errechnet = ', unp.sqrt(1/(L*C) - (R**2)/(2*L**2))/(2*np.pi) )
+print('fres theorie = ', unp.sqrt(1/(L*C) - (R**2)/(2*L**2))/(2*np.pi) )
 print('Abweichung in Prozent = ',(unp.sqrt(1/(L*C) - (R**2)/(2*L**2))/(2*np.pi)-unp.sqrt(1/(LC) - (RC**2)/(2*LC**2))/(2*np.pi))/(unp.sqrt(1/(L*C) - (R**2)/(2*L**2))/(2*np.pi))*100)
 print('f1 = ', (RC/(2*LC) + unp.sqrt(RC**2/(2*LC)**2 + 1/LC))/(2*np.pi) )
-print('f1 errechnet = ', (R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi) )
+print('f1 theorie = ', (R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi) )
 print('Abweichung in Prozent = ', ((R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi)-(RC/(2*LC) + unp.sqrt(RC**2/(2*LC)**2 + 1/LC))/(2*np.pi))/((R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi))*100)
 print('f2 = ', (-RC/(2*LC) + unp.sqrt(RC**2/(2*LC)**2 + 1/LC))/(2*np.pi) )
-print('f2 errechnet = ', (-R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi) )
+print('f2 theorie = ', (-R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi) )
 print('Abweichung in Prozent = ', ( (-R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi)-(-RC/(2*LC) + unp.sqrt(RC**2/(2*LC)**2 + 1/LC))/(2*np.pi) )/( (-R/(2*L) + unp.sqrt(R**2/(2*L)**2 + 1/(L*C)))/(2*np.pi))*100)
 
 
