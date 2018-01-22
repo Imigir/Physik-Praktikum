@@ -61,7 +61,7 @@ print('a)')
 x,y = np.genfromtxt('scripts/data1.txt', unpack = True)
 x=x/10**6
 U0=20
-	
+
 params, covar = curve_fit(f, x, y)
 x_plot = np.linspace(-20/10**6,420/10**6)
 plt.plot(x, y, 'rx', label='Messwerte')
