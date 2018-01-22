@@ -87,7 +87,7 @@ print('tau =', tau)
 #b
 print('b)')
 Rap = unp.sqrt(4 * L / C)
-
+print('Rap = ', Rap)
 
 #c
 def AcT(f, a, b):
@@ -163,7 +163,7 @@ plt.clf()
 plt.plot(f2, Ar2, 'rx', label='Daten')
 plt.plot(t, AcT(t2, *params), 'b-', label='Fit')
 plt.xlim(f2[0]*0.98, f2[-1]*1.02)
-plt.xlabel(r'$f_{\nu/\si{\hertz}$')
+plt.xlabel(r'$\nu/\si{\hertz}$')
 plt.ylabel(r'$\frac{U_C}{U}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
