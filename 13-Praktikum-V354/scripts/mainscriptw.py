@@ -80,7 +80,7 @@ plt.xlabel(r'$f_{\text{Antrieb}}/\si{\hertz}$')
 plt.ylabel(r'$A_C/A_{\text{Antrieb}}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Graph1')
+plt.savefig('content/images/Graphc1')
 
 LC = (unp.uarray(params[0], np.sqrt(covar[0][0]))/10**3)**2
 RC = unp.uarray(-params[1], np.sqrt(covar[1][1]))/10**3
@@ -133,4 +133,4 @@ plt.xlabel(r'$f_{\text{Antrieb}}/\si{\hertz}$')
 plt.ylabel(r'$A_C/A_{\text{Antrieb}}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Graph2')
+plt.savefig('content/images/Graphc2')
