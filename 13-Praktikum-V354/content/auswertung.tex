@@ -32,7 +32,7 @@ Als Generatorspannung wurde eine Rechteckspannung von $U_.G=20V$ verwendet.
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=3.0]S[table-format=2.1]}
 		\toprule
-		{$t/10^6\si{\second}$} & {$U_.C/\si{\volt}$} \\
+		{$t/10^{-6}\si{\second}$} & {$U_.C/\si{\volt}$} \\
 		\midrule
 		0 & 19.4 \\
 		30 & 16.0 \\
@@ -99,4 +99,75 @@ Die Abweichung beträgt somit
 \]
 \subsection{Frequenzabhängigkeit der Kondensatorspannung}
 \subsubsection{Frequenzabhängigkeit der Amplitude}
+Die in Tabelle \ref{tab:tab3} festgehaltenen Werte der eingestellten Frequenz $\nu$ und der gemessenen Kondensatorspannung $U_.C$ sowie ihres Verhältnisses zur Generatorspannung $U_.G=\SI{9,8}{\volt}$
+wurden in Abbildung \ref{fig:abb2} halblogarithmisch gegeneinander aufgetragen.\newline
+In Abbildung \ref{fig:abb3} wurde der Ausschnitt um die Resonanzfrequenz herum linear dargestellt, um die Schärfe $\nu_.+-\nu_.-$ der Frequenz zu bestimmen.
+\begin{table}
+	\centering
+	\caption{Apparatekonstanten}
+\label{tab:tab3}
+	\sisetup{table-format=1.2}
+	\begin{tabular}{S[table-format=2.1]S[table-format=3.1]S[table-format=2.2]}
+		\toprule
+		{$\omega/10^3\si{\second}$} & {$U_.C/\si{\volt}$} & {$\frac{U_.C}{U_.G}/\si{}$}\\
+		\midrule
+		15 & 12.2 & 1.24 \\
+		20 & 15.0 & 1.53 \\
+		25 & 21.6 & 2.20 \\
+		30 & 47.2 & 4.82 \\
+		31 & 63.2 & 6.45 \\
+		32 & 95.2 & 9.71 \\
+		32.5 & 122 & 12.45 \\
+		33 & 150 & 15.31 \\
+		33.3 & 157 & 16.02 \\
+		33.6 & 150 & 15.31 \\
+		34.1 & 122 & 12.45 \\
+		34.6 & 96.8 & 9.88 \\
+		35.6 & 63.2 & 6.45 \\
+		36.6 & 45.6 & 4.65 \\
+		41.6 & 17.4 & 1.78 \\
+		46.6 & 10.4 & 1.06 \\
+		50 & 8.0 & 0.82 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\begin{figure}
+\centering
+\includegraphics[scale=0.6]{content/images/c.pdf}
+\caption{halblogarithmische Darstellung des Spannungsverhältnisses $\frac{U_.C}{U_.G}$ in Abhängigkeit von der Frequenz $\nu$}\label{fig:fig2}
+\includegraphics[scale=0.6]{content/images/c2.pdf}
+\caption{Lineare Darstellung in der Nähe der Resonanzfrequenz}
+\label{fig:fig3}
+\end{figure}
+\newpage
+\noindent
+Die gemessene Güte $q_.{exp}$ lässt sich leicht aus Tabelle \ref{tab:tab3} ablesen:
+\[
+q_.{exp}=16,02
+\]
+Aus Gleichung \eqref{eq:} lässt sich die theoretische Güte 
+\[
+q_.{theo}=19,0\pm 0,2
+\] berechnen.
+Der Fehler ist dabei durch 
+\[
+\sigma_.q=\sqrt{\frac{\sigma_.R^2L}{CR^4}+\frac{\sigma_.C^2L^2}{C^34R^2L}+\frac{\sigma_.L^2}{4R^2CL}}
+\]
+gegeben.
+Die Abweichung zwischen Theorie und Experiment beträgt
+\[
+\Delta q = 18,65\%
+\]
+Die gemessene Breite der Resonanzkurve ergibt sich mit $\nu_.-=$ und $\nu_.+=$:
+\[
+(\nu_.+-\nu_.-)_.{exp}=\SI{}{\hertz}
+\]
+Der aus Gleichung \eqref{eq:} berechnete beträgt
+\[
+(\nu_.+-\nu_.-)_.{theo}=\SI{11,42(12)e3}{\hertz}\text{.}
+\]
+Der Fehler berechnet sich über
+\[
+\sigma_.{\nu_.+-\nu_.-}=\sqrt{\frac{\sigma_.R^2}{L^2}+\frac{R^2\sigma_.L^2}{L^4}}
+\]
 \subsubsection{Frequenzabhängigkeit der Phase}
