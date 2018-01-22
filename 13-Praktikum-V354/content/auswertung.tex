@@ -104,7 +104,7 @@ wurden in Abbildung \ref{fig:abb2} halblogarithmisch gegeneinander aufgetragen.\
 In Abbildung \ref{fig:abb3} wurde der Ausschnitt um die Resonanzfrequenz herum linear dargestellt, um die Schärfe $\nu_.+-\nu_.-$ der Frequenz zu bestimmen.
 \begin{table}
 	\centering
-	\caption{Apparatekonstanten}
+	\caption{Messwerte zur Frequenzabhängigkeit der Kondensatorspannung}
 \label{tab:tab3}
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=2.1]S[table-format=3.1]S[table-format=2.2]}
@@ -133,9 +133,9 @@ In Abbildung \ref{fig:abb3} wurde der Ausschnitt um die Resonanzfrequenz herum l
 \end{table}
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{content/images/Graphc1.pdf}
+\includegraphics[scale=0.8]{content/images/Graphc1.pdf}
 \caption{halblogarithmische Darstellung des Spannungsverhältnisses $\frac{U_.C}{U_.G}$ in Abhängigkeit von der Frequenz $\nu$}\label{fig:abb2}
-\includegraphics[scale=0.6]{content/images/Graphc2.pdf}
+\includegraphics[scale=0.8]{content/images/Graphc2.pdf}
 \caption{Lineare Darstellung in der Nähe der Resonanzfrequenz}
 \label{fig:abb3}
 \end{figure}
@@ -171,3 +171,38 @@ Der Fehler berechnet sich über
 \sigma_.{\nu_.+-\nu_.-}=\sqrt{\frac{\sigma_.R^2}{L^2}+\frac{R^2\sigma_.L^2}{L^4}}
 \]
 \subsubsection{Frequenzabhängigkeit der Phase}
+Die Werte des in Abbildung \ref{fig:abb4} und \ref{fig:abb5} sichtbaren Graphen lassen sich aus Tabelle \ref{tab:tab4} ablesen.
+\begin{table}
+	\centering
+	\caption{Messwerte zur Frequenzabhängigkeit der Kondensatorspannung}
+\label{tab:tab4}
+	\sisetup{table-format=1.2}
+	\begin{tabular}{S[table-format=2.1]S[table-format=2.1]S[table-format=3.2]}
+		\toprule
+		{$\omega/10^3\si{\second}$} & {$a/10^{-6}\si{\second}$} & {$\phi/\si{\degree}$}\\
+		\midrule
+		15 & 0,6 & 3,24 \\
+		20 & 0,6 & 4,32 \\
+		25 & 0,6 & 5,40 \\
+		30 & 1,0 & 10,80 \\
+		31 & 1,2 & 13,39 \\
+		32 & 2,2 & 25,34 \\
+		32.5 & 3,0 & 35,10 \\
+		33 & 5,0 & 59,40 \\
+		33.3 & 7,2 & 86,31 \\
+		33.6 & 9,2 & 111,28 \\
+		34.1 & 11,2 & 137,49 \\
+		34.6 & 12,4 & 154,45 \\
+		35.6 & 13,0 & 166,61 \\
+		36.6 & 13,0 & 171,29 \\
+		41.6 & 11,6 & 173,72 \\
+		46.6 & 10,6 & 177,82 \\
+		50 & 9,8 & 176,40 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{content/images/Graphd1.pdf}
+\caption{Verlauf der Phasenverschiebung in Abhängigkeit von der Frequenz}
+\end{figure}
