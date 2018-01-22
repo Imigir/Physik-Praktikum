@@ -158,7 +158,7 @@ print('f+ theorie = ', w2er / (2*np.pi))
 print('Breite der Ressonanzkurve theorie = ', (w2er - w1er) / (2*np.pi))
 print('Abweichung in Prozent = ',((w2 - w1) / (2*np.pi)-(w2er - w1er) / (2*np.pi))/((w2er - w1er) / (2*np.pi))*100)
 
-print('R^2/2L^2 = ', R**2/(2*L**2))
+print('R^2/(2L^2) = ', R**2/(2*L**2))
 print('1/LC = ', 1/(L*C))
 
 f2 = f[4:-4]
