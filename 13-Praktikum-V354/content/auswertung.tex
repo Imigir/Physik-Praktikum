@@ -16,7 +16,7 @@ Die Werte für Induktivität $L$ der Spule, die Kapazität $C$ und den verwendet
 	\sisetup{table-format=1.2}
 	\begin{tabular}{S[table-format=1.2]S[table-format=1.3]S[table-format=2.1]}
 		\toprule
-		{$L/ 10^3 \si{\hertz}$} & {$C/10^9\si{\farad}$} & {$R/\si{hertz}$} \\
+		{$L/ 10^3 \si{\henry}$} & {$C/10^{-9}\si{\farad}$} & {$R/\si{\ohm}$} \\
 		\midrule
 		${10,11\pm 0,03}$ & ${2,098\pm 0,006}$ & ${48,1\pm 0,1}$ \\
 		\bottomrule
@@ -71,7 +71,7 @@ R_.{eff}&=\SI{115(1)}{\ohm} \\
 \end{align}
 Der Fehler von $R_.{eff}$ errechnet sich dabei aus der Gaußschen Fehlerfortpflanzung
 \[
-\sigma_.R=\sqrt{(4\pi L\sigma_.{\mu})^2 +(4\pi\mu\sigma_.L)^2)},
+\sigma_.R=\sqrt{\left(4\pi L\sigma_.{\mu}\right)^2 +\left(4\pi\mu\sigma_.L\right)^2)},
 \]
 wobei $\sigma_.L$ aus Tabelle \ref{tab:tab1} abzulesen und $\sigma_.{\mu}$ durch die Regression bestimmt wurde.
 Analog dazu errechnet sich der Fehler der Abklingzeit $\tau$ zu
@@ -90,7 +90,7 @@ R_.{ap,theo}=\SI{4,390(9)e3}{\ohm},
 \]
 wobei sich der Fehler aus
 \[
-\sigma_.{R}=\sqrt(\sigma_.L^2/(CL)+(L\sigma_.C)^2/(C^3L))
+\sigma_.{R}=\sqrt{\frac{\sigma_.L^2}{CL}+\frac{\left(L\sigma_.C\right)^2}{C^3L}}
 \]
 berechnet.\newline
 Die Abweichung beträgt somit
@@ -141,35 +141,71 @@ In Abbildung \ref{fig:abb3} wurde der Ausschnitt um die Resonanzfrequenz herum l
 \end{figure}
 \newpage
 \noindent
-Die gemessene Güte $q_.{exp}$ lässt sich leicht aus Tabelle \ref{tab:tab3} ablesen:
+Mittels der Regression 
 \[
-q_.{exp}=16,02
+\frac{U_.0}{U_.G}(\nu)=\frac{1}{\sqrt{\left(1-\left(2\pi\nu a\right)^2\right)^2+\left(2\pi\nu b\right)^2}}
 \]
+ergibt sich für die Parameter
+\begin{align*}
+a^2&=\SI{2,276(2)e-11}{\henry\farad} \\
+b&=\SI{3,01(2)e-7}{\ohm\farad}
+\end{align*}
+Die gemessene Güte $q_.{exp}$ lässt sich damit aus $q=\frac{a}{b}$ berechnen:
+\[
+q_.{exp}=15,84\pm 0,08
+\]
+Der Fehler wird dabei durch
+\[
+\sigma_.{q,exp}=\frac{\sqrt{\frac{\sigma_.a^2}{4a}+\frac{a\sigma_.b^2}{b^2}}}{b}
+\]
+berechnet
 Aus Gleichung \eqref{eq:} lässt sich die theoretische Güte 
 \[
-q_.{theo}=19,0\pm 0,2
-\] berechnen.
+q_.{theo}=19,01\pm 0,20
+\] 
+berechnen.
 Der Fehler ist dabei durch 
 \[
-\sigma_.q=\sqrt{\frac{\sigma_.R^2L}{CR^4}+\frac{\sigma_.C^2L^2}{C^34R^2L}+\frac{\sigma_.L^2}{4R^2CL}}
+\sigma_.{q,theo}=\sqrt{\frac{\sigma_.R^2L}{CR^4}+\frac{\sigma_.C^2L^2}{C^34R^2L}+\frac{\sigma_.L^2}{4R^2CL}}
 \]
 gegeben.
 Die Abweichung zwischen Theorie und Experiment beträgt
 \[
-\Delta q = 18,65\%
+\Delta q = 16,7\%
 \]
-Die gemessene Breite der Resonanzkurve ergibt sich mit $\nu_.-=○\SI{3,2459(16)e4}{\hertz}$ und $\nu_.+\SI{3,4277(16)}{\hertz}=$:
+Die experimentelle Breite der Resonanzkurve ergibt sich mit der Gleichung 
 \[
-(\nu_.+-\nu_.-)_.{exp}=\SI{1,818(20)e3}{\hertz}
+\nu_.{\pm}=\pm\frac{b}{2a^2}+\sqrt{\left(\frac{b}{2a^2}\right)^2+\frac{1}{a^2}}
 \]
-Mit den aus Gleichung \eqref{eq:} berechneten $\nu_.-=\SI{3,361(7)e4}{\hertz}$ und $\nu_.+={3,543(7)e4}{\hertz}$ beträgt
+und damit $\nu_.-=\SI{3,2319(13)e4}{\hertz}$ und $\nu_.+=\SI{3,4425(14)e4}{\hertz}$:
 \[
-(\nu_.+-\nu_.-)_.{theo}=\SI{1,821(20)e3}{\hertz}\text{.}
+\left(\nu_.+-\nu_.-\right)_.{exp}=\SI{2,106(11)e3}{\hertz}
 \]
-Der Fehler berechnet sich über
+Der Fehler berechnet sich jeweils über
+\begin{align*}
+\sigma_.{\nu_.+}&=\sqrt{\sigma_.a^2\left(\frac{\frac{2}{a^3}+\frac{b^2}{a^5}}{2\sqrt{\frac{1}{a^2}+\frac{b^2}{4a^2}}}+\frac{b}{a^3}\right)^2+\sigma_.b^2\left(\frac{b}{4a^2\sqrt{\frac{1}{a^2}+\frac{b^2}{4a^2}}}+\frac{1}{2a^2}\right)^2} \\
+\sigma_.{\nu_.-}&=\sqrt{\sigma_.a^2\left(-\frac{\frac{2}{a^3}+\frac{b^2}{a^5}}{2\sqrt{\frac{1}{a^2}+\frac{b^2}{4a^2}}}+\frac{b}{a^3}\right)^2+\sigma_.b^2\left(\frac{b}{4a^2\sqrt{\frac{1}{a^2}+\frac{b^2}{4a^2}}}-\frac{1}{2a^2}\right)^2} \\
+\sigma_.{\nu_.+-\nu_.-}&=\sqrt{\sigma_.{\nu_.+}^2+\sigma_.{\nu_.-}^2}\text{.}
+\end{align*}
+Die Fehler $\sigma_.a$ und $\sigma_.b$ wurden durch die Regression bestimmt.
+Mit den aus Gleichung \eqref{eq:} berechneten $\nu_.-=\SI{3.366(7)e4}{\hertz}$ und 
+$\nu_.+=\SI{3,548(7)e4}{\hertz}$ beträgt
 \[
-\sigma_.{\nu_.+-\nu_.-}=\sqrt{\sigma_.{\nu_.+}^2+\sigma_.{\nu_.-}^2}
+\left(\nu_.+-\nu_.-\right)_.{theo}=\SI{1,818(20)e3}{\hertz}\text{.}
 \]
+Der Fehler berechnet sich jeweils über
+
+\begin{align*}
+\sigma_.{\nu_.+}&=\sqrt{\sigma_.R^2\left(\frac{R}{4L^2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}}+\frac{1}{2L}\right)^2+\sigma_.C^2\left(\frac{1}{C^2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}}\right)^2+\sigma_.L^2\left(\frac{\frac{1}{CL^2}+\frac{R^2}{2L^3}}{2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}}+\frac{R}{2L^2}\right)^2} \\
+\sigma_.{\nu_.+}&=\sqrt{\sigma_.R^2\left(\frac{R}{4L^2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}}-\frac{1}{2L}\right)^2+\sigma_.C^2\left(\frac{1}{C^2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}}\right)^2+\sigma_.L^2\left(-\frac{\frac{1}{CL^2}+\frac{R^2}{2L^3}}{2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}}+\frac{R}{2L^2}\right)^2} \\
+\sigma_.{\nu_.+-\nu_.-}&=\sqrt{\sigma_.{\nu_.+}^2+\sigma_.{\nu_.-}^2}\text{.}
+\end{align*}
+Die Fehler $\sigma_.R$, $\sigma_.L$ und $\sigma_.C$ lassen sich dabei aus Tabelle \ref{fig:abb1} entnehmen.
+Die Abweichung von experimentellem und theoretischem Wert beträgt
+\[
+\Delta\left(\nu_.+-\nu_.-\right)=15,8\%
+\]
+
 \subsubsection{Frequenzabhängigkeit der Phase}
 Die Werte des in Abbildung \ref{fig:abb4} und \ref{fig:abb5} sichtbaren Graphen lassen sich aus Tabelle \ref{tab:tab4} ablesen.
 \begin{table}
@@ -210,3 +246,59 @@ Die Werte des in Abbildung \ref{fig:abb4} und \ref{fig:abb5} sichtbaren Graphen 
 \caption{Verlauf der Phasenverschiebung in der Nähe der Resonanzfrequenz}
 \label{fig:abb5}
 \end{figure}
+Die Regression 
+\[
+\phi(\nu)=arctan\left(\frac{a}{1-b^2x^2}\right)
+\]
+liefert
+\begin{align*}
+a&=\SI{1,77(5)e-7}{\ohm\farad} \\
+b^2&=\SI{2,277(2)e-11}{\henry\farad}\text{.}
+\end{align*}
+Mit der Formel
+\[
+\nu_.{res}=\sqrt{\frac{1}{b^2}-\frac{a}{4\pi b^4}}
+\]
+ergibt sich 
+\[
+\nu_.{res,exp}=\SI{3,3342(11)e4}{\hertz},
+\]
+wobei sich mit den durch die Regression bestimmten Fehlern $\sigma_.a$ und $\sigma_.b$ der Fehler aus
+\[
+\sigma_.{\nu_.{res},exp}=\sqrt{\sigma_.a^2\left(\frac{1}{8\pi b^4\sqrt{\frac{1}{b^2}-\frac{a}{4\pi b^4}}}\right)^2+\sigma_.b^2\left(\frac{\frac{a}{\pi b^5}-\frac{2}{b^3}}{2\sqrt{\frac{1}{b^2}-\frac{a}{4\pi b^4}}}\right)^2}
+\]
+berechnet.
+Verglichen mit dem Theoriewert, der sich nach Gleichung \eqref{eq:} ergibt
+\[
+\nu_.{res,theo}=\SI{3,453(7)e4}{\hertz}
+\]
+mit dem Fehler
+\[
+\sigma_.{\nu_.{res},theo}=\sqrt{\sigma_.R^2\left(\frac{R}{4\pi L^2\sqrt{\frac{1}{CL}-\frac{R^2}{4\pi L^2}}}\right)^2+\sigma_.C^2\left(\frac{1}{2C^2\sqrt{\frac{1}{CL}-\frac{R^2}{4\pi L^2}}}\right)^2+\sigma_.L\left(\frac{\frac{R^2}{2\pi L^3}-\frac{1}{CL^2}}{2\sqrt{\frac{1}{CL}-\frac{R^2}{4\pi L^2}}}\right)^2}
+\]
+eine Abweichung von
+\[
+\Delta\nu_.{res}=3,45\%
+\]
+Die Werte für $\nu_.1$ und $\nu_.2$ lassen sich analog berechnen zu
+\begin{table}
+	\centering
+	\caption{Frequenzen}
+\label{tab:tab6}
+	\sisetup{table-format=1.2}
+	\begin{tabular}{cS[table-format=2.2] @{${}\pm{}$} S[table-format=1.2]S[table-format=2.2] @{${}\pm{}$} S[table-format=1.2]S[table-format=1.2]}
+		\toprule
+		{} & \multicolumn{2}{c}{$\nu_\text{exp}/ 10^3 \si{\hertz}$} & \multicolumn{2}{c}{$\nu_\text{theo}/10^3\si{\hertz}$} & {$\Delta\nu$} \\
+		\midrule
+		$\nu_.1$ & 32,74 & 0,02 & 33,66 & 0,07 & 2,73\% \\
+		$\nu_.2$ & 33,98 & 0,02 & 35,48 & 0,07 & 4,23\% \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+%\begin{table}
+%	\centering
+%	\caption{Frequenzen}
+%	\label{tab:tab6}
+%	\sisetup{table-format=1.2}
+%\end{table}
