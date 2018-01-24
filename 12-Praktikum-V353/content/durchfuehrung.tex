@@ -12,18 +12,17 @@ aufgebaut. Als Rechteckgenerator wird ein Funktonengenerator verwendet, der auf 
 \newline Auf dem Oszilloskop wird ein Entladevorgang des Kondensators betrachtet und zu verschiedenen Zeiten die Spannung gemessen.
 \subsection{Amplitude der Kondensatorspannung}
 Die Schaltung aus Abbildung \ref{fig:a} bleibt erhalten, wobei der Funktionsgenerator auf Sinusspannung eingestellt wird.
-Es wird Frequenz der Generatorspannung variiert und die Amplitude $A$ der Kondensatorspannung für verschiedene Frequenzen gemessen.
-Zur Überprüfung der Frequenzunabhängigkeit der Generatorspannung wird das Ozilloskop direkt an das Oszilloskop angeschlossen.
+Es wird die Frequenz der Generatorspannung variiert und die Amplitude $A$ der Kondensatorspannung für Frequenzen im Bereich von $\SI{10}{hertz}$ bis $\SI{10000}{hertz}$ gemessen.
+Zur Bestätigung der Frequenzunabhängigkeit der Generatorspannung wird der Generator direkt an das Oszilloskop angeschlossen und die Konstanz der Amplitude überprüft.
+Die normierte Amplitude wird in einem halb logarithmischen Diagramm gegen die Zeit aufgetragen und mittels einer linearen Ausgleichsrechnung wird die Zeitkonstante $\tau$ bestimmt.
 \subsection{Phasenverschiebung zwischen Kondensator- und Generatorspannung}
-Es wird eine Schaltung gemäß Abbildung\ref{fig:c}
-aufgebaut. Ein Funktionsgenerator übernimmt dabei die Aufgabe des Frequenzmessers und Sinusgenerators.
+Es wird eine Schaltung gemäß Abbildung \ref{fig:c} aufgebaut. Ein Funktionsgenerator übernimmt dabei die Aufgabe des Frequenzmessers und Sinusgenerators. Es wird mit dem Kursor der Abstand $a$ zwischen den Maxima der beiden auf dem Oszilloskop zu sehenden Spannungen für die selben Frequenzen wie zuvor gemessen. Mittels einer nichtlinearen Ausgleichsrechnung wird die Zeitkonstante $\tau$ bestimmt.
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/c.jpg}
 \caption{Schaltung zur Bestimmung der Phasendifferenz zwischen Kondensator- und Generatorspannung.\cite{V353}}
 \label{fig:c}
 \end{figure}
-\newline Es wird der Abstand $a$ zwischen den Maxima der beiden auf dem Oszilloskop zu sehenden Spannungen für verschiedene Frequenzen gemessen.
 \subsection{Integratoreigenschaft des RC-Gliedes}
 Die Schaltung aus Abbildung \ref{fig:c} bleibt erhalten.
 Die Generatorspannung wird nacheinander auf eine Sinus-, eine Dreieck- und eine Rechteckspannung gestellt und die resultierenden Spannungsverläufe gespeichert.

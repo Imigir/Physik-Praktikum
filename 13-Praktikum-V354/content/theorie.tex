@@ -30,7 +30,7 @@ Der $RLC$-Kreis ist ein gedämpfter Schwingkreis und eine Erweiterung des $LC$-K
 \end{equation}
 %Mit dem Ansatz
 %\begin{equation}
-%I = Ae^{\lambda t} \label{eq:I_Ans}
+%I = A\exp(\lambda t) \label{eq:I_Ans}
 %\end{equation}
 %lässt sich Gleichung \eqref{eq:Diff_I} lösen und für $\lambda$ ergibt sich:
 %\begin{equation}
@@ -50,13 +50,13 @@ und der Kreisfrequenz des gedämpften Systems
 \end{equation}
 ergibt sich die allgemeine Lösung von Gleichung \eqref{eq:Diff_I} zu:
 \begin{equation}
-I(t) = e^{-\gamma t}\left(A_.1e^{\omega_.g t}+A_.2e^{-\omega_.g t}\right)\text{.} \label{eq:I}
+I(t) = \exp(-\gamma t)\left(A_.1\exp(\omega_.g t)+A_.2\exp(-\omega_.g t)\right)\text{.} \label{eq:I}
 \end{equation}
 Die Konstanten $A_.1$ und $A_.2$ sind dabei von den Anfangsbedingungen abhängig.
 In Gleichung \eqref{eq:I} ist zu erkennen, das sich für unterschiedliche $\omega_.g$ verschiedene Arten von Lösungen ergeben.\newline
 Ist $\omega_.0>\gamma$, so wird $\omega_.g$ nach Gleichung \eqref{eq:omega} imaginär und die Lösung ist eine gedämpfte Schwingung der Form:
 \begin{equation}
-I(t) = A e^{-\gamma t} \mathrm{cos}(\omega_.g t + \phi)\text{.} \label{eq:I2}
+I(t) = A \exp(-\gamma t) \mathrm{cos}(\omega_.g t + \phi)\text{.} \label{eq:I2}
 \end{equation}
 Die Periodendauer $T$ und die Abklingdauer $\tau$ des schwingenden Systems ergeben sich zu:
 \begin{equation}
@@ -93,7 +93,7 @@ Es zeigt sich zudem eine Phasenverschiebung $\phi$ zwischen $U_C$ und $U$. Für 
 \phi(\omega) 	&= \arctan\left( \frac{-\omega RC}{1-LC \omega^2}\right)\\
 				&= \omega \Delta t\text{.}\label{phi}
 \end{align}
-Dabei ist $\Delta t$ der Abstand der Extremstellen der beiden Spannungskurven wenn diese in einem Graphen dargestellt werden.\newline
+Dabei ist $\Delta t$ der Abstand der Extremstellen der beiden Spannungskurven, wenn diese in einem Graphen dargestellt werden.\newline
 Nach Gleichung \eqref{AC} geht $A_.C$ für $\omega \to \infty$ gegen $0$ und für $\omega \to 0$ gegen $U_.0$.
 Für die Resonanzfrequenz $\omega_.{res}$ erreicht $U_.C$ einen Maximalwert, welcher größer als $U_.0$ sein kann. Für $\omega_.{res}$ gilt:
 \begin{equation}

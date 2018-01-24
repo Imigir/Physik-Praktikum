@@ -13,7 +13,7 @@ Die Integration von $0$ bis $t$
 \]
 liefert 
 \begin{equation}
-A(t) = A(\infty) + \left[A(0)-A(\infty)\right]e^{ct}\text{.}
+A(t) = A(\infty) + \left[A(0)-A(\infty)\right]\exp(ct)\text{.}
 \end{equation}
 Daraus folgt für $c$ die Bedingung $c<0$, da A beschränkt sein muss.
 \subsection{Auf- und Entladung eines Kondensators}
@@ -45,18 +45,18 @@ Daraus folgt für den zeitlichen Verlauf von $Q$ die Differentialgleichung
 \end{equation}
 Mit der Bedingung, dass die Ladung für $t\rightarrow\infty$ 0 sein muss ergibt sich die Lösung:
 \begin{equation}
-Q(t) = Q(0)\cdot e^{\frac{-t}{RC}} \text{.}\label{eq:Q1}
+Q(t) = Q(0)\cdot \exp\left(\frac{-t}{RC}\right) \text{.}\label{eq:Q1}
 \end{equation}
 $RC=\tau$ ist dabei die Zeitkonstante des Relaxationsvorgangs und bezeichnet die Zeitspanne, in der die Ladung sich um den Faktor $\frac{1}{e}$ ändert.\newline
 Bei der Aufladung gelten dieselben Voraussetzungen wie bei der Entladung. Nur die Randbedingung ändern sich hier zu $Q(0)=0$ und $Q(t\rightarrow\infty)=CU_.0$, wobei $U_.0$ die Spannung des Generators ist.
 Damit ergibt sich die Lösung
 \begin{equation}
-Q(t) = CU_.0\left(1-e^{\frac{-t}{RC}}\right) \text{.}\label{eq:Q2}
+Q(t) = CU_.0\left(1-\exp\left(\frac{-t}{RC}\right)\right) \text{.}\label{eq:Q2}
 \end{equation}
 \subsection{Relaxation eines RC-Gliedes bei periodischer Auslenkung aus dem Grundzustand}
 Liegt an einem $RC$-Schwingkreis eine Wechselspannung
 \[
-U(t)= U_.0\cdot cos(\omega t)
+U(t)= U_.0\cdot \cos(\omega t)
 \]
 an, führt das zu periodisch auftretenden Auf- und Entladevorgängen des Kondensators, wie sie in Abschnitt \ref{sec:Entladung} erläutert wurden.
 Solange für die Kreisfrequenz gilt $\omega << \frac{1}{RC}$, ist $U_.C(t)$ nahezu identisch mit $U(t)$. Bei steigender Frequenz ist jedoch der Auf- und Entladevorgang zu langsam und es bildet sich bei gleichzeitig abnehmender Amplitude $A$ eine Phasenverschiebung $\phi$ zwischen Kondensator- und Generatorspannung aus.
@@ -66,20 +66,20 @@ U(t)=U_.R(t)+U_.C(t)\label{eq:U1}
 \end{equation}
 und mit dem Ansatz für die Kondensatorspannung
 \[
-U_.C(t)= A(\omega)\cdot cos(\omega t + \phi (\omega))
+U_.C(t)= A(\omega)\cdot \cos(\omega t + \phi (\omega))
 \]
 und mit Gleichung \eqref{eq:QC} und \eqref{eq:dQ}
 \begin{equation}
-U_.0\cdot cos(\omega t) = -A\omega RC\cdot sin(\omega t + \phi) + A(\omega)\cdot cos(\omega t + \phi)\text{.}\label{eq:U2}
+U_.0\cdot cos(\omega t) = -A\omega RC\cdot \sin(\omega t + \phi) + A(\omega)\cdot \cos(\omega t + \phi)\text{.}\label{eq:U2}
 \end{equation}
 Da diese Gleichung für alle t gültig sein muss, kann die Frequenzabhängigkeit der Phase durch einsetzen von bestimmten Werten hergeleitet werden.
 Einsetzen von $\omega t=\frac{\pi}{2}$ liefert:
 \[
-0 = -\omega RC\cdot sin\left(\frac{\pi}{2}+\phi\right)+ cos\left(\frac{\pi}{2}+\phi\right)\text{.}
+0 = -\omega RC\cdot \sin\left(\frac{\pi}{2}+\phi\right)+ \cos\left(\frac{\pi}{2}+\phi\right)\text{.}
 \]
 Umformen und Ausnutzen der trigonometrischen Identitäten liefert
 \begin{equation}
-\phi (\omega)= arctan(-\omega RC)\text{.}\label{eq:phi}
+\phi (\omega)= \arctan(-\omega RC)\text{.}\label{eq:phi}
 \end{equation}
 Um $\phi$aus den Messwerten zu bestimmen wird
 \begin{equation}
@@ -88,15 +88,15 @@ Um $\phi$aus den Messwerten zu bestimmen wird
 verwendet, wobei $a$ der Abstand der beiden Kurven an den Extremstellen und $b$ die Periodendauerdauer der Kondensatorspannung ist.
 Desweiteren liefert das Einsetzen von $\omega t + phi = \frac{\pi}{2}$:
 \[
-U_.0\cdot cos\left(\frac{\pi}{2}-\phi\right)= -A\omega RC
+U_.0\cdot \cos\left(\frac{\pi}{2}-\phi\right)= -A\omega RC
 \]
 und damit die Frequenzabhängigkeit der Amplitude $A$ der Kondensatorspannung
 \begin{equation}
-A(\omega)=-\frac{sin(\phi)}{\omega RC}\cdot U_.0 \text{.}\label{eq:A1}
+A(\omega)=-\frac{\sin(\phi)}{\omega RC}\cdot U_.0 \text{.}\label{eq:A1}
 \end{equation}
 Mit Gleichung \eqref{eq:phi} und der Identität
 \[
-sin^2(\phi)+cos^2(\phi)=1
+\sin^2(\phi)+\cos^2(\phi)=1
 \]
 folgt daraus
 \begin{equation}

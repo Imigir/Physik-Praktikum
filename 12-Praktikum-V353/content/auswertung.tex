@@ -81,7 +81,7 @@ Dabei werden die Werte für die Phasenverschiebung $\phi$ in der Tabelle nach Fo
 \begin{equation}
 \frac{A(\phi)}{U_0}=\frac{\mathrm{sin}(\phi)}{\mathrm{tan}(\phi)}=\mathrm{cos}(\phi) \label{eq:theo}
 \end{equation}
-In Abbildung \ref{fig:Graph4} ist die Relativamplitude $\frac{A}{U_.0}$ in einem Polardiagramm gegen die Phasenverschiebung $\phi$ aufgetragen. Die Messwerte werden Tabelle \ref{tab:b} entnommen, und die Theoriekurve wird nach Formel \eqref{eq:theo} berechnet. 
+In Abbildung \ref{fig:Graph4} ist die Relativamplitude $\frac{A}{U_.0}$ in einem Polardiagramm gegen die Phasenverschiebung $\phi$ aufgetragen. Die Messwerte werden Tabelle \ref{tab:b} entnommen, und die Theoriekurve wird mit dem in Abschnitt \ref{subsec:3} bestimmten $RC$ nach Formel \eqref{eq:theo} berechnet. 
 
 \subsection{Der RC-Kreis als Integrator}
 \begin{figure}
@@ -122,3 +122,42 @@ In Abbildung \ref{fig:Graph4} ist die Relativamplitude $\frac{A}{U_.0}$ in einem
 \end{figure}
 
 In Abbildung \ref{fig:U} sind die Dreieck-, Sinus- und Rechteckspannung, sowie ihre Stammfunktionen im Vergleich mit theoretischen Beispiel-Funktionen abgebildet.
+Die Funktion und ihre Stammfunktion der Beispiel-Dreieckspannung lauten:
+\begin{align*}
+f_.{Dreieck}(t)	&= 
+	\begin{cases}
+    A(t-\frac{T}{4})	& \text{für } nT \le t \textless \frac{T}{2}+nT\\
+    A(-t+\frac{3T}{4})	& \text{für } \frac{T}{2}+nT \le t \textless nT
+   	\end{cases}
+\hspace{2em},n\in N \\
+F_.{Dreieck}(t)	&= 
+	\begin{cases}
+    A(\frac{t^2}{2}-\frac{T}{4}t)					& \text{für } nT \le t \textless \frac{T}{2}+nT\\
+    A(-\frac{t^2}{2}+\frac{3T}{4}t-\frac{T^2}{4})	& \text{für } \frac{T}{2}+nT \le t \textless nT
+   	\end{cases}
+\hspace{2em},n\in N \\
+\end{align*} 
+Dabei ist $A$ ein Skalierungsfaktor und $T$ stellt die Periodendauer dar. Im Beispiel beträgt $A=\SI{1e8}{\volt\per\second}$ und $T=\SI{6}{\micro\second}$. 
+Die Funktion und ihre Stammfunktion der Beispiel-Sinusspannung lauten:
+\begin{align*}
+f_.{Sinus}(t)	&= A\sin(\omega t) \\
+F_.{Sinus}(t)	&= -\frac{A}{\omega}\cos(\omega t +\pi)+C
+\end{align*} 
+Dabei stellt $A$ die Amplitude der Sinusspannung, $C$ die Integrationskonstante und $\omega$ die Kreisfrequenz dar. Im Beispiel beträgt $A=\SI{100}{\volt}$, $C=\SI{100}{\volt}$ und $\omega=\SI{1e6}{\per\second}$.
+Die Funktion und ihre Stammfunktion der Beispiel-Rechteckspannung lauten:
+\begin{align*}
+f_.{Rechteck}(t)&=
+	\begin{cases}
+     A	& \text{für } nT \le t \textless \frac{T}{2}+nT\\
+     -A  & \text{für } \frac{T}{2}+nT \le t \textless nT
+   	\end{cases}
+\hspace{2em},n\in N \\
+F_.{Rechteck}(t)&=
+	\begin{cases}
+    A(t-\frac{T}{4}) 	& \text{für } nT \le t \textless \frac{T}{2}+nT\\
+    -A(t+\frac{3T}{4})	& \text{für } \frac{T}{2}+nT \le t \textless nT
+   	\end{cases}
+\hspace{2em},n\in N \\
+\end{align*} 
+Dabei stellt $A$ die Amplitude der Rechteckspannung und $T$ die Periodendauer dar. Im Beispiel beträgt $A=\SI{100}{\volt}$ und $T=\SI{3}{\micro\second}$.
+In allen Graphen wird die Einheit der Stammfunktion angepasst, um wieder eine Spannung zu erhalten und die Stammfunktion ist um einen Faktor $1\cdot 10^{6}$ skaliert.  
