@@ -1928,9 +1928,17 @@
     <bcf:citekey order="2">V703</bcf:citekey>
     <bcf:citekey order="3">V703</bcf:citekey>
     <bcf:citekey order="4">V703</bcf:citekey>
-    <bcf:citekey order="5">matplotlib</bcf:citekey>
-    <bcf:citekey order="6">numpy</bcf:citekey>
-    <bcf:citekey order="7">uncertainties</bcf:citekey>
+    <bcf:citekey order="5">V703</bcf:citekey>
+    <bcf:citekey order="6">V703</bcf:citekey>
+    <bcf:citekey order="7">V703</bcf:citekey>
+    <bcf:citekey order="8">V703</bcf:citekey>
+    <bcf:citekey order="9">V703</bcf:citekey>
+    <bcf:citekey order="10">V703</bcf:citekey>
+    <bcf:citekey order="11">V703</bcf:citekey>
+    <bcf:citekey order="12">V703</bcf:citekey>
+    <bcf:citekey order="13">matplotlib</bcf:citekey>
+    <bcf:citekey order="14">numpy</bcf:citekey>
+    <bcf:citekey order="15">uncertainties</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
