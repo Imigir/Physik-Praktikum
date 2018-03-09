@@ -7,13 +7,15 @@
 \contentsline {subsection}{\numberline {2.2}Totzeit eines Geiger-M\IeC {\"u}ller-Z\IeC {\"a}hlrohres}{4}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}Nachentladungen und Charakteristik}{5}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Totzeit-Bestimmung: Zwei-Quellen-Methode}{5}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Freigesetzte Ladungsmenge pro eindringendem Teilchen}{6}{subsection.2.3}
 \contentsline {section}{\numberline {3}Aufbau}{6}{section.3}
-\contentsline {section}{\numberline {4}Durchf\IeC {\"u}hrung}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}Charakteristik des GMZ}{6}{subsection.4.1}
+\contentsline {section}{\numberline {4}Durchf\IeC {\"u}hrung}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Charakteristik des GMZ}{7}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Nachentladungen}{7}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Totzeit des GMZ}{7}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}Totzeit-Messung \IeC {\"u}ber das Oszilloskop}{7}{subsubsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.2}Totzeit-Messung mit zwei Quellen}{7}{subsubsection.4.3.2}
-\contentsline {section}{\numberline {5}Auswertung}{7}{section.5}
-\contentsline {section}{\numberline {6}Diskussion}{7}{section.6}
-\contentsline {section}{\nonumberline Literatur}{8}{section*.7}
+\contentsline {subsection}{\numberline {4.4}Freigesetzte Ladungsmenge pro eindringendem Teilchen}{8}{subsection.4.4}
+\contentsline {section}{\numberline {5}Auswertung}{8}{section.5}
+\contentsline {section}{\numberline {6}Diskussion}{8}{section.6}
+\contentsline {section}{\nonumberline Literatur}{9}{section*.7}
