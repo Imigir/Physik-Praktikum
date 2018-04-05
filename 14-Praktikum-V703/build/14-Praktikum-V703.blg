@@ -6,15 +6,15 @@
 [150] Biber.pm:3981> INFO - Processing section 0
 [164] Biber.pm:4154> INFO - Looking for bibtex format file 'lit.bib' for section 0
 [172] bibtex.pm:1479> INFO - LaTeX decoding ...
-[222] bibtex.pm:1305> INFO - Found BibTeX data source 'lit.bib'
-[236] Utils.pm:169> WARN - BibTeX subsystem: C:\Users\David\AppData\Local\Temp\ToxVvvGnAa\lit.bib_8136.utf8, line 372, warning: 2 characters of junk seen at toplevel
+[223] bibtex.pm:1305> INFO - Found BibTeX data source 'lit.bib'
+[236] Utils.pm:169> WARN - BibTeX subsystem: C:\Users\David\AppData\Local\Temp\m346h4FmS1\lit.bib_10472.utf8, line 372, warning: 2 characters of junk seen at toplevel
 [237] Biber.pm:4154> INFO - Looking for bibtex format file 'programme.bib' for section 0
-[243] bibtex.pm:1479> INFO - LaTeX decoding ...
-[250] bibtex.pm:1305> INFO - Found BibTeX data source 'programme.bib'
-[270] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[271] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[271] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[271] Biber.pm:3815> INFO - No sort tailoring available for locale 'de-DE'
-[279] bbl.pm:617> INFO - Writing 'build\14-Praktikum-V703.bbl' with encoding 'UTF-8'
-[281] bbl.pm:720> INFO - Output to build\14-Praktikum-V703.bbl
-[285] Biber.pm:110> INFO - WARNINGS: 1
+[242] bibtex.pm:1479> INFO - LaTeX decoding ...
+[246] bibtex.pm:1305> INFO - Found BibTeX data source 'programme.bib'
+[266] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[266] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[266] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[266] Biber.pm:3815> INFO - No sort tailoring available for locale 'de-DE'
+[274] bbl.pm:617> INFO - Writing 'build\14-Praktikum-V703.bbl' with encoding 'UTF-8'
+[276] bbl.pm:720> INFO - Output to build\14-Praktikum-V703.bbl
+[280] Biber.pm:110> INFO - WARNINGS: 1
