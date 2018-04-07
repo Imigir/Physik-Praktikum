@@ -14,11 +14,11 @@ Aus den Maxwellgleichungen folgt, das mehrere solcher Wellen dem Superpositionsp
 Aufgrund der hohen Frequenzen der optischen Lichtwellen kann jedoch experimentell nur die Lichtintensität $I$, also der zeitliche Mittelwert der auf eine Fläche treffenden Leistung, bestimmt werden.
 Es gilt:
 \[
-I=\frac{const}{t_.2-t_.1}\int_.{t_.1}^{t_.2}|\vec{E}(x,t)|^2\mathrm{d}t
+I=\frac{const}{t_.2-t_.1}\int_{t_.1}^{t_.2}|\vec{E}(x,t)|^2\mathrm{d}t
 \]
 und somit bei Superposition von zwei Wellen
 \begin{equation}
-I_.{ges}=\frac{const}{t_.2-t_.1}\int_.{t_.1}^{t_.2}|\vec{E}_.1(x,t)+\vec{E}_.2(x,t)|^2\mathrm{d}t \text{.}
+I_.{ges}=\frac{const}{t_.2-t_.1}\int_{t_.1}^{t_.2}|\vec{E}_.1(x,t)+\vec{E}_.2(x,t)|^2\mathrm{d}t \text{.}
 \end{equation}
 Mit Gleichung folgt dann für die Intensität:
 \begin{equation}
@@ -38,3 +38,36 @@ Dies gilt jedoch nur wenn für alle Phasenverschiebungen $\delta=const$ gilt. We
 \label{fig:Kohärenz}
 \end{figure}
 Während das Licht eines Lasers immer kohärent ist, muss das einer gewöhnlichen Lichtquelle gemäß Abbildung \ref{fig:Kohärenz} durch Spiegelkonstruktionen oder Spalte aufgeteilt und umgelenkt werden, sodass es an einem Detektor durch die unterschiedlichen zurückgelegten Wegstrecken zu festen Phasenunterschieden kommt.
+Da die Lichtgeschwindigkeit $c$ jedoch konstant und endlich ist, darf der Wegunterschied nicht größer werden als die Kohärenzlänge 
+\[
+\ell = N\lambda,
+\]
+mit der Wellenlänge $\lambda$ und der Anzahl $N$ der höchstens beobachtbaren Maxima der Interferenz.
+Weiterhin gilt nach Fourier, dass ein Wellenpaket endlicher Länge nicht monochromatisch ist, sondern aus einem Spektrum unendlich vieler verschiedener Frequenzen zusammengesetzt ist. Zwei solcher Wellenpakete interferieren nur bedingt, da es am selben Punkt ein Minimum der einen und ein Maximum einer anderen Wellenlänge geben kann.\newline
+Das Frequenzspektrum eines Wellenzuges 
+\[
+E(t)=\begin{cases}
+E_.0\mathrm{e}^{-i\omega_.0t} & \text{für} -\frac{\tau}{2}<t<\frac{\tau}{2}\\
+0 & \text{sonst}
+\end{cases}
+\]
+der zeitlichen Länge $\tau=\ell c$ lässt sich über die Fouriertransformation berechnen:
+\begin{equation*}
+g(\omega)=\int_{-\inf}^{\inf}E(t)\mathrm{e}^{i\omega t}\mathrm{d}t=2E_.0\frac{sin(\frac{\tau}{2}(\omega-\omega_.0))}{\omega-\omega_.0}
+\end{equation*}
+Das Betragsquadrat dieser Funktion
+\begin{equation*}
+G(\omega)=4E^2_.0\frac{sin^2(\frac{\tau}{2}(\omega-\omega_.0))}{(\omega-\omega_.0)^2}
+\end{equation*}
+bezeichnet die Intensität der Schwingung für die verschiedenen Frequenzen.
+$G(\omega)$ hat sein globales Maximum für $\omega =\omega_.0$. Die weiteren lokalen Maxima können vernachlässigt werden, da sie schnell gegen null streben.
+Die Breite der Verteilung ist deshalb gegeben durch den Bereich um das Maximum, der von null verschieden ist und beträgt
+$\Delta\omega=2\frac{\pi}{\tau}$
+Die Wellenlängenverteilung dagegen hat ihr Maximum bei 
+\[
+\lambda_.0=\frac{2\pi c}{\omega_.0}
+\]
+Damit ergibt sich für die Breite der Wellenlängenverteilung
+\begin{equation}
+\Delta\lambda=\frac{\lambda^2_.0}{\ell}\label{eq:dl}
+\end{equation}
