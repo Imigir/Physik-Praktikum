@@ -84,6 +84,32 @@ f(\lambda)N\ll 1,
 \]
 weshalb eine Taylornäherung durchgeführt werden kann und sich die Formel für $n$ zu 
 \begin{equation}
-n= 1+\frac{1}{2}N\label{eq:n}
+n= 1+\frac{f}{2}N\label{eq:n}
 \end{equation}
-Im Bereich von $0$ bis $\SI{1}{\bar}$ gilt für die in diesem Experiment zu untersuchende Gase annähernd das ideale Gasgesetz.
+Im Bereich von $0$ bis $\SI{1}{\bar}$ gilt für die in diesem Experiment zu untersuchende Gase annähernd das ideale Gasgesetz:
+\[
+pV=Nk_.BT
+\]
+mit der Boltzmann-Konstanten $k_.B\approx\SI{1,38}{\joule\per\kelvin}$.
+$N$ ist nun die Zahl der pro Volumeneinheit vorhandenen Teilchen und abhängig vom Druck $p$ und der Temperatur $T$ des Gases.
+Unter Normalbedingungen, also einem Druck $p_.0=\SI{1,013}{\bar}$ und einer Temperatur $T_.0=\SI{273,15}{\kelvin}$ ist für 1 Mol Gas $N=N_.A\approx 6,2e23$.\newline
+Allgemein gilt
+\[
+N(p,T)=\frac{p}{T}\frac{T_.0}{p_.0}N_.A
+\]
+Die Änderung des Brechungsindex bei Veränderung des Druckes von $p$ auf $p'$ und fester Temperatur $T$ erhält man mit Formel \eqref{eq:n} zu
+\begin{equation}
+\Delta n(p,p')=\frac{f}{2}N_.A\frac{T_.0}{p_.0}\frac{1}{T}(p-p')\label{eq:dn}
+\end{equation}
+Für den Brechungsindex unter Normalbedingungen gilt dann 
+\begin{equation}
+n(p_.0,T_.0)=1+\frac{f}{2}N_.A=1+\Delta n(p,p')\frac{T}{T_.0}\frac{p_.0}{p-p'}\text{.}\label{eq:n2}
+\end{equation} 
+Die Änderung des Brechungsindex $\Delta n$ kann über die Anzahl $Z$ der bei einer Druckveränderung von $p$ auf $p'$ über den Detektor wandernden Interferenzmaxima bestimmt werden.\newline Es gilt mit der Wellenlänge $\lambda$ des einfallenden Lichtes und der Länge $b$ der Messzelle:
+\begin{equation}
+\Delta n = \frac{Z\lambda}{2b}
+\end{equation}
+Mit Gleichung \eqref{eq:n2} ergibt sich also
+\begin{equation}
+n(p_.0,T_.0)=1+\frac{Z\lambda}{2b}\frac{T}{T_.0}\frac{p_.0}{p-p'}\text{.}\label{eq:n3}
+\end{equation}
