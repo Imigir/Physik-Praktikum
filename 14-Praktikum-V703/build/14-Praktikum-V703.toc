@@ -10,10 +10,7 @@
 \contentsline {section}{\numberline {3}Aufbau}{6}{section.3}
 \contentsline {section}{\numberline {4}Durchf\IeC {\"u}hrung}{7}{section.4}
 \contentsline {subsection}{\numberline {4.1}Charakteristik des GMZ}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Totzeit des GMZ}{7}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Totzeit-Messung \IeC {\"u}ber das Oszilloskop}{7}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Totzeit-Messung mit zwei Quellen}{7}{subsubsection.4.2.2}
-\contentsline {subsection}{\numberline {4.3}Freigesetzte Ladungsmenge pro eindringendem Teilchen}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.2}Tot- und Erholungszeit des GMZ}{7}{subsection.4.2}
 \contentsline {section}{\numberline {5}Auswertung}{7}{section.5}
-\contentsline {section}{\numberline {6}Diskussion}{8}{section.6}
-\contentsline {section}{\nonumberline Literatur}{9}{section*.7}
+\contentsline {section}{\numberline {6}Diskussion}{7}{section.6}
+\contentsline {section}{\nonumberline Literatur}{8}{section*.7}
