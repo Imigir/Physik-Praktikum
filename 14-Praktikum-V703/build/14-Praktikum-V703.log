@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.3)  15 APR 2018 18:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.3)  15 APR 2018 18:49
 entering extended mode
 **./14-Praktikum-V703.tex
 (14-Praktikum-V703.tex
@@ -2047,14 +2047,14 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 4.
-<content/images/aufbau1.jpg, id=60, 685.56125pt x 254.9525pt>
+<content/images/aufbau1.jpg, id=54, 685.56125pt x 254.9525pt>
 File: content/images/aufbau1.jpg Graphic file (type jpg)
 <use content/images/aufbau1.jpg>
 Package pdftex.def Info: content/images/aufbau1.jpg  used on input line 12. on 
 input line 12.
 Package pdftex.def Info: Requested size: 342.77979pt x 127.47592pt on input lin
 e 12.
-<content/images/AU.jpg, id=65, 556.0775pt x 431.6125pt>
+<content/images/AU.jpg, id=59, 556.0775pt x 431.6125pt>
 File: content/images/AU.jpg Graphic file (type jpg)
 <use content/images/AU.jpg>
 Package pdftex.def Info: content/images/AU.jpg  used on input line 23. on input
@@ -2080,7 +2080,7 @@ Package babel Info: Redefining ngerman shorthand "~
 
 LaTeX Warning: Reference `fig:T' on page 4 undefined on input line 29.
 
-<content/images/T.jpg, id=85, 694.595pt x 265.99374pt>
+<content/images/T.jpg, id=79, 694.595pt x 265.99374pt>
 File: content/images/T.jpg Graphic file (type jpg)
 <use content/images/T.jpg>
 Package pdftex.def Info: content/images/T.jpg  used on input line 32. on input 
@@ -2104,7 +2104,7 @@ Package babel Info: Redefining ngerman shorthand "~
 
 LaTeX Warning: Reference `fig:T' on page 5 undefined on input line 38.
 
-<content/images/AU2.jpg, id=95, 534.99875pt x 310.15875pt>
+<content/images/AU2.jpg, id=89, 534.99875pt x 310.15875pt>
 File: content/images/AU2.jpg Graphic file (type jpg)
 <use content/images/AU2.jpg>
 Package pdftex.def Info: content/images/AU2.jpg  used on input line 42. on inpu
@@ -2133,7 +2133,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-<content/images/aufbau2.jpg, id=106, 701.62125pt x 320.19624pt>
+<content/images/aufbau2.jpg, id=100, 701.62125pt x 320.19624pt>
 File: content/images/aufbau2.jpg Graphic file (type jpg)
 <use content/images/aufbau2.jpg>
 Package pdftex.def Info: content/images/aufbau2.jpg  used on input line 6. on i
@@ -2162,24 +2162,16 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 10.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 10.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 11.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 11.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 13.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 13.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 17.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 17.
 ) (content/auswertung.tex
+Underfull \hbox (badness 10000) in paragraph at lines 11--1
+
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
- (content/tables/tab1.tex)
+(content/tables/tab1.tex)
 
 LaTeX Warning: Float too large for page by 33.58388pt on input line 12.
 
@@ -2205,7 +2197,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 14.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 14.
-<content/images/Graph1.1.pdf, id=141, pagebox=cropbox, 417.7206pt x 258.00488pt
+<content/images/Graph1.1.pdf, id=134, pagebox=cropbox, 417.7206pt x 258.00488pt
 >
 File: content/images/Graph1.1.pdf Graphic file (type pdf)
 <use content/images/Graph1.1.pdf>
@@ -2213,7 +2205,7 @@ Package pdftex.def Info: content/images/Graph1.1.pdf  used on input line 47. on
  input line 47.
 Package pdftex.def Info: Requested size: 368.25177pt x 227.45049pt on input lin
 e 47.
-<content/images/Graph1.2.pdf, id=142, pagebox=cropbox, 417.7206pt x 258.00488pt
+<content/images/Graph1.2.pdf, id=135, pagebox=cropbox, 417.7206pt x 258.00488pt
 >
 File: content/images/Graph1.2.pdf Graphic file (type pdf)
 <use content/images/Graph1.2.pdf>
@@ -2247,7 +2239,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 79.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 79.
-<content/images/Graph2.pdf, id=199, pagebox=cropbox, 417.7206pt x 258.00488pt>
+<content/images/Graph2.pdf, id=192, pagebox=cropbox, 417.7206pt x 258.00488pt>
 File: content/images/Graph2.pdf Graphic file (type pdf)
 <use content/images/Graph2.pdf>
 Package pdftex.def Info: content/images/Graph2.pdf  used on input line 89. on i
@@ -2327,10 +2319,10 @@ Package logreq Info: Writing requests to '14-Praktikum-V703.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35836 strings out of 493346
- 661542 string characters out of 3130688
+ 35830 strings out of 493346
+ 661472 string characters out of 3130688
  1225567 words of memory out of 3000000
- 38879 multiletter control sequences out of 15000+200000
+ 38876 multiletter control sequences out of 15000+200000
  629623 words of font info for 98 fonts, out of 3000000 for 9000
  1131 hyphenation exceptions out of 8191
  48i,20n,51p,10392b,1774s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2360,12 +2352,11 @@ onts/type1/public/lm/lmri10.pfb><C:/Users/David/AppData/Local/Programs/MiKTeX 2
 .9/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/David/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/David/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Users/David/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Users/David/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+rams/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
 Output written on C:\Users\David\Documents\Studium\Physik-Praktikum\14-Praktiku
-m-V703\build\14-Praktikum-V703.pdf (13 pages, 495968 bytes).
+m-V703\build\14-Praktikum-V703.pdf (13 pages, 485731 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 367 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
