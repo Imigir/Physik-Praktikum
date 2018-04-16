@@ -58,7 +58,7 @@ m_.{rel} = \SI{2.2(2)}{\%\per 100\volt}\text{.}
 
 \subsection{Bestimmung der Totzeit}
 
-Bei $U=\SI{500}{\volt}$ lässt sich am Oszilloskop eine Totzeit von $T=\SI{100e-6}{\second}$ ablesen. Die Erholungszeit bei $U=\SI{600}{\volt}$ wird zu $T=\SI{225e-6}{\second}$ abgeschätzt.\\
+Bei $U=\SI{500}{\volt}$ lässt sich am Oszilloskop eine Totzeit von $T_1=\SI{100(25)e-6}{\second}$ ablesen. Die Erholungszeit bei $U=\SI{600}{\volt}$ wird zu $T_.E=\SI{225e-6}{\second}$ abgeschätzt.\\
 Bei der Zweiquellenmethode kann die Totzeit nach Formel \eqref{eq:T} berechnet werden. Dabei sind $N_1$ die Impulsrate der ersten, $N_2$ die der zweiten und $N_{1+2}$ die Impulsrate beider Quellen und haben die Werte:
 \begin{align*}
 N_1 	&= \SI{286(2)}{\becquerel}\\
@@ -67,11 +67,11 @@ N_{1+2}	&= \SI{302(2)}{\becquerel}
 \end{align*} 
 Somit ergibt sich für $T$:
 \begin{equation*}
-T = \SI{120(310)e-6}{\second}
+T_2 = \SI{120(310)e-6}{\second}
 \end{equation*}
-Der Fehler $\sigma_T$ von $T$ berechnet sich dabei nach der Gaußschen Fehlerfortpflanzung:
+Der Fehler $\sigma_{T_2}$ von $T_2$ berechnet sich dabei nach der Gaußschen Fehlerfortpflanzung:
 \begin{equation}
-\sigma_T = \sqrt{\left(\frac{N_{1+2}-N_2}{2N_1^2N_2}\sigma_{N_1}\right)^2+\left(\frac{N_{1+2}-N_1}{2N_1N_2^2}\sigma_{N_2}\right)^2+\left(\frac{1}{2N_1N_2}\sigma_{N_{1+2}}\right)^2}
+\sigma_{T_2} = \sqrt{\left(\frac{N_{1+2}-N_2}{2N_1^2N_2}\sigma_{N_1}\right)^2+\left(\frac{N_{1+2}-N_1}{2N_1N_2^2}\sigma_{N_2}\right)^2+\left(\frac{1}{2N_1N_2}\sigma_{N_{1+2}}\right)^2}
 \end{equation}
 
 

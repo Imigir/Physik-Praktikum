@@ -91,17 +91,17 @@ plt.legend(loc="best")
 plt.savefig('content/images/Graph1.2.pdf')
 
 #c)
-N1 = 17131
-N1 = unp.uarray(N1/60, np.sqrt(N1)/60)
-N2 = 1063
-N2 = unp.uarray(N2/60, np.sqrt(N2)/60)
-N12 = 18124
-N12 = unp.uarray(N12/60, np.sqrt(N12)/60)
+N1w = 17131
+N1 = unp.uarray(N1w/60, np.sqrt(N1w)/60)
+N2w = 1063
+N2 = unp.uarray(N2w/60, np.sqrt(N2w)/60)
+N12w = 18124
+N12 = unp.uarray(N12w/60, np.sqrt(N12w)/60)
 
-T1 = 100*10**-6
+T1 = unp.uarray(100*10**(-6),25*10**(-6))
 T2 = (N1+N2-N12)/(2*N1*N2)
 
-DT=(T1-T2)/T2
+DT=(T2-T1)/T1
 
 print('T1 =', T1)
 print('T2 =', T2)
