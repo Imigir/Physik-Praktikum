@@ -1,20 +1,20 @@
-[0] Config.pm:302> INFO - This is Biber 2.9
+[0] Config.pm:302> INFO - This is Biber 2.11
 [0] Config.pm:305> INFO - Logfile is 'build\14-Praktikum-V703.blg'
 [29] biber-MSWIN64:313> INFO - === 
-[63] Biber.pm:371> INFO - Reading 'build\14-Praktikum-V703.bcf'
-[149] Biber.pm:857> INFO - Found 4 citekeys in bib section 0
-[163] Biber.pm:3981> INFO - Processing section 0
-[178] Biber.pm:4154> INFO - Looking for bibtex format file 'lit.bib' for section 0
-[186] bibtex.pm:1479> INFO - LaTeX decoding ...
-[244] bibtex.pm:1305> INFO - Found BibTeX data source 'lit.bib'
-[258] Utils.pm:169> WARN - BibTeX subsystem: C:\Users\David\AppData\Local\Temp\4JD21bzb3e\lit.bib_23484.utf8, line 426, warning: 2 characters of junk seen at toplevel
-[259] Biber.pm:4154> INFO - Looking for bibtex format file 'programme.bib' for section 0
-[262] bibtex.pm:1479> INFO - LaTeX decoding ...
-[266] bibtex.pm:1305> INFO - Found BibTeX data source 'programme.bib'
-[287] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[287] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[287] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[287] Biber.pm:3815> INFO - No sort tailoring available for locale 'de-DE'
-[296] bbl.pm:617> INFO - Writing 'build\14-Praktikum-V703.bbl' with encoding 'UTF-8'
-[298] bbl.pm:720> INFO - Output to build\14-Praktikum-V703.bbl
-[299] Biber.pm:110> INFO - WARNINGS: 1
+[54] Biber.pm:371> INFO - Reading 'build\14-Praktikum-V703.bcf'
+[136] Biber.pm:857> INFO - Found 4 citekeys in bib section 0
+[149] Biber.pm:3976> INFO - Processing section 0
+[163] Biber.pm:4136> INFO - Looking for bibtex format file 'lit.bib' for section 0
+[166] bibtex.pm:1500> INFO - LaTeX decoding ...
+[224] bibtex.pm:1316> INFO - Found BibTeX data source 'lit.bib'
+[243] Utils.pm:193> WARN - BibTeX subsystem: C:\Users\Jonah\AppData\Local\Temp\LxpZyamIyH\lit.bib_11824.utf8, line 426, warning: 2 characters of junk seen at toplevel
+[244] Biber.pm:4136> INFO - Looking for bibtex format file 'programme.bib' for section 0
+[246] bibtex.pm:1500> INFO - LaTeX decoding ...
+[251] bibtex.pm:1316> INFO - Found BibTeX data source 'programme.bib'
+[272] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[272] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[272] Biber.pm:3804> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[273] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[281] bbl.pm:617> INFO - Writing 'build\14-Praktikum-V703.bbl' with encoding 'UTF-8'
+[283] bbl.pm:720> INFO - Output to build\14-Praktikum-V703.bbl
+[283] Biber.pm:110> INFO - WARNINGS: 1
