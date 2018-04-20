@@ -47,15 +47,13 @@ import math as ma
 # plt.savefig('build/'+'VgegenDeltaV')
 
 
-N,t = np.genfromtxt('scripts/data1.txt', unpack = True)
+t,N = np.genfromtxt('scripts/data1.txt', unpack = True)
 N_0 = 223/900
 N_err = np.sqrt(N)/30
 N = N/30-N_0
-for i in range(0,len(N)):
-	if N[i]<0:
-		N[i]=0
-N = unp.uarray(N, N_err)
+print('N=', N)
 N = unp.log(N)
+N = unp.uarray(N, N_err)
 t = t*30
 
 #a)
@@ -69,11 +67,11 @@ print('Achsenabschnitt=', achsenAbschnitt)
 
 plt.cla()
 plt.clf()
-x_plot = np.linspace(0,300*30)
+x_plot = np.linspace(0,30*30)
 plt.errorbar(t, noms(N), yerr=stds(N), fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
 plt.plot(x_plot, x_plot*paramsLinear[0]+paramsLinear[1], 'b-', linewidth=0.8, label='Ausgleichsgerade des Plateaus')
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$N/\si{\becquerel}$')
-plt.xlim(0,300*30)
+plt.xlim(0,30*30)
 plt.legend(loc="best")
 plt.savefig('content/images/Graph1.1.pdf')
