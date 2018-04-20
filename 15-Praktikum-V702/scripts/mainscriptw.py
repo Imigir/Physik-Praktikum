@@ -75,3 +75,8 @@ plt.ylabel(r'$N/\si{\becquerel}$')
 plt.xlim(0,30*30)
 plt.legend(loc="best")
 plt.savefig('content/images/Graph1.1.pdf')
+
+ln_plus = noms(N)*np.log(stds(N))-noms(N)
+ln_minus = noms(N)-noms(N)/np.log(stds(N))
+
+makeTable([np.exp(noms(N))*30, stds(N)*30, noms(N), stds(N), t, ln_plus, ln_minus, r'\multicolumn{2}{c}{'+r'$N_.{exp}/\si{1\per30\second}$'+r'} & \multicolumn{2}{c}{'+r'$N/\si{\becquerel}$'+r'} & {'+r'$t/\si{\second}$'+r'} & {'+r'$\ln{(N+\sigma)}-\ln{(N)}/\si{\becquerel}$'+r'} & {'+r'$\ln{(N)}-\ln{(N-\sigma)}/\si{\becquerel}$'+r'}, 'tab1', ['S[table-format=3.0]', ' @{${}\pm{}$} S[table-format=3.0]', 'S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=1.2]', 'S[table-format=3.0]', 'S[table-format=1.2]', 'S[table-format=1.2]'], ["%3.0f", "%3.0f", "%3.2f", "%1.2f", "%3.0f", "%1.2f", "%1.2f"])
