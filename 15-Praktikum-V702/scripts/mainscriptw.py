@@ -69,7 +69,7 @@ plt.cla()
 plt.clf()
 x_plot = np.linspace(0,30*30)
 plt.errorbar(t, noms(N), yerr=stds(N), fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot, x_plot*paramsLinear[0]+paramsLinear[1], 'b-', linewidth=0.8, label='Ausgleichsgerade des Plateaus')
+plt.plot(x_plot, x_plot*paramsLinear[0]+paramsLinear[1], 'b-', linewidth=0.8, label='Ausgleichsgerade der Zerfallskurve')
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$N/\si{\becquerel}$')
 plt.xlim(0,30*30)
@@ -79,4 +79,31 @@ plt.savefig('content/images/Graph1.1.pdf')
 ln_plus = noms(N)*np.log(stds(N))-noms(N)
 ln_minus = noms(N)-noms(N)/np.log(stds(N))
 
-makeTable([np.exp(noms(N))*30, stds(N)*30, noms(N), stds(N), t, ln_plus, ln_minus, r'\multicolumn{2}{c}{'+r'$N_.{exp}/\si{1\per30\second}$'+r'} & \multicolumn{2}{c}{'+r'$N/\si{\becquerel}$'+r'} & {'+r'$t/\si{\second}$'+r'} & {'+r'$\ln{(N+\sigma)}-\ln{(N)}/\si{\becquerel}$'+r'} & {'+r'$\ln{(N)}-\ln{(N-\sigma)}/\si{\becquerel}$'+r'}, 'tab1', ['S[table-format=3.0]', ' @{${}\pm{}$} S[table-format=3.0]', 'S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=1.2]', 'S[table-format=3.0]', 'S[table-format=1.2]', 'S[table-format=1.2]'], ["%3.0f", "%3.0f", "%3.2f", "%1.2f", "%3.0f", "%1.2f", "%1.2f"])
+t2,N2 = np.genfromtxt('scripts/data2.txt', unpack = True)
+N_err2 = np.sqrt(N2)/10
+N2 = N2/10-N_0
+print('N=', N2)
+N = unp.log(N2)
+N = unp.uarray(N2, N_err2)
+t2 = t2*10
+
+#a)
+paramsLinear, errorsLinear, sigma_y = linregress(t2, noms(N2))
+
+steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
+achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
+
+print('Steigung=', steigung)
+print('Achsenabschnitt=', achsenAbschnitt)
+
+plt.cla()
+plt.clf()
+x_plot = np.linspace(0,10*60)
+plt.errorbar(t2, noms(N2), yerr=stds(N), fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.plot(x_plot, x_plot*paramsLinear[0]+paramsLinear[1], 'b-', linewidth=0.8, label='Ausgleichsgerade der Zerfallskurve')
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$N/\si{\becquerel}$')
+plt.xlim(0,10*60)
+plt.legend(loc="best")
+plt.savefig('content/images/Graph1.2.pdf')
+#makeTable([np.exp(noms(N))*30, stds(N)*30, noms(N), stds(N), t, ln_plus, ln_minus, r'\multicolumn{2}{c}{'+r'$N_.{exp}/\si{1\per30\second}$'+r'} & \multicolumn{2}{c}{'+r'$N/\si{\becquerel}$'+r'} & {'+r'$t/\si{\second}$'+r'} & {'+r'$\ln{(N+\sigma)}-\ln{(N)}/\si{\becquerel}$'+r'} & {'+r'$\ln{(N)}-\ln{(N-\sigma)}/\si{\becquerel}$'+r'}, 'tab1', ['S[table-format=3.0]', ' @{${}\pm{}$} S[table-format=3.0]', 'S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=1.2]', 'S[table-format=3.0]', 'S[table-format=1.2]', 'S[table-format=1.2]'], ["%3.0f", "%3.0f", "%3.2f", "%1.2f", "%3.0f", "%1.2f", "%1.2f"])
