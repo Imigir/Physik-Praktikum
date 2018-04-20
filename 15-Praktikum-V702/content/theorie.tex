@@ -1,4 +1,42 @@
-
 \section{Theorie}
 \label{sec:Theorie}
 
+\subsection{Stabile und instabile Kerne}
+Ein Kern ist nur stabil, wenn die Anzahl der Protonen und Neutronen innerhalb enger Grenzen in einem bestimmten Verhältnis zueinander befinden. Meist ist die Neutronenzahl etwas höher, da sonst die Coulomb-Kräfte zwischen den Protonen den Kern zerreißen würden. Außerhalb der Grenzen ist der Kern deshalb instabil und zerfällt.
+Es ist nicht möglich zu sagen wann ein bestimmter Kern zerfällt, weshalb die Wahrscheinlichkeit durch die Halbwertszeit $\tau$ bestimmt, die angibt wie lange es dauert, bis die Hälfte einer großen Menge Kerne zerfallen ist.
+
+\subsection{Kernreaktionen mit Neutronen}
+\label{sec:Reaktion}
+Wenn ein Neutron in einen Atomkern des Typs $A$ mit der Massenzahl $m$
+und der Kernladungszahl $z$ eindringt, kann es von diesem absorbiert und seine Energie gleichmäßig auf alle Nukleonen verteilt werden. Es entsteht ein angeregter Zwischenkern $A\text{*}$ mit der Massenzahl $m+1$.\newline
+Nach kurze Zeit springt der Kern unter Aussendung eines Photons in seinen Grundzustand zurück, ist allerdings auf Grund der veränderten Massenzahl  instabil. Nach einer gewissen Zeit wandelt sich ein Neutron unter Ausstrahlung eines Elektrons $\beta^-$und eines Antineutrinos $\bar{\nu}_.e$ in ein Proton um und ein neuer Kern des Typ $B$ entsteht.\newline Er besitzt ebenfalls die Massenzahl $m+1$, aber wegen des entstandenen Protons steigert sich seine Kernladungszahl auf $z+1$.
+\begin{equation}
+\ce{^{m}_{z}A} + \ce{^{1}_{0}n} \rightarrow \ce{^{m+1}_{z}A\text{*}}\rightarrow \ce{^{m+1}_{z}A}+\gamma
+\end{equation}
+\begin{equation}
+\ce{^{m+1}_{z}A} \rightarrow \ce{^{m+1}_{z+1}B} + \beta^-+ T + \bar{\nu}_.e\label{eq:Zerfall}
+\end{equation}
+Ein Teil der Masse des Kerns wird dabei in die kinetische Energie $T$ des Elektrons und des Antineutrinos umgewandelt.\newline
+Die Wahrscheinlichkeit, dass das Neutron aufgenommen wird und diese Reaktion stattfindet wird durch den Wirkungsquerschnitt $\sigma$ beschrieben. Dieser bezeichnet die Fläche die ein Kern theoretisch bräuchte, um jedes einfallende Neutron abzufangen.
+Er hängt von der Geschwindigkeit $v$ und damit von der Energie $E$ der Neutronen ab.
+Nach Louis de Broglie besitzen alle Teilchen der Masse $m$ auch Wellencharakter und ihre Wellenlänge kann beschrieben werden durch
+\[
+\lambda=\frac{h}{m\cdot v}=\frac{h}{\sqrt{2\cdot m\cdot E}},
+\]
+wobei $h$ das Plank'sche Wirkungsquantum ist.
+Ist das Neutron also schnell und somit die De-Broglie-Wellenlänge kleiner als der Atomradius $R$, kann klassisch gerechnet,
+ist es langsam und hat eine größere Wellenlänge, treten Interferenzphänomene.
+Dann ist der Wirkungsquerschnitt in Abhängigkeit von der Neutronenenergie gegeben durch
+\begin{equation}
+\sigma(E) = \sigma_.0\sqrt{\frac{E_.{r_.i}}{E}}\frac{\tilde{c}}{\left(E-E_.{r_.i}\right)^2+\tilde{c}},
+\end{equation}
+mit den reaktionsspezifischen Konstanten $\sigma_.0}$ und $\tilde{c}$
+und den diskreten Energieniveaus $E_.{r_.i}$.
+$\sigma$ ist also antiproportional zur Neutronenenergie $E$, was sinnvoll erscheint, da sich ein langsames, energiearmes Neutron länger im Wirkungsbereich des Kerns befindet.
+
+\subsection{Erzeugung energiearmer Neutronen}
+
+Wie in \ref{sec:Reaktion} beschrieben werden energiearme Neutronen leichter von einem Kern eingefangen um diese herzustellen wird Beryllium mit $\alpha$-Strahlung einer $\ce{^{226}_{}Ra}$-Quelle bestrahlt:
+\begin{equation}
+\ce{^{9}_{4}Be} + \ce{^{4}_{2}\alpha}\rightarrow \ce{^{12}_{6}C}+\ce{^{1}_{0}n}
+\end{equation}
