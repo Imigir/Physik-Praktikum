@@ -1,6 +1,83 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-
 Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die
 Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\section{Vanadium}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte von Vanadium für die Zeit t, die Impulsrate $N_.V$ und deren Fehler, sowie die berechneten logarithmierten Werte.}
+	\input{content/tables/tabVanadium.tex}
+	\label{tab:tabVanadium}
+\end{table}
+
+Eine lineare Ausgleichsrechnung der Form $\ln(N_.V(t))=-\lambda_.V t+\ln(N_.{0,V})$ ergibt
+\begin{align*}
+\lambda_.V 	&= \SI{2.9(2)e-3}{1\per\second}\\
+N_.{0,V} 	&= \SI{1.5(2)}{\becquerel}
+\end{align*}
+Die Halbwertszeit ergibt sich zu:
+\begin{equation*}
+\tau_.V = \SI{241(20)}{\second}
+\end{equation*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/VanadiumLog.pdf}
+	\caption{Die logarithmische Impulsrate $N_.V$ von Vanadium in Abhängigkeit von der Zeit $t$.}
+	\label{fig:VanadiumLog}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/Vanadium.pdf}
+	\caption{Die Impulsrate $N_.V$ von Vanadium in Abhängigkeit von der Zeit $t$.}
+	\label{fig:Vanadium}
+\end{figure}
+
+
+\section{Rhodium}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte von Rhodium für die Zeit t, die Impulsrate $N_.{Rh}$ und deren Fehler, sowie die berechneten logarithmierten Werte.}
+	\input{content/tables/tabRhodium1.tex}
+	\label{tab:tabRhodium1}
+\end{table}
+
+\begin{table}
+	\centering
+	\input{content/tables/tabRhodium2.tex}
+\end{table}
+
+Eine lineare Ausgleichsrechnung der Form $\ln(N_.{Rh_.{long}}(t))=-\lambda_.{Rh_.{long}} t+\ln(N_.{0,Rh_.{long}})$ ergibt
+\begin{align*}
+\lambda_.{Rh_.{long}} 	&= \SI{2.0(8)e-3}{1\per\second}\\
+N_.{0,Rh_.{long}} 		&= \SI{3.9(11)}{\becquerel}
+\end{align*}
+Hiermit lässt sich eine Ausgleichsrechnung der Form $\ln(N_.{Rh_.{short}}(t))=\ln(N_.{Rh}(t)-N_.{Rh_.{long}}(t))=-\lambda_.{Rh_.{short}} t+\ln(N_.{0,Rh_.{short}})$ durchführen:
+\begin{align*}
+\lambda_.{Rh_.{short}} 	&= \SI{1.63(7)e-2}{1\per\second}\\
+N_.{0,Rh_.{short}} 		&= \SI{47(4)}{\becquerel}
+\end{align*}
+Die Halbwertszeiten ergeben sich zu:
+\begin{equation*}
+\tau_.{Rh_.{long}} = \SI{350(140)}{\second}
+\tau_.{Rh_.{short}} = \SI{42(2)}{\second}
+\end{equation*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/RhodiumLog.pdf}
+	\caption{Die logarithmische Impulsrate $N_.{Rh}$ von Rhodium in Abhängigkeit von der Zeit $t$.}
+	\label{fig:RhodiumLog}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/Rhodium.pdf}
+	\caption{Die Impulsrate $N_.{Rh}$ von Rhodium in Abhängigkeit von der Zeit $t$.}
+	\label{fig:Rhodium}
+\end{figure}
