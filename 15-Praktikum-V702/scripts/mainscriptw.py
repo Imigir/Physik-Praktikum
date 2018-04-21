@@ -47,63 +47,99 @@ import math as ma
 # plt.savefig('build/'+'VgegenDeltaV')
 
 
+#a)
+#1 Vanadium
 t,N = np.genfromtxt('scripts/data1.txt', unpack = True)
 N_0 = 223/900
-N_err = np.sqrt(N)/30
+N_err = np.sqrt(N-N_0*30)/30
 N = N/30-N_0
-print('N=', N)
-N = unp.log(N)
+N_log = np.log(N)
+N_log_err = [np.log(N+N_err)-np.log(N), np.log(N)-np.log(N-N_err)]
 N = unp.uarray(N, N_err)
 t = t*30
 
-#a)
-paramsLinear, errorsLinear, sigma_y = linregress(t, noms(N))
+#print('N=', N)
+
+paramsLinear, errorsLinear, sigma_y = linregress(t, N_log)
 
 steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
 achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
 
 print('Steigung=', steigung)
 print('Achsenabschnitt=', achsenAbschnitt)
+print('tau1=', -np.log(2)/steigung)
+
 
 plt.cla()
 plt.clf()
-x_plot = np.linspace(0,30*30)
+x_plot = np.linspace(0,30*30+20)
+plt.errorbar(t, N_log, yerr=[N_log_err[0],N_log_err[1]], fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.plot(x_plot, x_plot*paramsLinear[0]+paramsLinear[1], 'k-', linewidth=0.8, label='Ausgleichsgerade')
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$\ln(N/\si{\becquerel})$')
+plt.xlim(0,30*30+20)
+plt.legend(loc="best")
+plt.savefig('content/images/VanadiumLog.pdf')
+
+plt.cla()
+plt.clf()
+x_plot = np.linspace(0,30*30+20)
 plt.errorbar(t, noms(N), yerr=stds(N), fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot, x_plot*paramsLinear[0]+paramsLinear[1], 'b-', linewidth=0.8, label='Ausgleichsgerade der Zerfallskurve')
+plt.plot(x_plot, np.exp(x_plot*paramsLinear[0]+paramsLinear[1]), 'k-', linewidth=0.8, label='Ausgleichskurve')
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$N/\si{\becquerel}$')
-plt.xlim(0,30*30)
+plt.xlim(0,30*30+20)
 plt.legend(loc="best")
-plt.savefig('content/images/Graph1.1.pdf')
+plt.savefig('content/images/Vanadium.pdf')
 
-ln_plus = noms(N)*np.log(stds(N))-noms(N)
-ln_minus = noms(N)-noms(N)/np.log(stds(N))
 
+#2 Rhodium
 t2,N2 = np.genfromtxt('scripts/data2.txt', unpack = True)
-N_err2 = np.sqrt(N2)/10
+N2_err = np.sqrt(N2-N_0*10)/10
 N2 = N2/10-N_0
-print('N=', N2)
-N = unp.log(N2)
-N = unp.uarray(N2, N_err2)
+N2_log = np.log(N2)
+N2_log_err = [np.log(N2+N2_err)-np.log(N2), np.log(N2)-np.log(N2-N2_err)]
+N2 = unp.uarray(N2, N2_err)
 t2 = t2*10
 
-#a)
-paramsLinear, errorsLinear, sigma_y = linregress(t2, noms(N2))
+paramsLinear2, errorsLinear2, sigma_y = linregress(t2[27:45], N2_log[27:45])
+steigung2 = unp.uarray(paramsLinear2[0], errorsLinear2[0])
+achsenAbschnitt2 = unp.uarray(paramsLinear2[1], errorsLinear2[1])
 
-steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
-achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
+paramsLinear1, errorsLinear1, sigma_y = linregress(t2[0:18], np.log(noms(N2)[0:18]-np.exp(t2[0:18]*paramsLinear2[0]+paramsLinear2[1])))
+steigung1 = unp.uarray(paramsLinear1[0], errorsLinear1[0])
+achsenAbschnitt1 = unp.uarray(paramsLinear1[1], errorsLinear1[1])
 
-print('Steigung=', steigung)
-print('Achsenabschnitt=', achsenAbschnitt)
+x_plot = np.linspace(0,60*10+10)
+N_t = np.exp(x_plot*paramsLinear1[0]+paramsLinear1[1])+np.exp(x_plot*paramsLinear2[0]+paramsLinear2[1])
+
+print('Steigung21=', steigung1)
+print('Achsenabschnitt21=', achsenAbschnitt1)
+print('tau21=', -np.log(2)/steigung1)
+print('Steigung22=', steigung2)
+print('Achsenabschnitt22=', achsenAbschnitt2)
+print('tau22=', -np.log(2)/steigung2)
 
 plt.cla()
 plt.clf()
-x_plot = np.linspace(0,10*60)
-plt.errorbar(t2, noms(N2), yerr=stds(N), fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot, x_plot*paramsLinear[0]+paramsLinear[1], 'b-', linewidth=0.8, label='Ausgleichsgerade der Zerfallskurve')
+plt.errorbar(t2, N2_log, yerr=[N2_log_err[0],N2_log_err[1]], fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.plot(x_plot, x_plot*paramsLinear1[0]+paramsLinear1[1], linewidth=0.8, label='Ausgleichsgerade1')
+plt.plot(x_plot, x_plot*paramsLinear2[0]+paramsLinear2[1], linewidth=0.8, label='Ausgleichsgerade2')
+plt.plot(x_plot, np.log(N_t), 'k-', linewidth=0.8, label='ln(N(t))')
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$\ln(N/\si{\becquerel})$')
+plt.xlim(0,44*10+10)
+plt.legend(loc="best")
+plt.savefig('content/images/RhodiumLog.pdf')
+
+plt.cla()
+plt.clf()
+x_plot = np.linspace(0,60*10+10)
+plt.errorbar(t2, noms(N2), yerr=stds(N2), fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.plot(x_plot, N_t, 'k-', linewidth=0.8, label='N(t)')
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$N/\si{\becquerel}$')
-plt.xlim(0,10*60)
+plt.xlim(0,44*10+10)
 plt.legend(loc="best")
-plt.savefig('content/images/Graph1.2.pdf')
+plt.savefig('content/images/Rhodium.pdf')
 #makeTable([np.exp(noms(N))*30, stds(N)*30, noms(N), stds(N), t, ln_plus, ln_minus, r'\multicolumn{2}{c}{'+r'$N_.{exp}/\si{1\per30\second}$'+r'} & \multicolumn{2}{c}{'+r'$N/\si{\becquerel}$'+r'} & {'+r'$t/\si{\second}$'+r'} & {'+r'$\ln{(N+\sigma)}-\ln{(N)}/\si{\becquerel}$'+r'} & {'+r'$\ln{(N)}-\ln{(N-\sigma)}/\si{\becquerel}$'+r'}, 'tab1', ['S[table-format=3.0]', ' @{${}\pm{}$} S[table-format=3.0]', 'S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=1.2]', 'S[table-format=3.0]', 'S[table-format=1.2]', 'S[table-format=1.2]'], ["%3.0f", "%3.0f", "%3.2f", "%1.2f", "%3.0f", "%1.2f", "%1.2f"])
