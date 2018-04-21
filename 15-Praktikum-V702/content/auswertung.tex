@@ -6,22 +6,22 @@ Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgefüh
 
 \section{Vanadium}
 
+Eine lineare Ausgleichsrechnung der Form $\ln(N_.V(t))=-\lambda_.V t+\ln(N_.{0,V})$ ergibt:
+\begin{align*}
+\lambda_.V 	&= \SI{2.9(2)e-3}{1\per\second}\text{,}\\
+N_.{0,V} 	&= \SI{1.5(2)}{\becquerel}\text{.}
+\end{align*}
+Die Halbwertszeit ergibt sich zu:
+\begin{equation*}
+\tau_.V = \SI{241(20)}{\second}\text{.}
+\end{equation*}
+
 \begin{table}
 	\centering
 	\caption{Die Messwerte von Vanadium für die Zeit t, die Impulsrate $N_.V$ und deren Fehler, sowie die berechneten logarithmierten Werte.}
 	\input{content/tables/tabVanadium.tex}
 	\label{tab:tabVanadium}
 \end{table}
-
-Eine lineare Ausgleichsrechnung der Form $\ln(N_.V(t))=-\lambda_.V t+\ln(N_.{0,V})$ ergibt
-\begin{align*}
-\lambda_.V 	&= \SI{2.9(2)e-3}{1\per\second}\\
-N_.{0,V} 	&= \SI{1.5(2)}{\becquerel}
-\end{align*}
-Die Halbwertszeit ergibt sich zu:
-\begin{equation*}
-\tau_.V = \SI{241(20)}{\second}
-\end{equation*}
 
 \begin{figure}
 	\centering
@@ -40,6 +40,22 @@ Die Halbwertszeit ergibt sich zu:
 
 \section{Rhodium}
 
+Eine lineare Ausgleichsrechnung der Form $\ln(N_.{Rh_.{long}}(t))=-\lambda_.{Rh_.{long}} t+\ln(N_.{0,Rh_.{long}})$ ergibt:
+\begin{align*}
+\lambda_.{Rh_.{long}} 	&= \SI{2.0(8)e-3}{1\per\second}\text{,}\\
+N_.{0,Rh_.{long}} 		&= \SI{3.9(11)}{\becquerel}\text{.}
+\end{align*}
+Hiermit lässt sich eine Ausgleichsrechnung der Form $\ln(N_.{Rh_.{short}}(t))=\ln(N_.{Rh}(t)-N_.{Rh_.{long}}(t))=-\lambda_.{Rh_.{short}} t+\ln(N_.{0,Rh_.{short}})$ durchführen:
+\begin{align*}
+\lambda_.{Rh_.{short}} 	&= \SI{1.63(7)e-2}{1\per\second}\text{,}\\
+N_.{0,Rh_.{short}} 		&= \SI{47(4)}{\becquerel}\text{.}
+\end{align*}
+Die Halbwertszeiten ergeben sich zu:
+\begin{align*}
+\tau_.{Rh_.{long}} 	&= \SI{350(140)}{\second}\text{,}\\
+\tau_.{Rh_.{short}} &= \SI{42(2)}{\second}\text{.}
+\end{align*}
+
 \begin{table}
 	\centering
 	\caption{Die Messwerte von Rhodium für die Zeit t, die Impulsrate $N_.{Rh}$ und deren Fehler, sowie die berechneten logarithmierten Werte.}
@@ -51,22 +67,6 @@ Die Halbwertszeit ergibt sich zu:
 	\centering
 	\input{content/tables/tabRhodium2.tex}
 \end{table}
-
-Eine lineare Ausgleichsrechnung der Form $\ln(N_.{Rh_.{long}}(t))=-\lambda_.{Rh_.{long}} t+\ln(N_.{0,Rh_.{long}})$ ergibt
-\begin{align*}
-\lambda_.{Rh_.{long}} 	&= \SI{2.0(8)e-3}{1\per\second}\\
-N_.{0,Rh_.{long}} 		&= \SI{3.9(11)}{\becquerel}
-\end{align*}
-Hiermit lässt sich eine Ausgleichsrechnung der Form $\ln(N_.{Rh_.{short}}(t))=\ln(N_.{Rh}(t)-N_.{Rh_.{long}}(t))=-\lambda_.{Rh_.{short}} t+\ln(N_.{0,Rh_.{short}})$ durchführen:
-\begin{align*}
-\lambda_.{Rh_.{short}} 	&= \SI{1.63(7)e-2}{1\per\second}\\
-N_.{0,Rh_.{short}} 		&= \SI{47(4)}{\becquerel}
-\end{align*}
-Die Halbwertszeiten ergeben sich zu:
-\begin{equation*}
-\tau_.{Rh_.{long}} = \SI{350(140)}{\second}
-\tau_.{Rh_.{short}} = \SI{42(2)}{\second}
-\end{equation*}
 
 \begin{figure}
 	\centering
