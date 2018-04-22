@@ -47,12 +47,20 @@ Dabei ist $\sigma_{\lambda}$ der Fehler von $\lambda$. Die Messwerte aus Tabelle
 \section{Rhodium}
 
 Es werden die Halbwertszeiten und die Zerfallskurven von Rhodium ($^{104}_{45}.{Rh}$ und $^{104i}_{45}.{Rh}$) bestimmt.
-Eine lineare Ausgleichsrechnung der Form \[\ln(N_.{Rh_.{104i}}(t))=-\lambda_.{Rh_.{104i}} t+\ln(N_.{0,Rh_.{104i}})\] für $t\geq 270$ ergibt mit den Werten aus Tabelle \ref{tab:tabRhodium}
+Eine lineare Ausgleichsrechnung der Form 
+\begin{equation}
+\ln(N_.{Rh_.{104i}}(t))=-\lambda_.{Rh_.{104i}} t+\ln(N_.{0,Rh_.{104i}})\label{eq:Ausgleich2}
+\end{equation}
+für $t\geq 270$ ergibt mit den Werten aus Tabelle \ref{tab:tabRhodium}
 \begin{align*}
 \lambda_.{Rh_.{104i}} 	&= \SI{2.0(8)e-3}{1\per\second}\text{,}\\
 N_.{0,Rh_.{104i}} 		&= \SI{3.9(11)}{\becquerel}\text{.}
 \end{align*}
-Hiermit lässt sich für $t\leq 170$ eine Ausgleichsrechnung der Form \[\ln(N_.{Rh_.{104}}(t))=\ln(N_.{Rh}-N_.{Rh_.{104i}}(t))=-\lambda_.{Rh_.{104}} t+\ln(N_.{0,Rh_.{104}})\] durchführen:
+Hiermit lässt sich für $t\leq 170$ eine Ausgleichsrechnung der Form 
+\begin{equation}
+\ln(N_.{Rh_.{104}}(t))=\ln(N_.{Rh}-N_.{Rh_.{104i}}(t))=-\lambda_.{Rh_.{104}} t+\ln(N_.{0,Rh_.{104}})\label{eq:Ausgleich1}
+\end{equation}
+durchführen:
 \begin{align*}
 \lambda_.{Rh_.{104}} 	&= \SI{1.63(7)e-2}{1\per\second}\text{,}\\
 N_.{0,Rh_.{104}} 		&= \SI{47(4)}{\becquerel}\text{.}
@@ -82,7 +90,7 @@ N(t)=N_.{Rh_.{104}}(t)+N_.{Rh_.{104i}}(t)=N_.{0,Rh_.{104}}.e^{-\lambda_.{Rh_.{10
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/RhodiumLog.pdf}
-	\caption{Die logarithmische Impulsrate $N_.{Rh}$ von Rhodium in Abhängigkeit von der Zeit $t$.}
+	\caption{Die logarithmische Impulsrate $N_.{Rh}$ von Rhodium in Abhängigkeit von der Zeit $t$. Die erste Ausgleichsgerade ist nach Formel \eqref{eq:Ausgleich1}, die zweite nach Formel \eqref{eq:Ausgleich2} berechnet.}
 	\label{fig:RhodiumLog}
 \end{figure}
 
