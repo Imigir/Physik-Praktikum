@@ -4,7 +4,7 @@
 Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die
 Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Der Fehler der Impulsrate $N$ unterliegt der Poisson-Verteilung und berechnet sich durch $\sigma_.N=\sqrt{N}$. 
 
-\section{Vanadium}
+\subsection{Vanadium}
 
 Es wird die Halbwertszeit und die Zerfallskurve von Vanadium ($^{52}_{23}.V$) bestimmt.
 Eine lineare Ausgleichsrechnung der Form \[\ln(N_.{V_{52}}(t))=-\lambda_.{V_{52}} t+\ln(N_.{0,V_{52}})\] ergibt mit den Werten aus Tabelle \ref{tab:tabVanadium}:
@@ -44,30 +44,30 @@ Dabei ist $\sigma_{\lambda}$ der Fehler von $\lambda$. Die Messwerte aus Tabelle
 \end{figure}
 
 
-\section{Rhodium}
+\subsection{Rhodium}
 
 Es werden die Halbwertszeiten und die Zerfallskurven von Rhodium ($^{104}_{45}.{Rh}$ und $^{104i}_{45}.{Rh}$) bestimmt.
 Eine lineare Ausgleichsrechnung der Form 
 \begin{equation}
 \ln(N_.{Rh_.{104i}}(t))=-\lambda_.{Rh_.{104i}} t+\ln(N_.{0,Rh_.{104i}})\label{eq:Ausgleich2}
 \end{equation}
-für $t\geq 270$ ergibt mit den Werten aus Tabelle \ref{tab:tabRhodium}
+für $t\geq 250$ ergibt mit den Werten aus Tabelle \ref{tab:tabRhodium}
 \begin{align*}
-\lambda_.{Rh_.{104i}} 	&= \SI{2.0(8)e-3}{1\per\second}\text{,}\\
-N_.{0,Rh_.{104i}} 		&= \SI{3.9(11)}{\becquerel}\text{.}
+\lambda_.{Rh_.{104i}} 	&= \SI{2.6(7)e-3}{1\per\second}\text{,}\\
+N_.{0,Rh_.{104i}} 		&= \SI{5(1)}{\becquerel}\text{.}
 \end{align*}
-Hiermit lässt sich für $t\leq 170$ eine Ausgleichsrechnung der Form 
+Hiermit lässt sich für $t\leq 190$ eine Ausgleichsrechnung der Form 
 \begin{equation}
 \ln(N_.{Rh_.{104}}(t))=\ln(N_.{Rh}-N_.{Rh_.{104i}}(t))=-\lambda_.{Rh_.{104}} t+\ln(N_.{0,Rh_.{104}})\label{eq:Ausgleich1}
 \end{equation}
 durchführen:
 \begin{align*}
-\lambda_.{Rh_.{104}} 	&= \SI{1.63(7)e-2}{1\per\second}\text{,}\\
-N_.{0,Rh_.{104}} 		&= \SI{47(4)}{\becquerel}\text{.}
+\lambda_.{Rh_.{104}} 	&= \SI{1.64(8)e-2}{1\per\second}\text{,}\\
+N_.{0,Rh_.{104}} 		&= \SI{44(4)}{\becquerel}\text{.}
 \end{align*}
 Die Halbwertszeiten ergeben sich nach Formel \eqref{eq:T} zu:
 \begin{align*}
-\tau_.{Rh_.{104i}} 	&= \SI{350(140)}{\second}\text{,}\\
+\tau_.{Rh_.{104i}} 	&= \SI{260(70)}{\second}\text{,}\\
 \tau_.{Rh_.{104}} &= \SI{42(2)}{\second}\text{.}
 \end{align*}
 Die Fehler berechnen sich nach Formel \eqref{eq:sigma_tau}. Die Messwerte aus Tabelle \ref{tab:tabRhodium} sind in den Graphen \ref{fig:RhodiumLog} und \ref{fig:Rhodium} gegeneinander aufgetragen. Dabei berechnet sich $N(t)$ nach:

@@ -59,7 +59,7 @@ N = unp.uarray(N, N_err)
 t = t*30
 
 #print('N=', N)
-
+"""
 paramsLinear, errorsLinear, sigma_y = linregress(t, N_log)
 
 steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
@@ -94,7 +94,7 @@ plt.savefig('content/images/Vanadium.pdf')
 
 
 makeTable([t, noms(N), stds(N), N_log, N_log_err[0], N_log_err[1]], r'{'+r'$t/\si{\second}$'+r'} & {'+r'$N_.V/\si{\becquerel}$'+r'} & {'+r'$\sigma_{N_.V}/\si{\becquerel}$'+r'} & {'+r'$\ln\left(N_.V/\si{\becquerel}\right)$'+r'} & {'+r'$\ln\left(\frac{N_.V+\sigma_{N_.V}}{N}\right)$'+r'} & {'+r'$\ln\left(\frac{N_.V}{N_.V-\sigma_{N_.V}}\right)$'+r'}', 'tabVanadium', ['S[table-format=3.0]', 'S[table-format=1.1]', 'S[table-format=1.1]', 'S[table-format=1.2]', 'S[table-format=1.2]', 'S[table-format=1.2]'], ["%3.0f", "%1.1f", "%1.1f", "%1.2f", "%1.2f", "%1.2f"])
-
+"""
 #2 Rhodium
 t2,N2 = np.genfromtxt('scripts/data2.txt', unpack = True)
 N2_err = np.sqrt(N2-N_0*10)/10
@@ -104,11 +104,11 @@ N2_log_err = [np.log(N2+N2_err)-np.log(N2), np.log(N2)-np.log(N2-N2_err)]
 N2 = unp.uarray(N2, N2_err)
 t2 = t2*10
 
-paramsLinear2, errorsLinear2, sigma_y = linregress(t2[27:45], N2_log[27:45])
+paramsLinear2, errorsLinear2, sigma_y = linregress(t2[25:45], N2_log[25:45])
 steigung2 = unp.uarray(paramsLinear2[0], errorsLinear2[0])
 achsenAbschnitt2 = unp.uarray(paramsLinear2[1], errorsLinear2[1])
 
-paramsLinear1, errorsLinear1, sigma_y = linregress(t2[0:18], np.log(noms(N2)[0:18]-np.exp(t2[0:18]*paramsLinear2[0]+paramsLinear2[1])))
+paramsLinear1, errorsLinear1, sigma_y = linregress(t2[0:20], np.log(noms(N2)[0:20]-np.exp(t2[0:20]*paramsLinear2[0]+paramsLinear2[1])))
 steigung1 = unp.uarray(paramsLinear1[0], errorsLinear1[0])
 achsenAbschnitt1 = unp.uarray(paramsLinear1[1], errorsLinear1[1])
 
