@@ -1,0 +1,2 @@
+#l, dt_1, dt_2, dt_3, Cepstrumperiode/μs, FFTmax/MHz  : Mehrfachecho
+9.62 29.2 4.5 7.2 11.6 2.27
