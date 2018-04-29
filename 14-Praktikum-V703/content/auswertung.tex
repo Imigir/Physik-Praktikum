@@ -1,8 +1,8 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die
-Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die
+Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
 \begin{table}
 	\centering
@@ -17,12 +17,12 @@ In Abbildung \ref{fig:Graph1.1} ist die Zählrohr-Charakteristik graphisch mithi
 \begin{equation*}
 \sigma_N = \frac{\sqrt{N_.{minute}}}{\Delta t}\text{.}
 \end{equation*}
-Dabei ist $\Delta t$ das Zeitintervall, in dem die Impulse gemessen wurden und entspricht einer Minute.
-Das Plateau der Charakteristik ist im Bereich zwischen $\SI{320}{\volt}$ und $\SI{700}{\volt}$ zu erkennen. Es ist in Abbildung \ref{fig:Graph1.2} vergrößert dargestellt und besitzt eine Länge von $\Delta U = \SI{380}{\volt}$.
+Dabei ist $\Delta t$ das Zeitintervall, in dem die Impulse gemessen werden und entspricht einer Minute.
+Das Plateau der Charakteristik ist im Bereich zwischen $\SI{330}{\volt}$ und $\SI{660}{\volt}$ zu erkennen. Es ist in Abbildung \ref{fig:Graph1.2} vergrößert dargestellt und besitzt eine Länge von $\Delta U = \SI{330}{\volt}$.
 Eine lineare Ausgleichsrechnung in diesen Bereich der Form $N(U)=mU+N_0$ liefert für die Steigung $m$ und den Achsenabschnitt $N_0$:
 \begin{align*}
-m 	&= \SI{5.8(5)e-2}{\becquerel\per\volt} \text{,}\\
-N_0	&= \SI{253(2)}{\becquerel}\text{.}
+m 	&= \SI{4.8(5)e-2}{\becquerel\per\volt} \text{,}\\
+N_0	&= \SI{258(2)}{\becquerel}\text{.}
 \end{align*}   
 Der relative Plateauanstieg $m_.{rel}$ wird berechnet durch:
 \begin{equation}
@@ -35,11 +35,16 @@ Der Fehler bestimmt sich mit der Gaußschen Fehlerfortpflanzung:
 \end{equation}
 Dabei ist $\sigma_m$ der Fehler von $m$ und $\sigma_{N_.{min}}$ der Fehler von $N_.{min}$, welches sich über die Geradengleichung bestimmen lässt zu:
 \begin{equation*}
-N_.{min} = \SI{272(3)}{\becquerel} \text{.}
+N_.{min} = \SI{273(3)}{\becquerel} \text{.}
 \end{equation*}
+Der Fehler berechnet sich nach:
+\begin{equation*}
+\sigma_{N_.{min}} =  \sqrt{\left(U_.{min}\sigma_m\right)^2+\sigma_{N_0}^2}\text{.}
+\end{equation*}
+Dabei ist $U_.{min}=\SI{330}{\volt}$ der Wert der Spannung bei Beginn des Plateaus und $\sigma_{N_.0}$ der Fehler von $N_0$.
 Damit berechnet sich $m_.{rel}$ nach Formel \eqref{eq:m_rel} und \eqref{eq:sigma_m_rel} zu:
 \begin{equation*}
-m_.{rel} = \SI{2.2(2)}{\%\per 100\volt}\text{.}
+m_.{rel} = \SI{1.8(2)}{\%\per 100\volt}\text{.}
 \end{equation*}
 
 \begin{figure}
@@ -59,7 +64,7 @@ m_.{rel} = \SI{2.2(2)}{\%\per 100\volt}\text{.}
 \subsection{Bestimmung der Totzeit}
 
 Bei $U=\SI{500}{\volt}$ lässt sich am Oszilloskop eine Totzeit von $T_1=\SI{100(25)e-6}{\second}$ ablesen. Die Erholungszeit bei $U=\SI{600}{\volt}$ wird zu $T_.E=\SI{225e-6}{\second}$ abgeschätzt.\\
-Bei der Zweiquellenmethode kann die Totzeit nach Formel \eqref{eq:T} berechnet werden. Dabei sind $N_1$ die Impulsrate der ersten, $N_2$ die der zweiten und $N_{1+2}$ die Impulsrate beider Quellen und haben die Werte:
+Bei der Messung mit zwei Quellen kann die Totzeit nach Formel \eqref{eq:T} berechnet werden. Dabei sind $N_1$ die Impulsrate der ersten, $N_2$ die der zweiten und $N_{1+2}$ die Impulsrate beider Quellen und haben die Werte:
 \begin{align*}
 N_1 	&= \SI{286(2)}{\becquerel}\\
 N_2 	&= \SI{18(1)}{\becquerel}\\
@@ -82,7 +87,21 @@ Nach Formel \eqref{eq:I} berechnet sich die freigesetzte Ladungsmenge mit:
 \begin{equation*}
 \Delta Q = \frac{I}{N} \text{.}
 \end{equation*}
-Die Ergebnisse sind in Tabelle \ref{tab:tab1} eingetragen. In Abbildung \ref{fig:Graph2} ist $\Delta Q$ gegen $U$ aufgetragen und es wurde eine lineare Ausgleichsrechnung der Form $\Delta Q(U) = mU+Q_0$ ausgeführt um die Linearität zu überprüfen. 
+Die Ergebnisse sind in Tabelle \ref{tab:tab1} eingetragen. Dabei wird die Ladung in Einheiten der Elementarladung angegeben und der Fehler $\sigma_Q$ von $\Delta Q$ berechnet sich nach:
+\begin{equation*}
+\sigma_Q = \frac{\sigma_N}{N^2} \text{.}
+\end{equation*}
+In Abbildung \ref{fig:Graph2} ist $\Delta Q$ gegen $U$ aufgetragen und es wird eine lineare Ausgleichsrechnung der Form $\Delta Q(U) = mU+Q_0$ ausgeführt um die Linearität zu überprüfen:
+\begin{align*}
+m 	&= \SI{7.62(7)e7}{\becquerel\per\volt} \text{,}\\
+Q_0	&= \SI{-2.20(4)e10}{\becquerel}\text{.}
+R^2 &= \SI{99.7}{\%}
+\end{align*}   
+Bei $R^2$ handelt es sich um das Bestimmtheitsmaß der Ausgleichsgeraden, welches angibt wie gut die Messwerte mit der Ausgleichsgeraden übereinstimmen. Es wird berechnet durch:
+\begin{equation*}
+R^2 = \frac{\sum_{i=1}^n\left(\hat{Q}_i-\bar{Q}\right)^2}{\sum_{i=1}^n\left(Q_i-\bar{Q}\right)^2} \text{.}
+\end{equation*}
+Dabei sind die $Q_i$ die Messwerte für $\Delta Q$, die $\hat{Q}_i$ sind die durch die Ausgleichsgerade vorhergesagten Werte für $\Delta Q$ und $\bar{Q}$ ist der Mittelwert der $Q_i$.  
 
 \begin{figure}
 	\centering

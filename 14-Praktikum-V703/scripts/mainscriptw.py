@@ -57,16 +57,17 @@ N = unp.uarray(N, N_err)
 I = I/10**6
 
 #a)
-paramsLinear, errorsLinear, sigma_y = linregress(U[2:40], noms(N[2:40]))
+paramsLinear, errorsLinear, R = linregress(U[3:37], noms(N[3:37]))
 
 steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
 achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
 
-N_min = steigung*U[2]+achsenAbschnitt
+N_min = steigung*U[3]+achsenAbschnitt
 print('N_min =', N_min)
+print('Steigung des Plateaus =', steigung)
 print('Steigung des Plateaus in %/100V =', steigung/N_min*100*100)
 print('Achsenabschnitt des Plateaus =', achsenAbschnitt)
-print('Länge des Plateaus =', U[40]-U[2])
+print('Länge des Plateaus =', U[36]-U[3])
 
 plt.cla()
 plt.clf()
@@ -82,11 +83,11 @@ plt.savefig('content/images/Graph1.1.pdf')
 plt.cla()
 plt.clf()
 x_plot = np.linspace(200,800)
-plt.errorbar(U[2:], noms(N[2:]), yerr=stds(N[2:]), fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.errorbar(U[3:37], noms(N[3:37]), yerr=stds(N[3:37]), fmt='rx', markersize=5, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
 plt.plot(x_plot, x_plot*paramsLinear[0]+paramsLinear[1], 'b-', linewidth=0.8, label='Ausgleichsgerade des Plateaus')
 plt.xlabel(r'$U/\si{\volt}$')
 plt.ylabel(r'$N/\si{\becquerel}$')
-plt.xlim(300,720)
+plt.xlim(320,670)
 plt.legend(loc="best")
 plt.savefig('content/images/Graph1.2.pdf')
 
@@ -114,10 +115,14 @@ DQ = I/N
 DQe = DQ/e
 N[0] = 0
 
-paramsLinear, errorsLinear, sigma_y = linregress(U, noms(DQe))
+paramsLinear, errorsLinear, R = linregress(U, noms(DQe))
 
 steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
 achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
+
+print('Steigung =', steigung)
+print('Achsenabschnitt =', achsenAbschnitt)
+print('Bestimmtheitsmaß =', R)
 
 plt.cla()
 plt.clf()
