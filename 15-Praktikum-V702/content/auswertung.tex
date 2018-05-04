@@ -19,7 +19,7 @@ Der Fehler $\sigma_{\tau}$ berechnet sich mit:
 \begin{equation}
 \sigma_{\tau} = \frac{\sigma_{\lambda}}{\lambda^2}\label{eq:sigma_tau}
 \end{equation}
-Dabei ist $\sigma_{\lambda}$ der Fehler von $\lambda$. Die Messwerte aus Tabelle \ref{tab:tabVanadium} sind in den Graphen \ref{fig:VanadiumLog} und \ref{fig:Vanadium} gegeneinander aufgetragen.
+Dabei ist $\sigma_{\lambda}$ der Fehler von $\lambda$. Die Messwerte aus Tabelle \ref{tab:tabVanadium} sind in den Graphen \ref{fig:VanadiumLog} und \ref{fig:Vanadium} gegeneinander aufgetragen. Dabei kann der Wert bei $t=\SI{660}{\second}$ im Logarithmus nicht dargestellt werden und wird deshalb bei der Ausgleichsrechnung nicht berücksichtigt.
 
 \begin{table}
 	\centering
@@ -69,7 +69,7 @@ Die Halbwertszeiten ergeben sich nach Formel \eqref{eq:T} zu:
 \tau_.{Rh_.{104i}} 	&= \SI{260(70)}{\second}\text{,}\\
 \tau_.{Rh_.{104}} &= \SI{42(2)}{\second}\text{.}
 \end{align*}
-Die Fehler berechnen sich nach Formel \eqref{eq:sigma_tau}. Die Messwerte aus Tabelle \ref{tab:tabRhodium} sind in den Graphen von \ref{fig:RhodiumLog1} bis \ref{fig:Rhodium} gegeneinander aufgetragen. Dabei berechnet sich $N(t)$ nach:
+Die Fehler berechnen sich nach Formel \eqref{eq:sigma_tau}. Die Messwerte aus Tabelle \ref{tab:tabRhodium} sind in den Graphen von \ref{fig:RhodiumLog1} bis \ref{fig:Rhodium} gegeneinander aufgetragen. Dabei werden die Messwerte für $t>\SI{440}{\second}$ bei der Ausgleichsrechnung nicht mit berücksichtigt. $N(t)$ berechnet sich nach:
 \begin{equation*}
 N(t)=N_.{Rh_.{104}}(t)+N_.{Rh_.{104i}}(t)=N_.{0,Rh_.{104}}.e^{-\lambda_.{Rh_.{104}} t}+N_.{0,Rh_.{104i}}.e^{-\lambda_.{Rh_.{104i}} t}
 \end{equation*}
