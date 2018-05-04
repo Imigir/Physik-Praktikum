@@ -1,8 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die
-Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Der Fehler der Impulsrate $N$ unterliegt der Poisson-Verteilung und berechnet sich durch $\sigma_.N=\sqrt{N}$. 
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Der Fehler der Impulsrate $N$ unterliegt der Poisson-Verteilung und berechnet sich durch $\sigma_.N=\sqrt{N}$. Bei der Bestimmung der Halbwertszeiten wird die gemessene Impulsrate um die bei der Nulleffektmessung bestimmte Nullrate von $N_0=\SI{0.25}{\becquerel}$ korrigiert.
 
 \subsection{Vanadium}
 
@@ -70,14 +69,14 @@ Die Halbwertszeiten ergeben sich nach Formel \eqref{eq:T} zu:
 \tau_.{Rh_.{104i}} 	&= \SI{260(70)}{\second}\text{,}\\
 \tau_.{Rh_.{104}} &= \SI{42(2)}{\second}\text{.}
 \end{align*}
-Die Fehler berechnen sich nach Formel \eqref{eq:sigma_tau}. Die Messwerte aus Tabelle \ref{tab:tabRhodium} sind in den Graphen \ref{fig:RhodiumLog} und \ref{fig:Rhodium} gegeneinander aufgetragen. Dabei berechnet sich $N(t)$ nach:
+Die Fehler berechnen sich nach Formel \eqref{eq:sigma_tau}. Die Messwerte aus Tabelle \ref{tab:tabRhodium} sind in den Graphen von \ref{fig:RhodiumLog1} bis \ref{fig:Rhodium} gegeneinander aufgetragen. Dabei berechnet sich $N(t)$ nach:
 \begin{equation*}
 N(t)=N_.{Rh_.{104}}(t)+N_.{Rh_.{104i}}(t)=N_.{0,Rh_.{104}}.e^{-\lambda_.{Rh_.{104}} t}+N_.{0,Rh_.{104i}}.e^{-\lambda_.{Rh_.{104i}} t}
 \end{equation*}
 
 \begin{table}
 	\centering
-	\caption{Die Messwerte von Rhodium für die Zeit t, die Impulsrate $N_.{Rh}$ und deren Fehler, sowie die berechneten logarithmierten Werte.}
+	\caption{Die Messwerte von Rhodium für die Zeit $t$, die Impulsrate $N_.{Rh}$ und deren Fehler, sowie die berechneten logarithmierten Werte.}
 	\input{content/tables/tabRhodium1.tex}
 	\label{tab:tabRhodium}
 \end{table}
@@ -89,9 +88,23 @@ N(t)=N_.{Rh_.{104}}(t)+N_.{Rh_.{104i}}(t)=N_.{0,Rh_.{104}}.e^{-\lambda_.{Rh_.{10
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/RhodiumLog.pdf}
+	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/RhodiumLog1.pdf}
+	\caption{Die logarithmische Impulsrate $N_.{Rh_.{104}}$ von $^{104}_{45}.{Rh}$ in Abhängigkeit von der Zeit $t$. Die Ausgleichsgerade ist nach Formel \eqref{eq:Ausgleich1} berechnet.}
+	\label{fig:RhodiumLog1}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/RhodiumLog2.pdf}
+	\caption{Die logarithmische Impulsrate $N_.{Rh_.{104i}}$ von $^{104i}_{45}.{Rh}$ in Abhängigkeit von der Zeit $t$. Die Ausgleichsgerade ist nach Formel \eqref{eq:Ausgleich2} berechnet.}
+	\label{fig:RhodiumLog2}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/RhodiumLog3.pdf}
 	\caption{Die logarithmische Impulsrate $N_.{Rh}$ von Rhodium in Abhängigkeit von der Zeit $t$. Die erste Ausgleichsgerade ist nach Formel \eqref{eq:Ausgleich1}, die zweite nach Formel \eqref{eq:Ausgleich2} berechnet.}
-	\label{fig:RhodiumLog}
+	\label{fig:RhodiumLog3}
 \end{figure}
 
 \begin{figure}
