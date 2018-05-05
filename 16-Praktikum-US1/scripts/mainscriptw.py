@@ -11,6 +11,7 @@ from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
 import scipy.constants as const
+import math
 
 # BackwardsVNominal = []
 # BackwardsVStd = []
@@ -51,11 +52,10 @@ import scipy.constants as const
 def linear(x, A):
     return A*x
 
-#a)
+#a) Schallgeschwindigkeit Impuls-Echo-Verfahren
 l,t,t1 = np.genfromtxt('scripts/data1.txt', unpack=True)
 l = l/100
 t=t/(2*10**6)
-
 #paramsLinear, errorsLinear, sigma_y = linregress(t,l)
 #steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
 #achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
@@ -80,4 +80,59 @@ plt.legend(loc="best")
 plt.savefig('content/images/Schallgeschwindigkeit.pdf')
 
 
-makeTable([t1, 0.3+t*2*10**6, t*2*10**6, t*10**6, l], r'{'+r'$t_.1/10^{-6}\si{\second}$'+r'} & {'+r'$t_.2/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{mess}/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{eff}/\si{\second}$'+r'} & {'+r'$l/10^{-2}\si{\metre}$'+r'}', 'tabSchallgeschwindigkeit', ['S[table-format=1.1]', 'S[table-format=2.1]', 'S[table-format=2.1]', 'S[table-format=2.2]', 'S[table-format=2.2]'], ["%1.1f", "%2.1f", "%2.1f", "%2.2f", "%2.2f"])
+makeTable([t1, 0.3+t*2*10**6, t*2*10**6, t*10**6, l*100], r'{'+r'$t_.1/10^{-6}\si{\second}$'+r'} & {'+r'$t_.2/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{mess}/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{eff}/\si{\second}$'+r'} & {'+r'$l/10^{-2}\si{\metre}$'+r'}', 'tabSchallgeschwindigkeit', ['S[table-format=1.1]', 'S[table-format=2.1]', 'S[table-format=2.1]', 'S[table-format=2.2]', 'S[table-format=2.2]'], ["%1.1f", "%2.1f", "%2.1f", "%2.2f", "%2.2f"])
+
+#b) Schallgeschwindigkeit Durchschallungsverfahren
+
+l_D,t_D = np.genfromtxt('scripts/data2.txt', unpack=True)
+t_D = t_D/1000000
+l_D = l_D/100
+paramsLinear_D, covar_D = curve_fit(linear, t_D, l_D)
+errorsLinear_D = np.sqrt(np.diag(covar_D))
+steigung_D = unp.uarray(paramsLinear_D[0], errorsLinear_D[0])
+
+print('c_D=', steigung_D)
+print('Abweichung in %:', (paramsLinear_D[0]-2730)/2730*100)
+
+plt.cla()
+plt.clf()
+x_plot = np.linspace(0,50)
+plt.plot(t_D*10**6, l_D*100, 'rx', linewidth=0.8, label='Messwerte')
+plt.plot(x_plot, x_plot/10000*paramsLinear_D[0], 'k-', linewidth=0.8, label='Ausgleichsgerade')
+plt.xlabel(r'$t/10^{-6}\si{\second}$')
+plt.ylabel(r'$l/10^{-2}\si{\metre}$')
+plt.xlim(0,50)
+plt.ylim(0,15)
+plt.legend(loc="best")
+plt.savefig('content/images/Schallgeschwindigkeit-Durchschallung.pdf')
+
+makeTable([t*10**6, l*100], r'{'+r'$\Delta t_.{Durchschallung}/\si{\second}$'+r'} & {'+r'$l/10^{-2}\si{\metre}$'+r'}', 'tabSchallgeschwindigkeitDurchschallung', ['S[table-format=2.1]', 'S[table-format=2.2]'], ["%2.1f", "%2.2f"])
+
+
+#c) Dämpfung Impuls-Echo-Verfahren
+
+def efunction(x,a,b):
+    return np.exp(a*x)+b
+
+l_Dae,U =np.genfromtxt('scripts/data3.txt', unpack=True)
+l_Dae = l_Dae/100
+
+params_e, covar_e = curve_fit(efunction, l_Dae, U)
+errors_e = np.sqrt(np.diag(covar_e))
+steigung_e = unp.uarray(params_e[0], errors_e[0])
+achsenAbschnitt = unp.uarray(params_e[1],errors_e[1])
+
+print('Steigungskoeffizient der Dämpfung: ',steigung_e)
+print('Achsenabsabschnitt: ', achsenAbschnitt)
+
+plt.cla()
+plt.clf()
+x_plot = np.linspace(0,15,10000)
+plt.plot(l_Dae*100, U, 'rx', linewidth=0.8, label='Messwerte')
+plt.plot(x_plot, efunction(x_plot,params_e[0],params_e[1]), 'k-', linewidth=0.8, label='Ausgleichsgerade')
+plt.ylabel(r'$U/\si{\volt}$')
+plt.xlabel(r'$l/10^{-2}\si{\metre}$')
+plt.xlim(0,15)
+plt.ylim(0,1.5)
+plt.legend(loc="best")
+plt.savefig('content/images/Daempfung.pdf')
