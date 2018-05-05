@@ -49,23 +49,23 @@ import math
 # params = unp.uarray(params, np.sqrt(np.diag(covar)))
 # makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
 
-def linear(x, A):
-    return A*x
-
 #a) Schallgeschwindigkeit Impuls-Echo-Verfahren
 l,t,t1 = np.genfromtxt('scripts/data1.txt', unpack=True)
 l = l/100
 t=t/(2*10**6)
-#paramsLinear, errorsLinear, sigma_y = linregress(t,l)
-#steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
-#achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
 
-paramsLinear, covar = curve_fit(linear, t, l)
-errorsLinear = np.sqrt(np.diag(covar))
+paramsLinear, errorsLinear, sigma_y = linregress(t,l)
 steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
+achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
 
+#paramsLinear, covar = curve_fit(linear, t, l)
+#errorsLinear = np.sqrt(np.diag(covar))
+#steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
+
+print('a)', steigung)
 print('c=', steigung)
 print('Abweichung in %:', (paramsLinear[0]-2730)/2730*100)
+print('Achsenabschnitt:', achsenAbschnitt)
 
 plt.cla()
 plt.clf()
@@ -87,12 +87,19 @@ makeTable([t1, 0.3+t*2*10**6, t*2*10**6, t*10**6, l*100], r'{'+r'$t_.1/10^{-6}\s
 l_D,t_D = np.genfromtxt('scripts/data2.txt', unpack=True)
 t_D = t_D/1000000
 l_D = l_D/100
-paramsLinear_D, covar_D = curve_fit(linear, t_D, l_D)
-errorsLinear_D = np.sqrt(np.diag(covar_D))
-steigung_D = unp.uarray(paramsLinear_D[0], errorsLinear_D[0])
 
+paramsLinear_D, errorsLinear_D, sigma_y = linregress(t_D,l_D)
+steigung_D = unp.uarray(paramsLinear_D[0], errorsLinear_D[0])
+achsenAbschnitt_D = unp.uarray(paramsLinear_D[1], errorsLinear_D[1])
+
+#paramsLinear_D, covar_D = curve_fit(linear, t_D, l_D)
+#errorsLinear_D = np.sqrt(np.diag(covar_D))
+#steigung_D = unp.uarray(paramsLinear_D[0], errorsLinear_D[0])
+
+print('b)', steigung)
 print('c_D=', steigung_D)
 print('Abweichung in %:', (paramsLinear_D[0]-2730)/2730*100)
+print('Achsenabschnitt_D:', achsenAbschnitt_D)
 
 plt.cla()
 plt.clf()
@@ -122,6 +129,7 @@ errors_e = np.sqrt(np.diag(covar_e))
 steigung_e = unp.uarray(params_e[0], errors_e[0])
 achsenAbschnitt = unp.uarray(params_e[1],errors_e[1])
 
+print('c)', steigung)
 print('Steigungskoeffizient der Dämpfung: ',steigung_e)
 print('Achsenabsabschnitt: ', achsenAbschnitt)
 
