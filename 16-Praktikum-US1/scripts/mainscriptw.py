@@ -136,3 +136,5 @@ plt.xlim(0,15)
 plt.ylim(0,1.5)
 plt.legend(loc="best")
 plt.savefig('content/images/Daempfung.pdf')
+
+makeTable([l_Dae*100, -(U-1.487)], r'{'+r'$l/10^{-2}\si{\metre}$'+r'} & {'+r'$\Delta U/\si{\volt}$'+r'}', 'tabDaempfung', ['S[table-format=2.2]', 'S[table-format=1.3]'], ["%2.2f", "%1.3f"])
