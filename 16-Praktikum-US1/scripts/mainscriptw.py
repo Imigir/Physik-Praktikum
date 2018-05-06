@@ -62,7 +62,7 @@ achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
 #errorsLinear = np.sqrt(np.diag(covar))
 #steigung = unp.uarray(paramsLinear[0], errorsLinear[0])
 
-print('a)', steigung)
+print('a)')
 print('c=', steigung)
 print('Abweichung in %:', (paramsLinear[0]-2730)/2730*100)
 print('Achsenabschnitt:', achsenAbschnitt)
@@ -96,7 +96,7 @@ achsenAbschnitt_D = unp.uarray(paramsLinear_D[1], errorsLinear_D[1])
 #errorsLinear_D = np.sqrt(np.diag(covar_D))
 #steigung_D = unp.uarray(paramsLinear_D[0], errorsLinear_D[0])
 
-print('b)', steigung)
+print('b)')
 print('c_D=', steigung_D)
 print('Abweichung in %:', (paramsLinear_D[0]-2730)/2730*100)
 print('Achsenabschnitt_D:', achsenAbschnitt_D)
@@ -118,30 +118,30 @@ makeTable([t*10**6, l*100], r'{'+r'$\Delta t_.{Durchschallung}/\si{\second}$'+r'
 
 #c) Dämpfung Impuls-Echo-Verfahren
 
-def efunction(x,a,b):
-    return np.exp(a*x)+b
+#def efunction(x,a,b):
+#   return np.exp(a*x)+b
 
 l_Dae,U =np.genfromtxt('scripts/data3.txt', unpack=True)
 l_Dae = l_Dae/100
 
-params_e, covar_e = curve_fit(efunction, l_Dae, U)
-errors_e = np.sqrt(np.diag(covar_e))
+params_e, errors_e, sigma_y = linregress(l_Dae, np.log(U))
 steigung_e = unp.uarray(params_e[0], errors_e[0])
 achsenAbschnitt = unp.uarray(params_e[1],errors_e[1])
 
-print('c)', steigung)
-print('Steigungskoeffizient der Dämpfung: ',steigung_e)
+print('c)')
+print('Steigung: ', steigung_e)
 print('Achsenabsabschnitt: ', achsenAbschnitt)
+print('Dämpfungsfaktor: ',-2*steigung_e)
 
 plt.cla()
 plt.clf()
-x_plot = np.linspace(0,15,10000)
+x_plot = np.linspace(0,15)
 plt.plot(l_Dae*100, U, 'rx', linewidth=0.8, label='Messwerte')
-plt.plot(x_plot, efunction(x_plot,params_e[0],params_e[1]), 'k-', linewidth=0.8, label='Ausgleichsgerade')
+plt.plot(x_plot, x_plot*params_e[0]+params_e[1], 'k-', linewidth=0.8, label='Ausgleichsgerade')
 plt.ylabel(r'$U/\si{\volt}$')
 plt.xlabel(r'$l/10^{-2}\si{\metre}$')
 plt.xlim(0,15)
-plt.ylim(0,1.5)
+#plt.ylim(0,1.5)
 plt.legend(loc="best")
 plt.savefig('content/images/Daempfung.pdf')
 
