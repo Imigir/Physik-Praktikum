@@ -164,3 +164,11 @@ plt.legend(loc="best")
 plt.savefig('content/images/Daempfung.pdf')
 
 makeTable([l_Dae*100, -(U-1.487)], r'{'+r'$l/10^{-2}\si{\metre}$'+r'} & {'+r'$\Delta U/\si{\volt}$'+r'}', 'tabDaempfung', ['S[table-format=2.2]', 'S[table-format=1.3]'], ["%2.2f", "%1.3f"])
+
+
+#d) Augenmodelluntersuchung
+
+n,t_A = np.genfromtxt('scripts/data5.txt', unpack=True)
+
+
+makeTable([n, t_A], r'{'+r'$n$'+r'} & {'+r'$\Delta t_A/10^{-6}\si{\second}$'+r'}', 'tabAuge', ['S[table-format=1.0]', 'S[table-format=2.1]'], ["%1.0f", "%2.1f"])
