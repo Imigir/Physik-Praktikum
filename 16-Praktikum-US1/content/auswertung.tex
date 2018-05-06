@@ -20,7 +20,7 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 	\label{fig:SchallIE}
 \end{figure}
 
-\noindent In der Abbildung \ref{fig:SchallIE} sind die Messwertepaare aus Tabelle \ref{tab:SchallIE} aufgetragen und durch einen linearen Fit der Form $l=c_1 t + l_{0,1}$ genähert:
+\noindent In der Abbildung \ref{fig:SchallIE} sind die Messwertepaare aus Tabelle \ref{tab:SchallIE} mit $\Delta t_.{mess}$ aufgetragen und durch einen linearen Fit der Form $l=c_1 t + l_{0,1}$ genähert:
 \begin{align*}
 	c_1&=\SI{2708(17)}{\meter\per\second}\text{,}\\
 	l_{0,1}&=\SI{-6(5)e-4}{\meter}\text{.}
@@ -35,18 +35,18 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 	\label{tab:SchallD}
 \end{table}
 
+\noindent In der Abbildung \ref{fig:SchallD} sind die Messwertepaare aus Tabelle \ref{tab:SchallD} aufgetragen und durch einen linearen Fit der Form $l=c_2 t + l_{0,2}$ genähert:
+\begin{align*}
+	c_2&=\SI{2700(120)}{\meter\per\second}\text{,}\\
+	l_{0,2}&=\SI{-4(4)e-3}{\meter}\text{.}
+\end{align*}
+
 \begin{figure}
 	\centering
 	\caption{Die bei einer Laufzeit $t$ zurückgelegte Strecke $l$ des Schalls im Zylinder bei dem Durchschallungs-Verfahren aufgetragen gegen die Laufzeit $t$.}
 	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/SchallgeschwindigkeitDurchschallung.pdf}
 	\label{fig:SchallD}
 \end{figure}
-
-\noindent In der Abbildung \ref{fig:SchallD} sind die Messwertepaare aus Tabelle \ref{tab:SchallD} aufgetragen und durch einen linearen Fit der Form $l=c_2 t + l_{0,2}$ genähert:
-\begin{align*}
-	c_2&=\SI{2700(120)}{\meter\per\second}\text{,}\\
-	l_{0,2}&=\SI{-4(4)e-3}{\meter}\text{.}
-\end{align*}
 
 \subsection{Bestimmung der Dämpfungskonstanten mit Impuls-Echo-Verfahren}
 
@@ -56,13 +56,6 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 	\input{content/tables/tabDaempfung.tex}
 	\label{tab:Daempfung}
 \end{table}
-
-\begin{figure}
-	\centering
-	\caption{Der Logarithmus von den beim Impuls-Echo-Verfahren bestimmten Spannungen $U$ aufgetragen gegen die im Zylinder nach der Zeit $t$ zurückgelegte Strecke $l$ des Schalls.}
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Daempfung.pdf}
-	\label{fig:Daempfung}
-\end{figure}
 
 \noindent In der Abbildung \ref{fig:Daempfung} ist der Logarithmus von der ursprünglichen Spannung $U$ gegen die zurückgelegte Strecke $l$ des Schalls im Zylinder mit den Werten aus Tabelle \ref{tab:Daempfung} aufgetragen und wird durch einen linearen Fit der Form $\ln(U)=-\frac{\alpha}{2} t + ln(U_0)$ genähert:
 \begin{align*}
@@ -82,6 +75,13 @@ für die erste Interpretation und
 \end{align*}
 für die zweite Interpretation.
 
+\begin{figure}
+	\centering
+	\caption{Der Logarithmus von den beim Impuls-Echo-Verfahren bestimmten Spannungen $U$ aufgetragen gegen die im Zylinder nach der Zeit $t$ zurückgelegte Strecke $l$ des Schalls.}
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Daempfung.pdf}
+	\label{fig:Daempfung}
+\end{figure}
+
 \subsection{Untersuchung des Cepstrums/Spektrums}
 
 \begin{table}
@@ -93,7 +93,7 @@ für die zweite Interpretation.
 
 \noindent Im Spektrum wurde ein Peak bei $??$ aufgenommen.
 Aus Tabelle \ref{tab:Cepstrum} lassen sich die Laufzeiten des Schalls in den Acrylplatten bestimmen.
-Mit der bekannten Schallgeschwindigkeit in Acryl $c_.{Acryl}=\SI{2730}{\meter\per\second}$\cite{cAcryl} ergeben sich somit für die Dicken der Platten
+Mit der bekannten Schallgeschwindigkeit in Acryl $c_.{Acryl}=\SI{2730}{\meter\per\second}$ \cite{cAcryl} ergeben sich somit für die Dicken der Platten
 \begin{align*}
 D_1&=\SI{}{\meter}\text{,}\\
 D_2&=\SI{}{\meter}\text{.}\\
