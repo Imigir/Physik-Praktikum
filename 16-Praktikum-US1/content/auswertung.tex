@@ -2,7 +2,7 @@
 \label{sec:Auswertung}
 
 
-Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Mit der Tiefenmessung wird der Zylinder der Länge $l=\SI{120,5e-3}{\metre}$ vermessen. Mit der Schallgeschwindigkeit in Acryl von $c_.{Acryl}=\SI{2730}{\meter\per\second}$ \cite{cAcryl} ergibt sich für die Länge: $l_.{Tiefenmessung}=\SI{120.04e-3}{\metre}$.
 
 \subsection{Bestimmung der Schallgeschwindigkeit mit Impuls-Echo-Verfahren}
 
@@ -13,11 +13,12 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 	\label{tab:SchallIE}
 \end{table}
 
-\noindent In der Abbildung \ref{fig:SchallIE} sind die Messwertepaare aus Tabelle \ref{tab:SchallIE} mit $\Delta t_.{mess}$ aufgetragen und durch einen linearen Fit der Form $l=c_1 t + l_{0,1}$ genähert:
+\noindent In der Abbildung \ref{fig:SchallIE} sind die Messwertepaare aus Tabelle \ref{tab:SchallIE} mit $\Delta t_.{eff}$ aufgetragen und durch einen linearen Fit der Form $l=c_1 t + l_{0,1}$ genähert:
 \begin{align*}
 	c_1&=\SI{2708(17)}{\meter\per\second}\text{,}\\
 	l_{0,1}&=\SI{-6(5)e-4}{\meter}\text{.}
 \end{align*}
+Dabei ist $c$ die Schallgeschwindigkeit in Acryl und $l_0$ ist die Dicke der Anpassungsschicht.
 
 \begin{figure}
 	\centering
@@ -40,6 +41,7 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 	c_2&=\SI{2700(120)}{\meter\per\second}\text{,}\\
 	l_{0,2}&=\SI{-4(4)e-3}{\meter}\text{.}
 \end{align*}
+Dabei ist $c$ die Schallgeschwindigkeit in Acryl und $l_0$ ist die Dicke der Anpassungsschicht.
 
 \begin{figure}
 	\centering
@@ -84,12 +86,24 @@ für die zweite Interpretation.
 
 \subsection{Untersuchung des Cepstrums/Spektrums}
 
-\noindent Bei der Fourier transformierten ist ein Maximum bei $\SI{}{\mega\hertz}$ zu erkennen.
-Die Laufzeiten des Schalls in den Acrylplatten lassen sich aus dem Cepstrum zu $\Delta t=\SI{}{\second}$ bestimmen.
-Mit der bekannten Schallgeschwindigkeit in Acryl von $c_.{Acryl}=\SI{2730}{\meter\per\second}$ \cite{cAcryl} ergeben sich somit für die Dicken der Platten
+\begin{table}
+	\centering
+	\caption{Die gemessene Spannungsdifferenz $\Delta U$ zur ursprünglichen Spannung für die Acryl-Zylinder der Länge $l$ bei dem Impuls-Echo-Verfahren.}
+	\input{content/tables/tabMehrfachecho.tex}
+	\label{tab:Cepstrum}
+\end{table}
+
+\noindent Bei der Fourier transformierten ist ein Maximum bei $\SI{2.27}{\mega\hertz}$ zu erkennen.
+Die Laufzeiten des Schalls in den Acrylplatten lassen sich aus dem Cepstrum zu $\Delta t_1=\SI{4.4e-6}{\second}$ und $\Delta t_2=\SI{7.2e-6}{\second}$ bestimmen. Die Laufzeit für beide Platten zusammen beträgt $\Delta t_2=\SI{11.6e-6}{\second}$. 
+Mit der bekannten Schallgeschwindigkeit in Acryl von $c_.{Acryl}=\SI{2730}{\meter\per\second}$ \cite{cAcryl} ergeben sich somit für die Dicken der Platten:
 \begin{align*}
-D_1&=\SI{}{\meter}\text{,}\\
-D_2&=\SI{}{\meter}\text{.}\\
+D_{1,1}&=\SI{0.60e-2}{\meter}\text{,}\\
+D_{1,2}&=\SI{0.98e-2}{\meter}\text{.}\\
+\end{align*}
+Mit den Werten aus Tabelle \ref{tab:Cepstrum} ergeben sich die Dicken der Platten bestimmt aus dem Spektrum:
+\begin{align*}
+D_{2,1}&=\SI{0.61e-2}{\meter}\text{,}\\
+D_{2,2}&=\SI{0.98e-2}{\meter}\text{.}\\
 \end{align*}
 
 \begin{figure}
