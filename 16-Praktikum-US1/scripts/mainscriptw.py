@@ -170,5 +170,10 @@ makeTable([l_Dae*100, -(U-1.487)], r'{'+r'$l/10^{-2}\si{\metre}$'+r'} & {'+r'$\D
 
 n,t_A = np.genfromtxt('scripts/data5.txt', unpack=True)
 
+makeTable([n, t_A], r'{'+r'$n$'+r'} & {'+r'$\Delta t_.A/10^{-6}\si{\second}$'+r'}', 'tabAuge', ['S[table-format=1.0]', 'S[table-format=2.1]'], ["%1.0f", "%2.1f"])
 
-makeTable([n, t_A], r'{'+r'$n$'+r'} & {'+r'$\Delta t_A/10^{-6}\si{\second}$'+r'}', 'tabAuge', ['S[table-format=1.0]', 'S[table-format=2.1]'], ["%1.0f", "%2.1f"])
+#e) Mehrfachecho und Cepstrum
+
+l_c, dt_c = np.genfromtxt('scripts/data4.txt',unpack=True)
+
+makeTable([l_c, dt_c, dt_c/2, dt_c/20000*2730], r'{'+r'$d_.{mess}/10^{-2}\si{\metre}$'+r'} & {'+r'$\Delta t_.{mess}/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{eff}/10^{-6}\si{\second}$'+r'} & {'+r'$d_.{exp}/10^{-2}\si{\metre}$'+r'}', 'tabMehrfachecho', ['S[table-format=1.2]', 'S[table-format=2.1]', 'S[table-format=2.2]', 'S[table-format=1.2]'], ["%1.2f", "%2.1f", "%2.2f", "%1.2f"])
