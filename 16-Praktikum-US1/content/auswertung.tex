@@ -60,18 +60,18 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 \noindent In der Abbildung \ref{fig:Daempfung} ist der Logarithmus von der ursprünglichen Spannung $U$ gegen die zurückgelegte Strecke $l$ des Schalls im Zylinder mit den Werten aus Tabelle \ref{tab:Daempfung} aufgetragen und wird durch einen linearen Fit der Form $\ln(U)=-\frac{\alpha}{2} t + ln(U_0)$ genähert:
 \begin{align*}
 	\alpha	&= \SI{58(3)}{\per\meter}\text{,}\\
-	ln(U_0)	&=\SI{1.8(7)}{\volt}\text{.}
+	ln(U_0)	&=\SI{1.8(7)}{}\text{.}
 \end{align*}
 Dabei ist $\alpha$ die Dämpfung.
 Aufgrund der schlechten Messwerte werden zwei weitere Näherungen derselben Form durchgeführt, einmal ohne die beiden letzten Werte (Interpretation1 in Abbildung \ref{fig:Daempfung}) und einmal ohne die drei mittleren Werte (Interpretation2 in Abbildung \ref{fig:Daempfung}). Diese liefern die Werte
 \begin{align*}
 	\alpha_{I1} &= \SI{8(2)}{\per\meter}\text{,}\\
-	ln(U_{0,I1})&=\SI{0.47(5)}{\volt}\text{,}
+	ln(U_{0,I1})&=\SI{0.47(5)}{}\text{,}
 \end{align*} 
 für die erste Interpretation und
 \begin{align*}
 	\alpha_{I2} &= \SI{63(4)}{\per\meter}\text{,}\\
-	ln(U_{0,I2})&=\SI{1.4(2)}{\volt}\text{,}
+	ln(U_{0,I2})&=\SI{1.4(2)}{}\text{,}
 \end{align*}
 für die zweite Interpretation.
 
@@ -101,13 +101,6 @@ D_2&=\SI{}{\meter}\text{.}\\
 
 \subsection{Untersuchung der Abstände in einem Augenmodell}
 
-\begin{table}
-	\centering
-	\caption{Die gemessenen Werte für die Laufzeiten $\Delta t_A$ des Schalls im Augenmodell im Bezug zur Hornhaut.}
-	\input{content/tables/tabAuge.tex}
-	\label{tab:Auge}
-\end{table}
-
 \noindent Mit den Werten für die Laufzeiten des Schalls im Auge aus Tabelle \ref{tab:Auge} lässt sich mit den bekannten Schallgeschwindigkeiten von $c_.{GK}=\SI{1410}{\meter\per\second}$ \cite{US1} außerhalb der Linse und von $c_.{L}=\SI{2500}{\meter\per\second}$ \cite{US1} in der Linse die Abstände im Augenmodell mit $s=vt$ berechnen. Dabei muss immer aufgrund der Impuls-Echo-Messung die jeweilige Zeitdifferenz durch zwei geteilt werden. Für den Abstand zwischen der Hornhaut und der Iris ergibt sich:
 \begin{equation*}
 A_1=\SI{7.33e-3}{\meter}\text{.}
@@ -126,6 +119,13 @@ A_5=\SI{35,3e-3}{\meter}\text{.}
 \end{equation*}
 Bei dem vierten Wert handelt es sich wahrscheinlich um eine Doppelreflexion an der Linse.
 Die Messergebnisse sind in Abbildung \ref{fig:Auge} zu sehen.
+
+\begin{table}
+	\centering
+	\caption{Die gemessenen Werte für die Laufzeiten $\Delta t_A$ des Schalls im Augenmodell im Bezug zur Hornhaut.}
+	\input{content/tables/tabAuge.tex}
+	\label{tab:Auge}
+\end{table}
 
 \begin{figure}
 	\centering
