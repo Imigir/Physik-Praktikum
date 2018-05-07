@@ -80,7 +80,7 @@ plt.legend(loc="best")
 plt.savefig('content/images/Schallgeschwindigkeit.pdf')
 
 
-makeTable([t1, 0.3+t*2*10**6, t*2*10**6, t*10**6, l*100], r'{'+r'$t_.1/10^{-6}\si{\second}$'+r'} & {'+r'$t_.2/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{mess}/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{eff}/\si{\second}$'+r'} & {'+r'$l/10^{-2}\si{\metre}$'+r'}', 'tabSchallgeschwindigkeit', ['S[table-format=1.1]', 'S[table-format=2.1]', 'S[table-format=2.1]', 'S[table-format=2.2]', 'S[table-format=2.2]'], ["%1.1f", "%2.1f", "%2.1f", "%2.2f", "%2.2f"])
+makeTable([t1, 0.3+t*2*10**6, t*2*10**6, t*10**6, l*100], r'{'+r'$t_.1/10^{-6}\si{\second}$'+r'} & {'+r'$t_.2/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{mess}/10^{-6}\si{\second}$'+r'} & {'+r'$\Delta t_.{eff}/10^{-6}\si{\second}$'+r'} & {'+r'$l/10^{-2}\si{\metre}$'+r'}', 'tabSchallgeschwindigkeit', ['S[table-format=1.1]', 'S[table-format=2.1]', 'S[table-format=2.1]', 'S[table-format=2.2]', 'S[table-format=2.2]'], ["%1.1f", "%2.1f", "%2.1f", "%2.2f", "%2.2f"])
 
 #b) Schallgeschwindigkeit Durchschallungsverfahren
 
