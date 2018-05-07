@@ -132,7 +132,7 @@ params_e1, errors_e1, sigma_y = linregress(l_Dae[2:], np.log(U)[2:])
 steigung_e1 = unp.uarray(params_e1[0], errors_e1[0])
 achsenAbschnitt1 = unp.uarray(params_e1[1],errors_e1[1])
 
-params_e2, errors_e2, sigma_y = linregress(l_Dae[(l_Dae<0.06)|(l_Dae>0.09)], np.log(U[(U>1.35)|(U<1)]))
+params_e2, errors_e2, sigma_y = linregress(l_Dae[(l_Dae<0.039)|(l_Dae>0.09)], np.log(U[(U>1.36)|(U<1)]))
 steigung_e2 = unp.uarray(params_e2[0], errors_e2[0])
 achsenAbschnitt2 = unp.uarray(params_e2[1],errors_e2[1])
 
