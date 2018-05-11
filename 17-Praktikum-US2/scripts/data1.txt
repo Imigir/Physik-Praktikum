@@ -1,5 +1,5 @@
-#Loch, oben_mess, Δt_oben_A, Δt_oben_4MHz, unten_mess, Δt_unten_A, Δt_unten_4MHz: H_mess=80.3mm, H_Zeit=58.69μs
-#A-Scan,B-Scan
+#Loch, oben_mess, Δt_oben, Δt_oben_4MHz, unten_mess, Δt_unten, Δt_unten_4MHz: H_mess=80.3mm, H_Zeit=58.69μs
+#A-Scan
 
 1 19.2 14.16 14.05 59.7 42.92 43.13
 2 17.5 12.97 12.54  61.44 44.22 44.64
