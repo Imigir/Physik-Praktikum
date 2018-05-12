@@ -11,6 +11,7 @@ from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
 import scipy.constants as const
+import math
 
 # BackwardsVNominal = []
 # BackwardsVStd = []
@@ -60,14 +61,14 @@ l_oben_exp_4 = dt_oben_4*2.73
 l_unten_exp = dt_unten*2.73
 l_unten_exp_4 = dt_unten_4*2.73
 durchmesser = 80.3-l_oben-l_unten
-durchmesser_exp = 2.73*(58.69-dt_oben-dt_unten)
-durchmesser_exp_4 = 2.73*(58.69-dt_oben_4-dt_unten_4)
+durchmesser_exp = 2.73*(58.69-dt_oben-dt_unten)/2
+durchmesser_exp_4 = 2.73*(58.69-dt_oben_4-dt_unten_4)/2
 loeschen =[2,3,4,5,6,7,8,9,10]
 durchmesser_4 = np.delete(durchmesser, loeschen)
 error_2 = (durchmesser_exp/durchmesser-1)*100
 error_4 = (durchmesser_exp_4/durchmesser_4-1)*100
-#print(error_2)
-#print(error_4)
+print(error_2)
+print(error_4)
 makeTable([n, l_oben, dt_oben, l_oben_exp, l_unten, dt_unten, l_unten_exp, durchmesser, durchmesser_exp, error_2], r'{'+r'$n$'+r'} & {'+r'$l_.{oben}/10^{-3}\si{\metre}$'+r'} & {'+r'$\Delta t_.{oben}/10^{-6}\si{\second}$'+r'} & {'+r'$l_.{oben_.{exp}}/10^{-3}\si{\metre}$'+r'} & {'+r'$l_.{unten}/10^{-3}\si{\metre}$'+r'} & {'+r'$\Delta t_.{unten}/10^{-6}\si{\second}$'+r'} & {'+r'$l_.{unten_.{exp}}/10^{-3}\si{\metre}$'+r'} & {'+r'$d/10^{-3}\si{\metre}$'+r'} & {'+r'$d_.{exp}/10^{-3}\si{\metre}$'+r'} & {'+r'$\Delta d/\%$'+r'}', 'tabAScan2', ['S[table-format=1.0]', 'S[table-format=2.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.1]'], ["%1.0f", "%2.1f", "%2.2f", "%2.2f", "%2.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f","%2.1f"])
 
 makeTable([n_4, dt_oben_4, l_oben_exp_4, dt_unten_4, l_unten_exp_4, durchmesser_exp_4, error_4], r'{'+r'$n$'+r'} & {'+r'$\Delta t_.{oben_.{4\si{\mega\hertz} } }/10^{-6}\si{\second}$'+r'} & {'+r'$l_.{oben_.{4\si{\mega\hertz} } }/10^{-3}\si{\metre}$'+r'} & {'+r'$\Delta t_.{unten_.{4\si{\mega\hertz} } }/10^{-6}\si{\second}$'+r'} & {'+r'$l_.{unten_.{4\si{\mega\hertz} } }/10^{-3}\si{\metre}$'+r'} & {'+r'$d_.{exp_.{4\si{\mega\hertz} } }/10^{-3}\si{\metre}$'+r'} & {'+r'$\Delta d_.4/\%$'+r'}', 'tabAScan4',['S[table-format=1.0]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.1]'], ["%1.0f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.1f"])
@@ -79,9 +80,9 @@ makeTable([n_4, dt_oben_4, l_oben_exp_4, dt_unten_4, l_unten_exp_4, durchmesser_
 n, dt_oben_b, dt_unten_b = np.genfromtxt('scripts/data2.txt', unpack=True)
 l_oben_b = dt_oben_b*2.73
 l_unten_b = dt_unten_b*2.73
-durchmesser_exp_b = 2.73*(58.69-dt_oben_b-dt_unten_b)
+durchmesser_exp_b = 2.73*(58.69-dt_oben_b-dt_unten_b)/2
 error_b=np.abs(1-durchmesser_exp_b/durchmesser)*100
-#print('Error B:', error_b)
+print('Error B:', error_b)
 makeTable([n, dt_oben_b, l_oben_b, dt_unten_b, l_unten_b, durchmesser_exp_b, error_b], r'{'+r'$n$'+r'} & {'+r'$\Delta t_.{oben_.{B} }/10^{-6}\si{\second}$'+r'} & {'+r'$l_.{oben_.{B}}/10^{-3}\si{\metre}$'+r'} & {'+r'$\Delta t_.{unten_.{B}}/10^{-6}\si{\second}$'+r'} & {'+r'$l_.{unten_.{B}}/10^{-3}\si{\metre}$'+r'} & {'+r'$d_.{exp_.{B}}/10^{-3}\si{\metre}$'+r'} &{'+r'$\Delta d_.B$'+r'}', 'tabBScan', ['S[table-format=1.0]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.1]'], ["%1.0f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.1f"])
 
 #c)
@@ -95,3 +96,9 @@ avg_t = avg_and_sem(dt_neu)
 avg_h = avg_and_sem(h)
 print('Mittelwert von dt: ',avg_t)
 print('Mittelwert von h: ',avg_h)
+a=49.4
+V= avg_h[0]*math.pi/6*(3*a**2+avg_h[0]**2)/10**6
+print('Kugelsegmentvolumen in m^3: ', V)
+errV=(a**2/6+avg_h[0]**2*np.sqrt(3)/2)*math.pi*avg_h[1]/10**6
+print('Fehler von V in m^3:',errV)
+print('Relativer Fehler von V in %:', 100*(errV/V))
