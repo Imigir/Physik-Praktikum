@@ -1,12 +1,66 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
-Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+\begin{table}
+	\centering
+	\caption{Acrylblock Referenzwerte.}
+	\input{content/tables/tabAScan2MHzRef.tex}
+	\label{tab:AScanRef}
+\end{table}
 
-\newpage
-\begin{sidewaystable}
-	\caption{Sehr lange Tabelle}
-	\input{content/tables/tabAScan.tex}
-	\label{tab:A}
-\end{sidewaystable}
+\subsection{A-Scan}
+
+\begin{table}
+	\centering
+	\caption{A-Scan Messung $\SI{2}{\mega\hertz}$}
+	\input{content/tables/tabAScan2MHz.tex}
+	\label{tab:AScan2MHz}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{A-Scan Messung $\SI{4}{\mega\hertz}$}
+	\input{content/tables/tabAScan4MHz.tex}
+	\label{tab:AScan4MHz}
+\end{table}
+
+\subsection{B-Scan}
+
+\begin{table}
+	\centering
+	\caption{B-Scan Messung}
+	\input{content/tables/tabBScan.tex}
+	\label{tab:BScan}
+\end{table}
+
+\begin{figure}
+	\centering
+	\caption{B-Scan von oben}
+	\includegraphics[width=\linewidth-40pt,height=\textheight-40pt,keepaspectratio]{content/images/B-Scan-oben.jpg}
+	\label{fig:B-Scan-oben}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\caption{B-Scan von unten}
+	\includegraphics[width=\linewidth-40pt,height=\textheight-40pt,keepaspectratio]{content/images/B-Scan-unten.jpg}
+	\label{fig:B-Scan-unten}
+\end{figure}
+
+\subsection{TM-Scan}
+
+\begin{table}
+	\centering
+	\caption{B-Scan Messung}
+	\input{content/tables/tabTMScan.tex}
+	\label{tab:TMScan}
+\end{table}
+
+\begin{figure}
+	\centering
+	\caption{TM-Scan}
+	\includegraphics[width=\linewidth-40pt,height=\textheight-40pt,keepaspectratio]{content/images/TM-Scan.jpg}
+	\label{fig:TM-Scan}
+\end{figure}
