@@ -102,7 +102,7 @@ makeTable([n_4, durchmesser, durchmesser_exp_4, error_4], r'{'+r'$n$'+r'} & {'+r
 n, dt, hs = np.genfromtxt('scripts/data3.txt', unpack=True)
 h = hs*1.485/2
 
-makeTable([n, dt, hs , h], r'{'+r'$n$'+r'} & {'+r'$\Delta t_.{n\rightarrow n+1}/\si{\second}$'+r'} &{'+r'$\Delta t_.{h}/10^{-6}\si{\second}$'+r'} & {'+r'$h/10^{-3}\si{\metre}$'+r'}', 'tabHerz',['S[table-format=1.0]', 'S[table-format=1.2]', 'S[table-format=2.2]', 'S[table-format=2.2]'], ["%1.0f", "%1.2f", "%2.2f", "%2.2f"])
+makeTable([n, dt, hs , h], r'{'+r'$n$'+r'} & {'+r'$\Delta t_.{n\rightarrow n+1}/\si{\second}$'+r'} &{'+r'$\Delta t_.{h}/10^{-6}\si{\second}$'+r'} & {'+r'$h/10^{-3}\si{\metre}$'+r'}', 'tabTMScan',['S[table-format=1.0]', 'S[table-format=1.2]', 'S[table-format=2.2]', 'S[table-format=2.2]'], ["%1.0f", "%1.2f", "%2.2f", "%2.2f"])
 dt_neu= np.delete(dt,24)
 avg_t = avg_and_sem(dt_neu)
 h = h/1000
