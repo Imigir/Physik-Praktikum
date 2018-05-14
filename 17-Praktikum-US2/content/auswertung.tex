@@ -91,15 +91,22 @@ Mit der Formel für das Volumen eines Kugelsegments
 \[
 V=\frac{h\cdot\pi}{6}\cdot\left(3a^2+h^2\right)
 \]
-lässt sich das Volumen des Herzbeutels bestimmen:
+lässt sich das Schlagvolumen des Herzbeutels bestimmen:
 \[
-V_.{Herz}=\SI{29,4(3)e-6}{\cubic\metre}
+V_.{Schlag}=\SI{29,4(3)e-6}{\cubic\metre}
 \]
 Der Fehler berechnet sich dabei über die Gauß'sche Fehlerfortpflanzung
 \[
 \sigma_.V=\frac{\partial V}{\partial h}\cdot\sigma_.h \text{.}
 \]
-
+Das Herzzeitvolumen berechnet sich über
+\[
+V_.{Zeit} = V_.{Schlag} \cdot f =\SI{16,5(4)e-6}{\cubic\metre\per\second}\text{.}
+\]
+Der Fehler ist dabei gegeben durch:
+\[
+\sigma_.{V_.Z}= \sqrt{\left(\frac{\partial V_.{Zeit}}{\partial V_.{Schlag}}\cdot \sigma_.V\right)^2+\left(\frac{\partial V_.{Zeit}}{\partial f}\cdot \sigma_.f\right)^2}
+\]
 \begin{table}
 	\centering
 	\caption{TM-Scan Messung}

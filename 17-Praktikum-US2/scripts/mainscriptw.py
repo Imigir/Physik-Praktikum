@@ -118,3 +118,6 @@ print('Relativer Fehler von V in %:', 100*(errV/V))
 f=1/avg_t[0]
 errf=avg_t[1]/avg_t[0]**2
 print('Die Frequenz in Hz beträgt',f,'+/-',errf)
+V_Z=V*f
+errV_Z= np.sqrt(V**2*errf**2+f**2*errV**2)
+print('Herzzeitvolumen in m^3/s: ',V_Z,'+/-',errV_Z)
