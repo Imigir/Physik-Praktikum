@@ -5,7 +5,7 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 \begin{table}
 	\centering
-	\caption{Acrylblock Referenzwerte.}
+	\caption{Mit der Schieblehre bestimmte Referenzwerte für den Acrylblock.}
 	\input{content/tables/tabAScan2MHzRef.tex}
 	\label{tab:AScanRef}
 \end{table}
@@ -13,7 +13,7 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 \noindent Mittels Schieblehre wird die Höhe $h$ des Acrylblocks gemessen zu $h=\SI{80,3e-3}{\metre}$. Die gemessenen Abstände der Löcher zum oberen bzw. unteren Rand  $l_.{oben}$ und $l_.{unten}$ sind in Tabelle \ref{tab:AScanRef} zu sehen.
 Der Durchmesser bestimmt sich dabei über
 \begin{equation}
-d = h-l_.{oben}-l_.{unten}\label{eq:d}
+d = h-l_.{oben}-l_.{unten}\text{.}\label{eq:d}
 \end{equation}
 
 \subsection{A-Scan}
@@ -39,7 +39,7 @@ $d_.A$ lässt sich über Gleichung \eqref{eq:d} bestimmen. \newline
 
 \subsection{B-Scan}
 
-Aus den B-Scan-Aufnahmen \ref{fig:B-Scan-oben} und \ref{fig:B-Scan-unten} werden die Laufzeiten $\Delta t_.{oben_.B}$ und $\Delta t_.{unten_.B}$ abgelesen und in Tabelle \ref{tab:BScan} aufgetragen. Die Abstände $l_.{oben_.A}$ und $l_.{unten_.A}$ werden wieder über Gleichung \eqref{eq:l}, sowie der Durchmesser der Löcher $d_.B$ nach Gleichung \eqref{eq:d} bestimmt.
+Aus den B-Scan-Aufnahmen \ref{fig:B-Scan-oben} und \ref{fig:B-Scan-unten} werden die Laufzeiten $\Delta t_.{oben_.B}$ und $\Delta t_.{unten_.B}$ abgelesen und in Tabelle \ref{tab:BScan} aufgetragen. Die Abstände $l_.{oben_.B}$ und $l_.{unten_.B}$ werden wieder über Gleichung \eqref{eq:l}, sowie der Durchmesser der Löcher $d_.B$ nach Gleichung \eqref{eq:d} bestimmt.
 \begin{table}
 	\centering
 	\caption{B-Scan Messung}
@@ -62,7 +62,7 @@ Aus den B-Scan-Aufnahmen \ref{fig:B-Scan-oben} und \ref{fig:B-Scan-unten} werden
 \end{figure}
 
 \subsection{TM-Scan}
-Mit einer Schieblehre wird der Durchmesser des Herzmodells gemessen zu $d=\SI{49,4e-3}{\metre}$ und damit sein Radius zu $a=\frac{d}{2}=\SI{24,7e-3}{\metre}$.
+Mit einer Schieblehre wird der Durchmesser des Herzmodells gemessen zu $d=\SI{49,4e-3}{\metre}$ und damit sein Radius zu $a=\frac{d}{2}=\SI{24,7e-3}{\metre}$ bestimmt.
 Mit einem A-Scan wird die Laufzeit des Schalls von der Sonde zur Membran im entspannten Zustand bestimmt zu $\Delta t_.{entspannt}= \SI{46,48e-6}{\second}$ und im gewölbten Zustand zu $\Delta t_.{gewölbt}= \SI{15,89e-6}{\second}$.\newline
 Mit der Schallgeschwindigkeit in Wasser $c_.{Wasser}=\SI{1485}{\metre\per\second}$ und Gleichung \eqref{eq:l} ergibt sich für den Abstand bei ruhendem Herzen $h_.{Ruhe} = \SI{34,51e-3}{\metre}$.
 Mit einem TM-Scan werden $n=25$ Herzschläge aufgezeichnet. Sowohl der zeitliche Abstand $\Delta t_.{n\rightarrow n+1}$ zwischen ihnen, als auch ihre Höhe $\Delta t_.h$ werden aus Abbildung \ref{fig:TM-Scan} abgelesen und in Tabelle \ref{tab:TMScan} aufgetragen.\newline
@@ -100,7 +100,7 @@ V=\frac{h\cdot\pi}{6}\cdot\left(3a^2+h^2\right)
 \]
 lässt sich das Volumen des Herzbeutels bestimmen:
 \[
-V_.{Herz}=\SI{29,4(3)e-3}{\cubic\metre}
+V_.{Herz}=\SI{29,4(3)e-6}{\cubic\metre}
 \]
 Der Fehler berechnet sich dabei über die Gauß'sche Fehlerfortpflanzung
 \[
