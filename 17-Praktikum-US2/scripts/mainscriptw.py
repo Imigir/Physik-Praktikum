@@ -112,8 +112,9 @@ print('Mittelwert von h in m: ',avg_h)
 a=49.4/2000
 V= avg_h[0]*math.pi/6*(3*a**2+avg_h[0]**2)
 print('Kugelsegmentvolumen in m^3: ', V)
-errV=(a**2/6+avg_h[0]**2*np.sqrt(3)/2)*math.pi*avg_h[1]
+errV=(a**2+avg_h[0]**2)/2*math.pi*avg_h[1]
 print('Fehler von V in m^3:',errV)
 print('Relativer Fehler von V in %:', 100*(errV/V))
-
-
+f=1/avg_t[0]
+errf=avg_t[1]/avg_t[0]**2
+print('Die Frequenz in Hz beträgt',f,'+/-',errf)
