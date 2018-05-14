@@ -65,16 +65,9 @@ Aus den B-Scan-Aufnahmen \ref{fig:B-Scan-oben} und \ref{fig:B-Scan-unten} werden
 Mit einer Schieblehre wird der Durchmesser des Herzmodells gemessen zu $d=\SI{49,4e-3}{\metre}$ und damit sein Radius zu $a=\frac{d}{2}=\SI{24,7e-3}{\metre}$ bestimmt.
 Mit einem A-Scan wird die Laufzeit des Schalls von der Sonde zur Membran im entspannten Zustand bestimmt zu $\Delta t_.{entspannt}= \SI{46,48e-6}{\second}$ und im gewölbten Zustand zu $\Delta t_.{gewölbt}= \SI{15,89e-6}{\second}$.\newline
 Mit der Schallgeschwindigkeit in Wasser $c_.{Wasser}=\SI{1485}{\metre\per\second}$ und Gleichung \eqref{eq:l} ergibt sich für den Abstand bei ruhendem Herzen $h_.{Ruhe} = \SI{34,51e-3}{\metre}$.
-Mit einem TM-Scan werden $n=25$ Herzschläge aufgezeichnet. Sowohl der zeitliche Abstand $\Delta t_.{n\rightarrow n+1}$ zwischen ihnen, als auch ihre Höhe $\Delta t_.h$ werden aus Abbildung \ref{fig:TM-Scan} abgelesen und in Tabelle \ref{tab:TMScan} aufgetragen.\newline
-Die absolute Höhe $h$ wird mit Hilfe von Gleichung \ref{eq:l} bestimmt.\newline
-\begin{table}
-	\centering
-	\caption{TM-Scan Messung}
-	\input{content/tables/tabTMScan.tex}
-	\label{tab:TMScan}
-\end{table}
-
-\noindent Mit Hilfe der Formel für den Mittelwert ergibt sich für den mittleren zeitlichen Abstand
+Mit einem TM-Scan werden $n=25$ Herzschläge aufgezeichnet. Sowohl der zeitliche Abstand $\Delta t_.{n\rightarrow n+1}$ zwischen ihnen, als auch ihre Höhe $\Delta t_.h$ werden aus Abbildung \ref{fig:TM-Scan} abgelesen und in Tabelle \ref{tab:TMScan} aufgetragen.
+Die absolute Höhe $h$ wird mit Hilfe von Gleichung \ref{eq:l} bestimmt.\\
+Mit Hilfe der Formel für den Mittelwert ergibt sich für den mittleren zeitlichen Abstand
 \[
 \Delta\bar{t}= \sum_.{n=1}^N \frac{\Delta t_.{n\rightarrow n+1}}{N} = \SI{1,79(4)}{\second} \text{.}
 \]
@@ -106,6 +99,14 @@ Der Fehler berechnet sich dabei über die Gauß'sche Fehlerfortpflanzung
 \[
 \sigma_.V=\frac{\partial V}{\partial h}\cdot\sigma_.h \text{.}
 \]
+
+\begin{table}
+	\centering
+	\caption{TM-Scan Messung}
+	\input{content/tables/tabTMScan.tex}
+	\label{tab:TMScan}
+\end{table}
+
 \begin{figure}
 	\centering
 	\caption{TM-Scan}
