@@ -2,8 +2,8 @@
 \label{sec:Theorie}
 
 \subsection{Stabile und instabile Kerne}
-Ein Kern ist nur stabil, wenn die Anzahl der Protonen und Neutronen innerhalb enger Grenzen in einem bestimmten Verhältnis zueinander befinden. Meist ist die Neutronenzahl etwas höher, da sonst die Coulomb-Kräfte zwischen den Protonen den Kern zerreißen würden. Außerhalb der Grenzen ist der Kern deshalb instabil und zerfällt.
-Es ist nicht möglich zu sagen wann ein bestimmter Kern zerfällt, weshalb die Wahrscheinlichkeit durch die Halbwertszeit $\tau$ bestimmt, die angibt wie lange es dauert, bis die Hälfte einer großen Menge Kerne zerfallen ist.
+Ein Kern ist nur stabil, wenn sich die Anzahl der Protonen und Neutronen innerhalb enger Grenzen in einem bestimmten Verhältnis zueinander befinden. Meist ist die Neutronenzahl etwas höher, da sonst die Coulomb-Kräfte zwischen den Protonen den Kern zerstören würden. Außerhalb der Grenzen ist der Kern deshalb instabil und zerfällt.
+Es ist nicht möglich zu sagen wann ein bestimmter Kern zerfällt, weshalb die Wahrscheinlichkeit durch die Halbwertszeit $\tau$ bestimmt wird, die angibt wie lange es dauert bis die Hälfte einer großen Menge Kerne zerfallen ist.
 
 \subsection{Kernreaktionen mit Neutronen}
 \label{sec:Reaktion}
@@ -17,15 +17,14 @@ Nach kurze Zeit springt der Kern unter Aussendung eines Photons in seinen Grundz
 \ce{^{m+1}_{z}A} \rightarrow \ce{^{m+1}_{z+1}B} + \beta^-+ T + \bar{\nu}_.e\label{eq:Zerfall}
 \end{equation}
 Ein Teil der Masse des Kerns wird dabei in die kinetische Energie $T$ des Elektrons und des Antineutrinos umgewandelt.\newline
-Die Wahrscheinlichkeit, dass das Neutron aufgenommen wird und diese Reaktion stattfindet wird durch den Wirkungsquerschnitt $\sigma$ beschrieben. Dieser bezeichnet die Fläche die ein Kern theoretisch bräuchte, um jedes einfallende Neutron abzufangen.
+Die Wahrscheinlichkeit, dass das Neutron aufgenommen wird und diese Reaktion stattfindet wird durch den Wirkungsquerschnitt $\sigma$ beschrieben. Dieser gibt einen Wirkungsbereich an in dem die einfallenden Neutronen mit dem Kern wechselwirken.
 Er hängt von der Geschwindigkeit $v$ und damit von der Energie $E$ der Neutronen ab.
 Nach Louis de Broglie besitzen alle Teilchen der Masse $m$ auch Wellencharakter und ihre Wellenlänge kann beschrieben werden durch
 \[
 \lambda=\frac{h}{m\cdot v}=\frac{h}{\sqrt{2\cdot m\cdot E}},
 \]
 wobei $h$ das Plank'sche Wirkungsquantum ist.
-Ist das Neutron also schnell und somit die De-Broglie-Wellenlänge kleiner als der Atomradius $R$, kann klassisch gerechnet,
-ist es langsam und hat eine größere Wellenlänge, treten Interferenzphänomene.
+Ist das Neutron also schnell und somit die De-Broglie-Wellenlänge kleiner als der Atomradius $R$, kann klassisch gerechnet werden. Ist es langsam und hat eine größere Wellenlänge, so treten Interferenzphänomene auf.
 Dann ist der Wirkungsquerschnitt in Abhängigkeit von der Neutronenenergie gegeben durch
 \begin{equation}
 \sigma(E) = \sigma_.0\sqrt{\frac{E_.{r_.i}}{E}}\frac{\tilde{c}}{\left(E-E_.{r_.i}\right)^2+\tilde{c}},
@@ -36,21 +35,22 @@ $\sigma$ ist also antiproportional zur Neutronenenergie $E$, was sinnvoll ersche
 
 \subsection{Erzeugung energiearmer Neutronen}
 
-Wie in \ref{sec:Reaktion} beschrieben werden energiearme Neutronen leichter von einem Kern eingefangen um diese herzustellen werden Beryllium-Kerne mit $\alpha$-Strahlung einer $\ce{^{226}_{}Ra}$-Quelle bestrahlt:
+Wie in \ref{sec:Reaktion} beschrieben werden energiearme Neutronen leichter von einem Kern eingefangen. Um diese herzustellen werden Beryllium-Kerne mit $\alpha$-Strahlung einer $\ce{^{226}_{}Ra}$-Quelle bestrahlt:
 \begin{equation}
 \ce{^{9}_{4}Be} + \ce{^{4}_{2}\alpha}\rightarrow \ce{^{12}_{6}C}+\ce{^{1}_{0}n}
 \end{equation}
-Die dabei freigesetzten Neutronen haben eine kinetische Energie von bis zu $T=\SI{13,7e6}{\electronvolt}$.
+Die dabei freigesetzten Neutronen haben eine zu hohe kinetische Energie von bis zu $T=\SI{13,7e6}{\electronvolt}$.
+\noindent Um deren Energie abzusenken, werden sie durch eine Paraffinschicht abgebremst, bis sie nur noch die mittlere kinetische Energie von 
+$T=\SI{0,025}{\electronvolt}$ und damit eine Geschwindigkeit von $v=\SI{2,2e3}{\metre\per\second}$ besitzen.
+In diese Schicht sind, wie in Abbildung \ref{fig:ne} zu sehen ist, Kanäle
+eingelassen. In diesen können Proben aus stabilen Kernen platziert werden, um sie mithilfe der Neutronen zu aktivieren.
+
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{content/images/neutronen.jpg}
 \caption{Schematische Darstellung eines Behälters zu Anreicherung von radioaktiven Isotopen\cite{V702}}
 \label{fig:ne}
 \end{figure}
-\noindent Um deren Energie abzusenken, werden sie durch eine Paraffinschicht abgebremst, bis sie nur noch die mittlere kinetische Energie von 
-$T=\SI{0,025}{\electronvolt}$ und damit eine Geschwindigkeit von $v=\SI{2,2e3}{\metre\per\second}$ besitzen.
-In diese Schicht eingelassen sind, wie in Abbildung \ref{fig:ne} zu sehen, Kanäle
-eingelassen. In diesen können Proben aus stabilen Kernen platziert werden, um sie mithilfe der Neutronen zu aktivieren.
 
 \subsection{Zerfallsreihen radioaktiver Isotope}
 Die entstandenen radioaktiven Isotope zerfallen danach, wie in Zerfallsreihe \eqref{eq:Zerfall} beschrieben, in andere Kerne.
