@@ -59,12 +59,12 @@ Dabei ist $c$ die Schallgeschwindigkeit in Acryl und $l_0$ ist die Dicke der Anp
 	\label{tab:Daempfung}
 \end{table}
 
-\noindent In der Abbildung \ref{fig:Daempfung} ist der Logarithmus von der ursprünglichen Spannung $U$ gegen die zurückgelegte Strecke $l$ des Schalls im Zylinder mit den Werten aus Tabelle \ref{tab:Daempfung} aufgetragen und wird durch einen linearen Fit der Form $\ln(U)=-\frac{\alpha}{2} t + ln(U_0)$ genähert:
+\noindent In der Abbildung \ref{fig:Daempfung} ist der Logarithmus von der ursprünglichen Spannung $U$ gegen die zurückgelegte Strecke $l$ des Schalls im Zylinder mit den Werten aus Tabelle \ref{tab:Daempfung} aufgetragen und wird durch einen linearen Fit der Form $\ln(U)=-\frac{\alpha}{2} x + ln(U_0)$ genähert:
 \begin{align*}
 	\alpha	&= \SI{61(17)}{\per\meter}\text{,}\\
 	ln(U_0)	&=\SI{1.8(7)}{}\text{.}
 \end{align*}
-Dabei ist $\alpha$ die Dämpfung.
+Dabei ist $\alpha$ die Dämpfung. Die Ausgleichsformel ergibt sich aus Formel \eqref{eq:I}, unter berücksichtigung, dass $I\propto U^2$ gilt.
 Aufgrund der schlechten Messwerte werden zwei weitere Näherungen derselben Form durchgeführt, einmal ohne die beiden letzten Werte (Interpretation1 in Abbildung \ref{fig:Daempfung}) und einmal ohne die vier mittleren Werte (Interpretation2 in Abbildung \ref{fig:Daempfung}). Diese liefern die Werte
 \begin{align*}
 	\alpha_{I1} &= \SI{8(2)}{\per\meter}\text{,}\\
@@ -109,7 +109,7 @@ D_{2,2}&=\SI{0.98e-2}{\meter}\text{.}\\
 \begin{figure}
 	\centering
 	\caption{Die Messergebnisse für das Cepstrum.}
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/CEPSTRUM.jpg}
+	\includegraphics[width=\linewidth-30pt,height=\textheight-30pt,keepaspectratio]{content/images/CEPSTRUM.jpg}
 	\label{fig:Cepstrum}
 \end{figure}
 
@@ -129,14 +129,14 @@ A_3=\SI{8.90e-3}{\meter}\text{.}
 \end{equation*}
 Für den Abstand zwischen Linse und Retina ergibt sich:
 \begin{equation*}
-A_5=\SI{35,3e-3}{\meter}\text{.}
+A_4=\SI{35,3e-3}{\meter}\text{.}
 \end{equation*}
 Bei dem vierten Wert handelt es sich wahrscheinlich um eine Doppelreflexion an der Linse.
-Die Messergebnisse sind in Abbildung \ref{fig:Auge} zu sehen.
+Das Spektrum der Messung ist in Abbildung \ref{fig:Auge} zu sehen.
 
 \begin{table}
 	\centering
-	\caption{Die gemessenen Werte für die Laufzeiten $\Delta t_A$ des Schalls im Augenmodell im Bezug zur Hornhaut.}
+	\caption{Die Werte für die Laufzeiten $\Delta t_A$ des Schalls für die Abstände im Augenmodell.}
 	\input{content/tables/tabAuge.tex}
 	\label{tab:Auge}
 \end{table}
@@ -144,6 +144,6 @@ Die Messergebnisse sind in Abbildung \ref{fig:Auge} zu sehen.
 \begin{figure}
 	\centering
 	\caption{Die Messergebnisse für das Augenmodell.}
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/AUGE.jpg}
+	\includegraphics[width=\linewidth-30pt,height=\textheight-30pt,keepaspectratio]{content/images/AUGE.jpg}
 	\label{fig:Auge}
 \end{figure}

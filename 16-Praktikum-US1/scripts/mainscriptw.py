@@ -168,9 +168,9 @@ makeTable([l_Dae*100, -(U-1.487)], r'{'+r'$l/10^{-2}\si{\metre}$'+r'} & {'+r'$\D
 
 #d) Augenmodelluntersuchung
 
-n,t_A = np.genfromtxt('scripts/data5.txt', unpack=True)
+n, t_A, t_A_eff = np.genfromtxt('scripts/data5.txt', unpack=True)
 
-makeTable([n, t_A], r'{'+r'$n$'+r'} & {'+r'$\Delta t_.A/10^{-6}\si{\second}$'+r'}', 'tabAuge', ['S[table-format=1.0]', 'S[table-format=2.1]'], ["%1.0f", "%2.1f"])
+makeTable([n, t_A_eff], r'{'+r'$n$'+r'} & {'+r'$\Delta t_.A/10^{-6}\si{\second}$'+r'}', 'tabAuge', ['S[table-format=1.0]', 'S[table-format=2.1]'], ["%1.0f", "%2.1f"])
 
 #e) Mehrfachecho und Cepstrum
 
