@@ -113,7 +113,7 @@ plt.ylim(0,15)
 plt.legend(loc="best")
 plt.savefig('content/images/Schallgeschwindigkeit-Durchschallung.pdf')
 
-makeTable([t*10**6, l*100], r'{'+r'$\Delta t_.{Durchschallung}/\si{\second}$'+r'} & {'+r'$l/10^{-2}\si{\metre}$'+r'}', 'tabSchallgeschwindigkeitDurchschallung', ['S[table-format=2.1]', 'S[table-format=2.2]'], ["%2.1f", "%2.2f"])
+makeTable([t_D*10**6, l*100], r'{'+r'$\Delta t_.{Durchschallung}/\si{\second}$'+r'} & {'+r'$l/10^{-2}\si{\metre}$'+r'}', 'tabSchallgeschwindigkeitDurchschallung', ['S[table-format=2.1]', 'S[table-format=2.2]'], ["%2.1f", "%2.2f"])
 
 
 #c) Dämpfung Impuls-Echo-Verfahren
