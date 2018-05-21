@@ -75,7 +75,7 @@ steigung2 = unp.uarray(paramsLinear2[0], errorsLinear2[0])
 achsenAbschnitt2 = unp.uarray(paramsLinear2[1], errorsLinear2[1])
 
 Rm1 = (N1[0]/2-achsenAbschnitt2)/steigung2
-Ea1 = (Rm1*1000/3.1)**(1./3)*10**6
+Ea1 = (Rm1*1000/3.1)**(2./3)*10**6
 
 print('1)')
 print('xeff1=',xeff(p,x1)[13])
