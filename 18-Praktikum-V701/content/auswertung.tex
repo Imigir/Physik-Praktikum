@@ -5,6 +5,32 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 \subsection{Bestimmung der Reichweite von Alpha-Strahlung Messung 1}
 
+In Abbildung \ref{fig:1N} ist mit den Werten aus Tabelle \ref{tab:1} die Impulsrate $N1$ der ersten Messung gegen die effektive Laufzeit $x_.{eff1}$ aufgetragen, welche nach Formel \eqref{eq:x} bestimmt wird.
+Mittels einer linearen Ausgleichsrechnung der Form $N(x_.{eff})=a x_.{eff} +b$ im Bereich von $x_.{eff1} = \SI{17.3}{\milli\metre}$ bis $x_.{eff1} = \SI{22.7}{\milli\metre}$ ergibt sich die mittlere Reichweite $R_m$:
+\begin{align*}
+a	&= \SI{-114(4)}{\becquerel\per\milli\per\metre}\text{,}\\
+b	&= \SI{2.68(9)e3}{\becquerel}\text{,}\\
+R_m	&= \frac{N_{1/2}-b}{a} = \SI{19(1)}{\milli\metre}\text{.}
+\end{align*}
+Dabei ist $N_{1/2} = \SI{530}{\becquerel}$ und der Fehler $\sigma_{R_m}$ von $R_m$ berechnet sich mit der Gaußschen Fehlerfortpflanzung nach:
+\begin{equation*}
+\sigma_{R_m} = \sqrt{\left(\frac{N_{1/2}-b}{a^2}\sigma_a\right)^2+\left(\frac{1}{a}\sigma_b\right)^2}\text{.}
+\end{equation*} 
+Mithilfe von $R_m$ lässt sich die Energie $E_\alpha$ der Alphateilchen mit Formel \eqref{eq:Rm} bestimmen zu:
+\begin{equation*}
+E_\alpha = \SI{1.83(3)}{\mega e\volt}\text{.}
+\end{equation*} 
+Der Fehler $\sigma_{E_\alpha}$ bestimmt sich dabei nach:
+\begin{equation*}
+\sigma_{E_\alpha} = \frac{2}{9,3}\left(\frac{R_m}{3,1}\right)^{-1/3}\sigma_{R_m}\text{.}
+\end{equation*} 
+In Abbildung \ref{fig:1E} ist mit den Werten aus Tabelle \ref{tab:1} die Energie $E1$ der ersten Messung gegen die effektive Laufzeit $x_.{eff1}$ aufgetragen.
+Mittels einer linearen Ausgleichsrechnung der Form $E(x_.{eff})=m1 x_.{eff} +n1$ ergibt sich für den Energieverlust $\frac{.dE}{.dx}$:
+\begin{align*}
+\frac{.dE}{.dx}	&= m1 = \SI{-91(3)}{\mega e\volt\per\metre}\text{,}\\
+n1	&= \SI{3.74(4)e6}{\becquerel}\text{.}
+\end{align*}
+
 \begin{table}
 	\centering
 	\caption{Der Druck $p$ und die Impulsrate $N_1$, sowie die effektiven Längen $x_.{eff1}$ und die bestimmten Energien $E_1$ bei der ersten Messreihe mit einem Abstand zur Probe von $\SI{2.7}{\centi\metre}$.}
@@ -26,6 +52,14 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 \subsection{Bestimmung der Reichweite von Alpha-Strahlung Messung 2}
 
+In Abbildung \ref{fig:2N} ist mit den Werten aus Tabelle \ref{tab:2} die Impulsrate $N2$ der zweiten Messung gegen die effektive Laufzeit $x_.{eff2}$ aufgetragen, welche nach Formel \eqref{eq:x} bestimmt wird. Eine Ausgleichsrechnung zur Bestimmung von $R_m$ und $E_\alpha$ wie in der ersten Messreihe kann aufgrund der Messdaten nicht durchgeführt werden.
+In Abbildung \ref{fig:2E} ist mit den Werten aus Tabelle \ref{tab:2} die Energie $E2$ der zweiten Messung gegen die effektive Laufzeit $x_.{eff2}$ aufgetragen.
+Mittels einer linearen Ausgleichsrechnung der Form $E(x_.{eff})=m2 x_.{eff} +n2$ ergibt sich für den Energieverlust $\frac{.dE}{.dx}$:
+\begin{align*}
+\frac{.dE}{.dx}	&= m2 = \SI{-118(1)}{\mega e\volt\per\metre}\text{,}\\
+n2	&= \SI{3.98(1)e6}{\becquerel}\text{.}
+\end{align*}
+
 \begin{table}
 	\centering
 	\caption{Der Druck $p$ und die Impulsrate $N_2$, sowie die effektiven Längen $x_.{eff2}$ und die bestimmten Energien $E_2$ bei der zweiten Messreihe mit einem Abstand zur Probe von $\SI{1}{\centi\metre}$.}
@@ -46,6 +80,28 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 \end{figure}
 
 \subsection{Statistik des Radioaktiven Zerfalls}
+
+Aus den gemessenen Zählraten ergibt sich mit der Formel für den Mittelwert
+\begin{equation*}
+\mu_N= \frac{1}{n}\sum_{k=1}^n N_k = \SI{671}{\becquerel}
+\end{equation*} 
+und die Standartabweichung
+\begin{equation*}
+\sigma_N=\sqrt{\frac{1}{n^2-n}\sum_{k=1}^n (N_k-\bar{N})^2)} = \SI{19}{\becquerel}
+\end{equation*} 
+für die mittlere Zählrate ein Wert von:
+\begin{equation*}
+\bar{N}= \SI{671(19)}{\becquerel} \text{.}
+\end{equation*} 
+Mit diesen Werten ergibt sich die Gaußverteilung gemäß:
+\begin{equation*}
+G(x) = \frac{1}{\sqrt{2\pi\sigma_N^2}}\exp{\left(-\frac{(x-\mu_N)^2}{2\sigma_N^2}\right)}
+\end{equation*} 
+und die Poissonverteilung gemäß:
+\begin{equation*}
+P(x) = \frac{\mu_N^x}{x!}\exp{\left(-\mu_N\right)}\text{.}
+\end{equation*} 
+Die Häufigkeit eines Pulses ist in den Abbildungen \ref{fig:3_20} bis \ref{fig:3_scott} für verschiedene $\Delta N$ gegen die Impulsrate $N$ aufgetragen. 
 
 \begin{figure}
 	\centering

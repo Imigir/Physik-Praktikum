@@ -78,6 +78,9 @@ Rm1 = (N1[0]/2-achsenAbschnitt2)/steigung2
 Ea1 = (Rm1*1000/3.1)**(1./3)*10**6
 
 print('1)')
+print('xeff1=',xeff(p,x1)[13])
+print('xeff2=',xeff(p,x1)[17])
+print('N1/2=',N1[0]/2)
 print('steigung2=', steigung2)
 print('achsenabschhnitt2=', achsenAbschnitt2)
 print('Rm1 in m=', Rm1)
@@ -170,7 +173,7 @@ print('3)')
 print('Mittelwert=', mu)
 print('Standardabweichung=', sigma)
 
-
+"""
 x = np.linspace(600,740, 141)
 #x = np.linspace(0,14, 15)
 y = poisson.pmf(x, mu)*10000
@@ -278,7 +281,7 @@ plt.legend(loc='best')
 plt.savefig('content/images/Graph3_rice.pdf')
 
 print('Graph3_rice finished')
-
+"""
 
 """
 plt.cla()
