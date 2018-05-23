@@ -66,9 +66,37 @@ makeTable([o_r, o_l, eta/2/np.pi*360, n, np.abs(n_err)], r'{'+r'$\omega_.r/\si{\
 
 # Graphen
 lambd_a = np.genfromtxt('scripts/data3.txt',unpack=True)
+def n1(l,a,b):
+    return np.sqrt(a+b/(l**2))
 
+lplot = np.linspace(400,700,1000)
+params, covar = curve_fit(n1, lambd_a, n)
 plt.cla()
 plt.clf()
+plt.plot(lplot,n1(lplot, *params),'b-', label='Ausgleichskurve')
+plt.plot(lambd_a, n,'rx', label='Messwerte')
+plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
+plt.ylabel(r'$n$')
+plt.xlim(400,700)
+plt.ylim(1.725,1.85)
+plt.legend(loc='best')
+plt.savefig('content/images/Graph11.pdf')
+
+
+A_0 = unp.uarray(params[0], np.sqrt(covar[0][0]))
+A_2 = unp.uarray(params[1], np.sqrt(covar[1][1]))
+print('A0 von Gleichung 11:', A_0)
+print('A2 von Gleichung 11:', A_2)
+
+#n2 ist nur mit np.abs() möglich, aber dann sehr hässlich
+"""
+def n2(l,a,b):
+    return np.sqrt(np.abs(a-b*l**2))
+
+params2, covar2 = curve_fit(n2, lambd_a, n)
+plt.cla()
+plt.clf()
+plt.plot(lplot,n2(lplot, *params2),'b-', label='Ausgleichskurve')
 plt.plot(lambd_a, n,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n$')
@@ -76,3 +104,9 @@ plt.xlim(400,700)
 plt.ylim(1.725,1.85)
 plt.legend(loc='best')
 plt.savefig('content/images/Graph11a.pdf')
+
+A_0a = unp.uarray(params2[0], np.sqrt(covar2[0][0]))
+A_2a = unp.uarray(params2[1], np.sqrt(covar2[1][1]))
+print('A0 von Gleichung 11a:', A_0a)
+print('A2 von Gleichung 11a:', A_2a)
+"""
