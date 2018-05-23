@@ -48,6 +48,8 @@ import scipy.constants as const
 # params = unp.uarray(params, np.sqrt(np.diag(covar)))
 # makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
 
+# Tabellen
+
 phi_r, phi_l, phi = np.genfromtxt('scripts/data2.txt',unpack=True)
 o_r, o_l, eta = np.genfromtxt('scripts/data1.txt', unpack=True)
 phi_avg= avg_and_sem(phi)
@@ -57,8 +59,20 @@ n=np.sin((eta+phi_avg[0]*2*np.pi/360)/2)/np.sin(phi_avg[0]*2*np.pi/360/2)
 
 makeTable([phi_r, phi_l, phi], r'{'+r'$\phi_.r/\si{\degree}$'+r'} & {'+r'$\phi_.l/\si{\degree}$'+r'} & {'+r'$\phi/\si{\degree}$'+r'}', 'tabphi',['S[table-format=3.1]','S[table-format=3.1]','S[table-format=2.2]'],["%3.1f", "%3.1f", "%2.2f"])
 
-
-
 #n_err = np.sin(eta/2)*phi_avg[1]*2*np.pi/360/(np.cos(phi_avg[0]*2*np.pi/360)-1)
 n_err = -1/2*np.sin(eta/2)*phi_avg[1]*2*np.pi/360/(np.sin(phi_avg[0]*np.pi/360)**2)
 makeTable([o_r, o_l, eta/2/np.pi*360, n, np.abs(n_err)], r'{'+r'$\omega_.r/\si{\degree}$'+r'} & {'+r'$\omega_.l/\si{\degree}$'+r'} & {'+r'$\eta/\si{\degree}$'+r'} &  \multicolumn{2}{c}{'+r'$n$'+r'}', 'tabn', ['S[table-format=3.1]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.5]'],["%3.1f", "%3.1f", "%2.1f", "%1.2f","%1.5f"])
+
+
+# Graphen
+lambd_a = np.genfromtxt('scripts/data3.txt',unpack=True)
+
+plt.cla()
+plt.clf()
+plt.plot(lambd_a, n,'rx', label='Messwerte')
+plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
+plt.ylabel(r'$n$')
+plt.xlim(400,700)
+plt.ylim(1.725,1.85)
+plt.legend(loc='best')
+plt.savefig('content/images/Graph11a.pdf')
