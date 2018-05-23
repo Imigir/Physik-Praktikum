@@ -137,7 +137,3 @@ plt.legend(loc="best")
 plt.savefig('content/images/Graph2.pdf')
 
 makeTable([noms(N)*60, stds(N)*60, noms(N), stds(N), U, I*10**6, noms(DQe)*10**(-8), stds(DQe)*10**(-8)], r'\multicolumn{2}{c}{'+r'$N_.{minute}/\si{1\per\minute}$'+r'} & \multicolumn{2}{c}{'+r'$N/\si{\becquerel}$'+r'} & {'+r'$U/\si{\volt}$'+r'} & {'+r'$I/10^{-6}\si{\ampere}$'+r'} & \multicolumn{2}{c}{'+r'$\Delta Q/10^{8}\mathrm{e}$'+r'}', 'tab1', ['S[table-format=5.0]', ' @{${}\pm{}$} S[table-format=3.0]', 'S[table-format=3.0]', ' @{${}\pm{}$} S[table-format=1.0]', 'S[table-format=3.0]', 'S[table-format=1.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]'], ["%5.0f", "%3.0f", "%3.0f", "%1.0f", "%3.0f", "%1.2f", "%3.1f", "%1.1f"])
-
-
-
-
