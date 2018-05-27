@@ -150,11 +150,9 @@ print('A4 von der optimierten Gleichung 11:', A_4_4)
 
 
 s3=0
-Wert_A_0_4= params3[0]
-Wert_A_2_4= params3[1]
-Wert_A_4_4= params3[2]
+
 for i in range(len(n)):
-    s3=s3+(n[i]**2-Wert_A_0_4-Wert_A_2_4/lambd_a[i]**2-Wert_A_4_4/lambd_a[i]**4)**2
+    s3=s3+(n[i]**2-params3[0]-params3[1]/lambd_a[i]**2-params3[2]/lambd_a[i]**4)**2
 
 s3=s3/8
 print('Abweichungsquadrate der optimierten Gleichung 11:',s3)
@@ -166,7 +164,7 @@ print('Abweichungsquadrate der optimierten Gleichung 11:',s3)
 def n4(l,a,b,c,d):
     return a+b/(l**2)+c/(l**4)-d*l**2
 
-params4, covar4 = curve_fit(n4, lambd_a, n**2)
+params4, covar4 = curve_fit(n4, lambd_a, n**2, p0=(1,6/10**15,1/10**28,10**11))
 plt.cla()
 plt.clf()
 plt.plot(lplot*10**9,n4(lplot, *params4),'b-', label='Ausgleichskurve')
@@ -187,6 +185,13 @@ print('A0 von der sehr optimierten Gleichung 11:', A_0_4_2)
 print('A2 von der sehr optimierten Gleichung 11:', A_2_4_2)
 print('A4 von der sehr optimierten Gleichung 11:', A_4_4_2)
 print('A2` von der sehr optimierten Gleichung 11:', A_2__4_2)
+s4=0
+
+for i in range(len(n)):
+    s4=s4+(n[i]**2-params4[0]-params4[1]/lambd_a[i]**2-params4[2]/lambd_a[i]**4+params4[3]*lambd_a[i])**2
+
+s4=s4/8
+print('Abweichungsquadrate der sehr optimierten Gleichung 11:',s4)
 """
 
 #Abbe Zahl
