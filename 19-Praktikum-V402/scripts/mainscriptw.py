@@ -121,7 +121,7 @@ s2=0
 Wert_A_0a= params2[0]
 Wert_A_2a= params2[1]
 for i in range(len(n)):
-    s2=s2+(n[i]**2-Wert_A_0a-Wert_A_2a/lambd_a[i]**2)
+    s2=s2+(n[i]**2-Wert_A_0a+Wert_A_2a*lambd_a[i]**2)
 
 s2=s2**2/8
 print('Abweichungsquadrate der Gleichung 11a:',s2)
