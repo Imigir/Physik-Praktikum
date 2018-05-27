@@ -89,10 +89,9 @@ A_2 = unp.uarray(params[1], np.sqrt(covar[1][1]))
 print('A0 von Gleichung 11:', A_0)
 print('A2 von Gleichung 11:', A_2)
 s1=0
-Wert_A_0=params[0]
-Wert_A_2=params[1]
+
 for i in range(len(n)):
-    s1=s1+(n[i]**2-Wert_A_0-Wert_A_2/lambd_a[i]**2)
+    s1=s1+(n[i]**2-params[0]-params[1]/lambd_a[i]**2)
 
 s1=s1**2/8
 
@@ -101,7 +100,9 @@ print('Quadrate der Abweichung von Gleichung 11:',s1)
 def n2(l,a,b):
     return a-b*l**2
 
-params2, covar2 = curve_fit(n2, lambd_a, n**2)
+#Diese Variante liefert ein Ergebnis für n2, aber die Abweichungsquadrate
+#sind noxh kleiner als bei n1, was keinen Sinn macht
+params2, covar2 = curve_fit(n2, lambd_a, n**2,p0=(3,2.5*10**13))
 plt.cla()
 plt.clf()
 plt.plot(lplot*10**9,n2(lplot, *params2),'b-', label='Ausgleichskurve')
@@ -118,10 +119,9 @@ A_2a = unp.uarray(params2[1], np.sqrt(covar2[1][1]))
 print('A0 von Gleichung 11a:', A_0a)
 print('A2 von Gleichung 11a:', A_2a)
 s2=0
-Wert_A_0a= params2[0]
-Wert_A_2a= params2[1]
+
 for i in range(len(n)):
-    s2=s2+(n[i]**2-Wert_A_0a+Wert_A_2a*lambd_a[i]**2)
+    s2=s2+(n[i]**2-params2[0]+params2[1]*lambd_a[i]**2)
 
 s2=s2**2/8
 print('Abweichungsquadrate der Gleichung 11a:',s2)
@@ -159,7 +159,10 @@ for i in range(len(n)):
 s3=s3**2/8
 print('Abweichungsquadrate der optimierten Gleichung 11:',s3)
 
-
+#Ich wäre dafür den auskommentierten Bereich einfach wegzulassen,
+#da keine vernünftigen Fehler rauskommen und
+#da in der Anleitung nur steht n3 oder n4
+"""
 def n4(l,a,b,c,d):
     return a+b/(l**2)+c/(l**4)-d*l**2
 
@@ -184,7 +187,7 @@ print('A0 von der sehr optimierten Gleichung 11:', A_0_4_2)
 print('A2 von der sehr optimierten Gleichung 11:', A_2_4_2)
 print('A4 von der sehr optimierten Gleichung 11:', A_4_4_2)
 print('A2` von der sehr optimierten Gleichung 11:', A_2__4_2)
-
+"""
 
 #Abbe Zahl
 l_C=656/10**9
