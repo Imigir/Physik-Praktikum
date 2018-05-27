@@ -186,3 +186,11 @@ v=(nD-1)/(nF-nC)
 
 print('Frauenhofer Brechungsindizees:',nC,',',nD,',',nF)
 print('Abbesche Zahl: ',v)
+
+#Auflösungsvermögen
+b=0.03
+A_C=-b*params[1]/(np.sqrt(params[0]+params[1]/l_C**2)*l_C**3)
+A_F=-b*params[1]/(np.sqrt(params[0]+params[1]/l_F**2)*l_F**3)
+
+print('Auflösungsvermögen A_C:', A_C)
+print('Auflösungsvermögen A_F:', A_F)
