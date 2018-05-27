@@ -148,6 +148,18 @@ print('A0 von der optimierten Gleichung 11:', A_0_4)
 print('A2 von der optimierten Gleichung 11:', A_2_4)
 print('A4 von der optimierten Gleichung 11:', A_4_4)
 
+
+s3=0
+Wert_A_0_4= params3[0]
+Wert_A_2_4= params3[1]
+Wert_A_4_4= params3[2]
+for i in range(len(n)):
+    s3=s3+(n[i]**2-Wert_A_0_4-Wert_A_2_4/lambd_a[i]**2-Wert_A_4_4/lambd_a[i]**4)
+
+s3=s3**2/8
+print('Abweichungsquadrate der optimierten Gleichung 11:',s3)
+
+
 def n4(l,a,b,c,d):
     return a+b/(l**2)+c/(l**4)-d*l**2
 
