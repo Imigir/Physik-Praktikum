@@ -69,11 +69,11 @@ lambd_a = np.genfromtxt('scripts/data3.txt',unpack=True)
 def n1(l,a,b):
     return a+b/(l**2)
 
-lplot = np.linspace(400/10**6,700/10**6,1000)
-params, covar = curve_fit(n1, lambd_a, n**2)
+lplot = np.linspace(400/10**9,700/10**9,1000)
+params, covar = curve_fit(n1, lambd_a/10**9, n**2)
 plt.cla()
 plt.clf()
-plt.plot(lplot*10**6,n1(lplot*10**6, *params),'b-', label='Ausgleichskurve')
+plt.plot(lplot*10**9,n1(lplot, *params),'b-', label='Ausgleichskurve')
 plt.plot(lambd_a, n**2,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n^2$')
@@ -87,16 +87,23 @@ A_0 = unp.uarray(params[0], np.sqrt(covar[0][0]))
 A_2 = unp.uarray(params[1], np.sqrt(covar[1][1]))
 print('A0 von Gleichung 11:', A_0)
 print('A2 von Gleichung 11:', A_2)
+s1=0
+Wert_A_0=params[0]
+Wert_A_2=params[1]
+for i in range(len(n)):
+    s1=s1+(n[i]**2-Wert_A_0-Wert_A_2/lambd_a[i]**2)
 
-#n2 ist nur mit np.abs() möglich, aber dann sehr hässlich
+s1=s1**2/8
+
+print('Quadrate der Abweichung von Gleichung 11:',s1)
 
 def n2(l,a,b):
     return a-b*l**2
 
-params2, covar2 = curve_fit(n2, lambd_a, n**2)
+params2, covar2 = curve_fit(n2, lambd_a/10**9, n**2)
 plt.cla()
 plt.clf()
-plt.plot(lplot*10**6,n2(lplot*10**6, *params2),'b-', label='Ausgleichskurve')
+plt.plot(lplot*10**9,n2(lplot, *params2),'b-', label='Ausgleichskurve')
 plt.plot(lambd_a, n**2,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n^2$')
@@ -109,16 +116,22 @@ A_0a = unp.uarray(params2[0], np.sqrt(covar2[0][0]))
 A_2a = unp.uarray(params2[1], np.sqrt(covar2[1][1]))
 print('A0 von Gleichung 11a:', A_0a)
 print('A2 von Gleichung 11a:', A_2a)
+s2=0
+Wert_A_0a= params2[0]
+Wert_A_2a= params2[1]
+for i in range(len(n)):
+    s2=s2+(n[i]**2-Wert_A_0a-Wert_A_2a/lambd_a[i]**2)
 
-
+s2=s2**2/8
+print('Abweichungsquadrate der Gleichung 11a:',s2)
 
 def n3(l,a,b,c):
     return a+b/(l**2)+c/(l**4)
 
-params3, covar3 = curve_fit(n3, lambd_a, n**2)
+params3, covar3 = curve_fit(n3, lambd_a/10**9, n**2)
 plt.cla()
 plt.clf()
-plt.plot(lplot*10**6,n3(lplot*10**6, *params3),'b-', label='Ausgleichskurve')
+plt.plot(lplot*10**9,n3(lplot, *params3),'b-', label='Ausgleichskurve')
 plt.plot(lambd_a, n**2,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n^2$')
@@ -137,10 +150,10 @@ print('A4 von der optimierten Gleichung 11:', A_4_4)
 def n4(l,a,b,c,d):
     return a+b/(l**2)+c/(l**4)-d*l**2
 
-params4, covar4 = curve_fit(n4, lambd_a, n**2)
+params4, covar4 = curve_fit(n4, lambd_a/10**9, n**2)
 plt.cla()
 plt.clf()
-plt.plot(lplot*10**6,n4(lplot*10**6, *params4),'b-', label='Ausgleichskurve')
+plt.plot(lplot*10**9,n4(lplot, *params4),'b-', label='Ausgleichskurve')
 plt.plot(lambd_a, n**2,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n^2$')
@@ -158,3 +171,17 @@ print('A0 von der sehr optimierten Gleichung 11:', A_0_4_2)
 print('A2 von der sehr optimierten Gleichung 11:', A_2_4_2)
 print('A4 von der sehr optimierten Gleichung 11:', A_4_4_2)
 print('A2` von der sehr optimierten Gleichung 11:', A_2__4_2)
+
+
+#Abbe Zahl
+l_C=656/10**9
+l_D=589/10**9
+l_F=486/10**9
+nC=np.sqrt(params[0]+params[1]/l_C)
+nD=np.sqrt(params[0]+params[1]/l_D)
+nF=np.sqrt(params[0]+params[1]/l_F)
+
+v=(nD-1)/(nF-nC)
+
+print('Frauenhofer Brechungsindizees:',nC,',',nD,',',nF)
+print('Abbesche Zahl: ',v)
