@@ -66,15 +66,16 @@ makeTable([o_r, o_l, eta/2/np.pi*360, n, np.abs(n_err)], r'{'+r'$\omega_.r/\si{\
 
 # Graphen
 lambd_a = np.genfromtxt('scripts/data3.txt',unpack=True)
+lambd_a = lambd_a/10**9
 def n1(l,a,b):
     return a+b/(l**2)
 
 lplot = np.linspace(400/10**9,700/10**9,1000)
-params, covar = curve_fit(n1, lambd_a/10**9, n**2)
+params, covar = curve_fit(n1, lambd_a, n**2)
 plt.cla()
 plt.clf()
 plt.plot(lplot*10**9,n1(lplot, *params),'b-', label='Ausgleichskurve')
-plt.plot(lambd_a, n**2,'rx', label='Messwerte')
+plt.plot(lambd_a*10**9, n**2,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n^2$')
 plt.xlim(400,700)
@@ -100,11 +101,11 @@ print('Quadrate der Abweichung von Gleichung 11:',s1)
 def n2(l,a,b):
     return a-b*l**2
 
-params2, covar2 = curve_fit(n2, lambd_a/10**9, n**2)
+params2, covar2 = curve_fit(n2, lambd_a, n**2)
 plt.cla()
 plt.clf()
 plt.plot(lplot*10**9,n2(lplot, *params2),'b-', label='Ausgleichskurve')
-plt.plot(lambd_a, n**2,'rx', label='Messwerte')
+plt.plot(lambd_a*10**9, n**2,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n^2$')
 plt.xlim(400,700)
@@ -128,11 +129,11 @@ print('Abweichungsquadrate der Gleichung 11a:',s2)
 def n3(l,a,b,c):
     return a+b/(l**2)+c/(l**4)
 
-params3, covar3 = curve_fit(n3, lambd_a/10**9, n**2)
+params3, covar3 = curve_fit(n3, lambd_a, n**2)
 plt.cla()
 plt.clf()
 plt.plot(lplot*10**9,n3(lplot, *params3),'b-', label='Ausgleichskurve')
-plt.plot(lambd_a, n**2,'rx', label='Messwerte')
+plt.plot(lambd_a*10**9, n**2,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n^2$')
 plt.xlim(400,700)
@@ -150,11 +151,11 @@ print('A4 von der optimierten Gleichung 11:', A_4_4)
 def n4(l,a,b,c,d):
     return a+b/(l**2)+c/(l**4)-d*l**2
 
-params4, covar4 = curve_fit(n4, lambd_a/10**9, n**2)
+params4, covar4 = curve_fit(n4, lambd_a, n**2)
 plt.cla()
 plt.clf()
 plt.plot(lplot*10**9,n4(lplot, *params4),'b-', label='Ausgleichskurve')
-plt.plot(lambd_a, n**2,'rx', label='Messwerte')
+plt.plot(lambd_a*10**9, n**2,'rx', label='Messwerte')
 plt.xlabel(r'$\lambda/10^{-9}\si{\metre}$')
 plt.ylabel(r'$n^2$')
 plt.xlim(400,700)
@@ -177,9 +178,9 @@ print('A2` von der sehr optimierten Gleichung 11:', A_2__4_2)
 l_C=656/10**9
 l_D=589/10**9
 l_F=486/10**9
-nC=np.sqrt(params[0]+params[1]/l_C)
-nD=np.sqrt(params[0]+params[1]/l_D)
-nF=np.sqrt(params[0]+params[1]/l_F)
+nC=np.sqrt(params[0]+params[1]/l_C**2)
+nD=np.sqrt(params[0]+params[1]/l_D**2)
+nF=np.sqrt(params[0]+params[1]/l_F**2)
 
 v=(nD-1)/(nF-nC)
 
