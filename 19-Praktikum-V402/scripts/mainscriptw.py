@@ -91,9 +91,9 @@ print('A2 von Gleichung 11:', A_2)
 s1=0
 
 for i in range(len(n)):
-    s1=s1+(n[i]**2-params[0]-params[1]/lambd_a[i]**2)
+    s1=s1+(n[i]**2-params[0]-params[1]/lambd_a[i]**2)**2
 
-s1=s1**2/8
+s1=s1/8
 
 print('Quadrate der Abweichung von Gleichung 11:',s1)
 
@@ -121,9 +121,9 @@ print('A2 von Gleichung 11a:', A_2a)
 s2=0
 
 for i in range(len(n)):
-    s2=s2+(n[i]**2-params2[0]+params2[1]*lambd_a[i]**2)
+    s2=s2+(n[i]**2-params2[0]+params2[1]*lambd_a[i]**2)**2
 
-s2=s2**2/8
+s2=s2/8
 print('Abweichungsquadrate der Gleichung 11a:',s2)
 
 def n3(l,a,b,c):
@@ -154,9 +154,9 @@ Wert_A_0_4= params3[0]
 Wert_A_2_4= params3[1]
 Wert_A_4_4= params3[2]
 for i in range(len(n)):
-    s3=s3+(n[i]**2-Wert_A_0_4-Wert_A_2_4/lambd_a[i]**2-Wert_A_4_4/lambd_a[i]**4)
+    s3=s3+(n[i]**2-Wert_A_0_4-Wert_A_2_4/lambd_a[i]**2-Wert_A_4_4/lambd_a[i]**4)**2
 
-s3=s3**2/8
+s3=s3/8
 print('Abweichungsquadrate der optimierten Gleichung 11:',s3)
 
 #Ich wäre dafür den auskommentierten Bereich einfach wegzulassen,
