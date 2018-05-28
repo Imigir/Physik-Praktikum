@@ -49,7 +49,7 @@ import scipy.constants as const
 # makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
 
 # Tabellen
-
+lambd_a = np.genfromtxt('scripts/data3.txt',unpack=True)
 phi_r, phi_l, phi = np.genfromtxt('scripts/data2.txt',unpack=True)
 o_r, o_l, eta = np.genfromtxt('scripts/data1.txt', unpack=True)
 phi_avg= avg_and_sem(phi)
@@ -61,11 +61,11 @@ makeTable([phi_r, phi_l, phi], r'{'+r'$\phi_.r/\si{\degree}$'+r'} & {'+r'$\phi_.
 
 #n_err = np.sin(eta/2)*phi_avg[1]*2*np.pi/360/(np.cos(phi_avg[0]*2*np.pi/360)-1)
 n_err = -1/2*np.sin(eta/2)*phi_avg[1]*2*np.pi/360/(np.sin(phi_avg[0]*np.pi/360)**2)
-makeTable([o_r, o_l, eta/2/np.pi*360, n, np.abs(n_err)], r'{'+r'$\omega_.r/\si{\degree}$'+r'} & {'+r'$\omega_.l/\si{\degree}$'+r'} & {'+r'$\eta/\si{\degree}$'+r'} &  \multicolumn{2}{c}{'+r'$n$'+r'}', 'tabn', ['S[table-format=3.1]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.5]'],["%3.1f", "%3.1f", "%2.1f", "%1.2f","%1.5f"])
+makeTable([lambd_a,o_r, o_l, eta/2/np.pi*360, n, np.abs(n_err)], r'{'+r'$\lambda/10^{-9}\si{\metre}$'+r'} & {'+r'$\Omega_.r/\si{\degree}$'+r'} & {'+r'$\Omega_.l/\si{\degree}$'+r'} & {'+r'$\eta/\si{\degree}$'+r'} &  \multicolumn{2}{c}{'+r'$n$'+r'}', 'tabn', ['S[table-format=3.1]','S[table-format=3.1]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.5]'],["%3.1f", "%3.1f", "%3.1f", "%2.1f", "%1.2f","%1.5f"])
 
 
 # Graphen
-lambd_a = np.genfromtxt('scripts/data3.txt',unpack=True)
+
 lambd_a = lambd_a/10**9
 def n1(l,a,b):
     return a+b/(l**2)
@@ -198,19 +198,30 @@ print('Abweichungsquadrate der sehr optimierten Gleichung 11:',s4)
 l_C=656/10**9
 l_D=589/10**9
 l_F=486/10**9
-nC=np.sqrt(params[0]+params[1]/l_C**2)
-nD=np.sqrt(params[0]+params[1]/l_D**2)
-nF=np.sqrt(params[0]+params[1]/l_F**2)
+nC=np.sqrt(params3[0]+params3[1]/l_C**2+params3[2]/l_C**4)
+nD=np.sqrt(params3[0]+params3[1]/l_D**2+params3[2]/l_D**4)
+nF=np.sqrt(params3[0]+params3[1]/l_F**2+params3[2]/l_F**4)
+nCerr=np.sqrt(covar3[0][0]/(4*(params3[0]+params3[1]/l_C**2+params3[2]/l_C**4))+covar3[1][1]/(4*l_C**4*(params3[0]+params3[1]/l_C**2+params3[2]/l_C**4))+covar3[2][2]/(4*l_C**8*(params3[0]+params3[1]/l_C**2+params3[2]/l_C**4)))
+nDerr=np.sqrt(covar3[0][0]/(4*(params3[0]+params3[1]/l_D**2+params3[2]/l_D**4))+covar3[1][1]/(4*l_D**4*(params3[0]+params3[1]/l_D**2+params3[2]/l_D**4))+covar3[2][2]/(4*l_D**8*(params3[0]+params3[1]/l_D**2+params3[2]/l_D**4)))
+nFerr=np.sqrt(covar3[0][0]/(4*(params3[0]+params3[1]/l_F**2+params3[2]/l_F**4))+covar3[1][1]/(4*l_F**4*(params3[0]+params3[1]/l_F**2+params3[2]/l_F**4))+covar3[2][2]/(4*l_F**8*(params3[0]+params3[1]/l_F**2+params3[2]/l_F**4)))
+
+
 
 v=(nD-1)/(nF-nC)
-
-print('Frauenhofer Brechungsindizees:',nC,',',nD,',',nF)
-print('Abbesche Zahl: ',v)
+verr = np.sqrt(nDerr**2/(nF-nC)**2+(1-nD)**2*nFerr**2/(nF-nC)**4+(nD-1)**2*nCerr**2/(nF-nC)**4)
+print('Frauenhofer Brechungsindizees:',nC,'+/-',nCerr,',',nD,'+/-',nDerr,',',nF,'+/-',nFerr)
+print('Abbesche Zahl: ',v,'+/-', verr)
 
 #Auflösungsvermögen
 b=0.03
-A_C=b*params[1]/(np.sqrt(params[0]+params[1]/l_C**2)*l_C**3)
-A_F=b*params[1]/(np.sqrt(params[0]+params[1]/l_F**2)*l_F**3)
+A_C=b*(params3[1]*l_C**2+2*params3[2])/(np.sqrt(params3[0]+params3[1]/l_C**2+params3[2]/l_C**4)*l_C**5)
+A_F=b*(params3[1]*l_F**2+2*params3[2])/(np.sqrt(params3[0]+params3[1]/l_F**2+params3[2]/l_F**4)*l_F**5)
+A_Cerr=b*np.sqrt(((params3[1]*l_C**2+2*params3[2])/(2*l_C**5*(params3[0]+params3[1]/l_C**2+params3[2]/l_C**4)**(3/2)))**2*covar3[0][0]+((params3[1]+2*params3[0]*l_C**2)/(2*l_C**5*(params3[1]/l_C**2+params3[2]/l_C**4+params3[0])**(3/2)))**2*covar3[1][1]+((2*params3[2]+4*params3[0]*l_C**4+3*params3[1]*l_C**2)/(2*l_C**9*(params3[2]/l_C**4+params3[1]/l_C**2+params3[0])**(3/2)))**2*covar3[2][2])
+A_Ferr=b*np.sqrt(((params3[1]*l_F**2+2*params3[2])/(2*l_F**5*(params3[0]+params3[1]/l_F**2+params3[2]/l_F**4)**(3/2)))**2*covar3[0][0]+((params3[1]+2*params3[0]*l_F**2)/(2*l_F**5*(params3[1]/l_F**2+params3[2]/l_F**4+params3[0])**(3/2)))**2*covar3[1][1]+((2*params3[2]+4*params3[0]*l_F**4+3*params3[1]*l_F**2)/(2*l_F**9*(params3[2]/l_F**4+params3[1]/l_F**2+params3[0])**(3/2)))**2*covar3[2][2])
 
-print('Auflösungsvermögen A_C:', A_C)
-print('Auflösungsvermögen A_F:', A_F)
+print('Auflösungsvermögen A_C:', A_C,'+/-',A_Cerr)
+print('Auflösungsvermögen A_F:', A_F,'+/-',A_Ferr)
+
+l_abs=np.sqrt(params[1]/(params[0]-1))
+l_abs_err=np.sqrt(covar[1][1]/(4*params[1]*(params[0]-1))+covar[0][0]*params[1]/(4*(params[0]-1)**3))
+print('1.Absorptionsstelle unterhalb des sichtbaren Spektrums: ',l_abs,'+/-',l_abs_err)
