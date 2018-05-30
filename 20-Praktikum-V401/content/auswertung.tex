@@ -1,5 +1,30 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
-Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+\subsection{Bestimmung der Wellenlänge des Lichtes des Lasers}
+\begin{table}
+	\centering
+	\caption{Die gemessene Anzahl von Lichtimpulsen $N$ bei einer Verschiebung des Spiegels um $\frac{\Delta s}{ü}$.}
+	\input{content/tables/tab1.tex}
+	\label{tab:1}
+\end{table}
+\noindent Aus der gemessenen Anzahl von Lichtimpulsen $N$ bei einer Verschiebung des Spiegels um $\Delta d=\frac{\Delta s}{ü}$ lässt sich nach Formel \eqref{lambda} die Wellenlänge $\lambda$ mit den Werten aus Tabelle \ref{tab:1} berechnen zu:
+\[
+	\lambda = \frac{2\Delta s}{N ü}=\SI{644(8)}{\nano\meter}\text{.}
+\]
+Dabei gibt $ü=5,017$ das Übersetzungsverhältnis an.
+
+\subsection{Bestimmung des Brechungsindexes von Luft unter Normalbedingungen}
+\begin{table}
+	\centering
+	\caption{Die gemessene Anzahl von Lichtimpulsen $N$ bei einer Änderung des Druckes in der Messzelle um $\Delta p$ bei einer Temperatur $T$ von ca. $\SI{20}{\degreeCelsius}$.}
+	\input{content/tables/tab2.tex}
+	\label{tab:2}
+\end{table}
+\noindent Aus der gemessen Anzahl von Lichtimpulsen $N$ bei einer Änderung des Druckes in der Messzelle der breite $b=\SI{50}{\milli\meter}$ um $\Delta p$ lässt sich nach Formel \eqref{eq:n3} der Brechungsindex $n$ von Luft unter Normalbedingungen mit den Werten aus Tabelle \ref{tab:2} berechnen zu:
+\[
+	n = 1+ \frac{N \lambda T p_0}{2 b T_0 \Delta p} = \SI{1.000293(8)}{}\text{.}
+\]
+Dabei sind $T_0=\SI{273,15}{\kelvin}$ und $p_0=\SI{1,0132}{\bar}$. 

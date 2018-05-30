@@ -48,3 +48,27 @@ import scipy.constants as const
 # params = unp.uarray(params, np.sqrt(np.diag(covar)))
 # makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
 
+data1 = np.genfromtxt(r'scripts/data1.txt', unpack=True)
+makeNewTable(data=data1, names=r'{$\Delta s/\si{\milli\meter}$} & {$N$}', filename='tab1', formats=[r'S[table-format=1.2]',r'S[table-format=4.0]'], formats2=[r'{:1.2f}',r'{:4.0f}'])
+
+data1[0] = data1[0]/1000
+Lambda = unp.uarray(*avg_and_sem(2/5.017*data1[0]/data1[1]))
+print(Lambda)
+
+data2 = np.genfromtxt(r'scripts/data2.txt', unpack=True)
+makeNewTable(data=data2, names=r'{$\Delta p/\si{\bar}$} & {$N$}', filename='tab2', formats=[r'S[table-format=1.2]',r'S[table-format=2.0]'], formats2=[r'{:1.2f}',r'{:2.0f}'])
+
+p = unp.uarray(*avg_and_sem(data2[0]))*const.bar
+N = unp.uarray(*avg_and_sem(data2[1]))
+
+L = 0.05
+
+def brechungsindex(deltan,deltap,T):
+    return 1 + deltan*(T/const.zero_Celsius)*(const.atmosphere)/(deltap)
+
+def deltan(N, lambdaLaser):
+    return (N/2)*(lambdaLaser/L)
+
+deln = deltan(N, Lambda)
+n = brechungsindex(deln,p,const.zero_Celsius+20)
+print(n)
