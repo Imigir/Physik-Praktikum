@@ -19,15 +19,17 @@ und der Fehler über die Formel zur Berechnung der Standardabweichung
 \[
 \sigma_.{\phi}=\sqrt{\frac{1}{N^2-N}\sum_.{n=1}^N \left(\phi_.n-\bar{\phi}\right)^2}\text{.}
 \]
+
 \begin{table}
 	\centering
 	\caption{Messwerte zur Bestimmung des Winkels $\phi$}
 	\input{content/tables/tabphi.tex}
 	\label{tab:1}
 \end{table}
+\noindent
 
 \subsection{Bestimmung des Brechungswinkels $\eta$ und des Brechungsindex $n$}
-Die zur Berechnung von $\eta$ und $\phi$ erhobenen Daten befinden sich in Tabelle \ref{tab:2}.
+Die zur Berechnung von $\eta$ und $\phi$ erhobenen Daten befinden sich in Tabelle \ref{tab:2}. Die Wellenlängen $\lambda$ wurden der Literatur \cite{lambda} entnommen.
 Dabei errechnet sich $\eta$ nach Gleichung \eqref{eq:eta} und $n$ nach Gleichung \eqref{eq:n}.
 Der Fehler von $n$ berechnet sich dabei nach der Gauß'schen Fehlerfortpflanzung zu
 \[
@@ -64,26 +66,32 @@ A_.{4_.4}&= (0,2\pm 1,0)\cdot 10^{-27}\text{,} \\
 A_.0'  &= 3,40\pm 0,03\text{,} \\
 A_.2'  &= (9,0\pm 0,9)\cdot 10^{11}\text{.} \\
 \end{align*}
-Die Abweichungsquadrate $s^2$ werden bestimmt über 
+
+\noindent Die Abweichungsquadrate $s^2$ werden bestimmt über 
 \begin{equation}
-s^2_.n = \frac{1}{z-2}\sum_.{i=1}^z \left(n^2(\lambda_.i)-A_.0-\frac{A_.2}{\lambda^2_.i}\right)^2
+s^2_.{n_.2} = \frac{1}{z-2}\sum_.{i=1}^z \left(n^2(\lambda_.i)-A_.0-\frac{A_.2}{\lambda^2_.i}\right)^2,
+\end{equation}
+\begin{equation}
+s^2_.{n_.4} = \frac{1}{z-2}\sum_.{i=1}^z \left(n^2(\lambda_.i)-A_.0-\frac{A_.2}{\lambda^2_.i}-\frac{A_.4}{\lambda^4_.i}\right)^2
 \end{equation}
 und
 \begin{equation}
-s^2_.n = \frac{1}{z-2}\sum_.{i=1}^z \left(n^2(\lambda_.i)-A_.0' +A_.2\cdot\lambda^2_.i\right)^2,
+s^2_.{n'} = \frac{1}{z-2}\sum_.{i=1}^z \left(n^2(\lambda_.i)-A_.0' +A_.2\cdot\lambda^2_.i\right)^2,
 \end{equation}
 wobei $z$ die Anzahl der Messdaten ist und $\lambda_.i$ und $n(\lambda_.i)$ die Wellenlängen mit den dazugehörigen Brechungsindizes aus Tabelle \ref{tab:2} sind.
 Damit ergibt sich:
 \begin{align*}
-s^2_.{n_.2}&=1,541\cdot 10^-5\text{,} \\
-s^2_.{n_.4}&=1,536\cdot 10^-5\text{,} \\
-s^2_.{n'}&=5,041\cdot 10^-4\text{.} \\
+s^2_.{n_.2}&=1,541\cdot 10^{-5}\text{,} \\
+s^2_.{n_.4}&=1,536\cdot 10^{-5}\text{,} \\
+s^2_.{n'}&=5,041\cdot 10^{-4}\text{.} \\
 \end{align*}
+
+\noindent Da die Regression \eqref{eq:reg4} die kleinsten Abweichungsquadrate liefert, wird im folgenden diese zur Berechnung verwendet.
 Die Graphen zu den verschiedenen Ausgleichskurven sind in den Abbildungen \ref{fig:reg2} bis \ref{fig:reg'} zu sehen.
-Da die Regression \eqref{eq:reg4} die kleinsten Abweichungsquadrate liefert, wird im folgenden diese zur Berechnung verwendet.
 
 \begin{figure}
 \centering
+
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Graph11.pdf}
 \caption{Messwerte mit der Regression \eqref{eq:reg2}}
 \label{fig:reg2}
@@ -115,15 +123,15 @@ Der Fehler berechnet sich dabei über
 wobei die Fehler $\sigma_.{A_.0}$ und $\sigma_.{A_.2}$ aus Abschnitt \ref{sec:Dispersion} bekannt sind.
 
 \subsection{Abbe-Zahl}
-Für die Fraunhofer-Wellenlängen $\lambda_.C=\SI{656e-9}{\metre}$,$\lambda_.D=\SI{589e-9}{\metre}$ und $\lambda_.F=\SI{486e-9}{\metre}$ bestimmen sich die jeweiligen Brechungsindizes mit Gleichung \eqref{eq:reg4} zu
+Für die Fraunhofer-Wellenlängen $\lambda_.C=\SI{656e-9}{\metre}$,$\lambda_.D=\SI{589e-9}{\metre}$ und $\lambda_.F=\SI{486e-9}{\metre}$ bestimmen sich die jeweiligen Brechungsindizes mit der Wurzel der Gleichung \eqref{eq:reg4} zu
 \begin{align*}
 n_.C&=1,747\pm 0,008\text{,}\\
 n_.D&=1,757\pm 0,009\text{,}\\
 n_.F&=1,78\pm 0,01\text{.}\\
 \end{align*}
-Die Fehler berechnen sich nach
+\noindent Die Fehler berechnen sich nach
 \[
-\sigma_.{Fraun}=\sqrt{\left(\frac{\partial n_.4}{\partial A_.0.4}\bigg|_.{\lambda=\lambda_.Fraun}\right)^2\cdot\sigma^2_.{A_.0}+\left(\frac{\partial n_.4}{\partial A_.2.4}\bigg|_.{\lambda=\lambda_.Fraun}\right)^2\cdot\sigma^2_.{A_.2}+\left(\frac{\partial n_.4}{\partial A_.4.4}\bigg|_.{\lambda=\lambda_.Fraun}\right)^2\cdot\sigma^2_.{A_.4}},
+\sigma_.{Fraun}=\sqrt{\left(\frac{\partial n_.4}{\partial A_.0.4}\bigg|_.{\lambda=\lambda_.{Fraun}}\right)^2\cdot\sigma^2_.{A_.0}+\left(\frac{\partial n_.4}{\partial A_.2.4}\bigg|_.{\lambda=\lambda_.{Fraun}}\right)^2\cdot\sigma^2_.{A_.2}+\left(\frac{\partial n_.4}{\partial A_.4.4}\bigg|_.{\lambda=\lambda_.{Fraun}}\right)^2\cdot\sigma^2_.{A_.4}},
 \]
 ausgewertet für die jeweilige Wellenlänge.
 Daraus lässt sich die Abbesche Zahl 
@@ -137,7 +145,7 @@ Der Fehler lässt sich über
 \]
 berechnen.
 \subsection{Das Auflösungsvermögen eines Prismas}
-Für die Fraunhofer-Linien $\lambda_.C$ und $\lambda_.F$ bestimmt sich das Auflösungsvermögen des Prismas zu
+Für die Fraunhofer-Linien $\lambda_.C$ und $\lambda_.F$ bestimmt sich das Auflösungsvermögen des Prismas mit Gleichung \eqref{eq:A} zu
 \begin{align*}
 A_.C&=3587\pm 620\text{,}\\
 A_.F&=8748\pm 1818\text{.}\\
