@@ -5,11 +5,20 @@ Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgef
 
 \subsection{Bestimmung der Wellenlänge des Lichtes des Lasers}
 
-Aus der gemessenen Anzahl von Lichtimpulsen $N$ bei einer Verschiebung des Spiegels um $\Delta d=\frac{\Delta s}{ü}$ lässt sich nach Formel \eqref{eq:lambda} die Wellenlänge $\lambda$ mit den Werten aus Tabelle \ref{tab:1} berechnen zu:
+Aus der gemessenen Anzahl von Lichtimpulsen $N$ bei einer Verschiebung des Spiegels um $\Delta d=\frac{\Delta s}{ü}$ lässt sich nach Formel \eqref{eq:lambda} die Wellenlänge $\lambda$ berechnen zu:
 \[
-	\lambda = \frac{2\Delta s}{N ü}=\SI{644(8)}{\nano\meter}\text{.}
+	\lambda = \frac{2\Delta s}{N ü}
 \]
 Dabei gibt $ü=5,017$ das Übersetzungsverhältnis an.
+Mit der Formel für den Mittelwert und den Werten aus Tabelle \ref{tab:1} ergibt sich damit
+\[
+\bar{\lambda}= \frac{1}{n}\sum_.{i=1}^n \lambda_.i = \SI{644(8)}{\nano\meter}
+\]
+
+Der Fehler berechnet sich über die Standardabweichung
+\[
+\sigma_.{\lambda}=\sqrt{\frac{1}{n^2-n}\sum_.{i=1}^n \left(\lambda_.i-\bar{\lambda}\right)^2}\text{.}
+\]
 
 \begin{table}
 	\centering
@@ -20,12 +29,16 @@ Dabei gibt $ü=5,017$ das Übersetzungsverhältnis an.
 
 \subsection{Bestimmung des Brechungsindexes von Luft unter Normalbedingungen}
 
-Aus der gemessen Anzahl von Lichtimpulsen $N$ bei einer Änderung des Druckes in der Messzelle der breite $b=\SI{50}{\milli\meter}$ um $\Delta p$ lässt sich nach Formel \eqref{eq:n3} der Brechungsindex $n$ von Luft unter Normalbedingungen mit den Werten aus Tabelle \ref{tab:2} berechnen zu:
+Aus der gemessen Anzahl von Lichtimpulsen $N$ bei einer Änderung des Druckes in der Messzelle der breite $b=\SI{50}{\milli\meter}$ um $\Delta p$ lässt sich nach Formel \eqref{eq:n3} der Brechungsindex $n$ von Luft unter Normalbedingungen berechnen zu:
 \[
 	n = 1+ \frac{N \lambda T p_0}{2 b T_0 \Delta p} = \SI{1.000293(8)}{}\text{.}
 \]
-Dabei sind $T_0=\SI{273,15}{\kelvin}$ und $p_0=\SI{1,0132}{\bar}$. Für das $\lambda$ wird der errechnete Wert aus dem vorherigen Kapitel genutzt.
-
+Dabei sind $T_0=\SI{273,15}{\kelvin}$ und $p_0=\SI{1,0132}{\bar}$. Als $N$ wird der Mittelwert aus der Anzahl der gemessenen Lichtimpulse aus Tabelle \ref{tab:2}
+$\bar{N}=33,5 \pm 0,9$ verwendet, der sich wie im vorangegangenen Kapitel berechnet. Für das $\lambda$ wird der errechnete Wert aus dem vorherigen Kapitel genutzt. Für die Temperatur $T$ wird eine Raumtemperatur von $T=\SI{293,15}{\kelvin}$ verwendet.
+Der Fehler ergibt sich über die Gaußsche Fehlerfortpflanzung zu
+\[
+\sigma_.n=\sqrt{\left(\frac{\partial n}{\partial \lambda}\right)^2\cdot\sigma^2_.{\lambda}+\left(\frac{\partial n}{\partial N}\right)^2\cdot\sigma^2_.N}\text{.}
+\]
 \begin{table}
 	\centering
 	\caption{Die gemessene Anzahl von Lichtimpulsen $N$ bei einer Änderung des Druckes in der Messzelle um $\Delta p$ bei einer Temperatur $T$ von ca. $\SI{20}{\degreeCelsius}$.}
