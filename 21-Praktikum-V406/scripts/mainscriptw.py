@@ -59,7 +59,7 @@ x_1 = x_1/1000
 def I_function(x,x0,A0,b):
    return A0**2*b**2*l**2/(np.pi*b*np.sin(x-x0))**2*np.sin(np.pi*b*np.sin(x-x0)/l)**2
 
-params,covar = curve_fit(I_function, x_1, I_1,p0=(0.001, 10**9, 0.000075))
+params,covar = curve_fit(I_function, x_1, I_1,p0=(0.001, 10, 0.000075))
 
 
 
@@ -86,10 +86,10 @@ x_2, I_2 =np.genfromtxt('scripts/data2.txt', unpack=True)
 x_2 = x_2/1000
 I_2 = I_2/10**6
 
-def I_function2(x,x0,b,s):
-    return 4*np.cos(np.pi*s*np.sin(x-x0)/l)**2*l**2/(np.pi*b*np.sin(x-x0))**2*np.sin(np.pi*b*np.sin(x-x0)/l)**2
+def I_function2(x,x0,b,s,A0):
+    return 4*A0*np.cos(np.pi*s*np.sin(x-x0)/l)**2*l**2/(np.pi*b*np.sin(x-x0))**2*np.sin(np.pi*b*np.sin(x-x0)/l)**2
 
-params2,covar2 = curve_fit(I_function2,x_2,I_2)
+params2,covar2 = curve_fit(I_function2, x_2, I_2, p0=(10**-4,10**-4,10**-4,10**3))
 
 I_plot2 = np.linspace(-7/1000,7/1000,1000)
 plt.cla()
@@ -107,3 +107,4 @@ plt.savefig('content/images/Doppelspalt1.pdf')
 print('x0 von Doppelspalt 1: ', params2[0],'+/-',np.sqrt(covar2[0][0]))
 print('b von Doppelspalt 1: ', params2[1],'+/-',np.sqrt(covar2[1][1]))
 print('g von Doppelspalt 1: ', params2[2],'+/-',np.sqrt(covar2[2][2]))
+print('A0 von Doppelspalt 1:', params2[3],'+/-',np.sqrt(covar2[3][3]))
