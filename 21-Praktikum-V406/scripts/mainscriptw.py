@@ -89,7 +89,7 @@ I_2 = I_2/10**6
 def I_function2(x,x0,b,s,A0):
     return 4*A0*np.cos(np.pi*s*np.sin(x-x0)/l)**2*l**2/(np.pi*b*np.sin(x-x0))**2*np.sin(np.pi*b*np.sin(x-x0)/l)**2
 
-params2,covar2 = curve_fit(I_function2, x_2, I_2, p0=(10**-4,10**-4,10**-4,10**3))
+params2,covar2 = curve_fit(I_function2, x_2, I_2, p0=(10**-4,10**-4,10**-4,10**-7))
 
 I_plot2 = np.linspace(-7/1000,7/1000,1000)
 plt.cla()
@@ -108,3 +108,31 @@ print('x0 von Doppelspalt 1: ', params2[0],'+/-',np.sqrt(covar2[0][0]))
 print('b von Doppelspalt 1: ', params2[1],'+/-',np.sqrt(covar2[1][1]))
 print('g von Doppelspalt 1: ', params2[2],'+/-',np.sqrt(covar2[2][2]))
 print('A0 von Doppelspalt 1:', params2[3],'+/-',np.sqrt(covar2[3][3]))
+
+
+
+#c) Doppelspalt 2
+
+
+x_3, I_3 = np.genfromtxt('scripts/data3.txt', unpack=True)
+x_3 = x_3/1000
+I_3 = I_3/10**6
+
+params3,covar3 = curve_fit(I_function2, x_3, I_3, p0=(10**-4,10**-4,10**-4,10))
+
+plt.cla()
+plt.clf()
+plt.plot(I_plot2*1000, I_function2(I_plot2, *params3)*10**6,'b-', label='Ausgleichskurve')
+plt.plot(x_3*1000, I_3*10**6, 'rx', label='Messwerte')
+plt.xlabel(r'$\Delta x/\si{\milli\metre}$')
+plt.ylabel(r'$I/\si{\micro\ampere}$')
+#plt.xlim(-14, 14)
+#plt.ylim(0, 2.3/10)
+plt.legend(loc='best')
+plt.savefig('content/images/Doppelspalt2.pdf')
+
+
+print('x0 von Doppelspalt 2: ', params3[0],'+/-',np.sqrt(covar3[0][0]))
+print('b von Doppelspalt 2: ', params3[1],'+/-',np.sqrt(covar3[1][1]))
+print('g von Doppelspalt 2: ', params3[2],'+/-',np.sqrt(covar3[2][2]))
+print('A0 von Doppelspalt 2:', params3[3],'+/-',np.sqrt(covar3[3][3]))
