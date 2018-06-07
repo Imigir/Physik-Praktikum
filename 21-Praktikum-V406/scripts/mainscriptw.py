@@ -55,7 +55,7 @@ l=635*10**-9
 I_Dunkel = 0.34*10**-9
 x_1, I_1 = np.genfromtxt('scripts/data1.txt', unpack=True)
 
-
+makeTable([x_1,I_1,I_1-I_Dunkel*10**7], r'{'+r'$\Delta x/10^{-3}\si{\metre}$'+r'} & {'+r'$I_.{mess}/10^{-7}\si{\ampere}$'+r'} & {'+r'$I_.{eff}/10^{-7}\si{\ampere}$'+r'}','tabEinzel',['S[table-format=2.2]','S[table-format=1.3]','S[table-format=1.3]'], ["%2.2f","%1.3f","%1.3f"])
 
 I_1 = I_1/10**7-I_Dunkel
 x_1 = x_1/1000
@@ -86,6 +86,8 @@ print('b: ', params[2],'+/-',np.sqrt(covar[2][2]))
 #b)Doppelspalt 1
 
 x_2, I_2 =np.genfromtxt('scripts/data2.txt', unpack=True)
+
+makeTable([x_2,I_2,I_2-I_Dunkel*10**6], r'{'+r'$\Delta x/10^{-3}\si{\metre}$'+r'} & {'+r'$I_.{mess}/10^{-6}\si{\ampere}$'+r'} & {'+r'$I_.{eff}/10^{-6}\si{\ampere}$'+r'}','tabDoppel1',['S[table-format=2.2]','S[table-format=1.4]','S[table-format=1.4]'], ["%2.2f","%1.4f","%1.4f"])
 x_2 = x_2/1000
 I_2 = I_2/10**6-I_Dunkel
 
@@ -118,6 +120,10 @@ print('A0 von Doppelspalt 1:', params2[3],'+/-',np.sqrt(covar2[3][3]))
 
 
 x_3, I_3 = np.genfromtxt('scripts/data3.txt', unpack=True)
+
+
+makeTable([x_3,I_3,I_3-I_Dunkel*10**6], r'{'+r'$\Delta x/10^{-3}\si{\metre}$'+r'} & {'+r'$I_.{mess}/10^{-6}\si{\ampere}$'+r'} & {'+r'$I_.{eff}/10^{-6}\si{\ampere}$'+r'}','tabDoppel2',['S[table-format=2.2]','S[table-format=1.4]','S[table-format=1.4]'], ["%2.2f","%1.4f","%1.4f"])
+
 x_3 = x_3/1000
 I_3 = I_3/10**6-I_Dunkel
 
