@@ -118,7 +118,7 @@ x_3, I_3 = np.genfromtxt('scripts/data3.txt', unpack=True)
 x_3 = x_3/1000
 I_3 = I_3/10**6
 
-params3,covar3 = curve_fit(I_function2, x_3, I_3, p0=(10**-4,10**-4,10**-4,10))
+params3,covar3 = curve_fit(I_function2, x_3, I_3, p0=(0.0005,10**-4,5*10**-4,10**-6))
 
 plt.cla()
 plt.clf()
@@ -126,7 +126,7 @@ plt.plot(I_plot2*1000, I_function2(I_plot2, *params3)*10**6,'b-', label='Ausglei
 plt.plot(x_3*1000, I_3*10**6, 'rx', label='Messwerte')
 plt.xlabel(r'$\Delta x/\si{\milli\metre}$')
 plt.ylabel(r'$I/\si{\micro\ampere}$')
-#plt.xlim(-14, 14)
+#plt.xlim(-3.5, 3.5)
 #plt.ylim(0, 2.3/10)
 plt.legend(loc='best')
 plt.savefig('content/images/Doppelspalt2.pdf')
