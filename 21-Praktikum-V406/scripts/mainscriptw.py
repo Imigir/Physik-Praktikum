@@ -54,7 +54,10 @@ import scipy.constants as const
 l=635*10**-9
 I_Dunkel = 0.34*10**-9
 x_1, I_1 = np.genfromtxt('scripts/data1.txt', unpack=True)
-I_1 = I_1/10**7
+
+
+
+I_1 = I_1/10**7-I_Dunkel
 x_1 = x_1/1000
 def I_function(x,x0,A0,b):
    return A0**2*b**2*l**2/(np.pi*b*np.sin(x-x0))**2*np.sin(np.pi*b*np.sin(x-x0)/l)**2
@@ -84,7 +87,7 @@ print('b: ', params[2],'+/-',np.sqrt(covar[2][2]))
 
 x_2, I_2 =np.genfromtxt('scripts/data2.txt', unpack=True)
 x_2 = x_2/1000
-I_2 = I_2/10**6
+I_2 = I_2/10**6-I_Dunkel
 
 def I_function2(x,x0,b,s,A0):
     return 4*A0*np.cos(np.pi*s*np.sin(x-x0)/l)**2*l**2/(np.pi*b*np.sin(x-x0))**2*np.sin(np.pi*b*np.sin(x-x0)/l)**2
@@ -116,7 +119,7 @@ print('A0 von Doppelspalt 1:', params2[3],'+/-',np.sqrt(covar2[3][3]))
 
 x_3, I_3 = np.genfromtxt('scripts/data3.txt', unpack=True)
 x_3 = x_3/1000
-I_3 = I_3/10**6
+I_3 = I_3/10**6-I_Dunkel
 
 params3,covar3 = curve_fit(I_function2, x_3, I_3, p0=(0.0005,10**-4,5*10**-4,10**-6))
 
