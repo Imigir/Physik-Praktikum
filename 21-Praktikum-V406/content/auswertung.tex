@@ -2,9 +2,21 @@
 \label{sec:Auswertung}
 
 
-Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} 
+durchgeführt.
+\newline\newline
+Der gemessene Dunkelstrom beträgt $I_.Du=\SI{3,4e-10}{\metre}$.
+\subsection{Beugung am Einzelspalt}
 
-
+Die Messwerte zur Bestimmung der Spaltbreite $b$ eines Einzelspalts sind in Tabelle \ref{tab:1} zu finden. Dabei wird $I_.eff$ über Gleichung \eqref{eq:} berechnet.
+ Mit einer Regression der Form der Gleichung \eqref{eq:} ergibt sich
+\begin{align*}
+x_.0&= \SI{2,7(5)e-5}{\metre}\text{,} \\
+A_.0&= 5,71 \pm 0,02\text{,} \\
+b   &= \SI{8,22(3)e-5}{\metre}\text{.} \\
+\end{align*}
+Die Wellenlänge des Lasers beträgt $\lambda = \SI{635e-9}{\metre}$, der Abstand zwischen Spalt und Detektor beträgt $L=\SI{1}{\metre}$
+Der zugehörige Graph ist in Abbildung \ref{fig:Einzel} zu sehen.
 
 \begin{table}
 \caption{Messdaten der Stromintensitäten des Interferenzmusters eines Einzelspalts bis zum 1. Nebenmaximum}
@@ -13,11 +25,19 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 \label{tab:1}
 \end{table}
 
-\label{tab:1}
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Einzelspalt.pdf}
+\caption{Stromintensitäten des Interferenzmusters eines Einzelspalts in Abhängigkeit von der Verschiebung des Detektors}
+\label{fig:Einzel}
+\end{figure}
 
-
-
-
+\subsection{Beugung am Doppelspalt}
+Die Messwerte zur Bestimmung der Spaltbreite $b$ und des Spaltabstands $s$ zweier Doppelspalte sind in den Tabellen \ref{tab:2} und \ref{tab:3} zu finden.
+Mit einer Regression der Form der Gleichung \eqref{eq:} ergibt sich
+\begin{align*}
+x_.0 &= 
+\end{align*}
 \begin{table}
 	\centering
 	\caption{Messdaten der Stromintensitäten des Interferenzmusters eines Doppelspalts bis zum 2. Nebenmaximum}
@@ -33,12 +53,6 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 	\label{tab:3}
 \end{table}
 
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Einzelspalt.pdf}
-\caption{Stromintensitäten des Interferenzmusters eines Einzelspalts in Abhängigkeit von der Verschiebung des Detektors}
-\label{fig:Einzel}
-\end{figure}
 
 \begin{figure}
 \centering
