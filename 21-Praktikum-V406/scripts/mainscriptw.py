@@ -64,7 +64,7 @@ x_1 = x_1/1000
 def I_function(x,x0,A0,b):
    return A0**2*b**2*l**2/(np.pi*b*np.sin(x-x0))**2*np.sin(np.pi*b*np.sin(x-x0)/l)**2
 
-params,covar = curve_fit(I_function, x_1, I_1,p0=(0.001, 10, 0.000075))
+params,covar = curve_fit(I_function, x_1, I_1-I_Dunkel,p0=(0.001, 10, 0.000075))
 
 
 
@@ -73,9 +73,9 @@ I_plot = np.linspace(-18/1000, 18/1000, 1000)
 plt.cla()
 plt.clf()
 plt.plot(I_plot*1000, I_function(I_plot, *params)*10**6,'b-', label='Ausgleichskurve')
-plt.plot(x_1*1000, I_1*10**6, 'rx', label='Messwerte')
-plt.xlabel(r'$\Delta x/\si{\milli\metre}$')
-plt.ylabel(r'$I/\si{\micro\ampere}$')
+plt.plot(x_1*1000, I_1*10**6-I_Dunkel*10**6, 'rx', label='Messwerte')
+plt.xlabel(r'$\Delta x/10^{-3}\si{\metre}$')
+plt.ylabel(r'$I/10^{-6}\si{\ampere}$')
 #plt.xlim(-14, 14)
 #plt.ylim(0, 2.3/10)
 plt.legend(loc='best')
@@ -98,19 +98,20 @@ I_2 = I_2/10**6-I_Dunkel
 def I_function2(x,x0,b,s,A0):
     return 4*A0*np.cos(np.pi*s*np.sin(x-x0)/l)**2*l**2/(np.pi*b*np.sin(x-x0))**2*np.sin(np.pi*b*np.sin(x-x0)/l)**2
 
-params2,covar2 = curve_fit(I_function2, x_2, I_2, p0=(10**-4,10**-4,10**-4,10**-7))
+params2,covar2 = curve_fit(I_function2, x_2, I_2-I_Dunkel, p0=(10**-4,10**-4,10**-4,10**-7))
 
 I_plot2 = np.linspace(-7/1000,7/1000,1000)
 plt.cla()
 plt.clf()
 plt.plot(I_plot2*1000, I_function2(I_plot2, *params2)*10**6,'b-', label='Ausgleichskurve')
-plt.plot(x_2*1000, I_2*10**6, 'rx', label='Messwerte')
-plt.xlabel(r'$\Delta x/\si{\milli\metre}$')
-plt.ylabel(r'$I/\si{\micro\ampere}$')
+plt.plot(x_2*1000, I_2*10**6-I_Dunkel*10**6, 'rx', label='Messwerte')
+plt.xlabel(r'$\Delta x/10^{-3}\si{\metre}$')
+plt.ylabel(r'$I/10^{-6}\si{\ampere}$')
 #plt.xlim(-14, 14)
 #plt.ylim(0, 2.3/10)
 plt.legend(loc='best')
 plt.savefig('content/images/Doppelspalt1.pdf')
+
 
 
 print('x0 von Doppelspalt 1: ', params2[0],'+/-',np.sqrt(covar2[0][0]))
@@ -131,14 +132,14 @@ makeTable([x_3,I_3,I_3-I_Dunkel*10**6], r'{'+r'$\Delta x/10^{-3}\si{\metre}$'+r'
 x_3 = x_3/1000
 I_3 = I_3/10**6-I_Dunkel
 
-params3,covar3 = curve_fit(I_function2, x_3, I_3, p0=(0.0005,10**-4,5*10**-4,10**-6))
+params3,covar3 = curve_fit(I_function2, x_3, I_3-I_Dunkel, p0=(0.0005,10**-4,5*10**-4,10**-6))
 
 plt.cla()
 plt.clf()
 plt.plot(I_plot2*1000, I_function2(I_plot2, *params3)*10**6,'b-', label='Ausgleichskurve')
-plt.plot(x_3*1000, I_3*10**6, 'rx', label='Messwerte')
-plt.xlabel(r'$\Delta x/\si{\milli\metre}$')
-plt.ylabel(r'$I/\si{\micro\ampere}$')
+plt.plot(x_3*1000, I_3*10**6-I_Dunkel*10**6, 'rx', label='Messwerte')
+plt.xlabel(r'$\Delta x/10^{-3}\si{\metre}$')
+plt.ylabel(r'$I/10^{-6}\si{\ampere}$')
 plt.xlim(-3.5, 3.5)
 #plt.ylim(0, 2.3/10)
 plt.legend(loc='best')
