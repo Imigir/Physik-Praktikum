@@ -47,4 +47,16 @@ Bei einer Hochvakuumdiode wird dazu in einem evakuierten Glasbehälter zwischen 
 \caption{Schematischer Aufbau einer Hochvakuum-Diode\cite{V504}
 \label{fig:HVD}}
 \end{figure}
-\subsubsection{Langmuir-Schottky}
+\subsubsection{Langmuir-Schottky-Gleichung und Anlaufstrom}
+Beim Durchlaufen des Feldes zwischen Kathode und Anode werden die Elektronen beschleunigt und haben somit keine konstante Geschwindigkeit $v$.
+Da aber die Stromdichte $j$ an jedem Punkt gleich ist, muss wegen $j=v\rho$
+die Raumladungsdichte $\rho$ eine Funktion des Orts sein und in der Nähe der Anode geringer werden. Die Ladungsanhäufung in der Nähe der Kathode führt zu einer Schwächung des E-Felds, sodass für geringe Saugspannungen $V$ Langmuir-Schottky-Raumladungsgleichung gilt:
+\begin{equation*}
+j = \frac{4}{9}\epsillon_.0\sqrt{2\frac{e_.0V^3}{m_.0a^2}}
+\end{equation*}
+und somit
+\begin{equation}
+I = \frac{4}{9}A\epsillon_.0\sqrt{2\frac{e_.0V^3}{m_.0a^2}}\text{.}
+\label{eq:langmuir}
+\end{equation}
+Dabei beschreibt $a$ den Abstand zur Kathode.
