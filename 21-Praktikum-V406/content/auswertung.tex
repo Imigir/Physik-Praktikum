@@ -12,22 +12,22 @@ Die Wellenlänge des Lasers beträgt $\lambda = \SI{635e-9}{\metre}$, der Abstan
 Die Messwerte zur Bestimmung der Spaltbreite $b$ eines Einzelspalts sind in Tabelle \ref{tab:1} zu finden. Dabei ist $I_.{eff}$ die Intensität unter Berücksichtigung des Dunkelstroms.
 Mit einer Regression der Form 
 \[
-I(\Delta x)=A^2\cdot b^2\cdot\left(
-\frac{\lambda}{\pi b \sin{\left(\frac{\Delta x-x_.0}{L}\right)}}\right)^2\cdot\sin^2{\left(\frac{\pi b\sin{\left(\frac{\Delta x-x_.0}{L}\right)}}{\lambda}\right)}
+I(\Delta x)=A\cdot\left(
+\frac{\lambda}{\pi \sin{\left(\frac{\Delta x-x_.0}{L}\right)}}\right)^2\cdot\sin^2{\left(\frac{\pi b\sin{\left(\frac{\Delta x-x_.0}{L}\right)}}{\lambda}\right)}
 \]
 ergibt sich mit den Startwerten
 \begin{equation*}
 p_0=
 \begin{cases}
 \SI{e-3}{\metre} 					& \text{für } x_.0\\
-\SI{10}{\sqrt{\ampere}\per\metre}	& \text{für } A\\
+\SI{10}{\ampere\per\metre\squared}	& \text{für } A\\
 \SI{7,5e-5}{\metre}					& \text{für } b\\
 \end{cases}
 \end{equation*}
 für die Parameter
 \begin{align*}
 x_.0&= \SI{2,7(5)e-5}{\metre}\text{,} \\
-A	&= \SI{5,71(2)}{\sqrt{\ampere}\per\metre}\text{,} \\
+A	&= \SI{5,71(2)}{\ampere\per\metre\squared}\text{,} \\
 b   &= \SI{8,22(3)e-5}{\metre}\text{.} \\
 \end{align*}
 Der zugehörige Graph ist in Abbildung \ref{fig:Einzel} zu sehen.
