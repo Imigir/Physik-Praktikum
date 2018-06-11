@@ -12,19 +12,22 @@ Die Wellenlänge des Lasers beträgt $\lambda = \SI{635e-9}{\metre}$, der Abstan
 Die Messwerte zur Bestimmung der Spaltbreite $b$ eines Einzelspalts sind in Tabelle \ref{tab:1} zu finden. Dabei ist $I_.{eff}$ die Intensität unter Berücksichtigung des Dunkelstroms.
 Mit einer Regression der Form 
 \[
-I(\Delta x)=A^2_.0\cdot b^2\cdot\left(
+I(\Delta x)=A^2\cdot b^2\cdot\left(
 \frac{\lambda}{\pi b \sin{\left(\frac{\Delta x-x_.0}{L}\right)}}\right)^2\cdot\sin^2{\left(\frac{\pi b\sin{\left(\frac{\Delta x-x_.0}{L}\right)}}{\lambda}\right)}
 \]
 ergibt sich mit den Startwerten
-\begin{align*}
-x_.0	&=\SI{e-3}{\metre}\text{,}\\
-A_.0	&=\SI{10}{\sqrt{\ampere}\per\metre}\text{,}\\
-b		&=\SI{7,5e-5}{\metre}\\
-\end{align*}
+\begin{equation*}
+p_0=
+\begin{cases}
+\SI{e-3}{\metre} 					& \text{für } x_.0\\
+\SI{10}{\sqrt{\ampere}\per\metre}	& \text{für } A\\
+\SI{7,5e-5}{\metre}					& \text{für } b\\
+\end{cases}
+\end{equation*}
 für die Parameter
 \begin{align*}
 x_.0&= \SI{2,7(5)e-5}{\metre}\text{,} \\
-A_.0&= \SI{5,71(2)}{\sqrt{\ampere}\per\metre}\text{,} \\
+A	&= \SI{5,71(2)}{\sqrt{\ampere}\per\metre}\text{,} \\
 b   &= \SI{8,22(3)e-5}{\metre}\text{.} \\
 \end{align*}
 Der zugehörige Graph ist in Abbildung \ref{fig:Einzel} zu sehen.
@@ -48,39 +51,45 @@ Die Messwerte zur Bestimmung der Spaltbreite $b$ und des Spaltabstands $s$ zweie
 Mit einer Regression der Form 
 \[
 \begin{split}
-I(\Delta x)=4&\cdot A_.{0,D1/2}\cdot \left(
+I(\Delta x)=4&\cdot A_.{D1/2}\cdot \left(
 \frac{\lambda}{\pi\cdot b_.{D1/2}\cdot\sin{\left(\frac{\Delta x-x_.{0,D1/2}}{L}\right)}}\right)^2\cdot\cos^2{\left(\frac{\pi\cdot s_.{D1/2}\cdot \sin{\left(\frac{\Delta x-x_.{0,D1/2}}{L}\right)}}{\lambda}\right)}\\
 &\cdot\sin^2{\left(\frac{\pi\cdot b_.{D1/2}\cdot\sin{\left(\frac{\Delta x-x_.{0,D1/2}}{L}\right)}}{\lambda}\right)}
 \end{split}
 \]
 ergibt sich für den 1. Doppelspalt mit den Startwerten
-\begin{align*}
-x_.{0,D1} 	&=\SI{e-4}{\metre}\text{,}\\
-A_.{0,D1} 	&=\SI{e-7}{\ampere}\text{,}\\
-b_.{D1} 	&=\SI{e-4}{\metre}\text{,}\\
-s_.{D1} 	&=\SI{e-4}{\metre}\\
-\end{align*}
+\begin{equation*}
+p_0=
+\begin{cases}
+\SI{e-4}{\metre}		& \text{für } x_.{0,D1}\\
+\SI{e-7}{\ampere}		& \text{für } A_.{D1}\\
+\SI{e-4}{\metre}		& \text{für } b_.{D1}\\
+\SI{e-4}{\metre}		& \text{für } s_.{D1}\\
+\end{cases}
+\end{equation*}
 für die Parameter
 \begin{align*}
 x_.{0,D1} &= \SI{2,69(5)e-4}{\metre}\\
-A_.{0,D1} &= \SI{8,12(8)e-7}{\ampere}\\
+A_.{D1} &= \SI{8,12(8)e-7}{\ampere}\\
 b_.{D1}	  &= \SI{1,57(1)e-4}{\metre}\\
 s_.{D1}	  &= \SI{2,48(1)e-4}{\metre}\\
 \end{align*}
 und für den 2. Doppelspalt 
 \begin{align*}
 x_.{0,D2} &= \SI{3,5(1)e-4}{\metre}\text{,}\\
-A_.{0,D2} &= \SI{7,5(3)e-7}{\ampere}\text{,}\\
+A_.{D2} &= \SI{7,5(3)e-7}{\ampere}\text{,}\\
 b_.{D2}	  &= \SI{1,63(6)e-4}{\metre}\text{,}\\
 s_.{D2}	  &= \SI{5,00(5)e-4}{\metre}\\
 \end{align*}
 mit den Startwerten
-\begin{align*}
-x_.{0,D2} 	&=\SI{5e-4}{\metre}\text{,}\\
-A_.{0,D2} 	&=\SI{e-6}{\ampere}\text{,}\\
-b_.{D2} 	&=\SI{e-4}{\metre}\text{,}\\
-s_.{D2} 	&=\SI{5e-4}{\metre}\text{.}\\
-\end{align*}
+\begin{equation*}
+p_0=
+\begin{cases}
+\SI{5e-4}{\metre}		& \text{für } x_.{0,D2}\\
+\SI{e-6}{\ampere}		& \text{für } A_.{D2}\\
+\SI{e-4}{\metre}		& \text{für } b_.{D2}\\
+\SI{5e-4}{\metre}		& \text{für } s_.{D2}\\
+\end{cases}
+\end{equation*}
 Die zugehörigen Graphen sind in Abbildung \ref{fig:Doppel1} und\ref{fig:Doppel2} zu sehen.
 \begin{table}
 	\centering
