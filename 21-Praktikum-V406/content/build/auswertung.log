@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650 64-bit) (preloaded format=pdflatex 2018.4.3)  9 JUN 2018 15:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.3)  11 JUN 2018 20:38
 entering extended mode
 **./auswertung.tex
 (auswertung.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
+Babel <3.15> and hyphenation patterns for 72 language(s) loaded.
 ! Undefined control sequence.
 l.1 \section
             {Auswertung}
@@ -703,13 +703,13 @@ Missing character: There is no p in font nullfont!
 <inserted text> 
                 $
 l.20 p_
-       .0 = (x_.0&=\SI{e-3}{\metre}\text{,}\\
+       .0 	&= x_.0=\SI{e-3}{\metre}\text{,}\\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Misplaced alignment tab character &.
-l.20 p_.0 = (x_.0&
-                  =\SI{e-3}{\metre}\text{,}\\
+l.20 p_.0 	&
+            = x_.0=\SI{e-3}{\metre}\text{,}\\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -718,7 +718,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.20 p_.0 = (x_.0&=\SI
+l.20 p_.0 	&= x_.0=\SI
                       {e-3}{\metre}\text{,}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -727,7 +727,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.20 p_.0 = (x_.0&=\SI{e-3}{\metre
+l.20 p_.0 	&= x_.0=\SI{e-3}{\metre
                                   }\text{,}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -736,7 +736,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.20 p_.0 = (x_.0&=\SI{e-3}{\metre}\text
+l.20 p_.0 	&= x_.0=\SI{e-3}{\metre}\text
                                         {,}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -745,8 +745,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Misplaced alignment tab character &.
-l.21 		A_.0&
-            =\SI{10}{\sqrt{\ampere}\per\metre}\text{,}\\
+l.21 A_.0	&
+           =\SI{10}{\sqrt{\ampere}\per\metre}\text{,}\\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -755,8 +755,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.21 		A_.0&=\SI
-                {10}{\sqrt{\ampere}\per\metre}\text{,}\\
+l.21 A_.0	&=\SI
+               {10}{\sqrt{\ampere}\per\metre}\text{,}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -764,8 +764,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.21 		A_.0&=\SI{10}{\sqrt{\ampere
-                                  }\per\metre}\text{,}\\
+l.21 A_.0	&=\SI{10}{\sqrt{\ampere
+                                 }\per\metre}\text{,}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -773,8 +773,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.21 		A_.0&=\SI{10}{\sqrt{\ampere}\per
-                                       \metre}\text{,}\\
+l.21 A_.0	&=\SI{10}{\sqrt{\ampere}\per
+                                      \metre}\text{,}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -782,8 +782,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.21 		A_.0&=\SI{10}{\sqrt{\ampere}\per\metre
-                                             }\text{,}\\
+l.21 A_.0	&=\SI{10}{\sqrt{\ampere}\per\metre
+                                            }\text{,}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -791,7 +791,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.21 ....0&=\SI{10}{\sqrt{\ampere}\per\metre}\text
+l.21 A_.0	&=\SI{10}{\sqrt{\ampere}\per\metre}\text
                                                   {,}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -800,8 +800,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Misplaced alignment tab character &.
-l.22 		b	&
-          =\SI{7,5e-5}{\metre})\\
+l.22 b		&
+         =\SI{7,5e-5}{\metre}\\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -810,8 +810,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.22 		b	&=\SI
-              {7,5e-5}{\metre})\\
+l.22 b		&=\SI
+             {7,5e-5}{\metre}\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -819,8 +819,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.22 		b	&=\SI{7,5e-5}{\metre
-                             })\\
+l.22 b		&=\SI{7,5e-5}{\metre
+                            }\\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1103,8 +1103,8 @@ Overfull \hbox (18.43053pt too wide) in paragraph at lines 17--31
  []
 
 
-Overfull \hbox (28.0347pt too wide) in paragraph at lines 17--31
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 0 =
+Overfull \hbox (24.1458pt too wide) in paragraph at lines 17--31
+\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 0 =
  []
 
 
@@ -1128,8 +1128,8 @@ Overfull \hbox (14.84717pt too wide) in paragraph at lines 17--31
  []
 
 
-Overfull \hbox (40.21176pt too wide) in paragraph at lines 17--31
-[][]\OT1/cmr/m/n/10 )[] 
+Overfull \hbox (36.32286pt too wide) in paragraph at lines 17--31
+[][][] 
  []
 
 
@@ -1310,11 +1310,11 @@ l.34 \input{content/tables/tabEinzel.tex}
 
  
 Here is how much of TeX's memory you used:
- 23 strings out of 493305
- 596 string characters out of 3138875
- 55825 words of memory out of 3000000
- 3670 multiletter control sequences out of 15000+200000
+ 23 strings out of 493346
+ 568 string characters out of 3130688
+ 55580 words of memory out of 3000000
+ 3655 multiletter control sequences out of 15000+200000
  3948 words of font info for 15 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 1127 hyphenation exceptions out of 8191
  20i,6n,26p,203b,93s stack positions out of 5000i,500n,10000p,200000b,50000s
 !  ==> Fatal error occurred, no output PDF file produced!
