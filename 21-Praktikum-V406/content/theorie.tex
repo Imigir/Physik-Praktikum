@@ -22,7 +22,11 @@ Um die Amplitude in einem Punkt $P$ der Beobachtungsebene zu bestimmen, muss nac
 \[
 \delta = \frac{2\pi x \sin \phi}{\lambda}
 \]
-besitzen. Wird von einer sich in $z$-Richtung ausbreiten einfallenden Welle mit Wellenlänge $\lambda$ der Form
+besitzen. Dabei kann $\phi$, aufgrund des im Vergleich zur Spaltbreite großen Abstandes $L$ der Beobachtungsebene zum Spalt, genähert werden durch:
+\begin{equation}
+\phi = \frac{x}{L} \text{.}\label{eq:phi}
+\end{equation} 
+Wird von einer sich in $z$-Richtung ausbreiten einfallenden Welle mit Wellenlänge $\lambda$ der Form
 \[
 A(z,t) = A_0\exp \left(i\left(\omega t-\frac{2\pi z}{\lambda}\right)\right)
 \]
@@ -31,9 +35,9 @@ ausgegangen, ergibt sich für die Amplitude $B$ des in $\phi$-Richtung abgelenkt
 B(z,t,\phi) = A_0 \int_0^b\exp\left(i\left(\omega t-\frac{2\pi z}{\lambda}+\delta\right)\right).dx\text{.}
 \]
 Nach ausführen des Integrals und unter Vernachlässigung der für das Experiment irrelevanten Terme ergibt sich mit der Vereinfachung
-\[
-\eta(x) := \frac{\pi x \sin \phi}{\lambda}
-\]
+\begin{equation}
+\eta(x) := \frac{\pi x \sin \phi}{\lambda} \label{eq:eta}
+\end{equation}
 schließlich:
 \[
 B_1(\phi) = A_0b\frac{\sin \eta(b)}{\eta(b)}\text{.}
