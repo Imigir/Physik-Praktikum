@@ -56,7 +56,24 @@ j = \frac{4}{9}\epsillon_.0\sqrt{2\frac{e_.0V^3}{m_.0a^2}}
 \end{equation*}
 und somit
 \begin{equation}
-I = \frac{4}{9}A\epsillon_.0\sqrt{2\frac{e_.0V^3}{m_.0a^2}}\text{.}
+I = \frac{4}{9}A\epsillon_.0\sqrt{2\frac{e_.0V^3}{m_.0a^2}}<I_.S\text{.}
 \label{eq:langmuir}
 \end{equation}
 Dabei beschreibt $a$ den Abstand zur Kathode.
+Außerdem verfügen einige Elektronen bei der Freisetzung aus der Kathode über genügend kinetische Energie um sogar gegen ein geringes Gegenfeld zur Anode zu wandern und so einen Anlaufstrom zu erzeugen.
+Je höher das Gegenfeld ist, desto geringer ist auch der Anlaufstrom:
+\begin{equation}
+I(V)=j_.0A\exp{\left(-\frac{e_.0\phi_.A+e_.0V}{k_.B	T}\right)}
+\label{eq:Anlauf}
+\end{equation}
+$e_.0\cdot\phi_.A$ ist dabei die Austrittsarbeit an der Anode
+\subsubsection{Die Kennlinie}
+Das Verhältnis von Anodenstrom zur Spannung wird Kennlinien der Hochvakuum-Diode genannt und teilt sich in die drei bereits behandelten Bereiche auf.
+Im $V<0$-Bereich des Anlaufstroms gibt es einen exponentiellen Anstieg des Stroms mit zunehmender Spannung. Anschließend herrscht im Raumladungsgebiet eine $\propto \sqrt{V^3}$-Steigung vor. Für hohe Spannungen nähert sich $I$ der Sättigungsspannung $I_.s$. Eine Darstellung davon ist in \ref{fig:Kennlinie} zu sehen.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Kennlinie.jpg}
+\caption{Kennlinie eienr Hochvakuum-Diode\cite{V504}}
+\label{fig:HVD}}
+\end{figure}
