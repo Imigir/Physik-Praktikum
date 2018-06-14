@@ -77,3 +77,19 @@ Im $V<0$-Bereich des Anlaufstroms gibt es einen exponentiellen Anstieg des Strom
 \caption{Kennlinie eienr Hochvakuum-Diode\cite{V504}}
 \label{fig:HVD}
 \end{figure}
+
+\subsection{Stefan-Boltzmann-Gesetz}
+Die Heizleistung der Glühkathode lässt sich mit Heizspannung und -strom, $V_.H$ und $I_.H$, berechnen zu
+\begin{equation*}
+P_.H=V_.HI_.H
+\end{equation*}
+Nach dem Stefan-Boltzmann-Gesetz gilt für die Strahlungsleistung:
+\begin{equation*}
+P_.{Str}= A\eta\sigma T^4\text{,}
+\end{equation*}
+mit der Stefan-Boltzmannschen Strahlungskonstante $\sigma$, dem Emissionsgrad der Oberfläche $\eta$, der Kathodenoberfläche $A$ und der Temperatur der Kathode $T$.
+Mit dem Energiesatz ergibt sich damit für letztere
+\begin{equation}
+T=\sqrt[4]{\left(\frac{V_.HI_.H-N_.{WL}}{A\eta\sigma}\right)}\text{.}\label{eq:T}
+\end{equation}
+$N_.WL$ ist dabei die Wärmeleitung der Diode.
