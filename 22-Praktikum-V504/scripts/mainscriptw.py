@@ -113,6 +113,8 @@ UH_23 = 5.5
 
 makeTable([UB_23,I_23*10**6], r'{'+r'$U_\text{B}/\si{\volt}$'+r'} & {'+r'$I_\text{2,3}/\si{\micro\ampere}$'+r'}' ,'tab23' , ['S[table-format=3.0]' , 'S[table-format=3.0]' ] , ["%3.0f", "%3.0f"])
 
+makeTable([UB_23,I_21*10**6,I_22*10**6,I_23*10**6], r'{'+r'$U_\text{B}/\si{\volt}$'+r'} & {'+r'$I_\text{2,1}/\si{\micro\ampere}$'+r'} & {'+r'$I_\text{2,2}/\si{\micro\ampere}$'+r'} & {'+r'$I_\text{2,3}/\si{\micro\ampere}$'+r'}' ,'tab21-3' , ['S[table-format=3.0]' , 'S[table-format=3.0]',  'S[table-format=3.0]',  'S[table-format=3.0]' ] , ["%3.0f", "%3.0f", "%3.0f", "%3.0f"])
+
 """
 plt.cla()
 plt.clf()
@@ -166,6 +168,8 @@ IH_25 = 2.5
 UH_25 = 6
 
 makeTable([UB_25,I_25*10**6], r'{'+r'$U_\text{B}/\si{\volt}$'+r'} & {'+r'$I_\text{2,5}/\si{\micro\ampere}$'+r'}' ,'tab25' , ['S[table-format=3.0]' , 'S[table-format=4.0]' ] , ["%3.0f", "%4.0f"])
+
+makeTable([UB_25,I_24*10**6,I_25*10**6], r'{'+r'$U_\text{B}/\si{\volt}$'+r'} & {'+r'$I_\text{2,4}/\si{\micro\ampere}$'+r'} & {'+r'$I_\text{2,5}/\si{\micro\ampere}$'+r'}' ,'tab24-5' , ['S[table-format=3.0]', 'S[table-format=4.0]' , 'S[table-format=4.0]' ] , ["%3.0f", "%4.0f", "%4.0f"])
 
 """
 plt.cla()
