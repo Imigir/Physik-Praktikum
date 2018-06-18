@@ -24,7 +24,7 @@ def makeTable(data, names, filename, formats=[], formats2=[]):
                 else:
                     TableFile.write(str(data[b][i]))
             else:
-                TableFile.write(r' ')
+                TableFile.write(r' NUL ')
             TableFile.write(r' & ')
         if not np.isnan(data[-1][i]):
             if formats2:
@@ -32,7 +32,7 @@ def makeTable(data, names, filename, formats=[], formats2=[]):
             else:
                 TableFile.write(str(data[-1][i]))
         else:
-            TableFile.write(r' ')
+            TableFile.write(r' NUL ')
         TableFile.write(r' \\')
         TableFile.write('\n\t\t')
 

@@ -19,8 +19,8 @@ In den Abbildungen \ref{fig:Kennlinien} und \ref{fig:Kennlinien2} sind die Kennl
 \begin{table}
 \centering
 \caption{Die gemessenen Stromstärken in Abhängigkeit der Beschleunigungsspannung bei Heizströmen von $I_.H=\SI{2,4}{\ampere}$ und $I_.H=\SI{2,5}{\ampere}$.}
-\input{content/tables/tab24.tex}
-\input{content/tables/tab25.tex}
+%\input{content/tables/tab24.tex}
+\input{content/tables/tab24-5.tex}
 \label{tab:2}
 \end{table}
 
@@ -43,9 +43,10 @@ In den Abbildungen \ref{fig:Kennlinien} und \ref{fig:Kennlinien2} sind die Kennl
 
 Bei dem Heizstrom $I_.H=\SI{2,5}{\ampere}$ kann die gesamte Kennlinie als Raumladungsgebiet betrachtet werden.
 Mithilfe von Formel \eqref{eq:langmuir} und einer linearen Ausgleichsrechnung der Form $\log(I)=a\log(U)+b$ ergibt sich mit den Werten aus Tabelle \ref{tab:2} für den Exponenten a in der Strom-Spannungs-Beziehung:
-\[
-a = 1,14\pm0,01\text{.}\\
-\]
+\begin{align*}
+a &= 1,14\pm0,01\text{,}\\
+b &= \SI{-12.14(4)}{\log\left(\ampere\per\volt\tothe{a}\right)}\text{.}
+\end{align*}
 
 \begin{figure}
 \centering
@@ -57,9 +58,14 @@ a = 1,14\pm0,01\text{.}\\
 \subsection{Bestimmung der Kathodentemperatur über den Anlaufstrom}
 \label{subsec:Temperatur}
 
-Mithilfe der Werte aus Tabelle \ref{tab:Anlaufstrom} wird eine lineare Ausgleichsrechnung der Form $\log(I)=aU+b$ durchgeführt. Dabei wird bei der Spannung der Innenwiderstand des Amperemeters von $R_.i=\SI{1}{\mega\ohm}$ berücksichtigt. Mit Formel \eqref{eq:Anlauf} ergibt sich:
+Mithilfe der Werte aus Tabelle \ref{tab:Anlaufstrom} wird eine lineare Ausgleichsrechnung der Form $\log(I)=\alpha U+\beta$ durchgeführt:
+\begin{align*}
+\alpha &= \SI{4,3(2)}{\per\volt}\text{,}\\
+\beta  &= \SI{-16.44(9)}{\log(\ampere)}\text{.}
+\end{align*}
+Dabei wird bei der Spannung der Innenwiderstand des Amperemeters von $R_.i=\SI{1}{\mega\ohm}$ berücksichtigt. Mit Formel \eqref{eq:Anlauf} ergibt sich:
 \[
-T = \frac{e_0}{k_.Ba} = \SI{2.7(1)}{\kelvin}\text{.}
+T = \frac{e_0}{k_.B\alpha} = \SI{2.7(1)}{\kelvin}\text{.}
 \]
 Die Werte aus der Tabelle sind in Abbildung \ref{fig:Anlaufstrom} graphisch dargestellt.
 
