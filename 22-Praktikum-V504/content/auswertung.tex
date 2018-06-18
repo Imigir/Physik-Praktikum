@@ -1,5 +1,105 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\subsection{Die Kennlinien der Diode bei unterschiedlichen Heizspannungen}
+
+In den Abbildungen \ref{fig:Kennlinien} und \ref{fig:Kennlinien2} sind die Kennlinien der Diode bei Heizströmen von $I_.H=\SI{2,1}{\ampere}$ bis $I_.H=\SI{2,5}{\ampere}$ aufgetragen. Die zugehörigen Messwerte befinden sich in den Tabellen \ref{tab:1} und \ref{tab:2}.
+
+\begin{table}
+\centering
+\caption{Die gemessenen Stromstärken in Abhängigkeit der Beschleunigungsspannung bei Heizströmen von $I_.H=\SI{2,1}{\ampere}$ bis $I_.H=\SI{2,3}{\ampere}$.}
+\input{content/tables/tab21.tex}
+\input{content/tables/tab22.tex}
+\input{content/tables/tab23.tex}
+\label{tab:1}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Die gemessenen Stromstärken in Abhängigkeit der Beschleunigungsspannung bei Heizströmen von $I_.H=\SI{2,4}{\ampere}$ und $I_.H=\SI{2,5}{\ampere}$.}
+\input{content/tables/tab24.tex}
+\input{content/tables/tab25.tex}
+\label{tab:2}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/IH_21-5.pdf}
+\caption{Die Kennlinien der Diode bei Heizströmen von $I_.H=\SI{2,1}{\ampere}$ bis $I_.H=\SI{2,5}{\ampere}$.}
+\label{fig:Kennlinien}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/IH_21-2.pdf}
+\caption{Die Kennlinien der Diode bei Heizströmen von $I_.H=\SI{2,1}{\ampere}$ und $I_.H=\SI{2,2}{\ampere}$.}
+\label{fig:Kennlinien2}
+\end{figure}
+
+\subsection{Bestimmung des Exponenten der Strom-Spannungs-Beziehung im Raumladungsgebiet}
+
+Bei dem Heizstrom $I_.H=\SI{2,5}{\ampere}$ kann die gesamte Kennlinie als Raumladungsgebiet betrachtet werden.
+Mithilfe von Formel \eqref{eq:langmuir} und einer linearen Ausgleichsrechnung der Form $\log(I)=a\log(U)+b$ ergibt sich mit den Werten aus Tabelle \ref{tab:2} für den Exponenten a in der Strom-Spannungs-Beziehung:
+\[
+a = 1,14\pm0.01\text{.}\\
+\]
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/IH_25_log.pdf}
+\caption{Die Kennlinie der Diode bei einem Heizstrom von $I_.H=\SI{2,5}{\ampere}$ in logarithmischer Darstellung im Raumladungsgebiet.}
+\label{fig:Kennlinie25_log}
+\end{figure}
+
+\subsection{Bestimmung der Kathodentemperatur über den Anlaufstrom}
+
+Mithilfe der Werte aus Tabelle \ref{tab:Anlaufstrom} wird eine lineare Ausgleichsrechnung der Form $\log(I)=aV+b$ durchgeführt. Mit Formel \eqref{eq:Anlauf} ergibt sich:
+\[
+T = \frac{e_0}{k_.Ba} = \SI{2.7(1)}{\kelvin}\text{.}
+\]
+Die Werte sind in Abbildung \ref{fig:Anlaufstrom} graphisch dargestellt.
+
+\begin{table}
+\centering
+\caption{Die gemessenen Stromstärken in Abhängigkeit der Beschleunigungsspannung bei Heizströmen von $I_.H=\SI{2,4}{\ampere}$ und $I_.H=\SI{2,5}{\ampere}$.}
+\input{content/tables/tabAnlaufstrom.tex}
+\label{tab:Anlaufstrom}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Anlaufstrom.pdf}
+\caption{Die Kennlinie der Diode bei einem Heizstrom von $I_.H=\SI{2,5}{\ampere}$ in halb-logarithmischer Darstellung im Bereich des Anlaufstroms.}
+\label{fig:Anlaufstrom}
+\end{figure}
+
+\subsection{Bestimmung des Sättigungsstromes, der Kathodentemperatur und der Austrittsarbeit der Diode}
+
+Der Sättigungsstrom $I_.S$ in Tabelle \ref{tab:STA} wird mithilfe der Abbildungen \ref{fig:Kennlinien} und \ref{fig:Kennlinien2} abgeschätzt.
+Die Leistung $W_.H$ errechnet sich durch $W_.H = I_.H U_.H$.
+Die Temperatur $T_.S$ berechnet sich nach Formel \eqref{eq:T}. Dabei wird ein Leistungsverlust durch die Wärmeleitung von $N_.{WL}=\SI{1}{\watt}$ angenommen. Die emittierende Kathodenoberfläche beträgt $A = \SI{0.32}{\centi\metre\squared}$. $\sigma=\SI{5.7e-12}{\watt\per\centi\per\metre\squared\per\kelvin\tothe{4}}$ ist die Stefan-Bolzmannsche Strahlungskonstante und $\eta=0,28$ der Emissionsgrad der Oberfläche.
+Die Austrittsarbeit $\phi$ in der Tabelle berechnet sich nach Umformen von Formel \eqref{eq:IS} durch:
+\[
+\phi = -\log\left(\frac{I_.Sh^3}{4\pi e_0m_0Ak_.B^2T^2}\right)\frac{k_.BT}{e_0}\text{.}
+\]
+Für die mittlere Austrittsarbeit $\bar{\phi}$ ergibt sich demnach mit der Formel für den Mittelwert
+\[
+\phi_\mu = \frac{1}{N}\sum_i\phi_i
+\]
+und die Standartabweichung
+\[
+\sigma_.{\phi}=\sqrt{\frac{1}{N^2-N}\sum_i \left(\phi_i-\phi_\mu\right)^2}
+\]
+mit den Werten aus der Tabelle ein Wert von
+\[
+\bar{\phi} = \SI{4.799(8)}{\electronvolt}\text{.}
+\]
+
+\begin{table}
+\centering
+\caption{Die Heizspannung $I_.H$,die Heizleistung $W_.H$ und die geschätzten Werte für den Sättigungsstrom $I_.S$, sowie die berechneten Werte für die Kathodentemperatur $T_.S$ und die Austrittsarbeit $\phi$.}
+\input{content/tables/tabSTA.tex}
+\label{tab:STA}
+\end{table}
