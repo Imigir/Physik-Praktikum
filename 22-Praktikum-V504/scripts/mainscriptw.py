@@ -280,5 +280,5 @@ print('phi_m=', phi_m)
 
 #weitereTabelle
 
-makeTable([IH,WH,IS*10**6,TS,phi], r'{'+r'$I_\text{H}/\si{\ampere}$'+r'} & {'+r'$W_\text{H}/\si{\watt}$'+r'} & {'+r'$I_\text{S}/\si{\micro\ampere}$'+r'} & {'+r'$T_\text{S}/\si{\kelvin}$'+r'} & {'+r'$\phi/\si{\electronvolt}$'+r'}' ,'tabSTA' , ['S[table-format=1.1]' , 'S[table-format=2.1]', 'S[table-format=4.0]', 'S[table-format=3.0]', 'S[table-format=1.2]'] ,  ["%1.1f", "%2.1f", "%4.0f", "%3.0f", "%1.2f"])
+makeTable([IH,UH,WH,IS*10**6,TS,phi], r'{'+r'$I_\text{H}/\si{\ampere}$'+r'} & {'+r'$U_\text{H}/\si{\volt}$'+r'} & {'+r'$W_\text{H}/\si{\watt}$'+r'} & {'+r'$I_\text{S}/\si{\micro\ampere}$'+r'} & {'+r'$T_\text{S}/\si{\kelvin}$'+r'} & {'+r'$\phi/\si{\electronvolt}$'+r'}' ,'tabSTA' , ['S[table-format=1.1]', 'S[table-format=1.2]' , 'S[table-format=2.1]', 'S[table-format=4.0]', 'S[table-format=3.0]', 'S[table-format=1.2]'] ,  ["%1.1f", "%1.2f", "%2.1f", "%4.0f", "%3.0f", "%1.2f"])
 
