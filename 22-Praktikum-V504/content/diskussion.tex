@@ -2,5 +2,23 @@
 \section{Diskussion}
 \label{sec:Diskussion}
 
-%Nicht weit genug das Plateau gemessen
-%ref Austrittsarbeit: $\phi_.{lit}=\SI{4.5}{\electronvolt}$
+\begin{table}
+\centering
+\caption{Die berechneten Werte im Vergleich zu ihren Referenzwerten.}
+\sisetup{table-format=1.2}
+	\begin{tabular}{ccc S[table-format=2.1]}
+		\toprule
+		{} & {berechneter Wert} & {Referenzwert} & {Abweichung$/\%$} \\
+		\midrule
+		a & 1,14  \pm 0,01 & 1,5 &  -24,0\\
+		T & \SI{2,7(1)}{\kelvin} & \SI{2,3}{\kelvin} & 17,4\\
+		$\phi$ & \SI{4,799(8)}{\electronvolt} & \SI{4,5}{\electronvolt} & 6,6\\
+		\bottomrule
+	\end{tabular}
+\label{tab:Diskussion}
+\end{table}
+
+\noindent In Abbildung \ref{fig:Kennlinien} ist zu erkennen, dass die Kennlinien für die Heitzspannungen von $I_.H=\SI{2.3}{\ampere}$ bis  $I_.H=\SI{2.5}{\ampere}$ nicht weit genug bis zum Plateau gemessen wurden, was die Abschätzung des Sättigungsstromes in Tabelle \ref{tab:STA} schwierig und fehleranfällig macht. Ansonsten folgen sie dem aus der Theorie erwateten Verlauf.
+Der in Abschnitt \ref{subsec:Exponent} bestimmte Wert für den Exponenten $a$ ist im Vergleich zum Theoriewet ziemlich klein (siehe Tabelle \ref{tab:Diskussion}). Dabei liegen die Werte in der logarithmischen Darstellung in Abbildung \ref{fig:Kennlinie25_log} alle gut auf der Ausgleichsgeraden.
+Die über den Anlaufstrom bestimmte Temperatur $T$ ist wie in Tabelle \ref{tab:Diskussion} zu sehen im Vergleich zu den später bestimmten Temperaturen etwas zu groß. Dies liegt vermutlich an der Empfindlichkeit der Messanordnung, da sich die gemessenen Ströme im $\si{\nano\ampere}$ Bereich befinden. Zudem wird das Ergebnis durch den Innenwiederstand der Kabel leicht verfälscht.
+Die Austrittsarbeit $\phi$ fällt ebenfalls zu groß aus, liegt aber in der nähe des Literaturwertes. Fehlerquelle ist hier der Sättigungsstrom, welcher nur grob abgeschätzt ist. Zudem könnten die Temperaturen zu hoch sein.
