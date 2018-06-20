@@ -95,3 +95,7 @@ e_m_350=8*a_350**2*350
 
 print('e0/m0_250: ',e_m_250)
 print('e0/m0_350: ',e_m_350)
+
+B_erde=my*8/np.sqrt(125)*N*0.2/R*np.cos(7/36*2*np.pi)
+
+print('B_erde: ', B_erde)
