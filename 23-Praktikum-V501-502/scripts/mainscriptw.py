@@ -48,3 +48,50 @@ import scipy.constants as const
 # params = unp.uarray(params, np.sqrt(np.diag(covar)))
 # makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
 
+
+#Magnetfeld
+R=0.282
+L=17.5/100
+N=20
+my=const.mu_0
+D,I_350,I_250 = np.genfromtxt('scripts/data7.txt', unpack=True)
+D=D*6.25/1000
+r=D/(L**2+D**2)
+print(r)
+B_350=my*8/np.sqrt(125)*N*I_350/R
+B_250=my*8/np.sqrt(125)*N*I_250/R
+
+def rad(B,a,c):
+    return a*B+c
+
+params1,covar1=curve_fit(rad,B_350,r)
+params2,covar2=curve_fit(rad,B_250,r)
+
+B_plot=np.linspace(0,22/10**5,1000)
+plt.cla()
+plt.clf()
+plt.plot(B_plot*10**5,rad(B_plot,*params2),'b-',label=r'Ausgleichsgerade:$U_\text{B} = \SI{250}{\volt}$')
+plt.plot(B_plot*10**5,rad(B_plot,*params1),'y-',label=r'Ausgleichsgerade:$U_\text{B} = \SI{350}{\volt}$')
+plt.plot(B_250*10**5, r, 'rx', label=r'Messwerte:$U_\text{B} = \SI{250}{\volt}$')
+plt.plot(B_350*10**5, r, 'gx', label=r'Messwerte:$U_\text{B} = \SI{350}{\volt}$')
+plt.ylabel(r'$r/\si{\metre}$')
+plt.xlabel(r'$B/10^{-5}\si{\tesla}$')
+plt.legend(loc='best')
+plt.savefig('content/images/GraphMag1.pdf')
+
+a_250=unp.uarray(params2[0],covar2[0][0])
+b_250=unp.uarray(params2[1],covar2[1][1])
+
+a_350=unp.uarray(params1[0],covar1[0][0])
+b_350=unp.uarray(params1[1],covar1[1][1])
+
+print('Steigung 250V: ', a_250)
+print('Achsenabschnitt 250V: ', b_250)
+print('Steigung 350V: ',a_350)
+print('Achsenabschnitt 350V: ',b_350)
+
+e_m_250=8*a_250**2*250
+e_m_350=8*a_350**2*350
+
+print('e0/m0_250: ',e_m_250)
+print('e0/m0_350: ',e_m_350)
