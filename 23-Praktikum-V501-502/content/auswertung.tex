@@ -3,3 +3,72 @@
 
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\subsection{Elektronen im E-Feld}
+\subsubsection{Empfindlichkeiten}
+In Tabelle \ref{tab:Elek} sind die Messwerte für die Ablenkspannungen $U_.d$ für eine Ablenkung $D$ benötigt werden bei den Beschleunigungsspannungen
+\begin{align*}
+U_.B&=\SI{310}{\volt},\\
+&=\SI{280}{\volt},\\
+&=\SI{260}{\volt},\\
+&=\SI{240}{\volt},\\
+&=\SI{220}{\volt}
+\end{align*}
+zu finden. Die mittels der linearen Regression $D(U_.d)=\alpha U_.d + \beta$ bestimmten Graphen sind in Abbildung \ref{fig:Elek} zu sehen.
+Es ergeben sich die Parameter
+\begin{align*}
+\alpha_.{310}&=\SI{1,050(6)e-3}{\metre\per\volt},\\
+\alpha_.{280}&=\SI{1,146(5)e-3}{\metre\per\volt},\\
+\alpha_.{260}&=\SI{1,227(9)e-3}{\metre\per\volt},\\
+\alpha_.{240}&=\SI{1,338(12)e-3}{\metre\per\volt},\\
+\alpha_.{220}&=\SI{1,460(12)e-3}{\metre\per\volt},\\
+\beta_.{310}&=\SI{-11,19(11)e-3}{\metre},\\
+\beta_.{280}&=\SI{-10,45(9)e-3}{\metre},\\
+\beta_.{260}&=\SI{-9,93(14)e-3}{\metre},\\
+\beta_.{240}&=\SI{-10,11(16)e-3}{\metre},\\
+\beta_.{220}&=\SI{-9,83(15)e-3}{\metre}
+\end{align*}
+In Abbildung \ref{fig:Elek2} sind die Empfindlichkeiten $\alpha$ gegen $\frac{1}{U_.B}$ aufgetragen.
+Eine lineare Ausgleichsrechnung der Form
+$\alpha\left(\frac{1}{U_.B}\right)=a\cdot\frac{1}{U_.B}+b$
+ergibt die Parameter
+\begin{align*}
+a&=\SI{0,313(8)}{\metre},\\
+b&=\SI{3,3(31)e-5}{\metre\per\volt}
+\end{align*}
+Der Theoriewert für die Steigung ergibt sich nach Formel \eqref{eq:} zu
+\[
+a_.{theo}=\SI{0,204}{\metre}
+\]
+\begin{table}
+\centering
+\caption{Messwerte der Ablenkspannungen bei verschiedenen Beschleunigungsspannungen $U_.B$}
+\input{content/tables/tabElek.tex}
+\label{tab:Elek}
+\end{table}
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/GraphElek.pdf}
+\caption{Das Verhältnis von Ablenkung $D$ zu Ablenkspannung $U_.d$ bei verschiedenen Beschleunigungsspannungen $U_.B$}\label{fig:Elek}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/GraphElek6.pdf}
+\caption{Das Verhältnis der Empfindlichkeit $\alpha$ zu $\frac{1}{U_.B}$ bei verschiedenen Beschleunigungsspannungen $U_.B$}\label{fig:Elek2}
+\end{figure}
+
+
+\begin{table}
+\centering
+\caption{Messwerte der Sägezahnspannungen}
+\input{content/tables/tabFreq.tex}
+\label{tab:Freq}
+\end{table}
+
+
+\begin{table}
+\centering
+\caption{Messwerte der Ablenkungen bei verschiedenen Beschleunigungsspannungen $U_.B$}
+\input{content/tables/tabMag.tex}
+\label{tab:Mag}
+\end{table}

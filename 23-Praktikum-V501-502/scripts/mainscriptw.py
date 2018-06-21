@@ -117,6 +117,8 @@ U_3=np.genfromtxt('scripts/data4.txt', unpack=True)
 U_4=np.genfromtxt('scripts/data5.txt', unpack=True)
 U_5=np.genfromtxt('scripts/data6.txt', unpack=True)
 
+makeTable([D_E*1000,U_1,U_2,U_3,U_4,U_5],r'{'+r'$D/\si{\metre}$'+r'} & {'+r'$U_.{d,310}/\si{\volt}$'+r'} & {'+r'$U_.{d,280}/\si{\volt}$'+r'} & {'+r'$U_.{d,260}/\si{\volt}$'+r'} & {'+r'$U_.{d,240}/\si{\volt}$'+r'} & {'+r'$U_.{d,220}/\si{\volt}$'+r'}','tabElek',['S[table-format=2.2]','S[table-format=2.1]','S[table-format=2.1]','S[table-format=2.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.2f","%2.1f","%2.1f","%2.1f","%2.1f","%2.1f"])
+
 def Dfunc(U,c,d):
     return c*U+d
 
@@ -159,11 +161,17 @@ b4=unp.uarray(para4[1],cova4[1])
 b5=unp.uarray(para5[1],cova5[1])
 
 a_array=np.array([para1[0],para2[0],para3[0],para4[0],para5[0]])
+b_array=np.array([para1[1],para2[1],para3[1],para4[1],para5[1]])
+af_array=np.array([cova1[0],cova2[0],cova3[0],cova4[0],cova5[0]])
+bf_array=np.array([cova1[1],cova2[1],cova3[1],cova4[1],cova5[1]])
 U_Barray=np.array([310,280,260,240,220])
 print(a_array)
+print(af_array)
+print(b_array)
+print(bf_array)
 def afunc(U,e,f):
     return e/U+f
-para6,cova6=curve_fit(afunc,U_Barray,a_array)
+para6,cova6,sigma_y=linregress(1/U_Barray,a_array)
 U2_plot=np.linspace(218,312,1000)
 
 
@@ -176,8 +184,8 @@ plt.xlabel(r'$\frac{1}{U_B}/\si{\volt}$')
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle6.pdf')
 
-a_ges=unp.uarray(para6[0],np.sqrt(cova6[0][0]))
-b_ges=unp.uarray(para6[1],np.sqrt(cova6[1][1]))
+a_ges=unp.uarray(para6[0],cova6[0])
+b_ges=unp.uarray(para6[1],cova6[1])
 Abweichung=(para6[0]/k-1)*100
 print('Steigung der a: ', a_ges)
 print('k: ',k)
