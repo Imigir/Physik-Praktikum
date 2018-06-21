@@ -57,15 +57,15 @@ my=const.mu_0
 D,I_350,I_250 = np.genfromtxt('scripts/data7.txt', unpack=True)
 D=D*6.25/1000
 r=D/(L**2+D**2)
-print(r)
+#print(r)
 B_350=my*8/np.sqrt(125)*N*I_350/R
 B_250=my*8/np.sqrt(125)*N*I_250/R
 
 def rad(B,a,c):
     return a*B+c
 
-params1,covar1=curve_fit(rad,B_350,r)
-params2,covar2=curve_fit(rad,B_250,r)
+params1,covar1,sigma_y=linregress(B_350,r)
+params2,covar2,sigma_y=linregress(B_250,r)
 
 B_plot=np.linspace(0,22/10**5,1000)
 plt.cla()
@@ -76,14 +76,15 @@ plt.plot(B_250*10**5, r, 'rx', label=r'Messwerte:$U_\text{B} = \SI{250}{\volt}$'
 plt.plot(B_350*10**5, r, 'gx', label=r'Messwerte:$U_\text{B} = \SI{350}{\volt}$')
 plt.ylabel(r'$r/\si{\metre}$')
 plt.xlabel(r'$B/10^{-5}\si{\tesla}$')
+plt.xlim(0,22)
 plt.legend(loc='best')
 plt.savefig('content/images/GraphMag1.pdf')
 
-a_250=unp.uarray(params2[0],covar2[0][0])
-b_250=unp.uarray(params2[1],covar2[1][1])
+a_250=unp.uarray(params2[0],covar2[0])
+b_250=unp.uarray(params2[1],covar2[1])
 
-a_350=unp.uarray(params1[0],covar1[0][0])
-b_350=unp.uarray(params1[1],covar1[1][1])
+a_350=unp.uarray(params1[0],covar1[0])
+b_350=unp.uarray(params1[1],covar1[1])
 
 print('Steigung 250V: ', a_250)
 print('Achsenabschnitt 250V: ', b_250)
@@ -104,12 +105,12 @@ makeTable([D*1000,r,I_250,B_250,I_350,B_350], r'{'+r'$D/10^{-3}\si{\metre}$'+r'}
 
 # E-Feld
 
-L2=0.156
+L2=(14.3)/100
 p=0.019
 d=0.00665
 k=p*L2/2/d
 D_E= np.genfromtxt('scripts/data1.txt',unpack=True)
-D_E=D_E*6.25/1000
+D_E=-D_E*6.25/1000
 U_1=np.genfromtxt('scripts/data2.txt', unpack=True)
 U_2=np.genfromtxt('scripts/data3.txt', unpack=True)
 U_3=np.genfromtxt('scripts/data4.txt', unpack=True)
@@ -119,82 +120,53 @@ U_5=np.genfromtxt('scripts/data6.txt', unpack=True)
 def Dfunc(U,c,d):
     return c*U+d
 
-para1,cova1=curve_fit(Dfunc,U_1,D_E)
-para2,cova2=curve_fit(Dfunc,U_2,D_E)
-para3,cova3=curve_fit(Dfunc,U_3,D_E)
-para4,cova4=curve_fit(Dfunc,U_4,D_E)
-para5,cova5=curve_fit(Dfunc,U_5,D_E)
+para1,cova1,sigma_y=linregress(U_1,D_E)
+para2,cova2,sigma_y=linregress(U_2,D_E)
+para3,cova3,sigma_y=linregress(U_3,D_E)
+para4,cova4,sigma_y=linregress(U_4,D_E)
+para5,cova5,sigma_y=linregress(U_5,D_E)
 
-"""
 U_plot=np.linspace(-14,35,1000)
 plt.cla()
 plt.clf()
-plt.plot(U_plot,Dfunc(U_plot,*para1),'b-',label=r'Ausgleichsgerade:$U_\text{B} = \SI{310}{\volt}$')
-plt.plot(U_1, D_E, 'rx', label=r'Messwerte:$U_\text{B} = \SI{310}{\volt}$')
+plt.plot(U_plot,Dfunc(U_plot,*para1),'b-',label=r'$U_\text{B} = \SI{310}{\volt}$')
+plt.plot(U_1, D_E, 'bx')
+plt.plot(U_plot,Dfunc(U_plot,*para2),'g-',label=r'$U_\text{B} = \SI{280}{\volt}$')
+plt.plot(U_2, D_E, 'gx')
+plt.plot(U_plot,Dfunc(U_plot,*para3),'y-',label=r'$U_\text{B} = \SI{260}{\volt}$')
+plt.plot(U_3, D_E, 'yx')
+plt.plot(U_plot,Dfunc(U_plot,*para4),'r-',label=r'$U_\text{B} = \SI{240}{\volt}$')
+plt.plot(U_4, D_E, 'rx')
+plt.plot(U_plot,Dfunc(U_plot,*para5),'k-',label=r'$U_\text{B} = \SI{220}{\volt}$')
+plt.plot(U_5, D_E, 'kx')
 plt.ylabel(r'$D/\si{\metre}$')
 plt.xlabel(r'$U_.d/\si{\volt}$')
 plt.legend(loc='best')
-plt.savefig('content/images/GraphEle1.pdf')
-
-plt.cla()
-plt.clf()
-plt.plot(U_plot,Dfunc(U_plot,*para2),'b-',label=r'Ausgleichsgerade:$U_\text{B} = \SI{280}{\volt}$')
-plt.plot(U_2, D_E, 'rx', label=r'Messwerte:$U_\text{B} = \SI{280}{\volt}$')
-plt.ylabel(r'$D/\si{\metre}$')
-plt.xlabel(r'$U_.d/\si{\volt}$')
-plt.legend(loc='best')
-plt.savefig('content/images/GraphEle2.pdf')
-
-plt.cla()
-plt.clf()
-plt.plot(U_plot,Dfunc(U_plot,*para3),'b-',label=r'Ausgleichsgerade:$U_\text{B} = \SI{260}{\volt}$')
-plt.plot(U_3, D_E, 'rx', label=r'Messwerte:$U_\text{B} = \SI{260}{\volt}$')
-plt.ylabel(r'$D/\si{\metre}$')
-plt.xlabel(r'$U_.d/\si{\volt}$')
-plt.legend(loc='best')
-plt.savefig('content/images/GraphEle3.pdf')
+plt.savefig('content/images/GraphEle.pdf')
 
 
-plt.cla()
-plt.clf()
-plt.plot(U_plot,Dfunc(U_plot,*para4),'b-',label=r'Ausgleichsgerade:$U_\text{B} = \SI{240}{\volt}$')
-plt.plot(U_4, D_E, 'rx', label=r'Messwerte:$U_\text{B} = \SI{240}{\volt}$')
-plt.ylabel(r'$D/\si{\metre}$')
-plt.xlabel(r'$U_.d/\si{\volt}$')
-plt.legend(loc='best')
-plt.savefig('content/images/GraphEle4.pdf')
 
-plt.cla()
-plt.clf()
-plt.plot(U_plot,Dfunc(U_plot,*para5),'b-',label=r'Ausgleichsgerade:$U_\text{B} = \SI{220}{\volt}$')
-plt.plot(U_5, D_E, 'rx', label=r'Messwerte:$U_\text{B} = \SI{220}{\volt}$')
-plt.ylabel(r'$D/\si{\metre}$')
-plt.xlabel(r'$U_.d/\si{\volt}$')
-plt.legend(loc='best')
-plt.savefig('content/images/GraphEle5.pdf')
-"""
+a1=unp.uarray(para1[0],cova1[0])
+a2=unp.uarray(para2[0],cova2[0])
+a3=unp.uarray(para3[0],cova3[0])
+a4=unp.uarray(para4[0],cova4[0])
+a5=unp.uarray(para5[0],cova5[0])
 
-a1=unp.uarray(para1[0],cova1[0][0])
-a2=unp.uarray(para2[0],cova2[0][0])
-a3=unp.uarray(para3[0],cova3[0][0])
-a4=unp.uarray(para4[0],cova4[0][0])
-a5=unp.uarray(para5[0],cova5[0][0])
-
-b1=unp.uarray(para1[1],cova1[1][1])
-b2=unp.uarray(para2[1],cova2[1][1])
-b3=unp.uarray(para3[1],cova3[1][1])
-b4=unp.uarray(para4[1],cova4[1][1])
-b5=unp.uarray(para5[1],cova5[1][1])
+b1=unp.uarray(para1[1],cova1[1])
+b2=unp.uarray(para2[1],cova2[1])
+b3=unp.uarray(para3[1],cova3[1])
+b4=unp.uarray(para4[1],cova4[1])
+b5=unp.uarray(para5[1],cova5[1])
 
 a_array=np.array([para1[0],para2[0],para3[0],para4[0],para5[0]])
 U_Barray=np.array([310,280,260,240,220])
-#print(a_array)
+print(a_array)
 def afunc(U,e,f):
     return e/U+f
-para6,cova6=curve_fit(afunc,U_Barray,a_array)
+para6,cova6,sigma_y=linregress(U_Barray,a_array)
 U2_plot=np.linspace(218,312,1000)
 
-"""
+
 plt.cla()
 plt.clf()
 plt.plot(1/U2_plot,afunc(U2_plot,*para6),'b-',label=r'Ausgleichsgerade')
@@ -203,8 +175,11 @@ plt.ylabel(r'$a/\si{\metre\per\volt}$')
 plt.xlabel(r'$U_.B/\si{\volt}$')
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle6.pdf')
-"""
-a_ges=unp.uarray(para6[0],cova6[0][0])
-Abweichung=para6[0]/k*100
+
+a_ges=unp.uarray(para6[0],cova6[0])
+Abweichung=(para6[0]/k-1)*100
 print('Steigung der a: ', a_ges)
+print('k: ',k)
 print('Abweichung von der Theorie in %:',Abweichung)
+
+# Frequenz
