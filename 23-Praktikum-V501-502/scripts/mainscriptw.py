@@ -163,7 +163,7 @@ U_Barray=np.array([310,280,260,240,220])
 print(a_array)
 def afunc(U,e,f):
     return e/U+f
-para6,cova6,sigma_y=linregress(U_Barray,a_array)
+para6,cova6=curve_fit(afunc,U_Barray,a_array)
 U2_plot=np.linspace(218,312,1000)
 
 
@@ -172,14 +172,25 @@ plt.clf()
 plt.plot(1/U2_plot,afunc(U2_plot,*para6),'b-',label=r'Ausgleichsgerade')
 plt.plot(1/U_Barray, a_array, 'rx', label=r'Messwerte')
 plt.ylabel(r'$a/\si{\metre\per\volt}$')
-plt.xlabel(r'$U_.B/\si{\volt}$')
+plt.xlabel(r'$\frac{1}{U_B}/\si{\volt}$')
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle6.pdf')
 
-a_ges=unp.uarray(para6[0],cova6[0])
+a_ges=unp.uarray(para6[0],np.sqrt(cova6[0][0]))
+b_ges=unp.uarray(para6[1],np.sqrt(cova6[1][1]))
 Abweichung=(para6[0]/k-1)*100
 print('Steigung der a: ', a_ges)
 print('k: ',k)
 print('Abweichung von der Theorie in %:',Abweichung)
+print('y-Achsenabschnitt: ',b_ges)
 
 # Frequenz
+Amp=0.00625*1.5
+n,f=np.genfromtxt('scripts/data8.txt',unpack=True)
+makeTable([1/n,f,f/n],r'{'+r'$n$'+r'} & {'+r'$f/\si{\hertz}$'+r'} & {'+r'$f_.{sin}/\si{\hertz}$'+r'}','tabFreq',['S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]'],["%1.1f","%2.2f","%2.2f"])
+f_avg=unp.uarray(avg_and_sem(f/n)[0],avg_and_sem(f/n)[1])
+empfind=a_ges/350+b_ges
+S=Amp*350/(a_ges+350*b_ges)
+S2=Amp/empfind
+print('Mittelwert der Sinus-Frequenz: ',f_avg)
+print('Scheitelpunkt der Sinusspannung: ',S, 'oder ', S2)
