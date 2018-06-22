@@ -6,6 +6,7 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 \subsection{Elektronen im E-Feld}
 \subsubsection{Empfindlichkeiten}
+\label{sec:empf}
 In Tabelle \ref{tab:Elek} sind die Messwerte für die Ablenkspannungen $U_.d$ für eine Ablenkung $D$ benötigt werden bei den Beschleunigungsspannungen
 \begin{align*}
 U_.B&=\SI{310}{\volt},\\
@@ -57,13 +58,83 @@ a_.{theo}=\SI{0,204}{\metre}
 \caption{Das Verhältnis der Empfindlichkeit $\alpha$ zu $\frac{1}{U_.B}$ bei verschiedenen Beschleunigungsspannungen $U_.B$}\label{fig:Elek2}
 \end{figure}
 
-
+\subsubsection{Sinusfrequenz einer Kathodenstrahlröhre}
+Für die Sinusspannung $f_.{sin}$ der Kathodenstrahlröhre gilt das Verhältnis zur Sägezahnspannung $f_.{Säge}$:
+\[
+f_.{sin} = n\cdot f_.{Säge}
+\]
+Die gemessenen Sägezahn- und berechneten Sinusspannungen für verschiedene Verhältnisse bei $U_.B=\SI{350}{\volt}$ sind in Tabelle \ref{tab:Freq} zu finden.
+Mit der Formel für den Mittelwert
+\[
+\bar{f}_.{sin}=\frac{1}{N}\sum_i^Nf_.{sin,i}
+\]
+und der Standardabweichung 
+\[
+\sigma_.f=\sqrt{\frac{1}{N^2-N}\sum_i^N\left(f_.{sin,i}-\bar{f}_.{sin}\right)^2}
+\]
+Ergibt sich eine Sinusfrequenz von
+\[
+\bar{f}_.{sin}=\SI{79,29(1)}{\hertz}
+\]
+\noindent Die Amplitude $A$ der Sinusfrequenz wurde gemessen zu
+\[
+A=\SI{9,375e-3}{\metre}
+\]
+Da für die Ablenkung durch die Kathodenstrahlröhre gilt 
+\[
+A\approx\alpha U_.{d,max} = \left(\frac{a}{U_.B}\right)U_.{d,max}\text{,}
+\]
+lässt sich der Scheitelwert $S$ der Ablenkspannung bestimmen zu
+\[
+S=U_.{d,max}=\frac{AU_.B}{a}=\SI{10,5(3)}{\volt}\text{.}
+\]
+Der Fehler berechnet sich dabei nach der Gaußschen Fehlerfortpflanzung
+\begin{align*}
+\sigma_.S&=\sqrt{\left(\frac{\partial S}{\partial a}\right)^2\sigma^2_.a}\\
+&=\frac{AU_.B}{a^2}\cdot \sigma_.a
+\end{align*}
+$a$ und $\sigma_.a$ sind dabei aus Abschnitt \ref{sec:empf} bekannt.
 \begin{table}
 \centering
 \caption{Messwerte der Sägezahnspannungen}
 \input{content/tables/tabFreq.tex}
 \label{tab:Freq}
 \end{table}
+
+\subsection{Elektronen im B-Feld}
+\subsubsection{Die spezifische Ladung der Elektronen}
+In Tabelle \ref{tab:Mag} befinden sich die bei $U_.B=\SI{350}{\volt}$ und $U_.B=\SI{250}{\volt}$ aufgenommenen Messwerte für die zur Ablenkung $D$ benötigten Ströme $I$.
+$L$ ist dabei die Strecke zwischen Beschleunigerelektrode und Leuchtschirm auf der die Elektronen dem Magnetfeld ausgesetzt sind.
+Die Magnetische Flussdichte $B$ der Helmholtz-Spulen über Gleichung \eqref{eq:}.
+Eine lineare Regression der Form $\frac{D}{D^2+L^2}(B)=a_.{mag}B+b_.{mag}$ ergibt die Parameter
+\begin{align*}
+a_.{mag,250}&=\SI{8,57(23)e3}{1\per\tesla\per\metre}\text{,}\\
+a_.{mag,350}&=\SI{7,32(13)e3}{1\per\tesla\per\metre}\text{,}\\
+b_.{mag,250}&=\SI{74(24)e-3}{1\per\metre}\text{,}\\
+b_.{mag,350}&=\SI{33(16)e-3}{1\per\metre}
+\end{align*}
+In Abbildung \ref{fig:Mag} sind die zugehörigen Graphen zu sehen.
+Durch Koeffizientenvergleich mit Formel \eqref{eq:} zeigt sich das sich die spezifische Ladung des Elektrons über
+\[
+\frac{e_.0}{m_.e}=8a_.{mag}^2U_.B
+\]
+und damit 
+\begin{align*}
+\left(\frac{e_.0}{m_.e}\right)_.{250}&=\SI{1,47(8)e11}{\coulomb\per\kilogram}\\
+\left(\frac{e_.0}{m_.e}\right)_.{350}&=\SI{1,50(5)e11}{\coulomb\per\kilogram}
+\end{align*}
+Die Fehler berechnen sich dabei über die Gaußsche Fehlerfortpflanzung zu
+\begin{align*}
+\sigma_.{\frac{e_.0}{m_.e}}&=\sqrt{\left(\frac{\partial\left(\frac{e_.0}{m_.e}\right){\partial a}\right)^2\sigma^2_.a}\\
+&=16aU_.B\sigma_.a
+\end{align*}
+Der Literaturwert ergibt sich mit der Ladung des Elektrons $e_.0\approx\SI{1,60e-19}{\Coulomb}$ und der Masse des Elektrons $m_.e\approx\SI{9,11e-31}{\kilogram}$ zu 
+\[
+\frac{e_.0}{m_.e}\approx\SI{1,76e11}{\coulomb\per\kilogram}
+\]
+\subsubsection{Bestimmung des Erdmagnetfelds}
+Bei Aufstellung der Kathodenstrahlröhre in Ost-West-Richtung ergibt sich eine Verschiebung des Leuchtflecks um $D=\SI{6,25e-3}{\metre}$ im Vergleich zur Nord-Südrichtung.
+Um diese zu kompensieren wird ein Strom von $I=\SI{0,235}{\ampere}$. Der Inklinationswinkel beträgt $\phi=\SI{70}{\degree}$
 
 
 \begin{table}
@@ -72,3 +143,9 @@ a_.{theo}=\SI{0,204}{\metre}
 \input{content/tables/tabMag.tex}
 \label{tab:Mag}
 \end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/GraphMag1.pdf}
+\caption{Das Verhältnis von $\frac{D}{D^2+L^2}$ zu magnetischer Flussdichte $B$ bei verschiedenen Beschleunigungsspannungen $U_.B$}\label{fig:Mag}
+\end{figure}

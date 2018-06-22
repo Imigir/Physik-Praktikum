@@ -74,7 +74,7 @@ plt.plot(B_plot*10**5,rad(B_plot,*params2),'b-',label=r'Ausgleichsgerade:$U_\tex
 plt.plot(B_plot*10**5,rad(B_plot,*params1),'y-',label=r'Ausgleichsgerade:$U_\text{B} = \SI{350}{\volt}$')
 plt.plot(B_250*10**5, r, 'rx', label=r'Messwerte:$U_\text{B} = \SI{250}{\volt}$')
 plt.plot(B_350*10**5, r, 'gx', label=r'Messwerte:$U_\text{B} = \SI{350}{\volt}$')
-plt.ylabel(r'$r/\si{\metre}$')
+plt.ylabel(r'$\frac{D}{D^2+L^2}/\si{\metre}$')
 plt.xlabel(r'$B/10^{-5}\si{\tesla}$')
 plt.xlim(0,22)
 plt.legend(loc='best')
@@ -100,7 +100,7 @@ print('e0/m0_350: ',e_m_350)
 B_erde=my*8/np.sqrt(125)*N*0.235/R/np.cos(7/36*2*np.pi)
 
 print('B_erde_150: ', B_erde)
-makeTable([D*1000,r,I_250,B_250,I_350,B_350], r'{'+r'$D/10^{-3}\si{\metre}$'+r'} & {'+r'$r/\si{\metre}$'+r'} & {'+r'$I_.{250}/\si{\ampere}$'+r'} & {'+r'$B_.{250}/10^{-5}\si{\tesla}$'+r'} & {'+r'$I_.{350}/\si{\ampere}$'+r'} & {'+r'$B_.{350}/10^{-5}\si{\tesla}$'+r'}', 'tabMag',['S[table-format=3.3]','S[table-format=1.2]','S[table-format=1.2]','S[table-format=2.2]','S[table-format=1.2]','S[table-format=2.2]'],["%3.3f","%1.2f","%1.2f","%2.2f","%1.2f","%2.2f"])
+makeTable([D*1000,r,I_250,B_250,I_350,B_350], r'{'+r'$D/10^{-3}\si{\metre}$'+r'} & {'+r'$\frac{D}{D^2+L^2}/\si{\metre}$'+r'} & {'+r'$I_.{250}/\si{\ampere}$'+r'} & {'+r'$B_.{250}/10^{-5}\si{\tesla}$'+r'} & {'+r'$I_.{350}/\si{\ampere}$'+r'} & {'+r'$B_.{350}/10^{-5}\si{\tesla}$'+r'}', 'tabMag',['S[table-format=2.2]','S[table-format=1.2]','S[table-format=1.2]','S[table-format=2.2]','S[table-format=1.2]','S[table-format=2.2]'],["%2.2f","%1.2f","%1.2f","%2.2f","%1.2f","%2.2f"])
 
 
 # E-Feld
@@ -195,10 +195,10 @@ print('y-Achsenabschnitt: ',b_ges)
 # Frequenz
 Amp=0.00625*1.5
 n,f=np.genfromtxt('scripts/data8.txt',unpack=True)
-makeTable([1/n,f,f/n],r'{'+r'$n$'+r'} & {'+r'$f/\si{\hertz}$'+r'} & {'+r'$f_.{sin}/\si{\hertz}$'+r'}','tabFreq',['S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]'],["%1.1f","%2.2f","%2.2f"])
+makeTable([1/n,f,f/n],r'{'+r'$n$'+r'} & {'+r'$f_.{Säge}/\si{\hertz}$'+r'} & {'+r'$f_.{sin}/\si{\hertz}$'+r'}','tabFreq',['S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]'],["%1.1f","%2.2f","%2.2f"])
 f_avg=unp.uarray(avg_and_sem(f/n)[0],avg_and_sem(f/n)[1])
-empfind=a_ges/350+b_ges
-S=Amp*350/(a_ges+350*b_ges)
+empfind=a_ges/350
+S=Amp*350/(a_ges)
 S2=Amp/empfind
 print('Mittelwert der Sinus-Frequenz: ',f_avg)
 print('Scheitelpunkt der Sinusspannung: ',S, 'oder ', S2)
