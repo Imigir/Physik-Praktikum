@@ -142,7 +142,7 @@ plt.plot(U_4, D_E, 'rx')
 plt.plot(U_plot,Dfunc(U_plot,*para5),'k-',label=r'$U_\text{B} = \SI{220}{\volt}$')
 plt.plot(U_5, D_E, 'kx')
 plt.ylabel(r'$D/\si{\metre}$')
-plt.xlabel(r'$U_.d/\si{\volt}$')
+plt.xlabel(r'$U_d/\si{\volt}$')
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle.pdf')
 
@@ -179,8 +179,8 @@ plt.cla()
 plt.clf()
 plt.plot(1/U2_plot,afunc(U2_plot,*para6),'b-',label=r'Ausgleichsgerade')
 plt.plot(1/U_Barray, a_array, 'rx', label=r'Messwerte')
-plt.ylabel(r'$a/\si{\metre\per\volt}$')
-plt.xlabel(r'$\frac{1}{U_B}/\si{\volt}$')
+plt.ylabel(r'$\alpha/\si{\metre\per\volt}$')
+plt.xlabel(r'$U_B^{-1}/\si{\volt}$')
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle6.pdf')
 
@@ -195,7 +195,7 @@ print('y-Achsenabschnitt: ',b_ges)
 # Frequenz
 Amp=0.00625*1.5
 n,f=np.genfromtxt('scripts/data8.txt',unpack=True)
-makeTable([1/n,f,f/n],r'{'+r'$n$'+r'} & {'+r'$f_.{Säge}/\si{\hertz}$'+r'} & {'+r'$f_.{sin}/\si{\hertz}$'+r'}','tabFreq',['S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]'],["%1.1f","%2.2f","%2.2f"])
+#makeTable([1/n,f,f/n],r'{'+r'$n$'+r'} & {'+r'$f_.{Säge}/\si{\hertz}$'+r'} & {'+r'$f_.{sin}/\si{\hertz}$'+r'}','tabFreq',['S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]'],["%1.1f","%2.2f","%2.2f"])
 f_avg=unp.uarray(avg_and_sem(f/n)[0],avg_and_sem(f/n)[1])
 empfind=a_ges/350
 S=Amp*350/(a_ges)

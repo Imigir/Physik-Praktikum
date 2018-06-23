@@ -125,27 +125,32 @@ und damit
 \end{align*}
 Die Fehler berechnen sich dabei über die Gaußsche Fehlerfortpflanzung zu
 \begin{align*}
-\sigma_.{\frac{e_.0}{m_.e}}&=\sqrt{\left(\frac{\partial\left(\frac{e_.0}{m_.e}\right){\partial a}\right)^2\sigma^2_.a}\\
-&=16aU_.B\sigma_.a
+\sigma_.{\frac{e_.0}{m_.e}}&=\sqrt{\left(\frac{\partial\left(\frac{e_.0}{m_.e}\right)}{\partial a}\right)^2\sigma^2_.a}\\
+                           &=16aU_.B\sigma_.a
 \end{align*}
-Der Literaturwert ergibt sich mit der Ladung des Elektrons $e_.0\approx\SI{1,60e-19}{\Coulomb}$ und der Masse des Elektrons $m_.e\approx\SI{9,11e-31}{\kilogram}$ zu 
+Der Literaturwert ergibt sich mit der Ladung des Elektrons $e_.0\approx\SI{1,60e-19}{\coulomb}$ und der Masse des Elektrons $m_.e\approx\SI{9,11e-31}{\kilogram}$ zu 
 \[
 \frac{e_.0}{m_.e}\approx\SI{1,76e11}{\coulomb\per\kilogram}
 \]
-\subsubsection{Bestimmung des Erdmagnetfelds}
-Bei Aufstellung der Kathodenstrahlröhre in Ost-West-Richtung ergibt sich eine Verschiebung des Leuchtflecks um $D=\SI{6,25e-3}{\metre}$ im Vergleich zur Nord-Südrichtung.
-Um diese zu kompensieren wird ein Strom von $I=\SI{0,235}{\ampere}$. Der Inklinationswinkel beträgt $\phi=\SI{70}{\degree}$
-
-
 \begin{table}
 \centering
 \caption{Messwerte der Ablenkungen bei verschiedenen Beschleunigungsspannungen $U_.B$}
 \input{content/tables/tabMag.tex}
 \label{tab:Mag}
 \end{table}
-
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/GraphMag1.pdf}
 \caption{Das Verhältnis von $\frac{D}{D^2+L^2}$ zu magnetischer Flussdichte $B$ bei verschiedenen Beschleunigungsspannungen $U_.B$}\label{fig:Mag}
 \end{figure}
+\subsubsection{Bestimmung des Erdmagnetfelds}
+Bei Aufstellung der Kathodenstrahlröhre in Ost-West-Richtung ergibt sich eine Verschiebung des Leuchtflecks um $D=\SI{6,25e-3}{\metre}$ im Vergleich zur Nord-Südrichtung.
+Um diese zu kompensieren wird ein Strom von $I_.{hor}=\SI{0,235}{\ampere}$. Der Inklinationswinkel beträgt $\phi=\SI{70}{\degree}$. Mit Gleichung \eqref{eq:}
+und dem Verhältnis von Gesamtflussdichte zum horizontalen Anteil
+\[
+B_.{ges}= \frac{B_.{hor}}{\cos(\phi)}
+\]
+ergibt sich eine magnetische Flussdichte des Erdmagnetfelds von
+\[
+B_.{Erde}=\SI{43,82e-6}{\tesla}
+\]
