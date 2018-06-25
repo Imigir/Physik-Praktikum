@@ -15,7 +15,7 @@ U_.B&=\SI{310}{\volt},\\
 &=\SI{240}{\volt},\\
 &=\SI{220}{\volt}
 \end{align*}
-zu finden. Die mittels der linearen Regression $D(U_.d)=\alpha U_.d + \beta$ bestimmten Graphen sind in Abbildung \ref{fig:Elek} zu sehen.
+zu finden. Die mittels der linearen Regression \[D(U_.d)=\alpha U_.d + \beta\] bestimmten Graphen sind in Abbildung \ref{fig:Elek} zu sehen.
 Es ergeben sich die Parameter
 \begin{align*}
 \alpha_.{310}&=\SI{1,050(6)e-3}{\metre\per\volt},\\
@@ -31,7 +31,7 @@ Es ergeben sich die Parameter
 \end{align*}
 In Abbildung \ref{fig:Elek2} sind die Empfindlichkeiten $\alpha$ gegen $\frac{1}{U_.B}$ aufgetragen.
 Eine lineare Ausgleichsrechnung der Form
-$\alpha\left(\frac{1}{U_.B}\right)=a\cdot\frac{1}{U_.B}+b$
+\[\alpha\left(\frac{1}{U_.B}\right)=a\cdot\frac{1}{U_.B}+b\]
 ergibt die Parameter
 \begin{align*}
 a&=\SI{0,313(8)}{\metre},\\
@@ -106,8 +106,8 @@ $a$ und $\sigma_.a$ sind dabei aus Abschnitt \ref{sec:empf} bekannt.
 \subsubsection{Die spezifische Ladung der Elektronen}
 In Tabelle \ref{tab:Mag} befinden sich die bei $U_.B=\SI{350}{\volt}$ und $U_.B=\SI{250}{\volt}$ aufgenommenen Messwerte für die zur Ablenkung $D$ benötigten Ströme $I$.
 $L=\SI{0,175}{\metre}$\cite{V501} ist dabei die Strecke zwischen Beschleunigerelektrode und Leuchtschirm auf der die Elektronen dem Magnetfeld ausgesetzt sind.
-Die magnetische Flussdichte $B$ der Helmholtz-Spulen wird über Gleichung \eqref{eq:} bestimmt.
-Eine lineare Regression der Form $\frac{D}{D^2+L^2}(B)=a_.{mag}B+b_.{mag}$ ergibt die Parameter
+Die magnetische Flussdichte $B$ der Helmholtz-Spulen wird über Gleichung \eqref{eq:B} bestimmt.
+Eine lineare Regression der Form \[\frac{D}{D^2+L^2}(B)=a_.{mag}B+b_.{mag}\] ergibt die Parameter
 \begin{align*}
 a_.{mag,250}&=\SI{8,57(23)e3}{1\per\tesla\per\metre}\text{,}\\
 a_.{mag,350}&=\SI{7,32(13)e3}{1\per\tesla\per\metre}\text{,}\\
@@ -115,7 +115,7 @@ b_.{mag,250}&=\SI{74(24)e-3}{1\per\metre}\text{,}\\
 b_.{mag,350}&=\SI{33(16)e-3}{1\per\metre}
 \end{align*}
 In Abbildung \ref{fig:Mag} sind die zugehörigen Graphen zu sehen.
-Durch Koeffizientenvergleich mit Formel \eqref{eq:} zeigt sich, dass sich die spezifische Ladung des Elektrons über
+Durch Koeffizientenvergleich mit Formel \eqref{eq:e0/me} zeigt sich, dass sich die spezifische Ladung des Elektrons über
 \[
 \frac{e_.0}{m_.e}=8a_.{mag}^2U_.B
 \]
@@ -146,7 +146,7 @@ Der Literaturwert ergibt sich mit der Ladung des Elektrons $e_.0\approx\SI{1,60e
 \end{figure}
 \subsubsection{Bestimmung des Erdmagnetfelds}
 Bei Aufstellung der Kathodenstrahlröhre in Ost-West-Richtung ergibt sich eine Verschiebung des Leuchtflecks um $D=\SI{6,25e-3}{\metre}$ im Vergleich zur Nord-Südrichtung.
-Um diese zu kompensieren wird ein Strom von $I_.{hor}=\SI{0,235}{\ampere}$ benötigt. Der Inklinationswinkel beträgt $\phi=\SI{70}{\degree}$. Mit Gleichung \eqref{eq:}
+Um diese zu kompensieren wird ein Strom von $I_.{hor}=\SI{0,235}{\ampere}$ benötigt. Der Inklinationswinkel beträgt $\phi=\SI{70}{\degree}$. Mit Gleichung \eqref{eq:B}
 und dem Verhältnis von Gesamtflussdichte zum horizontalen Anteil
 \[
 B_.{ges}= \frac{B_.{hor}}{\cos(\phi)}
