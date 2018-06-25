@@ -27,7 +27,7 @@ Es ergeben sich die Parameter
 \beta_.{280}&=\SI{-10,45(9)e-3}{\metre},\\
 \beta_.{260}&=\SI{-9,93(14)e-3}{\metre},\\
 \beta_.{240}&=\SI{-10,11(16)e-3}{\metre},\\
-\beta_.{220}&=\SI{-9,83(15)e-3}{\metre}
+\beta_.{220}&=\SI{-9,83(15)e-3}{\metre}\text{.}
 \end{align*}
 In Abbildung \ref{fig:Elek2} sind die Empfindlichkeiten $\alpha$ gegen $\frac{1}{U_.B}$ aufgetragen.
 Eine lineare Ausgleichsrechnung der Form
@@ -35,7 +35,7 @@ Eine lineare Ausgleichsrechnung der Form
 ergibt die Parameter
 \begin{align*}
 a&=\SI{0,313(8)}{\metre},\\
-b&=\SI{3,3(31)e-5}{\metre\per\volt}
+b&=\SI{3,3(31)e-5}{\metre\per\volt}\text{.}
 \end{align*}
 Der Theoriewert für die Steigung ergibt sich durch Koeffizientenvergleich zu
 \[
@@ -44,7 +44,7 @@ a_.{theo}=\frac{pL}{2d}=\SI{0,204}{\metre},
 mit der Plattenlänge $p=\SI{19e-3}{\metre}$, dem Plattenabstand $d=\SI{6,65e-3}{\metre}$ und dem Abstand zum Leuchtschirm $L=\SI{143e-3}{\metre}$\cite{V501}.
 \begin{table}
 \centering
-\caption{Messwerte der Ablenkspannungen bei verschiedenen Beschleunigungsspannungen $U_.B$}
+\caption{Die Messwerte der Ablenkspannungen bei verschiedenen Beschleunigungsspannungen $U_.B$.}
 \input{content/tables/tabElek.tex}
 \label{tab:Elek}
 \end{table}
@@ -73,13 +73,13 @@ und der Standardabweichung
 \[
 \sigma_.f=\sqrt{\frac{1}{N^2-N}\sum_i^N\left(f_.{sin,i}-\bar{f}_.{sin}\right)^2}
 \]
-Ergibt sich eine Sinusfrequenz von
+ergibt sich eine Sinusfrequenz von
 \[
-\bar{f}_.{sin}=\SI{79,29(1)}{\hertz}
+\bar{f}_.{sin}=\SI{79,29(1)}{\hertz}\text{.}
 \]
 \noindent Die Amplitude $A$ der Sinusfrequenz wurde gemessen zu
 \[
-A=\SI{9,375e-3}{\metre}
+A=\SI{9,375e-3}{\metre}\text{.}
 \]
 Da für die Ablenkung durch die Kathodenstrahlröhre gilt 
 \[
@@ -92,12 +92,12 @@ S=U_.{d,max}=\frac{AU_.B}{a}=\SI{10,5(3)}{\volt}\text{.}
 Der Fehler berechnet sich dabei nach der Gaußschen Fehlerfortpflanzung
 \begin{align*}
 \sigma_.S&=\sqrt{\left(\frac{\partial S}{\partial a}\right)^2\sigma^2_.a}\\
-&=\frac{AU_.B}{a^2}\cdot \sigma_.a
+&=\frac{AU_.B}{a^2}\cdot \sigma_.a\text{.}
 \end{align*}
 $a$ und $\sigma_.a$ sind dabei aus Abschnitt \ref{sec:empf} bekannt.
 \begin{table}
 \centering
-\caption{Messwerte der Sägezahnspannungen}
+\caption{Die Messwerte der Sägezahnspannungen.}
 \input{content/tables/tabFreq.tex}
 \label{tab:Freq}
 \end{table}
@@ -112,30 +112,30 @@ Eine lineare Regression der Form \[\frac{D}{D^2+L^2}(B)=a_.{mag}B+b_.{mag}\] erg
 a_.{mag,250}&=\SI{8,57(23)e3}{1\per\tesla\per\metre}\text{,}\\
 a_.{mag,350}&=\SI{7,32(13)e3}{1\per\tesla\per\metre}\text{,}\\
 b_.{mag,250}&=\SI{74(24)e-3}{1\per\metre}\text{,}\\
-b_.{mag,350}&=\SI{33(16)e-3}{1\per\metre}
+b_.{mag,350}&=\SI{33(16)e-3}{1\per\metre}\text{.}
 \end{align*}
 In Abbildung \ref{fig:Mag} sind die zugehörigen Graphen zu sehen.
 Durch Koeffizientenvergleich mit Formel \eqref{eq:e0/me} zeigt sich, dass sich die spezifische Ladung des Elektrons über
 \[
 \frac{e_.0}{m_.e}=8a_.{mag}^2U_.B
 \]
-und damit 
+berechnen lässt und es ergibt sich: 
 \begin{align*}
-\left(\frac{e_.0}{m_.e}\right)_.{250}&=\SI{1,47(8)e11}{\coulomb\per\kilogram}\\
-\left(\frac{e_.0}{m_.e}\right)_.{350}&=\SI{1,50(5)e11}{\coulomb\per\kilogram}
+\left(\frac{e_.0}{m_.e}\right)_.{250}&=\SI{1,47(8)e11}{\coulomb\per\kilogram}\text{,}\\
+\left(\frac{e_.0}{m_.e}\right)_.{350}&=\SI{1,50(5)e11}{\coulomb\per\kilogram}\text{.}
 \end{align*}
 Die Fehler berechnen sich dabei über die Gaußsche Fehlerfortpflanzung zu
 \begin{align*}
 \sigma_.{\frac{e_.0}{m_.e}}&=\sqrt{\left(\frac{\partial\left(\frac{e_.0}{m_.e}\right)}{\partial a_.{mag}}\right)^2\sigma^2_.a}\\
-                           &=16a_.{mag}U_.B\sigma_.a
+                           &=16a_.{mag}U_.B\sigma_.a\text{.}
 \end{align*}
-Der Literaturwert ergibt sich mit der Ladung des Elektrons $e_.0\approx\SI{1,60e-19}{\coulomb}$ und der Masse des Elektrons $m_.e\approx\SI{9,11e-31}{\kilogram}$ zu 
+Der Literaturwert ergibt sich mit der Ladung des Elektrons $e_.0\approx\SI{1,60e-19}{\coulomb}$ \cite{nistgov} und der Masse des Elektrons $m_.e\approx\SI{9,11e-31}{\kilogram}$ \cite{nistgov} zu: 
 \[
-\frac{e_.0}{m_.e}\approx\SI{1,76e11}{\coulomb\per\kilogram}
+\frac{e_.0}{m_.e}\approx\SI{1,76e11}{\coulomb\per\kilogram}\text{.}
 \]
 \begin{table}
 \centering
-\caption{Messwerte der Ablenkungen bei verschiedenen Beschleunigungsspannungen $U_.B$}
+\caption{Die Messwerte der Ablenkungen bei verschiedenen Beschleunigungsspannungen $U_.B$.}
 \input{content/tables/tabMag.tex}
 \label{tab:Mag}
 \end{table}
@@ -153,5 +153,5 @@ B_.{ges}= \frac{B_.{hor}}{\cos(\phi)}
 \]
 ergibt sich eine magnetische Flussdichte des Erdmagnetfelds von
 \[
-B_.{Erde}=\SI{43,82e-6}{\tesla}
+B_.{Erde}=\SI{43,82e-6}{\tesla}\text{.}
 \]
