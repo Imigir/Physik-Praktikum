@@ -100,9 +100,9 @@ print('e0/m0_350: ',e_m_350)
 B_erde=my*8/np.sqrt(125)*N*0.235/R/np.cos(7/36*2*np.pi)
 
 print('B_erde_150: ', B_erde)
-"""
-makeTable([D*1000,r,I_250,B_250,I_350,B_350], r'{'+r'$D/10^{-3}\si{\metre}$'+r'} & {'+r'$\frac{D}{D^2+L^2}/\si{\metre}$'+r'} & {'+r'$I_.{250}/\si{\ampere}$'+r'} & {'+r'$B_.{250}/10^{-5}\si{\tesla}$'+r'} & {'+r'$I_.{350}/\si{\ampere}$'+r'} & {'+r'$B_.{350}/10^{-5}\si{\tesla}$'+r'}', 'tabMag',['S[table-format=2.2]','S[table-format=1.2]','S[table-format=1.2]','S[table-format=2.2]','S[table-format=1.2]','S[table-format=2.2]'],["%2.2f","%1.2f","%1.2f","%2.2f","%1.2f","%2.2f"])
-"""
+
+makeTable([D*1000,r,I_250,B_250*10**5,I_350,B_350*10**5], r'{'+r'$D/10^{-3}\si{\metre}$'+r'} & {'+r'$\frac{D}{D^2+L^2}/\si{\metre}$'+r'} & {'+r'$I_.{250}/\si{\ampere}$'+r'} & {'+r'$B_.{250}/10^{-5}\si{\tesla}$'+r'} & {'+r'$I_.{350}/\si{\ampere}$'+r'} & {'+r'$B_.{350}/10^{-5}\si{\tesla}$'+r'}', 'tabMag',['S[table-format=2.2]','S[table-format=1.2]','S[table-format=1.2]','S[table-format=2.2]','S[table-format=1.2]','S[table-format=2.2]'],["%2.2f","%1.2f","%1.2f","%2.2f","%1.2f","%2.2f"])
+
 
 # E-Feld
 
@@ -128,7 +128,7 @@ para2,cova2,sigma_y=linregress(U_2,D_E)
 para3,cova3,sigma_y=linregress(U_3,D_E)
 para4,cova4,sigma_y=linregress(U_4,D_E)
 para5,cova5,sigma_y=linregress(U_5,D_E)
-
+"""
 U_plot=np.linspace(-14,35,1000)
 plt.cla()
 plt.clf()
@@ -148,7 +148,7 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.xlim(-14,35)
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle.pdf')
-
+"""
 
 
 a1=unp.uarray(para1[0],cova1[0])
@@ -177,7 +177,7 @@ def afunc(U,e,f):
 para6,cova6,sigma_y=linregress(1/U_Barray,a_array)
 U2_plot=np.linspace(218,312,1000)
 
-
+"""
 plt.cla()
 plt.clf()
 plt.plot(1/U2_plot,afunc(U2_plot,*para6),'b-',label=r'Ausgleichsgerade')
@@ -188,7 +188,7 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.xlim(1/312,1/218)
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle6.pdf')
-
+"""
 a_ges=unp.uarray(para6[0],cova6[0])
 b_ges=unp.uarray(para6[1],cova6[1])
 Abweichung=(para6[0]/k-1)*100
