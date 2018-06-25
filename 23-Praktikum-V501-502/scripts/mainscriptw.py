@@ -66,7 +66,7 @@ def rad(B,a,c):
 
 params1,covar1,sigma_y=linregress(B_350,r)
 params2,covar2,sigma_y=linregress(B_250,r)
-
+"""
 B_plot=np.linspace(0,22/10**5,1000)
 plt.cla()
 plt.clf()
@@ -79,7 +79,7 @@ plt.xlabel(r'$B/10^{-5}\si{\tesla}$')
 plt.xlim(0,22)
 plt.legend(loc='best')
 plt.savefig('content/images/GraphMag1.pdf')
-
+"""
 a_250=unp.uarray(params2[0],covar2[0])
 b_250=unp.uarray(params2[1],covar2[1])
 
@@ -100,8 +100,9 @@ print('e0/m0_350: ',e_m_350)
 B_erde=my*8/np.sqrt(125)*N*0.235/R/np.cos(7/36*2*np.pi)
 
 print('B_erde_150: ', B_erde)
+"""
 makeTable([D*1000,r,I_250,B_250,I_350,B_350], r'{'+r'$D/10^{-3}\si{\metre}$'+r'} & {'+r'$\frac{D}{D^2+L^2}/\si{\metre}$'+r'} & {'+r'$I_.{250}/\si{\ampere}$'+r'} & {'+r'$B_.{250}/10^{-5}\si{\tesla}$'+r'} & {'+r'$I_.{350}/\si{\ampere}$'+r'} & {'+r'$B_.{350}/10^{-5}\si{\tesla}$'+r'}', 'tabMag',['S[table-format=2.2]','S[table-format=1.2]','S[table-format=1.2]','S[table-format=2.2]','S[table-format=1.2]','S[table-format=2.2]'],["%2.2f","%1.2f","%1.2f","%2.2f","%1.2f","%2.2f"])
-
+"""
 
 # E-Feld
 
@@ -116,9 +117,9 @@ U_2=np.genfromtxt('scripts/data3.txt', unpack=True)
 U_3=np.genfromtxt('scripts/data4.txt', unpack=True)
 U_4=np.genfromtxt('scripts/data5.txt', unpack=True)
 U_5=np.genfromtxt('scripts/data6.txt', unpack=True)
-
+"""
 makeTable([D_E*1000,U_1,U_2,U_3,U_4,U_5],r'{'+r'$D/\si{\metre}$'+r'} & {'+r'$U_.{d,310}/\si{\volt}$'+r'} & {'+r'$U_.{d,280}/\si{\volt}$'+r'} & {'+r'$U_.{d,260}/\si{\volt}$'+r'} & {'+r'$U_.{d,240}/\si{\volt}$'+r'} & {'+r'$U_.{d,220}/\si{\volt}$'+r'}','tabElek',['S[table-format=2.2]','S[table-format=2.1]','S[table-format=2.1]','S[table-format=2.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.2f","%2.1f","%2.1f","%2.1f","%2.1f","%2.1f"])
-
+"""
 def Dfunc(U,c,d):
     return c*U+d
 
@@ -143,6 +144,8 @@ plt.plot(U_plot,Dfunc(U_plot,*para5),'k-',label=r'$U_\text{B} = \SI{220}{\volt}$
 plt.plot(U_5, D_E, 'kx')
 plt.ylabel(r'$D/\si{\metre}$')
 plt.xlabel(r'$U_d/\si{\volt}$')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.xlim(-14,35)
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle.pdf')
 
@@ -181,6 +184,8 @@ plt.plot(1/U2_plot,afunc(U2_plot,*para6),'b-',label=r'Ausgleichsgerade')
 plt.plot(1/U_Barray, a_array, 'rx', label=r'Messwerte')
 plt.ylabel(r'$\alpha/\si{\metre\per\volt}$')
 plt.xlabel(r'$U_B^{-1}/\si{\volt}$')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.xlim(1/312,1/218)
 plt.legend(loc='best')
 plt.savefig('content/images/GraphEle6.pdf')
 
