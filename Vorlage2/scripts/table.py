@@ -18,15 +18,21 @@ def makeTable(data, names, filename, formats=[], formats2=[]):
     TableFile.write(r'\midrule'+'\n\t\t')
     for i in range(len(data[0])):
         for b in range(len(data[0:-1])):
-            if formats2:
-                TableFile.write(formats2[b] % (data[b][i]))
+            if not np.isnan(data[b][i]):
+                if formats2:
+                    TableFile.write(formats2[b] % (data[b][i]))
+                else:
+                    TableFile.write(str(data[b][i]))
             else:
-                TableFile.write(str(data[b][i]))
+                TableFile.write(r' {-} ')
             TableFile.write(r' & ')
-        if formats2:
-            TableFile.write(formats2[-1] % (data[-1][i]))
+        if not np.isnan(data[-1][i]):
+            if formats2:
+                TableFile.write(formats2[-1] % (data[-1][i]))
+            else:
+                TableFile.write(str(data[-1][i]))
         else:
-            TableFile.write(str(data[-1][i]))
+            TableFile.write(r' {-} ')
         TableFile.write(r' \\')
         TableFile.write('\n\t\t')
 

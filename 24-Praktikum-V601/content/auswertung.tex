@@ -3,4 +3,100 @@
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
-\subsection{}
+\subsection{Bestimmung der mittleren Weglänge}
+
+Mit den Werten der Temperaturen $T$ aus Tabelle \ref{tab:w} ergeben sich die mittleren Weglängen $\bar{w}$ nach Formel \eqref{eq:w}. Das Verhältnis von $\bar{w}$ zum Abstand $a=\SI{1}{\centi\metre}$ der Kathode zum Gitter ist ebenfalls in der Tabelle eingetragen. 
+
+\begin{table}
+\centering
+\caption{[ToDo].}
+\input{content/tables/tabw.tex}
+\label{tab:w}
+\end{table}
+
+\subsection{Bestimmung der Umrechnungsfaktoren}
+
+Für die X-Achse der Graphen aus den Abbildungen \ref{fig:} bis \ref{fig:} werden die Umrechnungsfaktoren bestimmt.
+Mit den Werten aus Tabelle \ref{tab:Abstände} und der Formel für den Mittelwert
+\[
+\mu_d = 
+\]
+und der Standardabweichung
+\[
+\sigma_d = 
+\]
+ergeben sich die mittleren Abstände $\bar{d}$ pro Volt zu:
+\begin{align*}
+\bar{d}_.{a1} &= \SI{24.8(4)}{\milli\metre\per\volt}\text{,}\\
+\bar{d}_.{a2} &= \SI{25.1(4)}{\milli\metre\per\volt}\text{,}\\
+\bar{d}_.{b}  &= \SI{4.6(2)}{\milli\metre\per\volt}\text{,}\\
+\bar{d}_.{c}  &= \SI{7.7(2)}{\milli\metre\per\volt}\text{.}
+\end{align*}
+Daraus folgen die Umrechnungsfaktoren $f=\frac{1}{\bar{d}}$ zu:
+\begin{align}
+f_.{a1} &= \SI{40.3(6)}{\volt\per\metre}\text{,}\\
+f_.{a2} &= \SI{39.8(6)}{\volt\per\metre}\text{,}\\
+f_.{b}  &= \SI{217(9)}{\volt\per\metre}\text{,}\\
+f_.{c}  &= \SI{130(3)}{\volt\per\metre}\text{.}
+\end{align}
+Der Fehler $\sigma_{f}$ zu $f$ berechnet sich dabei mit der Gaußschen Fehlerfortpflanzung nach:
+\[
+\sigma_{f} = 
+\]
+
+\begin{table}
+\centering
+\caption{[ToDo].}
+\input{content/tables/tabAbstaende.tex}
+\label{tab:Abstände}
+\end{table}
+
+\subsection{Bestimmung der Energieverteilung der Elektronen}
+
+Es ergibt sich ein Wert für das Kontaktpotential $k_.A$ von:
+\[
+k_.A = \SI{2,1(1)}{\volt}
+\]
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/fig1.pdf}
+\caption{Die nicht normierte Energieverteilung der Elektronen bei einer Temperatur von $T=\SI{296,65}{\kelvin}$ und einer Beschleunigungsspannung von $U_.B=\SI{11}{\volt}$.}
+\label{fig:1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/fig2.pdf}
+\caption{Die nicht normierte Energieverteilung der Elektronen bei einer Temperatur von $T=\SI{417,15}{\kelvin}$ und einer Beschleunigungsspannung von $U_.B=\SI{11}{\volt}$.}
+\label{fig:2}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{[ToDo].}
+\input{content/tables/tabEnergieverteilung.tex}
+\label{tab:Energieverteilung}
+\end{table}
+
+\subsection{Bestimmung der ersten Anregungsenergie von Quecksilber}
+
+Es ergibt sich eine Anregungsenergie $E_1$ von:
+\[
+E_1 = \SI{4,92(2)}{\electronvolt}
+\]
+Für die Wellenlänge folgt:
+\[
+\lambda = \SI{252(1)}{\nano\metre}
+\]
+
+\subsection{Bestimmung der Ionisierungsenergie von Quecksilber}
+
+Es ergibt sich eine Ionisierungsenergie von:
+\[
+E_.{Io,1} = \SI{15.6(1)}{\electronvolt}
+\]
+Unter großzügiger auslegung der Asymptote ergibt sich:
+\[
+E_.{Io,2} = \SI{12.9(1)}{\electronvolt}
+\]
