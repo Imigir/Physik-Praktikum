@@ -5,7 +5,7 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 \subsection{Bestimmung der mittleren Weglänge}
 
-Mit den Werten der Temperaturen $T$ aus Tabelle \ref{tab:w} ergeben sich die mittleren Weglängen $\bar{w}$ nach Formel \eqref{eq:w}. Das Verhältnis $\frac{a}{\bar{w}}$ von $\bar{w}$ zum Abstand $a=\SI{1}{\centi\metre}$ der Kathode zum Gitter ist ebenfalls in der Tabelle eingetragen. Es ist zu erkennen, dass das Verhältnis für $T = \SI{417,15}{\kelvin}$ und für $T = \SI{417,15}{\kelvin}$ dem in der Theorie beschriebenen Wert von $1000-4000$ entspricht, damit die Apparatur für den Franck-Hertz Versuch optimal arbeitet.
+Mit den Werten der Temperaturen $T$ aus Tabelle \ref{tab:w} ergeben sich die mittleren Weglängen $\bar{w}$ nach Formel \eqref{eq:w}. Das Verhältnis $\frac{a}{\bar{w}}$ von $\bar{w}$ zum Abstand $a=\SI{1}{\centi\metre}$ der Kathode zum Gitter ist ebenfalls in der Tabelle eingetragen. Es ist zu erkennen, dass das Verhältnis für $T = \SI{417,15}{\kelvin}$ und für $T = \SI{447,35}{\kelvin}$ dem in der Theorie beschriebenen Wert von $1000-4000$ entspricht, damit die Apparatur für den Franck-Hertz Versuch optimal arbeitet.
 
 \begin{table}
 \centering
@@ -56,11 +56,11 @@ Dabei ist $\sigma_d$ der Fehler von $d$.
 
 In den Abbildungen \ref{fig:a1} und \ref{fig:a2} ist die Integrale Energieverteilung der Elektronen bei $T = \SI{296,65}{\kelvin}$ und $T = \SI{417,15}{\kelvin}$ bei einer konstanten Beschleunigungsspannung von $U_.B = \SI{11}{\volt}$ aufgezeichnet.
 In den Abbildungen \ref{fig:1} und \ref{fig:2} sind mit den Werten aus Tabelle \ref{tab:Energieverteilung} die zugehörigen nicht normierten Energieverteilungen angedeutet. Die Spannungen $U_.{A1}$ und $U_.{A2}$ berechnen sich dabei mit den Umrechnungsfaktoren $f_.{a1}$ \eqref{eq:fa1} und $f_.{a2}$ \eqref{eq:fa2}. Der Fehler der Umrechnungsfaktoren wird hierbei vernachlässigt.\\  
-Mithilfe des Peaks aus Abbildung \ref{fig:1} bei $U_.P = \SI{8,9(1)}{\volt}$ lässt sich das Kontaktpotential $k_.A$ bestimmen zu:
+Mithilfe des Peaks aus Abbildung \ref{fig:1} bei $U_.P = \SI{8,9(1)}{\volt}$ lässt sich das Kontaktpotential $K_.A$ bestimmen zu:
 \[
-k_.A = U_.B-U_.P = \SI{2,1(1)}{\volt}\text{.}
+K_.A = U_.B-U_.P = \SI{2,1(1)}{\volt}\text{.}
 \]
-Der Fehler $\sigma_{U_.P}$ von $U_.P$ bestimmt sich nach der Gaußschen Fehlerfortpflanzung nach:
+Der Fehler $\sigma_{U_.P}$ von $U_.P$ und damit auch von $K_.A$ bestimmt sich nach der Gaußschen Fehlerfortpflanzung nach:
 \[
 \sigma_{U_.P} = \sqrt{a_.P^2\sigma_{f_.{a1}}^2} = a_.P\sigma_{f_.{a1}}\text{.}
 \]
@@ -103,7 +103,7 @@ Dabei ist $\sigma_{f_.{a1}}$ der Fehler von $f_.{a1}$ und $a_.P = \SI{221}{\mill
 
 \subsection{Bestimmung der ersten Anregungsenergie von Quecksilber}
 
-Mithilfe der Werte aus Tabelle \ref{tab:FranckHertz} wird eine lineare Ausgleichsrechnung der Form $U = \alpha n+\beta$ durchgeführt:
+Mithilfe der Werte aus Tabelle \ref{tab:FranckHertz} wird eine lineare Ausgleichsrechnung der Form \newline $U = \alpha n+\beta$ durchgeführt:
 \begin{align*}
 \alpha = \SI{4,92(2)}{\volt}\text{,}\\
 \beta = \SI{0.12(1)}{\volt}\text{.}
