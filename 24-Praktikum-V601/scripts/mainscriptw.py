@@ -108,8 +108,10 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/fig1.pdf')
 """
-k1 = 11-U1[15]/fa1/da1m
+Up = U1[15]/fa1/da1m
+k1 = 11-Up
 print('k1 = ', k1)
+print('Up = ', Up)
 
 #2)
 U2, UI2 = np.genfromtxt(r'scripts/data3.txt', unpack=True)
@@ -139,30 +141,34 @@ achsenAbschnitt = unp.uarray(paramsLinear[1], errorsLinear[1])
 lambdaa = const.value("Planck constant")*const.c/(steigung*const.value("electron volt"))
 
 print('U1 = ', steigung)
+print('b = ', achsenAbschnitt)
 print('lambda = ', lambdaa)
 #print('k = ', k2)
-"""
+
 plt.cla()
 plt.clf()
 x_plot = np.linspace(0,8)
-plt.plot(n, a*1000, 'rx', label='Messwerte')
-plt.plot(x_plot, (x_plot*paramsLinear[0]+paramsLinear[1])*1000, 'b-', label='Ausgleichsgerade')
+plt.plot(n, a, 'rx', label='Messwerte')
+plt.plot(x_plot, (x_plot*paramsLinear[0]+paramsLinear[1]), 'b-', label='Ausgleichsgerade')
 plt.xlim(0,8)
 plt.xlabel(r'$n$')
 plt.ylabel(r'$U/\si{\volt}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/fig3.pdf')
-"""
+
+makeTable([n, a], r'{'+r'$n$'+r'} & {'+r'$U_.{B}/\si{\volt}$'+r'}' ,'tabFranckHertz' , ['S[table-format=1.0]', 'S[table-format=2.2]'] , ["%1.0f", "%2.2f"])
 
 #c)
 print('c)')
 
-Us = 136/1000*fc
-Us2 = 115/1000*fc
+Us = 136/1000/dcm
+Us2 = 115/1000/dcm
 E_Io1 = Us-k1
 E_Io2 = Us2-k1
 
+print('U_S1 = ', Us)
+print('U_S2 = ', Us2)
 print('E_Io1 = ', E_Io1)
 print('E_Io2 = ', E_Io2)
 
