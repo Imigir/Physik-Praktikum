@@ -154,6 +154,7 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/fig3.pdf')
 """
+makeTable([n, a], r'{'+r'$n$'+r'} & {'+r'$a/\si{\milli\meter}$'+r'}' ,'tabb' , ['S[table-format=1.0]', 'S[table-format=2.2]'] , ["%1.0f", "%2.2f"])
 
 #c)
 print('c)')
