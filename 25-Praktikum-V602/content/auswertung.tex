@@ -3,3 +3,23 @@
 
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+Bei allen Messungen werden die Beschleunigungsspannung bei $U_.B=\SI{35}{\kilo\volt}$ und der Emissionsstrom bei $I_.E=\SI{1}{\milli\ampere}$ konstant eingestellt.
+
+\subsection{Überprüfung der Bragg-Bedingung}
+Der Kristallwinkel $\theta$ wird bei $\theta= \SI{14}{\degree}$ konstant gehalten, während der Winkel $\alpha$ des Geiger-Müller-Zählrohrs (GMZ) zwischen $\SI{26}{\degree}$ und $\SI{30}{\degree}$ mit einem Winkelzuwachs von $\Delta \alpha = \SI{0,1}{\degree}$ in $\Delta t = \SI{5}{\second}$ variiert wird.
+Die aufgenommenen Messwerte sind in Tabelle \ref{tab:tab1} zu finden, der aufgezeichnete Graph ist in Abbildung \ref{fig:bragg}
+Der Winkel bei dem das Maximum der Impulsrate $N$ erreicht ist, lässt sich ablesen zu $\alpha_.{max}=\SI{28,1}{\degree}$
+
+\subsection{Das Emissionsspektrum}
+In Abbildung \ref{fig:emission} ist das aufgenommene Emissionspektrum der Röntgenröhre im Bereich von $\theta=\SI{4}{\degree}$ bis $\SI{26}{\degree}$ zu sehen. Die zugehörigen Werte finden sich in Tabelle \ref{tab:tab2}.
+Der Grenzwinkel lässt sich ablesen zu 
+\[\theta_.{gr}=\SI{5}{\degree}\]
+und damit die minimale Wellenlänge nach Formel \eqref{eq:} zu
+\[
+\lambda_.{min}=\SI{35,1}{\pico\metre}\text{.}
+\]
+Der Literaturwert berechnet sich mit der Elektronenladung $e_.0$, dem Planckschen Wirkungsquantum $h$ und der Lichtgeschwindigkeit im Vakuum $c$ zu
+\[
+\lambda_.{min,theo}=\frac{hc}{e_.0U_.B}=\SI{35,4}{\pico\metre}
+\]
