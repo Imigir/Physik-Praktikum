@@ -53,7 +53,7 @@ import scipy.constants as const
 alpha,N_bragg = np.genfromtxt(r'scripts/3.7.18Bragg.txt',unpack=True)
 
 makeTable([alpha,N_bragg], r'{'+r'$\alpha/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBragg',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
-
+'''
 plt.cla()
 plt.clf()
 plt.plot(alpha,N_bragg,'rx',label='Messwerte')
@@ -61,14 +61,15 @@ plt.xlabel(r'$\alpha/\si{\degree}$')
 plt.ylabel(r'$N/\si{1\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/bragg.pdf')
+plt.savefig('content/images/bragg.png')
 
 print('bragg done')
+'''
 #b)
 
 theta_Spek,N_Spek = np.genfromtxt('scripts/3.7.18Spektrum.txt',unpack=True)
 makeTable([theta_Spek,N_Spek], r'{'+r'$\theta_.{Spek}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSpektrum',['S[table-format=2.1]', 'S[table-format=4.0]'],["%2.1f","%4.0f"])
-
+'''
 plt.cla()
 plt.clf()
 plt.plot(theta_Spek,N_Spek,'rx',label='Messwerte')
@@ -76,10 +77,10 @@ plt.xlabel(r'$\theta_{Spek}/\si{\degree}$')
 plt.ylabel(r'$N_{Spek}/\si{1\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Spektrum.pdf')
+plt.savefig('content/images/Spektrum.png')
 
 print('spektrum done')
-
+'''
 #c)
 theta_Br,N_Br = np.genfromtxt('scripts/3.7.18Brom.txt',unpack=True)
 theta_Sr,N_Sr = np.genfromtxt('scripts/3.7.18Strontium.txt',unpack=True)
@@ -87,12 +88,12 @@ theta_Zn,N_Zn = np.genfromtxt('scripts/3.7.18Zink.txt',unpack=True)
 theta_Zr,N_Zr = np.genfromtxt('scripts/3.7.18Zirkonium.txt',unpack=True)
 theta_Bi,N_Bi = np.genfromtxt('scripts/3.7.18Wismuth.txt',unpack=True)
 
-makeTable([theta_Br,N_Br], r'{'+r'$\theta_.{Br}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSpektrum',['S[table-format=2.1]', 'S[table-format=4.0]'],["%2.1f","%4.0f"])
-makeTable([theta_Sr,N_Sr], r'{'+r'$\theta_.{Sr}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSpektrum',['S[table-format=2.1]', 'S[table-format=4.0]'],["%2.1f","%4.0f"])
-makeTable([theta_Zn,N_Zn], r'{'+r'$\theta_.{Zn}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSpektrum',['S[table-format=2.1]', 'S[table-format=4.0]'],["%2.1f","%4.0f"])
-makeTable([theta_Zr,N_Zr], r'{'+r'$\theta_.{Zr}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSpektrum',['S[table-format=2.1]', 'S[table-format=4.0]'],["%2.1f","%4.0f"])
-makeTable([theta_Bi,N_Bi], r'{'+r'$\theta_.{Bi}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSpektrum',['S[table-format=2.1]', 'S[table-format=4.0]'],["%2.1f","%4.0f"])
-
+makeTable([theta_Br,N_Br], r'{'+r'$\theta_.{Br}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBr',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+makeTable([theta_Sr,N_Sr], r'{'+r'$\theta_.{Sr}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSr',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+makeTable([theta_Zn,N_Zn], r'{'+r'$\theta_.{Zn}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabZn',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+makeTable([theta_Zr,N_Zr], r'{'+r'$\theta_.{Zr}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabZr',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+makeTable([theta_Bi,N_Bi], r'{'+r'$\theta_.{Bi}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBi',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+'''
 plt.cla()
 plt.clf()
 plt.plot(theta_Br,N_Br,'rx',label='Messwerte')
@@ -100,7 +101,7 @@ plt.xlabel(r'$\theta_{Br}/\si{\degree}$')
 plt.ylabel(r'$N_{Br}/\si{1\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Br.pdf')
+plt.savefig('content/images/Br.png')
 
 print('br done')
 
@@ -111,7 +112,7 @@ plt.xlabel(r'$\theta_{Sr}/\si{\degree}$')
 plt.ylabel(r'$N_{Sr}/\si{1\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Sr.pdf')
+plt.savefig('content/images/Sr.png')
 
 print('sr done')
 
@@ -122,7 +123,7 @@ plt.xlabel(r'$\theta_{Zn}/\si{\degree}$')
 plt.ylabel(r'$N_{Zn}/\si{1\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Zn.pdf')
+plt.savefig('content/images/Zn.png')
 
 print('zn done')
 
@@ -133,7 +134,7 @@ plt.xlabel(r'$\theta_{Zr}/\si{\degree}$')
 plt.ylabel(r'$N_{Zr}/\si{1\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Zr.pdf')
+plt.savefig('content/images/Zr.png')
 
 print('zr done')
 
@@ -144,7 +145,7 @@ plt.xlabel(r'$\theta_.{Bi}/\si{\degree}$')
 plt.ylabel(r'$N_.{Bi}/\si{1\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Bi.pdf')
+plt.savefig('content/images/Bi.png')
 
 print('bi done')
-
+'''
