@@ -102,22 +102,30 @@ plt.savefig('content/images/konstSpektrum.png')
 
 def f(x):
     return 6540*x-129126
+	
 def g(x):
     return -3990*x+81082
+	
 def const1(x):
     return 540+0*x
+	
 a_plot=np.linspace(19.5,20)
 b_plot=np.linspace(19.9,20.5)
 a_plot2=np.linspace(21.9,22.3)
 b_plot2=np.linspace(22.2,22.6)
+
 def f2(x):
     return 20140*x-442454
+	
 def g2(x):
     return -15600*x+352019
+	
 def const2(x):
     return 1929+0*x
+	
 schnitt_plot=np.linspace(19.7,20.3)
 schnitt_plot2=np.linspace(22.0,22.5)
+
 plt.cla()
 plt.clf()
 plt.plot(schnitt_plot2,const2(schnitt_plot),'k-')
@@ -139,16 +147,20 @@ plt.savefig('content/images/PeakSpektrum.png')
 
 DEa=const.value("Planck constant")*const.c/(2*d*np.sin((20.1859649-19.8266055)*np.pi/180))
 DEb=const.value("Planck constant")*const.c/(2*d*np.sin((22.44167-22.0646971)*np.pi/180))
+
 print('b-: ', 19.8266055)
 print('b+: ', 20.1859649)
 print('a-: ', 22.0646971)
 print('a+: ', 22.44167)
 print('Breite b: ',DEa)
 print('Breite a: ',DEb)
+
 E_beta=const.value("Planck constant")*const.c/(2*d*np.sin((20)*np.pi/180))/const.e
 E_alpha=const.value("Planck constant")*const.c/(2*d*np.sin((22.2)*np.pi/180))/const.e
+
 print('E_K_a: ', E_alpha)
 print('E_K_b: ', E_beta)
+
 z=29
 E_R=13.7
 s_K=z-np.sqrt(E_beta/E_R)
