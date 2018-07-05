@@ -53,6 +53,13 @@ import scipy.constants as const
 alpha,N_bragg = np.genfromtxt(r'scripts/3.7.18Bragg.txt',unpack=True)
 
 makeTable([alpha,N_bragg], r'{'+r'$\alpha/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBragg',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+
+d=201.4*10**(-12)
+l=2*d*np.sin(np.pi/36)
+E=const.h*const.c/l
+print('Lambda: ', l)
+print('Energie: ', E)
+
 '''
 plt.cla()
 plt.clf()
@@ -69,6 +76,8 @@ print('bragg done')
 
 theta_Spek,N_Spek = np.genfromtxt('scripts/3.7.18Spektrum.txt',unpack=True)
 makeTable([theta_Spek,N_Spek], r'{'+r'$\theta_.{Spek}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSpektrum',['S[table-format=2.1]', 'S[table-format=4.0]'],["%2.1f","%4.0f"])
+
+
 '''
 plt.cla()
 plt.clf()
@@ -81,6 +90,75 @@ plt.savefig('content/images/Spektrum.png')
 
 print('spektrum done')
 '''
+
+plt.cla()
+plt.clf()
+plt.plot(theta_Spek[0:156],N_Spek[0:156],'rx',label='Messwerte')
+plt.xlabel(r'$\theta_{Spek}/\si{\degree}$')
+plt.ylabel(r'$N_{Spek}/\si{1\per\second}$')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/konstSpektrum.png')
+
+def f(x):
+    return 6540*x-129126
+def g(x):
+    return -3990*x+81082
+def const1(x):
+    return 540+0*x
+a_plot=np.linspace(19.5,20)
+b_plot=np.linspace(19.9,20.5)
+a_plot2=np.linspace(21.9,22.3)
+b_plot2=np.linspace(22.2,22.6)
+def f2(x):
+    return 20140*x-442454
+def g2(x):
+    return -15600*x+352019
+def const2(x):
+    return 1929+0*x
+schnitt_plot=np.linspace(19.7,20.3)
+schnitt_plot2=np.linspace(22.0,22.5)
+plt.cla()
+plt.clf()
+plt.plot(schnitt_plot2,const2(schnitt_plot),'k-')
+plt.plot(schnitt_plot,const1(schnitt_plot),'k-')
+plt.plot(a_plot,f(a_plot),'k-')
+plt.plot(b_plot,g(b_plot),'k-')
+plt.plot(a_plot2,f2(a_plot2),'k-')
+plt.plot(b_plot2,g2(b_plot2),'k-')
+plt.plot(22.44167,const2(22.44166),'bx')
+plt.plot(22.0646971,const2(22.0646971),'bx')
+plt.plot(19.8266055,const1(19.8266055),'bx')
+plt.plot(20.1859649,const1(20.1859649),'bx')
+plt.plot(theta_Spek[156:221],N_Spek[156:221],'rx',label='Messwerte')
+plt.xlabel(r'$\theta_{Spek}/\si{\degree}$')
+plt.ylabel(r'$N_{Spek}/\si{1\per\second}$')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/PeakSpektrum.png')
+
+DEa=const.value("Planck constant")*const.c/(2*d*np.sin((20.1859649-19.8266055)*np.pi/180))
+DEb=const.value("Planck constant")*const.c/(2*d*np.sin((22.44167-22.0646971)*np.pi/180))
+print('b-: ', 19.8266055)
+print('b+: ', 20.1859649)
+print('a-: ', 22.0646971)
+print('a+: ', 22.44167)
+print('Breite b: ',DEa)
+print('Breite a: ',DEb)
+E_beta=const.value("Planck constant")*const.c/(2*d*np.sin((20)*np.pi/180))/const.e
+E_alpha=const.value("Planck constant")*const.c/(2*d*np.sin((22.2)*np.pi/180))/const.e
+print('E_K_a: ', E_alpha)
+print('E_K_b: ', E_beta)
+z=29
+E_R=13.7
+s_K=z-np.sqrt(E_beta/E_R)
+s_L=z-2*np.sqrt((E_R*(z-s_K)**2-E_alpha)/E_R)
+s_M=z-3*np.sqrt((z-s_K)**2-E_beta/E_R)
+
+print('s_K: ',s_K)
+print('s_L: ',s_L)
+print('s_M: ',s_M)
+
 #c)
 theta_Br,N_Br = np.genfromtxt('scripts/3.7.18Brom.txt',unpack=True)
 theta_Sr,N_Sr = np.genfromtxt('scripts/3.7.18Strontium.txt',unpack=True)
