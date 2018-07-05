@@ -162,10 +162,10 @@ print('E_K_a: ', E_alpha)
 print('E_K_b: ', E_beta)
 
 z=29
-E_R=13.7
+E_R=13.6
 s_K=z-np.sqrt(E_beta/E_R)
-s_L=z-2*np.sqrt((E_R*(z-s_K)**2-E_alpha)/E_R)
-s_M=z-3*np.sqrt((z-s_K)**2-E_beta/E_R)
+s_L=z-2*np.sqrt((z-s_K)**2-E_alpha/E_R)
+s_M=z-3*np.sqrt(0)
 
 print('s_K: ',s_K)
 print('s_L: ',s_L)
