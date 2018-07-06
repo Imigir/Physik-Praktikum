@@ -56,7 +56,7 @@ makeTable([alpha,N_bragg], r'{'+r'$\alpha/\si{\degree}$'+r'} & {'+r'$N/\si{1\per
 
 d=201.4*10**(-12)
 l=2*d*np.sin(np.pi/36)
-E=const.h*const.c/l
+E=const.h*const.c/l/const.e
 print('Lambda: ', l)
 print('Energie: ', E)
 
@@ -102,13 +102,13 @@ plt.savefig('content/images/konstSpektrum.png')
 
 def f(x):
     return 6540*x-129126
-	
+
 def g(x):
     return -3990*x+81082
-	
+
 def const1(x):
     return 540+0*x
-	
+
 a_plot=np.linspace(19.5,20)
 b_plot=np.linspace(19.9,20.5)
 a_plot2=np.linspace(21.9,22.3)
@@ -116,13 +116,13 @@ b_plot2=np.linspace(22.2,22.6)
 
 def f2(x):
     return 20140*x-442454
-	
+
 def g2(x):
     return -15600*x+352019
-	
+
 def const2(x):
     return 1929+0*x
-	
+
 schnitt_plot=np.linspace(19.7,20.3)
 schnitt_plot2=np.linspace(22.0,22.5)
 
@@ -183,6 +183,68 @@ makeTable([theta_Sr,N_Sr], r'{'+r'$\theta_.{Sr}/\si{\degree}$'+r'} & {'+r'$N/\si
 makeTable([theta_Zn,N_Zn], r'{'+r'$\theta_.{Zn}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabZn',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
 makeTable([theta_Zr,N_Zr], r'{'+r'$\theta_.{Zr}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabZr',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
 makeTable([theta_Bi,N_Bi], r'{'+r'$\theta_.{Bi}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBi',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+
+def E(x):
+    return const.h*const.c/(2*d*np.sin(x*np.pi/180))/const.e
+
+def SK1(E,z):
+    return z+np.sqrt(E/E_R)
+
+def SK2(E,z):
+    return z-np.sqrt(E/E_R)
+
+E_Sr=E(11.1)
+E_Br=E(13.4)
+E_Zn=E(18.6)
+E_Zr=E(9.9)
+E_1_Bi=E(11.3)
+E_2_Bi=E(13.3)
+
+DE_Bi=E_1_Bi-E_2_Bi
+
+SL=83-np.sqrt(4/const.alpha*np.sqrt(DE_Bi/E_R)-5*DE_Bi/E_R)*np.sqrt(1+19/32*const.alpha**2*DE_Bi/E_R)
+
+SK1_array=([SK1(E_Br,35),SK1(E_Sr,38),SK1(E_Zn,30),SK1(E_Zr,40)])
+SK2_array=([SK2(E_Br,35),SK2(E_Sr,38),SK2(E_Zn,30),SK2(E_Zr,40)])
+
+print('E_K_Br: ', E_Br)
+print('E_K_Sr: ', E_Sr)
+print('E_K_Zn: ', E_Zn)
+print('E_K_Zr: ', E_Zr)
+print('E_L2_Bi: ', E_1_Bi)
+print('E_L3_Bi: ', E_2_Bi)
+
+print('Sigma_K entweder: ', SK1_array)
+print('...oder: ', SK2_array)
+print('Sigma_L: ', SL)
+SL_Referenz=3.581316724
+print('Fehler: ',(SL/SL_Referenz-1)*100,'%')
+
+
+EK_array=np.array([E_Br,E_Sr,E_Zn,E_Zr])
+z_array=np.array([35,38,30,40])
+
+def mosley(x,a,b):
+    return a*x+b
+
+params,covar,y_err=linregress(z_array,np.sqrt(EK_array))
+a_uar=unp.uarray(params[0],covar[0])
+b_uar=unp.uarray(params[1],covar[1])
+
+print('Mosley-Steigung: ', a_uar)
+print('Achsenabschnitt: ', b_uar)
+x_plot=np.linspace(28,42)
+plt.cla()
+plt.clf()
+plt.plot(x_plot,mosley(x_plot,*params))
+plt.plot(z_array,np.sqrt(EK_array),'rx',label='Messwerte')
+plt.ylabel(r'$\sqrt{E_K}/\sqrt{\si{\eV}}$')
+plt.xlabel(r'$Z$')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/Moseley.png')
+
+
 '''
 plt.cla()
 plt.clf()
