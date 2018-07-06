@@ -230,13 +230,17 @@ def mosley(x,a,b):
 params,covar,y_err=linregress(z_array,np.sqrt(EK_array))
 a_uar=unp.uarray(params[0],covar[0])
 b_uar=unp.uarray(params[1],covar[1])
+Rydberg1=4/3*a_uar**2
 
 print('Mosley-Steigung: ', a_uar)
 print('Achsenabschnitt: ', b_uar)
+print('Rydberg: ',Rydberg1,'mit dem Fehler: ',(Rydberg1/E_R-1)*100,'%')
+
+
 x_plot=np.linspace(28,42)
 plt.cla()
 plt.clf()
-plt.plot(x_plot,mosley(x_plot,*params))
+plt.plot(x_plot,mosley(x_plot,*params), 'b-',label='Ausgleichsgerade')
 plt.plot(z_array,np.sqrt(EK_array),'rx',label='Messwerte')
 plt.ylabel(r'$\sqrt{E_K}/\sqrt{\si{\eV}}$')
 plt.xlabel(r'$Z$')
