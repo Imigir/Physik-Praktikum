@@ -52,7 +52,8 @@ import scipy.constants as const
 
 alpha,N_bragg = np.genfromtxt(r'scripts/3.7.18Bragg.txt',unpack=True)
 
-makeTable([alpha,N_bragg], r'{'+r'$\alpha/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBragg',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+makeTable([alpha[0:21],N_bragg[0:21]], r'{'+r'$\alpha/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBragg1',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+makeTable([alpha[21:],N_bragg[21:]], r'{'+r'$\alpha/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBragg2',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
 
 d=201.4*10**(-12)
 l=2*d*np.sin(np.pi/36)
@@ -171,7 +172,8 @@ makeTable([theta_Br,N_Br], r'{'+r'$\theta_.{Br}/\si{\degree}$'+r'} & {'+r'$N/\si
 makeTable([theta_Sr,N_Sr], r'{'+r'$\theta_.{Sr}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSr',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
 makeTable([theta_Zn,N_Zn], r'{'+r'$\theta_.{Zn}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabZn',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
 makeTable([theta_Zr,N_Zr], r'{'+r'$\theta_.{Zr}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabZr',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
-makeTable([theta_Bi,N_Bi], r'{'+r'$\theta_.{Bi}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBi',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+makeTable([theta_Bi[0:23],N_Bi[0:23]], r'{'+r'$\theta_.{Bi}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBi1',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
+makeTable([theta_Bi[23:],N_Bi[23:]], r'{'+r'$\theta_.{Bi}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabBi2',['S[table-format=2.1]', 'S[table-format=3.0]'],["%2.1f","%3.0f"])
 
 def E(x):
     return const.h*const.c/(2*d*np.sin(x*np.pi/180))/const.e
@@ -219,12 +221,12 @@ def mosley(x,a,b):
 params,covar,y_err=linregress(z_array,np.sqrt(EK_array))
 a_uar=unp.uarray(params[0],covar[0])
 b_uar=unp.uarray(params[1],covar[1])
-Rydberg1=4/3*a_uar**2
-
+Rydberg1=4/3*params[0]**2
+Rydbergfehler_abs=3/2*params[0]*covar[0]
 print('Mosley-Steigung: ', a_uar)
 print('Achsenabschnitt: ', b_uar)
 print('Rydberg: ',Rydberg1,'mit dem Fehler: ',(Rydberg1/E_R-1)*100,'%')
-
+print('absoluter Fehler von Rydberg: ', Rydbergfehler_abs)
 
 x_plot=np.linspace(28,42)
 plt.cla()
@@ -232,7 +234,7 @@ plt.clf()
 plt.plot(x_plot,mosley(x_plot,*params), 'b-',label='Ausgleichsgerade')
 plt.plot(z_array,np.sqrt(EK_array),'rx',label='Messwerte')
 plt.ylabel(r'$\sqrt{E_K}/\sqrt{\si{\eV}}$')
-plt.xlabel(r'$Z$')
+plt.xlabel(r'$z$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/Moseley.png')
@@ -286,8 +288,8 @@ print('zr done')
 plt.cla()
 plt.clf()
 plt.plot(theta_Bi,N_Bi,'rx',label='Messwerte')
-plt.xlabel(r'$\theta_.{Bi}/\si{\degree}$')
-plt.ylabel(r'$N_.{Bi}/\si{1\per\second}$')
+plt.xlabel(r'$\theta_{Bi}/\si{\degree}$')
+plt.ylabel(r'$N_{Bi}/\si{1\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/Bi.png')
