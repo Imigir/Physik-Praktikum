@@ -52,7 +52,7 @@ import scipy.constants as const
 a = 1/100
 T0 = 273.15
 T = np.array([23.5+T0, 144+T0, 174.2+T0, 108+T0])
-w = 0.0029/(5.5*10**7)*np.exp(6867/T)/100	
+w = 0.0029/(5.5*10**7)*np.exp(6876/T)/100	
 aw = a/w
 
 print('T = ', T)
@@ -86,7 +86,7 @@ print('da2 = ', da2m)
 print('db = ', dbm)
 print('dc = ', dcm)
 
-makeTable([da1*1000, da2*1000, db*1000, dc*1000], r'{'+r'$d_\text{a1}/(\si{\milli\metre\per\volt})$'+r'} & {'+r'$d_\text{a2}/(\si{\milli\metre\per\volt})$'+r'} & {'+r'$d_\text{b}/(\si{\milli\metre\per\volt})$'+r'} & {'+r'$d_\text{c}/(\si{\milli\metre\per\volt})$'+r'}' ,'tabAbstaende' , ['S[table-format=2.0]', 'S[table-format=2.0]', 'S[table-format=1.0]', 'S[table-format=1.0]'] , ["%2.0f", "%2.0f", "%1.0f", "%1.0f"])
+makeTable([da1*1000, da2*1000, db*1000, dc*1000], r'{'+r'$d_\text{a1}/(\si{\milli\metre\per\volt})$'+r'} & {'+r'$d_\text{a2}/(\si{\milli\metre\per\volt})$'+r'} & {'+r'$d_\text{b}/(\si{\milli\metre\per\volt})$'+r'} & {'+r'$d_\text{c}/(\si{\milli\metre\per\volt})$'+r'}' ,'tabAbstaende' , ['S[table-format=2.0]', 'S[table-format=2.0]', 'S[table-format=1.1]', 'S[table-format=1.1]'] , ["%2.0f", "%2.0f", "%1.1f", "%1.1f"])
 
 print('fa1 = ', 1/da1m)
 print('fa2 = ', 1/da2m)
@@ -98,7 +98,7 @@ print('fc = ', 1/dcm)
 print('a)')
 U1, UI1 = np.genfromtxt(r'scripts/data2.txt', unpack=True)
 U1 = U1/1000*fa1
-"""
+
 plt.cla()
 plt.clf()
 plt.plot(U1, UI1, 'rx', label='Messwerte')
@@ -107,7 +107,7 @@ plt.ylabel(r'$I/U$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/fig1.pdf')
-"""
+
 Up = U1[15]/fa1/da1m
 k1 = 11-Up
 print('k1 = ', k1)
@@ -116,7 +116,7 @@ print('Up = ', Up)
 #2)
 U2, UI2 = np.genfromtxt(r'scripts/data3.txt', unpack=True)
 U2 = U2/1000*fa2
-"""
+
 plt.cla()
 plt.clf()
 plt.plot(U2, UI2, 'rx', label='Messwerte')
@@ -125,7 +125,7 @@ plt.ylabel(r'$I/U$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/fig2.pdf')
-"""
+
 makeTable([U1, UI1, U2, UI2], r'{'+r'$U_.{A1}/\si{\volt}$'+r'} & {'+r'$I_1/U_.{A1}$'+r'} & {'+r'$U_.{A2}/\si{\volt}$'+r'} & {'+r'$I_2/U_.{A2}$'+r'}' ,'tabEnergieverteilung' , ['S[table-format=1.2]', 'S[table-format=2.2]', 'S[table-format=1.2]', 'S[table-format=1.2]'] , ["%1.2f", "%2.2f", "%1.2f", "%1.2f"])
 
 #b)
