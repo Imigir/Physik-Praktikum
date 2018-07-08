@@ -18,14 +18,73 @@ Der Winkel bei dem das Maximum der Impulsrate $N$ erreicht ist, lässt sich able
 \end{table}
 
 \subsection{Das Emissionsspektrum}
-In Abbildung \ref{fig:emission} ist das aufgenommene Emissionsspektrum der Röntgenröhre im Bereich von $\theta=\SI{4}{\degree}$ bis $\SI{26}{\degree}$ und in Abbildung \ref{fig:Brems} ein näherer Ausschnitt des Bremsbergs zu sehen. Die zugehörigen Werte finden sich in Tabelle \ref{tab:tab2}.
-Der Grenzwinkel lässt sich ablesen zu 
+\subsubsection{Die minimale Wellenlänge}
+In Abbildung \ref{fig:emission} ist das aufgenommene Emissionsspektrum der Röntgenröhre im Bereich von $\theta=\SI{4}{\degree}$ bis $\SI{26}{\degree}$ zu sehen. Die zugehörigen Werte finden sich in Tabelle \ref{tab:tab2}.
+Der Grenzwinkel lässt sich aus Abbildung \ref{fig:brems} ablesen zu 
 \[\theta_.{gr}=\SI{5}{\degree}\]
 und damit die minimale Wellenlänge nach Formel \eqref{eq:} zu
 \[
 \lambda_.{min}=\SI{35,1}{\pico\metre}\text{.}
 \]
-Der Literaturwert berechnet sich mit der Elektronenladung $e_.0$, dem Planckschen Wirkungsquantum $h$ und der Lichtgeschwindigkeit im Vakuum $c$ zu
+und die maximale kinetische Energie 
+\[
+E_.{kin,max}=\SI{35316}{\eV}
+\] 
+Die Literaturwerte berechnet sich mit der Elektronenladung $e_.0$, dem Planckschen Wirkungsquantum $h$ und der Lichtgeschwindigkeit im Vakuum $c$ zu
 \[
 \lambda_.{min,theo}=\frac{hc}{e_.0U_.B}=\SI{35,4}{\pico\metre}
 \]
+und
+\[
+E_.{max,theo}=e_.0U_.B=\SI{35000}{\eV}
+\]
+
+\subsubsection{Das Auflösungsvermögen}
+
+In Abbildung \ref{fig:Peak} ist eine Vergrößerung der Peaks der $K_.{\alpha}$- und $K_.{\beta}$-Linie zu sehen.
+Zur Bestimmung der Halbwertsbreite werden die Werte für $\theta$ der Geraden
+\begin{align*}
+g_.1(\theta)&=\SI{6540}{\per\second\per\degree}\cdot\theta-\SI{129126}{\per\second}\text{,}\\
+g_.2(\theta)&=\SI{-3990}{\per\second\per\degree}\cdot\theta+\SI{81082}{\per\second}
+\end{align*}
+gesucht bei denen gilt $g_.{1/2}(\theta)=\frac{N_.{\alpha,max}}{2}=\SI{540}{\per\second}$
+und die bei denen für die Geraden
+\begin{align*}
+g_.3(\theta)&=\SI{20140}{\per\second\per\degree}\cdot\theta-\SI{442454}{\per\second}\text{,}\\
+g_.4(\theta)&=\SI{-15600}{\per\second\per\degree}\cdot\theta+\SI{352019}{\per\second}
+\end{align*}
+gilt $g_.{3/4}(\theta)=\frac{N_.{\beta,max}}{2}=\SI{1929}{\per\second}$
+Daraus ergeben sich die Werte
+\begin{align*}
+\theta_.3&=\theta_.{\alpha-}=\SI{22,06}{\degree}\text{,}\\
+\theta_.4&=\theta_.{\alpha+}=\SI{22,44}{\degree}\text{,}\\
+\theta_.1&=\theta_.{\beta-}=\SI{19,83}{\degree}\text{,}\\
+\theta_.2&=\theta_.{\beta+}=\SI{20,19}{\degree}
+\end{align*}
+und mit Gleichung \ref{eq:E} für das Auflösungsvermögen
+\begin{align*}
+\Delta E_.{\alpha}&=\SI{130,7}{\eV}\\
+\Delta E_.{\beta}&=\SI{155,0}{\eV}
+\end{align*}
+
+\subsubsection{Die Abschirmkoeffizienten von Cu}
+
+Die Maxima der $K_.{\alpha}$- und $K_.{\beta}$-Linie lassen sich ablesen zu
+\begin{align*}
+\theta_.{\alpha,max}&=\SI{22,2}{\degree}\text{,}\\
+\theta_.{\beta,max}&=\SI{20,0}{\degree}\text{.}
+\end{align*}
+Mit Gleichung \ref{eq:E} ergeben sich so
+\begin{align*}
+E_.{K_.{\alpha}}&=\SI{8641}{\eV}\text{,}\\
+E_.{K_.{\beta}}&=\SI{9000}{\eV}\text{.}
+\end{align*}
+Damit lassen sich nun die Abschirmkoeffizienten $\sigma_.K$,$\sigma_.L$ und $\sigma_.M$ mithilfe von Gleichung \ref{eq:} und der Kernladungszahl des Kupfers $z=29$ bestimmen zu
+\begin{align*}
+\sigma_.K&=z-\sqrt{\frac{E_.{K_.{\beta}}}{R_.{\inf}}}=3,28\text{,}\\
+\sigma_.L&=z-\sqrt{\left(z-\sigma_.K\right)^2-\frac{E_.{K_.{\alpha}}}{R_.{\inf}}}=13,16\text{,}\\
+\sigma_.M&=z-\sqrt{\left(z-\sigma_.K\right)^2-\frac{E_.{K_.{\beta}}}{R_.{\inf}}}=29
+\end{align*}
+
+\subsection{Das Absorptionsspektrum}
+
