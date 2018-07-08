@@ -78,24 +78,13 @@ theta_Spek,N_Spek = np.genfromtxt('scripts/3.7.18Spektrum.txt',unpack=True)
 makeTable([theta_Spek,N_Spek], r'{'+r'$\theta_.{Spek}/\si{\degree}$'+r'} & {'+r'$N/\si{1\per\second}$'+r'}', 'tabSpektrum',['S[table-format=2.1]', 'S[table-format=4.0]'],["%2.1f","%4.0f"])
 
 
-'''
-plt.cla()
-plt.clf()
-plt.plot(theta_Spek,N_Spek,'rx',label='Messwerte')
-plt.xlabel(r'$\theta_{Spek}/\si{\degree}$')
-plt.ylabel(r'$N_{Spek}/\si{1\per\second}$')
-plt.legend(loc='best')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/Spektrum.png')
 
-print('spektrum done')
-'''
 
 plt.cla()
 plt.clf()
 plt.plot(theta_Spek[0:156],N_Spek[0:156],'rx',label='Messwerte')
 plt.xlabel(r'$\theta_{Spek}/\si{\degree}$')
-plt.ylabel(r'$N_{Spek}/\si{1\per\second}$')
+plt.ylabel(r'$N_{Spek}/\si{\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/konstSpektrum.png')
@@ -125,28 +114,28 @@ def const2(x):
 
 schnitt_plot=np.linspace(19.7,20.3)
 schnitt_plot2=np.linspace(22.0,22.5)
-
+'''
 plt.cla()
 plt.clf()
 plt.plot(schnitt_plot2,const2(schnitt_plot),'k-')
 plt.plot(schnitt_plot,const1(schnitt_plot),'k-')
-plt.plot(a_plot,f(a_plot),'k-')
+plt.plot(a_plot,f(a_plot),'k-', label='Hilfsgeraden')
 plt.plot(b_plot,g(b_plot),'k-')
 plt.plot(a_plot2,f2(a_plot2),'k-')
 plt.plot(b_plot2,g2(b_plot2),'k-')
-plt.plot(22.44167,const2(22.44166),'bx')
+plt.plot(22.44167,const2(22.44166),'bx',label='Halbwertspunkte')
 plt.plot(22.0646971,const2(22.0646971),'bx')
 plt.plot(19.8266055,const1(19.8266055),'bx')
 plt.plot(20.1859649,const1(20.1859649),'bx')
 plt.plot(theta_Spek[156:221],N_Spek[156:221],'rx',label='Messwerte')
 plt.xlabel(r'$\theta_{Spek}/\si{\degree}$')
-plt.ylabel(r'$N_{Spek}/\si{1\per\second}$')
+plt.ylabel(r'$N_{Spek}/\si{\per\second}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/PeakSpektrum.png')
-
-DEa=const.value("Planck constant")*const.c/(2*d*np.sin((20.1859649-19.8266055)*np.pi/180))
-DEb=const.value("Planck constant")*const.c/(2*d*np.sin((22.44167-22.0646971)*np.pi/180))
+'''
+DEa=(-const.value("Planck constant")*const.c/(2*d*np.sin((20.1859649)*np.pi/180))+const.value("Planck constant")*const.c/(2*d*np.sin((19.8266055)*np.pi/180)))/const.e
+DEb=(-const.value("Planck constant")*const.c/(2*d*np.sin((22.44167)*np.pi/180))+const.value("Planck constant")*const.c/(2*d*np.sin((22.0646971)*np.pi/180)))/const.e
 
 print('b-: ', 19.8266055)
 print('b+: ', 20.1859649)
