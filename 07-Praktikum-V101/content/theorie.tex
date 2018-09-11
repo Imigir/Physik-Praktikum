@@ -1,0 +1,54 @@
+
+\section{Theorie}
+\label{sec:Theorie}
+
+Das Trägheitsmoment einer punktförmigen Masse $m$ im Abstand $r$ von einer Drehachse $\vec{\omega}$ lässt sich berechnen durch:
+\begin{equation}
+I = m\cdot r^2 
+\end{equation}
+Für mehrere Punktmassen in einem starren Körper gilt somit:
+\begin{equation}
+I = \sum_i m_i\cdot r_i^2\label{eq:I_S}
+\end{equation}
+Verallgemeinert auf eine kontinuierliche Massenverteilung ergibt sich:
+\begin{equation}
+I = \int \rho r^2 dV \label{eq:I_S2}
+\end{equation}
+Bei einer Kugel mit Masse $m$ und Radius $R$ ergibt sich:
+\begin{equation}
+I_.{K} = \frac{2}{5}mR^2 \label{eq:I_SK}
+\end{equation}
+Bei einem Zylinder mit Masse $m$, Radius $R$ und Höhe $h$, bei dem die Drehachse durch die Körperachse geht, ergibt sich:
+\begin{equation}
+I_.{Z} = \frac{mR^2}{2} \label{eq:I_SZ}
+\end{equation}
+Steht die Drehachse senkrecht zur Körperachse des Zylinders gilt:
+\begin{equation}
+I_.{ZH} = m\left(\frac{R^2}{4}+\frac{h^2}{12}\right) \label{eq:I_SZH}
+\end{equation}
+Ist die Drehachse um den Abstand $a$ vom Schwerpunkt verschoben, so lässt sich das Trägheitsmoment nach dem Satz von Steiner berechnen:
+\begin{equation}
+I = I_.S+m a^2 \label{eq:Satz von Steiner}
+\end{equation}
+Dabei ist $I_.S$ das Drehmoment bezüglich des Schwerpunktes des Systems. Das Drehmoment eines Körpers lässt sich berechnen nach:
+\begin{equation}
+\vec{M} = \vec{F}\times\vec{r} \label{eq;M}
+\end{equation}
+Dabei ist $\vec{F}$ die Kraft, die im Abstand $\vec{r}$ von der Drehachse auf den Körper wirkt. Wirkt $\vec{F}$ als rückwirkende Kraft, so schwingt das System bei kleinen Auslenkungen mit:
+\begin{equation}
+T = 2\pi\sqrt{\frac{I}{D}} \label{eq:T}
+\end{equation}
+Dabei ist $D$ die Winkelrichtgröße und berechnet sich bei senkrecht wirkender Kraft durch: 
+\begin{align}
+D 	&= \frac{M}{\phi}\nonumber\\ 
+	&= \frac{F\cdot r}{\phi} \label{eq:D}
+\end{align}
+Sind $a$ und $T$ eines schwingenden Systems bekannt, so lässt sich das Eigenträgheitsmoment $I_.D$ nach der in Kapitel \ref{sec:Durchführung} beschriebenen Methode bestimmen durch:
+\begin{equation}
+I_.D = \frac{T_.0^2D}{4\pi^2}-\sum I_.S \label{eq:I_D}
+\end{equation}
+Dabei entspricht $T_.0^2$ dem y-Achsenabschnitt, wenn $T^2$ gegen $a^2$ aufgetragen wird.
+Ist Das Eigenträgheitsmoment $I_.D$ bekannt, so kann Das Trägheitsmoment $I$ des Körpers mit Formel \eqref{eq:T} bestimmt werden durch:
+\begin{equation}
+I = \frac{T^2D}{4\pi^2}-I_.D  \label{eq:I_K}
+\end{equation}

@@ -1,0 +1,149 @@
+
+\section{Auswertung}
+\label{sec:Auswertung}
+Die Graphen in Abbildung \ref{fig:rund} bis \ref{fig:beidseitiglinear2} wurden jeweils sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wurde mit Unterstützung von Uncertainties \cite{uncertainties} durchgeführt.\newline 
+
+\subsection{Bestimmung des Elastizitätsmoduls über die Biegung eines runden, einseitig eingespannten Stabes}
+
+Um das Elastizitätsmodul über die Krümmung des runden einseitig eingespannten Stabes mit Masse $m_.{Stab,rund} = \SI{121,30e-3}{\kilogram}$, Durchmesser $d_.{Stab,rund} = \SI{1e-2}{\metre}$ und Länge $l_.{Stab,rund}=\SI{55,0e-2}{\metre}$ zu bestimmen, wird das Flächenträgheitsmoment $I_.{Kreis}$ nach Formel \eqref{eq:I_Kreis} bestimmt zu:
+\[
+	I_.{Kreis}=\SI{4.91e-10}{\metre\tothe{4}}
+\]
+Mit einer Lastmasse von $m_.{Last} = \SI{522,00e-3}{\kilogram}$ ergibt sich mit Formel \eqref{eq:F} eine Gewichtskraft von $F=\SI{5.12}{\newton}$. Eine nicht lineare Ausgleichsrechnung der Form $D(x) = A ( L x^2 - \frac{x^3}{3})$ liefert mit der gemessenen Länge $L$ von $\SI{50.0e-2}{\metre}$ und den Wertepaaren aus Tabelle \ref{tab:tabStabRundEinseitig1} mit Hilfe von Matplotlib \cite{matplotlib} einen Wert für $A$ von:
+\[
+	A = \SI{7.04(6)e-2}{\per\metre\squared}
+\]
+Es ergibt sich nach Formel \eqref{eq:E} für das Elastizitätsmodul:
+\[
+	E = \frac{F}{2AI_.{Kreis}} = \SI{7.41(7)e10}{\pascal}\text{.}
+\]
+Dabei wird der Fehler $\sigma_.E$ von $E$ über den Fehler $\sigma_.A$ von $A$ berechnet durch:
+\begin{equation}
+	\sigma_.E = \biggl|\frac{\partial E}{\partial A}\biggl|\sigma_.A = \biggl|\frac{-F}{2A^2I_.{Kreis}}\biggl|\sigma_.A \label{eq:sigma_E}
+\end{equation}
+Mit den angegebenen Werten für die Masse und die Abmessungen des Stabes, kann die Dichte $\rho$ des Stabes bestimmt werden zu:
+\[
+	\rho_.{Stab,rund} = \frac{m_.{Stab,rund}}{V_.{Stab,rund}}=\SI{2,81e3}{\kilogram\per\cubic\metre}
+\]
+\begin{figure}
+	\centering
+	\includegraphics[scale=.8]{content/images/StabRundEinseitig1.pdf}
+	\caption{Die Auslenkung $D(x)$ des runden, einseitig eingespannten Stabes in Abhängigkeit des Abstandes $x$ zum fixierten Ende.}
+	\label{fig:rund}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=.8]{content/images/StabRundEinseitig2.pdf}
+	\caption{Die Auslenkung $D(x)$ des runden, einseitig eingespannten Stabes in Abhängigkeit des Abstandes $x$ zum fixierten Ende in linearisierter Darstellung.}
+	\label{fig:rundlinear}
+\end{figure}
+\begin{table}
+	\caption{Die Auslenkung $D(x)$ des einseitig eingespannten, runden Stabes an den jeweiligen Abständen $x$ zum fixierten Ende.}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabRundEinseitig1.tex}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabRundEinseitig2.tex}
+	\end{minipage}
+\end{table}
+
+\subsection{Bestimmung des Elastizitätsmoduls über die Biegung eines quadratischen, einseitig eingespannten Stabes}\label{subsec:QuadratischEinseitig}
+
+Um das Elastizitätsmodul über die Krümmung des quadratischen einseitig eingespannten Stabes mit Masse $m_.{Stab,quad} = \SI{164.12e-3}{\kilogram}$, Seitenlänge $a_.{Stab,quad} = \SI{1e-2}{\metre}$ und Länge $l_.{Stab,quad}=\SI{59.0e-2}{\metre}$ zu bestimmen, wird das Flächenträgheitsmoment $I_.{Quadrat}$ nach Formel \eqref{eq:I_Quadrat} bestimmt zu:
+\[
+	I_.{Quadrat}=\SI{8.33e-10}{\metre\tothe{4}}
+\]
+Mit einer Lastmasse von $m_.{Last} = \SI{540,93e-3}{\kilogram}$ ergibt sich mit Formel \eqref{eq:F} eine Gewichtskraft von $F=\SI{5.30}{\newton}$. Eine nicht lineare Ausgleichsrechnung der Form $D(x) = A ( L x^2 - \frac{x^3}{3})$ liefert mit der gemessenen Länge $L$ von $\SI{54.0e-2}{\metre}$ und den Wertepaaren aus Tabelle \ref{tab:tabStabQuadratEinseitig1} mit Hilfe von Matplotlib \cite{matplotlib} einen Wert für $A$ von:
+\[
+	A = \SI{5,19(2)e-2}{\per\metre\squared}
+\]
+Es ergibt sich nach Formel \eqref{eq:E} für das Elastizitätsmodul:
+\[
+	E = \frac{F}{2AI_.{Quadrat}} = \SI{6.13(2)e10}{\pascal}\text{.}
+\]
+Dabei wird der Fehler von $E$ nach Formel \eqref{eq:sigma_E} berechnet.
+Mit den angegebenen Werten für die Masse und die Abmessungen des Stabes, kann die Dichte $\rho$ des Stabes bestimmt werden zu:
+\[
+	\rho_.{Stab,quad} = \frac{m_.{Stab,quad}}{V_.{Stab,quad}}=\SI{2,78e3}{\kilogram\per\cubic\metre}
+\]
+\begin{figure}
+	\centering
+	\includegraphics[scale=.7]{content/images/StabQuadratEinseitig1.pdf}
+	\caption{Die Auslenkung $D(x)$ des quadratischen, einseitig eingespannten Stabes in Abhängigkeit des Abstandes $x$ zum fixierten Ende.}
+	\label{fig:quadratisch}
+%\end{figure}
+%\begin{figure}
+	\vspace{0.5cm}
+	\centering
+	\includegraphics[scale=.7]{content/images/StabQuadratEinseitig2.pdf}
+	\caption{Die Auslenkung $D(x)$ des quadratischen, einseitig eingespannten Stabes in Abhängigkeit des Abstandes $x$ zum fixierten Ende in linearisierter Darstellung.}
+	\label{fig:quadratischlinear}
+\end{figure}
+
+\begin{table}
+	\caption{Die Auslenkung $D(x)$ des einseitig eingespannten, quadratischen Stabes an den jeweiligen Abständen $x$ zum fixierten Ende.}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabQuadratEinseitig1.tex}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabQuadratEinseitig2.tex}
+	\end{minipage}
+\end{table}
+
+\subsection{Bestimmung des Elastizitätsmoduls über die Biegung eines quadratischen, beidseitig aufgelegten Stabes}
+
+Um das Elastizitätsmodul über die Krümmung des quadratischen beidseitig eingespannten Stabes zu bestimmen, wird mit einer Lastmasse von $m_.{Last} = \SI{4711e-3}{\kilogram}$ nach Formel \eqref{eq:F} eine Gewichtskraft von $F=\SI{46.20}{\newton}$ bestimmt.
+Das Flächenträgheitsmoment $I_.{Quadrat}$ des quadratischen Stabes und dessen Abmessungen sind aus Abschnitt \ref{subsec:QuadratischEinseitig} bekannt.
+Eine nicht lineare Ausgleichsrechnung der Form
+\begin{equation*}
+	D(x) =
+	\begin{cases}
+	A\left(3L^2 x-4x^3\right)& \text{für }0\leq x \leq \frac{L}{2} \\
+	A\left(4 x^3 -12 L x^2 + 9 L^2 x -L 3 \right)& \text{für }\frac{L}{2} < x \leq L
+	\end{cases} \label{FunktionBeidseitig}
+\end{equation*}
+liefert mit der gemessenen Länge $L$ von $\SI{56.0e-2}{\metre}$ und den Wertepaaren aus Tabelle \ref{tab:tabStabQuadratBeidseitig1} mit Hilfe von Matplotlib \cite{matplotlib} einen Wert für $A$ von:
+\[
+	A = \SI{1,65(1)e-2}{\per\metre\squared}
+\]
+Es ergibt sich nach Formel \eqref{eq:E2} und \eqref{eq:E3} für das Elastizitätsmodul:
+\[
+	E = \frac{F}{48AI_.{Quadrat}} = \SI{7.01(4)e10}{\pascal}\text{.}
+\]
+Dabei wird der Fehler von $E$ berechnet durch:
+\begin{equation}
+	\sigma_.E = \biggl|\frac{\partial E}{\partial A}\biggl|\sigma_.A = \biggl|\frac{-F}{48A^2I_.{Quadrat}}\biggl|\sigma_.A \label{eq:sigma_E}
+\end{equation}
+\begin{table}
+	\caption{Die Auslenkung $D(x)$ des beidseitig aufliegenden, quadratischen Stabes an den jeweiligen Abständen $x$ zum rechten Auflagepunkt.}
+	\begin{minipage}[c]{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabQuadratBeidseitig1.tex}
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\centering
+		\input{content/tables/tabStabQuadratBeidseitig2.tex}
+	\end{minipage}
+\end{table}
+\begin{figure}
+	\centering
+	\includegraphics[scale=.8]{content/images/StabQuadratBeidseitig1.pdf}
+	\caption{Die Auslenkung $D(x)$ des quadratischen, beidseitig aufliegenden Stabes in Abhängigkeit des Abstandes $x$ zum rechten Auflagepunkt.}
+	\label{fig:beidseitig}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=.8]{content/images/StabQuadratBeidseitig2.pdf}
+	\caption{Die Auslenkung $D(x)$ des quadratischen, beidseitig aufliegenden Stabes von der rechten Seite bis zur Stabmitte in Abhängigkeit des Abstandes $x$ zum rechten Auflagepunkt in linearisierter Form.}
+	\label{fig:beidseitiglinear1}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=.8]{content/images/StabQuadratBeidseitig3.pdf}
+	\caption{Die Auslenkung $D(x)$ des quadratischen, beidseitig aufliegenden Stabes von der linken Seite bis zur Stabmitte in Abhängigkeit des Abstandes $x$ zum rechten Auflagepunkt in linearisierter Form.}
+	\label{fig:beidseitiglinear2}
+\end{figure}

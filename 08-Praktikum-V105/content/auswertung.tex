@@ -1,0 +1,76 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+Die Graphen wurden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. 
+Die Fehlerrechnung wurde mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Konstanten $\mu_0$, $g$ und $\pi$ sind von SciPy \cite{scipy}.
+Die Werte für die Windungszahl $N$, den Abstand $d$, und den Radius $R$ der Helmholzspule sind:
+\begin{align*}
+N &= 195\\
+d &= \SI{13,8}{\centi\metre}\\
+R &= \SI{10,9}{\centi\metre}
+\end{align*}
+
+\subsection{Bestimmung des magnetischen Momentes unter Ausnutzung der Gravitation}
+
+Mithilfe der Messwerte für $I$ aus Tabelle \ref{tab:Gravitation} werden mit Formel \eqref{eq:B} die jeweiligen magnetischen Flussdichten $B$ für die verschiedenen Abstände $r$ der Masse $m=\SI{1,4}{\gram}$ vom Ursprung der Kugel bestimmt. Es wird $r$ gegen $B$ aufgetragen (vgl. Graph \ref{fig:Gravitation}) und mittels Formel \eqref{eq:mu} das magnetische Moment $\mu_.{Dipol}$ der Kugel bestimmt zu:
+\begin{equation*}
+\mu_.{Dipol} = \SI{0,437(6)}{\ampere\per\metre\squared}
+\end{equation*}  
+\begin{table}
+  	\centering
+  	\caption{Die Messwerte von $r$ und $I$ der ersten Messreihe, sowie die berechneten Werte für $B$.}
+  	\input{content/tables/taba.tex}\label{tab:Gravitation}
+\end{table}
+\begin{figure}
+	\centering
+	\includegraphics[scale = 1,keepaspectratio]
+	{content/images/Gravitation.pdf}
+	\caption{Verlauf von $r$ in Abhängigkeit von $B$}
+	\label{fig:Gravitation}
+\end{figure}
+\subsection{Bestimmung des magnetischen Momentes über die Schwingungsdauer}
+
+Mithilfe der Messwerte für $I$ aus Tabelle \ref{tab:Schwingungsdauer} werden mit Formel \eqref{eq:B} die jeweiligen magnetischen Flussdichten $B$ bestimmt. Das Trägheitsmoment $J_.K$ der Kugel mit Radius $r_.K = \SI{2,66}{\centi\metre}$ und Masse $m_.K = \SI{142}{\gram}$ beträgt nach Formel \eqref{eq:J}:
+\begin{equation*}
+I_.K = \SI{4,03e-5}{\kilogram\metre\squared}
+\end{equation*}
+Es wird $T^2$ gegen $1/B$ aufgetragen (vgl. Graph \ref{fig:Schwingungsdauer}) und mittels Formel \eqref{eq:mu2} das magnetische Moment $\mu_.{Dipol}$ der Kugel bestimmt zu:
+\begin{equation*}
+\mu_.{Dipol} = \SI{0,438(10)}{\ampere\per\metre\squared}
+\end{equation*}  
+\begin{table}
+  	\centering
+  	\caption{Die Messwerte von $I$ und $T$ der zweiten Messreihe, sowie die berechneten Werte für $B$.}
+  	\input{content/tables/tabb.tex}\label{tab:Schwingungsdauer}
+\end{table}
+\begin{figure}
+	\centering
+	\includegraphics[scale = 1,keepaspectratio]
+	{content/images/Schwingungsdauer.pdf}
+	\caption{Verlauf von $T^2$ in Abhängigkeit von $1/B$}
+	\label{fig:Schwingungsdauer}
+\end{figure}
+
+\subsection{Bestimmung des magnetischen Momentes über die Präzession}
+
+Mithilfe der Messwerte für $I$ aus Tabelle \ref{tab:Präzession} werden mit Formel \eqref{eq:B} die jeweiligen magnetischen Flussdichten $B$ bestimmt. Der Drehimpuls $L_.K$ der Kugel kann mit Formel \eqref{eq:L} bestimmt werden zu:
+\begin{equation*}
+L_.K = \SI{1,27}{\gram\metre\squared\per\second}
+\end{equation*}
+Es wird die reziproke Zeit $T^{-1}$ gegen $B$ aufgetragen (vgl. Graph \ref{fig:Präzession}) und mittels Formel \eqref{eq:mu3} das magnetische Moment $\mu_.{Dipol}$ der Kugel bestimmt zu:
+\begin{equation*}
+\mu_.{Dipol} = \SI{0,363(11)}{\ampere\per\metre\squared}
+\end{equation*}  
+\begin{table}
+  	\centering
+  	\caption{Die Messwerte von $I$ und $T$ der dritten Messreihe, sowie die berechneten Werte für $B$.}
+  	\input{content/tables/tabc.tex}\label{tab:Präzession}
+\end{table}
+\begin{figure}
+	\centering
+	\includegraphics[scale = 1,keepaspectratio]
+	{content/images/Praezession.pdf}
+	\caption{Verlauf der reziproken Zeit $T^{-1}$ in Abhängigkeit von $B$}
+	\label{fig:Präzession}
+\end{figure}

@@ -1,0 +1,89 @@
+
+\section{Theorie}
+\label{sec:Theorie}
+
+\subsection{Wärmekapazität}
+Die Molwärme $C$ eines Körpers bezeichnet seine Proportionalität zwischen der aufgenommenen Wärme $dQ$ und der Veränderung der Temperatur $dT$.
+\begin{equation}
+C = \frac{dQ}{dT} \label{eq:C}
+\end{equation}
+Es wird dabei zwischen der Molwärme bei konstantem Druck $C_\text{p}$ und der bei konstantem Volumen $C_\text{V}$  unterschieden.\newline
+Der erste Hauptsatz der Thermodynamik für die Innere Energie $U$ eines Systems lautet \[dU=dQ-pdV\].
+Für $V = const$ folgt $dV = 0$ und damit $dU = dQ$.
+Damit ergibt sich für die Molwärmen:
+\begin{equation}
+C_\text{V} = \left(\frac{dU}{dT}\right)_\text{V} \label{eq:CV}
+\end{equation}
+und 
+\begin{equation}
+C_\text{p} = \left(\frac{dQ}{dT}\right)_\text{p} \label{eq:Cp}
+\end{equation}
+Das Verhältnis zwischen diesen beiden lässt sich durch
+\begin{equation}
+C_\text{V}= C_\text{p} - 9\alpha^2\kappa V_0T \label{eq:CpCV}
+\end{equation}
+beschreiben\cite{V201}, wobei $\alpha$ der Ausdehnungskoeffizient und $\kappa$ die Kompressibilität des Stoffes ist.
+$V_0$ ist das Molvolumen und kann als 
+\begin{equation*}
+V_0 = \frac{M}{\rho}
+\end{equation*}
+mit der molaren Masse $M$ und der Dichte $\rho$ geschrieben werden.
+Die Wärmekapazität $c_\text{g}m_\text{g}$ eines Kalorimeters lässt sich durch die Mischtemperatur $T_\text{M}$ von zwei Wassermengen mit verschiedenen Temperaturen $T_\text{x}$ und $T_\text{y}$ und den Massen $m_\text{x}$ und $m_\text{y}$, sowie der spezifischen Wärmekapazität des Wassers $c_\text{W}\approx \SI{4,18}{\joule\per\gram\per\kelvin}$ bestimmen\cite{V201}:
+\begin{equation}
+c_\text{g}m_\text{g} =\frac{ c_\text{w}m_\text{y}(T_\text{y}-T_\text{m})- c_\text{w}m_\text{x}(T_\text{m}-T_\text{x})}{(T_\text{m}-T_\text{x})}. \label{eq:cgmg}
+\end{equation}
+Damit lässt sich auch die spezifische Wärmekapazität $c_\text{k}$ einer Probe bestimmen als \cite{V201}
+\begin{equation}
+c_\text{k} =\frac{( c_\text{W}m_\text{W}+ c_\text{g}m_\text{g})(T_\text{m}-T_\text{W})}{m_\text{k}(T_\text{k}-T_\text{m})}. \label{eq:ck}
+\end{equation}
+Daraus und mit Gleichung \eqref{eq:CpCV} folgt für $C_\text{V}$: 
+\begin{equation}
+C_\text{V}= c_\text{k}M - 9\alpha^2\kappa \frac{M}{\rho}T. \label{eq:ckCV}
+\end{equation}
+\subsection{Dulong-Petit in der klassischen Physik}
+Laut dem Dulong-Petitschen Gesetz beträgt die Molwärme $C_\text{V}$ unabhängig von den Eigenschaften des Körpers den Wert \[C_\text{V}=3R,\]
+wobei \begin{align}
+R 	&= N_\text{A} k_\text{B} \label{eq:R}\\
+	&= \SI{8,314}{\joule\per\mol\per\kelvin}\notag
+\end{align} ist.
+Aus der klassischen Sichtweise lässt sich dies dadurch errechnen, dass die Atome in einem Festkörper sich nur in Form 
+von Schwingungen und damit wie der bekannte harmonischer Oszillator bewegen können.
+Die mittlere innere Energie beträgt in diesem Fall
+\begin{equation}
+\langle U \rangle = \langle E_\text{pot} \rangle + \langle E_\text{kin}\rangle= 2 \langle E_\text{kin} \rangle. \label{eq:U}
+\end{equation}
+Da außerdem nach dem Äquipartitionstheorem ein Atom eine mittlere kinetische Energie
+\begin{equation*}
+\langle E_\text{kin}\rangle = \frac{1}{2}k_\text{B}T
+\end{equation*}
+pro Freihatsgrad f besitzt, folgt aus Gleichung \eqref{eq:U} eine mittlere Gesamtenergie
+\begin{equation}
+\langle U \rangle= k_\text{B}T. \label{eq:U2}
+\end{equation}
+Werden nun ein Mol Atome betrachtet, muss mit der Avogradokonstanten $N_\text{A} = 6,2 x10^{23}$ multipliziert werden.
+Mit Gleichung \eqref{eq:R} und unter Berücksichtigung, dass jedes Atom drei Freiheitsgrade der Rotation besitzt folgt schließlich
+\begin{equation}
+\langle U \rangle = 3RT \label{eq:U3}
+\end{equation}
+und somit aus Gleichung \eqref{eq:CV}
+\begin{equation}
+C_V = 3R. \label{eq:CV2}
+\end{equation}
+\subsection{Dulong-Petit in der Quantenmechanik}
+Bei hohen Temperaturen trifft diese Molwärme auf alle festen Elemente zu, sie werden jedoch bei geringen Temperaturen beliebig klein. Da beim klassischen Ansatz davon ausgegangen wird, dass Energien in beliebig kleinen Beträgen aufgenommen und abgegeben werden können, kann dieser das Phänomen der geringen Kapazität nicht erklären.\newline
+In der Quantentheorie aber wird davon ausgegangen, dass Energie nur gequantelt, also in diskreten Beträgen aufgenommen und abgegeben werden kann. \newline Das Atom, also der harmonisch mit der Frequenz $\omega$ schwingende Oszillator kann deshalb seine Gesamtenergie nur um 
+\begin{equation}
+\Delta U=\hbar\,\omega \label{eq:deltaU}
+\end{equation}
+oder Vielfache davon verändern.
+Daher kann nicht mehr von einer lineare $T$-Abhängigkeit ausgegangen werden, sondern es muss die Boltzmann-Verteilung berücksichtigt werden.\newline
+Die neue mittlere Gesamtenergie pro Freiheitsgrad ist also \cite{V201}
+\begin{equation*}
+\langle U \rangle = \frac{\hbar\,\omega}{e^{\frac{\hbar\,\omega}{k_\text{B}T}-1}}
+\end{equation*}
+und für die Gesamtenergie von einem Mol Atomen folgt:
+\begin{equation}
+\langle U \rangle = \frac{3N_\text{A}\hbar\,\omega}{e^{\frac{\hbar\,\omega}{k_\text{B}T}-1}}. \label{eq:U4}
+\end{equation}
+Für $T\rightarrow0$ geht auch $\langle U \rangle$ gegen null und beschreibt somit die abweichenden $C_\text{V}$-Werte für geringe Temperaturen.
+Für hohe Temperaturen wird $\langle U \rangle \approx 3N_\text{A}k_\text{B}T= 3RT$ wie im klassischen Fall.
