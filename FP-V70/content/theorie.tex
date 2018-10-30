@@ -32,7 +32,8 @@ In diesem Druckbereich liegt eine viskose laminare Strömung des abgepumpten Gas
 \subsubsection{Die Turbomolekularpumpe(Turbopumpe)}
 
 Bei einer Turbopumpe ähnelt der Rotor einer mehrstufigen Turbine mit schaufelähnlichen Scheiben, während zwischen den Rotorscheiben spiegelverkehrte Schaufeln fest angebracht sind.
-Der Rotor ist meist auf der Vorvakuum-Seite der Kammer auf einem Kugellager und auf der Hochvakuum-Seite auf einem verschleißfreien Permanentmagnetlager gelagert, um Verunreinigungen es Vakuums durch Schmierstoffe zu vermeiden.\cite{Pfeiffer} Aufgrund der hohen Drehzahl des Rotors können mit einer Turbopumpe Enddrücke bis $p=\SI{1e-11}{\milli\bar}$(Ultrahochvakuum) erreicht werden, allerdings benötigt sie bereits ein Feinvakuum um zu arbeiten. Außerdem werden für den Hochvakuumbereich dickere Rohre benötigt, da dort eine molekulare Strömung vorliegt, also die wenigen verblieben Teilchen fast ausschließlich zwischen den Rohrwänden hin und her prallen und somit die mittlere freie Weglänge viel größer ist als der Rohrdurchmesser.
+Der Rotor ist meist auf der Vorvakuum-Seite der Kammer auf einem Kugellager und auf der Hochvakuum-Seite auf einem verschleißfreien Permanentmagnetlager gelagert, um Verunreinigungen es Vakuums durch Schmierstoffe zu vermeiden.\cite{Pfeiffer} Aufgrund der hohen Drehzahl des Rotors können mit einer Turbopumpe Enddrücke bis $p=\SI{1e-11}{\milli\bar}$(Ultrahochvakuum) erreicht werden, allerdings benötigt sie bereits ein Feinvakuum um zu arbeiten. Außerdem herrscht im Hochvakuumberreich eine molekulare Strömung vor. Die wenigen verblieben Teilchen prallen fast ausschließlich zwischen den Rohrwänden hin und her und somit ist die mittlere freie Weglänge viel größer ist als der Rohrdurchmesser.
+
 
 \subsection{Das Saugvermögen}
 Die Pumpen werden durch ihr Saugvermögen 
@@ -43,6 +44,7 @@ charakterisiert.
 Es beschreibt den durch die Ansaugöffnung der Pumpe fließenden Volumenstrom und kann über verschiedene Methoden gemessen werden.
 
 \subsubsection{Messung der p(t)-Kurve}
+
 Nach dem Boyle'schen Gesetz für ideale Gase gilt bei einer konstanten Temperatur $T$:
 \begin{equation}
 p\cdot V =\text{const}\label{eq:Boyle}
@@ -61,6 +63,7 @@ p(t)=(p_.0-p_.E)\exp{-\frac{S}{V_.0}t}+p_.E\text{.}\label{eq:pt2}
 \end{equation}
 
 \subsubsection{Leckratenmessung}
+
 Wenn der Enddruck $p_.E$ erreicht ist, stellt sich ein Gleichgewicht ein. Es strömt durch (virtuelle) Lecks 
 genau soviel Gas in den Rezipienten wie die Pumpe absaugen kann.
 Wird die Pumpe in diesem Zustand abgeschaltet, füllt sich der Rezipient langsam wieder mit Gas und es gilt 
@@ -73,8 +76,19 @@ Q=V_.0\frac{\Delta p}{\Delta t}
 \]
 und damit
 \begin{equation}
-S=\frac{V_.0}{p_.E}\cdot\frac{\Delta p}{\Delta t}\label{eq:S}
+S=\frac{V_.0}{p_.E}\cdot\frac{\Delta p}{\Delta t}\text{.}\label{eq:S}
 \end{equation}
+\newline\newline
+Im Allgemeinen stimmt das bestimmte Saugvermögen einer Pumpe nicht mit den Herstellerangaben überein.
+Das hängt mit dem Strömungswiderstand der Verbindungsrohre zusammen.
+Experimentell wird nur das experimentelle Saugvermögen
+\begin{equation}
+S_.{eff}=\frac{S_.0\cdot L}{S_.0+L},
+\end{equation}
+wobei $S_.0$ das theoretische Saugvermögen und $L$ den Leitwert der Rohre angibt.
+Dieser wird je nach Strömungsart anders berechnet und geht bei molekularer Strömung mit der 3. und bei laminarer viskoser Strömung mit der 4. Potenz des Rohrdurchmessers.
+Deshalb muss bei molekularer Strömung der Rohrdurchmesser wesentlich größer gewählt werden, um ein großes Saugvermögen zu gewährleisten.
+
 \subsection{Arten der Vakuummessung}
 
 \subsubsection{Pirani-Vakuummeter}
