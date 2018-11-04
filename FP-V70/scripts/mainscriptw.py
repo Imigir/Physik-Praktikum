@@ -54,7 +54,7 @@ import scipy.constants as const
 VTL = unp.uarray(10.197,0.915)
 #TL1
 pTL1,tTL1_1,tTL1_2,tTL1_3 = np.genfromtxt(r'scripts/dataTL1.txt',unpack=True)
-p0TL1 = np.array(2*10**(-4))
+p0TL1 = np.array(2)
 pTL1 = np.append(p0TL1,pTL1)
 pTL1 = unp.uarray(pTL1,pTL1*0.1)
 
@@ -69,14 +69,14 @@ for i in range (0,len(tTL1_1)):
 tTL1=unp.uarray(tTL1,tTL1_f)
 
 paramsLinearTL1, errorsLinearTL1, sigma_y = linregress(noms(tTL1), noms(pTL1))
-steigungTL1 = unp.uarray(paramsLinearTL1[0],errorsLinearTL1[0])/10**4
+steigungTL1 = unp.uarray(paramsLinearTL1[0],errorsLinearTL1[0])
 
 STL1 = VTL/p0TL1*steigungTL1
 print('STL1 =', STL1)
 
 #TL2
 pTL2,tTL2_1,tTL2_2,tTL2_3 = np.genfromtxt(r'scripts/dataTL2.txt',unpack=True)
-p0TL2 = np.array(1.4*10**(-4))
+p0TL2 = np.array(1.4)
 pTL2 = np.append(p0TL2,pTL2)
 pTL2 = unp.uarray(pTL2,pTL2*0.1)
 
@@ -91,14 +91,14 @@ for i in range (0,len(tTL2_1)):
 tTL2=unp.uarray(tTL2,tTL2_f)
 
 paramsLinearTL2, errorsLinearTL2, sigma_y = linregress(noms(tTL2), noms(pTL2))
-steigungTL2 = unp.uarray(paramsLinearTL2[0],errorsLinearTL2[0])/10**4
+steigungTL2 = unp.uarray(paramsLinearTL2[0],errorsLinearTL2[0])
 
 STL2 = VTL/p0TL2*steigungTL2
 print('STL2 =', STL2)
 
 #TL3
 pTL3,tTL3_1,tTL3_2,tTL3_3 = np.genfromtxt(r'scripts/dataTL3.txt',unpack=True)
-p0TL3 = np.array(1*10**(-4))
+p0TL3 = np.array(1)
 pTL3 = np.append(p0TL3,pTL3)
 pTL3 = unp.uarray(pTL3,pTL3*0.1)
 
@@ -113,14 +113,14 @@ for i in range (0,len(tTL3_1)):
 tTL3=unp.uarray(tTL3,tTL3_f)
 
 paramsLinearTL3, errorsLinearTL3, sigma_y = linregress(noms(tTL3), noms(pTL3))
-steigungTL3 = unp.uarray(paramsLinearTL3[0],errorsLinearTL3[0])/10**4
+steigungTL3 = unp.uarray(paramsLinearTL3[0],errorsLinearTL3[0])
 
 STL3 = VTL/p0TL3*steigungTL3
 print('STL3 = ', STL3)
 
 #TL4
 pTL4,tTL4_1,tTL4_2,tTL4_3 = np.genfromtxt(r'scripts/dataTL4.txt',unpack=True)
-p0TL4 = np.array(0.5*10**(-4))
+p0TL4 = np.array(0.5)
 pTL4 = np.append(p0TL4,pTL4)
 pTL4 = unp.uarray(pTL4,pTL4*0.1)
 
@@ -135,7 +135,7 @@ for i in range (0,len(tTL4_1)):
 tTL4=unp.uarray(tTL4,tTL4_f)
 
 paramsLinearTL4, errorsLinearTL4, sigma_y = linregress(noms(tTL4), noms(pTL4))
-steigungTL4 = unp.uarray(paramsLinearTL4[0],errorsLinearTL4[0])/10**4
+steigungTL4 = unp.uarray(paramsLinearTL4[0],errorsLinearTL4[0])
 
 STL4 = VTL/p0TL4*steigungTL4
 print('STL4 = ', STL4)
@@ -238,6 +238,67 @@ plt.savefig('content/images/TL.png')
 print('TL done')
 
 
+#TS
+#VTS = 
+
+pTS,tTS_1,tTS_2,tTS_3,tTS_4,tTS_5,tTS_6 = np.genfromtxt(r'scripts/dataTS1.txt',unpack=True)
+p0TS = np.array(500)
+pTS = np.append(p0TS,pTS)
+pTS = unp.uarray(pTS,pTS*0.3)
+pTS_end = 1.2
+pTS_end = unp.uarray(pTS_end,pTS_end*0.3)
+
+tTS = [0]
+tTS_f = [0]
+
+for i in range (0,len(tTS_1)):
+	th,th_f = avg_and_sem([tTS_1[i],tTS_2[i],tTS_3[i],tTS_4[i],tTS_5[i],tTS_6[i]])
+	tTS.append(th)
+	tTS_f.append(th_f)
+
+tTS=unp.uarray(tTS,tTS_f)
+
+pTS_h = (pTS-pTS_end)/(pTS[0]-pTS_end)
+#pTS_log = np.log(noms(pTS_h))
+#pTS_log_err = 1/noms(pTS_h)*stds(pTS_h)
+#pTS_log_err = [np.log(noms(pTS_h)+stds(pTS_h))-np.log(noms(pTS_h)), np.log(noms(pTS_h))-np.log(noms(pTS_h)-stds(pTS_h))]
+#pTS_log = unp.uarray(pTS_log,pTS_log_err)
+pTS_log = unp.log(pTS_h)
+
+#Plot
+#TSE
+plt.cla()
+plt.clf()
+x_plot = np.linspace(-2,15)
+
+plt.errorbar(noms(tTS), noms(pTS), xerr=stds(tTS), yerr=stds(pTS), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+#plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade')
+
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$p/10^{-5}\si{\milli\bar}$')
+plt.xlim(-1,16)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/TSE.png')
+print('TSE done')
+
+#TSL
+plt.cla()
+plt.clf()
+x_plot = np.linspace(-2,15)
+
+plt.errorbar(noms(tTS), noms(pTS_log), xerr=stds(tTS), yerr=stds(pTS_log), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+#plt.errorbar(noms(tTS), noms(pTS_log), xerr=stds(tTS), yerr=[pTS_log_err[0],pTS_log_err[1]], fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+#plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade')
+
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$')
+#plt.xlim(-1,16)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/TSL.png')
+print('TSL done')
+print('TS done')
 
 #DL
 VDL = unp.uarray(11.15,1.032)
