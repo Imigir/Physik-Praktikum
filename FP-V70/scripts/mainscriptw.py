@@ -259,6 +259,7 @@ for i in range (0,len(tTS_1)):
 tTS=unp.uarray(tTS,tTS_f)
 
 pTS_h = (pTS-pTS_end)/(pTS[0]-pTS_end)
+pTS_log = unp.log(pTS_h)
 #pTS_log = np.log(noms(pTS_h))
 #pTS_log_err = 1/noms(pTS_h)*stds(pTS_h)
 #pTS_log_err = [np.log(noms(pTS_h)+stds(pTS_h))-np.log(noms(pTS_h)), np.log(noms(pTS_h))-np.log(noms(pTS_h)-stds(pTS_h))]
