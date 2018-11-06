@@ -70,9 +70,13 @@ tTL1=unp.uarray(tTL1,tTL1_f)
 
 paramsLinearTL1, errorsLinearTL1, sigma_y = linregress(noms(tTL1), noms(pTL1))
 steigungTL1 = unp.uarray(paramsLinearTL1[0],errorsLinearTL1[0])
+paramsLinearTL1_2, errorsLinearTL1_2, sigma_y = linregress(noms(tTL1)[3:], noms(pTL1)[3:])
+steigungTL1_2 = unp.uarray(paramsLinearTL1_2[0],errorsLinearTL1_2[0])
 
 STL1 = VTL/p0TL1*steigungTL1
 print('STL1 =', STL1)
+STL1_2 = VTL/p0TL1*steigungTL1_2
+print('STL1_2 =', STL1_2)
 
 #TL2
 pTL2,tTL2_1,tTL2_2,tTL2_3 = np.genfromtxt(r'scripts/dataTL2.txt',unpack=True)
@@ -92,9 +96,13 @@ tTL2=unp.uarray(tTL2,tTL2_f)
 
 paramsLinearTL2, errorsLinearTL2, sigma_y = linregress(noms(tTL2), noms(pTL2))
 steigungTL2 = unp.uarray(paramsLinearTL2[0],errorsLinearTL2[0])
+paramsLinearTL2_2, errorsLinearTL2_2, sigma_y = linregress(noms(tTL2)[3:], noms(pTL2)[3:])
+steigungTL2_2 = unp.uarray(paramsLinearTL2_2[0],errorsLinearTL2_2[0])
 
 STL2 = VTL/p0TL2*steigungTL2
 print('STL2 =', STL2)
+STL2_2 = VTL/p0TL2*steigungTL2_2
+print('STL2_2 =', STL2_2)
 
 #TL3
 pTL3,tTL3_1,tTL3_2,tTL3_3 = np.genfromtxt(r'scripts/dataTL3.txt',unpack=True)
@@ -114,9 +122,13 @@ tTL3=unp.uarray(tTL3,tTL3_f)
 
 paramsLinearTL3, errorsLinearTL3, sigma_y = linregress(noms(tTL3), noms(pTL3))
 steigungTL3 = unp.uarray(paramsLinearTL3[0],errorsLinearTL3[0])
+paramsLinearTL3_2, errorsLinearTL3_2, sigma_y = linregress(noms(tTL3)[3:], noms(pTL3)[3:])
+steigungTL3_2 = unp.uarray(paramsLinearTL3_2[0],errorsLinearTL3_2[0])
 
 STL3 = VTL/p0TL3*steigungTL3
 print('STL3 = ', STL3)
+STL3_2 = VTL/p0TL3*steigungTL3_2
+print('STL3_2 = ', STL3_2)
 
 #TL4
 pTL4,tTL4_1,tTL4_2,tTL4_3 = np.genfromtxt(r'scripts/dataTL4.txt',unpack=True)
@@ -134,7 +146,7 @@ for i in range (0,len(tTL4_1)):
 	
 tTL4=unp.uarray(tTL4,tTL4_f)
 
-paramsLinearTL4, errorsLinearTL4, sigma_y = linregress(noms(tTL4), noms(pTL4))
+paramsLinearTL4, errorsLinearTL4, sigma_y = linregress(noms(tTL4)[:10], noms(pTL4)[:10])
 steigungTL4 = unp.uarray(paramsLinearTL4[0],errorsLinearTL4[0])
 
 STL4 = VTL/p0TL4*steigungTL4
@@ -148,7 +160,8 @@ plt.clf()
 x_plot = np.linspace(-2,15)
 
 plt.errorbar(noms(tTL1), noms(pTL1), xerr=stds(tTL1), yerr=stds(pTL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade')
+plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade1')
+plt.plot(x_plot,x_plot*paramsLinearTL1_2[0]+paramsLinearTL1_2[1],'c-',label='Ausgleichsgerade2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -166,6 +179,7 @@ x_plot = np.linspace(-2,25)
 
 plt.errorbar(noms(tTL2), noms(pTL2), xerr=stds(tTL2), yerr=stds(pTL2), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
 plt.plot(x_plot,x_plot*paramsLinearTL2[0]+paramsLinearTL2[1],'b-',label='Ausgleichsgerade')
+plt.plot(x_plot,x_plot*paramsLinearTL2_2[0]+paramsLinearTL2_2[1],'c-',label='Ausgleichsgerade2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -183,6 +197,7 @@ x_plot = np.linspace(-2,35)
 
 plt.errorbar(noms(tTL3), noms(pTL3), xerr=stds(tTL3), yerr=stds(pTL3), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
 plt.plot(x_plot,x_plot*paramsLinearTL3[0]+paramsLinearTL3[1],'b-',label='Ausgleichsgerade')
+plt.plot(x_plot,x_plot*paramsLinearTL3_2[0]+paramsLinearTL3_2[1],'c-',label='Ausgleichsgerade2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -198,7 +213,8 @@ plt.cla()
 plt.clf()
 x_plot = np.linspace(-2,30)
 
-plt.errorbar(noms(tTL4), noms(pTL4), xerr=stds(tTL4), yerr=stds(pTL4), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.errorbar(noms(tTL4)[:10], noms(pTL4)[:10], xerr=stds(tTL4)[:10], yerr=stds(pTL4)[:10], fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.errorbar(noms(tTL4)[10], noms(pTL4)[10], xerr=stds(tTL4)[10], yerr=stds(pTL4)[10], color='grey', marker='x', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Ungenutzt')
 plt.plot(x_plot,x_plot*paramsLinearTL4[0]+paramsLinearTL4[1],'b-',label='Ausgleichsgerade')
 
 plt.xlabel(r'$t/\si{\second}$')
@@ -237,69 +253,6 @@ plt.savefig('content/images/TL.png')
 """
 print('TL done')
 
-
-#TS
-#VTS = 
-
-pTS,tTS_1,tTS_2,tTS_3,tTS_4,tTS_5,tTS_6 = np.genfromtxt(r'scripts/dataTS1.txt',unpack=True)
-p0TS = np.array(500)
-pTS = np.append(p0TS,pTS)
-pTS = unp.uarray(pTS,pTS*0.3)
-pTS_end = 1.2
-pTS_end = unp.uarray(pTS_end,pTS_end*0.3)
-
-tTS = [0]
-tTS_f = [0]
-
-for i in range (0,len(tTS_1)):
-	th,th_f = avg_and_sem([tTS_1[i],tTS_2[i],tTS_3[i],tTS_4[i],tTS_5[i],tTS_6[i]])
-	tTS.append(th)
-	tTS_f.append(th_f)
-
-tTS=unp.uarray(tTS,tTS_f)
-
-pTS_h = (pTS-pTS_end)/(pTS[0]-pTS_end)
-pTS_log = unp.log(pTS_h)
-#pTS_log = np.log(noms(pTS_h))
-#pTS_log_err = 1/noms(pTS_h)*stds(pTS_h)
-#pTS_log_err = [np.log(noms(pTS_h)+stds(pTS_h))-np.log(noms(pTS_h)), np.log(noms(pTS_h))-np.log(noms(pTS_h)-stds(pTS_h))]
-#pTS_log = unp.uarray(pTS_log,pTS_log_err)
-pTS_log = unp.log(pTS_h)
-
-#Plot
-#TSE
-plt.cla()
-plt.clf()
-x_plot = np.linspace(-2,15)
-
-plt.errorbar(noms(tTS), noms(pTS), xerr=stds(tTS), yerr=stds(pTS), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-#plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade')
-
-plt.xlabel(r'$t/\si{\second}$')
-plt.ylabel(r'$p/10^{-5}\si{\milli\bar}$')
-plt.xlim(-1,16)
-plt.legend(loc='best')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TSE.png')
-print('TSE done')
-
-#TSL
-plt.cla()
-plt.clf()
-x_plot = np.linspace(-2,15)
-
-plt.errorbar(noms(tTS), noms(pTS_log), xerr=stds(tTS), yerr=stds(pTS_log), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-#plt.errorbar(noms(tTS), noms(pTS_log), xerr=stds(tTS), yerr=[pTS_log_err[0],pTS_log_err[1]], fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-#plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade')
-
-plt.xlabel(r'$t/\si{\second}$')
-plt.ylabel(r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$')
-#plt.xlim(-1,16)
-plt.legend(loc='best')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TSL.png')
-print('TSL done')
-print('TS done')
 
 #DL
 VDL = unp.uarray(11.15,1.032)
@@ -341,7 +294,7 @@ for i in range (0,len(tDL2_1)):
 	
 tDL2=unp.uarray(tDL2,tDL2_f)
 
-paramsLinearDL2, errorsLinearDL2, sigma_y = linregress(noms(tDL2), noms(pDL2))
+paramsLinearDL2, errorsLinearDL2, sigma_y = linregress(noms(tDL2)[:5], noms(pDL2)[:5])
 steigungDL2 = unp.uarray(paramsLinearDL2[0],errorsLinearDL2[0])
 
 SDL2 = VDL/p0DL2*steigungDL2
@@ -367,7 +320,7 @@ paramsLinearDL3, errorsLinearDL3, sigma_y = linregress(noms(tDL3), noms(pDL3))
 steigungDL3 = unp.uarray(paramsLinearDL3[0],errorsLinearDL3[0])
 
 SDL3 = VDL/p0DL3*steigungDL3
-print('SDL1 = ', SDL1)
+print('SDL3 = ', SDL3)
 
 #DL4
 pDL4,tDL4_1,tDL4_2,tDL4_3 = np.genfromtxt(r'scripts/dataDL4.txt',unpack=True)
@@ -415,7 +368,8 @@ plt.cla()
 plt.clf()
 x_plot = np.linspace(-2,80)
 
-plt.errorbar(noms(tDL2), noms(pDL2), xerr=stds(tDL2), yerr=stds(pDL2), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.errorbar(noms(tDL2)[:5], noms(pDL2)[:5], xerr=stds(tDL2)[:5], yerr=stds(pDL2)[:5], fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.errorbar(noms(tDL2)[5], noms(pDL2)[5], xerr=stds(tDL2)[5], yerr=stds(pDL2)[5], color='grey', marker='x', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Ungenutzt')
 plt.plot(x_plot,x_plot*paramsLinearDL2[0]+paramsLinearDL2[1],'b-',label='Ausgleichsgerade')
 
 plt.xlabel(r'$t/\si{\second}$')
@@ -470,7 +424,8 @@ x_plot = np.linspace(-5,185)
 plt.errorbar(noms(tDL1), noms(pDL1), xerr=stds(tDL1), yerr=stds(pDL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=1 \si{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearDL1[0]+paramsLinearDL1[1],'k-',label='Ausgleichsgeraden')
 #DL2
-plt.errorbar(noms(tDL2), noms(pDL2), xerr=stds(tDL2), yerr=stds(pDL2), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=0.8 \si{\milli\bar}$')
+plt.errorbar(noms(tDL2)[:5], noms(pDL2)[:5], xerr=stds(tDL2)[:5], yerr=stds(pDL2)[:5], fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=0.8 \si{\milli\bar}$')
+plt.errorbar(noms(tDL2)[5], noms(pDL2)[5], xerr=stds(tDL2)[5], yerr=stds(pDL2)[5], color='grey', marker='x', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Ungenutzt')
 plt.plot(x_plot,x_plot*paramsLinearDL2[0]+paramsLinearDL2[1],'k-')
 #DL3
 plt.errorbar(noms(tDL3), noms(pDL3), xerr=stds(tDL3), yerr=stds(pDL3), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=0.4 \si{\milli\bar}$')
@@ -489,3 +444,211 @@ plt.savefig('content/images/DL.png')
 print('DL done')
 
 
+#TS
+VTS = unp.uarray(10.298,0.92)
+
+pTS,tTS_1,tTS_2,tTS_3,tTS_4,tTS_5,tTS_6 = np.genfromtxt(r'scripts/dataTS1.txt',unpack=True)
+p0TS = np.array(500)
+pTS = np.append(p0TS,pTS)
+pTS = unp.uarray(pTS,pTS*0.2)
+pTS_end = 1.2
+pTS_end = unp.uarray(pTS_end,pTS_end*0.2)
+
+tTS = [0]
+tTS_f = [0]
+
+for i in range (0,len(tTS_1)):
+	th,th_f = avg_and_sem([tTS_1[i],tTS_2[i],tTS_3[i],tTS_4[i],tTS_5[i],tTS_6[i]])
+	tTS.append(th)
+	tTS_f.append(th_f)
+
+tTS=unp.uarray(tTS,tTS_f)
+
+#pTS_log = np.log(noms(pTS_h))
+#pTS_log_err = 1/noms(pTS_h)*stds(pTS_h)
+#pTS_log_err = [np.log(noms(pTS_h)+stds(pTS_h))-np.log(noms(pTS_h)), np.log(noms(pTS_h))-np.log(noms(pTS_h)-stds(pTS_h))]
+#pTS_log = unp.uarray(pTS_log,pTS_log_err)
+pTS_h = (pTS-pTS_end)/(pTS[0]-pTS_end)
+pTS_log = unp.log(pTS_h)
+
+paramsLinearTS1, errorsLinearTS1, sigma_y = linregress(noms(tTS)[0:4], noms(pTS_log)[0:4])
+steigungTS1 = unp.uarray(paramsLinearTS1[0],errorsLinearTS1[0])
+paramsLinearTS2, errorsLinearTS2, sigma_y = linregress(noms(tTS)[4:8], noms(pTS_log)[4:8])
+steigungTS2 = unp.uarray(paramsLinearTS2[0],errorsLinearTS2[0])
+paramsLinearTS3, errorsLinearTS3, sigma_y = linregress(noms(tTS)[6:10], noms(pTS_log)[6:10])
+steigungTS3 = unp.uarray(paramsLinearTS3[0],errorsLinearTS3[0])
+
+STS1 = steigungTS1*(-VTS) 
+STS2 = steigungTS2*(-VTS) 
+STS3 = steigungTS3*(-VTS) 
+print('STS1 = ', STS1)
+print('STS2 = ', STS2)
+print('STS3 = ', STS3)
+
+"""
+#Plot
+#TSE
+plt.cla()
+plt.clf()
+x_plot = np.linspace(-2,15)
+
+plt.errorbar(noms(tTS), noms(pTS), xerr=stds(tTS), yerr=stds(pTS), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$p/10^{-5}\si{\milli\bar}$')
+plt.xlim(-1,16)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/TSE.png')
+print('TSE done')
+
+#TSL
+plt.cla()
+plt.clf()
+x_plot = np.linspace(-1,16)
+
+plt.errorbar(noms(tTS), noms(pTS_log), xerr=stds(tTS), yerr=stds(pTS_log), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.plot(x_plot,x_plot*paramsLinearTS1[0]+paramsLinearTS1[1],'b-',label='Ausgleichsgerade1')
+plt.plot(x_plot,x_plot*paramsLinearTS2[0]+paramsLinearTS2[1],'c-',label='Ausgleichsgerade2')
+plt.plot(x_plot,x_plot*paramsLinearTS3[0]+paramsLinearTS3[1],'m-',label='Ausgleichsgerade3')
+
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$')
+plt.xlim(-1,16)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/TSL.png')
+print('TSL done')
+"""
+print('TS done')
+
+
+#DS
+VDS = unp.uarray(11.14,1.031)
+
+pDS,tDS_1,tDS_2,tDS_3,tDS_4,tDS_5 = np.genfromtxt(r'scripts/dataDS1.txt',unpack=True)
+p0DS = np.array(1013)
+pDS = np.append(p0DS,pDS)
+pDS = unp.uarray(pDS,pDS*0.2)
+pDS_end = 0.02
+pDS_end = unp.uarray(pDS_end,pDS_end*0.2)
+
+tDS = [0]
+tDS_f = [0]
+
+for i in range (0,len(tDS_1)):
+	th,th_f = avg_and_sem([tDS_1[i],tDS_2[i],tDS_3[i],tDS_4[i],tDS_5[i]])
+	tDS.append(th)
+	tDS_f.append(th_f)
+
+tDS=unp.uarray(tDS,tDS_f)
+
+pDS_h = (pDS-pDS_end)/(pDS[0]-pDS_end)
+pDS_log = unp.log(pDS_h)
+
+paramsLinearDS1, errorsLinearDS1, sigma_y = linregress(noms(tDS)[0:11], noms(pDS_log)[0:11])
+steigungDS1 = unp.uarray(paramsLinearDS1[0],errorsLinearDS1[0])
+paramsLinearDS2, errorsLinearDS2, sigma_y = linregress(noms(tDS)[11:17], noms(pDS_log)[11:17])
+steigungDS2 = unp.uarray(paramsLinearDS2[0],errorsLinearDS2[0])
+
+SDS1 = steigungDS1*(-VDS) 
+SDS2 = steigungDS2*(-VDS) 
+print('SDS1 = ', SDS1)
+print('SDS2 = ', SDS2)
+
+"""
+#Plot
+#DSE
+plt.cla()
+plt.clf()
+
+plt.errorbar(noms(tDS), noms(pDS), xerr=stds(tDS), yerr=stds(pDS), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$p/\si{\milli\bar}$')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/DSE.png')
+print('DSE done')
+
+#DSL
+plt.cla()
+plt.clf()
+x_plot = np.linspace(-5,135)
+
+plt.errorbar(noms(tDS), noms(pDS_log), xerr=stds(tDS), yerr=stds(pDS_log), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
+plt.plot(x_plot,x_plot*paramsLinearDS1[0]+paramsLinearDS1[1],'b-',label='Ausgleichsgerade1')
+plt.plot(x_plot,x_plot*paramsLinearDS2[0]+paramsLinearDS2[1],'c-',label='Ausgleichsgerade2')
+
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$')
+plt.xlim(-5,135)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/DSL.png')
+print('DSL done')
+"""
+print('DS done')
+
+
+#Ges
+
+#GesT
+plt.cla()
+plt.clf()
+
+#plt.errorbar([noms(pTL1)[0]*10,noms(pTL1)[-1]*10], [noms(STL1),noms(STL1)], xerr=[stds(pTL1)[0]*10,stds(pTL1)[-1]*10], yerr=[stds(STL1),stds(STL1)], fmt='b-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1')
+#plt.errorbar([noms(pTL2)[0]*10,noms(pTL2)[-1]*10], [noms(STL2),noms(STL2)], xerr=[stds(pTL2)[0]*10,stds(pTL2)[-1]*10], yerr=[stds(STL2),stds(STL2)], fmt='c-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2')
+#plt.errorbar([noms(pTL3)[0]*10,noms(pTL3)[-1]*10], [noms(STL3),noms(STL3)], xerr=[stds(pTL3)[0]*10,stds(pTL3)[-1]*10], yerr=[stds(STL3),stds(STL3)], fmt='m-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3')
+#plt.errorbar([noms(pTL4)[0]*10,noms(pTL4)[-1]*10], [noms(STL4),noms(STL4)], xerr=[stds(pTL4)[0]*10,stds(pTL4)[-1]*10], yerr=[stds(STL1),stds(STL1)], fmt='r-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL4')
+plt.errorbar([noms(pTS)[0],noms(pTS)[3]], [noms(STS1),noms(STS1)], xerr=[stds(pTS)[0],stds(pTS)[3]], yerr=[stds(STS1),stds(STS1)], fmt='b--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS1')
+plt.errorbar([noms(pTS)[4],noms(pTS)[7]], [noms(STS2),noms(STS2)], xerr=[stds(pTS)[4],stds(pTS)[7]], yerr=[stds(STS2),stds(STS2)], fmt='c--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS2')
+plt.errorbar([noms(pTS)[6],noms(pTS)[9]], [noms(STS3),noms(STS3)], xerr=[stds(pTS)[6],stds(pTS)[9]], yerr=[stds(STS3),stds(STS3)], fmt='m--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS3')
+
+plt.errorbar(noms(pTL1)[0]*10, noms(STL1), xerr=stds(pTL1)[0]*10, yerr=stds(STL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1')
+plt.errorbar(noms(pTL1)[0]*10, noms(STL1_2), xerr=stds(pTL1)[0]*10, yerr=stds(STL1_2), fmt='bo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1_2')
+plt.errorbar(noms(pTL2)[0]*10, noms(STL2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2')
+plt.errorbar(noms(pTL2)[0]*10, noms(STL2_2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2_2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2_2')
+plt.errorbar(noms(pTL3)[0]*10, noms(STL3), xerr=stds(pTL3)[0]*10, yerr=stds(STL3), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3')
+plt.errorbar(noms(pTL3)[0]*10, noms(STL3_2), xerr=stds(pTL3)[0]*10, yerr=stds(STL3_2), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3_2')
+plt.errorbar(noms(pTL4)[0]*10, noms(STL4), xerr=stds(pTL4)[0]*10, yerr=stds(STL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL4')
+#plt.errorbar(noms(pTS)[0], noms(STS1), xerr=stds(pTS)[0], yerr=stds(STS1), fmt='ro', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS1')
+#plt.errorbar(noms(pTS)[3], noms(STS2), xerr=stds(pTS)[3], yerr=stds(STS2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS2')
+#plt.errorbar(noms(pTS)[6], noms(STS3), xerr=stds(pTS)[6], yerr=stds(STS3), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS3')
+
+plt.xlabel(r'$p/10^{-5}\si{\milli\bar}$')
+plt.ylabel(r'$S/\si{\litre\per\second}$')
+plt.xlim(-5,50)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/TGes.png')
+print('TGes done')
+
+#GesD
+plt.cla()
+plt.clf()
+
+#plt.errorbar([noms(pDL1)[0],noms(pDL1)[-1]], [noms(SDL1),noms(SDL1)], xerr=[stds(pDL1)[0],stds(pDL1)[-1]], yerr=[stds(SDL1),stds(SDL1)], fmt='b-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL1')
+#plt.errorbar([noms(pDL2)[0],noms(pDL2)[-1]], [noms(SDL2),noms(SDL2)], xerr=[stds(pDL2)[0],stds(pDL2)[-1]], yerr=[stds(SDL2),stds(SDL2)], fmt='c-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL2')
+#plt.errorbar([noms(pDL3)[0],noms(pDL3)[-1]], [noms(SDL3),noms(SDL3)], xerr=[stds(pDL3)[0],stds(pDL3)[-1]], yerr=[stds(SDL3),stds(SDL3)], fmt='m-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL3')
+#plt.errorbar([noms(pDL4)[0],noms(pDL4)[-1]], [noms(SDL4),noms(SDL4)], xerr=[stds(pDL4)[0],stds(pDL4)[-1]], yerr=[stds(SDL1),stds(SDL1)], fmt='r-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL4')
+plt.errorbar([noms(pDS)[5],noms(pDS)[10]], [noms(SDS1),noms(SDS1)], xerr=[stds(pDS)[5],stds(pDS)[10]], yerr=[stds(SDS1),stds(SDS1)], fmt='b--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DS1')
+plt.errorbar([noms(pDS)[11],noms(pDS)[16]], [noms(SDS2),noms(SDS2)], xerr=[stds(pDS)[11],stds(pDS)[16]], yerr=[stds(SDS2),stds(SDS2)], fmt='c--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DS2')
+
+plt.errorbar(noms(pDL1)[0], noms(SDL1), xerr=stds(pDL1)[0], yerr=stds(SDL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL1')
+plt.errorbar(noms(pDL2)[0], noms(SDL2), xerr=stds(pDL2)[0], yerr=stds(SDL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL2')
+plt.errorbar(noms(pDL3)[0], noms(SDL3), xerr=stds(pDL3)[0], yerr=stds(SDL3), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL3')
+plt.errorbar(noms(pDL4)[0], noms(SDL4), xerr=stds(pDL4)[0], yerr=stds(SDL4), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL4')
+#plt.errorbar(noms(pTS)[0], noms(STS1), xerr=stds(pTS)[0], yerr=stds(STS1), fmt='ro', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS1')
+#plt.errorbar(noms(pTS)[3], noms(STS2), xerr=stds(pTS)[3], yerr=stds(STS2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS2')
+#plt.errorbar(noms(pTS)[6], noms(STS3), xerr=stds(pTS)[6], yerr=stds(STS3), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS3')
+
+plt.xlabel(r'$p/\si{\milli\bar}$')
+plt.ylabel(r'$S/\si{\litre\per\second}$')
+plt.xlim(-0.5,3)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('content/images/DGes.png')
+print('DGes done')
+
+print('Ges done')
