@@ -67,16 +67,26 @@ for i in range (0,len(tTL1_1)):
 	tTL1_f.append(th_f)
 	
 tTL1=unp.uarray(tTL1,tTL1_f)
+#print('t',tTL1)
 
 paramsLinearTL1, errorsLinearTL1, sigma_y = linregress(noms(tTL1), noms(pTL1))
 steigungTL1 = unp.uarray(paramsLinearTL1[0],errorsLinearTL1[0])
+achsenAbschnittTL1 = unp.uarray(paramsLinearTL1[1], errorsLinearTL1[1])
 paramsLinearTL1_2, errorsLinearTL1_2, sigma_y = linregress(noms(tTL1)[3:], noms(pTL1)[3:])
 steigungTL1_2 = unp.uarray(paramsLinearTL1_2[0],errorsLinearTL1_2[0])
+achsenAbschnittTL1_2 = unp.uarray(paramsLinearTL1_2[1], errorsLinearTL1_2[1])
+
+print('steigungTL1 =', steigungTL1)
+print('achsenAbschnittTL1 =', achsenAbschnittTL1)
+print('steigungTL1_2 =', steigungTL1_2)
+print('achsenAbschnittTL1_2 =', achsenAbschnittTL1_2)
 
 STL1 = VTL/p0TL1*steigungTL1
 print('STL1 =', STL1)
 STL1_2 = VTL/p0TL1*steigungTL1_2
 print('STL1_2 =', STL1_2)
+
+makeTable([noms(pTL1)[1:], stds(pTL1)[1:], tTL1_1, tTL1_2, tTL1_3, noms(tTL1)[1:], stds(tTL1)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL1', ['S[table-format=2.0]', '@{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #TL2
 pTL2,tTL2_1,tTL2_2,tTL2_3 = np.genfromtxt(r'scripts/dataTL2.txt',unpack=True)
@@ -96,13 +106,23 @@ tTL2=unp.uarray(tTL2,tTL2_f)
 
 paramsLinearTL2, errorsLinearTL2, sigma_y = linregress(noms(tTL2), noms(pTL2))
 steigungTL2 = unp.uarray(paramsLinearTL2[0],errorsLinearTL2[0])
+achsenAbschnittTL2 = unp.uarray(paramsLinearTL2[1], errorsLinearTL2[1])
 paramsLinearTL2_2, errorsLinearTL2_2, sigma_y = linregress(noms(tTL2)[3:], noms(pTL2)[3:])
 steigungTL2_2 = unp.uarray(paramsLinearTL2_2[0],errorsLinearTL2_2[0])
+achsenAbschnittTL2_2 = unp.uarray(paramsLinearTL2_2[1], errorsLinearTL2_2[1])
+
+print('steigungTL2 =', steigungTL2)
+print('achsenAbschnittTL2 =', achsenAbschnittTL2)
+print('steigungTL2_2 =', steigungTL2_2)
+print('achsenAbschnittTL2_2 =', achsenAbschnittTL2_2)
+
 
 STL2 = VTL/p0TL2*steigungTL2
 print('STL2 =', STL2)
 STL2_2 = VTL/p0TL2*steigungTL2_2
 print('STL2_2 =', STL2_2)
+
+makeTable([noms(pTL2)[1:], stds(pTL2)[1:], tTL2_1, tTL2_2, tTL2_3, noms(tTL2)[1:], stds(tTL2)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL2', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #TL3
 pTL3,tTL3_1,tTL3_2,tTL3_3 = np.genfromtxt(r'scripts/dataTL3.txt',unpack=True)
@@ -122,13 +142,22 @@ tTL3=unp.uarray(tTL3,tTL3_f)
 
 paramsLinearTL3, errorsLinearTL3, sigma_y = linregress(noms(tTL3), noms(pTL3))
 steigungTL3 = unp.uarray(paramsLinearTL3[0],errorsLinearTL3[0])
+achsenAbschnittTL3 = unp.uarray(paramsLinearTL3[1], errorsLinearTL3[1])
 paramsLinearTL3_2, errorsLinearTL3_2, sigma_y = linregress(noms(tTL3)[3:], noms(pTL3)[3:])
 steigungTL3_2 = unp.uarray(paramsLinearTL3_2[0],errorsLinearTL3_2[0])
+achsenAbschnittTL3_2 = unp.uarray(paramsLinearTL3_2[1], errorsLinearTL3_2[1])
+
+print('steigungTL3 =', steigungTL3)
+print('achsenAbschnittTL3 =', achsenAbschnittTL3)
+print('steigungTL3_2 =', steigungTL3_2)
+print('achsenAbschnittTL3_2 =', achsenAbschnittTL3_2)
 
 STL3 = VTL/p0TL3*steigungTL3
 print('STL3 = ', STL3)
 STL3_2 = VTL/p0TL3*steigungTL3_2
 print('STL3_2 = ', STL3_2)
+
+makeTable([noms(pTL3)[1:], stds(pTL3)[1:], tTL3_1, tTL3_2, tTL3_3, noms(tTL3)[1:], stds(tTL3)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL3', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #TL4
 pTL4,tTL4_1,tTL4_2,tTL4_3 = np.genfromtxt(r'scripts/dataTL4.txt',unpack=True)
@@ -148,9 +177,15 @@ tTL4=unp.uarray(tTL4,tTL4_f)
 
 paramsLinearTL4, errorsLinearTL4, sigma_y = linregress(noms(tTL4)[:10], noms(pTL4)[:10])
 steigungTL4 = unp.uarray(paramsLinearTL4[0],errorsLinearTL4[0])
+achsenAbschnittTL4 = unp.uarray(paramsLinearTL4[1], errorsLinearTL4[1])
+
+print('steigungTL4 =', steigungTL4)
+print('achsenAbschnittTL4 =', achsenAbschnittTL4)
 
 STL4 = VTL/p0TL4*steigungTL4
 print('STL4 = ', STL4)
+
+makeTable([noms(pTL4)[1:], stds(pTL4)[1:], tTL4_1, tTL4_2, tTL4_3, noms(tTL4)[1:], stds(tTL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL4', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 """
 #Plot
@@ -232,16 +267,16 @@ plt.clf()
 x_plot = np.linspace(-2,35)
 
 #TL1
-plt.errorbar(noms(tTL1), noms(pTL1), xerr=stds(tTL1), yerr=stds(pTL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=2*10^{-4} \si{\milli\bar}$')
+plt.errorbar(noms(tTL1), noms(pTL1), xerr=stds(tTL1), yerr=stds(pTL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=\SI{2e-4}{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'k-',label='Ausgleichsgeraden')
 #TL2
-plt.errorbar(noms(tTL2), noms(pTL2), xerr=stds(tTL2), yerr=stds(pTL2), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=1.4*10^{-4} \si{\milli\bar}$')
+plt.errorbar(noms(tTL2), noms(pTL2), xerr=stds(tTL2), yerr=stds(pTL2), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=\SI{1.4e-4}{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearTL2[0]+paramsLinearTL2[1],'k-')
 #TL3
-plt.errorbar(noms(tTL3), noms(pTL3), xerr=stds(tTL3), yerr=stds(pTL3), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=1*10^{-4} \si{\milli\bar}$')
+plt.errorbar(noms(tTL3), noms(pTL3), xerr=stds(tTL3), yerr=stds(pTL3), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=\SI{1e-4}{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearTL3[0]+paramsLinearTL3[1],'k-')
 #TL3
-plt.errorbar(noms(tTL4), noms(pTL4), xerr=stds(tTL4), yerr=stds(pTL4), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=0.5*10^{-4} \si{\milli\bar}$')
+plt.errorbar(noms(tTL4), noms(pTL4), xerr=stds(tTL4), yerr=stds(pTL4), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=\SI{0.5e-4}{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearTL4[0]+paramsLinearTL4[1],'k-')
 
 plt.xlabel(r'$t/\si{\second}$')
@@ -278,6 +313,8 @@ steigungDL1 = unp.uarray(paramsLinearDL1[0],errorsLinearDL1[0])
 SDL1 = VDL/p0DL1*steigungDL1
 print('SDL1 = ', SDL1)
 
+makeTable([noms(pDL1)[1:], stds(pDL1)[1:], tDL1_1, tDL1_2, tDL1_3, tDL1_4, noms(tDL1)[1:], stds(tDL1)[1:]], r'\multicolumn{2}{c}{'+r'$p\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL1', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+
 #DL2
 pDL2,tDL2_1,tDL2_2,tDL2_3 = np.genfromtxt(r'scripts/dataDL2.txt',unpack=True)
 p0DL2 = np.array(0.8)
@@ -299,6 +336,8 @@ steigungDL2 = unp.uarray(paramsLinearDL2[0],errorsLinearDL2[0])
 
 SDL2 = VDL/p0DL2*steigungDL2
 print('SDL2 = ', SDL2)
+
+makeTable([noms(pDL2)[1:], stds(pDL2)[1:], tDL2_1, tDL2_2, tDL2_3, noms(tDL2)[1:], stds(tDL2)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL2', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #DL3
 pDL3,tDL3_1,tDL3_2,tDL3_3 = np.genfromtxt(r'scripts/dataDL3.txt',unpack=True)
@@ -322,6 +361,8 @@ steigungDL3 = unp.uarray(paramsLinearDL3[0],errorsLinearDL3[0])
 SDL3 = VDL/p0DL3*steigungDL3
 print('SDL3 = ', SDL3)
 
+makeTable([noms(pDL3)[1:], stds(pDL3)[1:], tDL3_1, tDL3_2, tDL3_3, noms(tDL3)[1:], stds(tDL3)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL3', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+
 #DL4
 pDL4,tDL4_1,tDL4_2,tDL4_3 = np.genfromtxt(r'scripts/dataDL4.txt',unpack=True)
 p0DL4 = np.array(0.1)
@@ -343,6 +384,8 @@ steigungDL4 = unp.uarray(paramsLinearDL4[0],errorsLinearDL4[0])
 
 SDL4 = VDL/p0DL4*steigungDL4
 print('SDL4 = ', SDL4)
+
+makeTable([noms(pDL4)[1:], stds(pDL4)[1:], tDL4_1, tDL4_2, tDL4_3, noms(tDL4)[1:], stds(tDL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL4', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 """
 #Plot
@@ -421,18 +464,18 @@ plt.clf()
 x_plot = np.linspace(-5,185)
 
 #DL1
-plt.errorbar(noms(tDL1), noms(pDL1), xerr=stds(tDL1), yerr=stds(pDL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=1 \si{\milli\bar}$')
+plt.errorbar(noms(tDL1), noms(pDL1), xerr=stds(tDL1), yerr=stds(pDL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=\SI{1}{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearDL1[0]+paramsLinearDL1[1],'k-',label='Ausgleichsgeraden')
 #DL2
-plt.errorbar(noms(tDL2)[:5], noms(pDL2)[:5], xerr=stds(tDL2)[:5], yerr=stds(pDL2)[:5], fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=0.8 \si{\milli\bar}$')
-plt.errorbar(noms(tDL2)[5], noms(pDL2)[5], xerr=stds(tDL2)[5], yerr=stds(pDL2)[5], color='grey', marker='x', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Ungenutzt')
+plt.errorbar(noms(tDL2)[:5], noms(pDL2)[:5], xerr=stds(tDL2)[:5], yerr=stds(pDL2)[:5], fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=\SI{0.8}{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearDL2[0]+paramsLinearDL2[1],'k-')
 #DL3
-plt.errorbar(noms(tDL3), noms(pDL3), xerr=stds(tDL3), yerr=stds(pDL3), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=0.4 \si{\milli\bar}$')
+plt.errorbar(noms(tDL3), noms(pDL3), xerr=stds(tDL3), yerr=stds(pDL3), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=\SI{0.4}{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearDL3[0]+paramsLinearDL3[1],'k-')
 #DL3
-plt.errorbar(noms(tDL4), noms(pDL4), xerr=stds(tDL4), yerr=stds(pDL4), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=0.1 \si{\milli\bar}$')
+plt.errorbar(noms(tDL4), noms(pDL4), xerr=stds(tDL4), yerr=stds(pDL4), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label=r'$p_0=\SI{0.1}{\milli\bar}$')
 plt.plot(x_plot,x_plot*paramsLinearDL4[0]+paramsLinearDL4[1],'k-')
+plt.errorbar(noms(tDL2)[5], noms(pDL2)[5], xerr=stds(tDL2)[5], yerr=stds(pDL2)[5], color='grey', marker='x', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Ungenutzt')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/\si{\milli\bar}$')
@@ -470,6 +513,7 @@ tTS=unp.uarray(tTS,tTS_f)
 #pTS_log = unp.uarray(pTS_log,pTS_log_err)
 pTS_h = (pTS-pTS_end)/(pTS[0]-pTS_end)
 pTS_log = unp.log(pTS_h)
+#print('pTS_log', pTS_log)
 
 paramsLinearTS1, errorsLinearTS1, sigma_y = linregress(noms(tTS)[0:4], noms(pTS_log)[0:4])
 steigungTS1 = unp.uarray(paramsLinearTS1[0],errorsLinearTS1[0])
@@ -484,6 +528,8 @@ STS3 = steigungTS3*(-VTS)
 print('STS1 = ', STS1)
 print('STS2 = ', STS2)
 print('STS3 = ', STS3)
+
+makeTable([noms(pTS)[1:], stds(pTS)[1:], noms(pTS_log)[1:], stds(pTS_log)[1:], tTS_1, tTS_2, tTS_3, tTS_4, tTS_5, tTS_6, noms(tTS)[1:], stds(tTS)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-5}\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & {'+r'$t_6/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTS', ['S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=2.1]', 'S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%3.1f", "%2.1f", "%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 """
 #Plot
@@ -545,6 +591,7 @@ tDS=unp.uarray(tDS,tDS_f)
 
 pDS_h = (pDS-pDS_end)/(pDS[0]-pDS_end)
 pDS_log = unp.log(pDS_h)
+#print('pDS_log',pDS_log)
 
 paramsLinearDS1, errorsLinearDS1, sigma_y = linregress(noms(tDS)[0:11], noms(pDS_log)[0:11])
 steigungDS1 = unp.uarray(paramsLinearDS1[0],errorsLinearDS1[0])
@@ -555,6 +602,8 @@ SDS1 = steigungDS1*(-VDS)
 SDS2 = steigungDS2*(-VDS) 
 print('SDS1 = ', SDS1)
 print('SDS2 = ', SDS2)
+
+makeTable([noms(pDS)[1:], stds(pDS)[1:], noms(pDS_log)[1:], stds(pDS_log)[1:], tDS_1, tDS_2, tDS_3, tDS_4, tDS_5, noms(tDS)[1:], stds(tDS)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=2.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%3.2f", "%2.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
 
 """
 #Plot
@@ -619,7 +668,7 @@ plt.errorbar(noms(pTL4)[0]*10, noms(STL4), xerr=stds(pTL4)[0]*10, yerr=stds(STL1
 plt.xlabel(r'$p/10^{-5}\si{\milli\bar}$')
 plt.ylabel(r'$S/\si{\litre\per\second}$')
 plt.xlim(-5,50)
-plt.legend(loc='best')
+plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/TGes.png')
 print('TGes done')
@@ -646,7 +695,7 @@ plt.errorbar(noms(pDL4)[0], noms(SDL4), xerr=stds(pDL4)[0], yerr=stds(SDL4), fmt
 plt.xlabel(r'$p/\si{\milli\bar}$')
 plt.ylabel(r'$S/\si{\litre\per\second}$')
 plt.xlim(-0.5,3)
-plt.legend(loc='best')
+plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/DGes.png')
 print('DGes done')

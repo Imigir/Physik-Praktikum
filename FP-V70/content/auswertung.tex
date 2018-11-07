@@ -1,6 +1,242 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-
-
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\subsection{Turbomolekularpumpe}
+
+\subsubsection{Bestimmung des Saugvermögens $S$ über die Leckratenmessung}
+
+Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_g$ durchgeführt. Dabei werden die gemessenen Zeiten $t_i$ mit der Formel für den Mittelwert
+\begin{equation}
+\mu_t = \frac{1}{N}\sum_{i=1}^{N}t_i
+\end{equation} 
+und dessen Standartabweichung
+\begin{equation}
+\sigma_t = \frac{1}{N(N-1)}\sum_{i=1}^{N}(t_i-\mu_t)^2
+\end{equation} 
+gemittelt zu
+\begin{equation}
+\bar{t} = \mu_t\pm \sigma_t\text{.}
+\end{equation} 
+Dabei entspricht $N$ der Anzahl der durchgeführten Messungen pro Messreihe.
+In den Tabellen \ref{tab:TL1} bis \ref{tab:TL4} sind die Messwerte und die zugehörigen Mittelwerte der jeweiligen Messreihen aufgelistet.\\
+In den Abbildungen \ref{fig:TL1} bis \ref{fig:TL4} ist der Druck $p$ gegen die gemittelte Zeit $\bar{t}$ aufgetragen. Die linearen Ausgleichsrechnungen der Form
+\[
+p_i(t) = a_it+b_i
+\]
+ergeben für $p_g = \SI{2e-4}{\milli\bar}$ die Parameter
+\begin{align*}
+a_{TL1,1} &= \SI{4.4(1)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL1,1} &= \SI{0.6(8)e-4}{\milli\bar} \text{,}\\
+a_{TL1,2} &= \SI{4.7(1)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL1,2} &= \SI{-3.1(9)e-4}{\milli\bar} \text{,}\\
+\end{align*}
+für $p_g = \SI{1.4e-4}{\milli\bar}$
+\begin{align*}
+a_{TL2,1} &= \SI{3.01(8)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL2,1} &= \SI{-0.7(9)e-4}{\milli\bar} \text{,}\\
+a_{TL2,2} &= \SI{3.30(4)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL2,2} &= \SI{-5.1(6)e-4}{\milli\bar} \text{,}\\
+\end{align*}
+für $p_g = \SI{1e-4}{\milli\bar}$
+\begin{align*}
+a_{TL3,1} &= \SI{2.26(5)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL3,1} &= \SI{-1(1)e-4}{\milli\bar} \text{,}\\
+a_{TL3,2} &= \SI{2.46(5)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL3,2} &= \SI{-5(1)e-4}{\milli\bar} \text{,}\\
+\end{align*}
+und für $p_g = \SI{0.5e-4}{\milli\bar}$
+\begin{align*}
+a_{TL4} &= \SI{0.676(4)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL4} &= \SI{0.43(3)e-4}{\milli\bar} \text{.}
+\end{align*}
+Der erste Index bezieht sich dabei auf die Messung bei gegebenem Gleichgewichtsdruck, der zweite Index bezieht sich auf die mögliche zweite Ausgleichsrechnung, bei der die erstsen drei Messwerte nicht mit berücksichtigt werden.
+Mit Formel \ref{eq:S2} ergibt sich für das Saugvermögen $S$
+\begin{align*}
+S_{TL1,1} &= \SI{22(2)}{\litre\per\second} \text{,}\\
+S_{TL1,2} &= \SI{24(2)}{\litre\per\second} \text{,}\\
+S_{TL2,1} &= \SI{22(2)}{\litre\per\second} \text{,}\\
+S_{TL2,2} &= \SI{24(2)}{\litre\per\second} \text{,}\\
+S_{TL3,1} &= \SI{23(2)}{\litre\per\second} \text{,}\\
+S_{TL3,2} &= \SI{25(2)}{\litre\per\second} \text{,}\\
+S_{TL4}    &= \SI{14(1)}{\litre\per\second} \text{.}
+\end{align*}
+
+\begin{table}
+\centering
+\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{2e-4}{\milli\bar}$.}
+\input{content/tables/tabTL1.tex}
+\label{tab:TL1}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TL1.png}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_g = \SI{2e-4}{\milli\bar}$.}
+\label{fig:TL1}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{1.4e-4}{\milli\bar}$.}
+\input{content/tables/tabTL2.tex}
+\label{tab:TL2}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TL2.png}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_g = \SI{1.4e-4}{\milli\bar}$.}
+\label{fig:TL2}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{1e-4}{\milli\bar}$.}
+\input{content/tables/tabTL3.tex}
+\label{tab:TL3}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TL3.png}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_g = \SI{1e-4}{\milli\bar}$.}
+\label{fig:TL3}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{0.5e-4}{\milli\bar}$.}
+\input{content/tables/tabTL4.tex}
+\label{tab:TL4}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TL4.png}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_g = \SI{0.5e-4}{\milli\bar}$.}
+\label{fig:TL4}
+\end{figure}
+
+\subsubsection{Bestimmung des Saugvermögens $S$ über die Evakuierungskurve}
+
+\begin{table}
+\centering
+\caption{Die Werte für die Evakuierungskurve der Turborpumpe.}
+\input{content/tables/tabTS.tex}
+\label{tab:TS}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TSE.png}
+\caption{Die Evakuierungskurve der Turbopumpe.}
+\label{fig:TSE}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TSL.png}
+\caption{Die logarithmische Evakuierungskurve der Turbopumpe.}
+\label{fig:TSL}
+\end{figure}
+
+\subsection{Drehschieberpumpe}
+
+\subsubsection{Bestimmung des Saugvermögens $S$ über die Leckratenmessung}
+
+\begin{table}
+\centering
+\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{1}{\milli\bar}$.}
+\input{content/tables/tabDL1.tex}
+\label{tab:DL1}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DL1.png}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_g = \SI{1}{\milli\bar}$.}
+\label{fig:DL1}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{0.8}{\milli\bar}$.}
+\input{content/tables/tabDL2.tex}
+\label{tab:DL2}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DL2.png}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_g = \SI{0.8}{\milli\bar}$.}
+\label{fig:DL2}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{0.4}{\milli\bar}$.}
+\input{content/tables/tabDL3.tex}
+\label{tab:DL3}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DL3.png}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_g = \SI{0.4}{\milli\bar}$.}
+\label{fig:DL3}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{0.1}{\milli\bar}$.}
+\input{content/tables/tabDL4.tex}
+\label{tab:DL4}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DL4.png}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_g = \SI{0.1}{\milli\bar}$.}
+\label{fig:DL4}
+\end{figure}
+
+\subsubsection{Bestimmung des Saugvermögens $S$ über die Evakuierungskurve}
+
+\begin{table}
+\centering
+\caption{Die Werte für die Evakuierungskurve der Drehschieberpumpe.}
+\input{content/tables/tabDS.tex}
+\label{tab:DS}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DSE.png}
+\caption{Die Evakuierungskurve der Drehschieberpumpe.}
+\label{fig:DSE}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DSL.png}
+\caption{Die logarithmische Evakuierungskurve der Drehschieberpumpe.}
+\label{fig:DSL}
+\end{figure}
+
+\subsection{Zusammenfassung}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TGes.png}
+\caption{Das Saugvermögen $S$ der Turbomoolekularpumpe in Abhängigkeit vom Druck $p$.}
+\label{fig:TGes}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DGes.png}
+\caption{Das Saugvermögen $S$ der Drehschieberpumpe in Abhängigkeit vom Druck $p$.}
+\label{fig:DGes}
+\end{figure}
