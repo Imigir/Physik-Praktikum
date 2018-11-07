@@ -7,6 +7,62 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 \subsubsection{Bestimmung des Saugvermögens $S$ über die Leckratenmessung}
 
+Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_g$ durchgeführt. Dabei werden die gemessenen Zeiten $t_i$ mit der Formel für den Mittelwert
+\begin{equation}
+\mu_t = \frac{1}{N}\sum_{i=1}^{N}t_i
+\end{equation} 
+und dessen Standartabweichung
+\begin{equation}
+\sigma_t = \frac{1}{N(N-1)}\sum_{i=1}^{N}(t_i-\mu_t)^2
+\end{equation} 
+gemittelt zu
+\begin{equation}
+\bar{t} = \mu_t\pm \sigma_t\text{.}
+\end{equation} 
+Dabei entspricht $N$ der Anzahl der durchgeführten Messungen pro Messreihe.
+In den Tabellen \ref{tab:TL1} bis \ref{tab:TL4} sind die Messwerte und die zugehörigen Mittelwerte der jeweiligen Messreihen aufgelistet.\\
+In den Abbildungen \ref{fig:TL1} bis \ref{fig:TL4} ist der Druck $p$ gegen die gemittelte Zeit $\bar{t}$ aufgetragen. Die linearen Ausgleichsrechnungen der Form
+\[
+p_i(t) = a_it+b_i
+\]
+ergeben für $p_g = \SI{2e-4}{\milli\bar}$ die Parameter
+\begin{align*}
+a_{TL1,1} &= \SI{4.4(1)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL1,1} &= \SI{0.6(8)e-4}{\milli\bar} \text{,}\\
+a_{TL1,2} &= \SI{4.7(1)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL1,2} &= \SI{-3.1(9)e-4}{\milli\bar} \text{,}\\
+\end{align*}
+für $p_g = \SI{1.4e-4}{\milli\bar}$
+\begin{align*}
+a_{TL2,1} &= \SI{3.01(8)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL2,1} &= \SI{-0.7(9)e-4}{\milli\bar} \text{,}\\
+a_{TL2,2} &= \SI{3.30(4)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL2,2} &= \SI{-5.1(6)e-4}{\milli\bar} \text{,}\\
+\end{align*}
+für $p_g = \SI{1e-4}{\milli\bar}$
+\begin{align*}
+a_{TL3,1} &= \SI{2.26(5)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL3,1} &= \SI{-1(1)e-4}{\milli\bar} \text{,}\\
+a_{TL3,2} &= \SI2.46(5)e-4{\milli\bar\per\second} \text{,}\\
+b_{TL3,2} &= \SI{-5(1)e-4}{\milli\bar} \text{,}\\
+\end{align*}
+und für $p_g = \SI{0.5e-4}{\milli\bar}$
+\begin{align*}
+a_{TL4} &= \SI{0.676(4)e-4}{\milli\bar\per\second} \text{,}\\
+b_{TL4} &= \SI{0.43(3)e-4}{\milli\bar} \text{.}
+\end{align*}
+Der erste Index bezieht sich dabei auf die Messung bei gegebenem Gleichgewichtsdruck, der zweite Index bezieht sich auf die mögliche zweite Ausgleichsrechnung, bei der die erstsen drei Messwerte nicht mit berücksichtigt werden.
+Mit Formel \ref{eq:S2} ergibt sich für das Saugvermögen $S$
+\begin{align*}
+S_{TL1,1} &= \SI{22(2)}{\litre\per\second} \text{,}\\
+S_{TL1,2} &= \SI{24(2)}{\litre\per\second} \text{,}\\
+S_{TL2,1} &= \SI{22(2)}{\litre\per\second} \text{,}\\
+S_{TL2,2} &= \SI{24(2)}{\litre\per\second} \text{,}\\
+S_{TL3,1} &= \SI{23(2)}{\litre\per\second} \text{,}\\
+S_{TL3,2} &= \SI{25(2)}{\litre\per\second} \text{,}\\
+S_{TL4}    &= \SI{14(1)}{\litre\per\second} \text{.}
+\end{align*}
+
 \begin{table}
 \centering
 \caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{2e-4}{\milli\bar}$.}

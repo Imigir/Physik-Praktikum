@@ -71,8 +71,15 @@ tTL1=unp.uarray(tTL1,tTL1_f)
 
 paramsLinearTL1, errorsLinearTL1, sigma_y = linregress(noms(tTL1), noms(pTL1))
 steigungTL1 = unp.uarray(paramsLinearTL1[0],errorsLinearTL1[0])
+achsenAbschnittTL1 = unp.uarray(paramsLinearTL1[1], errorsLinearTL1[1])
 paramsLinearTL1_2, errorsLinearTL1_2, sigma_y = linregress(noms(tTL1)[3:], noms(pTL1)[3:])
 steigungTL1_2 = unp.uarray(paramsLinearTL1_2[0],errorsLinearTL1_2[0])
+achsenAbschnittTL1_2 = unp.uarray(paramsLinearTL1_2[1], errorsLinearTL1_2[1])
+
+print('steigungTL1 =', steigungTL1)
+print('achsenAbschnittTL1 =', achsenAbschnittTL1)
+print('steigungTL1_2 =', steigungTL1_2)
+print('achsenAbschnittTL1_2 =', achsenAbschnittTL1_2)
 
 STL1 = VTL/p0TL1*steigungTL1
 print('STL1 =', STL1)
@@ -99,8 +106,16 @@ tTL2=unp.uarray(tTL2,tTL2_f)
 
 paramsLinearTL2, errorsLinearTL2, sigma_y = linregress(noms(tTL2), noms(pTL2))
 steigungTL2 = unp.uarray(paramsLinearTL2[0],errorsLinearTL2[0])
+achsenAbschnittTL2 = unp.uarray(paramsLinearTL2[1], errorsLinearTL2[1])
 paramsLinearTL2_2, errorsLinearTL2_2, sigma_y = linregress(noms(tTL2)[3:], noms(pTL2)[3:])
 steigungTL2_2 = unp.uarray(paramsLinearTL2_2[0],errorsLinearTL2_2[0])
+achsenAbschnittTL2_2 = unp.uarray(paramsLinearTL2_2[1], errorsLinearTL2_2[1])
+
+print('steigungTL2 =', steigungTL2)
+print('achsenAbschnittTL2 =', achsenAbschnittTL2)
+print('steigungTL2_2 =', steigungTL2_2)
+print('achsenAbschnittTL2_2 =', achsenAbschnittTL2_2)
+
 
 STL2 = VTL/p0TL2*steigungTL2
 print('STL2 =', STL2)
@@ -127,8 +142,15 @@ tTL3=unp.uarray(tTL3,tTL3_f)
 
 paramsLinearTL3, errorsLinearTL3, sigma_y = linregress(noms(tTL3), noms(pTL3))
 steigungTL3 = unp.uarray(paramsLinearTL3[0],errorsLinearTL3[0])
+achsenAbschnittTL3 = unp.uarray(paramsLinearTL3[1], errorsLinearTL3[1])
 paramsLinearTL3_2, errorsLinearTL3_2, sigma_y = linregress(noms(tTL3)[3:], noms(pTL3)[3:])
 steigungTL3_2 = unp.uarray(paramsLinearTL3_2[0],errorsLinearTL3_2[0])
+achsenAbschnittTL3_2 = unp.uarray(paramsLinearTL3_2[1], errorsLinearTL3_2[1])
+
+print('steigungTL3 =', steigungTL3)
+print('achsenAbschnittTL3 =', achsenAbschnittTL3)
+print('steigungTL3_2 =', steigungTL3_2)
+print('achsenAbschnittTL3_2 =', achsenAbschnittTL3_2)
 
 STL3 = VTL/p0TL3*steigungTL3
 print('STL3 = ', STL3)
@@ -155,6 +177,10 @@ tTL4=unp.uarray(tTL4,tTL4_f)
 
 paramsLinearTL4, errorsLinearTL4, sigma_y = linregress(noms(tTL4)[:10], noms(pTL4)[:10])
 steigungTL4 = unp.uarray(paramsLinearTL4[0],errorsLinearTL4[0])
+achsenAbschnittTL4 = unp.uarray(paramsLinearTL4[1], errorsLinearTL4[1])
+
+print('steigungTL4 =', steigungTL4)
+print('achsenAbschnittTL4 =', achsenAbschnittTL4)
 
 STL4 = VTL/p0TL4*steigungTL4
 print('STL4 = ', STL4)
