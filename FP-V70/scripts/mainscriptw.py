@@ -565,7 +565,7 @@ tDS=unp.uarray(tDS,tDS_f)
 
 pDS_h = (pDS-pDS_end)/(pDS[0]-pDS_end)
 pDS_log = unp.log(pDS_h)
-print('pDS_log',pDS_log)
+#print('pDS_log',pDS_log)
 
 paramsLinearDS1, errorsLinearDS1, sigma_y = linregress(noms(tDS)[0:11], noms(pDS_log)[0:11])
 steigungDS1 = unp.uarray(paramsLinearDS1[0],errorsLinearDS1[0])
@@ -615,7 +615,7 @@ print('DS done')
 
 
 #Ges
-"""
+
 #GesT
 plt.cla()
 plt.clf()
@@ -628,12 +628,12 @@ plt.errorbar([noms(pTS)[0],noms(pTS)[3]], [noms(STS1),noms(STS1)], xerr=[stds(pT
 plt.errorbar([noms(pTS)[4],noms(pTS)[7]], [noms(STS2),noms(STS2)], xerr=[stds(pTS)[4],stds(pTS)[7]], yerr=[stds(STS2),stds(STS2)], fmt='c--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS2')
 plt.errorbar([noms(pTS)[6],noms(pTS)[9]], [noms(STS3),noms(STS3)], xerr=[stds(pTS)[6],stds(pTS)[9]], yerr=[stds(STS3),stds(STS3)], fmt='m--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS3')
 
-plt.errorbar(noms(pTL1)[0]*10, noms(STL1), xerr=stds(pTL1)[0]*10, yerr=stds(STL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1')
-plt.errorbar(noms(pTL1)[0]*10, noms(STL1_2), xerr=stds(pTL1)[0]*10, yerr=stds(STL1_2), fmt='bo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1_2')
-plt.errorbar(noms(pTL2)[0]*10, noms(STL2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2')
-plt.errorbar(noms(pTL2)[0]*10, noms(STL2_2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2_2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2_2')
-plt.errorbar(noms(pTL3)[0]*10, noms(STL3), xerr=stds(pTL3)[0]*10, yerr=stds(STL3), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3')
-plt.errorbar(noms(pTL3)[0]*10, noms(STL3_2), xerr=stds(pTL3)[0]*10, yerr=stds(STL3_2), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3_2')
+plt.errorbar(noms(pTL1)[0]*10, noms(STL1), xerr=stds(pTL1)[0]*10, yerr=stds(STL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1.1')
+plt.errorbar(noms(pTL1)[0]*10, noms(STL1_2), xerr=stds(pTL1)[0]*10, yerr=stds(STL1_2), fmt='bo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1.2')
+plt.errorbar(noms(pTL2)[0]*10, noms(STL2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2.1')
+plt.errorbar(noms(pTL2)[0]*10, noms(STL2_2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2_2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2.2')
+plt.errorbar(noms(pTL3)[0]*10, noms(STL3), xerr=stds(pTL3)[0]*10, yerr=stds(STL3), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3.1')
+plt.errorbar(noms(pTL3)[0]*10, noms(STL3_2), xerr=stds(pTL3)[0]*10, yerr=stds(STL3_2), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3.2')
 plt.errorbar(noms(pTL4)[0]*10, noms(STL4), xerr=stds(pTL4)[0]*10, yerr=stds(STL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL4')
 #plt.errorbar(noms(pTS)[0], noms(STS1), xerr=stds(pTS)[0], yerr=stds(STS1), fmt='ro', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS1')
 #plt.errorbar(noms(pTS)[3], noms(STS2), xerr=stds(pTS)[3], yerr=stds(STS2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS2')
@@ -642,7 +642,7 @@ plt.errorbar(noms(pTL4)[0]*10, noms(STL4), xerr=stds(pTL4)[0]*10, yerr=stds(STL1
 plt.xlabel(r'$p/10^{-5}\si{\milli\bar}$')
 plt.ylabel(r'$S/\si{\litre\per\second}$')
 plt.xlim(-5,50)
-plt.legend(loc='best')
+plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/TGes.png')
 print('TGes done')
@@ -669,9 +669,9 @@ plt.errorbar(noms(pDL4)[0], noms(SDL4), xerr=stds(pDL4)[0], yerr=stds(SDL4), fmt
 plt.xlabel(r'$p/\si{\milli\bar}$')
 plt.ylabel(r'$S/\si{\litre\per\second}$')
 plt.xlim(-0.5,3)
-plt.legend(loc='best')
+plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/DGes.png')
 print('DGes done')
-"""
+
 print('Ges done')
