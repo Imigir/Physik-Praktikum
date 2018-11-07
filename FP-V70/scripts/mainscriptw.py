@@ -187,7 +187,7 @@ print('STL4 = ', STL4)
 
 makeTable([noms(pTL4)[1:], stds(pTL4)[1:], tTL4_1, tTL4_2, tTL4_3, noms(tTL4)[1:], stds(tTL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL4', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
-"""
+
 #Plot
 #TL1
 plt.cla()
@@ -195,8 +195,8 @@ plt.clf()
 x_plot = np.linspace(-2,15)
 
 plt.errorbar(noms(tTL1), noms(pTL1), xerr=stds(tTL1), yerr=stds(pTL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade1')
-plt.plot(x_plot,x_plot*paramsLinearTL1_2[0]+paramsLinearTL1_2[1],'c-',label='Ausgleichsgerade2')
+plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade 1')
+plt.plot(x_plot,x_plot*paramsLinearTL1_2[0]+paramsLinearTL1_2[1],'c-',label='Ausgleichsgerade 2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -213,8 +213,8 @@ plt.clf()
 x_plot = np.linspace(-2,25)
 
 plt.errorbar(noms(tTL2), noms(pTL2), xerr=stds(tTL2), yerr=stds(pTL2), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearTL2[0]+paramsLinearTL2[1],'b-',label='Ausgleichsgerade')
-plt.plot(x_plot,x_plot*paramsLinearTL2_2[0]+paramsLinearTL2_2[1],'c-',label='Ausgleichsgerade2')
+plt.plot(x_plot,x_plot*paramsLinearTL2[0]+paramsLinearTL2[1],'b-',label='Ausgleichsgerade 1')
+plt.plot(x_plot,x_plot*paramsLinearTL2_2[0]+paramsLinearTL2_2[1],'c-',label='Ausgleichsgerade 2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -231,8 +231,8 @@ plt.clf()
 x_plot = np.linspace(-2,35)
 
 plt.errorbar(noms(tTL3), noms(pTL3), xerr=stds(tTL3), yerr=stds(pTL3), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearTL3[0]+paramsLinearTL3[1],'b-',label='Ausgleichsgerade')
-plt.plot(x_plot,x_plot*paramsLinearTL3_2[0]+paramsLinearTL3_2[1],'c-',label='Ausgleichsgerade2')
+plt.plot(x_plot,x_plot*paramsLinearTL3[0]+paramsLinearTL3[1],'b-',label='Ausgleichsgerade 1')
+plt.plot(x_plot,x_plot*paramsLinearTL3_2[0]+paramsLinearTL3_2[1],'c-',label='Ausgleichsgerade 2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -285,7 +285,7 @@ plt.xlim(-1,31)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/TL.png')
-"""
+
 print('TL done')
 
 
@@ -531,7 +531,7 @@ print('STS3 = ', STS3)
 
 makeTable([noms(pTS)[1:], stds(pTS)[1:], noms(pTS_log)[1:], stds(pTS_log)[1:], tTS_1, tTS_2, tTS_3, tTS_4, tTS_5, tTS_6, noms(tTS)[1:], stds(tTS)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-5}\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & {'+r'$t_6/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTS', ['S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=2.1]', 'S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%3.1f", "%2.1f", "%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
-"""
+
 #Plot
 #TSE
 plt.cla()
@@ -554,9 +554,9 @@ plt.clf()
 x_plot = np.linspace(-1,16)
 
 plt.errorbar(noms(tTS), noms(pTS_log), xerr=stds(tTS), yerr=stds(pTS_log), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearTS1[0]+paramsLinearTS1[1],'b-',label='Ausgleichsgerade1')
-plt.plot(x_plot,x_plot*paramsLinearTS2[0]+paramsLinearTS2[1],'c-',label='Ausgleichsgerade2')
-plt.plot(x_plot,x_plot*paramsLinearTS3[0]+paramsLinearTS3[1],'m-',label='Ausgleichsgerade3')
+plt.plot(x_plot,x_plot*paramsLinearTS1[0]+paramsLinearTS1[1],'b-',label='Ausgleichsgerade 1')
+plt.plot(x_plot,x_plot*paramsLinearTS2[0]+paramsLinearTS2[1],'c-',label='Ausgleichsgerade 2')
+plt.plot(x_plot,x_plot*paramsLinearTS3[0]+paramsLinearTS3[1],'m-',label='Ausgleichsgerade 3')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$')
@@ -565,7 +565,7 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/TSL.png')
 print('TSL done')
-"""
+
 print('TS done')
 
 
@@ -605,7 +605,7 @@ print('SDS2 = ', SDS2)
 
 makeTable([noms(pDS)[1:], stds(pDS)[1:], noms(pDS_log)[1:], stds(pDS_log)[1:], tDS_1, tDS_2, tDS_3, tDS_4, tDS_5, noms(tDS)[1:], stds(tDS)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=2.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%3.2f", "%2.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
 
-"""
+
 #Plot
 #DSE
 plt.cla()
@@ -626,8 +626,8 @@ plt.clf()
 x_plot = np.linspace(-5,135)
 
 plt.errorbar(noms(tDS), noms(pDS_log), xerr=stds(tDS), yerr=stds(pDS_log), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearDS1[0]+paramsLinearDS1[1],'b-',label='Ausgleichsgerade1')
-plt.plot(x_plot,x_plot*paramsLinearDS2[0]+paramsLinearDS2[1],'c-',label='Ausgleichsgerade2')
+plt.plot(x_plot,x_plot*paramsLinearDS1[0]+paramsLinearDS1[1],'b-',label='Ausgleichsgerade 1')
+plt.plot(x_plot,x_plot*paramsLinearDS2[0]+paramsLinearDS2[1],'c-',label='Ausgleichsgerade 2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$')
@@ -636,7 +636,7 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/DSL.png')
 print('DSL done')
-"""
+
 print('DS done')
 
 
