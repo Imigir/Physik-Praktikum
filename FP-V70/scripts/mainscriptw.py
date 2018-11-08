@@ -187,7 +187,7 @@ print('STL4 = ', STL4)
 
 makeTable([noms(pTL4)[1:], stds(pTL4)[1:], tTL4_1, tTL4_2, tTL4_3, noms(tTL4)[1:], stds(tTL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL4', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
-
+"""
 #Plot
 #TL1
 plt.cla()
@@ -285,7 +285,7 @@ plt.xlim(-1,31)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/TL.png')
-
+"""
 print('TL done')
 
 
@@ -309,11 +309,15 @@ tDL1=unp.uarray(tDL1,tDL1_f)
 
 paramsLinearDL1, errorsLinearDL1, sigma_y = linregress(noms(tDL1), noms(pDL1))
 steigungDL1 = unp.uarray(paramsLinearDL1[0],errorsLinearDL1[0])
+achsenAbschnittDL1 = unp.uarray(paramsLinearDL1[1], errorsLinearDL1[1])
+
+print('steigungDL1 =', steigungDL1)
+print('achsenAbschnittDL1 =', achsenAbschnittDL1)
 
 SDL1 = VDL/p0DL1*steigungDL1
 print('SDL1 = ', SDL1)
 
-makeTable([noms(pDL1)[1:], stds(pDL1)[1:], tDL1_1, tDL1_2, tDL1_3, tDL1_4, noms(tDL1)[1:], stds(tDL1)[1:]], r'\multicolumn{2}{c}{'+r'$p\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL1', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pDL1)[1:], stds(pDL1)[1:], tDL1_1, tDL1_2, tDL1_3, tDL1_4, noms(tDL1)[1:], stds(tDL1)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL1', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #DL2
 pDL2,tDL2_1,tDL2_2,tDL2_3 = np.genfromtxt(r'scripts/dataDL2.txt',unpack=True)
@@ -333,6 +337,10 @@ tDL2=unp.uarray(tDL2,tDL2_f)
 
 paramsLinearDL2, errorsLinearDL2, sigma_y = linregress(noms(tDL2)[:5], noms(pDL2)[:5])
 steigungDL2 = unp.uarray(paramsLinearDL2[0],errorsLinearDL2[0])
+achsenAbschnittDL2 = unp.uarray(paramsLinearDL2[1], errorsLinearDL2[1])
+
+print('steigungDL2 =', steigungDL2)
+print('achsenAbschnittDL2 =', achsenAbschnittDL2)
 
 SDL2 = VDL/p0DL2*steigungDL2
 print('SDL2 = ', SDL2)
@@ -357,6 +365,10 @@ tDL3=unp.uarray(tDL3,tDL3_f)
 
 paramsLinearDL3, errorsLinearDL3, sigma_y = linregress(noms(tDL3), noms(pDL3))
 steigungDL3 = unp.uarray(paramsLinearDL3[0],errorsLinearDL3[0])
+achsenAbschnittDL3 = unp.uarray(paramsLinearDL3[1], errorsLinearDL3[1])
+
+print('steigungDL3 =', steigungDL3)
+print('achsenAbschnittDL3 =', achsenAbschnittDL3)
 
 SDL3 = VDL/p0DL3*steigungDL3
 print('SDL3 = ', SDL3)
@@ -381,6 +393,10 @@ tDL4=unp.uarray(tDL4,tDL4_f)
 
 paramsLinearDL4, errorsLinearDL4, sigma_y = linregress(noms(tDL4), noms(pDL4))
 steigungDL4 = unp.uarray(paramsLinearDL4[0],errorsLinearDL4[0])
+achsenAbschnittDL4 = unp.uarray(paramsLinearDL4[1], errorsLinearDL4[1])
+
+print('steigungDL4 =', steigungDL4)
+print('achsenAbschnittDL4 =', achsenAbschnittDL4)
 
 SDL4 = VDL/p0DL4*steigungDL4
 print('SDL4 = ', SDL4)
@@ -517,10 +533,20 @@ pTS_log = unp.log(pTS_h)
 
 paramsLinearTS1, errorsLinearTS1, sigma_y = linregress(noms(tTS)[0:4], noms(pTS_log)[0:4])
 steigungTS1 = unp.uarray(paramsLinearTS1[0],errorsLinearTS1[0])
+achsenAbschnittTS1 = unp.uarray(paramsLinearTS1[1], errorsLinearTS1[1])
 paramsLinearTS2, errorsLinearTS2, sigma_y = linregress(noms(tTS)[4:8], noms(pTS_log)[4:8])
 steigungTS2 = unp.uarray(paramsLinearTS2[0],errorsLinearTS2[0])
+achsenAbschnittTS2 = unp.uarray(paramsLinearTS2[1], errorsLinearTS2[1])
 paramsLinearTS3, errorsLinearTS3, sigma_y = linregress(noms(tTS)[6:10], noms(pTS_log)[6:10])
 steigungTS3 = unp.uarray(paramsLinearTS3[0],errorsLinearTS3[0])
+achsenAbschnittTS3 = unp.uarray(paramsLinearTS3[1], errorsLinearTS3[1])
+
+print('steigungTS1 =', steigungTS1)
+print('achsenAbschnittTS1 =', achsenAbschnittTS1)
+print('steigungTS2 =', steigungTS2)
+print('achsenAbschnittTS2 =', achsenAbschnittTS2)
+print('steigungTS3 =', steigungTS3)
+print('achsenAbschnittTS3 =', achsenAbschnittTS3)
 
 STS1 = steigungTS1*(-VTS) 
 STS2 = steigungTS2*(-VTS) 
@@ -531,7 +557,7 @@ print('STS3 = ', STS3)
 
 makeTable([noms(pTS)[1:], stds(pTS)[1:], noms(pTS_log)[1:], stds(pTS_log)[1:], tTS_1, tTS_2, tTS_3, tTS_4, tTS_5, tTS_6, noms(tTS)[1:], stds(tTS)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-5}\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & {'+r'$t_6/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTS', ['S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=2.1]', 'S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%3.1f", "%2.1f", "%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
-
+"""
 #Plot
 #TSE
 plt.cla()
@@ -565,7 +591,7 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/TSL.png')
 print('TSL done')
-
+"""
 print('TS done')
 
 
@@ -595,8 +621,15 @@ pDS_log = unp.log(pDS_h)
 
 paramsLinearDS1, errorsLinearDS1, sigma_y = linregress(noms(tDS)[0:11], noms(pDS_log)[0:11])
 steigungDS1 = unp.uarray(paramsLinearDS1[0],errorsLinearDS1[0])
+achsenAbschnittDS1 = unp.uarray(paramsLinearDS1[1], errorsLinearDS1[1])
 paramsLinearDS2, errorsLinearDS2, sigma_y = linregress(noms(tDS)[11:17], noms(pDS_log)[11:17])
 steigungDS2 = unp.uarray(paramsLinearDS2[0],errorsLinearDS2[0])
+achsenAbschnittDS2 = unp.uarray(paramsLinearDS2[1], errorsLinearDS2[1])
+
+print('steigungDS1 =', steigungDS1)
+print('achsenAbschnittDS1 =', achsenAbschnittDS1)
+print('steigungDS2 =', steigungDS2)
+print('achsenAbschnittDS2 =', achsenAbschnittDS2)
 
 SDS1 = steigungDS1*(-VDS) 
 SDS2 = steigungDS2*(-VDS) 
@@ -605,7 +638,7 @@ print('SDS2 = ', SDS2)
 
 makeTable([noms(pDS)[1:], stds(pDS)[1:], noms(pDS_log)[1:], stds(pDS_log)[1:], tDS_1, tDS_2, tDS_3, tDS_4, tDS_5, noms(tDS)[1:], stds(tDS)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=2.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%3.2f", "%2.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
 
-
+"""
 #Plot
 #DSE
 plt.cla()
@@ -636,12 +669,12 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/DSL.png')
 print('DSL done')
-
+"""
 print('DS done')
 
 
 #Ges
-
+"""
 #GesT
 plt.cla()
 plt.clf()
@@ -699,5 +732,5 @@ plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/DGes.png')
 print('DGes done')
-
+"""
 print('Ges done')
