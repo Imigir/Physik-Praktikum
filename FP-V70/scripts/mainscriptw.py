@@ -557,7 +557,7 @@ print('STS3 = ', STS3)
 
 makeTable([noms(pTS)[1:], stds(pTS)[1:], noms(pTS_log)[1:], stds(pTS_log)[1:], tTS_1, tTS_2, tTS_3, tTS_4, tTS_5, tTS_6, noms(tTS)[1:], stds(tTS)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-5}\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & {'+r'$t_6/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTS', ['S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=2.1]', 'S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%3.1f", "%2.1f", "%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
-"""
+
 #Plot
 #TSE
 plt.cla()
@@ -585,13 +585,13 @@ plt.plot(x_plot,x_plot*paramsLinearTS2[0]+paramsLinearTS2[1],'c-',label='Ausglei
 plt.plot(x_plot,x_plot*paramsLinearTS3[0]+paramsLinearTS3[1],'m-',label='Ausgleichsgerade 3')
 
 plt.xlabel(r'$t/\si{\second}$')
-plt.ylabel(r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$')
+plt.ylabel(r'$\log\left(\frac{p-p_\text{E}}{p_0-p_\text{E}}\right)$')
 plt.xlim(-1,16)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/TSL.png')
 print('TSL done')
-"""
+
 print('TS done')
 
 
@@ -638,7 +638,7 @@ print('SDS2 = ', SDS2)
 
 makeTable([noms(pDS)[1:], stds(pDS)[1:], noms(pDS_log)[1:], stds(pDS_log)[1:], tDS_1, tDS_2, tDS_3, tDS_4, tDS_5, noms(tDS)[1:], stds(tDS)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=2.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%3.2f", "%2.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
 
-"""
+
 #Plot
 #DSE
 plt.cla()
@@ -663,18 +663,18 @@ plt.plot(x_plot,x_plot*paramsLinearDS1[0]+paramsLinearDS1[1],'b-',label='Ausglei
 plt.plot(x_plot,x_plot*paramsLinearDS2[0]+paramsLinearDS2[1],'c-',label='Ausgleichsgerade 2')
 
 plt.xlabel(r'$t/\si{\second}$')
-plt.ylabel(r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$')
+plt.ylabel(r'$\log\left(\frac{p-p_\text{E}}{p_0-p_\text{E}}\right)$')
 plt.xlim(-5,135)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/DSL.png')
 print('DSL done')
-"""
+
 print('DS done')
 
 
 #Ges
-"""
+
 #GesT
 plt.cla()
 plt.clf()
@@ -683,16 +683,16 @@ plt.clf()
 #plt.errorbar([noms(pTL2)[0]*10,noms(pTL2)[-1]*10], [noms(STL2),noms(STL2)], xerr=[stds(pTL2)[0]*10,stds(pTL2)[-1]*10], yerr=[stds(STL2),stds(STL2)], fmt='c-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2')
 #plt.errorbar([noms(pTL3)[0]*10,noms(pTL3)[-1]*10], [noms(STL3),noms(STL3)], xerr=[stds(pTL3)[0]*10,stds(pTL3)[-1]*10], yerr=[stds(STL3),stds(STL3)], fmt='m-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3')
 #plt.errorbar([noms(pTL4)[0]*10,noms(pTL4)[-1]*10], [noms(STL4),noms(STL4)], xerr=[stds(pTL4)[0]*10,stds(pTL4)[-1]*10], yerr=[stds(STL1),stds(STL1)], fmt='r-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL4')
-plt.errorbar([noms(pTS)[0],noms(pTS)[3]], [noms(STS1),noms(STS1)], xerr=[stds(pTS)[0],stds(pTS)[3]], yerr=[stds(STS1),stds(STS1)], fmt='b--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS1')
-plt.errorbar([noms(pTS)[4],noms(pTS)[7]], [noms(STS2),noms(STS2)], xerr=[stds(pTS)[4],stds(pTS)[7]], yerr=[stds(STS2),stds(STS2)], fmt='c--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS2')
-plt.errorbar([noms(pTS)[6],noms(pTS)[9]], [noms(STS3),noms(STS3)], xerr=[stds(pTS)[6],stds(pTS)[9]], yerr=[stds(STS3),stds(STS3)], fmt='m--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS3')
+plt.errorbar([noms(pTS)[0],noms(pTS)[3]], [noms(STS1),noms(STS1)], xerr=[stds(pTS)[0],stds(pTS)[3]], yerr=[stds(STS1),stds(STS1)], fmt='b--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TE1')
+plt.errorbar([noms(pTS)[4],noms(pTS)[7]], [noms(STS2),noms(STS2)], xerr=[stds(pTS)[4],stds(pTS)[7]], yerr=[stds(STS2),stds(STS2)], fmt='c--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TE2')
+plt.errorbar([noms(pTS)[6],noms(pTS)[9]], [noms(STS3),noms(STS3)], xerr=[stds(pTS)[6],stds(pTS)[9]], yerr=[stds(STS3),stds(STS3)], fmt='m--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TE3')
 
-plt.errorbar(noms(pTL1)[0]*10, noms(STL1), xerr=stds(pTL1)[0]*10, yerr=stds(STL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1.1')
-plt.errorbar(noms(pTL1)[0]*10, noms(STL1_2), xerr=stds(pTL1)[0]*10, yerr=stds(STL1_2), fmt='bo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1.2')
-plt.errorbar(noms(pTL2)[0]*10, noms(STL2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2.1')
-plt.errorbar(noms(pTL2)[0]*10, noms(STL2_2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2_2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2.2')
-plt.errorbar(noms(pTL3)[0]*10, noms(STL3), xerr=stds(pTL3)[0]*10, yerr=stds(STL3), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3.1')
-plt.errorbar(noms(pTL3)[0]*10, noms(STL3_2), xerr=stds(pTL3)[0]*10, yerr=stds(STL3_2), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3.2')
+plt.errorbar(noms(pTL1)[0]*10, noms(STL1), xerr=stds(pTL1)[0]*10, yerr=stds(STL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1,1')
+plt.errorbar(noms(pTL1)[0]*10, noms(STL1_2), xerr=stds(pTL1)[0]*10, yerr=stds(STL1_2), fmt='bo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1,2')
+plt.errorbar(noms(pTL2)[0]*10, noms(STL2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2,1')
+plt.errorbar(noms(pTL2)[0]*10, noms(STL2_2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2_2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2,2')
+plt.errorbar(noms(pTL3)[0]*10, noms(STL3), xerr=stds(pTL3)[0]*10, yerr=stds(STL3), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3,1')
+plt.errorbar(noms(pTL3)[0]*10, noms(STL3_2), xerr=stds(pTL3)[0]*10, yerr=stds(STL3_2), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3,2')
 plt.errorbar(noms(pTL4)[0]*10, noms(STL4), xerr=stds(pTL4)[0]*10, yerr=stds(STL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL4')
 #plt.errorbar(noms(pTS)[0], noms(STS1), xerr=stds(pTS)[0], yerr=stds(STS1), fmt='ro', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS1')
 #plt.errorbar(noms(pTS)[3], noms(STS2), xerr=stds(pTS)[3], yerr=stds(STS2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS2')
@@ -714,8 +714,8 @@ plt.clf()
 #plt.errorbar([noms(pDL2)[0],noms(pDL2)[-1]], [noms(SDL2),noms(SDL2)], xerr=[stds(pDL2)[0],stds(pDL2)[-1]], yerr=[stds(SDL2),stds(SDL2)], fmt='c-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL2')
 #plt.errorbar([noms(pDL3)[0],noms(pDL3)[-1]], [noms(SDL3),noms(SDL3)], xerr=[stds(pDL3)[0],stds(pDL3)[-1]], yerr=[stds(SDL3),stds(SDL3)], fmt='m-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL3')
 #plt.errorbar([noms(pDL4)[0],noms(pDL4)[-1]], [noms(SDL4),noms(SDL4)], xerr=[stds(pDL4)[0],stds(pDL4)[-1]], yerr=[stds(SDL1),stds(SDL1)], fmt='r-', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL4')
-plt.errorbar([noms(pDS)[5],noms(pDS)[10]], [noms(SDS1),noms(SDS1)], xerr=[stds(pDS)[5],stds(pDS)[10]], yerr=[stds(SDS1),stds(SDS1)], fmt='b--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DS1')
-plt.errorbar([noms(pDS)[11],noms(pDS)[16]], [noms(SDS2),noms(SDS2)], xerr=[stds(pDS)[11],stds(pDS)[16]], yerr=[stds(SDS2),stds(SDS2)], fmt='c--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DS2')
+plt.errorbar([noms(pDS)[5],noms(pDS)[10]], [noms(SDS1),noms(SDS1)], xerr=[stds(pDS)[5],stds(pDS)[10]], yerr=[stds(SDS1),stds(SDS1)], fmt='b--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DE1')
+plt.errorbar([noms(pDS)[11],noms(pDS)[16]], [noms(SDS2),noms(SDS2)], xerr=[stds(pDS)[11],stds(pDS)[16]], yerr=[stds(SDS2),stds(SDS2)], fmt='c--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DE2')
 
 plt.errorbar(noms(pDL1)[0], noms(SDL1), xerr=stds(pDL1)[0], yerr=stds(SDL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL1')
 plt.errorbar(noms(pDL2)[0], noms(SDL2), xerr=stds(pDL2)[0], yerr=stds(SDL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='DL2')
@@ -732,5 +732,8 @@ plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/DGes.png')
 print('DGes done')
-"""
+
+makeTable([noms(pDS)[1:], stds(pDS)[1:], noms(pDS_log)[1:], stds(pDS_log)[1:], tDS_1, tDS_2, tDS_3, tDS_4, tDS_5, noms(tDS)[1:], stds(tDS)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=2.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%3.2f", "%2.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
+
+
 print('Ges done')

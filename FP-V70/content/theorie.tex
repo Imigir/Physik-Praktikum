@@ -10,15 +10,15 @@ Ein vollkommenes Vakuum zu erzeugen ist nicht möglich, doch es gibt Pumpen die 
 
 Grundsätzlich lassen sich diese Vakuumpumpen in zwei Kategorien einteilen.
 Bei Speicherpumpen wird das im Rezipienten befindliche Gas in einem mit der Pumpe verbundenen Behältnis oder Medium zwischengespeichert, weshalb auf Grund der begrenzten Kapazität nur kleinere Gasmengen abgepumpt werden können.
-Bei Transportpumpen hingegen wird das Gas über die Pumpe in die Außenluft abgeleitet. Sie lassen sich deshalb für beliebig große Gasmengen verwenden.\cite{Jena} 
+Bei Transportpumpen hingegen wird das Gas über die Pumpe in die Außenluft abgeleitet. Sie lassen sich deshalb für beliebig große Gasmengen verwenden \cite{Jena}. 
 Außerdem lassen sie sich in zwei Pumpentypen aufteilen:\newline
 Bei einer Verdrängerpumpe wird das gas zunächst in einen abgeschlossenen Kolben gesaugt und anschließend an die Außenluft abgegeben.\newline
-Kinetische Vakuumpumpen beschleunigen das Gas mittels mechanischer Arbeit oder eines gerichteten Dampfstrahls in Pumprichtung\cite{Pfeiffer}.
+Kinetische Vakuumpumpen beschleunigen das Gas mittels mechanischer Arbeit oder eines gerichteten Dampfstrahls in Pumprichtung \cite{Pfeiffer}.
 Die in diesem Versuch betrachteten Drehschieber- und Turbomolekularpumpe sind kinetische Vakuumpumpen.
 
 \subsubsection{Die Drehschieberpumpe}
 
-Eine Drehschieberpumpe besteht wie in Abbildung \ref{fig:DSP} zu sehen aus einer zylindrischen Pumpkammer(1), einem zylindrischen Rotor(2), durch Feder an die Wand gedrückte Drehschieber, die die Kammer in zwei Halbräume teilt, und einem Ablassventil(4). Aus dem Rezipienten(R) strömt das Gas in die Kammer, wird komprimiert und durch den Überdruck am Ventil an die Außenluft abgegeben.\cite{Jena}
+Eine Drehschieberpumpe besteht wie in Abbildung \ref{fig:DSP} zu sehen aus einer zylindrischen Pumpkammer(1), einem zylindrischen Rotor(2), durch Feder an die Wand gedrückte Drehschieber, die die Kammer in zwei Halbräume teilt, und einem Ablassventil(4). Aus dem Rezipienten(R) strömt das Gas in die Kammer, wird komprimiert und durch den Überdruck am Ventil an die Außenluft abgegeben \cite{Jena}.
 So kann ein Rezipientengasdruck $p\approx \SI{0,5e-1}{\milli\bar}$ (Feinvakuum) erzeugt werden.
 In diesem Druckbereich liegt eine viskose laminare Strömung des abgepumpten Gases vor, dass heißt auf Grund der großen Teilchenzahlen stoßen diese fast nur untereinander und kaum mit den Innenwänden er Pumpenrohre. Deren Durchmesser kann deshalb gering gewählt werden.
 \begin{figure}
@@ -31,7 +31,7 @@ In diesem Druckbereich liegt eine viskose laminare Strömung des abgepumpten Gas
 \subsubsection{Die Turbomolekularpumpe(Turbopumpe)}
 
 Bei einer Turbopumpe ähnelt der Rotor einer mehrstufigen Turbine mit schaufelähnlichen Scheiben, während zwischen den Rotorscheiben spiegelverkehrte Stator-Schaufeln fest angebracht sind.
-Der Rotor ist meist auf der Vorvakuum-Seite der Kammer auf einem Kugellager und auf der Hochvakuum-Seite auf einem verschleißfreien Permanentmagnetlager gelagert, um Verunreinigungen es Vakuums durch Schmierstoffe zu vermeiden.\cite{Pfeiffer} Die hohe Drehzahl führt dazu, dass sich die Schaufeln mit einer Geschwindigkeit bewegen, die in derselben Größenordnung liegt, wie die mittlere thermische Geschwindigkeit der Teilchen. Diese werden dadurch entlang der Drehrichtung beschleunigt und durch Abprallen von den Stator-Schaufeln durch die Pumpe geleitet. Deshalb können mit einer Turbopumpe Enddrücke bis $p=\SI{e-11}{\milli\bar}$(Ultrahochvakuum) erreicht werden, allerdings benötigt sie bereits ein Feinvakuum um zu arbeiten. Außerdem sind leichte Gase schwerer zu pumpen, da sie bereits im Mittel hohe Geschwindigkeiten haben und somit nur geringfügig vom Rotor beschleunigt werden können Im Hochvakuumbereich liegt eine molekulare Strömung vor. Die wenigen verblieben Teilchen prallen fast ausschließlich zwischen den Rohrwänden hin und her und somit ist die mittlere freie Weglänge viel größer ist als der Rohrdurchmesser.
+Der Rotor ist meist auf der Vorvakuum-Seite der Kammer auf einem Kugellager und auf der Hochvakuum-Seite auf einem verschleißfreien Permanentmagnetlager gelagert, um Verunreinigungen es Vakuums durch Schmierstoffe zu vermeiden \cite{Pfeiffer}. Die hohe Drehzahl führt dazu, dass sich die Schaufeln mit einer Geschwindigkeit bewegen, die in derselben Größenordnung liegt, wie die mittlere thermische Geschwindigkeit der Teilchen. Diese werden dadurch entlang der Drehrichtung beschleunigt und durch Abprallen von den Stator-Schaufeln durch die Pumpe geleitet. Deshalb können mit einer Turbopumpe Enddrücke bis $p=\SI{e-11}{\milli\bar}$(Ultrahochvakuum) erreicht werden, allerdings benötigt sie bereits ein Feinvakuum um zu arbeiten. Außerdem sind leichte Gase schwerer zu pumpen, da sie bereits im Mittel hohe Geschwindigkeiten haben und somit nur geringfügig vom Rotor beschleunigt werden können Im Hochvakuumbereich liegt eine molekulare Strömung vor. Die wenigen verblieben Teilchen prallen fast ausschließlich zwischen den Rohrwänden hin und her und somit ist die mittlere freie Weglänge viel größer ist als der Rohrdurchmesser.
 
 
 \subsection{Das Saugvermögen}
@@ -59,6 +59,10 @@ p(t)=p_.0\exp{-\frac{S}{V_.0}t}\label{eq:pt1}
 und unter  Berücksichtigung, dass nie ein vollständiges Vakuum erreicht wird und ein Enddruck $p_.E$ verbleibt,
 \begin{equation}
 p(t)=(p_.0-p_.E)\exp{-\frac{S}{V_.0}t}+p_.E\text{.}\label{eq:pt2}
+\end{equation}
+Auflösen nach $S$ ergibt schließlich:
+\begin{equation}
+S = -\ln\left(\frac{p-p_.E}{p_.0-p_.E}\right)V_.0t\text{.}\label{eq:S2}
 \end{equation}
 
 \subsubsection{Leckratenmessung}
@@ -91,12 +95,12 @@ Deshalb muss bei molekularer Strömung der Rohrdurchmesser wesentlich größer g
 
 \subsubsection{Pirani-Vakuummeter}
 
-Das Pirani-Vakuummeter arbeitet im Feinvakuum, also für $p\approx \SI{e-1}{\milli\bar} - \SI{e-3}{\milli\bar}$ und nutzt, dass die Wärmeleitfähigkeit von Gasen proportional zum Druck ist. Es wird ein Draht in einer mit dem Rezipienten verbundenen Messröhre mit konstantem Strom erhitzt. Je niedriger der Druck desto weniger Wärme kann abtransportiert werden, weshalb sich der Draht weiter aufheizt, wodurch sich sein Widerstand erhöht. Über eine Wheatstone-Brücke kann dieser gemessen und so der Rezipientendruck bestimmt werden.\cite{Jena}
+Das Pirani-Vakuummeter arbeitet im Feinvakuum, also für $p\approx \SI{e-1}{\milli\bar} - \SI{e-3}{\milli\bar}$ und nutzt, dass die Wärmeleitfähigkeit von Gasen proportional zum Druck ist. Es wird ein Draht in einer mit dem Rezipienten verbundenen Messröhre mit konstantem Strom erhitzt. Je niedriger der Druck desto weniger Wärme kann abtransportiert werden, weshalb sich der Draht weiter aufheizt, wodurch sich sein Widerstand erhöht. Über eine Wheatstone-Brücke kann dieser gemessen und so der Rezipientendruck bestimmt werden \cite{Jena}.
 
 \subsubsection{Penning-Vakuummeter}
 
-Das Penning- oder Kalt-Ionisations-Vakuummeter arbeitet im Hoch- und Ultrahochvakuum ($\SI{e-3}{\milli\bar} - \SI{e-12}{\milli\bar}$). Ein Glaskolben wird an den Rezipienten angeschlossen und durch natürliche Raumionisation freigewordene Elektronen werden zwischen zwei Elektroden beschleunigt. Sie können dabei weitere Elektronen ausschlagen, sodass der fließende Strom ein Maß für den Gasdruck ist. Durch einen am Kolben befestigten Permanentmagneten, werden die Elektronen in eine Spiralbahn ausgelenkt und so der Beschleunigungsweg zwischen den Elektroden vergrößert, um den Messbereich zu erweitern.\cite{Jena}
+Das Penning- oder Kalt-Ionisations-Vakuummeter arbeitet im Hoch- und Ultrahochvakuum ($\SI{e-3}{\milli\bar} - \SI{e-12}{\milli\bar}$). Ein Glaskolben wird an den Rezipienten angeschlossen und durch natürliche Raumionisation freigewordene Elektronen werden zwischen zwei Elektroden beschleunigt. Sie können dabei weitere Elektronen ausschlagen, sodass der fließende Strom ein Maß für den Gasdruck ist. Durch einen am Kolben befestigten Permanentmagneten, werden die Elektronen in eine Spiralbahn ausgelenkt und so der Beschleunigungsweg zwischen den Elektroden vergrößert, um den Messbereich zu erweitern \cite{Jena}.
 
 \subsubsection{Bayard-Alpert-Vakuummeter}
 
-Beim Bayard-Alpert-Vakuummeter ist die Elektronenquelle eine Glühkathode. Die Elektronen werden zu der Anode hin beschleunigt und ionisieren auf dem Weg die verbliebenen Gasteilchen. Die Ionen werden zu einer weiteren negative geladenen Elektrode beschleunigt und beim Auftreffen neutralisiert, was zu einem messbaren Strom führt. Dieses Vakummeter arbeitet ebenfalls im Hoch- und Ultrahochvakuum.\cite{Spektrum}
+Beim Bayard-Alpert-Vakuummeter ist die Elektronenquelle eine Glühkathode. Die Elektronen werden zu der Anode hin beschleunigt und ionisieren auf dem Weg die verbliebenen Gasteilchen. Die Ionen werden zu einer weiteren negative geladenen Elektrode beschleunigt und beim Auftreffen neutralisiert, was zu einem messbaren Strom führt. Dieses Vakummeter arbeitet ebenfalls im Hoch- und Ultrahochvakuum \cite{Spektrum}.

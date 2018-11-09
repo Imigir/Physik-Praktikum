@@ -1,7 +1,15 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.\\
+In Tabelle \ref{tab:V} sind die Volumina der Bauteile eingetragen und bei welcher Messung diese Verwendet werden. TL bezieht sich auf die Leckratenmessung der Turbopumpe, TE auf die Evakuierungskurve der Turbopumpe, DL auf die Leckratenmessung der Drehschieberpumpe und DE auf die Evakuierungskurve der Drehschieberpumpe. Die Zahl in Klammern hinter diesen Bezeichnungen gibt eine mögliche häufigere Verwendung des Bauteils an.
+
+\begin{table}
+\centering
+\caption{Die Werte für die Volumina der Bauteile \cite{V70}.}
+\input{content/tables/tabV.tex}
+\label{tab:V}
+\end{table}
 
 \subsection{Turbomolekularpumpe}
 
@@ -63,14 +71,14 @@ S_.{TL3,1} &= \SI{23(2)}{\litre\per\second} \text{,}\\
 S_.{TL3,2} &= \SI{25(2)}{\litre\per\second} \text{,}\\
 S_.{TL4}   &= \SI{14(1)}{\litre\per\second} \text{.}
 \end{align*}
-Das benötigte Volumen $V_.{TL}$ bestimmt sich dabei mit den Werten aus \ref{tab:V} zu:
+Das benötigte Volumen $V_.{TL}$ bestimmt sich dabei mit den Werten aus Tabelle \ref{tab:V} zu:
 \[
-V_.{TL} = \dots = \SI{10.2(9)}{\litre}\text{.}
+V_.{TL} = \SI{10.2(9)}{\litre}\text{.}
 \]
 
 \begin{table}
 \centering
-\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{2e-4}{\milli\bar}$.}
+\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{2e-4}{\milli\bar}$.}
 \input{content/tables/tabTL1.tex}
 \label{tab:TL1}
 \end{table}
@@ -78,13 +86,13 @@ V_.{TL} = \dots = \SI{10.2(9)}{\litre}\text{.}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TL1.png}
-\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_g = \SI{2e-4}{\milli\bar}$.}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_.g = \SI{2e-4}{\milli\bar}$.}
 \label{fig:TL1}
 \end{figure}
 
 \begin{table}
 \centering
-\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{1.4e-4}{\milli\bar}$.}
+\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{1.4e-4}{\milli\bar}$.}
 \input{content/tables/tabTL2.tex}
 \label{tab:TL2}
 \end{table}
@@ -92,13 +100,13 @@ V_.{TL} = \dots = \SI{10.2(9)}{\litre}\text{.}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TL2.png}
-\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_g = \SI{1.4e-4}{\milli\bar}$.}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_.g = \SI{1.4e-4}{\milli\bar}$.}
 \label{fig:TL2}
 \end{figure}
 
 \begin{table}
 \centering
-\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{1e-4}{\milli\bar}$.}
+\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{1e-4}{\milli\bar}$.}
 \input{content/tables/tabTL3.tex}
 \label{tab:TL3}
 \end{table}
@@ -106,13 +114,13 @@ V_.{TL} = \dots = \SI{10.2(9)}{\litre}\text{.}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TL3.png}
-\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_g = \SI{1e-4}{\milli\bar}$.}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_.g = \SI{1e-4}{\milli\bar}$.}
 \label{fig:TL3}
 \end{figure}
 
 \begin{table}
 \centering
-\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{0.5e-4}{\milli\bar}$.}
+\caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{0.5e-4}{\milli\bar}$.}
 \input{content/tables/tabTL4.tex}
 \label{tab:TL4}
 \end{table}
@@ -120,34 +128,34 @@ V_.{TL} = \dots = \SI{10.2(9)}{\litre}\text{.}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/TL4.png}
-\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_g = \SI{0.5e-4}{\milli\bar}$.}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Turbopumpe  mit $p_.g = \SI{0.5e-4}{\milli\bar}$.}
 \label{fig:TL4}
 \end{figure}
 
 \subsubsection{Bestimmung des Saugvermögens $S$ über die Evakuierungskurve}
 
 In Tabelle \ref{tab:TS} sind die Messwerte für die Evakuierungskurve, sowie die nach Formel \eqref{eq:tQuer} berechneten Mittelwerte $\bar{t}$ eingetragen.
-Dabei entsprechen $p_0=\SI{500(100)e-5}{\milli\bar}$ dem Anfangsdruck und $p_e=\SI{1.2(2)e-5}{\milli\bar}$ dem Enddruck der Kurve. Der Fehler des Druckes ergibt sich aus der Ungenauigkeit der Messskala von $20\%$ \cite{V70}. 
+Dabei entsprechen $p_0=\SI{500(100)e-5}{\milli\bar}$ dem Anfangsdruck und $p_.E=\SI{1.2(2)e-5}{\milli\bar}$ dem Enddruck der Kurve. Der Fehler des Druckes ergibt sich aus der Ungenauigkeit der Messskala von $20\%$ \cite{V70}. 
 Der Fehler der logarithmischen Werte berechnet sich nach der Gaußschen Fehlerfortpflanzung:
 \[
 \sigma_f = \sqrt{\sum_i\left(\frac{\partial f}{\partial x_i}\sigma_{x_i}\right)^2}\text{.}
 \]
 Konkret:
 \begin{align*}
-\sigma_.{ln}	&=\sqrt{\frac{\sigma_p^2+\sigma_{p_e}^2}{(p-p_e)^2}+\frac{\sigma_{p_0}^2+\sigma_{p_e}^2}{(p_0-p_e)^2}}\text{.}
+\sigma_.{ln}	&=\sqrt{\frac{\sigma_p^2+\sigma_{p_.E}^2}{(p-p_.E)^2}+\frac{\sigma_{p_0}^2+\sigma_{p_.E}^2}{(p_0-p_.E)^2}}\text{.} \label{eq:ln}
 %\sigma_.{ln}	&=\frac{1}{z}\sigma_{z}\text{;}\\
-%z				&=\frac{p-p_e}{p_0-p_e}\text{,}\\
+%z				&=\frac{p-p_.E}{p_0-p_.E}\text{,}\\
 %\sigma_{z}	&=\sqrt{\left(\frac{1}{p_y}\sigma_{p_x}\right)^2+\left(\frac{p_x}{p_y^2}\sigma_{p_y}\right)^2}\text{;}\\
-%p_x				&=p-p_e\text{,}\\
-%p_y				&=p_0-p_e\text{,}\\
-%\sigma_{p_x}	&=\sqrt{\sigma_p^2+\sigma_{p_e}^2}\text{,}\\
-%\sigma_{p_y}	&=\sqrt{\sigma_{p_0}^2+\sigma_{p_e}^2}\text{.}\\
+%p_x				&=p-p_.E\text{,}\\
+%p_y				&=p_0-p_.E\text{,}\\
+%\sigma_{p_x}	&=\sqrt{\sigma_p^2+\sigma_{p_.E}^2}\text{,}\\
+%\sigma_{p_y}	&=\sqrt{\sigma_{p_0}^2+\sigma_{p_.E}^2}\text{.}\\
 \end{align*}
 Dabei entsprechen die $\sigma_{p_i}$ den jeweiligen Abweichungen der $p_i$.
 Die Evakuierungskurve ist in Abbildung \ref{fig:TSE} zu sehen, die logarithmische Darstellung in Abbildung \ref{fig:TSL}.
 Lineare Ausgleichsrechnungen der Form
 \[
-\ln\left(\frac{p(t)-p_e}{p_0-p_e}\right) = a_it+b_i
+\ln\left(\frac{p(t)-p_.E}{p_0-p_.E}\right) = a_it+b_i
 \]
 für die ersten vier Messwerte (Ausgleichsgerade 1), den fünften bis achten Messwert (Ausgleichsgerade 2) und den siebten bis zehnten Messwert (Ausgleichsgerade 3) ergeben die Parameter:
 \begin{align*}
@@ -158,15 +166,15 @@ b_.{TE2} &= \SI{-1.9(3)}{} \text{,}\\
 a_.{TE3} &= \SI{-0.21(3)}{\per\second} \text{,}\\
 b_.{TE3} &= \SI{-4.6(3)}{} \text{.}\\
 \end{align*} 
-Daraus folgen mit Formel \eqref{eq:} für $S$ die Werte:
+Daraus folgen mit Formel \eqref{eq:S} für $S$ die Werte:
 \begin{align*}
 S_.{TE1} &= \SI{9.1(8)}{\litre\per\second} \text{,}\\
 S_.{TE2} &= \SI{5.2(6)}{\litre\per\second} \text{,}\\
 S_.{TE3} &= \SI{2.2(3)}{\litre\per\second} \text{.}\\
 \end{align*} 
-Das benötigte Volumen $V_.{TE}$ bestimmt sich dabei mit den Werten aus \ref{tab:V} zu:
+Das benötigte Volumen $V_.{TE}$ bestimmt sich dabei mit den Werten aus Tabelle \ref{tab:V} zu:
 \[
-V_.{TE} = \dots = \SI{10.3(9)}{\litre}\text{.}
+V_.{TE} = \SI{10.3(9)}{\litre}\text{.}
 \]
 
 \begin{table}
@@ -194,14 +202,14 @@ V_.{TE} = \dots = \SI{10.3(9)}{\litre}\text{.}
 
 \subsubsection{Bestimmung des Saugvermögens $S$ über die Leckratenmessung}
 
-Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_g$ durchgeführt. Dabei werden die gemessenen Zeiten $t_i$ mit Formel \eqref{eq:tQuer} gemittelt.
+Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_.g$ durchgeführt. Dabei werden die gemessenen Zeiten $t_i$ mit Formel \eqref{eq:tQuer} gemittelt.
 In den Tabellen \ref{tab:DL1} bis \ref{tab:DL4} sind die Messwerte und die zugehörigen Mittelwerte der jeweiligen Messreihen aufgelistet. Der Fehler des Druckes ergibt sich dabei aus der Ungenauigkeit der Messskala von $10\%$ \cite{V70}.\\
 In den Abbildungen \ref{fig:DL1} bis \ref{fig:DL4} ist der Druck $p$ gegen die gemittelte Zeit $\bar{t}$ aufgetragen.
 Die linearen Ausgleichsrechnungen der Form
 \[
 p_i(t) = a_it+b_i
 \]
-ergeben für $p_g = \SI{1}{\milli\bar}$ die Parameter
+ergeben für $p_.g = \SI{1}{\milli\bar}$ die Parameter
 \begin{align*}
 a_.{DL1} &= \SI{0.122(2)}{\milli\bar\per\second} \text{,}\\
 b_.{DL1} &= \SI{0.91(6)}{\milli\bar} \text{,}\\
@@ -221,7 +229,7 @@ und für $p_g = \SI{0.1}{\milli\bar}$
 a_.{DL4} &= \SI{0.0048(2)}{\milli\bar\per\second} \text{,}\\
 b_.{DL4} &= \SI{0.14(2)}{\milli\bar} \text{.}
 \end{align*}
-In denGraphen sind die nicht genutzten Messwerte Grau markiert.
+In den Graphen sind die nicht genutzten Messwerte Grau markiert.
 Mit Formel \eqref{eq:S2} ergibt sich für das Saugvermögen $S$
 \begin{align*}
 S_.{DL1} &= \SI{1.4(1)}{\litre\per\second} \text{,}\\
@@ -229,15 +237,15 @@ S_.{DL2} &= \SI{1.4(1)}{\litre\per\second} \text{,}\\
 S_.{DL3} &= \SI{0.95(9)}{\litre\per\second} \text{,}\\
 S_.{DL4}   &= \SI{0.53(5)}{\litre\per\second} \text{.}
 \end{align*}
-Das benötigte Volumen $V_.{DL}$ bestimmt sich dabei mit den Werten aus \ref{tab:V} zu:
+Das benötigte Volumen $V_.{DL}$ bestimmt sich dabei mit den Werten aus Tabelle \ref{tab:V} zu:
 \[
-V_.{DL} = \dots = \SI{11(1)}{\litre}\text{.}
+V_.{DL} = \SI{11(1)}{\litre}\text{.}
 \]
 
 
 \begin{table}
 \centering
-\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{1}{\milli\bar}$.}
+\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{1}{\milli\bar}$.}
 \input{content/tables/tabDL1.tex}
 \label{tab:DL1}
 \end{table}
@@ -245,13 +253,13 @@ V_.{DL} = \dots = \SI{11(1)}{\litre}\text{.}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DL1.png}
-\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_g = \SI{1}{\milli\bar}$.}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_.g = \SI{1}{\milli\bar}$.}
 \label{fig:DL1}
 \end{figure}
 
 \begin{table}
 \centering
-\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{0.8}{\milli\bar}$.}
+\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{0.8}{\milli\bar}$.}
 \input{content/tables/tabDL2.tex}
 \label{tab:DL2}
 \end{table}
@@ -259,13 +267,13 @@ V_.{DL} = \dots = \SI{11(1)}{\litre}\text{.}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DL2.png}
-\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_g = \SI{0.8}{\milli\bar}$.}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_.g = \SI{0.8}{\milli\bar}$.}
 \label{fig:DL2}
 \end{figure}
 
 \begin{table}
 \centering
-\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{0.4}{\milli\bar}$.}
+\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{0.4}{\milli\bar}$.}
 \input{content/tables/tabDL3.tex}
 \label{tab:DL3}
 \end{table}
@@ -273,13 +281,13 @@ V_.{DL} = \dots = \SI{11(1)}{\litre}\text{.}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DL3.png}
-\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_g = \SI{0.4}{\milli\bar}$.}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_.g = \SI{0.4}{\milli\bar}$.}
 \label{fig:DL3}
 \end{figure}
 
 \begin{table}
 \centering
-\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_g = \SI{0.1}{\milli\bar}$.}
+\caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{0.1}{\milli\bar}$.}
 \input{content/tables/tabDL4.tex}
 \label{tab:DL4}
 \end{table}
@@ -287,19 +295,19 @@ V_.{DL} = \dots = \SI{11(1)}{\litre}\text{.}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DL4.png}
-\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_g = \SI{0.1}{\milli\bar}$.}
+\caption{Der Druck $p$ in Abhängigkeit von der mittleren Zeit $\bar{t}$ bei der Leckratenmessung der Drehschieberpumpe  mit $p_.g = \SI{0.1}{\milli\bar}$.}
 \label{fig:DL4}
 \end{figure}
 
 \subsubsection{Bestimmung des Saugvermögens $S$ über die Evakuierungskurve}
 
 In Tabelle \ref{tab:DS} sind die Messwerte für die Evakuierungskurve, sowie die nach Formel \eqref{eq:tQuer} berechneten Mittelwerte $\bar{t}$ eingetragen.
-Dabei entsprechen $p_0=\SI{1013}{\milli\bar}$ dem Anfangsdruck und $p_e=\SI{0.02}{\milli\bar}$ dem Enddruck der Kurve. Der Fehler des Druckes ergibt sich aus der Ungenauigkeit der Messskala von $20\%$ \cite{V70}. 
-Der Fehler der logarithmischen Werte berechnet sich nach Formel \eqref{}.
+Dabei entsprechen $p_0=\SI{1013}{\milli\bar}$ dem Anfangsdruck und $p_.E=\SI{0.02}{\milli\bar}$ dem Enddruck der Kurve. Der Fehler des Druckes ergibt sich aus der Ungenauigkeit der Messskala von $20\%$ \cite{V70}. 
+Der Fehler der logarithmischen Werte berechnet sich nach Formel \eqref{eq:ln}.
 Die Evakuierungskurve ist in Abbildung \ref{fig:DSE} zu sehen, die logarithmische Darstellung in Abbildung \ref{fig:DSL}.
 Lineare Ausgleichsrechnungen der Form
 \[
-\ln\left(\frac{p(t)-p_e}{p_0-p_e}\right) = a_it+b_i
+\ln\left(\frac{p(t)-p_.E}{p_0-p_.E}\right) = a_it+b_i
 \]
 für die ersten elf Messwerte (Ausgleichsgerade 1) und den zwöften bis siebzehnten Messwert (Ausgleichsgerade 2) ergeben die Parameter:
 \begin{align*}
@@ -313,9 +321,9 @@ Daraus folgen mit Formel \eqref{eq:} für $S$ die Werte:
 S_.{DE1} &= \SI{1.0(1)}{\litre\per\second} \text{,}\\
 S_.{DE2} &= \SI{0.69(6)}{\litre\per\second} \text{.}\\
 \end{align*} 
-Das benötigte Volumen $V_.{TE}$ bestimmt sich dabei mit den Werten aus \ref{tab:V} zu:
+Das benötigte Volumen $V_.{TE}$ bestimmt sich dabei mit den Werten aus Tabelle \ref{tab:V} zu:
 \[
-V_.{DE} = \dots = \SI{11.1(1)}{\litre}\text{.}
+V_.{DE} = \SI{11.1(1)}{\litre}\text{.}
 \]
 
 \begin{table}
@@ -339,7 +347,10 @@ V_.{DE} = \dots = \SI{11.1(1)}{\litre}\text{.}
 \label{fig:DSL}
 \end{figure}
 
-\subsection{Zusammenfassung}
+\subsection{Zusammenfassung} 
+
+In den Abbildungen \ref{fig:TGes} und \ref{fig:DGes} sind die Ergebnisse für das Saugvermögen der jeweiligen Pumpe gegen den Druck aufgetragen. Die Bezeichnungen in der Legende beziehen sich dabei auf die Indizes der Werte.\\
+Die Werte aus der Leckratenmessung sind als Punkte dargestellt, die Werte aus der Evakuierungskurve als gestrichelte Linie zwischen dem Anfangs- und Endpunkt des jeweiligen Druckbereichs. Da der Druckbereich der TS1- und DS1-Linie vergleichsweise sehr groß ist, sind die Graphen rechts abgeschnitten. 
 
 \begin{figure}
 \centering
