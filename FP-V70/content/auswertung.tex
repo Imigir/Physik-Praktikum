@@ -21,7 +21,7 @@ Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_
 \]
 und dessen Standartabweichung
 \[
-\sigma_t = \frac{1}{N(N-1)}\sum_{i=1}^{N}(t_i-\mu_t)^2
+\sigma_t = \sqrt{\frac{1}{N(N-1)}\sum_{i=1}^{N}(t_i-\mu_t)^2}
 \]
 gemittelt zu
 \begin{equation}
@@ -60,7 +60,7 @@ und für $p_g = \SI{0.5e-4}{\milli\bar}$
 a_.{TL4} &= \SI{0.676(4)e-4}{\milli\bar\per\second} \text{,}\\
 b_.{TL4} &= \SI{0.43(3)e-4}{\milli\bar} \text{.}
 \end{align*}
-Der erste Index bezieht sich dabei auf die Messung bei gegebenem Gleichgewichtsdruck, der zweite Index bezieht sich auf die mögliche zweite Ausgleichsrechnung, bei der die erstsen drei Messwerte nicht mit berücksichtigt werden.
+Der erste Index bezieht sich dabei auf die Messung bei gegebenem Gleichgewichtsdruck, der zweite Index bezieht sich auf eine mögliche zweite Ausgleichsrechnung, bei der die ersten drei Messwerte nicht mit berücksichtigt werden.
 Mit Formel \eqref{eq:S2} ergibt sich für das Saugvermögen $S$
 \begin{align*}
 S_.{TL1,1} &= \SI{22(2)}{\litre\per\second} \text{,}\\
@@ -76,6 +76,7 @@ Das benötigte Volumen $V_.{TL}$ bestimmt sich dabei mit den Werten aus Tabelle 
 V_.{TL} = \SI{10.2(9)}{\litre}\text{.}
 \]
 
+\newpage
 \begin{table}
 \centering
 \caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{2e-4}{\milli\bar}$.}
@@ -90,6 +91,7 @@ V_.{TL} = \SI{10.2(9)}{\litre}\text{.}
 \label{fig:TL1}
 \end{figure}
 
+\newpage
 \begin{table}
 \centering
 \caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{1.4e-4}{\milli\bar}$.}
@@ -104,6 +106,7 @@ V_.{TL} = \SI{10.2(9)}{\litre}\text{.}
 \label{fig:TL2}
 \end{figure}
 
+\newpage
 \begin{table}
 \centering
 \caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{1e-4}{\milli\bar}$.}
@@ -118,6 +121,7 @@ V_.{TL} = \SI{10.2(9)}{\litre}\text{.}
 \label{fig:TL3}
 \end{figure}
 
+%\newpage
 \begin{table}
 \centering
 \caption{Die Messwerte der Leckratenmessung bei der Turborpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{0.5e-4}{\milli\bar}$.}
@@ -166,7 +170,7 @@ b_.{TE2} &= \SI{-1.9(3)}{} \text{,}\\
 a_.{TE3} &= \SI{-0.21(3)}{\per\second} \text{,}\\
 b_.{TE3} &= \SI{-4.6(3)}{} \text{.}\\
 \end{align*} 
-Daraus folgen mit Formel \eqref{eq:S} für $S$ die Werte:
+Daraus folgen durch Vergleich der Steigung mit Formel \eqref{eq:S} für $S$ die Werte:
 \begin{align*}
 S_.{TE1} &= \SI{9.1(8)}{\litre\per\second} \text{,}\\
 S_.{TE2} &= \SI{5.2(6)}{\litre\per\second} \text{,}\\
@@ -242,7 +246,7 @@ Das benötigte Volumen $V_.{DL}$ bestimmt sich dabei mit den Werten aus Tabelle 
 V_.{DL} = \SI{11(1)}{\litre}\text{.}
 \]
 
-
+\newpage
 \begin{table}
 \centering
 \caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{1}{\milli\bar}$.}
@@ -257,6 +261,7 @@ V_.{DL} = \SI{11(1)}{\litre}\text{.}
 \label{fig:DL1}
 \end{figure}
 
+\newpage
 \begin{table}
 \centering
 \caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{0.8}{\milli\bar}$.}
@@ -271,6 +276,7 @@ V_.{DL} = \SI{11(1)}{\litre}\text{.}
 \label{fig:DL2}
 \end{figure}
 
+\newpage
 \begin{table}
 \centering
 \caption{Die Messwerte der Leckratenmessung bei der Drehschieberpumpe mit einem Gleichgewichtsdruck von $p_.g = \SI{0.4}{\milli\bar}$.}
@@ -326,13 +332,6 @@ Das benötigte Volumen $V_.{TE}$ bestimmt sich dabei mit den Werten aus Tabelle 
 V_.{DE} = \SI{11.1(1)}{\litre}\text{.}
 \]
 
-\begin{table}
-\centering
-\caption{Die Werte für die Evakuierungskurve der Drehschieberpumpe.}
-\input{content/tables/tabDS.tex}
-\label{tab:DS}
-\end{table}
-
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/DSE.png}
@@ -346,6 +345,13 @@ V_.{DE} = \SI{11.1(1)}{\litre}\text{.}
 \caption{Die logarithmische Evakuierungskurve der Drehschieberpumpe.}
 \label{fig:DSL}
 \end{figure}
+
+\begin{table}
+\centering
+\caption{Die Werte für die Evakuierungskurve der Drehschieberpumpe.}
+\input{content/tables/tabDS.tex}
+\label{tab:DS}
+\end{table}
 
 \subsection{Zusammenfassung} 
 
