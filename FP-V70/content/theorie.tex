@@ -4,14 +4,14 @@
 
 \subsection{Das Vakuum}
 
-Ein Vakuum ist ein Raum in dem keine oder sehr wenige Teilchen enthalten sind, sodass ein hindurch fliegendes Teilchen näherungsweise keine Wechselwirkungen (Stöße) mit seiner Umgebung erfährt. Das wird durch die mittlere freie Weglänge beschrieben, die angibt welche Strecke ein Teilchen in einem Medium zurücklegen kann ohne mit diesem zu Stoßen.\\
-Benötigt wurde ein Vakuum beispielsweise in frühen Glühlampen. In der Physik findet es viele Anwendungen vor allem in Teilchenbeschleunigern damit die dort beschleunigten Teilchenpakete nicht durch Kollisionen mit Gasteilchen verloren gehen.\\
+Ein Vakuum ist ein Raum in dem keine oder sehr wenige Teilchen enthalten sind, sodass ein hindurch fliegendes Teilchen näherungsweise keine Wechselwirkungen (Stöße) mit seiner Umgebung erfährt. Das wird durch die mittlere freie Weglänge beschrieben, die angibt welche Strecke ein Teilchen in einem Medium zurücklegen kann ohne mit diesem zu stoßen.\\
+Benötigt wurde ein Vakuum beispielsweise in frühen Glühlampen. In der modernen Physik findet es vor allem Anwendung in Teilchenbeschleunigern, damit die dort beschleunigten Teilchenpakete nicht durch Kollisionen mit Gasteilchen verloren gehen.\\
 Ein vollkommenes Vakuum zu erzeugen ist nicht möglich, doch es gibt Pumpen die Vakuen verschiedener Reinheit erzeugen können. Die Grenze zum obersten als Vakuum bezeichneten Druckbereich, dem Grobvakuum ($300 \text{ bis } \SI{1}{\milli\bar}$), ist durch den niedrigsten natürlich auf der Erde vorkommenden Druck gegeben. Weitere Bereiche sind das Feinvakuum ($1 \text{ bis } \SI{e-3}{\milli\bar}$), das Hochvakuum ($10^{-3} \text{ bis } \SI{e-7}{\milli\bar}$) und das Ultrahochvakuum ($10^{-7} \text{ bis } \SI{e-12}{\milli\bar}$).\\
 Das Ergebnis der Vakuumerzeugung hängt allerdings auch vom Rezipienten ab. Abgesehen von fehlender Abdichtung der Ventile und Pumpen, gibt es virtuelle Lecks, die nicht von undichten Stellen herrühren, sondern bau- und lagerungsbedingt bei einem Rezipienten auftreten. Sie entstehen dadurch, dass Gase, die sich an den Innenwänden des Rezipienten angelagert haben, wieder entweichen (Desorption) oder dass bei der Herstellung mit Gasen gefüllte Hohlräume entstanden sind, die durch die Wände in den zu evakuierenden Raum diffundieren.
 
 \subsection{Arten der Vakuumerzeugung}
 
-Grundsätzlich lassen sich diese Vakuumpumpen in zwei Kategorien einteilen.
+Grundsätzlich lassen sich Vakuumpumpen in zwei Kategorien einteilen.
 Bei Speicherpumpen wird das im Rezipienten befindliche Gas in einem mit der Pumpe verbundenen Behältnis oder Medium zwischengespeichert, weshalb auf Grund der begrenzten Kapazität nur kleinere Gasmengen abgepumpt werden können.
 Bei Transportpumpen hingegen wird das Gas über die Pumpe in die Außenluft abgeleitet. Sie lassen sich deshalb für beliebig große Gasmengen verwenden \cite{Jena}.\\
 Transportpumpen lassen sich in zwei Pumpentypen aufteilen: Bei einer Verdrängerpumpe wird das Gas zunächst in einen abgeschlossenen Kolben gesaugt und anschließend an die Außenluft abgegeben. Kinetische Vakuumpumpen beschleunigen das Gas mittels mechanischer Arbeit oder eines gerichteten Dampfstrahls in Pumprichtung \cite{Pfeiffer}.\\
@@ -34,7 +34,7 @@ In diesem Druckbereich liegt eine viskose laminare Strömung des abgepumpten Gas
 Bei einer Turbopumpe ähnelt der Rotor einer mehrstufigen Turbine mit schaufelähnlichen Scheiben, während zwischen den Rotorscheiben spiegelverkehrte Stator-Schaufeln fest angebracht sind.\\
 Der Rotor ist meist auf der Vorvakuum-Seite der Kammer auf einem Kugellager und auf der Hochvakuum-Seite auf einem verschleißfreien Permanentmagnetlager gelagert, um Verunreinigungen des Vakuums durch Schmierstoffe zu vermeiden \cite{Pfeiffer}. Die hohe Drehzahl führt dazu, dass sich die Schaufeln mit einer Geschwindigkeit bewegen, die in derselben Größenordnung liegt, wie die mittlere thermische Geschwindigkeit der Teilchen. Diese werden dadurch entlang der Drehrichtung beschleunigt und durch Abprallen von den Stator-Schaufeln durch die Pumpe geleitet.\\
 Deshalb können mit einer Turbopumpe Enddrücke bis $p=\SI{e-11}{\milli\bar}$ (Ultrahochvakuum) erreicht werden, allerdings benötigt sie bereits ein Feinvakuum um zu arbeiten. Außerdem sind leichte Gase schwerer zu pumpen, da sie bereits im Mittel hohe Geschwindigkeiten haben und somit nur geringfügig vom Rotor beschleunigt werden können.\\
-Im Hochvakuumbereich liegt eine molekulare Strömung vor. Die wenigen verblieben Teilchen prallen fast ausschließlich zwischen den Rohrwänden hin und her und somit ist die mittlere freie Weglänge viel größer, als der Rohrdurchmesser\cite{Pfeiffer}.
+Im Hochvakuumbereich liegt eine molekulare Strömung vor. Die wenigen verblieben Teilchen prallen fast ausschließlich zwischen den Rohrwänden hin und her und somit ist die mittlere freie Weglänge größer, als der Rohrdurchmesser\cite{Pfeiffer}.
 
 
 \subsection{Das Saugvermögen}
@@ -53,29 +53,29 @@ p\cdot V =\text{const}\label{eq:Boyle}
 \end{equation}
 Eine Ableitung nach der Zeit ergibt
 \[
-\frac{\mathrm{d}V}{\mathrm{d}t} = S = - \frac{V}{p} \frac{\mathrm{d}p}{\mathrm{d}t}
+\frac{\mathrm{d}V}{\mathrm{d}t} = S = - \frac{V}{p} \frac{\mathrm{d}p}{\mathrm{d}t}\text{.}
 \]
-Nach $p$ auflösen ergibt
+Nach $p$ aufgelöst mit dem Rezipientenvolumen $V_.0$ und dem Anfangsdruck $p_.0$
 \begin{equation}
-p(t)=p_.0\exp{\left(-\frac{S}{V_.0}t\right)}\label{eq:pt1}
+p(t)=p_.0\exp{\left(-\frac{S}{V_.0}t\right)}\label{eq:pt1}\text{.}
 \end{equation}
-und unter  Berücksichtigung, dass nie ein vollständiges Vakuum erreicht wird und ein Enddruck $p_.E$ verbleibt,
+Unter Berücksichtigung, dass nie ein vollständiges Vakuum erreicht wird, sondern ein Enddruck $p_.E$ verbleibt:
 \begin{equation}
 p(t)=(p_.0-p_.E)\exp{\left(-\frac{S}{V_.0}t\right)}+p_.E\text{.}\label{eq:pt2}
 \end{equation}
-Umstellen ergibt:
+und damit für $S$
 \begin{equation}
 \ln\left(\frac{p-p_.E}{p_0-p_.E}\right) = -\frac{S}{V_0}t\text{.}\label{eq:S2}
 \end{equation}
 
 \subsubsection{Leckratenmessung}
 
-Wenn genau soviel Gas in den Rezipienten strömt wie die Pumpe absaugen kann, stellt sich ein Gleichgewichtsdruck $p_.g$ ein. Dies ist entweder der Fall, wenn $p_.E$ erreicht ist, wobei das einströmende Gas in diesem Fall aus den virtuellen Lecks stammt, oder kann manuell über ein künstliches Leck eingestellt werden. \newline 
+Wenn genau soviel Gas in den Rezipienten strömt wie die Pumpe absaugen kann, stellt sich ein Gleichgewichtsdruck $p_.g$ ein. Dies ist entweder der Fall, wenn $p_.E$ erreicht ist, wobei das einströmende Gas in diesem Fall aus den virtuellen Lecks stammt, oder kann manuell über ein künstliches Leck eingestellt werden. \\
 Wird die Pumpe in diesem Zustand abgeschaltet, füllt sich der Rezipient langsam wieder mit Gas und es gilt 
 \[
 S=\frac{Q}{p_.g}\text{.}
 \]
-Die Leckrate $Q$ bestimmt sich mit dem Rezipientenvolumen $V_.0$ und der Druckänderung $\Delta p$ in der Zeit $\Delta t$ nach
+Die Leckrate $Q$ bestimmt sich mit der Druckänderung $\Delta p$ in der Zeit $\Delta t$ nach
 \[
 Q=V_.0\frac{\Delta p}{\Delta t}
 \]
@@ -86,20 +86,20 @@ S=\frac{V_.0}{p_.g}\cdot\frac{\Delta p}{\Delta t}\text{.}\label{eq:S}
 \newline\newline
 Im Allgemeinen stimmt das bestimmte Saugvermögen einer Pumpe nicht mit den Herstellerangaben überein.
 Das hängt mit dem Strömungswiderstand der Verbindungsrohre zusammen.
-Experimentell wird nur das effektive Saugvermögen
+Experimentell kann nur das effektive Saugvermögen
 \begin{equation}
 S_.{eff}=\frac{S_.0\cdot L}{S_.0+L}
 \end{equation}
-bestimmt, wobei $S_.0$ das theoretische Saugvermögen und $L$ den Leitwert der Rohre angibt.
-Dieser wird je nach Strömungsart anders berechnet und geht bei molekularer Strömung mit der 3. und bei laminarer viskoser Strömung mit der 4. Potenz des Rohrdurchmessers.
+bestimmt werden, wobei $S_.0$ das theoretische Saugvermögen und $L$ den Leitwert der Rohre angibt.
+Dieser wird je nach Strömungsart anders berechnet und geht bei molekularer Strömung mit der 3. und bei laminarer viskoser Strömung mit der 4. Potenz des Rohrdurchmessers\cite{V70}.
 Deshalb muss bei molekularer Strömung der Rohrdurchmesser wesentlich größer gewählt werden, um ein großes Saugvermögen zu gewährleisten.
 
 \subsection{Arten der Vakuummessung}
 
 \subsubsection{Pirani-Vakuummeter}
 
-Das Pirani-Vakuummeter arbeitet im Feinvakuum, also für $p\approx e-1 - \SI{e-3}{\milli\bar}$ und nutzt, dass die Wärmeleitfähigkeit von Gasen in diesem Bereich proportional zum Druck ist und die Wärmeleitung im Wesentlichen über Stöße der Gasteilchen untereinander geschieht.\\
-Es wird ein Draht in einer mit dem Rezipienten verbundenen Messröhre mit konstantem Strom erhitzt. Je niedriger der Druck, desto weniger Wärme kann abtransportiert werden, weshalb sich der Draht weiter aufheizt, wodurch sich sein Widerstand erhöht. Über eine Wheatstone-Brücke kann dieser gemessen und so der Rezipientendruck bestimmt werden \cite{Jena}.
+Das Pirani-Vakuummeter arbeitet im Feinvakuum, also für $p\approx 10^{-1} \text{bis} \SI{e-3}{\milli\bar}$ und nutzt, dass die Wärmeleitfähigkeit von Gasen in diesem Bereich proportional zum Druck ist. Die Wärmeleitung geschieht dabei im Wesentlichen über Stöße der Gasteilchen untereinander.\\
+Es wird ein Draht in einer mit dem Rezipienten verbundenen Messröhre mit konstantem Strom erhitzt. Je niedriger der Druck, desto weniger Wärme kann abtransportiert werden, weshalb sich der Draht weiter aufheizt. Dadurch erhöht sich sein Widerstand. Über eine Wheatstone-Brücke kann dieser gemessen und so der Rezipientendruck bestimmt werden \cite{Jena}.
 
 \subsubsection{Penning-Vakuummeter}
 
@@ -107,4 +107,4 @@ Das Penning- oder Kalt-Ionisations-Vakuummeter arbeitet im Hoch- und Ultrahochva
 
 \subsubsection{Bayard-Alpert-Vakuummeter}
 
-Beim Bayard-Alpert-Vakuummeter ist die Elektronenquelle eine Glühkathode. Die Elektronen werden zu der Anode hin beschleunigt und ionisieren auf dem Weg die verbliebenen Gasteilchen. Die Ionen werden zu einer weiteren negative geladenen Elektrode beschleunigt und beim Auftreffen neutralisiert, was zu einem messbaren Strom führt. Dieses Vakummeter arbeitet ebenfalls im Hoch- und Ultrahochvakuum \cite{Spektrum}.
+Beim Bayard-Alpert-Vakuummeter ist die Elektronenquelle eine Glühkathode. Die Elektronen werden zu der Anode hin beschleunigt und ionisieren auf dem Weg die verbliebenen Gasteilchen. Die Ionen werden zu einer weiteren negativ geladenen Elektrode beschleunigt und beim Auftreffen neutralisiert, was zu einem messbaren Strom führt. Dieses Vakummeter arbeitet ebenfalls im Hoch- und Ultrahochvakuum \cite{Spektrum}.
