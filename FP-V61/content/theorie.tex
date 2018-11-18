@@ -1,4 +1,36 @@
-
 \section{Theorie}
 \label{sec:Theorie}
 
+\subsection{Der Laser}
+Laser steht für Light Amplification by Stimulated Emission of Radiation. Er wird verwendet wenn z.B. bei Interferenzeffekten kohärentes Licht erforderlich ist, das heißt, der Phasenunterschied der ausgesendeten Lichtwellen konstant sein muss.\\
+Das Prinzip eines Lasers lässt sich an einem Zwei-Niveau-System beschreiben.
+In einem Medium, für das ein angeregter Zustand $n_.1$ und ein Grundzustand $n_.0$ existieren, kann falls $n_.1$ besetzt ist unter spontaner Emission eines Photons das Material in den Grundzustand zurückkehren.
+Trifft ein elektromagnetisches Feld darauf kann das Medium entweder durch Absorption des Photons in $n_.1$ übergehen, wenn dieses genau die Energie des Übergangs besitzt, oder der Prozess der Emission kann ohne Verlust des ankommenden Photons stimuliert werden. Das in diesem Fall freiwerdende Photon hat dann dieselbe Energie, Phase und Ausbreitungsrichtung wie das einfallende und ist somit kohärent zu diesem.
+Die Zahl der absorbierten und emittierten Photonen pro Volumen und Zeit lässt sich mit den Einsteinkoeffizienten $A_.{21}$, $B_.{12}$ und $B_.{21}$, die die Übergangswahrscheinlichkeiten darstellen, und der elektromagnetischen Felddichte $\rho(\nu)$ schreiben als
+\begin{align*}
+\dot{N}_.E&=n_.1  A_.{21}\\
+\dot{N}_.A&=n_.0 \rho(\nu) B_.{12}\\
+\dot{N}_.{IE}&=n_.1 \rho(\nu) B_.{21},
+\end{align*}
+wobei der Index $A$ für die Absorption und die Indizes $E$ und $IE$ für die spontane bzw. induzierte Emission stehen.
+Damit ergibt sich für die Änderung der Besetzung der Zustände
+\[
+\frac{\mathrm{d}n_.0}{\mathrm{d}t}=n_.1A_.{21}-n_.1 \rho(\nu) B_.{21}-n_.0 \rho(\nu) B_.{12}
+\]
+und 
+\[
+\frac{\mathrm{d}n_.1}{\mathrm{d}t}=-\frac{\mathrm{d}n_.0}{\mathrm{d}t}
+\]
+Nach der Maxwell-Boltzmann-Verteilung ist im thermischen Gleichgewicht vorwiegend der Grundzustand besetzt, sodass die stimulierte Emission eines Photons unwahrscheinlich ist.
+Um eine konstante Verstärkung und Kohärenz zu erhalten, muss dem System deshalb ständig Energie zugeführt werden, damit die Besetzungsinversion $n_.1>n_.0$ auftritt. Dieser 'pumpen' genannte Vorgang wird über einen zusätzlichen Bestandteil des Lasers, das Pumpmaterial, gewährleistet. Dies wird über Entladung angeregt und gibt die Energie über Stöße an das aktive Material ab.\\
+Bisher wurde ein Zwei-Niveau-System betrachtet, welches jedoch nicht für einen Lasers geeignet ist. Sind die Zustände $n_.0$ und $n_.1$ nicht entartet, gilt
+$B_.{12}=B_.{21}$, sodass die Wahrscheinlichkeit für Absorption und stimulierte Emission gleich groß ist. Mit der Zeit stellt sich deshalb ein Gleichgewicht der Besetzungen ein und die Besetzungsinversion wird aufgehoben.\\ 
+Ein Laser besteht neben dem aktiven Lasermaterial und einem Pumpmaterial aus einem optischen Resonator.
+Dieser besteht aus einem totalreflektierenden Spiegel auf der einen und einem nur teilreflektierendem Spiegel auf der anderen Seite des Lasermediums und dient dazu, dass das emittierte Licht möglichst lange im aktiven Material verbleibt, um dort möglichst oft die induzierte Emission auszulösen. Der teilreflektierende Spiegel dient dazu den Laserstrahl auszukoppeln. Grundsätzlich können Resonatoren aus zwei planen oder zwei sphärischen Spiegeln oder einer Mischung aus beidem. Um Strahlungsverluste zu vermeiden, werden die Spiegel so aufgestellt, dass ihre Brennpunkte aufeinander liegen. Damit das System optisch stabil ist, also die Verluste geringer sind als die Verstärkung, muss für die Resonatorparameter
+\[
+g_.i = 1 - \frac{L}{r_.i}
+\]
+mit der Resonatorlänge $L$ und dem Krümmungsradius des jeweiligen Spiegels $r_.i$, gelten
+\begin{equation}
+0 \leq q_.1q_.2 < 1
+\end{equation}
