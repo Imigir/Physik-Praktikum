@@ -82,7 +82,20 @@ Hier gilt für den Wirkungsquerschnitt bei Energien $\SI{10}{MeV}<E_.{\gamma}<\S
 \end{equation}
 
 \subsection{Der Reinst-Germanium-Detektor}
+Der Germanium-Detektor ist ein Halbleiterdetektor. Er besteht aus einem n- und einem p-dotierten Bereich. Am Übergang diffundieren auf Grund thermischer Energie bei endlicher Temperatur einzelne Elektronen und Löcher in die jeweils andere Schicht und rekombinieren dort, sodass eine Ladungsträger verarmte Zone entsteht. Die Raumladungen der Donatoren in der n-Schicht und den Akzeptoren in der p-Schicht erzeugen eine Potentialdifferenz $U_.D$, die der Diffusion entgegenwirkt.
+Durch eine asymmetrische Dotierung und das Anlegen einer Spannung $U$ lässt sich die Verarmungszone wesentlich verbreitern.
+Für den Teil der Verarmungszone, der in der n- bzw. p-Schicht liegt, gilt
+\begin{align*}
+d^2_.n&=\frac{2\varepsilon_.r\varepsilon_.0}{e_.0}\left(U_.D+U\right)\frac{n_.A}{n_.D\left(n_.A+n_.D\right)}\\
+d^2_.p&=d^2_.n\frac{n^2_.D}{n^2_.A},
+\end{align*}
+mit den Dielektrizitätskonstanten $\varepsilon_.r$ und $\varepsilon_.0$, der Elementarladung $e_.0$ und der Akzeptoren- und Donatorendichte $n_.A$ und $n_.D$.
+Für $n_.D>>n_.A$ ist die Breite der Verarmungszone gegeben durch
+\begin{equation}
+d=d_.n+d_.p\approx d_.p\approx\sqrt{\frac{2\varepsilon_.r\varepsilon_.0}{e_.0}\left(U_.D+U\right)\frac{1}{n_.A}}\text{.}
+\end{equation}
+Eine möglichst geringe p-Dotierung führt somit zu einer Verbreiterung der Ladungsträger armen Zone, ebenso wie eine Erhöhung der angelegten Spannung. Hierfür muss jedoch der Detektor gekühlt werden, da sonst die durch thermische Energie entstehenden Ladungsträger in der Verarmungszone beschleunigt werden und es zu Avalanche-Durchbrüchen und damit zu Signalen kommt, auch wenn nichts detektriert wird.
 
 
 
-%☺☺┤☻♣•
+%☺☺┤☻♣•☻
