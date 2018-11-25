@@ -34,11 +34,11 @@ h \nu + m_.0 c^2 &= h \nu '+ \gamma m_.0 c^2\\
 erfüllt sein. Dabei ist $h$ das Plancksche Wirkungsquantum, $c$ die Lichtgeschwindigkeit, $\gamma$ der Lorentzfaktor, $\nu$ und $\nu '$ die Frequenz des Photons vor und nach dem Compton-Effekt und $\psi_.{\gamma}$ und $\psi_.e$ die Winkel des ausfallenden Photons und des Elektrons bezüglich der Einfallsrichtung des Photons.
 Umformen und Gleichsetzen ergibt für die Energie des einfallenden und des ausfallenden Photons $E_.{\gamma}=h\nu$ und $E_.{\gamma}'=h\nu '$ mit \[\epsilon=\frac{E_.{\gamma}}{m_.0c^2}\] die Beziehung
 \begin{equation}
-E_.{\gamma}'= E_.{\gamma}\frac{1}{1+\epsilon\cdot\left(1-\cos(\psi_.{\gamma})\right)}
-\end{equation}.
+E_.{\gamma}'= E_.{\gamma}\frac{1}{1+\epsilon\cdot\left(1-\cos(\psi_.{\gamma})\right)}\text{.}
+\end{equation}
 Die Energiedifferenz
 \begin{equation}
-E_.e=E_.{\gamma}-E_.{\gamma}'=\frac{\epsilon\cdot\left(1-\cos(\psi_.{\gamma}}{1+\epsilon\cdot\left(1-\cos(\psi_.{\gamma}}E_.{\gamma}
+E_.e=E_.{\gamma}-E_.{\gamma}' =\frac{\epsilon\cdot\left(1-\cos(\psi_.{\gamma})\right)}{1+\epsilon\cdot\left(1-\cos(\psi_.{\gamma})\right)}E_.{\gamma}
 \end{equation}
 ist somit die an das Elektron abgegebene Energie.
 Für $\psi_.{\gamma}=\SI{180}{\degree}$ ist sie maximal und beträgt
@@ -46,10 +46,43 @@ Für $\psi_.{\gamma}=\SI{180}{\degree}$ ist sie maximal und beträgt
 E_.{e,max}=\frac{\epsilon}{1+\epsilon}E_.{\gamma}\text{.}
 \end{equation}
 Dieser Wert ist kleiner als $E_.{\gamma}$, somit wird nie die gesamte Photonenenergie auf das Elektron übertragen. Im Energiespektrum äußert sich das durch ein breites Kontinuum an Energien, welches an der Compton-Kante bei
-$E_.e=E_.{e,max}$ endet.
+$E_.e=E_.{e,max}$ vor dem Photopeak endet.
+Der Wirkungsquerschnitt kann für geringe Energien, $\epsilon << 1$, mit dem klassischen Elektronenradius $r_.e$ genähert werden zu 
+\begin{equation}
+\sigma_.C=2\pi r^2_.e\cdot\left(1-2\epsilon\right)\label{eq:s_C_klein}
+\end{equation}
+und für sehr hohe Energien zu
+\begin{equation}
+\sigma_.C=\frac{\pi r^2_.e}{\epsilon}\cdot\left(\ln(2\epsilon)+\frac{1}{2}\right)\text{.}\label{eq:s_C_gross}
+\end{equation}
 
 \subsubsection{Paarerzeugung}
 
-Eine weitere Möglichkeit ist das
+Eine weitere Möglichkeit ist, dass sich das Photon im Coulombfeld eines Kerns in ein Elektron und ein Positron aufspaltet. Auf Grund der Impulserhaltung muss es einen Stoßpartner geben. Ist dieser ein Atomkern, so ist die zusätzlich benötigte Rückstoßenergie 
+\[
+E_.=\frac{p^2}{2M}
+\]
+mit der Atommasse $M$ gering, sodass die Photonenenergie nur die Ruheenergie von Elektron und Positron übersteigen muss:
+\[
+E_.{\gamma}>2m_.0c^2
+\]
+Ist der Stoßpartner ein Hüllenelektron muss die Atommasse durch die Elektronenmasse ersetzt werden, wodurch $E_.R$ wesentlich größer ist und nicht mehr vernachlässigt werden kann.
+In diesem Fall muss für die Photonenenergie gelten:
+\[
+E_.{\gamma}>4m_.0c^2
+\]
+Da Elektron und Positron dieselbe Masse besitzen, wird die verbleibende Energie gleichmäßig aufgeteilt.
+Während das Elektron im Detektor durch Spannung abgesaugt wird, kann das Positron mit einem vorhandenen Hüllenelektron wieder zu zwei Photonen annihilieren.
+Da diese den Detektor verlassen können ohne zu wechselwirken, wird im Energiespektrum nicht nur eine Linie bei $E_.{\gamma}$, sondern auch Linien bei $E_.{\gamma}-m_.0c^2$ und bei $E_.{\gamma}-2m_.0c^2$ beobachtet.
+Der Wirkungsquerschnitt ist abhängig davon wo im Coulombfeld der Prozess stattfindet, da in höheren Bereichen Abschirmungseffekte durch die Hüllenelektronen auftreten.
+Der wichtigste Fall für die $\gamma$-Spektroskopie ist die Paarbildung in Kernnähe.
+Hier gilt für den Wirkungsquerschnitt bei Energien $\SI{10}{MeV}<E_.{\gamma}<\SI{25}{MeV}$ näherungsweise mit der Sommerfeldschen Feinstrukturkonstante $\alpha$
+\begin{equation}
+\sigma_.P=\alpha r^2_.ez^2\left(\frac{28}{9}\ln(2\epsilon)-\frac{218}{27}\right)\text{.}\label{eq:s_P}
+\end{equation}
 
-%☺☺┤
+\subsection{Der Reinst-Germanium-Detektor}
+
+
+
+%☺☺┤☻♣•
