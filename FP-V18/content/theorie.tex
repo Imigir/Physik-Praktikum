@@ -82,6 +82,9 @@ Hier gilt für den Wirkungsquerschnitt bei Energien $\SI{10}{MeV}<E_.{\gamma}<\S
 \end{equation}
 
 \subsection{Der Reinst-Germanium-Detektor}
+
+\subsubsection{Aufbau und Voraussetzungen}
+
 Der Germanium-Detektor ist ein Halbleiterdetektor. Er besteht aus einem n- und einem p-dotierten Bereich. Am Übergang diffundieren auf Grund thermischer Energie bei endlicher Temperatur einzelne Elektronen und Löcher in die jeweils andere Schicht und rekombinieren dort, sodass eine Ladungsträger verarmte Zone entsteht. Die Raumladungen der Donatoren in der n-Schicht und den Akzeptoren in der p-Schicht erzeugen eine Potentialdifferenz $U_.D$, die der Diffusion entgegenwirkt.
 Durch eine asymmetrische Dotierung und das Anlegen einer Spannung $U$ lässt sich die Verarmungszone wesentlich verbreitern.
 Für den Teil der Verarmungszone, der in der n- bzw. p-Schicht liegt, gilt
@@ -94,8 +97,14 @@ Für $n_.D>>n_.A$ ist die Breite der Verarmungszone gegeben durch
 \begin{equation}
 d=d_.n+d_.p\approx d_.p\approx\sqrt{\frac{2\varepsilon_.r\varepsilon_.0}{e_.0}\left(U_.D+U\right)\frac{1}{n_.A}}\text{.}
 \end{equation}
-Eine möglichst geringe p-Dotierung führt somit zu einer Verbreiterung der Ladungsträger armen Zone, ebenso wie eine Erhöhung der angelegten Spannung. Hierfür muss jedoch der Detektor gekühlt werden, da sonst die durch thermische Energie entstehenden Ladungsträger in der Verarmungszone beschleunigt werden und es zu Avalanche-Durchbrüchen und damit zu Signalen kommt, auch wenn nichts detektriert wird.
+Eine möglichst geringe p-Dotierung führt somit zu einer Verbreiterung der Ladungsträger armen Zone, ebenso wie eine Erhöhung der angelegten Spannung. Durch thermische Energie entstandene Ladungsträger in der Verarmungszone können allerdings durch $U$ beschleunigt werden. Es kommt zu Avalanche-Durchbrüchen und damit zu Signalen, auch wenn nichts detektiert wird.
+Um derartige Effekte zu vermeiden, wird der Detektor auf eine Temperatur von $\SI{77}{\kelvin}$ abgekühlt.
+Der hier verwendete Detektor ist ein koaxialer Reinst-Germanium-Detektor Zur n-Dotierung wird die Oberfläche des Ge-Kristalls mit Lithium bedampft und der Pluspol der Spannung angeschlossen.
+Eine koaxiale Bohrung im Kristall wird mit Gold bedampft und der Minuspol der Spannung angeschlossen. Da der Kristall auf Grund seiner Reinheit selbst eine sehr geringe Akzeptorendichte von $n_.A=\SI{e10}{\per\cm^3}$ aufweist, kommt es zur Ausbildung der Verarmungszone. Weiterhin ist der Detektor zum Schutz von einer Aluminium-Haube umgeben, was dazu führt, dass nur Photonen detektiert werden können, die genügend Energie besitzen, um diese Aluminium-Schicht und die Lithium-Schicht auf der Kristalloberfläche zu durchdringen. Der Querschnitt eines solchen Detektors ist in Abbildung \ref{fig:Det} zu sehen.
+
+\subsubsection{Funktionsweise}
+
+Trifft ein geladenes Teilchen oder ein Photon auf die Verarmungszone, deponiert es dort Energie. Dadurch können einge Elektronen die Energielücke zwischen Valenz- und Leitungsband überspringen und hinterlassen im Valenzband ein ebenfalls bewegliches Loch, sodass Elektronen-Loch-Paare entstehen. Diese Bandlücke beträgt für Germanium $\SI{0,67}{\electronvolt}$, jedoch wird für die Erzeugung von Elektronen-Loch-Paaren eine Energie von $E_.{ELP}=\SI{2,85}{\electronvolt}$\cite{Spektrum18} benötigt. Durch die angelegte Spannung werden die Elektronen am Plus- und die Löcher am Minuspol gesammelt bevor sie rekombinieren, was zu einem messbaren Ladungsimpuls führt dessen Betrag ein Maß für die Anzahl der Elektronen-Loch-Paare und damit für die deponierte Energie ist.
 
 
-
-%☺☺┤☻♣•☻
+%☺☺┤☻♣•☻•☺Ñ
