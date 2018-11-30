@@ -44,7 +44,7 @@ Der Wirkungsquerschnitt steigt außerdem immer sprunghaft an, wenn $E_.{\gamma}$
 
 \subsubsection{Der Compton-Effekt}
 
-Der Compton-Effekt beschreibt die elastische Streuung eines $\gamma$-Quants an einem als in Ruhe angenommenen Hüllenelektron. Das Photon gibt dabei nur einen Teil der Energie ab und fliegt danach mit veränderter Frequenz abgelenkt weiter. Geschieht dies mit einem Elektron auf einem äußeren Energieniveau, so kann dieses einen großen Teil der Photonenenergie aufnehmen und aus der Bindung herausgeschlagen werden. Bei stärker gebundenen Elektronen wird nur ein kleiner Teil der Energie abgegeben und das Elektron verbleibt im gebundenen Zustand.
+Der Compton-Effekt beschreibt die elastische Streuung eines $\gamma$-Quants an einem als in Ruhe angenommenen Hüllenelektron. Das Photon gibt dabei nur einen Teil der Energie ab und fliegt danach mit veränderter Frequenz abgelenkt weiter. Eine schematische Darstellung davon ist in Abbildung \ref{fig:Compton} zu sehen. Geschieht dieser Effekt an einem Elektron auf einem äußeren Energieniveau, so kann dieses einen großen Teil der Photonenenergie aufnehmen und aus der Bindung herausgeschlagen werden. Bei stärker gebundenen Elektronen wird nur ein kleiner Teil der Energie abgegeben und das Elektron verbleibt im gebundenen Zustand.
 Da Energie und Impuls erhalten sind, müssen die Gleichungen
 \begin{align*}
 h \nu + m_.0 c^2 &= h \nu '+ \gamma m_.0 c^2\\
@@ -80,6 +80,13 @@ Der differentielle Wirkungsquerschnitt $\frac{.d\sigma}{.dE}$ lässt sich beschr
 \frac{\diff \sigma}{\diff E} =  \frac{\pi r_\text{e}^2}{m_0 c^2 \epsilon^2}\left(2+\frac{E_\text{e'}}{E_\gamma - E_\text{e'}}^2 \left[ \frac{1}{\epsilon^2} +\frac{E_\gamma - E_\text{e'}}{E_\gamma} - \frac{2(E_\gamma - E_\text{e'})}{\epsilon E_\gamma} \right]\right) \label{eq:sigmadiff}
 \end{equation}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Compton.jpg}
+	\caption{Schematische Darstellung des Compton-Effekts\cite{V18}.}
+	\label{fig:Compton}
+\end{figure}
+
 \subsubsection{Paarerzeugung}
 
 Eine weitere Möglichkeit ist, dass sich das Photon im Coulombfeld eines Kerns in ein Elektron und ein Positron aufspaltet. Auf Grund der Impulserhaltung muss es einen Stoßpartner geben. Ist dieser ein Atomkern, so ist die zusätzlich benötigte Rückstoßenergie 
@@ -97,7 +104,7 @@ E_.{\gamma}>4m_.0c^2
 \]
 Da Elektron und Positron dieselbe Masse besitzen, wird die verbleibende Energie gleichmäßig aufgeteilt.
 Während das Elektron im Detektor durch Spannung abgesaugt wird, kann das Positron mit einem vorhandenen Hüllenelektron wieder zu zwei Photonen annihilieren.
-Da diese den Detektor verlassen können ohne zu wechselwirken, wird im Energiespektrum nicht nur eine Linie bei $E_.{\gamma}$, sondern auch Linien bei $E_.{\gamma}-m_.0c^2$ und bei $E_.{\gamma}-2m_.0c^2$ beobachtet.
+Da diese den Detektor verlassen können ohne zu wechselwirken, wird im Energiespektrum nicht nur eine Linie bei $E_.{\gamma}$, sondern auch Linien bei $E_.{\gamma}-m_.0c^2$ und bei $E_.{\gamma}-2m_.0c^2$ beobachtet.\\
 Der Wirkungsquerschnitt ist abhängig davon wo im Coulombfeld der Prozess stattfindet, da in höheren Bereichen Abschirmungseffekte durch die Hüllenelektronen auftreten.
 Der wichtigste Fall für die $\gamma$-Spektroskopie ist die Paarbildung in Kernnähe.
 Hier gilt für den Wirkungsquerschnitt bei Energien $\SI{10}{MeV}<E_.{\gamma}<\SI{25}{MeV}$ näherungsweise mit der Sommerfeldschen Feinstrukturkonstante $\alpha$
@@ -125,6 +132,12 @@ Eine möglichst geringe p-Dotierung führt somit zu einer Verbreiterung der Ladu
 Um derartige Effekte zu vermeiden, wird der Detektor auf eine Temperatur von $\SI{77}{\kelvin}$ abgekühlt.
 Der hier verwendete Detektor ist ein koaxialer Reinst-Germanium-Detektor Zur n-Dotierung wird die Oberfläche des Ge-Kristalls mit Lithium bedampft und der Pluspol der Spannung angeschlossen.
 Eine koaxiale Bohrung im Kristall wird mit Gold bedampft und der Minuspol der Spannung angeschlossen. Da der Kristall auf Grund seiner Reinheit selbst eine sehr geringe Akzeptorendichte von $n_.A=\SI{e10}{\per\cm^3}$ aufweist, kommt es zur Ausbildung der Verarmungszone. Weiterhin ist der Detektor zum Schutz von einer Aluminium-Haube umgeben, was dazu führt, dass nur Photonen detektiert werden können, die genügend Energie besitzen, um diese Aluminium-Schicht und die Lithium-Schicht auf der Kristalloberfläche zu durchdringen. Der Querschnitt eines solchen Detektors ist in Abbildung \ref{fig:Det} zu sehen.
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Detektor.jpg}
+	\caption{Querschnitt eines Germanium-Detektors mit Al-Ummantelung \cite{V18}.}
+	\label{fig:Det}
+\end{figure}
 
 \subsubsection{Funktionsweise}
 
@@ -152,8 +165,6 @@ Verschlechtert wird die Auflösung durch das thermische Rauschen, dass durch die
 H_.{Ges}=\Delta E^2_.{1/2} + H^2_.{the} + H^2_.{inh} + H^2_.{Ver}\text{.}\label{eq:HGes}
 \end{equation}
 \\
-Das Spektrum eines monochromatischen $\gamma$-Strahlers ist in Abbildung \ref{fig:Spektrum} zu sehen.
-Der Rückstreupeak im Compton-Kontinuum entsteht dadurch, dass Photonen bereits außerhalb des Detektors streuen und erst dann in diesen eindringen, nachdem sie bereits einen Teil ihrer Energie abgegeben haben.
 Die Effizienz $Q$ gibt die Abhängigkeit der Nachweiswahrscheinlichkeit von der Energie der zu messenden $\gamma$-Quanten.
 Sie lässt sich berechnen über
 \begin{equation}
@@ -169,5 +180,13 @@ Für den Raumwinkel $\Omega$ gilt näherungsweise:
 \begin{equation}
 \frac{\Omega}{4\pi} = \frac{1}{2}\left(1-\frac{a}{\sqrt{a^2+r^2}}\right)\text{,}\label{eq:Omega}
 \end{equation}
-mit dem Radius $r$ des Detektors und dem Abstand $a$ der Probe zum Detektor.
+mit dem Radius $r$ des Detektors und dem Abstand $a$ der Probe zum Detektor.\\
+Das Spektrum eines monochromatischen $\gamma$-Strahlers ist in Abbildung \ref{fig:Spektrum} zu sehen.
+Der Rückstreupeak im Compton-Kontinuum entsteht dadurch, dass Photonen bereits außerhalb des Detektors streuen und erst in diesen eindringen, nachdem sie bereits einen Teil ihrer Energie abgegeben haben.
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Spektrum.jpg}
+	\caption{Spektrum eines monochromatischen $\gamma$-Quants \cite{V18}.}
+	\label{fig:Spektrum}
+\end{figure}
 
