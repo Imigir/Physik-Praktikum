@@ -7,6 +7,27 @@ Nach dem $\alpha$- oder $\beta$-Zerfall eines instabilen Nuklids, kommt es vor, 
 
 Trifft ein solches $\gamma$-Quant auf Materie wechselwirkt es, im Gegensatz zu Teilchenstrahlung, im Wesentlichen einmal. Drei Arten von Wechselwirkungen dominieren dabei für unterschiedliche Energien. Die Wahrscheinlichkeit für jede Art von Wechselwirkung lässt sich durch einen Wirkungsquerschnitt $\sigma$ beschreiben, der anschaulich darstellt, dass die eingestrahlten Projektilteilchen (Photonen)auf ein ausgedehntes Ziel, also ein Targetteilchen(Absorberatom), treffen.
 
+Die Wahrscheinlichkeit $\diff W$, dass ein Teilchen von dem Absorber eingefangen wird, lässt sich durch
+\begin{equation}
+\diff W = n \sigma \diff x
+\end{equation}
+ausdrücken. Bei $N$ Quanten, die auf den infinitesimal dicken Absorber auftreffen, folgt für die Zahl der absorbierten Teilchen:
+\begin{align*}
+\diff N = -N  \diff W =-n N \sigma \diff x\text{.}
+\end{align*}
+Daraus ergeben sich für einen Absorber der Dicke $D$ die Anzahl der wechselgewirkten Quanten $N(D)$ und die Anzahl der noch verbliebenen Quanten $N_2(D)$:
+\begin{align}
+N(D) 	&= N_0 \exp(-n \sigma D) \text{,}\\ 
+N_2(D) 	&= N_0 (1 - \exp(-n \sigma D))\text{.}\label{eq:Nd}
+\end{align}
+Die Anzahl der auf den Absorber treffenden Quanten wird mit $N_0$ bezeichnet. Die Konstante $ \mu = n \sigma$ wird auch als Extinktionskoeffizient bezeichnet und ihr Kehrwert liefert die mittlere Reichweite der Quanten im Absorber.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/sigma.png}
+	\caption{Energieabhängigkeit des Extinktionskoeffizienten $\mu$ für Germanium getrennt nach den verschiedenen Wechselwirkungsmechanismen \cite{V18}.}
+	\label{fig:Wirkungsquerschnitt}
+\end{figure}
 
 \subsubsection{Der Photoeffekt}
 
@@ -43,7 +64,7 @@ E_.e=E_.{\gamma}-E_.{\gamma}' =\frac{\epsilon\cdot\left(1-\cos(\psi_.{\gamma})\r
 ist somit die an das Elektron abgegebene Energie.
 Für $\psi_.{\gamma}=\SI{180}{\degree}$ ist sie maximal und beträgt
 \begin{equation}
-E_.{e,max}=\frac{\epsilon}{1+\epsilon}E_.{\gamma}\text{.}
+E_.{e,max}=\frac{\epsilon}{1+\epsilon}E_.{\gamma}\text{.}\label{eq:Emax}
 \end{equation}
 Dieser Wert ist kleiner als $E_.{\gamma}$, somit wird nie die gesamte Photonenenergie auf das Elektron übertragen. Im Energiespektrum äußert sich das durch ein breites Kontinuum an Energien, welches an der Compton-Kante bei
 $E_.e=E_.{e,max}$ vor dem Photopeak endet.
@@ -54,6 +75,10 @@ Der Wirkungsquerschnitt kann für geringe Energien, $\epsilon << 1$, mit dem kla
 und für sehr hohe Energien zu
 \begin{equation}
 \sigma_.C=\frac{\pi r^2_.e}{\epsilon}\cdot\left(\ln(2\epsilon)+\frac{1}{2}\right)\text{.}\label{eq:s_C_gross}
+\end{equation}
+Der differentielle Wirkungsquerschnitt $\frac{.d\sigma}{.dE}$ lässt sich beschreiben durch:
+\begin{equation}
+\frac{\diff \sigma}{\diff E} =  \frac{\pi r_\text{e}^2}{m_0 c^2 \epsilon^2}\left(2+\frac{E_\text{e'}}{E_\gamma - E_\text{e'}}^2 \left[ \frac{1}{\epsilon^2} +\frac{E_\gamma - E_\text{e'}}{E_\gamma} - \frac{2(E_\gamma - E_\text{e'})}{\epsilon E_\gamma} \right]\right) \label{eq:sigmadiff}
 \end{equation}
 
 \subsubsection{Paarerzeugung}
@@ -134,7 +159,15 @@ Sie lässt sich berechnen über
 \begin{equation}
 Q=\frac{Z}{W A}\frac{4\pi}{\Omega}\text{.}\label{eq:Q}
 \end{equation}
-Die Aktivität $A$ lässt sich aus der Aktivität zum Herstellungszeitpunkt und der seitdem vergangen Zeit berechnen, $W$ ist die vom Strahler abhängige Emissionswahrscheinlichkeit für eine bestimmte Spektrallinie und $Z$ ist der Inhalt des Peaks.
+$W$ ist die vom Strahler abhängige Emissionswahrscheinlichkeit für eine bestimmte Spektrallinie und $Z$ ist der Inhalt des Peaks.
+Die Aktivität $A$ lässt sich aus der Aktivität zum Herstellungszeitpunkt und der seitdem vergangen Zeit berechnen:
+\begin{equation}
+A(t) = A_0\cdot \exp\left(\frac{-\ln(2)t}{\tau_{1/2}}\right)\text{,}\label{eq:A} 
+\end{equation}
+mit der Halbwertszeit $\tau_{1/2}$.
+Für den Raumwinkel $\Omega$ gilt näherungsweise:
+\begin{equation}
+\frac{\Omega}{4\pi} = \frac{1}{2}\left(1-\frac{a}{\sqrt{a^2+r^2}}\right)\text{,}\label{eq:Omega}
+\end{equation}
+mit dem Radius $r$ des Detektors und dem Abstand $a$ der Probe zum Detektor.
 
-
-%☺☺┤☻♣•☻•☺Ñ☻☺◘J•♦

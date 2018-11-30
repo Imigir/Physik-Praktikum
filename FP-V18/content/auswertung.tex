@@ -48,11 +48,11 @@ n	&=	\SI{-3.04(4)}{\kilo\electronvolt}\text{.}
 \subsection{Bestimmung der Effizienz des Detektors}
 
 Zur Bestimmung der Effizienz wird Die Vollenergienachweiswahrscheinlichkeit $Q$ berechnet. Dafür müssen die Aktivität $A$, der Raumwinkel $\Omega$, sowie die Flächeninhalt $Z$ der Peaks bestimmt werden.\\
-Nach Herstellerangaben beträgt die Aktivität der Probe am 01.10.2000 $\SI{4.13(6)}{\kilo\becquerel}$ und besitzt eine Halbwertszeit von $\SI{4943(5)}{\day}$ \cite{V18}. Betrachtet man die Zeitdifferenz von $\SI{6626(1)}{\day}$ zur Versuchsdurchführung am 21.11.2018, ergibt sich eine aktuelle Aktivität von:
+Nach Herstellerangaben beträgt die Aktivität der Probe am 01.10.2000 $\SI{4.13(6)}{\kilo\becquerel}$ und besitzt eine Halbwertszeit von $\SI{4943(5)}{\day}$ \cite{V18}. Betrachtet man die Zeitdifferenz von $\SI{6626(1)}{\day}$ zur Versuchsdurchführung am 21.11.2018, ergibt sich mit Formel \eqref{eq:A} eine aktuelle Aktivität von:
 \[
 A_.{Eu}=\SI{1.63(2)}{\kilo\becquerel}\text{.}
 \]
-Der Raumwinkel $\Omega$ bestimmt sich nach Formel \eqref{} zu:
+Der Raumwinkel $\Omega$ bestimmt sich nach Formel \eqref{eq:Omega} zu:
 \[
 \frac{\Omega}{4\pi} = 0.016
 \]
@@ -62,7 +62,7 @@ Der Flächeninhalt $Z$ der Gaußkurven bestimmt sich nach
 Z = a\sqrt{2\pi\sigma^2} \label{eq:I_Gaus}
 \end{equation}
 mit den Werten für $a$ und $\sigma$ aus Tabelle \ref{tab:parameterEu}.
-Mithilfe von Formel \eqref{} und den Literaturwerten für die Wahrscheinlichkeiten \cite{MARTIN20131497} wird $Q$ bestimmt.
+Mithilfe von Formel \eqref{eq:Q} und den Literaturwerten für die Wahrscheinlichkeiten \cite{MARTIN20131497} wird $Q$ bestimmt.
 Mithilfe der Energiekalibrierung werden die Energien $E_\gamma$ der Peaks über die Kanalnummern bestimmt. Die Ergebnisse sind in Tabelle \ref{tab:Q} eingetragen.\\
 In Abbildung \ref{fig:Q} wird $Q$ gegen $E_\gamma$ aufgetragen und es wird eine Ausgleichsrechnung der Form
 \[
@@ -122,6 +122,11 @@ Betrachtet man das Verhältnis der Breiten, so ergibt sich ein Wert von
 \frac{B_{1/10}}{B_{1/2}} = \num{1.87(7)}\text{.}
 \]
 Dies entspricht dem Wert des Verhältnisses bei einer Gaußkurve von $\num{1.823}$.
+Der theoretische Wert für die Halbwertsbreite ergibt sich mit Formel \eqref{eq:dE} zu:
+\[
+B_{1/2,theo} = \SI{1031.35(2)}{\electronvolt}\text{.}
+\]
+Dies entspricht weniger als der Hälfte des Experimentellen Wertes.
 
 \begin{figure}
 	\centering
@@ -145,7 +150,7 @@ Dies entspricht dem Wert des Verhältnisses bei einer Gaußkurve von $\num{1.823
 \end{table}
 
 \newpage
-\noindent Als nächstes wird das Compton-Kontinuum untersucht. Die theoretische Lage der Compton-Kante berechnet sich mit der Energie des Photopeaks mit Formel \eqref{} zu:
+\noindent Als nächstes wird das Compton-Kontinuum untersucht. Die theoretische Lage der Compton-Kante berechnet sich mit der Energie des Photopeaks mit Formel \eqref{eq:Emax} zu:
 \[
 E_.{Compton,Theo} = \SI{477.15(2)}{\kilo\electronvolt}\text{.}
 \]
@@ -169,7 +174,7 @@ E_.{Compton,Exp} = \SI{470(1)}{\kilo\electronvolt}\text{.}
 \end{table}
 
 \newpage
-\noindent Es werden die Inhalte des Kontinuums und des Photopeaks ermittelt. Der Inhalt des Photopeaks berechnet sich nach Formel \eqref{eq:I_Gaus}. Die Anzahl der Ereignisse im Bereich des Compton-Kontinuums wird bestimmt, indem die Daten durch eine Ausgleichskurve nach Formel \eqref{}, welche durch einen Streckungsfaktor und einen Achsenabschnitt ergänzt wurde, approximiert werden (vergleiche Abbildung \ref{fig:Comptonkontinuum}). Integration der Kurve liefert den Inhalt des Kontinuums.
+\noindent Es werden die Inhalte des Kontinuums und des Photopeaks ermittelt. Der Inhalt des Photopeaks berechnet sich nach Formel \eqref{eq:I_Gaus}. Die Anzahl der Ereignisse im Bereich des Compton-Kontinuums wird bestimmt, indem die Daten durch eine Ausgleichskurve nach Formel \eqref{eq:sigmadiff}, welche durch einen Streckungsfaktor und einen Achsenabschnitt ergänzt wurde, approximiert werden (vergleiche Abbildung \ref{fig:Comptonkontinuum}). Integration der Kurve liefert den Inhalt des Kontinuums.
 Es ergeben sich für die Inhalte die Werte:
 \begin{align*}
 I_.{Photo} 	 &= \num{1.62(3)e4}\text{,}\\
@@ -179,7 +184,7 @@ Das ergibt ein Verhältnis der Inhalte von:
 \[
 \frac{I_.{Compton}}{I_.{Photo}} = \num{3.67(7)}\text{.}
 \]
-Der theoretische Wert des Verhältnisses $V_.{theo}$ bestimmt sich mit dem Extinktionskoeffizienten des Photopeaks von $\SI{0.0075(5)}{\per\centi\per\metre}$ und dem des Kontinuums von $\SI{3.7(1)}{\per\centi\per\metre}$, sowie Formel \eqref{} zu: 
+Der theoretische Wert des Verhältnisses $V_.{theo}$ bestimmt sich mit dem Extinktionskoeffizienten des Photopeaks von $\SI{0.0075(5)}{\per\centi\per\metre}$ und dem des Kontinuums von $\SI{3.7(1)}{\per\centi\per\metre}$ gemäß Abbildung \ref{fig:Wirkungsquerschnitt}, sowie Formel \eqref{eq:Nd} zu: 
 \[
 V_.{theo} = \num{34.7(2)}\text{.}
 \]
@@ -195,7 +200,7 @@ V_.{theo} = \num{34.7(2)}\text{.}
 
 Es wird die Aktivität einer weiteren Probe bestimmt. Mit den Ergebnissen wird geklärt, ob es sich um eine $^{125}.{Sb}$- oder eine $^{133}.{Ba}$-Probe handelt.
 Dazu werden die Peaks des Spektrums durch Formel \eqref{eq:gaussFit} approximiert. Die Parameter befinden sich in Tabelle \ref{tab:parameterBa}. Die bestimmten Energien werden mit der Literatur \cite{KHAZOV2011855} verglichen. Es ist zu erkennen, dass es sich bei der Probe um $^{133}.{Ba}$ handelt.\\
-Gemäß Formel \eqref{} wird die Aktivität ermittelt. Dabei wird $Z$ nach Formel \eqref{eq:I_Gaus} berechnet. Werden die Ergebnisse der Aktivitäten der Peaks mit einer Energie über $\SI{150}{\kilo\electronvolt}$ aus Tabelle \ref{tab:ABa} gemittelt, so ergibt sich eine mittlere Aktivität von:
+Gemäß Formel \eqref{eq:Q} wird die Aktivität ermittelt. Dabei wird $Z$ nach Formel \eqref{eq:I_Gaus} berechnet. Werden die Ergebnisse der Aktivitäten der Peaks mit einer Energie über $\SI{150}{\kilo\electronvolt}$ aus Tabelle \ref{tab:ABa} gemittelt, so ergibt sich eine mittlere Aktivität von:
 \[
 A_.{Ba} = \SI{1263(9)}{\becquerel}\text{.}
 \]
