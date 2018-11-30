@@ -378,7 +378,8 @@ print('IntegralCompton', I_Compton)
 I_Ph = (peakCs137[0][0]*(np.sqrt(2*np.pi)*peakCs137[0][2]))
 print('IntegralPhotoPeak', I_Ph)
 print('IntegralVerhälnisExperiment', I_Compton/I_Ph)
-print('IntegralVerhältnisTheorie', (1-unp.exp(-3.9*unp.uarray(3.7,0.1)))/(1-unp.exp(-3.9*unp.uarray(0.0075,0.0005))))
+#print('IntegralVerhältnisTheorie', (1-unp.exp(-3.9*unp.uarray(3.7,0.1)))/(1-unp.exp(-3.9*unp.uarray(0.0075,0.0005))))
+print('IntegralVerhältnisTheorie', (1-unp.exp(-3.9*unp.uarray(0.37,0.01)))/(1-unp.exp(-3.9*unp.uarray(0.0075,0.0005))))
 
 m0=const.electron_mass*const.c**2 / (1000*const.electron_volt)
 e=Egamma/m0
