@@ -82,4 +82,8 @@ params, covar = curve_fit(expFunktion, T, I, maxfev=10000)
 paramsEQU=uncertainties.correlated_values(params, covar)
 
 
+t,T,I = np.genfromtxt('scripts/data2.txt',unpack=True)
+print('Plot2')
+Plot([T,I],'Plot2')
+
 
