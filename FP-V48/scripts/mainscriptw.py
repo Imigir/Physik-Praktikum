@@ -10,7 +10,7 @@ from scipy import stats
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
-import uncertainties 
+import uncertainties
 import scipy.constants as const
 
 # BackwardsVNominal = []
@@ -52,21 +52,23 @@ import scipy.constants as const
 def Plot(Werte, name, funktionParams=(1,0), xname='$T$'):
 	plt.cla()
 	plt.clf()
-	plt.plot(Werte[0], Werte[1], 'rx', label='Wertepaare')  
+	plt.plot(Werte[0], Werte[1], 'rx', label='Wertepaare')
 	plt.xlabel(xname)
 	plt.ylabel(r'$I$')
 	#plt.yscale('log')
 	plt.legend(loc='best')
 	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 	plt.savefig('content/images/'+name+'.png')
-	
+
 def expFunktion(x, a, b, c):
 	return a*np.exp(b*x)+c
-	
+
 def gaus(x, a, c,sigma,b):
 	return a* np.exp(-(x-b)**2/(2*sigma**2))+c
 
 t,T,I = np.genfromtxt('scripts/data1.txt',unpack=True)
+Fläche1=np.trapz(I,T)
+print('Fläche des 1.Plots: ',Fläche1,'pA K')
 print('Plot1')
 #Plot([T,I],'Plot1')
 
@@ -83,7 +85,7 @@ paramsEQU=uncertainties.correlated_values(params, covar)
 
 
 t,T,I = np.genfromtxt('scripts/data2.txt',unpack=True)
+Fläche2=np.trapz(I,T)
+print('Fläche des 2.Plots: ',Fläche2,'pA K')
 print('Plot2')
 Plot([T,I],'Plot2')
-
-
