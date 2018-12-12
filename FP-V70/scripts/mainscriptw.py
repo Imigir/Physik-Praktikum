@@ -57,12 +57,12 @@ def Linear(x,a,b):
 VTL = unp.uarray(10.197,0.915)
 #TL1
 pTL1,tTL1_1,tTL1_2,tTL1_3 = np.genfromtxt(r'scripts/dataTL1.txt',unpack=True)
-p0TL1 = np.array(2)
-pTL1 = np.append(p0TL1,pTL1)
-pTL1 = unp.uarray(pTL1,pTL1*0.1)
+#p0TL1 = np.array(2)
+#pTL1 = np.append(p0TL1,pTL1)
+pTL1 = unp.uarray(pTL1,pTL1/10)
 
-tTL1 = [0]
-tTL1_f = [0]
+tTL1 = []
+tTL1_f = []
 
 for i in range (0,len(tTL1_1)):
 	th,th_f = avg_and_sem([tTL1_1[i],tTL1_2[i],tTL1_3[i]])
@@ -82,8 +82,8 @@ achsenAbschnittTL1 = unp.uarray(paramsLinearTL1[1], errorsLinearTL1[1])
 #steigungTL1_2 = unp.uarray(paramsLinearTL1_2[0],errorsLinearTL1_2[0])
 #achsenAbschnittTL1_2 = unp.uarray(paramsLinearTL1_2[1], errorsLinearTL1_2[1])
 
-print('steigungTL1 =', steigungTL1)
-print('achsenAbschnittTL1 =', achsenAbschnittTL1)
+print('steigungTL1 =', paramsLinearTL1[0], 'pm', errorsLinearTL1[0])
+print('achsenAbschnittTL1 =', paramsLinearTL1[1], 'pm', errorsLinearTL1[1])
 #print('steigungTL1_2 =', steigungTL1_2)
 #print('achsenAbschnittTL1_2 =', achsenAbschnittTL1_2)
 
@@ -92,16 +92,17 @@ print('STL1 =', STL1)
 #STL1_2 = VTL/p0TL1*steigungTL1_2
 #print('STL1_2 =', STL1_2)
 
-makeTable([noms(pTL1)[1:], stds(pTL1)[1:], tTL1_1, tTL1_2, tTL1_3, noms(tTL1)[1:], stds(tTL1)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL1', ['S[table-format=2.0]', '@{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pTL1)[1:], stds(pTL1)[1:], tTL1_1[1:], tTL1_2[1:], tTL1_3[1:], noms(tTL1)[1:], stds(tTL1)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL1', ['S[table-format=2.0]', '@{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pTL1), stds(pTL1), tTL1_1, tTL1_2, tTL1_3, noms(tTL1), stds(tTL1)], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL1', ['S[table-format=2.0]', '@{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #TL2
 pTL2,tTL2_1,tTL2_2,tTL2_3 = np.genfromtxt(r'scripts/dataTL2.txt',unpack=True)
-p0TL2 = np.array(1.4)
-pTL2 = np.append(p0TL2,pTL2)
-pTL2 = unp.uarray(pTL2,pTL2*0.1)
+#p0TL2 = np.array(1.4)
+#pTL2 = np.append(p0TL2,pTL2)
+pTL2 = unp.uarray(pTL2,pTL2/10)
 
-tTL2 = [0]
-tTL2_f = [0]
+tTL2 = []
+tTL2_f = []
 
 for i in range (0,len(tTL2_1)):
 	th,th_f = avg_and_sem([tTL2_1[i],tTL2_2[i],tTL2_3[i]])
@@ -117,8 +118,8 @@ achsenAbschnittTL2 = unp.uarray(paramsLinearTL2[1], errorsLinearTL2[1])
 #steigungTL2_2 = unp.uarray(paramsLinearTL2_2[0],errorsLinearTL2_2[0])
 #achsenAbschnittTL2_2 = unp.uarray(paramsLinearTL2_2[1], errorsLinearTL2_2[1])
 
-print('steigungTL2 =', steigungTL2)
-print('achsenAbschnittTL2 =', achsenAbschnittTL2)
+print('steigungTL2 =', paramsLinearTL2[0], 'pm', errorsLinearTL2[0])
+print('achsenAbschnittTL2 =', paramsLinearTL2[1], 'pm', errorsLinearTL2[1])
 #print('steigungTL2_2 =', steigungTL2_2)
 #print('achsenAbschnittTL2_2 =', achsenAbschnittTL2_2)
 
@@ -128,16 +129,17 @@ print('STL2 =', STL2)
 #STL2_2 = VTL/p0TL2*steigungTL2_2
 #print('STL2_2 =', STL2_2)
 
-makeTable([noms(pTL2)[1:], stds(pTL2)[1:], tTL2_1, tTL2_2, tTL2_3, noms(tTL2)[1:], stds(tTL2)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL2', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pTL2)[1:], stds(pTL2)[1:], tTL2_1[1:], tTL2_2[1:], tTL2_3[1:], noms(tTL2)[1:], stds(tTL2)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL2', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pTL2), stds(pTL2), tTL2_1, tTL2_2, tTL2_3, noms(tTL2), stds(tTL2)], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL2', ['S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #TL3
 pTL3,tTL3_1,tTL3_2,tTL3_3 = np.genfromtxt(r'scripts/dataTL3.txt',unpack=True)
-p0TL3 = np.array(1)
-pTL3 = np.append(p0TL3,pTL3)
-pTL3 = unp.uarray(pTL3,pTL3*0.1)
+#p0TL3 = np.array(1)
+#pTL3 = np.append(p0TL3,pTL3)
+pTL3 = unp.uarray(pTL3,pTL3/10)
 
-tTL3 = [0]
-tTL3_f = [0]
+tTL3 = []
+tTL3_f = []
 
 for i in range (0,len(tTL3_1)):
 	th,th_f = avg_and_sem([tTL3_1[i],tTL3_2[i],tTL3_3[i]])
@@ -153,8 +155,8 @@ achsenAbschnittTL3 = unp.uarray(paramsLinearTL3[1], errorsLinearTL3[1])
 #steigungTL3_2 = unp.uarray(paramsLinearTL3_2[0],errorsLinearTL3_2[0])
 #achsenAbschnittTL3_2 = unp.uarray(paramsLinearTL3_2[1], errorsLinearTL3_2[1])
 
-print('steigungTL3 =', steigungTL3)
-print('achsenAbschnittTL3 =', achsenAbschnittTL3)
+print('steigungTL3 =', paramsLinearTL3[0], 'pm', errorsLinearTL3[0])
+print('achsenAbschnittTL3 =', paramsLinearTL3[1], 'pm', errorsLinearTL3[1])
 #print('steigungTL3_2 =', steigungTL3_2)
 #print('achsenAbschnittTL3_2 =', achsenAbschnittTL3_2)
 
@@ -163,16 +165,17 @@ print('STL3 = ', STL3)
 #STL3_2 = VTL/p0TL3*steigungTL3_2
 #print('STL3_2 = ', STL3_2)
 
-makeTable([noms(pTL3)[1:], stds(pTL3)[1:], tTL3_1, tTL3_2, tTL3_3, noms(tTL3)[1:], stds(tTL3)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL3', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pTL3)[1:], stds(pTL3)[1:], tTL3_1[1:], tTL3_2[1:], tTL3_3[1:], noms(tTL3)[1:], stds(tTL3)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL3', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pTL3), stds(pTL3), tTL3_1, tTL3_2, tTL3_3, noms(tTL3), stds(tTL3)], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL3', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #TL4
 pTL4,tTL4_1,tTL4_2,tTL4_3 = np.genfromtxt(r'scripts/dataTL4.txt',unpack=True)
-p0TL4 = np.array(0.5)
-pTL4 = np.append(p0TL4,pTL4)
-pTL4 = unp.uarray(pTL4,pTL4*0.1)
+#p0TL4 = np.array(0.5)
+#pTL4 = np.append(p0TL4,pTL4)
+pTL4 = unp.uarray(pTL4,pTL4/10)
 
-tTL4 = [0]
-tTL4_f = [0]
+tTL4 = []
+tTL4_f = []
 
 for i in range (0,len(tTL4_1)):
 	th,th_f = avg_and_sem([tTL4_1[i],tTL4_2[i],tTL4_3[i]])
@@ -185,13 +188,14 @@ paramsLinearTL4, errorsLinearTL4, sigma_y = linregress(noms(tTL4)[:10], noms(pTL
 steigungTL4 = unp.uarray(paramsLinearTL4[0],errorsLinearTL4[0])
 achsenAbschnittTL4 = unp.uarray(paramsLinearTL4[1], errorsLinearTL4[1])
 
-print('steigungTL4 =', steigungTL4)
-print('achsenAbschnittTL4 =', achsenAbschnittTL4)
+print('steigungTL4 =', paramsLinearTL4[0], 'pm', errorsLinearTL4[0])
+print('achsenAbschnittTL4 =', paramsLinearTL4[1], 'pm', errorsLinearTL4[1])
 
 STL4 = VTL/pTL4[0]*steigungTL4
 print('STL4 = ', STL4)
 
-makeTable([noms(pTL4)[1:], stds(pTL4)[1:], tTL4_1, tTL4_2, tTL4_3, noms(tTL4)[1:], stds(tTL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL4', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pTL4)[1:], stds(pTL4)[1:], tTL4_1[1:], tTL4_2[1:], tTL4_3[1:], noms(tTL4)[1:], stds(tTL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL4', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pTL4), stds(pTL4), tTL4_1, tTL4_2, tTL4_3, noms(tTL4), stds(tTL4)], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL4', ['S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 
 #Plot
@@ -299,12 +303,12 @@ print('TL done')
 VDL = unp.uarray(11.15,1.032)
 #DL1
 pDL1,tDL1_1,tDL1_2,tDL1_3,tDL1_4 = np.genfromtxt(r'scripts/dataDL1.txt',unpack=True)
-p0DL1 = np.array(1)
-pDL1 = np.append(p0DL1,pDL1)
-pDL1 = unp.uarray(pDL1,pDL1*0.2)
+#p0DL1 = np.array(1)
+#pDL1 = np.append(p0DL1,pDL1)
+pDL1 = unp.uarray(pDL1,pDL1/5)
 
-tDL1 = [0]
-tDL1_f = [0]
+tDL1 = []
+tDL1_f = []
 
 for i in range (0,len(tDL1_1)):
 	th,th_f = avg_and_sem([tDL1_1[i],tDL1_2[i],tDL1_3[i],tDL1_4[i]])
@@ -322,22 +326,24 @@ paramsLinearDL1, errorsLinearDL1, sigma_y = linregress(noms(tDL1), noms(pDL1))
 steigungDL1 = unp.uarray(paramsLinearDL1[0],errorsLinearDL1[0])
 achsenAbschnittDL1 = unp.uarray(paramsLinearDL1[1], errorsLinearDL1[1])
 
-print('steigungDL1 =', steigungDL1)
-print('achsenAbschnittDL1 =', achsenAbschnittDL1)
+print('steigungDL1 =', paramsLinearDL1[0], 'pm', errorsLinearDL1[0])
+print('achsenAbschnittDL1 =', paramsLinearDL1[1], 'pm', errorsLinearDL1[1])
 
 SDL1 = VDL/pDL1[0]*steigungDL1
 print('SDL1 = ', SDL1)
+print('SDL1error = %3.8f'% stds(SDL1))
 
-makeTable([noms(pDL1)[1:], stds(pDL1)[1:], tDL1_1, tDL1_2, tDL1_3, tDL1_4, noms(tDL1)[1:], stds(tDL1)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL1', ['S[table-format=2.0]', '@{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pDL1)[1:], stds(pDL1)[1:], tDL1_1[1:], tDL1_2[1:], tDL1_3[1:], tDL1_4[1:], noms(tDL1)[1:], stds(tDL1)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL1', ['S[table-format=2.0]', '@{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pDL1), stds(pDL1), tDL1_1, tDL1_2, tDL1_3, tDL1_4, noms(tDL1), stds(tDL1)], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL1', ['S[table-format=2.0]', '@{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #DL2
 pDL2,tDL2_1,tDL2_2,tDL2_3 = np.genfromtxt(r'scripts/dataDL2.txt',unpack=True)
-p0DL2 = np.array(0.8)
-pDL2 = np.append(p0DL2,pDL2)
-pDL2 = unp.uarray(pDL2,pDL2*0.2)
+#p0DL2 = np.array(0.8)
+#pDL2 = np.append(p0DL2,pDL2)
+pDL2 = unp.uarray(pDL2,pDL2/5)
 
-tDL2 = [0]
-tDL2_f = [0]
+tDL2 = []
+tDL2_f = []
 
 for i in range (0,len(tDL2_1)):
 	th,th_f = avg_and_sem([tDL2_1[i],tDL2_2[i],tDL2_3[i]])
@@ -350,22 +356,24 @@ paramsLinearDL2, errorsLinearDL2, sigma_y = linregress(noms(tDL2)[:5], noms(pDL2
 steigungDL2 = unp.uarray(paramsLinearDL2[0],errorsLinearDL2[0])
 achsenAbschnittDL2 = unp.uarray(paramsLinearDL2[1], errorsLinearDL2[1])
 
-print('steigungDL2 =', steigungDL2)
-print('achsenAbschnittDL2 =', achsenAbschnittDL2)
+print('steigungDL2 =', paramsLinearDL2[0], 'pm', errorsLinearDL2[0])
+print('achsenAbschnittDL2 =', paramsLinearDL2[1], 'pm', errorsLinearDL2[1])
 
 SDL2 = VDL/pDL2[0]*steigungDL2
 print('SDL2 = ', SDL2)
+print('SDL2error = %3.8f'% stds(SDL2))
 
-makeTable([noms(pDL2)[1:], stds(pDL2)[1:], tDL2_1, tDL2_2, tDL2_3, noms(tDL2)[1:], stds(tDL2)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL2', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pDL2)[1:], stds(pDL2)[1:], tDL2_1[1:], tDL2_2[1:], tDL2_3[1:], noms(tDL2)[1:], stds(tDL2)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL2', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pDL2), stds(pDL2), tDL2_1, tDL2_2, tDL2_3, noms(tDL2), stds(tDL2)], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL2', ['S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #DL3
 pDL3,tDL3_1,tDL3_2,tDL3_3 = np.genfromtxt(r'scripts/dataDL3.txt',unpack=True)
-p0DL3 = np.array(0.4)
-pDL3 = np.append(p0DL3,pDL3)
-pDL3 = unp.uarray(pDL3,pDL3*0.2)
+#p0DL3 = np.array(0.4)
+#pDL3 = np.append(p0DL3,pDL3)
+pDL3 = unp.uarray(pDL3,pDL3/5)
 
-tDL3 = [0]
-tDL3_f = [0]
+tDL3 = []
+tDL3_f = []
 
 for i in range (0,len(tDL3_1)):
 	th,th_f = avg_and_sem([tDL3_1[i],tDL3_2[i],tDL3_3[i]])
@@ -378,22 +386,23 @@ paramsLinearDL3, errorsLinearDL3, sigma_y = linregress(noms(tDL3), noms(pDL3))
 steigungDL3 = unp.uarray(paramsLinearDL3[0],errorsLinearDL3[0])
 achsenAbschnittDL3 = unp.uarray(paramsLinearDL3[1], errorsLinearDL3[1])
 
-print('steigungDL3 =', steigungDL3)
-print('achsenAbschnittDL3 =', achsenAbschnittDL3)
+print('steigungDL3 =', paramsLinearDL3[0], 'pm', errorsLinearDL3[0])
+print('achsenAbschnittDL3 =', paramsLinearDL3[1], 'pm', errorsLinearDL3[1])
 
 SDL3 = VDL/pDL3[0]*steigungDL3
 print('SDL3 = ', SDL3)
 
-makeTable([noms(pDL3)[1:], stds(pDL3)[1:], tDL3_1, tDL3_2, tDL3_3, noms(tDL3)[1:], stds(tDL3)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL3', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.2]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pDL3)[1:], stds(pDL3)[1:], tDL3_1[1:], tDL3_2[1:], tDL3_3[1:], noms(tDL3)[1:], stds(tDL3)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL3', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.2]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pDL3), stds(pDL3), tDL3_1, tDL3_2, tDL3_3, noms(tDL3), stds(tDL3)], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL3', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.2]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 #DL4
 pDL4,tDL4_1,tDL4_2,tDL4_3 = np.genfromtxt(r'scripts/dataDL4.txt',unpack=True)
-p0DL4 = np.array(0.1)
-pDL4 = np.append(p0DL4,pDL4)
-pDL4 = unp.uarray(pDL4,pDL4*0.2)
+#p0DL4 = np.array(0.1)
+#pDL4 = np.append(p0DL4,pDL4)
+pDL4 = unp.uarray(pDL4,pDL4/5)
 
-tDL4 = [0]
-tDL4_f = [0]
+tDL4 = []
+tDL4_f = []
 
 for i in range (0,len(tDL4_1)):
 	th,th_f = avg_and_sem([tDL4_1[i],tDL4_2[i],tDL4_3[i]])
@@ -406,13 +415,14 @@ paramsLinearDL4, errorsLinearDL4, sigma_y = linregress(noms(tDL4), noms(pDL4))
 steigungDL4 = unp.uarray(paramsLinearDL4[0],errorsLinearDL4[0])
 achsenAbschnittDL4 = unp.uarray(paramsLinearDL4[1], errorsLinearDL4[1])
 
-print('steigungDL4 =', steigungDL4)
-print('achsenAbschnittDL4 =', achsenAbschnittDL4)
+print('steigungDL4 =', paramsLinearDL4[0], 'pm', errorsLinearDL4[0])
+print('achsenAbschnittDL4 =', paramsLinearDL4[1], 'pm', errorsLinearDL4[1])
 
 SDL4 = VDL/pDL4[0]*steigungDL4
 print('SDL4 = ', SDL4)
 
-makeTable([noms(pDL4)[1:], stds(pDL4)[1:], tDL4_1, tDL4_2, tDL4_3, noms(tDL4)[1:], stds(tDL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL4', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.2]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pDL4)[1:], stds(pDL4)[1:], tDL4_1[1:], tDL4_2[1:], tDL4_3[1:], noms(tDL4)[1:], stds(tDL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL4', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.2]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pDL4), stds(pDL4), tDL4_1, tDL4_2, tDL4_3, noms(tDL4), stds(tDL4)], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL4', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.2]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 
 #Plot
@@ -518,14 +528,14 @@ print('DL done')
 VTS = unp.uarray(10.298,0.92)
 
 pTS,tTS_1,tTS_2,tTS_3,tTS_4,tTS_5,tTS_6 = np.genfromtxt(r'scripts/dataTS1.txt',unpack=True)
-p0TS = np.array(500)
-pTS = np.append(p0TS,pTS)
-pTS = unp.uarray(pTS,pTS*0.1)
+#p0TS = np.array(500)
+#pTS = np.append(p0TS,pTS)
+pTS = unp.uarray(pTS,pTS/10)
 pTS_end = 1.2
-pTS_end = unp.uarray(pTS_end,pTS_end*0.1)
+pTS_end = unp.uarray(pTS_end,pTS_end/10)
 
-tTS = [0]
-tTS_f = [0]
+tTS = []
+tTS_f = []
 
 for i in range (0,len(tTS_1)):
 	th,th_f = avg_and_sem([tTS_1[i],tTS_2[i],tTS_3[i],tTS_4[i],tTS_5[i],tTS_6[i]])
@@ -540,7 +550,7 @@ tTS=unp.uarray(tTS,tTS_f)
 #pTS_log = unp.uarray(pTS_log,pTS_log_err)
 pTS_h = (pTS-pTS_end)/(pTS[0]-pTS_end)
 pTS_log = unp.log(pTS_h)
-#print('pTS_log', pTS_log)
+print('pTS_log', pTS_log)
 
 paramsLinearTS1, errorsLinearTS1, sigma_y = linregress(noms(tTS)[0:4], noms(pTS_log)[0:4])
 steigungTS1 = unp.uarray(paramsLinearTS1[0],errorsLinearTS1[0])
@@ -566,7 +576,8 @@ print('STS1 = ', STS1)
 print('STS2 = ', STS2)
 print('STS3 = ', STS3)
 
-makeTable([noms(pTS)[1:], stds(pTS)[1:], noms(pTS_log)[1:], stds(pTS_log)[1:], tTS_1, tTS_2, tTS_3, tTS_4, tTS_5, tTS_6, noms(tTS)[1:], stds(tTS)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-5}\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & {'+r'$t_6/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTS', ['S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=2.1]', 'S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%3.1f", "%2.1f", "%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+#makeTable([noms(pTS)[1:], stds(pTS)[1:], noms(pTS_log)[1:], stds(pTS_log)[1:], tTS_1[1:], tTS_2[1:], tTS_3[1:], tTS_4[1:], tTS_5[1:], tTS_6[1:], noms(tTS)[1:], stds(tTS)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-5}\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & {'+r'$t_6/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTS', ['S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=2.1]', 'S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%3.1f", "%2.1f", "%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
+makeTable([noms(pTS), stds(pTS), noms(pTS_log), stds(pTS_log), tTS_1, tTS_2, tTS_3, tTS_4, tTS_5, tTS_6, noms(tTS), stds(tTS)], r'\multicolumn{2}{c}{'+r'$p/10^{-5}\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & {'+r'$t_6/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTS', ['S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=2.1]', 'S[table-format=2.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%3.1f", "%2.1f", "%2.1f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
 
 #Plot
@@ -610,14 +621,14 @@ print('TS done')
 VDS = unp.uarray(11.14,1.031)
 
 pDS,tDS_1,tDS_2,tDS_3,tDS_4,tDS_5 = np.genfromtxt(r'scripts/dataDS1.txt',unpack=True)
-p0DS = np.array(1013)
-pDS = np.append(p0DS,pDS)
-pDS = unp.uarray(pDS,pDS*0.2)
+#p0DS = np.array(1013)
+#pDS = np.append(p0DS,pDS)
+pDS = unp.uarray(pDS,pDS/5)
 pDS_end = 0.02
-pDS_end = unp.uarray(pDS_end,pDS_end*0.2)
+pDS_end = unp.uarray(pDS_end,pDS_end/5)
 
-tDS = [0]
-tDS_f = [0]
+tDS = []
+tDS_f = []
 
 for i in range (0,len(tDS_1)):
 	th,th_f = avg_and_sem([tDS_1[i],tDS_2[i],tDS_3[i],tDS_4[i],tDS_5[i]])
@@ -647,7 +658,8 @@ SDS2 = steigungDS2*(-VDS)
 print('SDS1 = ', SDS1)
 print('SDS2 = ', SDS2)
 
-makeTable([noms(pDS)[1:], stds(pDS)[1:], noms(pDS_log)[1:], stds(pDS_log)[1:], tDS_1, tDS_2, tDS_3, tDS_4, tDS_5, noms(tDS)[1:], stds(tDS)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=2.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%3.2f", "%2.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
+#makeTable([noms(pDS)[1:], stds(pDS)[1:], noms(pDS_log)[1:], stds(pDS_log)[1:], tDS_1[1:], tDS_2[1:], tDS_3[1:], tDS_4[1:], tDS_5[1:], noms(tDS)[1:], stds(tDS)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=2.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%3.2f", "%2.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
+makeTable([noms(pDS), stds(pDS), noms(pDS_log), stds(pDS_log), tDS_1, tDS_2, tDS_3, tDS_4, tDS_5, noms(tDS), stds(tDS)], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=4.2]', ' @{${}\pm{}$} S[table-format=3.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%4.2f", "%3.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
 
 
 #Plot
@@ -743,8 +755,5 @@ plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/DGes.png')
 print('DGes done')
-
-makeTable([noms(pDS)[1:], stds(pDS)[1:], noms(pDS_log)[1:], stds(pDS_log)[1:], tDS_1, tDS_2, tDS_3, tDS_4, tDS_5, noms(tDS)[1:], stds(tDS)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{p-p_e}{p_0-p_e}\right)$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & {'+r'$t_5/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDS', ['S[table-format=3.2]', ' @{${}\pm{}$} S[table-format=2.2]', 'S[table-format=3.1]', ' @{${}\pm{}$} S[table-format=1.1]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', 'S[table-format=3.2]', '@{${}\pm{}$} S[table-format=1.2]'], ["%3.2f", "%2.2f", "%3.1f", "%1.1f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%3.2f", "%1.2f"])
-
 
 print('Ges done')

@@ -1,6 +1,7 @@
 # Turbopumpe Leckratenmessung
 # p_0 = 1x10^-4 mbar
 # p/10^-4 mbar || t/s
+1 0 0 0
 4 1.43 1.78 1.55
 8 3.66 4.14 3.93
 20 9.54 10.17 9.93

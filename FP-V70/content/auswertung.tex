@@ -2,14 +2,14 @@
 \label{sec:Auswertung}
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.\\
-In Tabelle \ref{tab:V} sind die Volumina der Bauteile eingetragen und bei welcher Messung diese verwendet werden. TL bezieht sich auf die Leckratenmessung der Turbopumpe, TE auf die Evakuierungskurve der Turbopumpe, DL auf die Leckratenmessung der Drehschieberpumpe und DE auf die Evakuierungskurve der Drehschieberpumpe. Die Zahl in Klammern hinter diesen Bezeichnungen gibt eine mögliche häufigere Verwendung des Bauteils an. Der Fehler auf die Volumina wird als systematisch angenommen.
-Dadurch ergeben sich die Volumina der Messungen zu:
-\begin{align}
+In Tabelle \ref{tab:V} sind die Volumina der Bauteile eingetragen und bei welcher Messung diese verwendet werden. TL bezieht sich auf die Leckratenmessung der Turbopumpe, TE auf die Evakuierungskurve der Turbopumpe, DL auf die Leckratenmessung der Drehschieberpumpe und DE auf die Evakuierungskurve der Drehschieberpumpe. Die Zahl in Klammern hinter diesen Bezeichnungen gibt eine mögliche häufigere Verwendung des Bauteils an. Der Fehler auf die Volumina wird als systematisch angenommen.\\
+Es ergeben sich die Volumina der Messungen zu:
+\begin{align*}
 V_.{TL}	&= \SI{10.2(9)}{\litre}\text{,}\\
 V_.{TE}	&= \SI{10.3(9)}{\litre}\text{,}\\
 V_.{DL}	&= \SI{11(1)}{\litre}\text{,}\\
 V_.{DE}	&= \SI{11(1)}{\litre}\text{.}\\
-\end{align}
+\end{align*}
 Die Fehler der Gesamtvolumina ergeben sich durch Addition der Fehler der Volumina der einzelnen Komponenten. 
 
 \begin{table}
@@ -23,7 +23,7 @@ Die Fehler der Gesamtvolumina ergeben sich durch Addition der Fehler der Volumin
 
 \subsubsection{Bestimmung des Saugvermögens $S$ über die Leckratenmessung}
 
-Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_g$ durchgeführt. Dabei werden die gemessenen Zeiten $t_i$ mit der Formel für den Mittelwert
+Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_g$ durchgeführt. Dabei werden die zu gleichen Druckmesswerten gemessenen Zeiten $t_i$ mit der Formel für den Mittelwert
 \[
 \mu_t = \frac{1}{N}\sum_{i=1}^{N}t_i
 \]
@@ -38,30 +38,31 @@ gemittelt zu
 Dabei entspricht $N$ der Anzahl der durchgeführten Messungen pro Messreihe.
 In den Tabellen \ref{tab:TL1} bis \ref{tab:TL4} sind die Messwerte und die zugehörigen Mittelwerte der jeweiligen Messreihen aufgelistet. Der Fehler des Druckes ergibt sich dabei aus der Ungenauigkeit des Messgerätes und der verwendeten linearen Skala zu $10\%$ \cite{V70}.\\
 In den Abbildungen \ref{fig:TL1} bis \ref{fig:TL4} ist der Druck $p$ gegen die gemittelte Zeit $\bar{t}$ aufgetragen.
-Die linearen Ausgleichsrechnungen der Form
+Die linearen ungewichteten Ausgleichsrechnungen der Form
 \[
 p_i(t) = a_it+b_i
 \]
 ergeben für $p_g = \SI{2e-4}{\milli\bar}$ die Parameter
 \begin{align*}
-a_.{TL1} &= \SI{4.4(1)e-4}{\milli\bar\per\second} \text{,}\\
+a_.{TL1} &= \SI{4.4(2)e-4}{\milli\bar\per\second} \text{,}\\
 b_.{TL1} &= \SI{0.6(8)e-4}{\milli\bar} \text{,}\\
 \end{align*}
 für $p_g = \SI{1.4e-4}{\milli\bar}$
 \begin{align*}
-a_.{TL2} &= \SI{3.01(8)e-4}{\milli\bar\per\second} \text{,}\\
-b_.{TL2} &= \SI{-0.7(9)e-4}{\milli\bar} \text{,}\\
+a_.{TL2} &= \SI{3.01(9)e-4}{\milli\bar\per\second} \text{,}\\
+b_.{TL2} &= \SI{-1(1)e-4}{\milli\bar} \text{,}\\
 \end{align*}
 für $p_g = \SI{1e-4}{\milli\bar}$
 \begin{align*}
-a_.{TL3} &= \SI{2.26(5)e-4}{\milli\bar\per\second} \text{,}\\
+a_.{TL3} &= \SI{2.26(6)e-4}{\milli\bar\per\second} \text{,}\\
 b_.{TL3} &= \SI{-1(1)e-4}{\milli\bar} \\
 \end{align*}
-und für $p_g = \SI{0.5e-4}{\milli\bar}$
+und für $p_g = \SI{0.5e-4}{\milli\bar}$ unter Auslassen des letzten Messwertes
 \begin{align*}
 a_.{TL4} &= \SI{0.676(4)e-4}{\milli\bar\per\second} \text{,}\\
-b_.{TL4} &= \SI{0.43(3)e-4}{\milli\bar} \text{.}
+b_.{TL4} &= \SI{0.43(4)e-4}{\milli\bar} \text{.}
 \end{align*}
+In den Graphen sind die nicht genutzten Messwerte Grau markiert.
 Mit Formel \eqref{eq:S2} ergibt sich mit dem Volumen $V_.{TL}$ für das Saugvermögen $S$
 \begin{align*}
 S_.{TL1} &= \SI{22(3)}{\litre\per\second} \text{,}\\
@@ -133,22 +134,15 @@ S_.{TL4}   &= \SI{14(2)}{\litre\per\second} \text{.}
 \subsubsection{Bestimmung des Saugvermögens $S$ über die Evakuierungskurve}
 
 In Tabelle \ref{tab:TS} sind die Messwerte für die Evakuierungskurve, sowie die nach Formel \eqref{eq:tQuer} berechneten Mittelwerte $\bar{t}$ eingetragen.
-Dabei entsprechen $p_0=\SI{500(100)e-5}{\milli\bar}$ dem Anfangsdruck und $p_.E=\SI{1.2(2)e-5}{\milli\bar}$ dem Enddruck der Kurve. Der Fehler des Druckes ergibt sich aus der Ungenauigkeit des Messgerätes und der verwendeten linearen Skala zu $10\%$ \cite{V70}. 
+Dabei entsprechen $p_0=\SI{500(50)e-5}{\milli\bar}$ dem Anfangsdruck und $p_.E=\SI{1.2(2)e-5}{\milli\bar}$ dem Enddruck der Kurve. Der Fehler des Druckes ergibt sich aus der Ungenauigkeit des Messgerätes und der verwendeten linearen Skala zu $10\%$ \cite{V70}. 
 Der Fehler der logarithmischen Werte berechnet sich nach der Gaußschen Fehlerfortpflanzung:
 \[
 \sigma_f = \sqrt{\sum_i\left(\frac{\partial f}{\partial x_i}\sigma_{x_i}\right)^2}\text{.}
 \]
 Konkret:
-\begin{align}
-\sigma_.{ln}	&=\frac{1}{z}\sigma_{z}\text{;}\\
-z				&=\frac{p-p_.E}{p_0-p_.E}\text{,}\\
-\sigma_{z}	&=\sqrt{\left(\frac{1}{p_y}\sigma_{p_x}\right)^2+\left(\frac{p_x}{p_y^2}\sigma_{p_y}\right)^2}\text{;}\\
-p_x				&=p-p_.E\text{,}\\
-p_y				&=p_0-p_.E\text{,}\\
-\sigma_{p_x}	&=\sqrt{\sigma_p^2+\sigma_{p_.E}^2}\text{,}\\
-\sigma_{p_y}	&=\sqrt{\sigma_{p_0}^2+\sigma_{p_.E}^2}\text{.}\\
-\Rightarrow \sigma_.{ln}	&=\sqrt{\frac{\sigma_p^2+\sigma_{p_.E}^2}{(p-p_.E)^2}+\frac{\sigma_{p_0}^2+\sigma_{p_.E}^2}{(p_0-p_.E)^2}}\text{.} \label{eq:ln}
-\end{align}
+\begin{equation}
+\sigma_.{ln} = \sqrt{\left(\frac{\sigma_p}{p-p_.E}\right)^2+\left(\frac{\sigma_{p_0}}{p_0-p_.E}\right)^2+\left(\frac{(p-p_0)\cdot\sigma_{p_.E}}{(p-p_.E)(p_0-p_.E)}\right)^2}\text{.} \label{eq:ln}
+\end{equation}
 Dabei entsprechen die $\sigma_{p_i}$ den jeweiligen Abweichungen der $p_i$.
 Die Evakuierungskurve ist in Abbildung \ref{fig:TSE} zu sehen, die logarithmische Darstellung in Abbildung \ref{fig:TSL}.
 Lineare Ausgleichsrechnungen der Form
@@ -196,26 +190,26 @@ S_.{TE3} &= \SI{2.2(3)}{\litre\per\second} \text{.}\\
 
 \subsubsection{Bestimmung des Saugvermögens $S$ über die Leckratenmessung}
 
-Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_.g$ durchgeführt. Dabei werden die gemessenen Zeiten $t_i$ mit Formel \eqref{eq:tQuer} gemittelt.
+Die Leckratenmessung wurde bei vier unterschiedlichen Gleichgewichtsdrücken $p_.g$ durchgeführt. Dabei werden die zu gleichen Druckmesswerten gemessenen Zeiten $t_i$ mit Formel \eqref{eq:tQuer} gemittelt.
 In den Tabellen \ref{tab:DL1} bis \ref{tab:DL4} sind die Messwerte und die zugehörigen Mittelwerte der jeweiligen Messreihen aufgelistet. Der Fehler des Druckes ergibt sich dabei aus der Ungenauigkeit des Messgerätes und der verwendeten logarithmischen Skala zu $20\%$ \cite{V70}.\\
 In den Abbildungen \ref{fig:DL1} bis \ref{fig:DL4} ist der Druck $p$ gegen die gemittelte Zeit $\bar{t}$ aufgetragen.
-Die linearen Ausgleichsrechnungen der Form
+Die linearen ungewichteten Ausgleichsrechnungen der Form
 \[
 p_i(t) = a_it+b_i
 \]
 ergeben für $p_.g = \SI{1}{\milli\bar}$ die Parameter
 \begin{align*}
 a_.{DL1} &= \SI{0.122(2)}{\milli\bar\per\second} \text{,}\\
-b_.{DL1} &= \SI{0.91(6)}{\milli\bar} \text{,}\\
+b_.{DL1} &= \SI{0.91(7)}{\milli\bar} \text{,}\\
 \end{align*}
-für $p_g = \SI{0.8}{\milli\bar}$
+für $p_g = \SI{0.8}{\milli\bar}$ unter Auslassen des letzten Messwertes
 \begin{align*}
 a_.{DL2} &= \SI{0.098(2)}{\milli\bar\per\second} \text{,}\\
-b_.{DL2} &= \SI{0.77(6)}{\milli\bar} \text{,}\\
+b_.{DL2} &= \SI{0.77(7)}{\milli\bar} \text{,}\\
 \end{align*}
 für $p_g = \SI{0.4}{\milli\bar}$
 \begin{align*}
-a_.{DL3} &= \SI{0.034(1)}{\milli\bar\per\second} \text{,}\\
+a_.{DL3} &= \SI{0.034(2)}{\milli\bar\per\second} \text{,}\\
 b_.{DL3} &= \SI{0.25(9)}{\milli\bar} \text{,}\\
 \end{align*}
 und für $p_g = \SI{0.1}{\milli\bar}$
@@ -226,10 +220,10 @@ b_.{DL4} &= \SI{0.14(2)}{\milli\bar} \text{.}
 In den Graphen sind die nicht genutzten Messwerte Grau markiert.
 Mit Formel \eqref{eq:S2}und dem Volumen $V_.{DL}$ ergibt sich für das Saugvermögen $S$:
 \begin{align*}
-S_.{DL1} &= \SI{1.4(3)}{\litre\per\second} \text{,}\\
-S_.{DL2} &= \SI{1.4(3)}{\litre\per\second} \text{,}\\
+S_.{DL1} &= \SI{1.4(4)}{\litre\per\second} \text{,}\\
+S_.{DL2} &= \SI{1.4(4)}{\litre\per\second} \text{,}\\
 S_.{DL3} &= \SI{1.0(3)}{\litre\per\second} \text{,}\\
-S_.{DL4}   &= \SI{0.53(2)}{\litre\per\second} \text{.}
+S_.{DL4}   &= \SI{0.5(2)}{\litre\per\second} \text{.}
 \end{align*}
 
 \newpage
@@ -294,7 +288,7 @@ S_.{DL4}   &= \SI{0.53(2)}{\litre\per\second} \text{.}
 \subsubsection{Bestimmung des Saugvermögens $S$ über die Evakuierungskurve}
 
 In Tabelle \ref{tab:DS} sind die Messwerte für die Evakuierungskurve, sowie die nach Formel \eqref{eq:tQuer} berechneten Mittelwerte $\bar{t}$ eingetragen.
-Dabei entsprechen $p_0=\SI{1013}{\milli\bar}$ dem Anfangsdruck und $p_.E=\SI{0.02}{\milli\bar}$ dem Enddruck der Kurve. Der Fehler des Druckes ergibt sich aus der Ungenauigkeit des Messgerätes und der verwendeten logarithmischen Skala zu $20\%$ \cite{V70}. 
+Dabei entsprechen $p_0=\SI{1013(203)}{\milli\bar}$ dem Anfangsdruck und $p_.E=\SI{2.0(4)e-2}{\milli\bar}$ dem Enddruck der Kurve. Der Fehler des Druckes ergibt sich aus der Ungenauigkeit des Messgerätes und der verwendeten logarithmischen Skala zu $20\%$ \cite{V70}. 
 Der Fehler der logarithmischen Werte berechnet sich nach Formel \eqref{eq:ln}.
 Die Evakuierungskurve ist in Abbildung \ref{fig:DSE} zu sehen, die logarithmische Darstellung in Abbildung \ref{fig:DSL}.
 Lineare Ausgleichsrechnungen der Form

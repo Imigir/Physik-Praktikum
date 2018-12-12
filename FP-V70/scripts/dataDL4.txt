@@ -1,6 +1,7 @@
 # Drehschieberpumpe Leckratenmessung
 # p_0 = 0.1 mbar
 # p/ mbar || t/s
+0.1 0 0 0 
 0.2 9.95 10.08 10.66
 0.4 46.08 46.54 46.48
 0.6 93.01 95.29 95.11
