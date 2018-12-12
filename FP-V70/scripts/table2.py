@@ -28,7 +28,8 @@ def makeTable(data, names, filename, formats=[], formats2=[]):
         for b in range(len(data[0:-1])):
             if not np.isnan(data[b][i]):
                 if formats2:
-                    if formats[b].startswith("@{${}\pm{}$}"):
+                    if (formats[b].find("@") != -1):
+                        #print(b)
                         TableFile.write(formats2[b] % roundUp(data[b][i],10**(-int(nachKomma(formats2[b])))))
                     else:
                         TableFile.write(formats2[b] % (data[b][i]))
@@ -39,7 +40,8 @@ def makeTable(data, names, filename, formats=[], formats2=[]):
             TableFile.write(r' & ')
         if not np.isnan(data[-1][i]):
             if formats2:
-                if formats[b].startswith("@{${}\pm{}$}"):
+                if (formats[-1].find("@") != -1):
+                    #print(2)
                     TableFile.write(formats2[-1] % roundUp(data[-1][i],10**(-int(nachKomma(formats2[-1])))))
                 else:
                     TableFile.write(formats2[-1] % (data[-1][i]))
