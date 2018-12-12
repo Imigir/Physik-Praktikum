@@ -1,5 +1,5 @@
-﻿from table import makeTable
-from table import makeNewTable
+﻿from table2 import makeTable
+from table2 import makeNewTable
 from linregress import linregress
 from customFormatting import *
 from bereich import bereich
