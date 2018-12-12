@@ -1,5 +1,5 @@
-﻿from table import makeTable
-from table import makeNewTable
+﻿from table2 import makeTable
+from table2 import makeNewTable
 from linregress import linregress
 from customFormatting import *
 from bereich import bereich
@@ -10,6 +10,7 @@ from scipy import stats
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
+import uncertainties
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 import scipy.constants as const
 
@@ -49,6 +50,8 @@ import scipy.constants as const
 # params = unp.uarray(params, np.sqrt(np.diag(covar)))
 # makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
 
+def Linear(x,a,b):
+	return a*x+b
 
 #TL
 VTL = unp.uarray(10.197,0.915)
@@ -69,22 +72,25 @@ for i in range (0,len(tTL1_1)):
 tTL1=unp.uarray(tTL1,tTL1_f)
 #print('t',tTL1)
 
+#params, covar = curve_fit(Linear, noms(tTL1), noms(pTL1), maxfev=10000, sigma=stds(pTL1), absolute_sigma=True)
+#paramsTL1=uncertainties.correlated_values(params, covar)
+
 paramsLinearTL1, errorsLinearTL1, sigma_y = linregress(noms(tTL1), noms(pTL1))
 steigungTL1 = unp.uarray(paramsLinearTL1[0],errorsLinearTL1[0])
 achsenAbschnittTL1 = unp.uarray(paramsLinearTL1[1], errorsLinearTL1[1])
-paramsLinearTL1_2, errorsLinearTL1_2, sigma_y = linregress(noms(tTL1)[3:], noms(pTL1)[3:])
-steigungTL1_2 = unp.uarray(paramsLinearTL1_2[0],errorsLinearTL1_2[0])
-achsenAbschnittTL1_2 = unp.uarray(paramsLinearTL1_2[1], errorsLinearTL1_2[1])
+#paramsLinearTL1_2, errorsLinearTL1_2, sigma_y = linregress(noms(tTL1)[3:], noms(pTL1)[3:])
+#steigungTL1_2 = unp.uarray(paramsLinearTL1_2[0],errorsLinearTL1_2[0])
+#achsenAbschnittTL1_2 = unp.uarray(paramsLinearTL1_2[1], errorsLinearTL1_2[1])
 
 print('steigungTL1 =', steigungTL1)
 print('achsenAbschnittTL1 =', achsenAbschnittTL1)
-print('steigungTL1_2 =', steigungTL1_2)
-print('achsenAbschnittTL1_2 =', achsenAbschnittTL1_2)
+#print('steigungTL1_2 =', steigungTL1_2)
+#print('achsenAbschnittTL1_2 =', achsenAbschnittTL1_2)
 
-STL1 = VTL/p0TL1*steigungTL1
+STL1 = VTL/pTL1[0]*steigungTL1
 print('STL1 =', STL1)
-STL1_2 = VTL/p0TL1*steigungTL1_2
-print('STL1_2 =', STL1_2)
+#STL1_2 = VTL/p0TL1*steigungTL1_2
+#print('STL1_2 =', STL1_2)
 
 makeTable([noms(pTL1)[1:], stds(pTL1)[1:], tTL1_1, tTL1_2, tTL1_3, noms(tTL1)[1:], stds(tTL1)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL1', ['S[table-format=2.0]', '@{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
@@ -107,20 +113,20 @@ tTL2=unp.uarray(tTL2,tTL2_f)
 paramsLinearTL2, errorsLinearTL2, sigma_y = linregress(noms(tTL2), noms(pTL2))
 steigungTL2 = unp.uarray(paramsLinearTL2[0],errorsLinearTL2[0])
 achsenAbschnittTL2 = unp.uarray(paramsLinearTL2[1], errorsLinearTL2[1])
-paramsLinearTL2_2, errorsLinearTL2_2, sigma_y = linregress(noms(tTL2)[3:], noms(pTL2)[3:])
-steigungTL2_2 = unp.uarray(paramsLinearTL2_2[0],errorsLinearTL2_2[0])
-achsenAbschnittTL2_2 = unp.uarray(paramsLinearTL2_2[1], errorsLinearTL2_2[1])
+#paramsLinearTL2_2, errorsLinearTL2_2, sigma_y = linregress(noms(tTL2)[3:], noms(pTL2)[3:])
+#steigungTL2_2 = unp.uarray(paramsLinearTL2_2[0],errorsLinearTL2_2[0])
+#achsenAbschnittTL2_2 = unp.uarray(paramsLinearTL2_2[1], errorsLinearTL2_2[1])
 
 print('steigungTL2 =', steigungTL2)
 print('achsenAbschnittTL2 =', achsenAbschnittTL2)
-print('steigungTL2_2 =', steigungTL2_2)
-print('achsenAbschnittTL2_2 =', achsenAbschnittTL2_2)
+#print('steigungTL2_2 =', steigungTL2_2)
+#print('achsenAbschnittTL2_2 =', achsenAbschnittTL2_2)
 
 
-STL2 = VTL/p0TL2*steigungTL2
+STL2 = VTL/pTL2[0]*steigungTL2
 print('STL2 =', STL2)
-STL2_2 = VTL/p0TL2*steigungTL2_2
-print('STL2_2 =', STL2_2)
+#STL2_2 = VTL/p0TL2*steigungTL2_2
+#print('STL2_2 =', STL2_2)
 
 makeTable([noms(pTL2)[1:], stds(pTL2)[1:], tTL2_1, tTL2_2, tTL2_3, noms(tTL2)[1:], stds(tTL2)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL2', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
@@ -143,19 +149,19 @@ tTL3=unp.uarray(tTL3,tTL3_f)
 paramsLinearTL3, errorsLinearTL3, sigma_y = linregress(noms(tTL3), noms(pTL3))
 steigungTL3 = unp.uarray(paramsLinearTL3[0],errorsLinearTL3[0])
 achsenAbschnittTL3 = unp.uarray(paramsLinearTL3[1], errorsLinearTL3[1])
-paramsLinearTL3_2, errorsLinearTL3_2, sigma_y = linregress(noms(tTL3)[3:], noms(pTL3)[3:])
-steigungTL3_2 = unp.uarray(paramsLinearTL3_2[0],errorsLinearTL3_2[0])
-achsenAbschnittTL3_2 = unp.uarray(paramsLinearTL3_2[1], errorsLinearTL3_2[1])
+#paramsLinearTL3_2, errorsLinearTL3_2, sigma_y = linregress(noms(tTL3)[3:], noms(pTL3)[3:])
+#steigungTL3_2 = unp.uarray(paramsLinearTL3_2[0],errorsLinearTL3_2[0])
+#achsenAbschnittTL3_2 = unp.uarray(paramsLinearTL3_2[1], errorsLinearTL3_2[1])
 
 print('steigungTL3 =', steigungTL3)
 print('achsenAbschnittTL3 =', achsenAbschnittTL3)
-print('steigungTL3_2 =', steigungTL3_2)
-print('achsenAbschnittTL3_2 =', achsenAbschnittTL3_2)
+#print('steigungTL3_2 =', steigungTL3_2)
+#print('achsenAbschnittTL3_2 =', achsenAbschnittTL3_2)
 
-STL3 = VTL/p0TL3*steigungTL3
+STL3 = VTL/pTL3[0]*steigungTL3
 print('STL3 = ', STL3)
-STL3_2 = VTL/p0TL3*steigungTL3_2
-print('STL3_2 = ', STL3_2)
+#STL3_2 = VTL/p0TL3*steigungTL3_2
+#print('STL3_2 = ', STL3_2)
 
 makeTable([noms(pTL3)[1:], stds(pTL3)[1:], tTL3_1, tTL3_2, tTL3_3, noms(tTL3)[1:], stds(tTL3)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL3', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
@@ -182,12 +188,12 @@ achsenAbschnittTL4 = unp.uarray(paramsLinearTL4[1], errorsLinearTL4[1])
 print('steigungTL4 =', steigungTL4)
 print('achsenAbschnittTL4 =', achsenAbschnittTL4)
 
-STL4 = VTL/p0TL4*steigungTL4
+STL4 = VTL/pTL4[0]*steigungTL4
 print('STL4 = ', STL4)
 
 makeTable([noms(pTL4)[1:], stds(pTL4)[1:], tTL4_1, tTL4_2, tTL4_3, noms(tTL4)[1:], stds(tTL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/10^{-4}\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabTL4', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
 
-"""
+
 #Plot
 #TL1
 plt.cla()
@@ -195,8 +201,8 @@ plt.clf()
 x_plot = np.linspace(-2,15)
 
 plt.errorbar(noms(tTL1), noms(pTL1), xerr=stds(tTL1), yerr=stds(pTL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade 1')
-plt.plot(x_plot,x_plot*paramsLinearTL1_2[0]+paramsLinearTL1_2[1],'c-',label='Ausgleichsgerade 2')
+plt.plot(x_plot,x_plot*paramsLinearTL1[0]+paramsLinearTL1[1],'b-',label='Ausgleichsgerade')
+#plt.plot(x_plot,x_plot*paramsLinearTL1_2[0]+paramsLinearTL1_2[1],'c-',label='Ausgleichsgerade 2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -213,8 +219,8 @@ plt.clf()
 x_plot = np.linspace(-2,25)
 
 plt.errorbar(noms(tTL2), noms(pTL2), xerr=stds(tTL2), yerr=stds(pTL2), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearTL2[0]+paramsLinearTL2[1],'b-',label='Ausgleichsgerade 1')
-plt.plot(x_plot,x_plot*paramsLinearTL2_2[0]+paramsLinearTL2_2[1],'c-',label='Ausgleichsgerade 2')
+plt.plot(x_plot,x_plot*paramsLinearTL2[0]+paramsLinearTL2[1],'b-',label='Ausgleichsgerade')
+#plt.plot(x_plot,x_plot*paramsLinearTL2_2[0]+paramsLinearTL2_2[1],'c-',label='Ausgleichsgerade 2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -231,8 +237,8 @@ plt.clf()
 x_plot = np.linspace(-2,35)
 
 plt.errorbar(noms(tTL3), noms(pTL3), xerr=stds(tTL3), yerr=stds(pTL3), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x_plot,x_plot*paramsLinearTL3[0]+paramsLinearTL3[1],'b-',label='Ausgleichsgerade 1')
-plt.plot(x_plot,x_plot*paramsLinearTL3_2[0]+paramsLinearTL3_2[1],'c-',label='Ausgleichsgerade 2')
+plt.plot(x_plot,x_plot*paramsLinearTL3[0]+paramsLinearTL3[1],'b-',label='Ausgleichsgerade')
+#plt.plot(x_plot,x_plot*paramsLinearTL3_2[0]+paramsLinearTL3_2[1],'c-',label='Ausgleichsgerade 2')
 
 plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
@@ -285,7 +291,7 @@ plt.xlim(-1,31)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/TL.png')
-"""
+
 print('TL done')
 
 
@@ -307,6 +313,11 @@ for i in range (0,len(tDL1_1)):
 	
 tDL1=unp.uarray(tDL1,tDL1_f)
 
+#params, covar = curve_fit(Linear, noms(tDL1), noms(pDL1), maxfev=10000, sigma=stds(pDL1), absolute_sigma=True)
+#paramsDL1=uncertainties.correlated_values(params, covar)
+#steigungDL1 = paramsDL1[0]
+#achsenAbschnittDL1 = paramsDL1[1]
+
 paramsLinearDL1, errorsLinearDL1, sigma_y = linregress(noms(tDL1), noms(pDL1))
 steigungDL1 = unp.uarray(paramsLinearDL1[0],errorsLinearDL1[0])
 achsenAbschnittDL1 = unp.uarray(paramsLinearDL1[1], errorsLinearDL1[1])
@@ -314,7 +325,7 @@ achsenAbschnittDL1 = unp.uarray(paramsLinearDL1[1], errorsLinearDL1[1])
 print('steigungDL1 =', steigungDL1)
 print('achsenAbschnittDL1 =', achsenAbschnittDL1)
 
-SDL1 = VDL/p0DL1*steigungDL1
+SDL1 = VDL/pDL1[0]*steigungDL1
 print('SDL1 = ', SDL1)
 
 makeTable([noms(pDL1)[1:], stds(pDL1)[1:], tDL1_1, tDL1_2, tDL1_3, tDL1_4, noms(tDL1)[1:], stds(tDL1)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & {'+r'$t_4/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL1', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
@@ -342,7 +353,7 @@ achsenAbschnittDL2 = unp.uarray(paramsLinearDL2[1], errorsLinearDL2[1])
 print('steigungDL2 =', steigungDL2)
 print('achsenAbschnittDL2 =', achsenAbschnittDL2)
 
-SDL2 = VDL/p0DL2*steigungDL2
+SDL2 = VDL/pDL2[0]*steigungDL2
 print('SDL2 = ', SDL2)
 
 makeTable([noms(pDL2)[1:], stds(pDL2)[1:], tDL2_1, tDL2_2, tDL2_3, noms(tDL2)[1:], stds(tDL2)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL2', ['S[table-format=2.0]', ' @{${}\pm{}$} S[table-format=1.1]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%2.0f", "%1.1f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
@@ -370,7 +381,7 @@ achsenAbschnittDL3 = unp.uarray(paramsLinearDL3[1], errorsLinearDL3[1])
 print('steigungDL3 =', steigungDL3)
 print('achsenAbschnittDL3 =', achsenAbschnittDL3)
 
-SDL3 = VDL/p0DL3*steigungDL3
+SDL3 = VDL/pDL3[0]*steigungDL3
 print('SDL3 = ', SDL3)
 
 makeTable([noms(pDL3)[1:], stds(pDL3)[1:], tDL3_1, tDL3_2, tDL3_3, noms(tDL3)[1:], stds(tDL3)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL3', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.2]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
@@ -398,7 +409,7 @@ achsenAbschnittDL4 = unp.uarray(paramsLinearDL4[1], errorsLinearDL4[1])
 print('steigungDL4 =', steigungDL4)
 print('achsenAbschnittDL4 =', achsenAbschnittDL4)
 
-SDL4 = VDL/p0DL4*steigungDL4
+SDL4 = VDL/pDL4[0]*steigungDL4
 print('SDL4 = ', SDL4)
 
 makeTable([noms(pDL4)[1:], stds(pDL4)[1:], tDL4_1, tDL4_2, tDL4_3, noms(tDL4)[1:], stds(tDL4)[1:]], r'\multicolumn{2}{c}{'+r'$p/\si{\milli\bar}$'+r'} & {'+r'$t_1/\si{\second}$'+r'} & {'+r'$t_2/\si{\second}$'+r'} & {'+r'$t_3/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{t}/\si{\second}$'+r'}', 'tabDL4', ['S[table-format=1.1]', ' @{${}\pm{}$} S[table-format=1.2]','S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', 'S[table-format=2.2]', ' @{${}\pm{}$} S[table-format=1.2]'], ["%1.1f", "%1.2f", "%2.2f", "%2.2f", "%2.2f", "%2.2f", "%1.2f"])
@@ -457,7 +468,7 @@ plt.savefig('content/images/DL3.png')
 
 print('DL3 done')
 
-#TL4
+#DL4
 plt.cla()
 plt.clf()
 x_plot = np.linspace(-5,200)
@@ -509,9 +520,9 @@ VTS = unp.uarray(10.298,0.92)
 pTS,tTS_1,tTS_2,tTS_3,tTS_4,tTS_5,tTS_6 = np.genfromtxt(r'scripts/dataTS1.txt',unpack=True)
 p0TS = np.array(500)
 pTS = np.append(p0TS,pTS)
-pTS = unp.uarray(pTS,pTS*0.2)
+pTS = unp.uarray(pTS,pTS*0.1)
 pTS_end = 1.2
-pTS_end = unp.uarray(pTS_end,pTS_end*0.2)
+pTS_end = unp.uarray(pTS_end,pTS_end*0.1)
 
 tTS = [0]
 tTS_f = [0]
@@ -687,12 +698,12 @@ plt.errorbar([noms(pTS)[0],noms(pTS)[3]], [noms(STS1),noms(STS1)], xerr=[stds(pT
 plt.errorbar([noms(pTS)[4],noms(pTS)[7]], [noms(STS2),noms(STS2)], xerr=[stds(pTS)[4],stds(pTS)[7]], yerr=[stds(STS2),stds(STS2)], fmt='c--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TE2')
 plt.errorbar([noms(pTS)[6],noms(pTS)[9]], [noms(STS3),noms(STS3)], xerr=[stds(pTS)[6],stds(pTS)[9]], yerr=[stds(STS3),stds(STS3)], fmt='m--', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TE3')
 
-plt.errorbar(noms(pTL1)[0]*10, noms(STL1), xerr=stds(pTL1)[0]*10, yerr=stds(STL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1,1')
-plt.errorbar(noms(pTL1)[0]*10, noms(STL1_2), xerr=stds(pTL1)[0]*10, yerr=stds(STL1_2), fmt='bo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1,2')
-plt.errorbar(noms(pTL2)[0]*10, noms(STL2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2,1')
-plt.errorbar(noms(pTL2)[0]*10, noms(STL2_2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2_2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2,2')
-plt.errorbar(noms(pTL3)[0]*10, noms(STL3), xerr=stds(pTL3)[0]*10, yerr=stds(STL3), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3,1')
-plt.errorbar(noms(pTL3)[0]*10, noms(STL3_2), xerr=stds(pTL3)[0]*10, yerr=stds(STL3_2), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3,2')
+plt.errorbar(noms(pTL1)[0]*10, noms(STL1), xerr=stds(pTL1)[0]*10, yerr=stds(STL1), fmt='bx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1')
+#plt.errorbar(noms(pTL1)[0]*10, noms(STL1_2), xerr=stds(pTL1)[0]*10, yerr=stds(STL1_2), fmt='bo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL1,2')
+plt.errorbar(noms(pTL2)[0]*10, noms(STL2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2), fmt='cx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2')
+#plt.errorbar(noms(pTL2)[0]*10, noms(STL2_2), xerr=stds(pTL2)[0]*10, yerr=stds(STL2_2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL2,2')
+plt.errorbar(noms(pTL3)[0]*10, noms(STL3), xerr=stds(pTL3)[0]*10, yerr=stds(STL3), fmt='mx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3')
+#plt.errorbar(noms(pTL3)[0]*10, noms(STL3_2), xerr=stds(pTL3)[0]*10, yerr=stds(STL3_2), fmt='mo', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL3,2')
 plt.errorbar(noms(pTL4)[0]*10, noms(STL4), xerr=stds(pTL4)[0]*10, yerr=stds(STL1), fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TL4')
 #plt.errorbar(noms(pTS)[0], noms(STS1), xerr=stds(pTS)[0], yerr=stds(STS1), fmt='ro', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS1')
 #plt.errorbar(noms(pTS)[3], noms(STS2), xerr=stds(pTS)[3], yerr=stds(STS2), fmt='co', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='TS2')
