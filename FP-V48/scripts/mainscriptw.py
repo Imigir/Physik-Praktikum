@@ -7,12 +7,12 @@ from weightedavgandsem import weighted_avg_and_sem
 from weightedavgandsem import avg_and_sem
 import numpy as np
 from scipy import stats
-from scipy.optimize import curve_fit
+from scipy.optimize import curve_fit as cf
 import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
 import uncertainties
 import scipy.constants as const
-
+import math
 # BackwardsVNominal = []
 # BackwardsVStd = []
 # for value in BackwardsV:
@@ -58,34 +58,122 @@ def Plot(Werte, name, funktionParams=(1,0), xname='$T$'):
 	#plt.yscale('log')
 	plt.legend(loc='best')
 	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-	plt.savefig('content/images/'+name+'.png')
+	#plt.savefig('content/images/'+name+'.png')
 
 def expFunktion(x, a, b, c):
-	return a*np.exp(b*x)+c
+	return c+a*np.exp(b*x)
 
 def gaus(x, a, c,sigma,b):
-	return a* np.exp(-(x-b)**2/(2*sigma**2))+c
+	return a*np.exp(-(x-b)**2/(2*sigma**2))+c
 
 t,T,I = np.genfromtxt('scripts/data1.txt',unpack=True)
-Fläche1=np.trapz(I,T)
-print('Fläche des 1.Plots: ',Fläche1,'pA K')
 print('Plot1')
 #Plot([T,I],'Plot1')
 
-Te = []
-Te.append(T[0:8])
-Te.append(T[28:43])
+Te, Ie =np.genfromtxt('scripts/datafit1.txt',unpack=True)
 
-Ie = []
-Ie.append(I[0:8])
-Ie.append(I[28:43])
+params, covar = cf(expFunktion, Te, Ie, maxfev=10000)
+#paramsEQU=uncertainties.correlated_values(params, covar)
+#print(I)
+for i in range(len(I)):
+	I[i]=I[i]-expFunktion(T[i], *params)
+#print(I)
+#print(paramsEQU)
 
-params, covar = curve_fit(expFunktion, T, I, maxfev=10000)
-paramsEQU=uncertainties.correlated_values(params, covar)
+T=T+273.15
+
+#params1,covar1=cf(gaus, T[0:32], I[0:32], p0=[10,1,10,2.5*10**2], maxfev=10000)
+#a1=unp.uarray(params1[0],np.sqrt(covar1[0][0]))
+#c1=unp.uarray(params1[1],np.sqrt(covar1[1][1]))
+#sigma1=unp.uarray(params1[2],np.sqrt(covar1[2][2]))
+#b1=unp.uarray(params1[3],np.sqrt(covar1[3][3]))
+xplot=np.linspace(-50,15,1000)
+plt.cla()
+plt.clf()
+#plt.plot(xplot+273.15,gaus(xplot+273.15,*params1))
+plt.plot(T[0:32], I[0:32], 'rx', label='Wertepaare')
+plt.xlabel(r'$T$')
+plt.ylabel(r'$I$')
+#plt.yscale('log')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.show()
 
 
-t,T,I = np.genfromtxt('scripts/data2.txt',unpack=True)
-Fläche2=np.trapz(I,T)
+#print('1: ',a1,b1,c1,sigma1)
+
+#W: 1.Möglichkeit
+def linear(x,a,b):
+	return a*x+b
+print(I[0:15])
+#params1,covar1 = cf(linear,1/T[0:15],np.log(I[0:15]))
+#a1=unp.uarray(params[0],np.sqrt(covar1[0][0]))
+#b1=unp.uarray(params[1],np.sqrt(covar1[1][1]))
+#print('a1: ', a1, ',b1: ',b1)
+plt.cla()
+plt.clf()
+#plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params1),'b-', label='Ausgleichgerade')
+plt.plot(1/T[0:15],np.log(I[0:15]), 'rx', label='Wertepaare')
+plt.xlabel(r'$1/T$')
+plt.ylabel(r'$ln(I)$')
+#plt.yscale('log')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.show()
+
+
+#W: 2.Möglichkeit
+Fläche1=np.empty(32)
+for i in range(32):
+	Fläche1[i]=np.trapz(I[i:32],T[i:32])
+print('Fläche des 1.Plots: ',Fläche1[0],'pA K')
+
+x=1/T[0:32]
+
+plt.cla()
+plt.clf()
+plt.plot(x, np.log(Fläche1/285.65/I[0:32]), 'b.', label='Wertepaare')
+plt.xlabel(r'$1/T$')
+plt.ylabel(r'$I/iT_.max$')
+#plt.yscale('log')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.show()
+
+
+'''
+t2,T2,I2 = np.genfromtxt('scripts/data2.txt',unpack=True)
+
+Te2, Ie2 =np.genfromtxt('scripts/datafit2.txt',unpack=True)
+
+params2, covar2 = cf(expFunktion, Te2, Ie2, maxfev=10000)
+#paramsEQU=uncertainties.correlated_values(params, covar)
+print(I2)
+for i in range(len(I2)):
+	I2[i]=I2[i]-expFunktion(T2[i], *params2)
+print(I2)
+#print(paramsEQU)
+
+
+params2,covar2=cf(gaus, T2[8:30], I2[8:30], maxfev=10000)
+a2=unp.uarray(params2[0],np.sqrt(covar2[0][0]))
+c2=unp.uarray(params2[1],np.sqrt(covar2[1][1]))
+sigma2=unp.uarray(params2[2],np.sqrt(covar2[2][2]))
+b2=unp.uarray(params2[3],np.sqrt(covar2[3][3]))
+
+plt.cla()
+plt.clf()
+plt.plot(xplot,gaus(xplot,*params2))
+plt.plot(T2[8:30], I2[8:30], 'rx', label='Wertepaare')
+plt.xlabel(r'$T$')
+plt.ylabel(r'$I$')
+#plt.yscale('log')
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.show()
+
+Fläche2=np.trapz(I2[8:30],T2[8:30])
 print('Fläche des 2.Plots: ',Fläche2,'pA K')
 print('Plot2')
 Plot([T,I],'Plot2')
+'''
