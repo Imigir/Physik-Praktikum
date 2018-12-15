@@ -78,7 +78,7 @@ def Plot(Werte, ranges, name, funktionParams=(1,0), onlyname=False, xname='$K$')
     for rangeVar in ranges:
         plt.cla()
         plt.clf()
-        plt.plot(Line(np.array(range(rangeVar[0],rangeVar[1]+1))[Werte[rangeVar[0]-1:rangeVar[1]]!=0],*funktionParams), (Werte[rangeVar[0]-1:rangeVar[1]])[Werte[rangeVar[0]-1:rangeVar[1]]!=0], 'gx', label='Wertepaare')  
+        plt.plot(Line(np.array(range(rangeVar[0],rangeVar[1]+1))[Werte[rangeVar[0]-1:rangeVar[1]]!=0],*funktionParams), (Werte[rangeVar[0]-1:rangeVar[1]])[Werte[rangeVar[0]-1:rangeVar[1]]!=0], 'g-', label='Wertepaare')  
         plt.xlabel(xname)
         plt.ylabel(r'$N$')
         plt.yscale('log')
@@ -126,7 +126,7 @@ wahrscheinlichkeiten = unp.uarray([0,0,107.3,28.39,1.656,100.0,3.232,8.413,10.63
 wahrscheinlichkeiten*= unp.uarray(0.2659,0.0013)/100
 EU152 = np.genfromtxt('scripts/Europium.txt',unpack=True)
 print('EU152')
-Plot(EU152,[[1,8192],[1,2000],[2000,4000]],'EU152')
+Plot(EU152,[[1,4000]],'EU152')
 EU152Params=gausFitMitPlot(EU152,ranges,'EU152',plotF=False)
 #print(EU152Params)
 pos=[]
