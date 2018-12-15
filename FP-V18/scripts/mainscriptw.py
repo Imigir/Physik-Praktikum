@@ -85,9 +85,9 @@ def Plot(Werte, ranges, name, funktionParams=(1,0), onlyname=False, xname='$K$')
         plt.legend(loc='best')
         plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
         if onlyname:
-            plt.savefig('build/'+name+'.png') 
+            plt.savefig('build/'+name+'.pdf') 
         else:
-            plt.savefig('build/'+name+'_'+str(rangeVar[0])+'-'+ str(rangeVar[1])+'.png') 
+            plt.savefig('build/'+name+'_'+str(rangeVar[0])+'-'+ str(rangeVar[1])+'.pdf') 
 
 def gausFitMitPlot(Werte, ranges, name, plotF=False, funktionParams=(1,0), xname='$K$'):
     AllParams = []
@@ -108,7 +108,7 @@ def gausFitMitPlot(Werte, ranges, name, plotF=False, funktionParams=(1,0), xname
             plt.ylabel(r'$N$')
             plt.legend(loc='best')
             plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-            plt.savefig('build/'+name+'_'+str(rangeVar[0])+'-'+ str(rangeVar[1])+'.png') 
+            plt.savefig('build/'+name+'_'+str(rangeVar[0])+'-'+ str(rangeVar[1])+'.pdf') 
     
     return np.array(AllParams)
 
@@ -173,7 +173,7 @@ plt.xlabel(r'$K$')
 plt.ylabel(r'$E_\gamma/\si{\kilo\electronvolt}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/EnergieKali.png') 
+plt.savefig('build/EnergieKali.pdf') 
 
 
 def polynom3(x,a,b,c,d,f):
@@ -228,7 +228,7 @@ plt.xlabel(r'$E_\gamma/\si{\kilo\electronvolt}$')
 plt.ylabel(r'$Q$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/Q.png') 
+plt.savefig('build/Q.pdf') 
 
 #makeNewTable(convert([energies[2:]],unpFormat,[r'','4.2f',True])+convert([wahrscheinlichkeiten[2:]*100],unpFormat,[r'','2.2f',True])+convert([posU[2:]],unpFormat,[r'','3.1f',True])+convert([sigmaU[2:]],unpFormat,[r'','1.1f',True])+convert([aU[2:]],unpFormat,[r'','4.0f',True])+convert([hU[2:]],unpFormat,[r'','3.1f',True]),r'{$E_\gamma^{\text{lit,\cite{MARTIN20131497}}}/\si{\kilo\electronvolt}$} & {$W^\text{\cite{MARTIN20131497}}/\si{\percent}$} & {$b$} & {$\sigma$} & {$a$} & {$c$}','a',['S[table-format=4.2]','S[table-format=2.2]','S[table-format=3.1]','S[table-format=1.1]','S[table-format=4.1]','S[table-format=3.0]'],[r'{:1.0f}',r'{:1.0f}',r'{:1.0f}',r'{:1.0f}',r'{:1.0f}',r'{:1.0f}'])
 #makeNewTable(convert([energies[2:]],unpFormat,[r'','4.2f',True])+convert([Line(posU[2:],*umrechnungsParams)],unpFormat,[r'','4.2f',True])+convert([wahrscheinlichkeiten[2:]*100],unpFormat,[r'','2.2f',True])+convert([inhalt[2:]],unpFormat,[r'','5.0f',True])+convert([inhalt[2:]/(AktivitätEu*omegaDurch4PI*Messzeit*wahrscheinlichkeiten[2:])],unpFormat,[r'','0.3f',True]),r'{$E_\gamma^{\text{lit,\cite{MARTIN20131497}}}/\si{\kilo\electronvolt}$} & {$E_\gamma$} & {$W^\text{\cite{MARTIN20131497}}/\si{\percent}$} & {$Z$} & {$Q$}','a2',['S[table-format=4.2]','S[table-format=4.2]','S[table-format=2.2]','S[table-format=5.0]','S[table-format=0.3]'])
@@ -244,7 +244,7 @@ rangeVar=[1,2000]
 Plot(Cs137,[rangeVar],'Cs137', unp.nominal_values(umrechnungsParams), True, r'$E_\gamma$')
 ranges = [[1635,1660],[400,550]]
 print('Cs137')
-peakCs137=gausFitMitPlot(Cs137,ranges,'Cs137', True)
+peakCs137=gausFitMitPlot(Cs137,ranges,'Cs137', False)
 
 aU=[]
 posU=[]
@@ -308,7 +308,7 @@ plt.xlabel(r'$E_\gamma$')
 plt.ylabel(r'$N$')
 plt.legend([(mm1, mm2, mm3), mm4, mm5, mm6], ['Wertepaare','Zehntel der Höhe','Fit der linken Flanke','Fit der rechten Flanke'],handler_map={tuple: HandlerTuple(ndivide=None)},loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/Cs137Zehntel.png') 
+plt.savefig('build/Cs137Zehntel.pdf') 
 
 plt.cla()
 plt.clf()
@@ -323,7 +323,7 @@ plt.xlabel(r'$E_\gamma$')
 plt.ylabel(r'$N$')
 plt.legend([(mm1, mm2, mm3), mm4, mm5, mm6], ['Wertepaare','Hälfte der Höhe','Fit der linken Flanke','Fit der rechten Flanke'],handler_map={tuple: HandlerTuple(ndivide=None)},loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/Cs137Halb.png') 
+plt.savefig('build/Cs137Halb.pdf') 
 
 #makeNewTable(convert([np.array([params1[0],params2[0],params3[0],params4[0]])],unpFormat,[r'','2.0f',True])+convert([np.array([params1[1],params2[1],params3[1],params4[1]])],unpFormat,[r'','2.0f',True]),r'{$a$} & {$b$}','geraden1',['S[table-format=4.2]','S[table-format=4.2]'])
 makeTable([noms(np.array([params1[0],params2[0],params3[0],params4[0]])), stds(np.array([params1[0],params2[0],params3[0],params4[0]])), noms(np.array([params1[1],params2[1],params3[1],params4[1]])), stds(np.array([params1[1],params2[1],params3[1],params4[1]]))], r'\multicolumn{2}{c}{$m$} & \multicolumn{2}{c}{$n$}','geraden1', ['S[table-format=4.0]', '@{${}\pm{}$}S[table-format=2.0]','S[table-format=8.0]','@{${}\pm{}$}S[table-format=6.0]'], ["%4.0f", "%2.0f", "%8.0f", "%6.0f"])
@@ -393,7 +393,7 @@ plt.ylim(0,175)
 plt.xlim(0,500)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/Cs137Kon.png')
+plt.savefig('build/Cs137Kon.pdf')
 
 rangeVar=[1000,1250]
 xA=Line(np.array(range(rangeVar[0],rangeVar[1]+1)),*unp.nominal_values(umrechnungsParams))
@@ -425,7 +425,7 @@ plt.ylim(0,100)
 plt.xlim(400,500)
 plt.legend([(mm1, mm2, mm3), mm4, mm5], ['Wertepaare','Fit der linken Flanke','Fit der rechten Flanke'],handler_map={tuple: HandlerTuple(ndivide=None)},loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/Cs137Emax.png')
+plt.savefig('build/Cs137Emax.pdf')
 
 #makeNewTable(convert([np.array([paramsEmax1[0],paramsEmax2[0]])],unpFormat,[r'','2.2f',True])+convert([np.array([paramsEmax1[1],paramsEmax2[1]])],unpFormat,[r'','2.0f',True]),r'{$a$} & {$b$}','geraden2',['S[table-format=4.2]','S[table-format=4.2]'])
 makeTable([noms(np.array([paramsEmax1[0],paramsEmax2[0]])), stds(np.array([paramsEmax1[0],paramsEmax2[0]])), noms(np.array([paramsEmax1[1],paramsEmax2[1]])), stds(np.array([paramsEmax1[1],paramsEmax2[1]]))], r'\multicolumn{2}{c}{$m$} & \multicolumn{2}{c}{$n$}','geraden2', ['S[table-format=2.2]', '@{${}\pm{}$}S[table-format=1.2]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=3.0]'], ["%2.2f", "%1.2f", "%4.0f", "%3.0f"])
