@@ -326,7 +326,7 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Cs137Halb.pdf') 
 
 #makeNewTable(convert([np.array([params1[0],params2[0],params3[0],params4[0]])],unpFormat,[r'','2.0f',True])+convert([np.array([params1[1],params2[1],params3[1],params4[1]])],unpFormat,[r'','2.0f',True]),r'{$a$} & {$b$}','geraden1',['S[table-format=4.2]','S[table-format=4.2]'])
-makeTable([noms(np.array([params1[0],params2[0],params3[0],params4[0]])), stds(np.array([params1[0],params2[0],params3[0],params4[0]])), noms(np.array([params1[1],params2[1],params3[1],params4[1]])), stds(np.array([params1[1],params2[1],params3[1],params4[1]]))], r'\multicolumn{2}{c}{$m$} & \multicolumn{2}{c}{$n$}','geraden1', ['S[table-format=4.0]', '@{${}\pm{}$}S[table-format=2.0]','S[table-format=8.0]','@{${}\pm{}$}S[table-format=6.0]'], ["%4.0f", "%2.0f", "%8.0f", "%6.0f"])
+makeTable([noms(np.array([params2[0],params3[0],params1[0],params4[0]])), stds(np.array([params2[0],params3[0],params1[0],params4[0]])), noms(np.array([params2[1],params3[1],params1[1],params4[1]])), stds(np.array([params2[1],params3[1],params1[1],params4[1]]))], r'\multicolumn{2}{c}{$m$} & \multicolumn{2}{c}{$n$}','geraden1', ['S[table-format=4.0]', '@{${}\pm{}$}S[table-format=2.0]','S[table-format=8.0]','@{${}\pm{}$}S[table-format=6.0]'], ["%4.0f", "%2.0f", "%8.0f", "%6.0f"])
 
 ##########################################################
 

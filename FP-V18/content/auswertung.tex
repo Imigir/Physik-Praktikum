@@ -34,7 +34,7 @@ n	&=	\SI{-3.04(4)}{\kilo\electronvolt}\text{.}
 \begin{table}
 	\centering
 	\caption{Die Parameter der gefitteten Peaks des Spektrums von $^{152}.{Eu}$ mit den zugeordneten Energien und Wahrscheinlichkeiten aus der Literatur \cite{MARTIN20131497}.}
-	\input{content/tables/a.tex}
+	\input{content/tables/a-korrekteFehler.tex}
 	\label{tab:parameterEu}
 \end{table}
 
@@ -85,7 +85,7 @@ p	&=	\num{-1.025(23)}\text{.}
 \begin{table}
 	\centering
 	\caption{Die berechneten Peakinhalte $Z$, die berechneten Vollenergienachweiswahrscheinlichkeiten $Q$, sowie die berechneten Energien $E_\gamma$. Zudem die aus der Literatur entnommenen Energien $E_\gamma^.{lit}$ und Emissions-Wahrscheinlichkeiten $W$ \cite{MARTIN20131497}.}
-	\input{content/tables/a2.tex}
+	\input{content/tables/a2-korrekteFehler.tex}
 	\label{tab:Q}
 \end{table}
 
@@ -103,7 +103,7 @@ Es wird das Spektrum von $^{137}.{Cs}$ bei einer Messzeit von $\SI{4543}{\second
 \begin{table}
 	\centering
 	\caption{Die Parameter der gefitteten Peaks des Spektrums von $^{137}.{Cs}$ mit den ermittelten Energien, wobei es sich beim zweiten Peak um den Rückstreupeak handelt.}
-	\input{content/tables/b.tex}
+	\input{content/tables/b-korrekteFehler.tex}
 	\label{tab:parameterCs}
 \end{table}
 
@@ -113,8 +113,8 @@ N(K) = mK+n	\label{eq:Gerade}
 \end{equation}
 approximiert (vergleiche Abbildung \ref{fig:2tel} und \ref{fig:10tel}). Die Werte sind in Tabelle \ref{tab:geradenBreite} eingetragen, wobei sie von oben nach unten durchnummeriert sind. Mit einer Peakhöhe von $H=2913$ ergeben sich die in Energien umgerechneten Breiten zu:
 \begin{align*}
-B_{1/2} &= \frac{H/2-n_3}{m_3}-\frac{H/2-n_2}{m_2} \equiv \SI{2.18(4)}{\kilo\electronvolt}\text{,}\\
-B_{1/10} &= \frac{H/10-n_4}{m_4}-\frac{H/10-n_1}{m_1} \equiv \SI{4.07(13)}{\kilo\electronvolt}\text{.}
+B_{1/2} &= \frac{H/2-n_2}{m_2}-\frac{H/2-n_1}{m_1} \equiv \SI{2.18(4)}{\kilo\electronvolt}\text{,}\\
+B_{1/10} &= \frac{H/10-n_4}{m_4}-\frac{H/10-n_3}{m_3} \equiv \SI{4.07(13)}{\kilo\electronvolt}\text{.}
 \end{align*}
 Dabei ergeben sich die Fehler aus der Gaußschen Fehlerfortpflanzung.
 Betrachtet man das Verhältnis der Breiten, so ergibt sich ein Wert von 
@@ -145,7 +145,7 @@ Dies entspricht weniger als der Hälfte des experimentellen Wertes.
 \begin{table}
 	\centering
 	\caption{Die Parameter der Ausgleichsgeraden zur Bestimmung der Halbwertsbreite und Zehntelwertsbreite des Vollenergiepeaks des Spektrums von $^{137}.{Cs}$.}
-	\input{content/tables/geraden1.tex}
+	\input{content/tables/geraden1-korrekteFehler.tex}
 	\label{tab:geradenBreite}
 \end{table}
 
@@ -169,7 +169,7 @@ E_.{Compton,Exp} = \SI{469.8(10)}{\kilo\electronvolt}\text{.}
 \begin{table}
 	\centering
 	\caption{Die Parameter der gefitteten Geraden zur Bestimmung der Position der Compton-Kante des Spektrums von $^{137}.{Cs}$.}
-	\input{content/tables/geraden2.tex}
+	\input{content/tables/geraden2-korrekteFehler.tex}
 	\label{tab:geradenEmax}
 \end{table}
 
@@ -220,14 +220,14 @@ A_.{Ba} = \SI{1263(9)}{\becquerel}\text{.}
 \begin{table}
 	\centering
 	\caption{Die Parameter der gefitteten Peaks des Spektrums mit den ermittelten Energien. Zudem die aus der Literatur entnommenen Energien $E_\gamma^\text{lit}$ \cite{KHAZOV2011855}.}
-	\input{content/tables/D.tex}
+	\input{content/tables/D-korrekteFehler.tex}
 	\label{tab:parameterBa}
 \end{table}
 
 \begin{table}
 	\centering
 	\caption{Die berechneten Peakinhalte $Z$, die mit den Vollenergienachweiswahrscheinlichkeiten $Q$ berechneten Aktivitäten $A$,  sowie die berechneten Energien $E_\gamma$.  Zudem die aus der Literatur entnommenen Energien $E_\gamma^\text{lit}$ und Emissions-Wahrscheinlichkeiten $W$ \cite{KHAZOV2011855}.}
-	\input{content/tables/D2.tex}
+	\input{content/tables/D2-korrekteFehler.tex}
 	\label{tab:ABa}
 \end{table}
 
@@ -245,14 +245,14 @@ Anhand des Spektrums eines unbekannten Strahlers wird versucht einige aktive Nuk
 \begin{table}
 	\centering
 	\caption{Die Parameter der gefitteten Peaks des unbekannten Spektrums mit den ermittelten Energien.}
-	\input{content/tables/unbekannt.tex}
+	\input{content/tables/unbekannt-korrekteFehler.tex}
 	\label{tab:parameterUnbekannt}
 \end{table}
 
 \begin{table}
 	\centering
 	\caption{Die zu den aus der Literatur entnommenen Energien $E_\gamma^\text{lit}$ und Emissions-Wahrscheinlichkeiten $W$ \cite{V18} zugeordneten Energien, sowie die zugehörigen Elemente.}
-	\input{content/tables/unbekannt2.tex}
+	\input{content/tables/unbekannt2-korrekteFehler.tex}
 	\label{tab:AUnbekannt}
 \end{table}
 
