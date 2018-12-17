@@ -170,7 +170,7 @@ plt.errorbar(unp.nominal_values(xA2), unp.nominal_values(yA2), yerr=unp.std_devs
 plt.plot(x, Line(x, *params), 'r-', label='Fit')
 plt.xlim(0,4000) 
 plt.xlabel(r'$K$')
-plt.ylabel(r'$E_\gamma/\si{\kilo\electronvolt}$')
+plt.ylabel(r'$E_\gamma^{lit}/\si{\kilo\electronvolt}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/EnergieKali.pdf') 
@@ -232,8 +232,8 @@ plt.savefig('build/Q.pdf')
 
 #makeNewTable(convert([energies[2:]],unpFormat,[r'','4.2f',True])+convert([wahrscheinlichkeiten[2:]*100],unpFormat,[r'','2.2f',True])+convert([posU[2:]],unpFormat,[r'','3.1f',True])+convert([sigmaU[2:]],unpFormat,[r'','1.1f',True])+convert([aU[2:]],unpFormat,[r'','4.0f',True])+convert([hU[2:]],unpFormat,[r'','3.1f',True]),r'{$E_\gamma^{\text{lit,\cite{MARTIN20131497}}}/\si{\kilo\electronvolt}$} & {$W^\text{\cite{MARTIN20131497}}/\si{\percent}$} & {$b$} & {$\sigma$} & {$a$} & {$c$}','a',['S[table-format=4.2]','S[table-format=2.2]','S[table-format=3.1]','S[table-format=1.1]','S[table-format=4.1]','S[table-format=3.0]'],[r'{:1.0f}',r'{:1.0f}',r'{:1.0f}',r'{:1.0f}',r'{:1.0f}',r'{:1.0f}'])
 #makeNewTable(convert([energies[2:]],unpFormat,[r'','4.2f',True])+convert([Line(posU[2:],*umrechnungsParams)],unpFormat,[r'','4.2f',True])+convert([wahrscheinlichkeiten[2:]*100],unpFormat,[r'','2.2f',True])+convert([inhalt[2:]],unpFormat,[r'','5.0f',True])+convert([inhalt[2:]/(AktivitätEu*omegaDurch4PI*Messzeit*wahrscheinlichkeiten[2:])],unpFormat,[r'','0.3f',True]),r'{$E_\gamma^{\text{lit,\cite{MARTIN20131497}}}/\si{\kilo\electronvolt}$} & {$E_\gamma$} & {$W^\text{\cite{MARTIN20131497}}/\si{\percent}$} & {$Z$} & {$Q$}','a2',['S[table-format=4.2]','S[table-format=4.2]','S[table-format=2.2]','S[table-format=5.0]','S[table-format=0.3]'])
-makeTable([noms(energies[2:]), stds(energies[2:]), noms(wahrscheinlichkeiten[2:]*100), stds(wahrscheinlichkeiten[2:]*100), noms(posU[2:]), stds(posU[2:]), noms(sigmaU[2:]), stds(sigmaU[2:]), noms(aU[2:]), stds(aU[2:]), noms(hU[2:]), stds(hU[2:])], r'\multicolumn{2}{c}{$E_\gamma^{\text{lit,\cite{MARTIN20131497}}}/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$W^\text{\cite{MARTIN20131497}}/\si{\percent}$} & \multicolumn{2}{c}{$b$} & \multicolumn{2}{c}{$\sigma$} & \multicolumn{2}{c}{$a$} & \multicolumn{2}{c}{$c$}','a', ['S[table-format=4.4]', '@{${}\pm{}$}S[table-format=1.4]', 'S[table-format=2.3]','@{${}\pm{}$}S[table-format=1.3]','S[table-format=4.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=2.1]','@{${}\pm{}$}S[table-format=1.1]'], ["%4.4f", "%1.4f", "%2.3f", "%1.3f", "%4.2f", "%1.2f", "%1.2f", "%1.2f", "%4.0f", "%2.0f", "%2.1f", "%1.1f"])
-makeTable([noms(energies[2:]), stds(energies[2:]), noms(Line(posU[2:],*umrechnungsParams)), stds(Line(posU[2:],*umrechnungsParams)), noms(wahrscheinlichkeiten[2:]*100), stds(wahrscheinlichkeiten[2:]*100), noms(inhalt[2:]), stds(inhalt[2:]), noms(inhalt[2:]/(AktivitätEu*omegaDurch4PI*Messzeit*wahrscheinlichkeiten[2:])), stds(inhalt[2:]/(AktivitätEu*omegaDurch4PI*Messzeit*wahrscheinlichkeiten[2:]))], r'\multicolumn{2}{c}{$E_\gamma^{\text{lit,\cite{MARTIN20131497}}}/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$E_\gamma/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$W^\text{\cite{MARTIN20131497}}/\si{\percent}$} & \multicolumn{2}{c}{$Z$} & \multicolumn{2}{c}{$Q$}','a2', ['S[table-format=4.4]', '@{${}\pm{}$}S[table-format=1.4]', 'S[table-format=4.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=2.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]'], ["%4.4f", "%1.4f", "%2.2f", "%1.2f", "%4.2f", "%1.2f", "%4.0f", "%2.0f", "%1.3f", "%1.3f"])
+makeTable([noms(energies[2:]), stds(energies[2:]), noms(wahrscheinlichkeiten[2:]*100), stds(wahrscheinlichkeiten[2:]*100), noms(posU[2:]), stds(posU[2:]), noms(sigmaU[2:]), stds(sigmaU[2:]), noms(aU[2:]), stds(aU[2:]), noms(hU[2:]), stds(hU[2:])], r'\multicolumn{2}{c}{$E_\gamma^{\text{lit}}/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$W/\si{\percent}$} & \multicolumn{2}{c}{$b$} & \multicolumn{2}{c}{$\sigma$} & \multicolumn{2}{c}{$a$} & \multicolumn{2}{c}{$c$}','a', ['S[table-format=4.4]', '@{${}\pm{}$}S[table-format=1.4]', 'S[table-format=2.3]','@{${}\pm{}$}S[table-format=1.3]','S[table-format=4.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=2.1]','@{${}\pm{}$}S[table-format=1.1]'], ["%4.4f", "%1.4f", "%2.3f", "%1.3f", "%4.2f", "%1.2f", "%1.2f", "%1.2f", "%4.0f", "%2.0f", "%2.1f", "%1.1f"])
+makeTable([noms(energies[2:]), stds(energies[2:]), noms(Line(posU[2:],*umrechnungsParams)), stds(Line(posU[2:],*umrechnungsParams)), noms(wahrscheinlichkeiten[2:]*100), stds(wahrscheinlichkeiten[2:]*100), noms(inhalt[2:]), stds(inhalt[2:]), noms(inhalt[2:]/(AktivitätEu*omegaDurch4PI*Messzeit*wahrscheinlichkeiten[2:])), stds(inhalt[2:]/(AktivitätEu*omegaDurch4PI*Messzeit*wahrscheinlichkeiten[2:]))], r'\multicolumn{2}{c}{$E_\gamma^{\text{lit}}/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$E_\gamma/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$W/\si{\percent}$} & \multicolumn{2}{c}{$Z$} & \multicolumn{2}{c}{$Q$}','a2', ['S[table-format=4.4]', '@{${}\pm{}$}S[table-format=1.4]', 'S[table-format=4.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=2.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]'], ["%4.4f", "%1.4f", "%2.2f", "%1.2f", "%4.2f", "%1.2f", "%4.0f", "%2.0f", "%1.3f", "%1.3f"])
 
 
 
@@ -244,7 +244,7 @@ rangeVar=[1,2000]
 Plot(Cs137,[rangeVar],'Cs137', unp.nominal_values(umrechnungsParams), True, r'$E_\gamma$')
 ranges = [[1635,1660],[400,550]]
 print('Cs137')
-peakCs137=gausFitMitPlot(Cs137,ranges,'Cs137', False)
+peakCs137=gausFitMitPlot(Cs137,ranges,'Cs137', True)
 
 aU=[]
 posU=[]
@@ -297,14 +297,14 @@ print('halbeBreiteBerrechnet', unp.sqrt(np.log(2)*8 *0.1 * Line(peakCs137[0][3],
 x=np.linspace(1635,1660)
 plt.cla()
 plt.clf()
-mm1, = plt.plot(Line(A0[0],*unp.nominal_values(umrechnungsParams)),A0[1], 'gx', label='Werte0')  
-mm2, = plt.plot(Line(A1[0],*unp.nominal_values(umrechnungsParams)),A1[1], 'bx', label='Werte1')  
-mm3, = plt.plot(Line(A4[0],*unp.nominal_values(umrechnungsParams)),A4[1], 'yx', label='Werte4') 
-mm4, = plt.plot(Line(x,*unp.nominal_values(umrechnungsParams)), x*0+zehntelHöhe, 'r-', label='Fit')
-mm5, = plt.plot(Line(x,*unp.nominal_values(umrechnungsParams)), Line(x,*unp.nominal_values(params1)), 'b-', label='Fit')
-mm6, = plt.plot(Line(x,*unp.nominal_values(umrechnungsParams)), Line(x,*unp.nominal_values(params4)), 'y-', label='Fit')
+mm1, = plt.plot(A0[0],A0[1], 'gx', label='Werte0')  
+mm2, = plt.plot(A1[0],A1[1], 'yx', label='Werte1')  
+mm3, = plt.plot(A4[0],A4[1], 'rx', label='Werte4') 
+mm4, = plt.plot(x, x*0+zehntelHöhe, 'b-', label='Fit')
+mm5, = plt.plot(x, Line(x,*unp.nominal_values(params1)), 'y-', label='Fit')
+mm6, = plt.plot(x, Line(x,*unp.nominal_values(params4)), 'r-', label='Fit')
 plt.ylim(-10,max(Cs137[1635-1:1660])/4)
-plt.xlabel(r'$E_\gamma$')
+plt.xlabel(r'$K$')
 plt.ylabel(r'$N$')
 plt.legend([(mm1, mm2, mm3), mm4, mm5, mm6], ['Wertepaare','Zehntel der Höhe','Fit der linken Flanke','Fit der rechten Flanke'],handler_map={tuple: HandlerTuple(ndivide=None)},loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
@@ -312,14 +312,14 @@ plt.savefig('build/Cs137Zehntel.pdf')
 
 plt.cla()
 plt.clf()
-mm1, = plt.plot(Line(A0[0],*unp.nominal_values(umrechnungsParams)),A0[1], 'gx', label='Werte0') 
-mm2, = plt.plot(Line(A2[0],*unp.nominal_values(umrechnungsParams)),A2[1], 'yx', label='Werte2') 
-mm3, = plt.plot(Line(A3[0],*unp.nominal_values(umrechnungsParams)),A3[1], 'rx', label='Werte3') 
-mm4, = plt.plot(Line(x,*unp.nominal_values(umrechnungsParams)), x*0+halbeHöhe, 'b-', label='Fit')
-mm5, = plt.plot(Line(x,*unp.nominal_values(umrechnungsParams)), Line(x,*unp.nominal_values(params2)), 'y-', label='Fit')
-mm6, = plt.plot(Line(x,*unp.nominal_values(umrechnungsParams)), Line(x,*unp.nominal_values(params3)), 'r-', label='Fit')
+mm1, = plt.plot(A0[0],A0[1], 'gx', label='Werte0') 
+mm2, = plt.plot(A2[0],A2[1], 'yx', label='Werte2') 
+mm3, = plt.plot(A3[0],A3[1], 'rx', label='Werte3') 
+mm4, = plt.plot(x, x*0+halbeHöhe, 'b-', label='Fit')
+mm5, = plt.plot(x, Line(x,*unp.nominal_values(params2)), 'y-', label='Fit')
+mm6, = plt.plot(x, Line(x,*unp.nominal_values(params3)), 'r-', label='Fit')
 plt.ylim(-10,max(Cs137[1635-1:1660])+100)
-plt.xlabel(r'$E_\gamma$')
+plt.xlabel(r'$K$')
 plt.ylabel(r'$N$')
 plt.legend([(mm1, mm2, mm3), mm4, mm5, mm6], ['Wertepaare','Hälfte der Höhe','Fit der linken Flanke','Fit der rechten Flanke'],handler_map={tuple: HandlerTuple(ndivide=None)},loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
@@ -484,7 +484,7 @@ rangeVar=[1,1200]
 Plot(D,[rangeVar],'D', unp.nominal_values(umrechnungsParams), True, r'$E_\gamma$')
 
 #makeNewTable(convert([EnergieBaLit],unpFormat,[r'','4.2f',True])+convert([Line(posU,*umrechnungsParams)],unpFormat,[r'','4.2f',True])+convert([wahrscheinlichkeitenBa*100],unpFormat,[r'','2.2f',True])+convert([inhalt],unpFormat,[r'','5.0f',True])+convert([potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)],unpFormat,[r'','0.3f',True])+convert([A],unpFormat,[r'','4.0f',True]),r'{$E_\gamma^{\text{lit,\cite{KHAZOV2011855}}}/\si{\kilo\electronvolt}$} & {$E_\gamma$} & {$W^\text{\cite{KHAZOV2011855}}/\si{\percent}$} & {$Z$} & {$Q$} & {$A$}','D2',['S[table-format=4.2]','S[table-format=4.2]','S[table-format=2.2]','S[table-format=5.0]','S[table-format=0.3]','S[table-format=4.0]'])
-makeTable([noms(EnergieBaLit), stds(EnergieBaLit), noms(Line(posU,*umrechnungsParams)), stds(Line(posU,*umrechnungsParams)), noms(wahrscheinlichkeitenBa*100), stds(wahrscheinlichkeitenBa*100), noms(inhalt), stds(inhalt), noms(potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)), stds(potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)), noms(A), stds(A)], r'\multicolumn{2}{c}{$E_\gamma^{\text{lit,\cite{KHAZOV2011855}}}/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$E_\gamma/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$W^\text{\cite{KHAZOV2011855}}/\si{\percent}$} & \multicolumn{2}{c}{$Z$} & \multicolumn{2}{c}{$Q$} & \multicolumn{2}{c}{$A/\si{\becquerel}$}','D2', ['S[table-format=3.4]', '@{${}\pm{}$}S[table-format=1.4]', 'S[table-format=3.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=2.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=5.0]','@{${}\pm{}$}S[table-format=3.0]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]'], ["%3.4f", "%1.4f", "%2.2f", "%1.2f", "%2.2f", "%1.2f", "%5.0f", "%3.0f", "%1.3f", "%1.3f", "%4.0f", "%2.0f"])
+makeTable([noms(EnergieBaLit), stds(EnergieBaLit), noms(Line(posU,*umrechnungsParams)), stds(Line(posU,*umrechnungsParams)), noms(wahrscheinlichkeitenBa*100), stds(wahrscheinlichkeitenBa*100), noms(inhalt), stds(inhalt), noms(potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)), stds(potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)), noms(A), stds(A)], r'\multicolumn{2}{c}{$E_\gamma^{\text{lit}}/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$E_\gamma/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$W/\si{\percent}$} & \multicolumn{2}{c}{$Z$} & \multicolumn{2}{c}{$Q$} & \multicolumn{2}{c}{$A/\si{\becquerel}$}','D2', ['S[table-format=3.4]', '@{${}\pm{}$}S[table-format=1.4]', 'S[table-format=3.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=2.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=5.0]','@{${}\pm{}$}S[table-format=3.0]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]'], ["%3.4f", "%1.4f", "%2.2f", "%1.2f", "%2.2f", "%1.2f", "%5.0f", "%3.0f", "%1.3f", "%1.3f", "%4.0f", "%2.0f"])
 
 
 
@@ -539,7 +539,7 @@ print('A4Mittel', Am4)
 #makeNewTable(convert([Line(posU,*umrechnungsParams)],unpFormat,[r'','1.1f',True])+convert([posU],unpFormat,[r'','1.2f',True])+convert([sigmaU],unpFormat,[r'','1.2f',True])+convert([aU],unpFormat,[r'','1.0f',True])+convert([hU],unpFormat,[r'','1.0f',True]),r'{$E_\gamma/\si{\kilo\electronvolt}$} & {$b$} & {$\sigma$} & {$a$} & {$c$}','unbekannt',['S[table-format=2.0]','S[table-format=2.0]','S[table-format=2.0]','S[table-format=2.0]','S[table-format=2.0]'],[r'{:1.0f}',r'{:1.0f}',r'{:1.0f}',r'{:1.0f}',r'{:1.0f}'])
 #makeNewTable(convert([EnergieLit],unpFormat,[r'','4.2f',True])+convert([Line(posU,*umrechnungsParams)],unpFormat,[r'','4.2f',True])+convert([wahrscheinlichkeiten*100],unpFormat,[r'','2.2f',True])+convert([inhalt],unpFormat,[r'','5.0f',True])+convert([potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)],unpFormat,[r'','0.3f',True])+convert([A],unpFormat,[r'','4.0f',True]),r'{$E_\gamma^{\text{lit,\cite{BROWNE20131849}}}/\si{\kilo\electronvolt}$} & {$E_\gamma$} & {$W^\text{\cite{BROWNE20131849}}/\si{\percent}$} & {$Z$} & {$Q$} & {$A$}','unbekannt2',['S[table-format=4.2]','S[table-format=4.2]','S[table-format=2.2]','S[table-format=5.0]','S[table-format=0.3]','S[table-format=4.0]'])
 makeTable([noms(Line(posU,*umrechnungsParams)), stds(Line(posU,*umrechnungsParams)), noms(posU), stds(posU), noms(sigmaU), stds(sigmaU), noms(aU), stds(aU), noms(hU), stds(hU)], r'\multicolumn{2}{c}{$E_\gamma/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$b$} & \multicolumn{2}{c}{$\sigma$} & \multicolumn{2}{c}{$a$} & \multicolumn{2}{c}{$c$}','unbekannt', ['S[table-format=4.2]', '@{${}\pm{}$}S[table-format=1.2]','S[table-format=4.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=3.0]','@{${}\pm{}$}S[table-format=2.0]'], ["%4.2f", "%1.2f", "%4.2f", "%1.2f", "%1.2f", "%1.2f", "%4.0f", "%2.0f", "%3.0f", "%2.0f"])
-makeTable([EnergieLit, noms(Line(posU,*umrechnungsParams)), stds(Line(posU,*umrechnungsParams)), wahrscheinlichkeiten*100, noms(inhalt), stds(inhalt), noms(potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)), stds(potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)), noms(A), stds(A)], r'{$E_\gamma^{\text{lit,\cite{V18}}}/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$E_\gamma/\si{\kilo\electronvolt}$} & {$W^\text{\cite{V18}}/\si{\percent}$} & \multicolumn{2}{c}{$Z$} & \multicolumn{2}{c}{$Q$} & \multicolumn{2}{c}{$A/\si{\becquerel}$}','unbekannt2', ['S[table-format=4.0]', 'S[table-format=4.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=2.0]','S[table-format=5.0]','@{${}\pm{}$}S[table-format=3.0]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=3.0]'], ["%4.0f", "%4.2f", "%1.2f", "%2.0f", "%5.0f", "%3.0f", "%1.3f", "%1.3f", "%4.0f", "%3.0f"])
+makeTable([EnergieLit, noms(Line(posU,*umrechnungsParams)), stds(Line(posU,*umrechnungsParams)), wahrscheinlichkeiten*100, noms(inhalt), stds(inhalt), noms(potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)), stds(potenzFunktion(Line(posU,*umrechnungsParams),*paramsEQU)), noms(A), stds(A)], r'{$E_\gamma^{\text{lit}}/\si{\kilo\electronvolt}$} & \multicolumn{2}{c}{$E_\gamma/\si{\kilo\electronvolt}$} & {$W/\si{\percent}$} & \multicolumn{2}{c}{$Z$} & \multicolumn{2}{c}{$Q$} & \multicolumn{2}{c}{$A/\si{\becquerel}$}','unbekannt2', ['S[table-format=4.0]', 'S[table-format=4.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=2.0]','S[table-format=5.0]','@{${}\pm{}$}S[table-format=3.0]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=3.0]'], ["%4.0f", "%4.2f", "%1.2f", "%2.0f", "%5.0f", "%3.0f", "%1.3f", "%1.3f", "%4.0f", "%3.0f"])
 
 
 #print(DParams)
