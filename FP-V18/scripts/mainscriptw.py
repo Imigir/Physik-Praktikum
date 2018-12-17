@@ -331,25 +331,25 @@ makeTable([noms(np.array([params1[0],params2[0],params3[0],params4[0]])), stds(n
 ##########################################################
 
 def diffWirkung(E,c,h):
-    Egamma=Line(unp.nominal_values(peakCs137[0][3]),*unp.nominal_values(umrechnungsParams))
-    r=const.elementary_charge/(4*np.pi * const.epsilon_0 * const.electron_mass*const.c**2)
-    m0=const.electron_mass*const.c**2 / (1000*const.electron_volt)
-    e=Egamma/m0
-    th=8/3 * np.pi * r**2
-    return 3/8 * th* 1/(m0*e**2) * (2+(E/(Egamma-E))**2 * (1/e**2 + (1-2/e)* (Egamma-E)/Egamma )) * c+h
+	Egamma=Line(unp.nominal_values(peakCs137[0][3]),*unp.nominal_values(umrechnungsParams))
+	r=const.elementary_charge**2/(4*np.pi * const.epsilon_0 * const.electron_mass*const.c**2)*10**15 #fm
+	m0=const.electron_mass*const.c**2 / (1000*const.electron_volt)
+	e=Egamma/m0
+	th=8/3 * np.pi * r**2
+	return 3/8 * th* 1/(m0*e**2) * (2+(E/(Egamma-E))**2 * (1/e**2 + (1-2/e)* (Egamma-E)/Egamma )) * c+h
 
 def Wirkungin(c,h):
-    Egamma=Line(unp.nominal_values(peakCs137[0][3]),*unp.nominal_values(umrechnungsParams))
-    r=const.elementary_charge/(4*np.pi * const.epsilon_0 * const.electron_mass*const.c**2)
-    m0=const.electron_mass*const.c**2 / (1000*const.electron_volt)
-    e=Egamma/m0
-    th=8/3 * np.pi * r**2
-    term1 = 3*Egamma*c*th
-    term2 = 2*e*(2+e*(8+e*(11+e)))
-    term3 = (1+2*e)**2 * ((e-2)*e-2)*np.log(1+2*e)
-    term4 = 8*e**4* (1+2*e)**2 *m0
-    term5 = (2*e*Egamma*h)/(1+2*e)
-    return term1*(term2+term3)/term4 + term5
+	Egamma=Line(unp.nominal_values(peakCs137[0][3]),*unp.nominal_values(umrechnungsParams))
+	r=const.elementary_charge**2/(4*np.pi * const.epsilon_0 * const.electron_mass*const.c**2)*10**15 #fm
+	m0=const.electron_mass*const.c**2 / (1000*const.electron_volt)
+	e=Egamma/m0
+	th=8/3 * np.pi * r**2
+	term1 = 3*Egamma*c*th
+	term2 = 2*e*(2+e*(8+e*(11+e)))
+	term3 = (1+2*e)**2 * ((e-2)*e-2)*np.log(1+2*e)
+	term4 = 8*e**4* (1+2*e)**2 *m0
+	term5 = (2*e*Egamma*h)/(1+2*e)
+	return term1*(term2+term3)/term4 + term5
 
 
 print('ComptonKontinuum')
@@ -359,7 +359,8 @@ xA=Line(np.array(range(rangeVar[0],rangeVar[1]+1)),*unp.nominal_values(umrechnun
 yA=Cs137[rangeVar[0]-1:rangeVar[1]]
 params, covar = curve_fit(diffWirkung, xA, yA)
 paramsKon=uncertainties.correlated_values(params, covar)
-#print('paramsKon',paramsKon)
+print('paramsKon a =',paramsKon[0])
+print('paramsKon b =',paramsKon[1])
 rangeVar=[1,1250]
 xA2=Line(np.array(range(rangeVar[0],rangeVar[1]+1)),*unp.nominal_values(umrechnungsParams))
 yA2=Cs137[rangeVar[0]-1:rangeVar[1]]
