@@ -74,7 +74,7 @@ def Line(x, a, b):
     return a* x+b
 
 
-def Plot(Werte, ranges, name, funktionParams=(1,0), onlyname=False, xname='$K$'):
+def Plot(Werte, ranges, name, funktionParams=(1,0), onlyname=False, xname=r'$K$'):
     for rangeVar in ranges:
         plt.cla()
         plt.clf()
@@ -83,13 +83,13 @@ def Plot(Werte, ranges, name, funktionParams=(1,0), onlyname=False, xname='$K$')
         plt.ylabel(r'$N$')
         plt.yscale('log')
         plt.legend(loc='best')
-        plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+        #plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
         if onlyname:
-            plt.savefig('build/'+name+'.pdf') 
+            plt.savefig('build/'+name+'.pdf')
         else:
             plt.savefig('build/'+name+'_'+str(rangeVar[0])+'-'+ str(rangeVar[1])+'.pdf') 
 
-def gausFitMitPlot(Werte, ranges, name, plotF=False, funktionParams=(1,0), xname='$K$'):
+def gausFitMitPlot(Werte, ranges, name, plotF=False, funktionParams=(1,0), xname=r'$K$'):
     AllParams = []
     for rangeVar in ranges:
         p0=[np.max(Werte[rangeVar[0]-1:rangeVar[1]])-np.min(Werte[rangeVar[0]-1:rangeVar[1]]),np.min(Werte[rangeVar[0]-1:rangeVar[1]]),funktionParams[0]*((rangeVar[1]-rangeVar[0])/15),Line((rangeVar[1]+rangeVar[0])/2,*funktionParams)]
