@@ -5,13 +5,12 @@ Nach dem $\alpha$- oder $\beta$-Zerfall eines instabilen Nuklids kommt es vor, d
 
 \subsection{Wechselwirkung von Gamma-Strahlung mit Materie}
 
-Trifft ein solches $\gamma$-Quant auf Materie, dominieren drei Arten von Wechselwirkungen dabei für unterschiedliche Energien. Die Wahrscheinlichkeit für jede Art von Wechselwirkung lässt sich durch einen Wirkungsquerschnitt $\sigma$ beschreiben, der anschaulich darstellt, dass die eingestrahlten Projektilteilchen ($\gamma$-Quant)auf ein ausgedehntes Ziel, ein Targetteilchen (Absorberatom), treffen.
-In Abbildung \ref{fig:Wirkungsquerschnitt} ist die Abhängigkeit der Extinktionskoeffizienten $\mu=n\sigma$, mit der Anzahl der Elektronen pro Volumeneinheit $n$, der verschiedenen Wechselwirkungsarten von der Energie der $\gamma$-Quanten zu sehen.\\
-Die Wahrscheinlichkeit $\diff W$, dass ein Teilchen von dem Absorber eingefangen wird, lässt sich mit der Absorberschichtdicke $dx$ durch
+Trifft ein solches $\gamma$-Quant auf Materie, dominieren drei Arten von Wechselwirkungen dabei für unterschiedliche Energien. Die Wahrscheinlichkeit für jede Art von Wechselwirkung lässt sich durch einen Wirkungsquerschnitt $\sigma$ beschreiben, der anschaulich darstellt, dass die eingestrahlten Projektilteilchen ($\gamma$-Quanten) auf ein ausgedehntes Ziel um ein Targetteilchen (Absorberatom) treffen.\\
+Die Wahrscheinlichkeit $\diff W$, dass ein Teilchen von dem Absorber eingefangen wird, lässt sich mit der Absorberschichtdicke $dx$ und der Anzahl der Elektronen pro Volumeneinheit $n$ ausdrücken durch:
 \begin{equation}
-\diff W = n \sigma \diff x
+\diff W = n \sigma \diff x\text{.}
 \end{equation}
-ausdrücken. Bei $N$ Quanten, die auf den infinitesimal dicken Absorber auftreffen, folgt für die Zahl der absorbierten Teilchen:
+Bei $N$ Quanten, die auf den infinitesimal dicken Absorber auftreffen, folgt für die Zahl der absorbierten Teilchen:
 \begin{align*}
 \diff N = -N  \diff W =-n N \sigma \diff x\text{.}
 \end{align*}
@@ -20,11 +19,11 @@ Daraus ergeben sich für einen Absorber der Dicke $D$ die Anzahl der wechselgewi
 N(D) 	&= N_0 \exp(-n \sigma D) \text{,}\\ 
 N_2(D) 	&= N_0 (1 - \exp(-n \sigma D))\text{.}\label{eq:Nd}
 \end{align}
-Die Anzahl der auf den Absorber treffenden Quanten wird mit $N_0$ bezeichnet. Die Konstante $ \mu = n \sigma$ wird auch als Extinktionskoeffizient bezeichnet und ihr Kehrwert liefert die mittlere Reichweite der Quanten im Absorber.
+Die Anzahl der auf den Absorber treffenden Quanten wird mit $N_0$ bezeichnet. Die Konstante $ \mu = n \sigma$ wird auch als Extinktionskoeffizient bezeichnet und ihr Kehrwert liefert die mittlere Reichweite der Quanten im Absorber. In Abbildung \ref{fig:Wirkungsquerschnitt} sind die Extinktionskoeffizienten $\mu=n\sigma$ der nachfolgend beschriebenen Wirkungsquerschnitte in Abhängigkeit von der Energie der $\gamma$-Quanten zu sehen.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/sigma.png}
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/sigma.pdf}
 	\caption{Energieabhängigkeit des Extinktionskoeffizienten $\mu$ für Germanium getrennt nach den verschiedenen Wechselwirkungsmechanismen \cite{V18}.}
 	\label{fig:Wirkungsquerschnitt}
 \end{figure}
@@ -40,7 +39,7 @@ Für den Wirkungsquerschnitt gilt dabei mit der Kernladungszahl $Z$ des Absorber
 \[
 \sigma_.{Ph}\propto\frac{Z^{\alpha}}{E^{\delta}_.{\gamma}}
 \]
-Es gilt $4 < \alpha < 5$.  Der Exponent $\delta$ ist abhängig von der Photonenenergie. Für natürlich vorkommende $\gamma$-Strahlung gilt $\delta\approx 3,5$, für Energien $E_.{\gamma}\geq \SI{5}{\mega\electronvolt}$ sinkt er auf $\delta\approx 1$.
+Es gilt $4 < \alpha < 5$.  Der Exponent $\delta$ ist abhängig von der Photonenenergie. Für natürlich vorkommende $\gamma$-Strahlung gilt $\delta\approx \num{3.5}$, für Energien $E_.{\gamma}\geq \SI{5}{\mega\electronvolt}$ sinkt er auf $\delta\approx 1$.
 Der Wirkungsquerschnitt steigt außerdem immer sprunghaft an, wenn $E_.{\gamma}$ einen Wert erreicht, der ausreicht, um ein Elektron aus dem Atom herauszulösen. Die übrige Energie des $\gamma$-Quants wird vom Elektronen als kinetische Energie aufgenommen.
 
 \subsubsection{Der Compton-Effekt}
@@ -68,21 +67,25 @@ Für $\psi_.{\gamma}=\SI{180}{\degree}$ ist sie maximal und beträgt
 \begin{equation}
 E_.{e,max}=\frac{2\epsilon}{1+\epsilon}E_.{\gamma}\text{.}\label{eq:Emax}
 \end{equation}
-Dieser Wert ist kleiner als $E_.{\gamma}$. Somit wird nie die gesamte Energie des$\gamma$-Quants auf das Elektron übertragen. Im Energiespektrum äußert sich das durch ein breites Kontinuum an Energien, welches an der Compton-Kante bei
+Dieser Wert ist kleiner als $E_.{\gamma}$. Somit wird nie die gesamte Energie des $\gamma$-Quants auf das Elektron übertragen. Im Energiespektrum äußert sich das durch ein breites Kontinuum an Energien, welches an der Compton-Kante bei
 $E_.{deponiert}=E_.{e,max}$ vor dem Photopeak endet.
 Der Wirkungsquerschnitt des Compton-Effekts lässt sich über die Formel von Klein und Nishina beschreiben als
 \begin{equation}
 \sigma_.{Co}=\frac{3}{4}\sigma_.{Th}\left(\frac{1+\epsilon}{\epsilon^2}\left[\frac{2+2\epsilon}{1+2\epsilon}-\frac{1}{\epsilon}\ln(1+2\epsilon)\right]+\frac{1}{2\epsilon}\ln(1+2\epsilon)-\frac{1+3\epsilon}{(1+2\epsilon)^2}\right)\text{.}\label{eq:sig_Co}
 \end{equation}
-Dabei bezeichnet $\sigma_.{Th}=\frac{8}{3}\pi\left(\frac{e_.0}{4\pi\varepsilon_.0c^2m_.e}\right)^2$, mit der Elementarladung $e_.0$, der Dielektrizitätskonstante $\varepsilon_.0$, der Lichtgeschwindigkeit im Vakuum $c$ und der Ruhemasse des Elektrons $m_.e$, Den Thomson-Wirkungsquerschnitt.
+Dabei bezeichnet 
+\[
+\sigma_.{Th}=\frac{8}{3}\pi\left(\frac{e_.0}{4\pi\varepsilon_.0c^2m_.e}\right)^2\text{,}
+\] 
+den Thomson-Wirkungsquerschnitt, mit der Elementarladung $e_.0$, der Dielektrizitätskonstante $\varepsilon_.0$, der Lichtgeschwindigkeit im Vakuum $c$ und der Ruhemasse des Elektrons $m_.e$.
 Der differentielle Wirkungsquerschnitt $\frac{.d\sigma}{.dE}$ lässt sich beschreiben durch:
 \begin{equation}
-\frac{\diff \sigma}{\diff E} =  \frac{\pi r_\text{e}^2}{m_0 c^2 \epsilon^2}\left(2+\left(\frac{E_\text{e'}}{E_\gamma - E_\text{e'}}\right)^2 \left[ \frac{1}{\epsilon^2} +\frac{E_\gamma - E_\text{e'}}{E_\gamma} - \frac{2(E_\gamma - E_\text{e'})}{\epsilon E_\gamma} \right]\right) \label{eq:sigmadiff}
+\frac{\diff \sigma}{\diff E} =  \frac{\pi r_\text{e}^2}{m_0 c^2 \epsilon^2}\left(2+\left(\frac{E_\text{e'}}{E_\gamma - E_\text{e'}}\right)^2 \left[ \frac{1}{\epsilon^2} +\frac{E_\gamma - E_\text{e'}}{E_\gamma} - \frac{2(E_\gamma - E_\text{e'})}{\epsilon E_\gamma} \right]\right) \text{.}\label{eq:sigmadiff}
 \end{equation}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Compton.jpg}
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Compton.pdf}
 	\caption{Schematische Darstellung des Compton-Effekts\cite{V18}.}
 	\label{fig:Compton}
 \end{figure}
@@ -134,7 +137,7 @@ Der hier verwendete Detektor ist ein koaxialer Reinst-Germanium-Detektor. Zur n-
 Eine koaxiale Bohrung im Kristall wird mit Gold bedampft und der Minuspol der Spannung angeschlossen. Da der Kristall auf Grund seiner Reinheit selbst eine sehr geringe Akzeptorendichte von $n_.A=\SI{e10}{\per\cm^3}$ aufweist, kommt es zur Ausbildung der Verarmungszone. Weiterhin ist der Detektor zur thermischen Isolation von einer Aluminium-Haube umgeben. Das führt dazu, dass nur Photonen detektiert werden können, die genügend Energie besitzen, um diese Aluminium-Schicht und die Lithium-Schicht auf der Kristalloberfläche zu durchdringen. Der Querschnitt eines solchen Detektors ist in Abbildung \ref{fig:Det} zu sehen.
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Detektor.jpg}
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Detektor.pdf}
 	\caption{Querschnitt eines Germanium-Detektors mit Al-Ummantelung \cite{V18}.}
 	\label{fig:Det}
 \end{figure}
@@ -185,7 +188,7 @@ mit dem Radius $r$ des Detektors und dem Abstand $a$ der Probe zum Detektor.\new
 Der Rückstreupeak im Compton-Kontinuum, welches an der Compton-Kante endet entsteht dadurch, dass Photonen bereits außerhalb des Detektors streuen und erst in diesen eindringen, nachdem sie bereits einen Teil ihrer Energie abgegeben haben. Der Photo-Peak liegt, abgeschnitten vom Kontinuum, in einem höheren Energiebereich.
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Spektrum.jpg}
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Spektrum.pdf}
 	\caption{Spektrum eines monochromatischen $\gamma$-Quants \cite{V18}.}
 	\label{fig:Spektrum}
 \end{figure}
