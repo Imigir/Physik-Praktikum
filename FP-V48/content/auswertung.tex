@@ -2,3 +2,36 @@
 \label{sec:Auswertung}
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\subsection{Bestimmung der Aktivierungsenergie $W$ und der charakteristischen Relaxatioszeit $\tau_.0$ bei einer Heizrate von $b=\SI{2}{\kelvin\per\minute}$}
+
+Die erhobenen Messwerte des Polarisationsstroms werden mittels einer Regression der Form
+\[
+I(T)=a e^{b T}+c
+\]
+bereinigt, um andere Effekte zu vernachlässigen. In Abbildung \ref{fig:plot1exp} sind die Rohdaten, die für den Fit verwendeten Werte, sowie der Fit selbst zu sehen.\\
+Für die Parameter ergibt sich
+\begin{align*}
+a_.1&=\SI{e-12}{\ampere}\\
+b_.1&=\SI{}{1\per\kelvin}\\
+c_.1&=\SI{e-12}{\ampere}
+\end{align*}
+In Abbildung \ref{fig:bereinigt1} sind die bereinigten Messwerte aufgetragen und in Tabelle \ref{tab:data1} gemeinsam mit den Rohdaten zu sehen.
+Für kleine Temperaturen $T$ wird in Abbildung \ref{fig:W1_1} nach Gleichung \eqref{eq:ln1} das Logarithmierte des Polarisationsstrom $i$ gegen das Inverse der Temperatur aufgetragen.
+Die lineare Regression
+\[
+\ln\left(\frac{i}{i_.0}\right)(T^{-1})=\alpha T^{-1}+\beta
+\]
+liefert die Parameter
+\begin{align*}
+\alpha_.1&=\SI{}{\kelvin}\\
+\beta_.1&= \text{.}
+\end{align*}
+Daraus lässt sich die Aktivierungsenergie $W$ berechnen zu
+\[
+W_.{1,1} = -\alpha_.1 k_.B =\SI{e-19}{\joule}=\SI{}{\electronvolt}\text{.}
+\]
+
+\subsection{Bestimmung der Aktivierungsenergie $W$ und der charakteristischen Relaxatioszeit $\tau_.0$ bei einer Heizrate von $b=\SI{1,4}{\kelvin\per\minute}$}
+
+%☻○
