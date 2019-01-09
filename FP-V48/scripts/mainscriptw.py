@@ -104,13 +104,15 @@ for i in range(len(I)):
 
 x=1/T
 params4,covar4=cf(linear,x[4:15],np.log(I[4:15]))
+
 plt.cla()
 plt.clf()
 plt.plot(x[:30],np.log(I[:30]),'gx',label='Messwerte')
 plt.plot(x[4:15],np.log(I[4:15]),'rx',label='gefittete Messwerte')
-plt.plot(1/(xplot+273.15), linear(1/(xplot+273.15),*params4),'b-',label='Ausgleichsgerade 1')
+plt.plot(1/(xplot+273.15), linear(1/(xplot+273.15),*params4),'b-',label='Ausgleichsgerade')
 plt.xlabel(r'$T$')
 plt.ylabel(r'$I_fit$')
+plt.xlim(0.0038,0.0046)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/W1_1.pdf')
@@ -125,17 +127,16 @@ for i in range(0,32):
 
 print('Fläche des 1.Plots: ',Fläche1[0],'pA K')
 
-#params3,covar3 =cf(linear, x[4:23], np.log(Fläche1[4:23]/285.65/I[4:23]),maxfev=10000)
 params3,covar3 =cf(linear, x[4:23], np.log(Fläche1[4:23]/I[4:23]),maxfev=10000)
+#params3,covar3 =cf(linear, x[0:31], np.log(Fläche1[0:31]/I[0:31]),maxfev=10000)
 plt.cla()
 plt.clf()
-plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params3),'m-', label='Ausgleichsgerade 2')
-#plt.plot(x[0:31], np.log(Fläche1[0:31]/285.65/I[0:31]), 'g.', label='Wertepaare')
-#plt.plot(x[4:23], np.log(Fläche1[4:23]/285.65/I[4:23]), 'b.', label='gefittete Wertepaare')
+plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params3),'b-', label='Ausgleichsgerade')
 plt.plot(x[0:31], np.log(Fläche1[0:31]/I[0:31]), 'g.', label='Wertepaare')
-plt.plot(x[4:23], np.log(Fläche1[4:23]/I[4:23]), 'b.', label='gefittete Wertepaare')
+plt.plot(x[4:23], np.log(Fläche1[4:23]/I[4:23]), 'r.', label='gefittete Wertepaare')
 plt.xlabel(r'$1/T$')
 plt.ylabel(r'$I/iT_.max$')
+plt.xlim(0.0034,0.0046)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/W1_2.pdf')
@@ -143,25 +144,6 @@ plt.savefig('content/images/W1_2.pdf')
 W1_2=unp.uarray(params3[0],np.sqrt(covar3[0][0]))*(const.k)
 print('W1 1. Möglichkeit: ', W1_1)
 print('W1 2. Möglichkeit: ', W1_2)
-
-'''
-params1,covar1=cf(gaus, T[0:31], I[0:31], p0=[10,1,10,2.5*10**2], maxfev=10000)
-a1=unp.uarray(params1[0],np.sqrt(covar1[0][0]))
-c1=unp.uarray(params1[1],np.sqrt(covar1[1][1]))
-sigma1=unp.uarray(params1[2],np.sqrt(covar1[2][2]))
-b1=unp.uarray(params1[3],np.sqrt(covar1[3][3]))
-plt.cla()
-plt.clf()
-plt.plot(xplot+273.15,gaus(xplot+273.15,*params1))
-plt.plot(T[0:31], I[0:31], 'rx', label='Wertepaare')
-plt.xlabel(r'$T$')
-plt.ylabel(r'$I$')
-plt.legend(loc='best')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/')
-
-#print('1: ',a1,b1,c1,sigma1)
-'''
 
 
 #Plot 2
@@ -179,8 +161,8 @@ params2_1, covar2_1 = cf(expFunktion, Te2, Ie2, maxfev=10000)
 
 plt.cla()
 plt.clf()
-plt.plot(T2,I2,'y.',label='Messwerte')
-plt.plot(Te2,Ie2,'r.',label='verwendete Werte')
+plt.plot(T2,I2,'g.',label='Messwerte')
+plt.plot(Te2,Ie2,'r.',label='gefittete Werte')
 plt.plot(xplot+273.15,expFunktion(xplot+273.15,*params2_1),'b-',label='Ausgleichskurve')
 plt.xlabel(r'$T$')
 plt.ylabel(r'$I_fit$')
@@ -198,63 +180,48 @@ for i in range(len(I2)):
 #1.Möglichkeit
 
 x2=1/T2
-params2_2,covar2_2 = cf(linear,1/T2[0:15],np.log(I2[0:15]),)
+params2_2,covar2_2 = cf(linear,1/T2[0:15],np.log(I2[0:15]),maxfev=10000)
 a1=unp.uarray(params2_2[0],np.sqrt(covar2_2[0][0]))
 b1=unp.uarray(params2_2[1],np.sqrt(covar2_2[1][1]))
-print('a1: ', a1, ',b1: ',b1)
+print('a1:', a1, ',b1:',b1)
 plt.cla()
 plt.clf()
-plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params2_2),'b-', label='Ausgleichgerade 1')
+plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params2_2),'b-', label='Ausgleichgerade')
 plt.plot(x2[:30],np.log(I2[:30]), 'gx', label='Wertepaare')
 plt.plot(x2[0:15],np.log(I2[0:15]), 'rx', label='gefittete Wertepaare')
 plt.xlabel(r'$1/T$')
 plt.ylabel(r'$ln(I)$')
+plt.xlim(0.0038,0.0044)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/W2_1.pdf')
 W2_1=a1*(-const.k)
 
+
 #2.Möglichkeit
 
 Fläche2=np.empty(35)
 for i in range(0,35):
-	Fläche2[i]=np.trapz(I[i:35],T[i:35])
+	Fläche2[i]=np.trapz(I2[i:35],T2[i:35])
 
 print('Fläche des 2.Plots: ',Fläche2[0],'pA K')
 
 params2_3,covar2_3 =cf(linear, 1/T2[0:26], np.log(Fläche2[0:26]/I2[0:26]),maxfev=10000)
+#params2_3,covar2_3 =cf(linear, 1/T2[3:33], np.log(Fläche2[3:33]/I2[3:33]),maxfev=10000)
 plt.cla()
 plt.clf()
-plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params2_3),'m-', label='Ausgleichsgerade 2')
+plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params2_3),'b-', label='Ausgleichsgerade')
 plt.plot(1/T2[0:34], np.log(Fläche2[0:34]/I2[0:34]), 'g.', label='Wertepaare')
-plt.plot(1/T2[0:26], np.log(Fläche2[0:26]/I2[0:26]), 'b.', label='gefittete Wertepaare')
+plt.plot(1/T2[0:26], np.log(Fläche2[0:26]/I2[0:26]), 'r.', label='gefittete Wertepaare')
 plt.xlabel(r'$1/T$')
 plt.ylabel(r'$I/iT_.max$')
+plt.xlim(0.0036,0.0044)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/W2_2.pdf')
-
 
 W2_2=unp.uarray(params2_3[0],np.sqrt(covar2_3[0][0]))*(const.k)
 
 print('W2 1. Möglichkeit: ', W2_1)
 print('W2 2. Möglichkeit: ', W2_2)
 
-'''
-params2,covar2=cf(gaus, T2[8:30], I2[8:30], maxfev=10000)
-a2=unp.uarray(params2[0],np.sqrt(covar2[0][0]))
-c2=unp.uarray(params2[1],np.sqrt(covar2[1][1]))
-sigma2=unp.uarray(params2[2],np.sqrt(covar2[2][2]))
-b2=unp.uarray(params2[3],np.sqrt(covar2[3][3]))
-
-plt.cla()
-plt.clf()
-#plt.plot(xplot,gaus(xplot,*params2))
-plt.plot(T2[0:38], I2[0:38], 'rx', label='Wertepaare')
-plt.xlabel(r'$T$')
-plt.ylabel(r'$I$')
-#plt.yscale('log')
-plt.legend(loc='best')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/')
-'''
