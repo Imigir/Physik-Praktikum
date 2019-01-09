@@ -120,23 +120,23 @@ W1_1=unp.uarray(params4[0],np.sqrt(covar4[0][0]))*(-const.k)
 #print(paramsEQU)
 #T=T+273.15
 
-'''
-params1,covar1=cf(gaus, T[0:31], I[0:31], p0=[10,1,10,2.5*10**2], maxfev=10000)
-a1=unp.uarray(params1[0],np.sqrt(covar1[0][0]))
-c1=unp.uarray(params1[1],np.sqrt(covar1[1][1]))
-sigma1=unp.uarray(params1[2],np.sqrt(covar1[2][2]))
-b1=unp.uarray(params1[3],np.sqrt(covar1[3][3]))
+
+#params1,covar1=cf(gaus, T[0:31], I[0:31], p0=[10,1,10,2.5*10**2], maxfev=10000)
+#a1=unp.uarray(params1[0],np.sqrt(covar1[0][0]))
+#c1=unp.uarray(params1[1],np.sqrt(covar1[1][1]))
+#sigma1=unp.uarray(params1[2],np.sqrt(covar1[2][2]))
+#b1=unp.uarray(params1[3],np.sqrt(covar1[3][3]))
 plt.cla()
 plt.clf()
-plt.plot(xplot+273.15,gaus(xplot+273.15,*params1))
-plt.plot(T[0:31], I[0:31], 'rx', label='Wertepaare')
+#plt.plot(xplot+273.15,gaus(xplot+273.15,*params1))
+plt.plot(T[0:31], I[0:31], 'r.', label='Wertepaare')
 plt.xlabel(r'$T$')
 plt.ylabel(r'$I$')
 #plt.yscale('log')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/')
-'''
+plt.savefig('content/images/bereinigt1.pdf')
+
 
 #print('1: ',a1,b1,c1,sigma1)
 
