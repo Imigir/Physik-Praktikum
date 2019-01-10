@@ -98,7 +98,8 @@ print(paramsU)
 I_roh=I
 for i in range(len(I)):
 	I[i]=I[i]-expFunktion(T[i], *params)
-makeTable([t,T,I_roh,I], r'{'+r'$t_\text{1}/(\si{\minute})$'+r'} & {'+r'$T_\text{1}/(\si{\kelvin})$'+r'} & {'+r'$I_\text{roh,1}/(\si{\pico\ampere})$'+r'} & {'+r'$I_\text{ber,1}/(\si{\pico\ampere})$'+r'}','tabData1',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+makeTable([t,T,I_roh,I], r'{'+r'$t_\text{1}/(\si{\minute})$'+r'} & {'+r'$T_\text{1}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,1}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,1}/(\si{\pico\ampere})$'+r'}','tabData1',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+makeTable([1/T[:30],np.log(I[:30])], r'{'+r'$T^{-1}_\text{1}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{i_\text{1}}{i_\text{0}}}$'+r'}','tabLog11',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
 
 #W: 1.Möglichkeit
 print('erste Möglichkeit')
@@ -150,6 +151,8 @@ print('zweite Möglichkeit')
 Fläche1=np.empty(32)
 for i in range(0,32):
 	Fläche1[i]=np.trapz(I[i:32],T[i:32])
+
+makeTable([1/T[:31],np.log(Fläche1[:31]/I[:31])], r'{'+r'$T^{-1}_\text{1}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{I_\text{1}}{i_\text{1}\cdot\si{\kelvin}}}$'+r'}','tabLog12',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
 
 print('Fläche des 1.Plots: ',Fläche1[0],'pA K')
 
@@ -205,12 +208,13 @@ print(paramsU)
 I_roh2=I2
 for i in range(len(I2)):
 	I2[i]=I2[i]-expFunktion(T2[i], *params2_1)
-makeTable([t2,T2,I_roh2,I2], r'{'+r'$t_\text{2}/(\si{\minute})$'+r'} & {'+r'$T_\text{2}/(\si{\kelvin})$'+r'} & {'+r'$I_\text{roh,2}/(\si{\pico\ampere})$'+r'} & {'+r'$I_\text{ber,2}/(\si{\pico\ampere})$'+r'}','tabData2',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+makeTable([t2,T2,I_roh2,I2], r'{'+r'$t_\text{2}/(\si{\minute})$'+r'} & {'+r'$T_\text{2}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,2}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,2}/(\si{\pico\ampere})$'+r'}','tabData2',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+makeTable([1/T2[:30],np.log(I2[:30])], r'{'+r'$T^{-1}_\text{2}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{i_\text{2}}{i_\text{0}}}$'+r'}','tabLog21',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
 
 
 
 #1.Möglichkeit
-print('erstse Möglichkeit')
+print('erste Möglichkeit')
 
 x2=1/T2
 params2_2,covar2_2 = cf(linear,1/T2[0:15],np.log(I2[0:15]),maxfev=10000)
@@ -242,6 +246,9 @@ print('zweite Möglichkeit')
 Fläche2=np.empty(35)
 for i in range(0,35):
 	Fläche2[i]=np.trapz(I2[i:35],T2[i:35])
+
+makeTable([1/T2[:30],np.log(Fläche2[:34]/I2[:34])], r'{'+r'$T^{-1}_\text{2}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{I_\text{2}}{i_\text{2}\cdot\si{\kelvin}}}$'+r'}','tabLog22',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
+
 
 print('Fläche des 2.Plots: ',Fläche2[0],'pA K')
 
@@ -290,9 +297,9 @@ for i in range(len(b2_array)-1):
 	b2_array[i]=(T2[i+1]-T2[i])/(t2[i+1]-t2[i])
 
 b1=avg_and_sem(b1_array)
-b1=unp.uarray(b1[0],b1[1])
+b1=unp.uarray(b1[0],b1[1])/60
 b2=avg_and_sem(b2_array)
-b2=unp.uarray(b2[0],b2[1])
+b2=unp.uarray(b2[0],b2[1])/60
 
 print('b1 =', b1)
 print('b2 =', b2)
