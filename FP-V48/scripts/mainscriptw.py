@@ -95,10 +95,10 @@ plt.savefig('content/images/plot1exp.pdf')
 
 paramsU=uncertainties.correlated_values(params, covar)
 print(paramsU)
-
+I_roh=I
 for i in range(len(I)):
 	I[i]=I[i]-expFunktion(T[i], *params)
-#print(I)
+makeTable([t,T,I_roh,I], r'{'+r'$t_\text{1}/(\si{\minute})$'+r'} & {'+r'$T_\text{1}/(\si{\kelvin})$'+r'} & {'+r'$I_\text{roh,1}/(\si{\pico\ampere})$'+r'} & {'+r'$I_\text{ber,1}/(\si{\pico\ampere})$'+r'}','tabData1',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
 
 #W: 1.Möglichkeit
 print('erste Möglichkeit')
@@ -202,10 +202,12 @@ plt.savefig('content/images/plot2exp.pdf')
 
 paramsU=uncertainties.correlated_values(params2_1, covar2_1)
 print(paramsU)
-
+I_roh2=I2
 for i in range(len(I2)):
 	I2[i]=I2[i]-expFunktion(T2[i], *params2_1)
-#print(I2)
+makeTable([t2,T2,I_roh2,I2], r'{'+r'$t_\text{2}/(\si{\minute})$'+r'} & {'+r'$T_\text{2}/(\si{\kelvin})$'+r'} & {'+r'$I_\text{roh,2}/(\si{\pico\ampere})$'+r'} & {'+r'$I_\text{ber,2}/(\si{\pico\ampere})$'+r'}','tabData2',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+
+
 
 #1.Möglichkeit
 print('erstse Möglichkeit')
@@ -295,12 +297,22 @@ b2=unp.uarray(b2[0],b2[1])
 print('b1 =', b1)
 print('b2 =', b2)
 
+W1_avg=avg_and_sem([W1_1.n,W1_2.n])
+W1_avg=unp.uarray(W1_avg[0],W1_avg[1])
+W2_avg=avg_and_sem([W2_1.n,W2_2.n])
+W2_avg=unp.uarray(W2_avg[0],W2_avg[1])
+W_avg=avg_and_sem([W1_1.n,W1_2.n,W2_1.n,W2_2.n])
+W_avg=unp.uarray(W_avg[0],W_avg[1])
+print('W_avg =', W_avg, 'eV: ', W_avg/const.e)
+
 Tmax=-12.5+273.15
 c=(const.k*Tmax**2)
 a=c/Tmax
 
-tau_0_1_1=c/W1_1/b1*unp.exp(-W1_1/a)
-tau_0_1_2=c/W1_2/b1*unp.exp(-W1_2/a)
+tau_0_1=c/W_avg/b1*unp.exp(-W_avg/a)
+
+#tau_0_1_1=c/W1_1/b1*unp.exp(-W1_1/a)
+#tau_0_1_2=c/W1_2/b1*unp.exp(-W1_2/a)
 
 #tau_fehler_1_1=c**2*np.exp(-2*W1_1.n/a)/(W1_1.n)**2/b1[0]**4*b1[1]**2+c**2*np.exp(-2*W1_1.n/a)*(const.k+W1_1.n)**2/a**2/(W1_1.n)**4/b1[0]**2*W1_1.s**2
 #tau_fehler_1_1=np.sqrt(tau_fehler_1_1)
@@ -312,8 +324,10 @@ Tmax=-13.4+273.15
 c=(const.k*Tmax**2)
 a=c/Tmax
 
-tau_0_2_1=c/W2_1/b2*unp.exp(-W2_1/a)
-tau_0_2_2=c/W2_2/b2*unp.exp(-W2_2/a)
+tau_0_2=c/W_avg/b2*unp.exp(-W_avg/a)
+
+#tau_0_2_1=c/W2_1/b2*unp.exp(-W2_1/a)
+#tau_0_2_2=c/W2_2/b2*unp.exp(-W2_2/a)
 
 #tau_fehler_2_1=c**2*np.exp(-2*W2_1.n/a)/(W2_1.n)**2/b2[0]**4*b1[1]**2+c**2*np.exp(-2*W2_1.n/a)*(const.k+W2_1.n)**2/a**2/(W2_1.n)**4/b2[0]**2*W2_1.s**2
 #tau_fehler_2_1=np.sqrt(tau_fehler_2_1)
@@ -327,7 +341,9 @@ tau_0_2_2=c/W2_2/b2*unp.exp(-W2_2/a)
 #print(tau_0_2_2,'+-', tau_fehler_2_2)
 
 print('tau:')
-print('1_1:', tau_0_1_1)
-print('1_2:', tau_0_1_2)
-print('2_1:', tau_0_2_1)
-print('2_2:', tau_0_2_2)
+print('1: ',tau_0_1)
+print('2: ',tau_0_2)
+#print('1_1:', tau_0_1_1)
+#print('1_2:', tau_0_1_2)
+#print('2_1:', tau_0_2_1)
+#print('2_2:', tau_0_2_2)
