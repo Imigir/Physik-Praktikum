@@ -297,9 +297,9 @@ for i in range(len(b2_array)-1):
 	b2_array[i]=(T2[i+1]-T2[i])/(t2[i+1]-t2[i])
 
 b1=avg_and_sem(b1_array)
-b1=unp.uarray(b1[0],b1[1])
+b1=unp.uarray(b1[0],b1[1])/60
 b2=avg_and_sem(b2_array)
-b2=unp.uarray(b2[0],b2[1])
+b2=unp.uarray(b2[0],b2[1])/60
 
 print('b1 =', b1)
 print('b2 =', b2)
