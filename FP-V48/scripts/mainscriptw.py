@@ -271,26 +271,28 @@ for i in range(len(b2_array)-1):
 
 b1=avg_and_sem(b1_array)
 b2=avg_and_sem(b2_array)
-
-
 Tmax=-12.5+273.15
-tau_0_1_1=const.k*Tmax**2/W1_1.n/b1[0]*np.exp(-W1_1.n/const.k/Tmax)
-tau_0_1_2=const.k*Tmax**2/W1_2.n/b1[0]*np.exp(-W1_2.n/const.k/Tmax)
+c=(const.k*Tmax**2)
+a=c/Tmax
 
 
-tau_fehler_1_1=(const.k*Tmax**2)**2*np.exp(-2*W1_1.n/const.k/Tmax)/(W1_1.n)**2/b1[0]**4*b1[1]**2+(const.k*Tmax**2)**2*np.exp(-2*W1_1.n/const.k/Tmax)*(const.k+W1_1.n)**2/const.k**2/(W1_1.n)**4/b1[0]**2*W1_1.s**2
+tau_0_1_1=c/W1_1.n/b1[0]*np.exp(-W1_1.n/a)
+tau_0_1_2=c/W1_2.n/b1[0]*np.exp(-W1_2.n/a)
+
+
+tau_fehler_1_1=c**2*np.exp(-2*W1_1.n/a)/(W1_1.n)**2/b1[0]**4*b1[1]**2+c**2*np.exp(-2*W1_1.n/a)*(const.k+W1_1.n)**2/a**2/(W1_1.n)**4/b1[0]**2*W1_1.s**2
 tau_fehler_1_1=np.sqrt(tau_fehler_1_1)
-tau_fehler_1_2=(const.k*Tmax**2)**2*np.exp(-2*W1_2.n/const.k/Tmax)/(W1_2.n)**2/b1[0]**4*b1[1]**2+(const.k*Tmax**2)**2*np.exp(-2*W1_2.n/const.k/Tmax)*(const.k+W1_2.n)**2/const.k**2/(W1_2.n)**4/b1[0]**2*W1_2.s**2
+tau_fehler_1_2=c**2*np.exp(-2*W1_2.n/a)/(W1_2.n)**2/b1[0]**4*b1[1]**2+c**2*np.exp(-2*W1_2.n/a)*(const.k+W1_2.n)**2/a**2/(W1_2.n)**4/b1[0]**2*W1_2.s**2
 tau_fehler_1_2=np.sqrt(tau_fehler_1_2)
 
 
 Tmax=-13.4+273.15
-tau_0_2_1=const.k*Tmax**2/W2_1.n/b2[0]*np.exp(-W2_1.n/const.k/Tmax)
-tau_0_2_2=const.k*Tmax**2/W2_2.n/b2[0]*np.exp(-W2_2.n/const.k/Tmax)
+tau_0_2_1=c/W2_1.n/b2[0]*np.exp(-W2_1.n/a)
+tau_0_2_2=c/W2_2.n/b2[0]*np.exp(-W2_2.n/a)
 
-tau_fehler_2_1=(const.k*Tmax**2)**2*np.exp(-2*W2_1.n/const.k/Tmax)/(W2_1.n)**2/b2[0]**4*b1[1]**2+(const.k*Tmax**2)**2*np.exp(-2*W2_1.n/const.k/Tmax)*(const.k+W2_1.n)**2/const.k**2/(W2_1.n)**4/b2[0]**2*W2_1.s**2
+tau_fehler_2_1=c**2*np.exp(-2*W2_1.n/a)/(W2_1.n)**2/b2[0]**4*b1[1]**2+c**2*np.exp(-2*W2_1.n/a)*(const.k+W2_1.n)**2/a**2/(W2_1.n)**4/b2[0]**2*W2_1.s**2
 tau_fehler_2_1=np.sqrt(tau_fehler_2_1)
-tau_fehler_2_2=(const.k*Tmax**2)**2*np.exp(-2*W2_2.n/const.k/Tmax)/(W2_2.n)**2/b2[0]**4*b1[1]**2+(const.k*Tmax**2)**2*np.exp(-2*W2_2.n/const.k/Tmax)*(const.k+W2_2.n)**2/const.k**2/(W2_2.n)**4/b2[0]**2*W2_2.s**2
+tau_fehler_2_2=c**2*np.exp(-2*W2_2.n/a)/(W2_2.n)**2/b2[0]**4*b1[1]**2+c**2*np.exp(-2*W2_2.n/a)*(const.k+W2_2.n)**2/a**2/(W2_2.n)**4/b2[0]**2*W2_2.s**2
 tau_fehler_2_2=np.sqrt(tau_fehler_2_2)
 
 
