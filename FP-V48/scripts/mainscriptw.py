@@ -101,9 +101,13 @@ for i in range(len(I)):
 #print(I)
 
 #W: 1.Möglichkeit
+print('erste Möglichkeit')
 
 x=1/T
 params4,covar4=cf(linear,x[4:15],np.log(I[4:15]))
+
+paramsU=uncertainties.correlated_values(params4, covar4)
+print(paramsU)
 
 plt.cla()
 plt.clf()
@@ -117,8 +121,6 @@ plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/W1_1.pdf')
 W1_1=unp.uarray(params4[0],np.sqrt(covar4[0][0]))*(-const.k)
-#print(paramsEQU)
-#T=T+273.15
 
 
 #params1,covar1=cf(gaus, T[0:31], I[0:31], p0=[10,1,10,2.5*10**2], maxfev=10000)
@@ -143,6 +145,7 @@ plt.savefig('content/images/bereinigt1.pdf')
 
 
 #W: 2.Möglichkeit
+print('zweite Möglichkeit')
 
 Fläche1=np.empty(32)
 for i in range(0,32):
@@ -152,6 +155,10 @@ print('Fläche des 1.Plots: ',Fläche1[0],'pA K')
 
 params3,covar3 =cf(linear, x[4:23], np.log(Fläche1[4:23]/I[4:23]),maxfev=10000)
 #params3,covar3 =cf(linear, x[0:31], np.log(Fläche1[0:31]/I[0:31]),maxfev=10000)
+
+paramsU=uncertainties.correlated_values(params3, covar3)
+print(paramsU)
+
 plt.cla()
 plt.clf()
 plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params3),'b-', label='Ausgleichsgerade')
@@ -201,12 +208,18 @@ for i in range(len(I2)):
 #print(I2)
 
 #1.Möglichkeit
+print('erstse Möglichkeit')
 
 x2=1/T2
 params2_2,covar2_2 = cf(linear,1/T2[0:15],np.log(I2[0:15]),maxfev=10000)
+
+paramsU=uncertainties.correlated_values(params2_2, covar2_2)
+print(paramsU)
+
 a1=unp.uarray(params2_2[0],np.sqrt(covar2_2[0][0]))
 b1=unp.uarray(params2_2[1],np.sqrt(covar2_2[1][1]))
-print('a1:', a1, ',b1:',b1)
+#print('a1:', a1, ',b1:',b1)
+
 plt.cla()
 plt.clf()
 plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params2_2),'b-', label='Ausgleichgerade')
@@ -222,6 +235,7 @@ W2_1=a1*(-const.k)
 
 
 #2.Möglichkeit
+print('zweite Möglichkeit')
 
 Fläche2=np.empty(35)
 for i in range(0,35):
@@ -231,6 +245,10 @@ print('Fläche des 2.Plots: ',Fläche2[0],'pA K')
 
 params2_3,covar2_3 =cf(linear, 1/T2[0:26], np.log(Fläche2[0:26]/I2[0:26]),maxfev=10000)
 #params2_3,covar2_3 =cf(linear, 1/T2[3:33], np.log(Fläche2[3:33]/I2[3:33]),maxfev=10000)
+
+paramsU=uncertainties.correlated_values(params2_3, covar2_3)
+print(paramsU)
+
 plt.cla()
 plt.clf()
 plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params2_3),'b-', label='Ausgleichsgerade')
@@ -270,33 +288,46 @@ for i in range(len(b2_array)-1):
 	b2_array[i]=(T2[i+1]-T2[i])/(t2[i+1]-t2[i])
 
 b1=avg_and_sem(b1_array)
+b1=unp.uarray(b1[0],b1[1])
 b2=avg_and_sem(b2_array)
+b2=unp.uarray(b2[0],b2[1])
+
+print('b1 =', b1)
+print('b2 =', b2)
+
 Tmax=-12.5+273.15
 c=(const.k*Tmax**2)
 a=c/Tmax
 
+tau_0_1_1=c/W1_1/b1*unp.exp(-W1_1/a)
+tau_0_1_2=c/W1_2/b1*unp.exp(-W1_2/a)
 
-tau_0_1_1=c/W1_1.n/b1[0]*np.exp(-W1_1.n/a)
-tau_0_1_2=c/W1_2.n/b1[0]*np.exp(-W1_2.n/a)
-
-
-tau_fehler_1_1=c**2*np.exp(-2*W1_1.n/a)/(W1_1.n)**2/b1[0]**4*b1[1]**2+c**2*np.exp(-2*W1_1.n/a)*(const.k+W1_1.n)**2/a**2/(W1_1.n)**4/b1[0]**2*W1_1.s**2
-tau_fehler_1_1=np.sqrt(tau_fehler_1_1)
-tau_fehler_1_2=c**2*np.exp(-2*W1_2.n/a)/(W1_2.n)**2/b1[0]**4*b1[1]**2+c**2*np.exp(-2*W1_2.n/a)*(const.k+W1_2.n)**2/a**2/(W1_2.n)**4/b1[0]**2*W1_2.s**2
-tau_fehler_1_2=np.sqrt(tau_fehler_1_2)
+#tau_fehler_1_1=c**2*np.exp(-2*W1_1.n/a)/(W1_1.n)**2/b1[0]**4*b1[1]**2+c**2*np.exp(-2*W1_1.n/a)*(const.k+W1_1.n)**2/a**2/(W1_1.n)**4/b1[0]**2*W1_1.s**2
+#tau_fehler_1_1=np.sqrt(tau_fehler_1_1)
+#tau_fehler_1_2=c**2*np.exp(-2*W1_2.n/a)/(W1_2.n)**2/b1[0]**4*b1[1]**2+c**2*np.exp(-2*W1_2.n/a)*(const.k+W1_2.n)**2/a**2/(W1_2.n)**4/b1[0]**2*W1_2.s**2
+#tau_fehler_1_2=np.sqrt(tau_fehler_1_2)
 
 
 Tmax=-13.4+273.15
-tau_0_2_1=c/W2_1.n/b2[0]*np.exp(-W2_1.n/a)
-tau_0_2_2=c/W2_2.n/b2[0]*np.exp(-W2_2.n/a)
+c=(const.k*Tmax**2)
+a=c/Tmax
 
-tau_fehler_2_1=c**2*np.exp(-2*W2_1.n/a)/(W2_1.n)**2/b2[0]**4*b1[1]**2+c**2*np.exp(-2*W2_1.n/a)*(const.k+W2_1.n)**2/a**2/(W2_1.n)**4/b2[0]**2*W2_1.s**2
-tau_fehler_2_1=np.sqrt(tau_fehler_2_1)
-tau_fehler_2_2=c**2*np.exp(-2*W2_2.n/a)/(W2_2.n)**2/b2[0]**4*b1[1]**2+c**2*np.exp(-2*W2_2.n/a)*(const.k+W2_2.n)**2/a**2/(W2_2.n)**4/b2[0]**2*W2_2.s**2
-tau_fehler_2_2=np.sqrt(tau_fehler_2_2)
+tau_0_2_1=c/W2_1/b2*unp.exp(-W2_1/a)
+tau_0_2_2=c/W2_2/b2*unp.exp(-W2_2/a)
+
+#tau_fehler_2_1=c**2*np.exp(-2*W2_1.n/a)/(W2_1.n)**2/b2[0]**4*b1[1]**2+c**2*np.exp(-2*W2_1.n/a)*(const.k+W2_1.n)**2/a**2/(W2_1.n)**4/b2[0]**2*W2_1.s**2
+#tau_fehler_2_1=np.sqrt(tau_fehler_2_1)
+#tau_fehler_2_2=c**2*np.exp(-2*W2_2.n/a)/(W2_2.n)**2/b2[0]**4*b1[1]**2+c**2*np.exp(-2*W2_2.n/a)*(const.k+W2_2.n)**2/a**2/(W2_2.n)**4/b2[0]**2*W2_2.s**2
+#tau_fehler_2_2=np.sqrt(tau_fehler_2_2)
 
 
-print(tau_0_1_1,'+-', tau_fehler_1_1)
-print(tau_0_1_2,'+-', tau_fehler_1_2)
-print(tau_0_2_1,'+-', tau_fehler_2_1)
-print(tau_0_2_2,'+-', tau_fehler_2_2)
+#print(tau_0_1_1,'+-', tau_fehler_1_1)
+#print(tau_0_1_2,'+-', tau_fehler_1_2)
+#print(tau_0_2_1,'+-', tau_fehler_2_1)
+#print(tau_0_2_2,'+-', tau_fehler_2_2)
+
+print('tau:')
+print('1_1:', tau_0_1_1)
+print('1_2:', tau_0_1_2)
+print('2_1:', tau_0_2_1)
+print('2_2:', tau_0_2_2)
