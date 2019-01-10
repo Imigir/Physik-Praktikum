@@ -3,7 +3,7 @@
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
-\subsection{Bestimmung der Aktivierungsenergie $W$ und der charakteristischen Relaxatioszeit $\tau_.0$ bei einer Heizrate von $b=\SI{2}{\kelvin\per\minute}$}
+\subsection{Bestimmung der Aktivierungsenergie $W$ bei einer Heizrate von ca. $b=\SI{2}{\kelvin\per\minute}$}
 
 Die erhobenen Messwerte des Polarisationsstroms werden mittels einer Regression der Form
 \begin{equation}
@@ -16,7 +16,7 @@ a_1&=\SI{6,02(19)e-2}{\pico\ampere}\\
 b_1&=\SI{252,0(16)}{\kelvin}\text{.}\\
 \end{align*}
 In Abbildung \ref{fig:bereinigt1} sind die bereinigten Messwerte aufgetragen und in Tabelle \ref{tab:data1} gemeinsam mit den Rohdaten zu sehen.
-Für kleine Temperaturen $T$ wird in Abbildung \ref{fig:W1_1} nach Gleichung \eqref{eq:ln1} das Logarithmierte des Polarisationsstrom $i$ gegen das Inverse der Temperatur aufgetragen. Die logarithmischen Werte sind ebenfalls in Tabelle \ref{tab:data1} eingetragen.
+Für kleine Temperaturen $T$ wird in Abbildung \ref{fig:W1_1} nach Gleichung \eqref{eq:ln1} das Logarithmierte des Polarisationsstrom $i$ gegen das Inverse der Temperatur aufgetragen. Die logarithmischen Werte sind in Tabelle \ref{tab:dataW1_1} eingetragen.
 Die lineare Regression
 \begin{equation}
 \ln\left(\frac{i(T)}{i_.0}\right)=\alpha T^{-1}+\beta \label{eq:reg2}
@@ -39,7 +39,7 @@ durchgeführt. Dabei ist $T^*=\SI{}{}$. Es ergeben sich die Parameter:
 m_1&=\SI{8,90(21)e3}{\kelvin},\\
 n_1&=\num{-31,6(8)}\text{.}
 \end{align*}
-Der Graph ist in Abbildung \ref{fig:W1_2} zu sehen und die zugehörigen Werte in Tabelle \ref{tab:data1}.
+Der Graph ist in Abbildung \ref{fig:W1_2} zu sehen und die zugehörigen Werte in Tabelle \ref{tab:dataW1_2}.
 Daraus ergibt sich $W$ zu:
 \[
 W_{1,2} = m_1 k_.B =\SI{1,23(3)e-19}{\joule}=\SI{0.767(17)}{\electronvolt}\text{.}
@@ -75,12 +75,12 @@ W_{1,2} = m_1 k_.B =\SI{1,23(3)e-19}{\joule}=\SI{0.767(17)}{\electronvolt}\text{
 
 %\begin{table}
 %	\centering
-%	\caption{Die bereinigten, als auch die nicht bereinigten Messdaten, sowie die logarithmischen Werte gemäß Formel \eqref{eq:} und \eqref{eq:}.}
+%	\caption{Die bereinigten, als auch die nicht bereinigten Messdaten.}
 %	\input{content/tables/data1.tex}
 %	\label{tab:data1}
 %\end{table}
 
-\subsection{Bestimmung der Aktivierungsenergie $W$ und der charakteristischen Relaxatioszeit $\tau_.0$ bei einer Heizrate von $b=\SI{1,4}{\kelvin\per\minute}$}
+\subsection{Bestimmung der Aktivierungsenergie $W$ bei einer Heizrate von ca. $b=\SI{1,4}{\kelvin\per\minute}$}
 
 Die erhobenen Messwerte des Polarisationsstroms werden mittels einer Regression der Form \eqref{eq:reg1} bereinigt. In Abbildung \ref{fig:plot2exp} sind die Rohdaten, die für den Fit verwendeten Werte, sowie der Fit selbst zu sehen.\\
 Für die Parameter ergibt sich:
@@ -89,7 +89,7 @@ a_2&=\SI{6,24(14)e-2}{\pico\ampere}\\
 b_2&=\SI{255,5(11)}{\kelvin}\text{.}\\
 \end{align*}
 In Abbildung \ref{fig:bereinigt2} sind die bereinigten Messwerte aufgetragen und in Tabelle \ref{tab:data2} gemeinsam mit den Rohdaten zu sehen.
-Für kleine Temperaturen $T$ wird in Abbildung \ref{fig:W2_1} nach Gleichung \eqref{eq:ln1} das Logarithmierte des Polarisationsstrom $i$ gegen das Inverse der Temperatur aufgetragen. Die logarithmischen Werte sind ebenfalls in Tabelle \ref{tab:data2} eingetragen.
+Für kleine Temperaturen $T$ wird in Abbildung \ref{fig:W2_1} nach Gleichung \eqref{eq:ln1} das Logarithmierte des Polarisationsstrom $i$ gegen das Inverse der Temperatur aufgetragen. Die logarithmischen Werte sind in Tabelle \ref{tab:dataW2_1} eingetragen.
 Die lineare Regression der Form \eqref{eq:reg2} liefert die Parameter:
 \begin{align*}
 \alpha_2&=\SI{-8,29(10)e3}{\kelvin},\\
@@ -104,7 +104,7 @@ Die Aktivierungsenergie lässt sich ebenfalls über den gesamten Kurvenverlauf b
 m_2&=\SI{8,96(11)e3}{\kelvin},\\
 n_2&=\SI{-32,4(5)}{}\text{.}
 \end{align*}
-Der Graph ist in Abbildung \ref{fig:W2_2} zu sehen und die zugehörigen Werte in Tabelle \ref{tab:data2}.
+Der Graph ist in Abbildung \ref{fig:W2_2} zu sehen und die zugehörigen Werte in Tabelle \ref{tab:dataW2_2}.
 Daraus ergibt sich $W$ zu:
 \[
 W_{2,2} = m_2 k_.B =\SI{1,237(14)e-19}{\joule}=\SI{0.772(9)}{\electronvolt}\text{.}
@@ -140,7 +140,32 @@ W_{2,2} = m_2 k_.B =\SI{1,237(14)e-19}{\joule}=\SI{0.772(9)}{\electronvolt}\text
 
 %\begin{table}
 %	\centering
-%	\caption{Die bereinigten, als auch die nicht bereinigten Messdaten, sowie die logarithmischen Werte gemäß Formel \eqref{eq:} und \eqref{eq:}.}
+%	\caption{Die bereinigten, als auch die nicht bereinigten Messdaten.}
 %	\input{content/tables/data2.tex}
 %	\label{tab:data2}
 %\end{table}
+
+\subsection{Bestimmung der charakteristischen Relaxatioszeit $\tau_0$}
+
+Zur Bestimmung der charakteristischen Relaxationszeit $\tau_0$ werden die zuvor ermittelten Werte von $W$ mit der Formel für den Mittelwert
+\[
+\mu_W = \frac{1}{N}\sum_{i=1}^{N}W_i
+\]
+und dessen Standartabweichung
+\[
+\sigma_W = \sqrt{\frac{1}{N(N-1)}\sum_{i=1}^{N}(W_i-\mu_W)^2}
+\]
+gemittelt zu:
+\[
+\bar{W} = \mu_W \pm \sigma_W = \SI{1,200(21)e-19}{\joule} = \SI{0.749(13)}{\electronvolt}\text{.}
+\]
+Zudem werden die Heizraten mithilfe der Werte aus den Tabellen \ref{tab:data1} und \ref{tab:data2} gemittelt zu:
+\begin{align*}
+b_1 &= \SI{1,95(7)}{\kelvin\per\minute},\\
+b_2 &= \SI{1,39(3)}{\kelvin\per\minute}\text{.} 
+\end{align*}
+Damit ergeben sich mit Formel \eqref{eq:} für die $\tau_0$:
+\begin{align*}
+\tau_{0,1} &= \SI{1,3(8)e-14}{},\\
+\tau_{0,2} &= \SI{1,6(10)e-14}{}\text{.}
+\end{align*}
