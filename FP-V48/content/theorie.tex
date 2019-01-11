@@ -1,13 +1,14 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-Werden in einen Ionenkristall, der aus einfach geladenen Ionen besteht, ein zweifach geladenes Kation eingebaut, so entsteht an einem Gitterplatz, der normalerweise von einem einfach geladenen Kation besetzt wäre eine Leerstelle.
-Zwischen dem zwischen dieser und dem zweiwertigen Kation bildet sich ein Dipolmoment $\vec{p}$ aus, deren Richtung zunächst willkürlich verteilt ist. Da sich beide Enden auf Gitterplätzen befinden müssen, sind nur diskrete Änderung der Dipolrichtung möglich. Bei Temperaturen $T<\SI{500}{\kelvin}$ können sich nur die Leerstellen auf den Gitterplätzen bewegen, wenn sie die nötige Aktivierungsenergie $W$ besitzen. Nach der Stefan-Boltzmann-Verteilung kann, mit der Boltzmannkonstante $k_.B$, ein Anteil von $\mathrm{e}^{\frac{W}{k_.BT}}$ der Leerstellen bereits durch thermische Bewegung den Gitterplatz wechseln.
+Wird in einen Ionenkristall, der aus einfach geladenen Ionen besteht, ein zweifach geladenes Kation eingebaut, so entsteht an einem Gitterplatz, der normalerweise von einem einfach geladenen Kation besetzt wäre eine Leerstelle.
+Zwischen dieser und dem zweiwertigen Kation bildet sich ein Dipolmoment $\vec{p}$ aus, dessen Richtung zunächst willkürlich verteilt ist. Da sich beide Enden auf Gitterplätzen befinden müssen, sind nur diskrete Änderung der Dipolrichtung möglich. Bei Temperaturen $T<\SI{500}{\kelvin}$ können sich nur die Leerstellen auf den Gitterplätzen bewegen, wenn sie die nötige Aktivierungsenergie $W$ besitzen. Nach der Stefan-Boltzmann-Verteilung kann, mit der Boltzmannkonstante $k_.B$, ein Anteil von $\mathrm{e}^{\frac{W}{k_.BT}}$ der Leerstellen bereits durch thermische Bewegung den Gitterplatz wechseln.
 Die mittlere Zeit zwischen zwei Dipolrichtungsänderung wird Relaxationszeit genannt und ist gegeben durch
 \begin{equation}
-\tau=\tau_.0\mathrm{e}^{\frac{W}{k_.BT}}\text{.}\label{eq:tau}
+\tau=\tau_.0\mathrm{e}^{\frac{W}{k_.BT}}\label{eq:tau}
 \end{equation}
-Wird an den Kristall ein elektrisches Feld $E$ angeschlossen, richten sich gestört durch die bereits vorhandene thermische Energie ein Teil $y$ der Dipole entlang der Feldrichtung aus. Für hohe Temperaturen, also wenn mit dem Betrag des Dipolmoments $p$ und der Boltzmann-Konstante $k_.B$ gilt
+mit der charakteristischen Relaxationszeit $\tau_.0$.
+Wird an den Kristall ein elektrisches Feld $E$ angeschlossen, richten sich, gestört durch die bereits vorhandene thermische Energie, ein Teil $y$ der Dipole entlang der Feldrichtung aus. Für hohe Temperaturen, also wenn mit dem Betrag des Dipolmoments $p$ und der Boltzmann-Konstante $k_.B$ gilt
 \[
 pE\ll k_.BT,
 \]
@@ -16,7 +17,7 @@ kann dieser Teil näherungsweise beschrieben werden als
 y=\frac{pE}{3k_.BT}\text{.}\label{eq:y}
 \end{equation}
 Durch schnelles Abkühlen auf eine Temperatur $T_.0$ steigt nach \eqref{eq:tau} die Relaxationszeit stark an, sodass $y=y(T_.p)$ mit der Polarisationstemperatur $T_.p$ als konstant angenommen werden kann.
-Durch Erhitzen mit einer konstanten Heizrate $b$ steigt die thermische Energie, sodass die Dipole wieder eine statistische Richtungsverteilung annehmen. Der resultierende Depolarisationsstrom $i(T)$ folgt gemäß Abbildung \ref{fig:i} einer Gaußverteilung, jedoch lässt wird diese in der Realität bei höheren Temperaturen von einer weiteren Gaußverteilung überlagert.
+Durch Erhitzen mit einer konstanten Heizrate $b$ steigt die thermische Energie, sodass die Dipole wieder eine statistische Richtungsverteilung annehmen. Der resultierende Depolarisationsstrom $i(T)$ folgt Abbildung \ref{fig:i}, jedoch wird er in der Realität bei höheren Temperaturen von einem weiteren Maximum überlagert.
 Es gilt mit der Rate der pro Volumen- und Zeiteinheit relaxierenden Dipole $\frac{\mathrm{d}N}{\mathrm{d}t}$ und dem Probenquerschnitt $F$ für den Strom
 \begin{equation}
 i(T)=F y(T_.p)p\frac{\mathrm{d}N}{\mathrm{d}t}\text{.}\label{eq:i1}
@@ -51,9 +52,9 @@ i(t)=F\frac{\mathrm{d}P}{\mathrm{d}t}
 \]
 bewirkt. Da sich für $t\rightarrow\inf$ alle Dipolrichtungen wieder statistisch verteilt haben und somit gilt $P(\inf)=0$, liefert eine Integration
 \[
-\int_{t(T)}^{\infty}i(t')\mathrm{d}t'=-F P(t),
+\int_{t(T)}^{\infty}i(t')\mathrm{d}t'=-F P(t)\text{.}
 \]
-also eingesetzt in \eqref{eq:DGL}, unter Berücksichtigung, dass $T$ eine lineare Funktion von $t$ mit Steigung $b$ ist,mit einer hinreichend großen Temperatur $T^*$, bei der $i$ bereits auf $i\approx\SI{0}{\pico\ampere}$ abgefallen ist und mit Gleichung \eqref{eq:tau}
+Eingesetzt in \eqref{eq:DGL}, unter Berücksichtigung, dass $T$ eine lineare Funktion von $t$ mit Steigung $b$ ist, mit einer hinreichend großen Temperatur $T^*$, bei der $i$ bereits auf $i\approx\SI{0}{\pico\ampere}$ abgefallen ist und mit Gleichung \eqref{eq:tau}
 \begin{equation}
 \mathrm{e}^{\frac{W}{k_.BT}}=\frac{\int_{T}^{T^*}i(T')\mathrm{d}T'}{b\tau_.0 i(T)}=\frac{I(T)}{b\tau_.0 i(T)}\text{.}\label{eq:i3}
 \end{equation}
@@ -61,9 +62,15 @@ Logarithmieren liefert
 \begin{equation}
 \ln\left(\frac{I(T)}{i(T)\cdot const}\right)=\frac{W}{k_.B}\cdot\frac{1}{T}\text{.}\label{eq:ln2}
 \end{equation}
-Trägt man die linke Seite den Gleichungen \eqref{eq:ln1} und \eqref{eq:ln2} gegen $\frac{1}{T}$ auf, lässt sich $W$ aus der Steigung der Gerade bestimmen.
-Wenn $\frac{\mathrm{d}}{\mathrm{d}T}\left(\eqref{eq:i2}\right)=0$ ist, ist bei $T=T_.{max}$ das Maximum des Polarisationsstroms.
+Trägt man die linke Seite der Gleichungen \eqref{eq:ln1} und \eqref{eq:ln2} gegen $\frac{1}{T}$ auf, lässt sich $W$ aus der Steigung der entstehenden Gerade bestimmen.
+Wenn die Ableitung der Gleichung \eqref{eq:i2} nach der Temperatur $=0$ ist, ist bei $T=T_.{max}$ das Maximum des Polarisationsstroms.
 Das liefert eine Beziehung zur Berechnung von $\tau_.0$:
 \begin{equation}
 \tau_.0=\frac{k_.BT^2_.{max}}{W b}e^{-\frac{W}{k_.BT_.{max}}}\text{.}\label{eq:tau0}
 \end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Verlauf.jpg}
+	\caption{Verlauf des Deploarisationsstroms $i(T)$ \cite{V48}.}
+	\label{fig:i}
+\end{figure}
