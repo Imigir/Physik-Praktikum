@@ -73,7 +73,7 @@ T=T+273.15
 print('Plot1')
 Plot([T,I],'Plot1')
 
-xplot=np.linspace(-50,50,1000)
+xplot=np.linspace(-60,60,1000)
 
 Te, Ie =np.genfromtxt('scripts/datafit1_2.txt',unpack=True)
 Te=Te+273.15
@@ -98,7 +98,8 @@ print(paramsU)
 I_roh=I
 for i in range(len(I)):
 	I[i]=I[i]-expFunktion(T[i], *params)
-makeTable([t,T,I_roh,I], r'{'+r'$t_\text{1}/(\si{\minute})$'+r'} & {'+r'$T_\text{1}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,1}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,1}/(\si{\pico\ampere})$'+r'}','tabData1',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+makeTable([t[:26],T[:26],I_roh[:26],I[:26]], r'{'+r'$t_\text{1}/(\si{\minute})$'+r'} & {'+r'$T_\text{1}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,1}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,1}/(\si{\pico\ampere})$'+r'}','tabData1_1',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+makeTable([t[26:],T[26:],I_roh[26:],I[26:]], r'{'+r'$t_\text{1}/(\si{\minute})$'+r'} & {'+r'$T_\text{1}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,1}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,1}/(\si{\pico\ampere})$'+r'}','tabData1_2',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
 makeTable([1/T[:30],np.log(I[:30])], r'{'+r'$T^{-1}_\text{1}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{i_\text{1}}{i_\text{0}}}$'+r'}','tabLog11',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
 
 #W: 1.Möglichkeit
@@ -117,7 +118,7 @@ plt.plot(x[4:15],np.log(I[4:15]),'r.',label='gefittete Messwerte')
 plt.plot(1/(xplot+273.15), linear(1/(xplot+273.15),*params4),'b-',label='Ausgleichsgerade')
 plt.xlabel(r'$T^{-1}/\si{\kelvin^{-1}}$')
 plt.ylabel(r'$\ln(i/\si{\pico\ampere})$')
-plt.xlim(0.0038,0.0046)
+plt.xlim(0.00375,0.00455)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/W1_1.pdf')
@@ -168,8 +169,8 @@ plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params3),'b-', label='Ausglei
 plt.plot(x[0:31], np.log(Fläche1[0:31]/I[0:31]), 'y.', label='Wertepaare')
 plt.plot(x[4:23], np.log(Fläche1[4:23]/I[4:23]), 'r.', label='gefittete Wertepaare')
 plt.xlabel(r'$T^{-1}/\si{\kelvin}$')
-plt.ylabel(r'$\frac{I}{i T_\text{max}}$')
-plt.xlim(0.0034,0.0046)
+plt.ylabel(r'$\ln\left(\frac{I}{i\cdot \si{\kelvin}}\right)$')
+plt.xlim(0.00345,0.00455)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/W1_2.pdf')
@@ -208,7 +209,8 @@ print(paramsU)
 I_roh2=I2
 for i in range(len(I2)):
 	I2[i]=I2[i]-expFunktion(T2[i], *params2_1)
-makeTable([t2,T2,I_roh2,I2], r'{'+r'$t_\text{2}/(\si{\minute})$'+r'} & {'+r'$T_\text{2}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,2}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,2}/(\si{\pico\ampere})$'+r'}','tabData2',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+makeTable([t2[:31],T2[:31],I_roh2[:31],I2[:31]], r'{'+r'$t_\text{2}/(\si{\minute})$'+r'} & {'+r'$T_\text{2}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,2}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,2}/(\si{\pico\ampere})$'+r'}','tabData2_1',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
+makeTable([t2[31:],T2[31:],I_roh2[31:],I2[31:]], r'{'+r'$t_\text{2}/(\si{\minute})$'+r'} & {'+r'$T_\text{2}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,2}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,2}/(\si{\pico\ampere})$'+r'}','tabData2_2',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
 makeTable([1/T2[:30],np.log(I2[:30])], r'{'+r'$T^{-1}_\text{2}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{i_\text{2}}{i_\text{0}}}$'+r'}','tabLog21',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
 
 
@@ -233,7 +235,7 @@ plt.plot(x2[:30],np.log(I2[:30]), 'y.', label='Wertepaare')
 plt.plot(x2[0:15],np.log(I2[0:15]), 'r.', label='gefittete Wertepaare')
 plt.xlabel(r'$T^{-1}/\si{\kelvin^{-1}}$')
 plt.ylabel(r'$\ln(i/\si{\pico\ampere})$')
-plt.xlim(0.0038,0.0044)
+plt.xlim(0.00375,0.0044)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('content/images/W2_1.pdf')
@@ -264,7 +266,7 @@ plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params2_3),'b-', label='Ausgl
 plt.plot(1/T2[0:34], np.log(Fläche2[0:34]/I2[0:34]), 'y.', label='Wertepaare')
 plt.plot(1/T2[0:26], np.log(Fläche2[0:26]/I2[0:26]), 'r.', label='gefittete Wertepaare')
 plt.xlabel(r'$T^{-1}/\si{\kelvin}$')
-plt.ylabel(r'$\frac{I}{i T_\text{max}}$')
+plt.ylabel(r'$\ln\left(\frac{I}{i\cdot \si{\kelvin}}\right)$')
 plt.xlim(0.0036,0.0044)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
