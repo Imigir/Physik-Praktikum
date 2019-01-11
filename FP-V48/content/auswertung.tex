@@ -7,7 +7,7 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 Die erhobenen Messwerte des Polarisationsstroms werden mittels einer Regression der Form
 \begin{equation}
-I(T)=e^{a(x-b)} \label{eq:reg1}
+I(T)=.e^{a(x-b)} \label{eq:reg1}
 \end{equation}
 um den zweiten Peak bereinigt. In Abbildung \ref{fig:plot1exp} sind die Rohdaten, die für den Fit verwendeten Werte, sowie der Fit selbst zu sehen.
 Für die Parameter ergibt sich:
@@ -34,7 +34,7 @@ Die Aktivierungsenergie lässt sich ebenfalls über den gesamten Kurvenverlauf b
 \begin{equation}
 \ln\left(\frac{\int_T^{T^*} i(T').dT'}{i(T)}\right) = mT^{-1}+n \label{eq:reg3}
 \end{equation}
-durchgeführt. Dabei ist $T^*=\SI{285,3}{\kelvin}$. Das Integral wird mit der Trapez-Regel approximiert. Es ergeben sich die Parameter:
+durchgeführt. Dabei ist $T^*=\SI{285,3}{\kelvin}$. Das Integral wird mit der summierten Trapez-Regel approximiert. Es ergeben sich die Parameter:
 \begin{align*}
 m_1&=\SI{8,90(21)e3}{\kelvin},\\
 n_1&=\num{-31,6(8)}\text{.}
@@ -213,14 +213,12 @@ Zudem werden die Heizraten mithilfe der Werte aus den Tabellen \ref{tab:data1} u
 b_1 &= \SI{1,95(7)}{\kelvin\per\minute},\\
 b_2 &= \SI{1,39(3)}{\kelvin\per\minute}\text{.} 
 \end{align*}
-Damit ergeben sich mit Formel \eqref{eq:tau0} und mit $T_.{max,1}=\SI{260,65}{\kelvin}$ und $T_.{max,2}=\SI{259,75}{\kelvin}$ für die $\tau_0$:
+Damit ergeben sich mit Formel \eqref{eq:tau0} und mit $T_.{max,1}=\SI{260,65}{\kelvin}$ und $T_.{max,2}=\SI{259,75}{\kelvin}$, welche den Messdaten entnommen werden, für die $\tau_0$:
 \begin{align*}
 \tau_{0,1} &= \SI{0,8(5)e-12}{\second},\\
 \tau_{0,2} &= \SI{1,0(6)e-12}{\second}\text{.}
 \end{align*}
 Der Fehler $\sigma_.{\tau}$ berechnet sich dabei nach der Gaußschen Fehlerfortpflanzung über
 \[
-\sigma_.{\tau}=\sqrt{\frac{(k_.BT^2_.{max}})^2{W^2b^4}\e^{-\frac{2 W}{k_.BT_.{max}}}\cdot\sigma^2_.b+\frac{T^2_.{max}(k_.BT_.{max}+W)^2}{W^4b^2}\e^{-\frac{2 W}{k_.BT_.{max}}}\cdot\sigma^2_.b}
+\sigma_.{\tau}=\sqrt{\frac{(k_.BT^2_.{max})^2}{W^2b^4}.e^{-\frac{2 W}{k_.BT_.{max}}}\cdot\sigma^2_.b+\frac{T^2_.{max}(k_.BT_.{max}+W)^2}{W^4b^2}.e^{-\frac{2 W}{k_.BT_.{max}}}\cdot\sigma^2_.W}\text{.}
 \]
-
-%☻♦
