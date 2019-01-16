@@ -96,7 +96,8 @@ plt.savefig('content/images/plot1exp.pdf')
 
 paramsU=uncertainties.correlated_values(params, covar)
 print(paramsU)
-I_roh=I
+t_roh,T_roh,I_roh=np.genfromtxt('scripts/data1.txt',unpack=True)
+
 for i in range(len(I)):
 	I[i]=I[i]-expFunktion(T[i], *params)
 makeTable([t[:26],T[:26],I_roh[:26],I[:26]], r'{'+r'$t_\text{1}/(\si{\minute})$'+r'} & {'+r'$T_\text{1}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,1}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,1}/(\si{\pico\ampere})$'+r'}','tabData1_1',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
@@ -118,7 +119,7 @@ plt.plot(x[:30],np.log(I[:30]),'y.',label='Messwerte')
 plt.plot(x[4:15],np.log(I[4:15]),'r.',label='gefittete Messwerte')
 plt.plot(1/(xplot+273.15), linear(1/(xplot+273.15),*params4),'b-',label='Ausgleichsgerade')
 plt.xlabel(r'$T^{-1}/\si{\kelvin^{-1}}$')
-plt.ylabel(r'$\ln(i/\si{\pico\ampere})$')
+plt.ylabel(r'$\ln(i/i_\text{0})$')
 plt.xlim(0.0037,0.00455)
 plt.ylim(-4,8)
 plt.legend(loc='best')
@@ -155,7 +156,7 @@ Fläche1=np.empty(32)
 for i in range(0,32):
 	Fläche1[i]=np.trapz(I[i:32],T[i:32])
 
-makeTable([1/T[:31],np.log(Fläche1[:31]/I[:31])], r'{'+r'$T^{-1}_\text{1}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{I_\text{1}}{i_\text{1}\cdot\si{\kelvin}}}$'+r'}','tabLog12',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
+makeTable([1/T[:31],np.log(Fläche1[:31]/I[:31])], r'{'+r'$T^{-1}_\text{1}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{I_\text{1}}{i_\text{1}\cdot T_\text{0}}}$'+r'}','tabLog12',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
 
 print('Fläche des 1.Plots: ',Fläche1[0],'pA K')
 
@@ -170,8 +171,8 @@ plt.clf()
 plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params3),'b-', label='Ausgleichsgerade')
 plt.plot(x[0:31], np.log(Fläche1[0:31]/I[0:31]), 'y.', label='Wertepaare')
 plt.plot(x[4:23], np.log(Fläche1[4:23]/I[4:23]), 'r.', label='gefittete Wertepaare')
-plt.xlabel(r'$T^{-1}/\si{\kelvin}$')
-plt.ylabel(r'$\ln\left(\frac{I}{i\cdot \si{\kelvin}}\right)$')
+plt.xlabel(r'$T^{-1}/\si{\kelvin^{-1}}$')
+plt.ylabel(r'$\ln\left(\frac{I}{i\cdot T_\text{0}}\right)$')
 plt.xlim(0.00345,0.00455)
 plt.ylim(-4,10)
 plt.legend(loc='best')
@@ -211,7 +212,7 @@ plt.savefig('content/images/plot2exp.pdf')
 
 paramsU=uncertainties.correlated_values(params2_1, covar2_1)
 print(paramsU)
-I_roh2=I2
+t_roh2,T_roh2,I_roh2=np.genfromtxt('scripts/data2.txt',unpack=True)
 for i in range(len(I2)):
 	I2[i]=I2[i]-expFunktion(T2[i], *params2_1)
 makeTable([t2[:31],T2[:31],I_roh2[:31],I2[:31]], r'{'+r'$t_\text{2}/(\si{\minute})$'+r'} & {'+r'$T_\text{2}/(\si{\kelvin})$'+r'} & {'+r'$i_\text{roh,2}/(\si{\pico\ampere})$'+r'} & {'+r'$i_\text{ber,2}/(\si{\pico\ampere})$'+r'}','tabData2_1',['S[table-format=2.0]','S[table-format=3.1]','S[table-format=2.1]','S[table-format=2.1]'],["%2.0f","%3.1f","%2.1f","%2.1f"])
@@ -255,7 +256,7 @@ Fläche2=np.empty(35)
 for i in range(0,35):
 	Fläche2[i]=np.trapz(I2[i:35],T2[i:35])
 
-makeTable([1/T2[:30],np.log(Fläche2[:34]/I2[:34])], r'{'+r'$T^{-1}_\text{2}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{I_\text{2}}{i_\text{2}\cdot\si{\kelvin}}}$'+r'}','tabLog22',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
+makeTable([1/T2[:30],np.log(Fläche2[:34]/I2[:34])], r'{'+r'$T^{-1}_\text{2}/(\si{\kelvin^{-1}})$'+r'} & {'+r'$\ln{\frac{I_\text{2}}{i_\text{2}\cdot T_\text{0}}}$'+r'}','tabLog22',['S[table-format=1.4]','S[table-format=1.4]'],["%1.4f","%1.4f"])
 
 
 print('Fläche des 2.Plots: ',Fläche2[0],'pA K')
@@ -271,8 +272,8 @@ plt.clf()
 plt.plot(1/(xplot+273.15),linear(1/(xplot+273.15),*params2_3),'b-', label='Ausgleichsgerade')
 plt.plot(1/T2[0:34], np.log(Fläche2[0:34]/I2[0:34]), 'y.', label='Wertepaare')
 plt.plot(1/T2[0:26], np.log(Fläche2[0:26]/I2[0:26]), 'r.', label='gefittete Wertepaare')
-plt.xlabel(r'$T^{-1}/\si{\kelvin}$')
-plt.ylabel(r'$\ln\left(\frac{I}{i\cdot \si{\kelvin}}\right)$')
+plt.xlabel(r'$T^{-1}/\si{\kelvin^{-1}}$')
+plt.ylabel(r'$\ln\left(\frac{I}{i\cdot T_\text{0}}\right)$')
 plt.xlim(0.00355,0.0044)
 plt.ylim(-4,10)
 plt.legend(loc='best')

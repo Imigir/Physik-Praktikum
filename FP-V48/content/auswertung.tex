@@ -4,15 +4,16 @@
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
 \subsection{Bestimmung der Aktivierungsenergie $W$ bei einer Heizrate von ca. $b=\SI{2}{\kelvin\per\minute}$}
+\label{sec:1}
 
 Die erhobenen Messwerte des Polarisationsstroms werden mittels einer Regression der Form
 \begin{equation}
-I(T)=.e^{a(x-b)} \label{eq:reg1}
+i(T)=i_.0 .e^{a(x-b)}, \label{eq:reg1}
 \end{equation}
-um den zweiten Peak bereinigt. In Abbildung \ref{fig:plot1exp} sind die Rohdaten, die für den Fit verwendeten Werte, sowie der Fit selbst zu sehen.
+mit $i_.0=\SI{1}{\pico\ampere}$, um den zweiten Peak bereinigt. In Abbildung \ref{fig:plot1exp} sind die Rohdaten, die für den Fit verwendeten Werte, sowie der Fit selbst zu sehen.
 Für die Parameter ergibt sich:
 \begin{align*}
-a_1&=\SI{6,02(19)e-2}{\pico\ampere}\\
+a_1&=\SI{6,02(19)e-2}{\kelvin^{-1}}\\
 b_1&=\SI{252,0(16)}{\kelvin}\text{.}
 \end{align*}
 In Abbildung \ref{fig:bereinigt1} sind die bereinigten Messwerte aufgetragen und in Tabelle \ref{tab:data1} gemeinsam mit den Rohdaten zu sehen.
@@ -30,11 +31,11 @@ Daraus lässt sich die Aktivierungsenergie $W$ berechnen zu:
 \[
 W_{1,1} = -\alpha_1 k_.B =\SI{1,19(3)e-19}{\joule}=\SI{0.744(19)}{\electronvolt}\text{.}
 \]
-Die Aktivierungsenergie lässt sich ebenfalls über den gesamten Kurvenverlauf bestimmen. Dazu wird nach Formel \eqref{eq:ln2} eine Ausgleichsrechnung der Form 
+Die Aktivierungsenergie lässt sich ebenfalls über den gesamten Kurvenverlauf bestimmen. Dazu wird nach Formel \eqref{eq:ln2} mit $T_.0=\SI{1}{\kelvin}$ eine Ausgleichsrechnung der Form 
 \begin{equation}
-\ln\left(\frac{\int_T^{T^*} i(T').dT'}{i(T)}\right) = mT^{-1}+n \label{eq:reg3}
+\ln\left(\frac{\int_T^{T^*} i(T').dT'}{i(T) T_.0}\right) = mT^{-1}+n \label{eq:reg3}
 \end{equation}
-durchgeführt. Dabei ist $T^*=\SI{285,3}{\kelvin}$. Das Integral wird mit der summierten Trapez-Regel approximiert. Es ergeben sich die Parameter:
+durchgeführt. Dabei ist $T^*=\SI{285,3}{\kelvin}$. Für höhere Temperaturen ist der Fit nicht mehr passend, weshalb sich unphysikalische negative Ströme ergeben, die hier vernachlässigt werden. Das Integral wird mit der summierten Trapez-Regel approximiert. Es ergeben sich die Parameter:
 \begin{align*}
 m_1&=\SI{8,90(21)e3}{\kelvin},\\
 n_1&=\num{-31,6(8)}\text{.}
@@ -110,7 +111,7 @@ W_{1,2} = m_1 k_.B =\SI{1,23(3)e-19}{\joule}=\SI{0.767(17)}{\electronvolt}\text{
 Die erhobenen Messwerte des Polarisationsstroms werden mittels einer Regression der Form \eqref{eq:reg1} bereinigt. In Abbildung \ref{fig:plot2exp} sind die Rohdaten, die für den Fit verwendeten Werte, sowie der Fit selbst zu sehen.
 Für die Parameter ergibt sich:
 \begin{align*}
-a_2&=\SI{6,24(14)e-2}{\pico\ampere}\\
+a_2&=\SI{6,24(14)e-2}{\kelvin^{-1}}\\
 b_2&=\SI{255,5(11)}{\kelvin}\text{.}
 \end{align*}
 In Abbildung \ref{fig:bereinigt2} sind die bereinigten Messwerte aufgetragen und in Tabelle \ref{tab:data2} gemeinsam mit den Rohdaten zu sehen.
@@ -124,7 +125,7 @@ Daraus lässt sich die Aktivierungsenergie $W$ berechnen zu:
 \[
 W_{2,1} = -\alpha_2 k_.B =\SI{1,145(15)e-19}{\joule}=\SI{0.714(8)}{\electronvolt}\text{.}
 \]
-Die Aktivierungsenergie lässt sich ebenfalls über den gesamten Kurvenverlauf bestimmen. Dazu wird nach Formel \eqref{eq:ln2} eine Ausgleichsrechnung der Form \eqref{eq:reg3} durchgeführt. Dabei ist $T^*=\SI{278,2}{\kelvin}$. Es ergeben sich die Parameter:
+Die Aktivierungsenergie lässt sich ebenfalls über den gesamten Kurvenverlauf bestimmen. Dazu wird nach Formel \eqref{eq:ln2} eine Ausgleichsrechnung der Form \eqref{eq:reg3} durchgeführt. Dabei ist $T^*=\SI{278,2}{\kelvin}$. Wie in Kapitel \ref{sec:1} werden höhere Temperaturen vernachlässigt. Es ergeben sich die Parameter:
 \begin{align*}
 m_2&=\SI{8,96(11)e3}{\kelvin},\\
 n_2&=\SI{-32,4(5)}{}\text{.}

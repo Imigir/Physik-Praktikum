@@ -5,14 +5,19 @@ Wird in einen Ionenkristall, der aus einfach geladenen Ionen besteht, ein zweifa
 Zwischen dieser und dem zweiwertigen Kation bildet sich ein Dipolmoment $\vec{p}$ aus, dessen Richtung zunächst willkürlich verteilt ist. Da sich beide Enden auf Gitterplätzen befinden müssen, sind nur diskrete Änderung der Dipolrichtung möglich. Bei Temperaturen $T<\SI{500}{\kelvin}$ können sich nur die Leerstellen auf den Gitterplätzen bewegen, wenn sie die nötige Aktivierungsenergie $W$ besitzen. Nach der Stefan-Boltzmann-Verteilung kann, mit der Boltzmannkonstante $k_.B$, ein Anteil von $\mathrm{e}^{\frac{W}{k_.BT}}$ der Leerstellen bereits durch thermische Bewegung den Gitterplatz wechseln.
 Die mittlere Zeit zwischen zwei Dipolrichtungsänderung wird Relaxationszeit genannt und ist gegeben durch
 \begin{equation}
-\tau=\tau_.0\mathrm{e}^{\frac{W}{k_.BT}}\label{eq:tau}
+\tau=\tau_.0\mathrm{e}^{-\frac{W}{k_.BT}}\label{eq:tau}
 \end{equation}
 mit der charakteristischen Relaxationszeit $\tau_.0$.
-Wird an den Kristall ein elektrisches Feld $E$ angeschlossen, richten sich, gestört durch die bereits vorhandene thermische Energie, ein Teil $y$ der Dipole entlang der Feldrichtung aus. Für hohe Temperaturen, also wenn mit dem Betrag des Dipolmoments $p$ und der Boltzmann-Konstante $k_.B$ gilt
+Wird an den Kristall ein elektrisches Feld $E$ angeschlossen, richten sich, gestört durch die bereits vorhandene thermische Energie, ein Teil $y$ der Dipole entlang der Feldrichtung aus. Er lässt sich beschreiben als
+\begin{equation}
+y=\coth(\frac{p E}{k_.B T})-\frac{k_.BT}{pE}\label{eq:y1},
+\end{equation}
+mit dem Betrag des Dipolmoments $p$ und der Boltzmann-Konstante $k_.B$. 
+Für hohe Temperaturen, also wenn gilt
 \[
 pE\ll k_.BT,
 \]
-kann dieser Teil näherungsweise beschrieben werden als
+kann Formel \eqref{eq:y1} näherungsweise beschrieben werden als
 \begin{equation}
 y=\frac{pE}{3k_.BT}\text{.}\label{eq:y}
 \end{equation}
@@ -22,11 +27,12 @@ Es gilt mit der Rate der pro Volumen- und Zeiteinheit relaxierenden Dipole $\fra
 \begin{equation}
 i(T)=F y(T_.p)p\frac{\mathrm{d}N}{\mathrm{d}t}\text{.}\label{eq:i1}
 \end{equation}
-Das Lösen der DGL
+Da der Prozess thermisch aktiviert ist, ist die Änderung der ausgerichteten antiproportional zur Zahl der noch vorhandenen orientierten Dipole und lässt sich somit über die DGL
 \[
 \frac{\mathrm{d}N}{\mathrm{d}t}=-\frac{N}{\tau(T)}
 \]
-liefert mit der Zahl der zu Beginn bei $T=T_.0$ orientierten Dipole $N_.p$
+beschreiben.
+Das Lösen dieser DGL liefert mit der Zahl der zu Beginn bei $T=T_.0$ orientierten Dipole $N_.p$
 \begin{equation}
 N=N_.p\mathrm{e}^{-\frac{1}{b}\int_{T_.0}^T\frac{\mathrm{d}T'}{\tau(T')}}\text{.}\label{eq:N}
 \end{equation}
