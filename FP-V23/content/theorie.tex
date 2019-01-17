@@ -13,7 +13,7 @@ Die Ausbreitung der Schallwelle lässt sich dabei über die Wellengleichung
 \[
 \frac{\partial^2 p}{\partial t^2}=\frac{1}{c^2}\Delta p
 \]
-beschreiben. Aufgrund der Longitudinalität der Welle kann jedoch angenommen werden, dass $p$ nur von einer Dimension abhängt - der hier als $x$ bezeichneten Symmetrieachse des Rohrs. Dadurch vereinfacht sich die Wellengleichung zu
+beschreiben. Auf Grund der Longitudinalität der Welle kann jedoch angenommen werden, dass $p$ nur von einer Dimension abhängt - der hier als $x$ bezeichneten Symmetrieachse des Rohrs. Dadurch vereinfacht sich die Wellengleichung zu
 \[
 \frac{\partial^2 p}{\partial t^2}=\frac{1}{c^2}\frac{\partial^2 p}{\partial x^2},
 \]
@@ -25,9 +25,42 @@ gegeben ist, mit der Winkelgeschwindigkeit $\omega=2\pi f$,dem Wellenvektor $k$ 
 \[
 \frac{\partial p}{\partial x}(0)=\frac{\partial p}{\partial x}(L)=0
 \]
-ergibt sich $\alpha=0$ und $k=\frac{m\pi}{L}$, mit $m\in\mathbb{N}$.\\\newline
-
-
+ergibt sich $\alpha=0$ und $k=\frac{m\pi}{L}$, mit $m\in\mathbb{N}$.
+Aus dem multiplizieren der Gleichung \eqref{eq:f} mit $2\pi$ ergibt sich die Dispersionsrelation
+\begin{equation}
+\omega(k)=c k
+\end{equation}
+\\
+\newline
+Das quantenmechanische Analogon zur stehenden Welle in einer Röhre ist ein Teilchen im Potentialtopf.
+Dies kann über die Schrödingergleichung mit der Wellenfunktion $\psi(x,t)$ beschrieben werden:
+\[
+i\hbar\frac{\partial\psi(r,t)}{\partial t}=-\frac{\hbar^2}{2m}\Delta\psi(r,t) + V(r)\psi(r,t)
+\]
+mit dem Potential 
+\[V(r) = \left\{
+\begin{array}{ll}
+0 & \|r\| \geq L \\
+\infty & \, \textrm{sonst} \\
+\end{array}
+\right
+\]
+und dem reduzierten Planck'schen Wirkungsquantum $\hbar$.
+Unter Berücksichtigung, dass nur ein eindimensionales Problem betrachtet wird und durch einsetzen von $V(r)$ vereinfacht sich die Schrödingergleichung zu
+\[
+i\hbar\frac{\partial\psi(x,t)}{\partial t}=-\frac{\hbar^2}{2m}\Delta\psi(x,t)\text{.}
+\]
+Ein Separationsansatz $\psi(x,t)=\phi(x)T(t)$, mit der Lösung der zeitunabhängigen Schrödingergleichung $\phi(x)$, liefert
+$\psi(x,t)=A\sin(kx+\alpha) .e^{-i\omega t}$. Aus den Randbedingungen 
+$\psi(0,t)=\psi(L,t)=0$ folgt wie im klassischen Fall $k=\frac{m\pi}{L}$ und $\alpha=0$.
+Beim quantenmechanischen Teilchen ist die Frequenz mit der Energie verknüpft:
+\[
+\hbar\omega=E=\frac{\hbar^2k^2}{2m}\text{.}
+\]
+Damit ergibt sich eine Dispersionsrelation
+\begin{equation}
+\omega(k)=\frac{\hbark^2}{2m}
+\end{equation}
 \subsection{Der Kugelresonator - das Wasserstoff-Atom}
 
 
@@ -35,3 +68,7 @@ ergibt sich $\alpha=0$ und $k=\frac{m\pi}{L}$, mit $m\in\mathbb{N}$.\\\newline
 
 
 \subsection{Ein eindimensionaler Festkörper}
+
+
+
+%☻☻
