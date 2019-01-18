@@ -19,7 +19,7 @@ beschreiben. Auf Grund der Longitudinalität der Welle kann jedoch angenommen we
 \]
 sodass ein Lösungsansatz durch
 \[
-p(x,t)=p_.0cos(k x +\alpha)cos(\omega t)
+p(x,t)=p_.0\cos(k x +\alpha)cos(\omega t)
 \]
 gegeben ist, mit der Winkelgeschwindigkeit $\omega=2\pi f$,dem Wellenvektor $k$ und der Phase $\alpha$. Aus den Randbedingungen 
 \[
@@ -28,8 +28,14 @@ gegeben ist, mit der Winkelgeschwindigkeit $\omega=2\pi f$,dem Wellenvektor $k$ 
 ergibt sich $\alpha=0$ und $k=\frac{m\pi}{L}$, mit $m\in\mathbb{N}$.
 Aus dem multiplizieren der Gleichung \eqref{eq:f} mit $2\pi$ ergibt sich die Dispersionsrelation
 \begin{equation}
-\omega(k)=c k
+\omega(k)=c k\text{.}\label{eq:omega_k}
 \end{equation}
+Im klassischen Fall haben die verschiedenen Eigenzustände eine Lebensdauer, da es auf Grund von Reibung zu Energieverlust kommt.
+Die Darstellung dessen wird über einen mit der Zeit abfallenden Term $.e^{-\gamma t}$ erreicht.
+Da aber die stehende Welle auch durch den Lautsprecher betrieben wird, lässt sich die zeitliche Abhängigkeit des Drucks als getriebener harmonischer Oszillator betrachten:
+\[
+\frac{\partial^2p}{\partial t^2}+2\gamma\frac{\partial p}{\partial t}+\omega_.0^2p=K\cos{(\omega t)}
+\]
 \\
 \newline
 Das quantenmechanische Analogon zur stehenden Welle in einer Röhre ist ein Teilchen im Potentialtopf.
@@ -59,7 +65,7 @@ Beim quantenmechanischen Teilchen ist die Frequenz mit der Energie verknüpft:
 \]
 Damit ergibt sich eine Dispersionsrelation
 \begin{equation}
-\omega(k)=\frac{\hbar k^2}{2m}
+\omega(k)=\frac{\hbar k^2}{2m}\text{.}\label{eq:omega_q}
 \end{equation}
 \subsection{Der Kugelresonator - das Wasserstoff-Atom}
 
