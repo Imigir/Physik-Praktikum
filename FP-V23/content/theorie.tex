@@ -10,9 +10,9 @@ Wird in einer abgeschlossenen Röhre von einem Ende eine Schallwelle ausgesandt 
 \end{align}
 mit der Länge der Röhre $L$, $n\in\mathbb{N}$, der Frequenz und der Wellenlänge der Schallwelle $f$ und $\lambda$ und der Schallgeschwindigkeit in Luft $c$, kann sich eine stehende Welle ausbilden.
 Die Ausbreitung der Schallwelle lässt sich dabei über die Wellengleichung
-\[
-\frac{\partial^2 p}{\partial t^2}=\frac{1}{c^2}\Delta p
-\]
+\begin{equation}
+\frac{\partial^2 p}{\partial t^2}=c^2\Delta p\label{eq:WGL}
+\end{equation}
 beschreiben. Auf Grund der Longitudinalität der Welle kann jedoch angenommen werden, dass $p$ nur von einer Dimension abhängt - der hier als $x$ bezeichneten Symmetrieachse des Rohrs. Dadurch vereinfacht sich die Wellengleichung zu
 \[
 \frac{\partial^2 p}{\partial t^2}=\frac{1}{c^2}\frac{\partial^2 p}{\partial x^2},
@@ -34,8 +34,34 @@ Im klassischen Fall haben die verschiedenen Eigenzustände eine Lebensdauer, da 
 Die Darstellung dessen wird über einen mit der Zeit abfallenden Term $.e^{-\gamma t}$ erreicht.
 Da aber die stehende Welle auch durch den Lautsprecher betrieben wird, lässt sich die zeitliche Abhängigkeit des Drucks als getriebener harmonischer Oszillator betrachten:
 \[
-\frac{\partial^2p}{\partial t^2}+2\gamma\frac{\partial p}{\partial t}+\omega_.0^2p=K\cos{(\omega t)}
+\frac{\partial^2p(t)}{\partial t^2}+2\gamma\frac{\partial p(t)}{\partial t}+\omega_.0^2p(t)=K .e^{\omega t}
 \]
+Damit ergibt sich eine Lösung 
+\[
+p(t)=A_.1 .e^{-\gamma t+i(\omega t+\phi_.1)}+A .e^{i(\omega t + \phi)},
+\]
+mit den Phasen $\phi_.1$ und $\phi$, wobei letzterer gegeben ist durch 
+\[
+\phi=\arctan{\frac{2\gamma\omega}{\omega^2_.0-\omega^2}}
+\]
+gegeben ist.
+Für große Zeiten geht der 1. Term schnell gegen $0$, sodass nur noch die komplexe Amplitude $A$ des stabilen Zustand gemessen wird.
+Für eine einzelne Resonanzstelle kann diese geschrieben werden als
+\[
+A=\frac{K .e^{i\phi}}{\omega^2_.0-\omega^2+2i\gamma\omega}
+\]
+und ihr Betrag als
+\[
+|A|=\frac{K}{\sqrt{\left(\omega^2_.0-\omega^2\right)^2+4\gamma^2\omega^2}}\text{.}
+\]
+Bei der Untersuchung eines Resonanzpeaks im Spektrum kann angenommen werden, dass $\omega\approx const$ und die Reibung sehr klein gegen die Resonanzfrequenz ist: $\gamma\ll\omega_.0$. Damit vereinfacht sich der Amplitudenbetrag zu
+\[
+|A|=\frac{2\omega_.0}{\sqrt{\left(\omega^2_.0-\omega^2\right)^2+4\gamma^2\omega^2}}\text{.}
+\]
+Nach Bedingung \eqref{eq:f} sind mehrere Resonanzfrequenzen $\omega_.{0,n}$ und damit auch andere Reibungskoeffizienten $\gamma_.n$ und Phasen $\phi_.n$ möglich, sodass $|A|$ geschrieben werden muss als
+\begin{equation}
+|A|=\biggl|\sum_.{n=0}^N\frac{K .e^{i\phi_.n}}{\omega^2_.{0,n}-\omega^2+2 i\gamma_.n\omega}\biggl|\text{.}\label{eq:absA}
+\end{equation}
 \\
 \newline
 Das quantenmechanische Analogon zur stehenden Welle in einer Röhre ist ein Teilchen im Potentialtopf.
@@ -44,10 +70,9 @@ Dies kann über die Schrödingergleichung mit der Wellenfunktion $\psi(x,t)$ bes
 i\hbar\frac{\partial\psi(r,t)}{\partial t}=-\frac{\hbar^2}{2m}\Delta\psi(r,t) + V(r)\psi(r,t)
 \]
 mit dem Potential 
-\[
-V(r) = \left\{
+\[V(r) = \left\{
 \begin{array}{ll}
-0 & \|r\| \geq L \\
+0 & |r| \geq L \\
 \infty & \, \textrm{sonst} \\
 \end{array}
 \right.
@@ -68,14 +93,54 @@ Damit ergibt sich eine Dispersionsrelation
 \begin{equation}
 \omega(k)=\frac{\hbar k^2}{2m}\text{.}\label{eq:omega_q}
 \end{equation}
+Auch im quantenmechanischen System gilt das prinzip der minimalen Energie, sodass alle angeregten Zustände mit der Zeit in den Grundzustand zurückkehren. Damit lässt sich die Zeitabhängigkeit der Wellenfunktion schreiben, als
+\[
+\psi(t)=.e^{-(\lambda+i\omega_.0)t}
+\]
+Aus einer Fouriertransformation ergibt sich die Amplitude
+\[
+A(\omega)=\frac{1}{\sqrt{2\pi}}\frac{1}{\lambda+i(\omega_.0-\omega)}
+\]
+und ihr Betrag
+\begin{equation}
+|A(\omega)|=\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{(\omega_.0-\omega)^2+\lambda^2}}
+\end{equation}
 \subsection{Der Kugelresonator - das Wasserstoff-Atom}
-
-
-\subsection{Symmetriebrechung am Kugelresonator - molekulare Bindung}
-
-
+Für die Resonanzen in einem sphärischen Resonator muss zunächst wieder die Wellengleichung \eqref{eq:WGL} betrachtet werden. Abseparieren der Zeit mithilfe des Ansatzes $p(\vec{r},t)=p(\vec{r})\cos{(\omega t)}$ liefert die Eigenwert-Gleichung
+\begin{equation*}
+-\frac{\omega^2}{c^2}p(\vec{r})=\Delta p(\vec{r})\text{.}
+\end{equation*}
+In Kugelkoordinaten und mit dem Separationsansatz $p(r,\theta,\phi)=Y^m_l(\theta,\phi)R(r)$ lässt sich diese aufteilen in einen Winkel-
+\begin{equation}
+-\left[\frac{1}{\sin{\theta}}\frac{\partial}{\partial\theta}\left(\sin{\theta}\frac{\partial}{\partial\theta}\right)+\frac{1}{\sin^2{\theta}}\frac{\partial^2}{\partial\theta^2}\right]Y^m_l(\theta,\phi)=l(l+1)Y^m_l(\theta,\phi)\label{eq:Y_lm}
+\end{equation}
+und einen Radialanteil 
+\begin{equation}
+-\frac{\partial^2 R(r)}{\partial r^2}-\frac{2}{r}\frac{\partial R(r)}{\partial r}+\frac{l(l+1)}{r^2}R(r)=\frac{\omega^2}{c^2}R(r)\text{.}\label{eq:R}
+\end{equation}
+Die Eigenwerte von Gleichung \eqref{eq:Y_lm} werden durch die Winkelquantenzahl $l$ charakterisiert, die von Gleichung \eqref{eq:R} durch die radiale Quantenzahl $k$. Die Resonanzfrequenzen $\omega_.{k l}$, die eine stehende Welle im sphärischen Resonator hervorrufen, sind die Eigenwerte dieser radialen Eigenwertgleichung und damit $(2l+1)$-fach entartet in der magnetischen Quantenzahl $m$.\\
+\newline
+Für das quantenmechanische Analogon - das Wasserstoffatom - muss wieder die Schrödingergleichung gelöst werden, wobei hier $V(\vec{r})=-\frac{e^2}{r}$ das Coulomb-Potential ist:
+\[
+E\psi(\vec{r})=-\frac{\hbar^2}{2m}\Delta\psi(\vec{r})-\frac{e^2}{r}\psi(\vec{r})\text{.}
+\]
+Mit dem selben Ansatz wie beim sphärischen Resonator lässt sich diese DGL aufteilen, wobei der Winkelanteil äquivalent zu Gleichung \eqref{eq:Y_lm} ist. Der radiale Anteil ist gegeben durch 
+\begin{equation}
+-\frac{\hbar^2}{2m}\left(\frac{1}{r}\frac{\partial^2}{\partial r^2}r R(r)+\frac{l(l+1)}{r^2}R(r)\right)-\frac{e^2}{r}R(r)=E R(r)\text{.}\label{eq:R2}
+\end{equation}
+Die Energieeigenwerte dieser Gleichung können mit der Hauptquantenzahl
+$n=l+1+k$ und der Rydberg-Energie $E_.{Ryd}$ geschrieben werden als
+\[
+E_{n l}=-E_.{Ryd}\frac{1}{n^2}\text{.}
+\]
+Auch sie sind auf Grund der Kugelsymmetrie des Coulomb-Potentials entartet in $m$.
+%\subsection{Symmetriebrechung am Kugelresonator - molekulare Bindung}
+%Wird die Kugelsymmetrie des sphärischen Resonators durch das Einbringen von Metallringen zwischen seine Hemisphären gebrochen, wird auch die Entartung in der Magnetquantenzahl $m$ aufgehoben. Die Quantisierungsachse ist nicht mehr durch die Verbindungslinie zwischen Lautsprecher und Mikrofon gegeben, sondern durch die Symmetrieachse des Resonators. Da $-l\leq m\leq l$ gilt, sind Moden mit $\pm m$ weiterhin entartet, überlagern sich und es kommt zu einer stehenden Welle. Da $Y^m_l\propto .e^{i m\phi}$, ergibt eine Superposition
+%\[
+%.e^{-i m\phi}+.e^{i m\phi}=\cos{m\phi}
+%\]
 \subsection{Ein eindimensionaler Festkörper}
 
 
 
-%☻☻
+%☻☻☺○☻☻♦☺
