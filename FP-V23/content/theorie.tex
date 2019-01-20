@@ -6,7 +6,7 @@ In einem Gas, hier der Luft, ist Schall eine Longitudinal-Welle. Sie kann sowohl
 Wird in einer abgeschlossenen Röhre von einem Ende eine Schallwelle ausgesandt und an der gegenüberliegenden Wand kann es zu Resonanzeffekten kommen. Falls gilt
 \begin{align}
 2L&=n\lambda=n\frac{c}{f}\\
-\Leftrightarrow f&=\frac{n c}{2L},\\\label{eq:f}
+\Leftrightarrow f&=\frac{n c}{2L},\label{eq:f}
 \end{align}
 mit der Länge der Röhre $L$, $n\in\mathbb{N}$, der Frequenz und der Wellenlänge der Schallwelle $f$ und $\lambda$ und der Schallgeschwindigkeit in Luft $c$, kann sich eine stehende Welle ausbilden.
 Die Ausbreitung der Schallwelle lässt sich dabei über die Wellengleichung
@@ -105,7 +105,18 @@ und ihr Betrag
 \begin{equation}
 |A(\omega)|=\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{(\omega_.0-\omega)^2+\lambda^2}}
 \end{equation}
+
+\subsection{Ein eindimensionaler Festkörper}
+
+Im periodischen Potential eines Festkörpers kommt es zu Bandstrukturen in der Energie. Modelliert werden kann dies ebenfalls durch den Schall in einer Röhre. Nach Bedingung \eqref{eq:f} kommt es je nach Länge der Röhre zu Resonanzfrequenzen. Da diese Länge endlich ist, ist auch die Dichte der Zustände endlich, sodass Bandlücken entstehen. Werden in die Röhre in periodischen Abständen $a$ Kopplungen in Form von Irissen mit kleinerem Innendurchmesser eingebracht, entspricht dies einem eindimensionalen Gitter in einem kristallinen Festkörper. Ein Röhrenstück samt Iris repräsentiert dann eine Einheitszelle des Gitters. Im reziproken Raum der Wellenvektoren $k=n\frac{\pi}{a}$ wird dies beschrieben durch den Gittervektor $K=n\frac{2\pi}{a}$, dessen kleinstmöglicher Wert im Eindimensionalen den reziproken Abstand zwischen den Resonanzstellen angibt.
+Nach dem Bloch-Theorem kann eine Wellenfunktion, die dies beschreibt, geschrieben werden als
+\[
+\psi_k=u_k(x) .e^{.i k x}=\sum_K C_{(k-K)} .e^{.i (k-G)x},
+\]
+wobei $u_k(x)$ die Periodizität beschreibt. Die Summe kommt ebenfalls auf Grund der Periodizität, da zu jedem Wellenvektor $k$ ein reziproker Gittervektor $K$ addiert werden kann ohne die Lösung zu verändern.
+
 \subsection{Der Kugelresonator - das Wasserstoff-Atom}
+
 Für die Resonanzen in einem sphärischen Resonator muss zunächst wieder die Wellengleichung \eqref{eq:WGL} betrachtet werden. Abseparieren der Zeit mithilfe des Ansatzes $p(\vec{r},t)=p(\vec{r})\cos{(\omega t)}$ liefert die Eigenwert-Gleichung
 \begin{equation*}
 -\frac{\omega^2}{c^2}p(\vec{r})=\Delta p(\vec{r})\text{.}
@@ -139,8 +150,5 @@ Auch sie sind auf Grund der Kugelsymmetrie des Coulomb-Potentials entartet in $m
 %\[
 %.e^{-i m\phi}+.e^{i m\phi}=\cos{m\phi}
 %\]
-\subsection{Ein eindimensionaler Festkörper}
-
-
 
 %☻☻☺○☻☻♦☺
