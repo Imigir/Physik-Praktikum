@@ -71,7 +71,7 @@ def gaus(x, a, c,sigma,b):
     return a* np.exp(-(x-b)**2/(2*sigma**2))+c
 
 def Line(x, a, b):
-    return a* x+b
+    return a*x+b
 
 
 def Plot(Werte, ranges, name, funktionParams=(1,0), onlyname=False, xname=r'$K$'):
