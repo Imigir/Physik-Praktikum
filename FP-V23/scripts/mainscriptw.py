@@ -59,14 +59,14 @@ print('4.1')
 def Line(x, a, b):
 	return a*x+b
 
-def Plot(x, y, limx, xname, yname, params, name, linear=True, yscale=1):
-	xplot = np.linspace(limx[0],limx[1],1000)
+def Plot(x, y, limx, xname, yname, params, name, linear=True, xscale=1, yscale=1):
+	xplot = np.linspace(limx[0]*xscale,limx[1]*xscale,1000)
 	plt.cla()
 	plt.clf()
-	plt.errorbar(x, noms(y)*yscale, yerr=stds(y)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
+	plt.errorbar(noms(x)*xscale, noms(y)*yscale, xerr=stds(x)*xscale, yerr=stds(y)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
 	if(linear==True):
-		plt.plot(xplot, Line(xplot, *params)*yscale, 'b-', label='Ausgleichsgerade')
-	plt.xlim(limx[0],limx[1])
+		plt.plot(xplot*xscale, Line(xplot, *params)*yscale, 'b-', label='Ausgleichsgerade')
+	plt.xlim(limx[0]*xscale,limx[1]*xscale)
 	plt.xlabel(xname)
 	plt.ylabel(yname)
 	plt.legend(loc='best')
@@ -174,6 +174,17 @@ Gap16[1] = peaks[16]-peaks[15]
 Gap16[2] = peaks[24]-peaks[23]
 for i in range(0,3):
 	print('Gap16',(i+1),': ', Gap16[i]/1000,'(/2pi)kHz')
+
+#DOS
+peaks = peaks/(2*np.pi)
+rho_m = []
+rho_err = []
+for i in range(len(peaks)-1):
+	rho_m = np.append(rho_m,1/(noms(peaks[i+1])-noms(peaks[i])))
+	rho_err = np.append(rho_err,np.sqrt((stds(peaks[i+1])/(noms(peaks[i+1])-noms(peaks[i]))**2)**2+(stds(peaks[i])/(noms(peaks[i+1])-noms(peaks[i]))**2)**2))
+rho = unp.uarray(rho_m,rho_err)
+
+#Plot(peaks[1:],rho,[100,12000],r'$\omega/\si{\kilo\hertz}$',r'$\rho/\si{\second}$',params,'4._DOS',linear=False,xscale=1/1000)
 
 
 print('13mm')
