@@ -213,7 +213,7 @@ plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
 plt.xlim(-1,15)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TL1.png')
+plt.savefig('content/images/TL1.pdf')
 
 print('TL1 done')
 
@@ -231,7 +231,7 @@ plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
 plt.xlim(-1,22)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TL2.png')
+plt.savefig('content/images/TL2.pdf')
 
 print('TL2 done')
 
@@ -249,7 +249,7 @@ plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
 plt.xlim(-1,31)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TL3.png')
+plt.savefig('content/images/TL3.pdf')
 
 print('TL3 done')
 
@@ -267,7 +267,7 @@ plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
 plt.xlim(-1,29)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TL4.png')
+plt.savefig('content/images/TL4.pdf')
 
 print('TL4 done')
 
@@ -294,7 +294,7 @@ plt.ylabel(r'$p/10^{-4}\si{\milli\bar}$')
 plt.xlim(-1,31)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TL.png')
+plt.savefig('content/images/TL.pdf')
 
 print('TL done')
 
@@ -439,7 +439,7 @@ plt.ylabel(r'$p/\si{\milli\bar}$')
 plt.xlim(-2,78)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/DL1.png')
+plt.savefig('content/images/DL1.pdf')
 
 print('DL1 done')
 
@@ -457,7 +457,7 @@ plt.ylabel(r'$p/\si{\milli\bar}$')
 plt.xlim(-2,80)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/DL2.png')
+plt.savefig('content/images/DL2.pdf')
 
 print('DL2 done')
 
@@ -474,7 +474,7 @@ plt.ylabel(r'$p/\si{\milli\bar}$')
 plt.xlim(-5,170)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/DL3.png')
+plt.savefig('content/images/DL3.pdf')
 
 print('DL3 done')
 
@@ -491,7 +491,7 @@ plt.ylabel(r'$p/\si{\milli\bar}$')
 plt.xlim(-5,185)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/DL4.png')
+plt.savefig('content/images/DL4.pdf')
 
 print('DL4 done')
 
@@ -519,7 +519,7 @@ plt.ylabel(r'$p/\si{\milli\bar}$')
 plt.xlim(-5,185)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/DL.png')
+plt.savefig('content/images/DL.pdf')
 
 print('DL done')
 
@@ -593,7 +593,7 @@ plt.ylabel(r'$p/10^{-5}\si{\milli\bar}$')
 plt.xlim(-1,16)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TSE.png')
+plt.savefig('content/images/TSE.pdf')
 print('TSE done')
 
 #TSL
@@ -611,7 +611,7 @@ plt.ylabel(r'$\ln\left(\frac{p-p_\text{E}}{p_0-p_\text{E}}\right)$')
 plt.xlim(-1,16)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TSL.png')
+plt.savefig('content/images/TSL.pdf')
 print('TSL done')
 
 print('TS done')
@@ -644,7 +644,7 @@ pDS_log = unp.log(pDS_h)
 paramsLinearDS1, errorsLinearDS1, sigma_y = linregress(noms(tDS)[0:11], noms(pDS_log)[0:11])
 steigungDS1 = unp.uarray(paramsLinearDS1[0],errorsLinearDS1[0])
 achsenAbschnittDS1 = unp.uarray(paramsLinearDS1[1], errorsLinearDS1[1])
-paramsLinearDS2, errorsLinearDS2, sigma_y = linregress(noms(tDS)[11:17], noms(pDS_log)[11:17])
+paramsLinearDS2, errorsLinearDS2, sigma_y = linregress(noms(tDS)[11:18], noms(pDS_log)[11:18])
 steigungDS2 = unp.uarray(paramsLinearDS2[0],errorsLinearDS2[0])
 achsenAbschnittDS2 = unp.uarray(paramsLinearDS2[1], errorsLinearDS2[1])
 
@@ -673,7 +673,7 @@ plt.xlabel(r'$t/\si{\second}$')
 plt.ylabel(r'$p/\si{\milli\bar}$')
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/DSE.png')
+plt.savefig('content/images/DSE.pdf')
 print('DSE done')
 
 #DSL
@@ -690,7 +690,7 @@ plt.ylabel(r'$\ln\left(\frac{p-p_\text{E}}{p_0-p_\text{E}}\right)$')
 plt.xlim(-5,135)
 plt.legend(loc='best')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/DSL.png')
+plt.savefig('content/images/DSL.pdf')
 print('DSL done')
 
 print('DS done')
@@ -726,7 +726,7 @@ plt.ylabel(r'$S/\si{\litre\per\second}$')
 plt.xlim(-5,50)
 plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/TGes.png')
+plt.savefig('content/images/TGes.pdf')
 print('TGes done')
 
 #GesD
@@ -753,7 +753,7 @@ plt.ylabel(r'$S/\si{\litre\per\second}$')
 plt.xlim(-0.5,3)
 plt.legend(loc='best', fancybox=True, framealpha=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('content/images/DGes.png')
+plt.savefig('content/images/DGes.pdf')
 print('DGes done')
 
 print('Ges done')
