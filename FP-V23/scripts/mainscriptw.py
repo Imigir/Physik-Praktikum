@@ -10,7 +10,7 @@ from scipy import stats
 from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
 import matplotlib.pyplot as plt
-import uncertainties 
+import uncertainties
 import uncertainties.unumpy as unp
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 import scipy.constants as const
@@ -71,7 +71,7 @@ def Plot(x, y, limx, xname, yname, params, name, linear=True, xscale=1, yscale=1
 	plt.ylabel(yname)
 	plt.legend(loc='best')
 	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-	plt.savefig('build/'+name+'.pdf') 
+	plt.savefig('build/'+name+'.pdf')
 
 l = np.array([75,150,225,300,375,450,525,600]) #mm
 peaks = [[],[],[],[],[],[],[],[]]
@@ -252,18 +252,3 @@ Gap10[1] = peaks[14]-peaks[13]
 Gap10[2] = peaks[20]-peaks[19]
 for i in range(0,3):
 	print('Gap10',(i+1),': ', Gap10[i]/1000,'(/2pi)kHz')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
