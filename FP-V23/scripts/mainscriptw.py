@@ -75,54 +75,42 @@ def Plot(x, y, limx, xname, yname, params, name, linear=True, xscale=1, yscale=1
 	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 	plt.savefig('build/'+name+'.pdf')
 
-def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, yscale=1/1000, limy=None, marker='rx'):
+def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, yscale=1/1000, limy=None, marker=['rx'], ranges = [0]):
 	plt.cla()
 	plt.clf()
 	if(type == 'extendet'):
-		plt.errorbar(x*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt=marker, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
+		plt.errorbar(x*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt=marker[0], markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
 		xlim = [0,x[-1]+10]
 	if(type == 'reduced'):
 		x2 = []
-		x3 = []
-		y2 = []
-		j = 0
+		marker2 = marker[0]
 		for i in range(1,numBands+1):
 			if(i%2 != 0):
-				x2 = []
-				y2 = []
 				for k in x[(x<=i*np.pi/a) & (x>(i-1)*np.pi/a)]:
 					k = k-(i-1)*np.pi/a
 					x2 = np.append(x2,k)
-					if(j!=len(y)):
-						y2 = np.append(y2,y[j])
-						j += 1
-					x3 = np.append(x3,k)
-				temp = []
-				#for i in range(len(x2)):
-				#	r = []
-					#temp = np.append(temp,-x2[len(x2)-i-1])
-				temp = np.append(temp,x2)
-				#x2 = temp
-				x2 = np.append(-x2,x2)
-				y2 = np.append(y2,y2)
-				plt.errorbar(x2*xscale, noms(y2)*yscale, yerr=stds(y2)*yscale, fmt=marker, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True)
 			if(i%2 == 0):
-				
-				x2 = []
-				y2 = []
 				for k in x[(x<=i*np.pi/a) & (x>(i-1)*np.pi/a)]:
 					k = -k+i*np.pi/a
 					x2 = np.append(x2,k)
-					if(j!=len(y)):
-						y2 = np.append(y2,y[j])
-						j += 1
-					x3 = np.append(x3,k)
-				x2 = np.append(-x2,x2)
-				y2 = np.append(y2,y2)
-				plt.errorbar(x2*xscale, noms(y2)*yscale, yerr=stds(y2)*yscale, fmt=marker, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True)
-		#print(x2)
-		plt.errorbar(x3*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
-		plt.errorbar(-x3*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True)
+		if(len(ranges) != 1):
+			r = ranges.copy()
+			for i in range(len(ranges)):
+				temp = 0
+				j = 0
+				while(j<=i):
+					temp = temp+ranges[j]
+					j += 1
+				r[i] = temp
+			for i in range(len(r)-1):
+				if(len(marker) != 1):
+					marker2 = marker[i]
+				print(r[i],r[i+1]-1)
+				plt.errorbar(x2[r[i]:r[i+1]]*xscale, noms(y[r[i]:r[i+1]])*yscale, yerr=stds(y[r[i]:r[i+1]])*yscale, fmt=marker2, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g', barsabove=True)
+				plt.errorbar(-x2[r[i]:r[i+1]]*xscale, noms(y[r[i]:r[i+1]])*yscale, yerr=stds(y[r[i]:r[i+1]])*yscale, fmt=marker2, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g', barsabove=True)
+		x2 = np.append(x2,-x2)
+		y2 = np.append(y,y)
+		plt.errorbar(x2*xscale, noms(y2)*yscale, yerr=stds(y2)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g', barsabove=True, label='Wertepaare')
 		xlim = [-np.pi/a,np.pi/a]
 	plt.xlim(xlim[0]*xscale,xlim[1]*xscale)
 	if(limy != None):
@@ -132,6 +120,91 @@ def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, y
 	plt.legend(loc='best')
 	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 	plt.savefig('build/'+name+'_'+type+'.pdf')
+
+"""
+def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, yscale=1/1000, limy=None, marker=['rx'], ranges = [0]):
+	plt.cla()
+	plt.clf()
+	if(type == 'extendet'):
+		plt.errorbar(x*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt=marker[0], markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
+		xlim = [0,x[-1]+10]
+	if(type == 'reduced'):
+		#x2 = []
+		#y2 = []
+		x3 = []
+		#y3 = []
+		#j = 0
+		marker2 = marker[0]
+		for i in range(1,numBands+1):
+			#if(len(marker) != 1):
+			#	marker2 = marker[i-1]
+			if(i%2 != 0):
+				#x2 = []
+				#y2 = []
+				for k in x[(x<=i*np.pi/a) & (x>(i-1)*np.pi/a)]:
+					k = k-(i-1)*np.pi/a
+					#x2 = np.append(x2,k)
+					#y2 = np.append(y2,y[j])
+					#j += 1
+					x3 = np.append(x3,k)
+				#temp = []
+				#temp2 = []
+				#for k in range(len(x2)):
+				#	temp = np.append(temp,-x2[len(x2)-k-1])
+				#	temp2 = np.append(temp2,y2[len(x2)-k-1])
+				#x2 = np.append(temp,x2)
+				#y2 = np.append(temp2,y2)
+				#x2 = np.append(-x2,x2)
+				#y2 = np.append(y2,y2)
+				#plt.errorbar(x2*xscale, noms(y2)*yscale, yerr=stds(y2)*yscale, fmt=marker2, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True)
+			if(i%2 == 0):
+				#x2 = []
+				#y2 = []
+				for k in x[(x<=i*np.pi/a) & (x>(i-1)*np.pi/a)]:
+					k = -k+i*np.pi/a
+					#x2 = np.append(x2,k)
+					#y2 = np.append(y2,y[j])
+					#j += 1
+					x3 = np.append(x3,k)
+				#temp = []
+				#temp2 = []
+				#print(x2)
+				#for k in range(len(x2)):
+				#	temp = np.append(temp,x2[len(x2)-k-1])
+				#	temp2 = np.append(temp2,y2[len(x2)-k-1])
+				#x2 = np.append(-x2,temp)
+				#y2 = np.append(y2,temp2)
+				#x2 = np.append(-x2,x2)
+				#y2 = np.append(y2,y2)
+				#plt.errorbar(x2*xscale, noms(y2)*yscale, yerr=stds(y2)*yscale, fmt=marker2, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True)
+		if(len(ranges) != 1):
+			r = ranges.copy()
+			for i in range(len(ranges)):
+				temp = 0
+				j = 0
+				while(j<=i):
+					temp = temp+ranges[j]
+					j += 1
+				r[i] = temp
+			for i in range(len(r)-1):
+				if(len(marker) != 1):
+					marker2 = marker[i]
+				print(r[i],r[i+1]-1)
+				plt.errorbar(x3[r[i]:r[i+1]]*xscale, noms(y[r[i]:r[i+1]])*yscale, yerr=stds(y[r[i]:r[i+1]])*yscale, fmt=marker2, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g', barsabove=True)
+				plt.errorbar(-x3[r[i]:r[i+1]]*xscale, noms(y[r[i]:r[i+1]])*yscale, yerr=stds(y[r[i]:r[i+1]])*yscale, fmt=marker2, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g', barsabove=True)
+		x2 = np.append(x3,-x3)
+		y2 = np.append(y,y)
+		plt.errorbar(x2*xscale, noms(y2)*yscale, yerr=stds(y2)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g', barsabove=True, label='Wertepaare')
+		xlim = [-np.pi/a,np.pi/a]
+	plt.xlim(xlim[0]*xscale,xlim[1]*xscale)
+	if(limy != None):
+		plt.ylim(limy[0]*yscale,limy[1]*yscale)
+	plt.xlabel(r'$k/\si{\per\metre}$')
+	plt.ylabel(r'$\omega/\si{\kilo\hertz}$')
+	plt.legend(loc='best')
+	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+	plt.savefig('build/'+name+'_'+type+'.pdf')
+"""
 
 l = np.array([75,150,225,300,375,450,525,600]) #mm
 peaks = [[],[],[],[],[],[],[],[]]
@@ -436,9 +509,10 @@ k = (n*np.pi)/0.625
 numSegments = 5
 L = 0.625
 a = L/numSegments
+marker = ['c-','b-','c-','b-','c-','b-','c-','b-','c-','b-']
+ranges = [0,8,5,5,5,9,3,3,3]
 #PlotBandStructure(k,peaks,'4.11',type='extendet')
-PlotBandStructure(k,peaks,'4.11',type='reduced',a=a,numBands=10,marker='b-')
-
+#PlotBandStructure(k,peaks,'4.11',type='reduced',a=a,numBands=10,marker=marker,ranges=ranges)
 
 
 print('4.12')
