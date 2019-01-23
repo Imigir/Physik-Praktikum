@@ -59,14 +59,16 @@ print('4.1')
 def Line(x, a, b):
 	return a*x+b
 
-def Plot(x, y, limx, xname, yname, params, name, linear=True, xscale=1, yscale=1):
+def Plot(x, y, limx, xname, yname, params, name, linear=True, xscale=1, yscale=1, limy=None):
 	xplot = np.linspace(limx[0]*xscale,limx[1]*xscale,1000)
 	plt.cla()
 	plt.clf()
 	plt.errorbar(noms(x)*xscale, noms(y)*yscale, xerr=stds(x)*xscale, yerr=stds(y)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
-	if(linear==True):
+	if(linear == True):
 		plt.plot(xplot*xscale, Line(xplot, *params)*yscale, 'b-', label='Ausgleichsgerade')
 	plt.xlim(limx[0]*xscale,limx[1]*xscale)
+	if(limy != None):
+		plt.ylim(limy[0]*yscale,limy[1]*yscale)
 	plt.xlabel(xname)
 	plt.ylabel(yname)
 	plt.legend(loc='best')
@@ -254,16 +256,110 @@ for i in range(0,3):
 	print('Gap10',(i+1),': ', Gap10[i]/1000,'(/2pi)kHz')
 
 
+#4.6
+print(' ')
+print('4.6')
+
+f,A = np.genfromtxt('FP-V23data/4.6_50mm.dat',unpack=True)
+indices = find_peaks(A,20,prominence=2)
+peaks = f[indices[0]]
+peaks = peaks[2:6]
+print('peaks:', peaks)
+
+Df = []
+for i in range(len(peaks)-1):
+	temp = peaks[i+1]-peaks[i]
+	Df = Df+[temp]
+Df = avg_and_sem(Df)
+Df = unp.uarray(Df[0],Df[1])
+print('Df:', Df,'Hz')
 
 
+#4.7
+print(' ')
+print('4.7')
+
+f,A = np.genfromtxt('FP-V23data/4.7_75mm.dat',unpack=True)
+indices = find_peaks(A,15,prominence=2)
+peaks = f[indices[0]]
+peaks = peaks[1:7]
+print('peaks:', peaks)
+
+Df = []
+for i in range(len(peaks)-1):
+	temp = peaks[i+1]-peaks[i]
+	Df = Df+[temp]
+Df = avg_and_sem(Df)
+Df = unp.uarray(Df[0],Df[1])
+print('Df:', Df,'Hz')
 
 
+#4.10
+print(' ')
+print('4.10')
+
+print('4.10.1')
+f,A = np.genfromtxt('FP-V23data/4.4_600mm_16mm.dat',unpack=True)
+indices = find_peaks(A,prominence=0.1)
+peaks = f[indices[0]]
+#print('peaks:', peaks)
+peaks = unp.uarray(peaks,10)*2*np.pi
+
+n = np.linspace(2,24,23)
+n = np.append(n,np.linspace(26,35,10))
+n = np.append(n,np.linspace(38,47,10))
+k = (n*np.pi)/0.6
+#print('k:', k)
+
+#Plot(k,peaks,[0,260],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.10(4.4_600mm_16mm)',linear=False,yscale=1/1000)
+#Plot(k,peaks,[0,130],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.12(4.4_600mm_16mm)',linear=False,yscale=1/1000,limy=[0,35000])
+
+print('4.10.2')
+f,A = np.genfromtxt('FP-V23data/4.10_600mm_13_16mm.dat',unpack=True)
+indices = find_peaks(A,prominence=0.1)
+peaks = f[indices[0]]
+peaks = peaks[1:]
+#print('peaks:', peaks)
+peaks = unp.uarray(peaks,10)*2*np.pi
+
+n = np.linspace(2,23,22)
+n = np.append(n,np.linspace(26,30,5))
+n = np.append(n,np.linspace(32,35,4))
+n = np.append(n,np.linspace(38,42,5))
+n = np.append(n,np.linspace(44,46,3))
+k = (n*np.pi)/0.6
+#print('k:', k)
+
+#Plot(k,peaks,[0,250],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.10',linear=False,yscale=1/1000)
 
 
+print('4.11')
+f,A = np.genfromtxt('FP-V23data/4.11_625mm_50_16_75mm.dat',unpack=True)
+indices = find_peaks(A,prominence=0.1)
+peaks = f[indices[0]]
+#print('peaks:', peaks)
+peaks = unp.uarray(peaks,10)*2*np.pi
+
+n = np.linspace(3,34,32)
+n = np.append(n,np.linspace(37,39,3))
+n = np.append(n,np.linspace(42,44,3))
+n = np.append(n,np.linspace(47,49,3))
+k = (n*np.pi)/0.625
+#print('k:', k)
+
+#Plot(k,peaks,[0,260],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.11',linear=False,yscale=1/1000)
 
 
+print('4.12')
+f,A = np.genfromtxt('FP-V23data/4.12_seg3_75mm.dat',unpack=True)
+indices = find_peaks(A,prominence=0.5)
+peaks = f[indices[0]]
+#print('peaks:', peaks)
+peaks = unp.uarray(peaks,10)*2*np.pi
 
+n = np.linspace(2,24,23)
+k = (n*np.pi)/0.625
+#print('k:', k)
 
-
-
+#Plot(k,peaks,[0,130],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.12',linear=False,yscale=1/1000)
 
