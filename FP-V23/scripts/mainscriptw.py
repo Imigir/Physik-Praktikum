@@ -75,6 +75,64 @@ def Plot(x, y, limx, xname, yname, params, name, linear=True, xscale=1, yscale=1
 	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 	plt.savefig('build/'+name+'.pdf')
 
+def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, yscale=1/1000, limy=None, marker='rx'):
+	plt.cla()
+	plt.clf()
+	if(type == 'extendet'):
+		plt.errorbar(x*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt=marker, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
+		xlim = [0,x[-1]+10]
+	if(type == 'reduced'):
+		x2 = []
+		x3 = []
+		y2 = []
+		j = 0
+		for i in range(1,numBands+1):
+			if(i%2 != 0):
+				x2 = []
+				y2 = []
+				for k in x[(x<=i*np.pi/a) & (x>(i-1)*np.pi/a)]:
+					k = k-(i-1)*np.pi/a
+					x2 = np.append(x2,k)
+					if(j!=len(y)):
+						y2 = np.append(y2,y[j])
+						j += 1
+					x3 = np.append(x3,k)
+				temp = []
+				#for i in range(len(x2)):
+				#	r = []
+					#temp = np.append(temp,-x2[len(x2)-i-1])
+				temp = np.append(temp,x2)
+				#x2 = temp
+				x2 = np.append(-x2,x2)
+				y2 = np.append(y2,y2)
+				plt.errorbar(x2*xscale, noms(y2)*yscale, yerr=stds(y2)*yscale, fmt=marker, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True)
+			if(i%2 == 0):
+				
+				x2 = []
+				y2 = []
+				for k in x[(x<=i*np.pi/a) & (x>(i-1)*np.pi/a)]:
+					k = -k+i*np.pi/a
+					x2 = np.append(x2,k)
+					if(j!=len(y)):
+						y2 = np.append(y2,y[j])
+						j += 1
+					x3 = np.append(x3,k)
+				x2 = np.append(-x2,x2)
+				y2 = np.append(y2,y2)
+				plt.errorbar(x2*xscale, noms(y2)*yscale, yerr=stds(y2)*yscale, fmt=marker, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True)
+		#print(x2)
+		plt.errorbar(x3*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
+		plt.errorbar(-x3*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True)
+		xlim = [-np.pi/a,np.pi/a]
+	plt.xlim(xlim[0]*xscale,xlim[1]*xscale)
+	if(limy != None):
+		plt.ylim(limy[0]*yscale,limy[1]*yscale)
+	plt.xlabel(r'$k/\si{\per\metre}$')
+	plt.ylabel(r'$\omega/\si{\kilo\hertz}$')
+	plt.legend(loc='best')
+	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+	plt.savefig('build/'+name+'_'+type+'.pdf')
+
 l = np.array([75,150,225,300,375,450,525,600]) #mm
 peaks = [[],[],[],[],[],[],[],[]]
 f = [[],[],[],[],[],[],[],[]]
@@ -153,20 +211,25 @@ print('16mm')
 f,A = np.genfromtxt('FP-V23data/4.3_400mm_16mm.dat',unpack=True)
 indices = find_peaks(A,prominence=0.1)
 peaks = f[indices[0]]
+peaks = peaks[1:]
 #print('peaks:', peaks)
 peaks = unp.uarray(peaks,10)*2*np.pi
 
-n = np.linspace(2,32,31)
+n = np.linspace(2,31,30)
 k = (n*np.pi)/0.4
 #print('k:', k)
 
-#Plot(k,peaks,[0,260],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.3_16mm',linear=False,yscale=1/1000)
+numSegments = 8
+L = 0.4
+a = L/numSegments
+#PlotBandStructure(k,peaks,'4.3_16mm',type='extendet')
+#PlotBandStructure(k,peaks,'4.3_16mm',type='reduced',a=a,numBands=4)
 
 Band16 = unp.uarray([0,0,0,0],[0,0,0,0])
-Band16[0] = peaks[7]-peaks[0]
-Band16[1] = peaks[15]-peaks[8]
-Band16[2] = peaks[23]-peaks[16]
-Band16[3] = peaks[30]-peaks[24]
+Band16[0] = peaks[6]-peaks[0]
+Band16[1] = peaks[14]-peaks[7]
+Band16[2] = peaks[22]-peaks[15]
+Band16[3] = peaks[29]-peaks[23]
 for i in range(0,4):
 	print('Band16',(i+1),': ', Band16[i]/1000,'(/2pi)kHz')
 
@@ -204,7 +267,11 @@ n = np.append(n,np.linspace(25,31,6))
 k = (n*np.pi)/0.4
 #print('k:', k)
 
-#Plot(k,peaks,[0,250],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.3_13mm',linear=False,yscale=1/1000)
+numSegments = 8
+L = 0.4
+a = L/numSegments
+#PlotBandStructure(k,peaks,'4.3_13mm',type='extendet')
+#PlotBandStructure(k,peaks,'4.3_13mm',type='reduced',a=a,numBands=4)
 
 Band13 = unp.uarray([0,0,0,0],[0,0,0,0])
 Band13[0] = peaks[6]-peaks[0]
@@ -238,7 +305,11 @@ n = np.append(n,np.linspace(25,30,5))
 k = (n*np.pi)/0.4
 #print('k:', k)
 
-#Plot(k,peaks,[0,250],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.3_10mm',linear=False,yscale=1/1000)
+numSegments = 8
+L = 0.4
+a = L/numSegments
+#PlotBandStructure(k,peaks,'4.3_10mm',type='extendet')
+#PlotBandStructure(k,peaks,'4.3_10mm',type='reduced',a=a,numBands=4)
 
 Band10 = unp.uarray([0,0,0,0],[0,0,0,0])
 Band10[0] = peaks[6]-peaks[0]
@@ -311,8 +382,19 @@ n = np.append(n,np.linspace(38,47,10))
 k = (n*np.pi)/0.6
 #print('k:', k)
 
-#Plot(k,peaks,[0,260],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.10(4.4_600mm_16mm)',linear=False,yscale=1/1000)
 #Plot(k,peaks,[0,130],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.12(4.4_600mm_16mm)',linear=False,yscale=1/1000,limy=[0,35000])
+
+numSegments = 12
+L = 0.6
+a = L/numSegments
+#PlotBandStructure(k,peaks,'4.10(4.4_600mm_16mm)',type='extendet')
+#PlotBandStructure(k,peaks,'4.10(4.4_600mm_16mm)',type='reduced',a=a,numBands=4)
+
+peaks = peaks[:23]
+k = k[:23]
+#PlotBandStructure(k,peaks,'4.12(4.4_600mm_16mm)',type='extendet')
+#PlotBandStructure(k,peaks,'4.12(4.4_600mm_16mm)',type='reduced',a=a,numBands=2)
+
 
 print('4.10.2')
 f,A = np.genfromtxt('FP-V23data/4.10_600mm_13_16mm.dat',unpack=True)
@@ -330,7 +412,11 @@ n = np.append(n,np.linspace(44,46,3))
 k = (n*np.pi)/0.6
 #print('k:', k)
 
-#Plot(k,peaks,[0,250],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.10',linear=False,yscale=1/1000)
+numSegments = 12
+L = 0.6
+a = L/numSegments
+#PlotBandStructure(k,peaks,'4.10',type='extendet')
+#PlotBandStructure(k,peaks,'4.10',type='reduced',a=a,numBands=4)
 
 
 print('4.11')
@@ -347,7 +433,12 @@ n = np.append(n,np.linspace(47,49,3))
 k = (n*np.pi)/0.625
 #print('k:', k)
 
-#Plot(k,peaks,[0,260],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.11',linear=False,yscale=1/1000)
+numSegments = 5
+L = 0.625
+a = L/numSegments
+#PlotBandStructure(k,peaks,'4.11',type='extendet')
+PlotBandStructure(k,peaks,'4.11',type='reduced',a=a,numBands=10,marker='b-')
+
 
 
 print('4.12')
@@ -361,4 +452,8 @@ n = np.linspace(2,24,23)
 k = (n*np.pi)/0.625
 #print('k:', k)
 
-#Plot(k,peaks,[0,130],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.12',linear=False,yscale=1/1000)
+numSegments = 12
+L = 0.625
+a = L/numSegments
+#PlotBandStructure(k,peaks,'4.12',type='extendet')
+#PlotBandStructure(k,peaks,'4.12',type='reduced',a=a,numBands=2)
