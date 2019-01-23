@@ -6,23 +6,83 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 \subsection{Modellierung: Teilchen im Potentialtopf}
 
 In Abbildung \ref{fig:Uebersicht} ist das Übersichtsspektrum für eine $\SI{600}{\milli\meter}$-Röhre und in Abbildung \ref{fig:150} das einer $\SI{150}{\milli\meter}$-Röhre zu sehen.
-Die zweite Messung des Spektrums letzterer, liefert abgesehen von geringen Abweichungen in der Amplitude dasselbe Spektrum.
+Eine zweite Messung des Spektrums letzterer, liefert abgesehen von geringen Abweichungen in der Amplitude dasselbe Spektrum.
 Beispielhaft sind die Parameter des 1. Peaks der beiden Messungen in Tabelle \ref{tab:param} zu sehen.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/1.1_600mm.eps}
+\caption{Spektrum einer $\SI{600}{\milli\meter}$-Röhre.}
+\label{fig:Übersicht}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/1.2(4.1)_150mm.eps}
+\caption{Spektrum einer $\SI{150}{\milli\meter}$-Röhre.}
+\label{fig:150}
+\end{figure}
+\begin{table}
+\caption{Parameter des 1. Peaks von zwei spektralen Analysen einer $\SI{600}{\milli\meter}$ langen Röhre.}
+\centering
+\input{content/tables/tabParams.tex}
+\end{table}
 
 \subsection{Modellierung: Das Wasserstoffatom}
 
 In Abbildung \ref{fig:Overview} sind das Spektrum des sphärischen Resonators bei $\alpha=\SI{0}{\degree}$ und $\alpha=\SI{180}{\degree}$
 zu sehen.
 Die Resonanzfrequenzen $f_.n$ verändern sich nicht, jedoch fällt auf, dass bei $\alpha=\SI{0}{\degree}$ die Amplitude des 2. Peaks das Spektrum dominiert, während bei $\alpha=\SI{180}{\degree}$ alle Peaks in etwa dieselbe Höhe haben. Außerdem zeigt sich, dass in diesem Spektrum alle Peaks eine größere Amplitude aufweisen, als bei $\alpha=\SI{0}{\degree}$.\\
-In Abbildung \ref{fig:5k_Peak} ist für $\alpha=\SI{0}{\degree}$ und für $\alpha=\SI{40}{\degree}$, ein Peak um $f=\SI{5000}{\hertz}$
-näher aufgelöst.
+In Abbildung \ref{fig:5k_Peak1} und \ref{fig:5k_Peak2} ist für $\alpha=\SI{0}{\degree}$ und für $\alpha=\SI{40}{\degree}$, der Peak bei $f\approx\SI{5000}{\hertz}$ näher aufgelöst.
 Es zeigt sich das der Hauptpeak mit zunehmendem $\alpha$ leicht zunimmt. Bei $\alpha=\SI{40}{\degree}$ bildet sich ein stark zunehmender Nebenpeak aus, der bei $\alpha=\SI{0}{\degree}$ von einer Einbuchtung überlagert wird.\\
-In den Abbildungen \ref{fig:polar1} bis \ref{fig:polar5} sind die Polarplots der Peaks im Bereich von $\SI{2000}{\hertz}$ bis $\SI{7000}{\hertz}$ zu sehen.
-Der Vergleich mit Bildern aus der Literatur\cite{V23}, liefert den Zusammenhang zwischen den ersten vier Peaks und den Kugelflächenfunktionen, der in Tabelle \ref{tab:KFF} zu sehen ist.
+In Abbildung \ref{fig:polar} sind die Polarplots der Peaks im Bereich von $\SI{2000}{\hertz}$ bis $\SI{7000}{\hertz}$ zu sehen.
+Der Vergleich mit Bildern aus der Literatur\cite{V23}, liefert den Zusammenhang zwischen den ersten vier Peaks und den Kugelflächenfunktionen:
+\begin{align*}
+.{Peak 1}&\mathop{\widehat{=}} Y^0_1\\
+.{Peak 2}&\mathop{\widehat{=}} Y^0_2\\
+.{Peak 3}&\mathop{\widehat{=}} Y^0_3\\
+.{Peak 4}&\mathop{\widehat{=}} Y^0_4\\
+\end{align*}
 Der 5. Polarplot lässt sich keinem Zustand mit $m=0$ zuordnen und ähnelt am ehesten der Kugelflächenfunktion $Y^.1_.2$.
-
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/2.1_0degree.eps}
+\caption{Spektrum im sphärischen Resonate für $\alpha=\SI{0}{\degree}$.}
+\label{fig:Overview1}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/2.1_180degree.eps}
+\caption{Spektrum im sphärischen Resonate für $\alpha=\SI{180}{\degree}$.}
+\label{fig:Overview2}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/2.2_0degree.eps}
+\caption{Nähere Aufnahme des Peaks bei $f\approx\SI{5000}{\hertz}$ für $\alpha=\SI{0}{\degree}$.}
+\label{fig:5k_Peak1}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/2.2_40degree.eps}
+\caption{Nähere Aufnahme des Peaks bei $f\approx\SI{5000}{\hertz}$ für $\alpha=\SI{40}{\degree}$.}
+\label{fig:5k_Peak2}
+\end{figure}
+\begin{figure}
+\centering
+\begin{minipage}{0.45\textwidth}
+\includegraphics[scale=0.2]{FP-V23data/2.3_2306.535Hz.eps}
+\includegraphics[scale=0.2]{FP-V23data/2.3_3704.961Hz.eps}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\includegraphics[scale=0.2]{FP-V23data/2.3_4985.394Hz.eps}
+\includegraphics[scale=0.2]{FP-V23data/2.3_6230.866Hz.eps}
+\end{minipage}
+\includegraphics[scale=0.2]{FP-V23data/2.3_6571.732Hz.eps}
+\caption{Polarplots der ersten fünf Peaks im sphärischen Resonator}
+\label{fig:polar}
+\end{figure}
 \subsection{Modellierung: Ein eindimensionaler Festkörper}
-
+\subsection{Teilchen im periodischen Potential}
 In Abbildung \ref{fig:Spek4_1} ist beispielhaft das Spektrum von  $\SI{5000}{\hertz}$ bis $\SI{14000}{\hertz}$ einer $\SI{75}{\milli\meter}$-Röhre zu sehen.
 Der mittlere Abstand zwischen den Peaks wird über die Formel zur Berechnung des Mittelwerts
 \[
@@ -54,6 +114,78 @@ In Abbildung \ref{fig:8_50_16} ist das Spektrum von acht über $\SI{16}{\milli\m
 In den Abbildungen \ref{fig:10_50_16} und \ref{fig_12_50_16} sind die Spektren für zehn und zwölf über $\SI{16}{\milli\meter}$-Irisse gekoppelte $\SI{50}{\milli\meter}$-Röhren zu sehen. Im Vergleich zu \ref{fig:8_50_16} zeigt sich, dass während die Lage der Peaks  mit zunehmender Röhrenlänge nahezu unverändert ist, die Amplitude aller Peaks mit Ausnahme des ersten abfallen, während dieser stark anwächst. Außerdem wächst für größere $L$ die Anzahl der Peaks pro Band.\\
 In Abbildung \ref{fig:8_75_16} ist das Spektrum von acht über $\SI{16}{\milli\meter}$-Irisse gekoppelten $\SI{75}{\milli\meter}$-Röhren zu sehen. Der Vergleich mit Abbildung \ref{fig:8_50_16} zeigt, das bei längeren Teilstücken die Amplitude der Peaks sowie die Anzahl der beobachtbaren Bänder zunimmt.\\
 %density of states?
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/4.1_75mm.eps}
+\caption{Spektrum von einer $\SI{75}{\milli\meter}$-Röhre.}
+\label{fig:Spek4_1}
+\end{figure}
+\begin{table}
+\centering
+\caption{Mittlerer Abstand der Peaks}
+\include{content/tables/tabMu.tex}
+\end{table}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{build/4.1.pdf}
+\caption{$\Delta f$ aufgetragen gegen $\frac{1}{L}$ zur Bestimmung der Schallgeschwindigkeit $c$.}
+\label{fig:Df_L}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/4.2_600mm.eps}
+\caption{Spektrum von zwölf $\SI{50}{\milli\meter}$-Röhren.}
+\label{fig:12_50}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{build/4.2.pdf}
+\caption{Dispersionsrelation $\omega(k)$ von zwölf $\SI{50}{\milli\meter}$-Röhren}
+\label{fig:w_k}
+\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[scale=0.35]{build/4.3_10mm.pdf}
+%\caption{•}
+%\label{fig:w_k_1}
+%\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[scale=0.35]{build/4.3_13mm.pdf}
+%\caption{•}
+%\label{fig:w_k_2}
+%\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[scale=0.35]{build/4.3_16mm.pdf}
+%\caption{•}
+%\label{fig:w_k_3}
+%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/4.3_400mm_16mm.eps}
+\caption{Spektrum von acht über $\SI{16}{\milli\meter}$-Irisse gekoppelten $\SI{50}{\milli\meter}$-Röhren}
+\label{fig:8_50_16}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/4.4_500mm_16mm.eps}
+\caption{Spektrum von zehn über $\SI{16}{\milli\meter}$-Irisse gekoppelten $\SI{50}{\milli\meter}$-Röhren}
+\label{fig:10_50_16}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/4.4_600mm_16mm.eps}
+\caption{Spektrum von zwölf über $\SI{16}{\milli\meter}$-Irisse gekoppelten $\SI{50}{\milli\meter}$-Röhren}
+\label{fig:12_50_16}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{FP-V23data/4.5_600mm_16mm.eps}
+\caption{Spektrum von acht über $\SI{16}{\milli\meter}$-Irisse gekoppelten $\SI{75}{\milli\meter}$-Röhren}
+\label{fig:8_75_16}
+\end{figure}
+\subsection{Atom-Molekül-Kette und Fehlstellen}
 In Abbildung \ref{fig:50mm} ist das Spektrum einer $\SI{50}{\milli\meter}$-Röhre von $\SI{100}{\hertz}$ bis $\SI{22000}{\hertz}$ zu sehen. Bis $f\approx\SI{15000}{\hertz}$
 sind die Peaks äquidistante longitudinale Moden. Für höhere Frequenzen sind die Abstände nicht mehr gleichmäßig und die Amplituden der Peaks wesentlich geringer. Sie beschreiben die transversalen Moden der Schallwelle in der Röhre.\\
 In Abbildung \ref{fig:75mm} ist dasselbe Spektrum für eine $\SI{75}{\milli\meter}$-Röhre aufgenommen. Auch hier sind die longitudinalen Moden durch äquidistante Peaks bis etwa $\SI{15000}{\hertz}$ zu erkennen.\\
@@ -63,4 +195,4 @@ In Abbildung \ref{fig:12_50_13_16} ist das Spektrum einer Folge von zwölf $\SI{
 
 
 
-%◘♦☻♥◘○
+%◘♦☻♥◘○☺♠◘
