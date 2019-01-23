@@ -10,7 +10,7 @@ from scipy import stats
 from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
 import matplotlib.pyplot as plt
-import uncertainties 
+import uncertainties
 import uncertainties.unumpy as unp
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 import scipy.constants as const
@@ -73,7 +73,7 @@ def Plot(x, y, limx, xname, yname, params, name, linear=True, xscale=1, yscale=1
 	plt.ylabel(yname)
 	plt.legend(loc='best')
 	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-	plt.savefig('build/'+name+'.pdf') 
+	plt.savefig('build/'+name+'.pdf')
 
 l = np.array([75,150,225,300,375,450,525,600]) #mm
 peaks = [[],[],[],[],[],[],[],[]]
@@ -362,4 +362,3 @@ k = (n*np.pi)/0.625
 #print('k:', k)
 
 #Plot(k,peaks,[0,130],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.12',linear=False,yscale=1/1000)
-
