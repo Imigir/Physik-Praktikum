@@ -39,7 +39,7 @@ Für den Wirkungsquerschnitt gilt dabei mit der Kernladungszahl $Z$ des Absorber
 \[
 \sigma_.{Ph}\propto\frac{Z^{\alpha}}{E^{\delta}_.{\gamma}}
 \]
-Es gilt $4 < \alpha < 5$.  Der Exponent $\delta$ ist abhängig von der Photonenenergie. Für natürlich vorkommende $\gamma$-Strahlung gilt $\delta\approx \num{3.5}$, für Energien $E_.{\gamma}\geq \SI{5}{\mega\electronvolt}$ sinkt er auf $\delta\approx 1$.
+Es gilt $4 < \alpha < 5$.  Der Exponent $\delta$ ist abhängig von der Energie der $\gamma$-Quanten. Für natürlich vorkommende $\gamma$-Strahlung gilt $\delta\approx \num{3.5}$, für Energien $E_.{\gamma}\geq \SI{5}{\mega\electronvolt}$ sinkt er auf $\delta\approx 1$.
 Der Wirkungsquerschnitt steigt außerdem immer sprunghaft an, wenn $E_.{\gamma}$ einen Wert erreicht, der ausreicht, um ein Elektron aus dem Atom herauszulösen. Die übrige Energie des $\gamma$-Quants wird vom Elektronen als kinetische Energie aufgenommen.
 
 \subsubsection{Der Compton-Effekt}
@@ -49,7 +49,7 @@ Geschieht dieser Effekt an einem Elektron auf einem äußeren Energieniveau, so 
 Der Energieübertrag lässt sich in Abhängigkeit des Winkels des auslaufenden $\gamma$-Quants bezüglich der Einfallsrichtung schreiben.
 Da Energie und Impuls erhalten sind, müssen die Gleichungen
 \begin{align*}
-h \nu + m_.0 c^2 &= h \nu '+ \gamma m_.0 c^2\\
+h \nu + m_.e c^2 &= h \nu '+ \gamma m_.0 c^2\\
 \frac{h \nu}{c}&= \frac{h \nu '}{c}\cos(\psi_.{\gamma})+\gamma m_.0 v\cos(\psi_.e)\\
 0&= \frac{h\nu '}{c}\sin(\psi_.{\gamma})+\gamma m_.0 v\sin(\psi_.e)
 \end{align*}
@@ -65,7 +65,7 @@ E_.e=E_.{\gamma}-E_.{\gamma}' =\frac{\epsilon\cdot\left(1-\cos(\psi_.{\gamma})\r
 ist somit die an das Elektron abgegebene Energie.
 Für $\psi_.{\gamma}=\SI{180}{\degree}$ ist sie maximal und beträgt
 \begin{equation}
-E_.{e,max}=\frac{2\epsilon}{1+\epsilon}E_.{\gamma}\text{.}\label{eq:Emax}
+E_.{e,max}=\frac{2\epsilon}{1+2\epsilon}E_.{\gamma}\text{.}\label{eq:Emax}
 \end{equation}
 Dieser Wert ist kleiner als $E_.{\gamma}$. Somit wird nie die gesamte Energie des $\gamma$-Quants auf das Elektron übertragen. Im Energiespektrum äußert sich das durch ein breites Kontinuum an Energien, welches an der Compton-Kante bei
 $E_.{deponiert}=E_.{e,max}$ vor dem Photopeak endet.
@@ -100,13 +100,13 @@ mit der Atommasse $M$ gering, sodass die Energie des $\gamma$-Quants nur die Ruh
 \[
 E_.{\gamma}>2m_.0c^2\text{.}
 \]
-Ist der Stoßpartner ein Hüllenelektron, muss die Atommasse durch die Elektronenmasse ersetzt werden, wodurch $E_.R$ wesentlich größer ist und nicht mehr vernachlässigt werden kann.
+Ist der Stoßpartner ein Hüllenelektron, muss die Atommasse durch die Elektronenmasse ersetzt werden, wodurch $E_.r$ wesentlich größer ist und nicht mehr vernachlässigt werden kann.
 In diesem Fall muss für die Energie des $\gamma$-Quants gelten:
 \[
 E_.{\gamma}>4m_.0c^2\text{.}
 \]
 Da Elektron und Positron dieselbe Masse besitzen, wird die verbleibende Energie gleichmäßig aufgeteilt.
-Während das Elektron im Detektor durch Spannung abgesaugt wird, kann das Positron mit einem vorhandenen Hüllenelektron wieder zu zwei Photonen annihilieren.
+Während das Elektron im Detektor durch Spannung abgesaugt wird, kann das Positron mit einem vorhandenen Hüllenelektron wieder zu zwei $\gamma$-Quanten annihilieren.
 Da diese den Detektor verlassen können ohne zu wechselwirken, können im Energiespektrum nicht nur eine Linie bei $E_.{\gamma}$, sondern auch Linien bei $E_.{\gamma}-m_.0c^2$ und bei $E_.{\gamma}-2m_.0c^2$ beobachtet werden.\\
 Der Wirkungsquerschnitt ist abhängig davon, wo im Coulombfeld der Prozess stattfindet, da in den äußeren Schalen Abschirmungseffekte durch die Hüllenelektronen auftreten.
 Der wichtigste Fall für die $\gamma$-Spektroskopie ist die Paarbildung in Kernnähe.
@@ -134,7 +134,7 @@ d=d_.n+d_.p\approx d_.p\approx\sqrt{\frac{2\varepsilon_.r\varepsilon_.0}{e_.0}\l
 Eine möglichst geringe p-Dotierung führt somit zu einer Verbreiterung der ladungsträgerarmen Zone, ebenso wie eine Erhöhung der angelegten Spannung. Durch thermische Energie entstandene Ladungsträger in der Verarmungszone können allerdings durch $U$ beschleunigt werden. Es kommt zu Avalanche-Durchbrüchen und damit zu Signalen, auch wenn nichts detektiert wird.
 Um derartige Effekte zu vermeiden, wird der Detektor auf eine Temperatur von $\SI{77}{\kelvin}$ abgekühlt.
 Der hier verwendete Detektor ist ein koaxialer Reinst-Germanium-Detektor. Zur n-Dotierung wird die Oberfläche des Ge-Kristalls mit Lithium bedampft und der Pluspol der Spannung angeschlossen.
-Eine koaxiale Bohrung im Kristall wird mit Gold bedampft und der Minuspol der Spannung angeschlossen. Da der Kristall auf Grund seiner Reinheit selbst eine sehr geringe Akzeptorendichte von $n_.A=\SI{e10}{\per\cm^3}$ aufweist, kommt es zur Ausbildung der Verarmungszone. Weiterhin ist der Detektor zur thermischen Isolation von einer Aluminium-Haube umgeben. Das führt dazu, dass nur Photonen detektiert werden können, die genügend Energie besitzen, um diese Aluminium-Schicht und die Lithium-Schicht auf der Kristalloberfläche zu durchdringen. Der Querschnitt eines solchen Detektors ist in Abbildung \ref{fig:Det} zu sehen.
+Eine koaxiale Bohrung im Kristall wird mit Gold bedampft und der Minuspol der Spannung angeschlossen. Da der Kristall auf Grund seiner Reinheit selbst eine sehr geringe Akzeptorendichte von $n_.A=\SI{e10}{\per\cm^3}$ aufweist, kommt es zur Ausbildung der Verarmungszone. Weiterhin ist der Detektor zur thermischen Isolation von einer Aluminium-Haube umgeben. Das führt dazu, dass nur $\gamma$-Quanten detektiert werden können, die genügend Energie besitzen, um diese Aluminium-Schicht und die Lithium-Schicht auf der Kristalloberfläche zu durchdringen. Der Querschnitt eines solchen Detektors ist in Abbildung \ref{fig:Det} zu sehen.
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth-50pt,height=\textheight-50pt,keepaspectratio]{content/images/Detektor.pdf}
@@ -144,13 +144,13 @@ Eine koaxiale Bohrung im Kristall wird mit Gold bedampft und der Minuspol der Sp
 
 \subsubsection{Funktionsweise}
 
-Trifft ein geladenes Teilchen oder ein Photon auf die Verarmungszone, deponiert es dort Energie. Dadurch können einge Elektronen die Energielücke zwischen Valenz- und Leitungsband überspringen und hinterlassen im Valenzband ein ebenfalls bewegliches Loch, sodass Elektronen-Loch-Paare entstehen. Diese Bandlücke beträgt für Germanium $\SI{0,67}{\electronvolt}$, jedoch wird für die Erzeugung von Elektronen-Loch-Paaren eine Energie von $E_.{ELP}=\SI{2,9}{\electronvolt}$\cite{V18} benötigt, da dieser Prozess nur unter Anregung von Phononen geschieht. Durch die angelegte Spannung werden die Elektronen am Plus- und die Löcher am Minuspol gesammelt, bevor sie rekombinieren, was zu einem messbaren Ladungsimpuls führt, dessen Betrag ein Maß für die Anzahl der Elektronen-Loch-Paare und damit für die deponierte Energie ist.
+Trifft ein geladenes Teilchen oder ein $\gamma$-Quant auf die Verarmungszone, deponiert es dort Energie. Dadurch können einge Elektronen die Energielücke zwischen Valenz- und Leitungsband überspringen und hinterlassen im Valenzband ein ebenfalls bewegliches Loch, sodass Elektronen-Loch-Paare entstehen. Diese Bandlücke beträgt für Germanium $\SI{0,67}{\electronvolt}$, jedoch wird für die Erzeugung von Elektronen-Loch-Paaren eine Energie von $E_.{ELP}=\SI{2,9}{\electronvolt}$\cite{V18} benötigt, da dieser Prozess nur unter Anregung von Phononen geschieht. Durch die angelegte Spannung werden die Elektronen am Plus- und die Löcher am Minuspol gesammelt, bevor sie rekombinieren, was zu einem messbaren Ladungsimpuls führt, dessen Betrag ein Maß für die Anzahl der Elektronen-Loch-Paare und damit für die deponierte Energie ist.
 
 \subsubsection{Auflösungsvermögen und Effizienz}
 \label{subsubsec:Effizienz}
 
 Im vom Detektor aufgezeichneten Spektrum eines $\gamma$-Strahlers können zwei Spektrallinien nur dann unterschieden werden, wenn ihre Mittelwerte mindestens um die Halbwertsbreite $\Delta E_.{1/2}$ entfernt voneinander liegen.
-Wenn $n$ die Anzahl der erzeugten Elektronen-Loch-Paare ist und $\bar{n}=\frac{E_.{\gamma}}{E_.{ELP}}$ würde sich bei einer von den Phononen unkorrelierten Verteilung die Standardabweichung berechnen zu
+Wenn $n$ die Anzahl der erzeugten Elektronen-Loch-Paare ist und $\bar{n}=\frac{E_.{\gamma}}{E_.{ELP}}$, würde sich bei einer von den Phononen unkorrelierten Verteilung die Standardabweichung berechnen zu
 \[
 \sigma=\sqrt{\bar{n}}\text{.}
 \]
@@ -185,7 +185,7 @@ Für den Raumwinkel $\Omega$, unter dem die Probe vom Detektor gesehen wird, gil
 \end{equation}
 mit dem Radius $r$ des Detektors und dem Abstand $a$ der Probe zum Detektor.\newpage
 \noindent Das Spektrum eines monochromatischen $\gamma$-Strahlers ist in Abbildung \ref{fig:Spektrum} zu sehen.
-Der Rückstreupeak im Compton-Kontinuum, welches an der Compton-Kante endet entsteht dadurch, dass Photonen bereits außerhalb des Detektors streuen und erst in diesen eindringen, nachdem sie bereits einen Teil ihrer Energie abgegeben haben. Der Photo-Peak liegt, abgeschnitten vom Kontinuum, in einem höheren Energiebereich.
+Der Rückstreupeak im Compton-Kontinuum, welches an der Compton-Kante endet, entsteht dadurch, dass $\gamma$-Quanten bereits außerhalb des Detektors streuen und erst in diesen eindringen, nachdem sie bereits einen Teil ihrer Energie abgegeben haben. Der Photo-Peak liegt, abgeschnitten vom Kontinuum, in einem höheren Energiebereich.
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth-70pt,height=\textheight-70pt,keepaspectratio]{content/images/Spektrum.pdf}
