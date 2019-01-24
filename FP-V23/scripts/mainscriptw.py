@@ -75,10 +75,10 @@ def Plot(x, y, limx, xname, yname, params, name, linear=True, xscale=1, yscale=1
 	plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 	plt.savefig('build/'+name+'.pdf')
 
-def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, yscale=1/1000, limy=None, marker=['rx'], ranges = [0]):
+def PlotBandStructure(x, y, name, type='extended', a=1, numBands=1,  xscale=1, yscale=1/1000, limy=None, marker=['rx'], ranges = [0]):
 	plt.cla()
 	plt.clf()
-	if(type == 'extendet'):
+	if(type == 'extended'):
 		plt.errorbar(x*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt=marker[0], markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
 		xlim = [0,x[-1]+10]
 	if(type == 'reduced'):
@@ -105,7 +105,6 @@ def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, y
 			for i in range(len(r)-1):
 				if(len(marker) != 1):
 					marker2 = marker[i]
-				print(r[i],r[i+1]-1)
 				plt.errorbar(x2[r[i]:r[i+1]]*xscale, noms(y[r[i]:r[i+1]])*yscale, yerr=stds(y[r[i]:r[i+1]])*yscale, fmt=marker2, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g', barsabove=True)
 				plt.errorbar(-x2[r[i]:r[i+1]]*xscale, noms(y[r[i]:r[i+1]])*yscale, yerr=stds(y[r[i]:r[i+1]])*yscale, fmt=marker2, markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g', barsabove=True)
 		x2 = np.append(x2,-x2)
@@ -122,10 +121,10 @@ def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, y
 	plt.savefig('build/'+name+'_'+type+'.pdf')
 
 """
-def PlotBandStructure(x, y, name, type='extendet', a=1, numBands=1,  xscale=1, yscale=1/1000, limy=None, marker=['rx'], ranges = [0]):
+def PlotBandStructure(x, y, name, type='extended', a=1, numBands=1,  xscale=1, yscale=1/1000, limy=None, marker=['rx'], ranges = [0]):
 	plt.cla()
 	plt.clf()
-	if(type == 'extendet'):
+	if(type == 'extended'):
 		plt.errorbar(x*xscale, noms(y)*yscale, yerr=stds(y)*yscale, fmt=marker[0], markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Wertepaare')
 		xlim = [0,x[-1]+10]
 	if(type == 'reduced'):
@@ -242,7 +241,7 @@ for i in range(len(f)):
 params, covar = curve_fit(Line,1/l*1000, noms(Df))
 uParams=uncertainties.correlated_values(params, covar)
 
-#Plot(1/l*1000,Df,[1/700*1000,1/70*1000],r'$\left(\frac{1}{L}\right)/\si{\per\metre}$',r'$\Delta f/\si{\hertz}$',params,'4.1')
+Plot(1/l*1000,Df,[1/700*1000,1/70*1000],r'$\left(\frac{1}{L}\right)/\si{\per\metre}$',r'$\Delta f/\si{\hertz}$',params,'4.1')
 
 c = uParams[0]*2
 print('m:', uParams[0],'Hz*m')
@@ -267,7 +266,7 @@ k = (n*np.pi)/0.6
 params, covar = curve_fit(Line,k,noms(peaks),sigma=stds(peaks),absolute_sigma=True)
 uParams=uncertainties.correlated_values(params, covar)
 
-#Plot(k,peaks,[0,230],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.2',yscale=1/1000)
+Plot(k,peaks,[0,230],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.2',yscale=1/1000)
 
 c = uParams[0]
 print('m:', uParams[0],'Hz*m')
@@ -295,8 +294,8 @@ k = (n*np.pi)/0.4
 numSegments = 8
 L = 0.4
 a = L/numSegments
-#PlotBandStructure(k,peaks,'4.3_16mm',type='extendet')
-#PlotBandStructure(k,peaks,'4.3_16mm',type='reduced',a=a,numBands=4)
+PlotBandStructure(k,peaks,'4.3_16mm',type='extended')
+PlotBandStructure(k,peaks,'4.3_16mm',type='reduced',a=a,numBands=4)
 
 Band16 = unp.uarray([0,0,0,0],[0,0,0,0])
 Band16[0] = peaks[6]-peaks[0]
@@ -307,9 +306,9 @@ for i in range(0,4):
 	print('Band16',(i+1),': ', Band16[i]/1000,'(/2pi)kHz')
 
 Gap16 = unp.uarray([0,0,0],[0,0,0])
-Gap16[0] = peaks[8]-peaks[7]
-Gap16[1] = peaks[16]-peaks[15]
-Gap16[2] = peaks[24]-peaks[23]
+Gap16[0] = peaks[7]-peaks[6]
+Gap16[1] = peaks[15]-peaks[14]
+Gap16[2] = peaks[23]-peaks[22]
 for i in range(0,3):
 	print('Gap16',(i+1),': ', Gap16[i]/1000,'(/2pi)kHz')
 
@@ -322,7 +321,7 @@ for i in range(len(peaks)-1):
 	rho_err = np.append(rho_err,np.sqrt((stds(peaks[i+1])/(noms(peaks[i+1])-noms(peaks[i]))**2)**2+(stds(peaks[i])/(noms(peaks[i+1])-noms(peaks[i]))**2)**2))
 rho = unp.uarray(rho_m,rho_err)
 
-#Plot(peaks[1:],rho,[100,12000],r'$\omega/\si{\kilo\hertz}$',r'$\rho/\si{\second}$',params,'4._DOS',linear=False,xscale=1/1000)
+Plot(peaks[1:],rho,[100,12000],r'$\omega/\si{\kilo\hertz}$',r'$\rho/\si{\second}$',params,'4._DOS',linear=False,xscale=1/1000)
 
 
 print('13mm')
@@ -343,8 +342,8 @@ k = (n*np.pi)/0.4
 numSegments = 8
 L = 0.4
 a = L/numSegments
-#PlotBandStructure(k,peaks,'4.3_13mm',type='extendet')
-#PlotBandStructure(k,peaks,'4.3_13mm',type='reduced',a=a,numBands=4)
+PlotBandStructure(k,peaks,'4.3_13mm',type='extended')
+PlotBandStructure(k,peaks,'4.3_13mm',type='reduced',a=a,numBands=4)
 
 Band13 = unp.uarray([0,0,0,0],[0,0,0,0])
 Band13[0] = peaks[6]-peaks[0]
@@ -381,8 +380,8 @@ k = (n*np.pi)/0.4
 numSegments = 8
 L = 0.4
 a = L/numSegments
-#PlotBandStructure(k,peaks,'4.3_10mm',type='extendet')
-#PlotBandStructure(k,peaks,'4.3_10mm',type='reduced',a=a,numBands=4)
+PlotBandStructure(k,peaks,'4.3_10mm',type='extended')
+PlotBandStructure(k,peaks,'4.3_10mm',type='reduced',a=a,numBands=4)
 
 Band10 = unp.uarray([0,0,0,0],[0,0,0,0])
 Band10[0] = peaks[6]-peaks[0]
@@ -455,18 +454,18 @@ n = np.append(n,np.linspace(38,47,10))
 k = (n*np.pi)/0.6
 #print('k:', k)
 
-#Plot(k,peaks,[0,130],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.12(4.4_600mm_16mm)',linear=False,yscale=1/1000,limy=[0,35000])
+Plot(k,peaks,[0,130],r'$k/\si{\per\metre}$',r'$\omega/\si{\kilo\hertz}$',params,'4.12(4.4_600mm_16mm)',linear=False,yscale=1/1000,limy=[0,35000])
 
 numSegments = 12
 L = 0.6
 a = L/numSegments
-#PlotBandStructure(k,peaks,'4.10(4.4_600mm_16mm)',type='extendet')
-#PlotBandStructure(k,peaks,'4.10(4.4_600mm_16mm)',type='reduced',a=a,numBands=4)
+PlotBandStructure(k,peaks,'4.10(4.4_600mm_16mm)',type='extended')
+PlotBandStructure(k,peaks,'4.10(4.4_600mm_16mm)',type='reduced',a=a,numBands=4)
 
 peaks = peaks[:23]
 k = k[:23]
-#PlotBandStructure(k,peaks,'4.12(4.4_600mm_16mm)',type='extendet')
-#PlotBandStructure(k,peaks,'4.12(4.4_600mm_16mm)',type='reduced',a=a,numBands=2)
+PlotBandStructure(k,peaks,'4.12(4.4_600mm_16mm)',type='extended')
+PlotBandStructure(k,peaks,'4.12(4.4_600mm_16mm)',type='reduced',a=a,numBands=2)
 
 
 print('4.10.2')
@@ -488,8 +487,8 @@ k = (n*np.pi)/0.6
 numSegments = 12
 L = 0.6
 a = L/numSegments
-#PlotBandStructure(k,peaks,'4.10',type='extendet')
-#PlotBandStructure(k,peaks,'4.10',type='reduced',a=a,numBands=4)
+PlotBandStructure(k,peaks,'4.10',type='extended')
+PlotBandStructure(k,peaks,'4.10',type='reduced',a=a,numBands=4)
 
 
 print('4.11')
@@ -511,8 +510,8 @@ L = 0.625
 a = L/numSegments
 marker = ['c-','b-','c-','b-','c-','b-','c-','b-','c-','b-']
 ranges = [0,8,5,5,5,9,3,3,3]
-#PlotBandStructure(k,peaks,'4.11',type='extendet')
-#PlotBandStructure(k,peaks,'4.11',type='reduced',a=a,numBands=10,marker=marker,ranges=ranges)
+PlotBandStructure(k,peaks,'4.11',type='extended')
+PlotBandStructure(k,peaks,'4.11',type='reduced',a=a,numBands=10,marker=marker,ranges=ranges)
 
 
 print('4.12')
@@ -529,5 +528,5 @@ k = (n*np.pi)/0.625
 numSegments = 12
 L = 0.625
 a = L/numSegments
-#PlotBandStructure(k,peaks,'4.12',type='extendet')
-#PlotBandStructure(k,peaks,'4.12',type='reduced',a=a,numBands=2)
+PlotBandStructure(k,peaks,'4.12',type='extended')
+PlotBandStructure(k,peaks,'4.12',type='reduced',a=a,numBands=2)
