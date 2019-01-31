@@ -2,13 +2,13 @@
 \label{sec:Theorie}
 
 \subsection{Akkustische stehende Wellen in einer Röhre - ein Teilchen im Potentialtopf}
-In einem Gas, hier der Luft, ist Schall eine Longitudinal-Welle. Sie kann sowohl über die Geschwindigkeit der der bewegten Luft, als auch über die sich fortpflanzenden Schwankungen des Drucks $p$ beschrieben werden. Im folgenden wird letztere Beschreibung verwendet.\\
+In einem Gas, hier Luft, ist Schall eine Longitudinal-Welle. Sie kann sowohl über die Geschwindigkeit der bewegten Luft, als auch über die sich fortpflanzenden Schwankungen des Drucks $p$ beschrieben werden. Im Folgenden wird letztere Beschreibung verwendet.\\
 Wird in einer abgeschlossenen Röhre von einem Ende eine Schallwelle ausgesandt und an der gegenüberliegenden Wand reflektiert, kann es zu Resonanzeffekten kommen. Falls gilt
 \begin{align}
 2L&=n\lambda=n\frac{c}{f}\\
 \Leftrightarrow f&=\frac{n c}{2L},\label{eq:f}
 \end{align}
-mit der Länge der Röhre $L$, $n\in\mathbb{N}$, der Frequenz $f$ und der Wellenlänge $\lambda$ der Schallwelle und der Schallgeschwindigkeit in Luft $c$, kann sich eine stehende Welle ausbilden.
+mit der Länge der Röhre $L$, der Modenzahl $n\in\mathbb{N}$, der Frequenz $f$ und der Wellenlänge $\lambda$ der Schallwelle und der Schallgeschwindigkeit in Luft $c$, kann sich eine stehende Welle ausbilden.
 Die Ausbreitung der Schallwelle lässt sich dabei über die Wellengleichung
 \begin{equation}
 \frac{\partial^2 p}{\partial t^2}=c^2\Delta p\label{eq:WGL}
@@ -26,7 +26,7 @@ gegeben ist, mit der Winkelgeschwindigkeit $\omega=2\pi f$, dem Wellenvektor $k$
 \frac{\partial p}{\partial x}(0)=\frac{\partial p}{\partial x}(L)=0
 \]
 ergibt sich $\alpha=0$ und $k=\frac{m\pi}{L}$, mit $m\in\mathbb{N}$.
-Aus dem multiplizieren der Gleichung \eqref{eq:f} mit $2\pi$ ergibt sich die Dispersionsrelation
+Aus dem Multiplizieren der Gleichung \eqref{eq:f} mit $2\pi$ ergibt sich die Dispersionsrelation
 \begin{equation}
 \omega(k)=c k\text{.}\label{eq:w_k}
 \end{equation}
@@ -34,11 +34,11 @@ Im klassischen Fall haben die verschiedenen Eigenzustände eine Lebensdauer, da 
 Die Darstellung dessen wird über einen mit der Zeit abfallenden Term $.e^{-\gamma t}$ erreicht.
 Da aber die stehende Welle auch durch den Lautsprecher betrieben wird, lässt sich die zeitliche Abhängigkeit des Drucks als getriebener harmonischer Oszillator betrachten:
 \[
-\frac{\partial^2p(t)}{\partial t^2}+2\gamma\frac{\partial p(t)}{\partial t}+\omega_.0^2p(t)=K .e^{\omega t}
+\frac{\partial^2p(t)}{\partial t^2}+2\gamma\frac{\partial p(t)}{\partial t}+\omega_.0^2p(t)=K .e^{i\omega t}
 \]
 Damit ergibt sich eine Lösung 
 \[
-p(t)=A_.1 .e^{-\gamma t+i(\omega t+\phi_.1)}+A .e^{i(\omega t + \phi)},
+p(t)=A_.1 .e^{-\gamma t+i(\omega_.0 t+\phi_.1)}+A .e^{i(\omega t + \phi)},
 \]
 mit den Phasen $\phi_.1$ und $\phi$, wobei letztere gegeben ist durch 
 \[
@@ -72,13 +72,14 @@ i\hbar\frac{\partial\psi(r,t)}{\partial t}=-\frac{\hbar^2}{2m}\Delta\psi(r,t) + 
 mit dem Potential 
 \[V(r) = \left\{
 \begin{array}{ll}
-0 & |r| \geq L \\
+0 & |r| \leq \frac{L}{2} \\
 \infty & \, \textrm{sonst} \\
 \end{array}
 \right.
 \]
 und dem reduzierten Planck'schen Wirkungsquantum $\hbar$.
-Unter Berücksichtigung, dass nur ein eindimensionales Problem betrachtet wird und durch einsetzen von $V(r)$ vereinfacht sich die Schrödingergleichung zu
+Das $L$ bezeichnet dabei die Breite des Kastenpotentials.
+Unter Berücksichtigung, dass nur ein eindimensionales Problem betrachtet wird und durch Einsetzen von $V(r)$ vereinfacht sich die Schrödingergleichung zu
 \[
 i\hbar\frac{\partial\psi(x,t)}{\partial t}=-\frac{\hbar^2}{2m}\Delta\psi(x,t)\text{.}
 \]
@@ -108,7 +109,7 @@ und ihr Betrag
 
 \subsection{Ein eindimensionaler Festkörper}
 
-Im periodischen Potential eines Festkörpers kommt es zu Bandstrukturen in der Energie. Modelliert werden kann dies ebenfalls durch den Schall in einer Röhre. Nach Bedingung \eqref{eq:f} kommt es je nach Länge der Röhre zu Resonanzfrequenzen. Da diese Länge endlich ist, ist auch die Dichte der Zustände endlich, sodass Bandlücken entstehen. Werden in die Röhre in periodischen Abständen $a$ Kopplungen in Form von Irissen mit kleinerem Innendurchmesser eingebracht, entspricht dies einem eindimensionalen Gitter in einem kristallinen Festkörper. Ein Röhrenstück samt Iris repräsentiert dann eine Einheitszelle des Gitters. Im reziproken Raum der Wellenvektoren $k=n\frac{\pi}{a}$ wird dies beschrieben durch den Gittervektor $K=n\frac{2\pi}{a}$, dessen kleinstmöglicher Wert im Eindimensionalen den reziproken Abstand zwischen den Resonanzstellen angibt.
+Im periodischen Potential eines Festkörpers kommt es zu Bandstrukturen in der Energie. Modelliert werden kann dies ebenfalls durch den Schall in einer Röhre. Nach Bedingung \eqref{eq:f} kommt es je nach Länge der Röhre zu Resonanzfrequenzen. Da diese Länge endlich ist, ist auch die Dichte der Zustände endlich, sodass bei schwacher Kopplung der Röhrenstücke über Iriden Bandlücken entstehen. Werden in die Röhre in periodischen Abständen $a$ Kopplungen in Form von Iriden mit kleinerem Innendurchmesser eingebracht, entspricht dies einem eindimensionalen Gitter in einem kristallinen Festkörper. Ein Röhrenstück samt Iris repräsentiert dann eine Einheitszelle des Gitters. Im reziproken Raum der Wellenvektoren $k=n\frac{\pi}{a}$ wird dies beschrieben durch den Gittervektor $K=n\frac{2\pi}{a}$, dessen kleinstmöglicher Wert im Eindimensionalen den reziproken Abstand zwischen den Resonanzstellen angibt.
 Nach dem Bloch-Theorem kann eine Wellenfunktion, die dies beschreibt, geschrieben werden als
 \[
 \psi_k=u_k(x) .e^{.i k x}=\sum_K C_{(k-K)} .e^{.i (k-G)x},
