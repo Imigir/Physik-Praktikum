@@ -1,7 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Die Peaks der Spektren wurden mithilfe von Scipy \cite{scipy} bestimmt. Die Fehler auf die Frequenzen ergeben sich, soweit nicht anders angegeben, aus der Schrittweite.
 
 \subsection{Modellierung: Teilchen im Potentialtopf}
 
@@ -50,14 +50,14 @@ Der 5. Polarplot lässt sich keinem Zustand mit $m=0$ zuordnen und ähnelt am eh
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{FP-V23data/2.1_0degree.eps}
-\caption{Spektrum im sphärischen Resonate für $\alpha=\SI{0}{\degree}$.}
+\caption{Spektrum im sphärischen Resonator für $\alpha=\SI{0}{\degree}$.}
 \label{fig:Overview1}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{FP-V23data/2.1_180degree.eps}
-\caption{Spektrum im sphärischen Resonate für $\alpha=\SI{180}{\degree}$.}
+\caption{Spektrum im sphärischen Resonator für $\alpha=\SI{180}{\degree}$.}
 \label{fig:Overview2}
 \end{figure}
 
@@ -80,14 +80,28 @@ Der 5. Polarplot lässt sich keinem Zustand mit $m=0$ zuordnen und ähnelt am eh
 \begin{minipage}{0.45\textwidth}
 \centering
 \includegraphics[width=\linewidth,keepaspectratio]{FP-V23data/2.3_2306.535Hz.eps}
-\includegraphics[width=\linewidth,keepaspectratio]{FP-V23data/2.3_3704.961Hz.eps}
+%
+(a) erster Peak bei $\SI{2307}{\hertz}$, $Y_1^0$.
+\includegraphics[width=\linewidth,keepaspectratio]{FP-V23data/2.3_4985.394Hz.eps}
+%
+(c) dritter Peak bei $\SI{4985}{\hertz}$, $Y_3^0$.
 \end{minipage}
 \begin{minipage}{0.45\textwidth}
 \centering
-\includegraphics[width=\linewidth,keepaspectratio]{FP-V23data/2.3_4985.394Hz.eps}
+\includegraphics[width=\linewidth,keepaspectratio]{FP-V23data/2.3_3704.961Hz.eps}
+%
+(b) zweiter Peak bei $\SI{3705}{\hertz}$, $Y_2^0$.
 \includegraphics[width=\linewidth,keepaspectratio]{FP-V23data/2.3_6230.866Hz.eps}
+%
+(d) vierter Peak bei $\SI{6231}{\hertz}$, $Y_4^0$.
 \end{minipage}
+\begin{minipage}{\textwidth}
+\centering
 \includegraphics[width=\linewidth*9/20,keepaspectratio]{FP-V23data/2.3_6571.732Hz.eps}
+
+%
+(e) fünfter Peak bei $\SI{6571}{\hertz}$, eventuell $Y_2^1$.
+\end{minipage}
 \caption{Polarplots der ersten fünf Peaks im sphärischen Resonator}
 \label{fig:polar}
 \end{figure}
@@ -105,9 +119,9 @@ und dessen Standardabweichung
 \sigma_{\Delta f} = \sqrt{\frac{1}{N(N-1)}\sum_{i=1}^{N}((\Delta f)_i-\mu_{\Delta f})^2}
 \]
 bestimmt. Dasselbe wird für zwei bis acht $\SI{75}{\milli\meter}$-Röhren durchgeführt. Die berechneten Mittelwerte sind in Tabelle
-\ref{tab:mu} zu sehen und sind in Abbildung \ref{fig:Df_L} gegen das Inverse der Röhrenlänge $L$ aufgetragen. Eine lineare Ausgleichsrechnung der Form 
+\ref{tab:mu} zu sehen und sind in Abbildung \ref{fig:Df_L} gegen das Inverse der Röhrenlänge $L$ aufgetragen. Eine nicht gewichtete lineare Ausgleichsrechnung der Form 
 \[
-Delta f\left(\frac{1}{L}\right)= a\cdot\frac{1}{L}+b
+\Delta f\left(\frac{1}{L}\right)= a\cdot\frac{1}{L}+b
 \]
 liefert die Parameter
 \begin{align*}
@@ -164,7 +178,7 @@ Ein Vergleich mit Gleichung \eqref{eq:w_k} zeigt das $m=c$ der Schallgeschwindig
 
 \newpage
 \noindent In Abbildung \ref{fig:8_50_16} ist das Spektrum von acht über $\SI{16}{\milli\meter}$-Iriden gekoppelten $\SI{50}{\milli\meter}$-Röhren zu sehen. Dieselbe Messung wird für $10$- und $\SI{13}{\milli\meter}$-Kopplungen durchgeführt und die jeweiligen Dispersionsrelationen in den Abbildungen \ref{fig:w_k_1} bis \ref{fig:w_k_3} aufgetragen.\\
-In Tabelle \ref{tab:band} sind die Breiten der Bänder und Bandlücken zu sehen. Es ist zu erkennen, dass bei abnehmendem Irisdurchmesser die Bänder schmaler werden, während die Breite der Bandlücken zunimmt. Die Fehler auf die Breite sind bedingt durch die gewählte Schrittweite.\\
+In Tabelle \ref{tab:band} sind die Breiten der Bänder und Bandlücken zu sehen. Es ist zu erkennen, dass bei abnehmendem Irisdurchmesser die Bänder schmaler werden, während die Breite der Bandlücken zunimmt. Die Fehler auf die Breite sind bedingt durch die gewählte Schrittweite von $\SI{10}{\hertz}$ und werden linear addiert. Da die Frequenz als $\omega = 2\pi f$ angegeben wird ist noch der Faktor $2\pi$ zu beachten.\\
 
 \begin{table}
 \caption{Breiten $b$ der Bänder und Bandlücken bei einem Irisdurchmesser von $\SI{10}{\milli\metre}$, $\SI{13}{\milli\metre}$ und $\SI{16}{\milli\metre}$.}
@@ -203,7 +217,7 @@ In Tabelle \ref{tab:band} sind die Breiten der Bänder und Bandlücken zu sehen.
 
 \newpage
 \noindent In den Abbildungen \ref{fig:10_50_16} und \ref{fig:12_50_16} sind die Spektren für zehn und zwölf über $\SI{16}{\milli\meter}$-Iriden gekoppelte $\SI{50}{\milli\meter}$-Röhren zu sehen. Im Vergleich zu \ref{fig:8_50_16} zeigt sich, dass während die Lage der Peaks  mit zunehmender Röhrenlänge nahezu unverändert ist, die Amplitude aller Peaks mit Ausnahme des zweiten abfallen, während dieser stark anwächst. Zudem ist die Anzahl der Peaks $P$ pro Band direkt abhängig von der Anzahl der Segmente $S$ der Röhre mit $P=S$.\\
-In Abbildung \ref{fig:8_75_16} ist das Spektrum von acht über $\SI{16}{\milli\meter}$-Iriden gekoppelten $\SI{75}{\milli\meter}$-Röhren zu sehen. Der Vergleich mit Abbildung \ref{fig:8_50_16} zeigt, das bei längeren Teilstücken die Anzahl der beobachtbaren Bänder direkt proportional zur Länge der Teilstücke zunimmt.\\
+In Abbildung \ref{fig:8_75_16} ist das Spektrum von acht über $\SI{16}{\milli\meter}$-Iriden gekoppelten $\SI{75}{\milli\meter}$-Röhren zu sehen. Der Vergleich mit Abbildung \ref{fig:8_50_16} zeigt, das bei längeren Teilstücken die Dichte der Bänder direkt proportional zur Länge der Teilstücke zunimmt.\\
 
 \begin{figure}
 \centering
