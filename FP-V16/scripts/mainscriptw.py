@@ -63,3 +63,14 @@ import random
 #CW = 3
 #print(f2(AW, BW, CW))
 #print(error_to_tex(f,'f',[AW, BW, CW], [A, B, C],[A, B]))
+
+
+#Aktivität
+
+A_0 = unp.uarray(330,1)*10**3 #becquerel
+tau = unp.uarray(432.6,0.6)*365*24*3600 #s
+t = unp.uarray(7.665,0.013)*10**8 #s
+
+A = A_0*unp.exp(-np.log(2)*t/tau)
+
+print('A =', A)

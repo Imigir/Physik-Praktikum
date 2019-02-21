@@ -2,3 +2,28 @@
 \label{sec:Auswertung}
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\subsection{Bestimmung der Aktivität}
+
+Die Aktivität der Probe wird über das Zerfallsgesetz, sowie über eine Nullmessung bestimmt.
+Mit dem Zerfallsgesetz bestimmt sich die Aktivität über: 
+\[
+A = A_0 .e^{(-\frac{\ln(2)}{\tau}t)}\text{.}
+\]
+Dabei entspricht $A_0 = \SI{330(1)}{\kilo\becquerel}$ der Aktivität der Probe im Oktober 1994, $\tau = \SI{432.6(6)}{\second}$ der Halbwertszeit für $^{241}.{Am}$ und $t = \SI{7,665(13)e8}{\second}$ der seit Oktober 1994 vergangenen Zeit. Es ergibt sich:
+\[
+A_.{theo} = \SI{317.4(10)}{\kilo\becquerel} \text{.}
+\]
+Bei der $t = \SI{300}{\second}$ langen Nullmessung im Vakuum von $\SI{0,033}{\milli\bar}$ und ohne Folie wurden $N = 4539$ Teilchen registriert.
+Damit ergibt sich die Aktivität pro Raumwinkelelement zu:
+\[
+\frac{4\pi A_.{exp}}{\Omega} = \frac{N}{t} = \SI{15,13}{\becquerel} \text{.}
+\] 
+Das Raumwinkelelement $\frac{\Omega}{4\pi}$ bestimmt sich aus dem Verhältnis der vom Detektor abgedeckten Fläche zur Oberfläche einer Kugel, deren Radius $r = \SI{101}{\milli\metre}$ \cite{V16} dem Abstand der Quelle zum Detektor entspricht. Die abgedeckte Fläche wird wegen der Kollimation der $\SI{2}{\milli\metre}$ Schlitzblenden zu $\SI{4}{\milli\metre\squared}$ genähert. Der tatsächliche Wert ist als größer anzunehmen, weswegen eine zu große Aktivität zu erwarten ist. Es ergibt sich:
+\[
+\frac{\Omega}{4\pi} = \num{3,12e-5}\text{.}
+\]   
+Daraus folgt für die Aktivität:
+\[
+A_.{exp} = \SI{484.9}{\kilo\becquerel} \text{.}
+\]
