@@ -139,7 +139,6 @@ if(plot):
 	plt.cla()
 	plt.clf()
 name = 'Energieverlust'
-
 uParams_mit = Plot(x=p_mit,y=U_mit,xname=r'$p/\si{\milli\bar}$',yname=r'$U/\si{\volt}$',markername='Wertepaare mit Folie',linename='Ausgleichsgerade mit Folie',save=False,Plot=plot)
 uParams_ohne = Plot(x=p_ohne,y=U_ohne,xname=r'$p/\si{\milli\bar}$',yname=r'$U/\si{\volt}$',markername='Wertepaare ohne Folie',linename='Ausgleichsgerade ohne Folie',marker='mx',linecolor='c-',save=False,Plot=plot)
 if(plot):
@@ -171,7 +170,9 @@ d = DE/np.log(2*m_e*v2/I)*m_e*v2*4*np.pi*const.epsilon_0**2/(const.e**4*z**2*Z*n
 print('d:', d)
 
 sigma_A = np.sqrt(4539)/300
-print(sigma_A)
+#print(sigma_A)
+
+
 #Differentieller WQ
 dO = np.pi/4/(10.1)**2
 A2 = unp.uarray(15.13,sigma_A)
@@ -179,47 +180,39 @@ A_exp = A2*np.pi*101**2
 print('A_exp= ',A_exp)
 print('A2=', A2)
 print(dO)
+
 theta,anzahl,t = np.genfromtxt('scripts/dataDeg2.txt',unpack=True)
 theta=theta*2*np.pi/360
+anzahl = unp.uarray(anzahl,np.sqrt(anzahl))
 dsdO=(anzahl/t)/(A2*n*2*10**(-6)*dO)
 dsdO2=1/(4*np.pi*const.epsilon_0)**2*((Z*z*const.e**2)/(4*E_a))**2*1/(np.sin(theta*0.5))**4
 #print(dsdO)
 #print(dsdO2)
-makeTable([theta*360/(2*np.pi),anzahl,t,noms(dsdO)*10**24,stds(dsdO)*10**24,dsdO2*10**24], r'{'+r'$\theta/\si{\degree}$'+r'} & {'+r'$N$'+r'} & {'+r'$t/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo}/\si{\barn}$'+r'}','tabDataDeg',['S[table-format=2.1]','S[table-format=4.0]','S[table-format=3.0]','S[table-format=5.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=3.1]'],["%2.1f","%4.0f","%3.0f","%5.2f","%1.2f","%3.1f"])
-#makeTable([theta*360/(2*np.pi),noms(dsdO)*10**24,stds(dsdO)*10**24,dsdO2*10**24], r'{'+r'$\theta/(\si{\degree})$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo}/\si{\barn}$'+r'}','tabDataDeg2',['S[table-format=2.1]','S[table-format=5.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=3.0]'],["%2.1f","%5.2f","%1.2f","%3.0f"])
+makeTable([theta*360/(2*np.pi),noms(anzahl),stds(anzahl),t,noms(dsdO)*10**24,stds(dsdO)*10**24,dsdO2*10**24], r'{'+r'$\theta/\si{\degree}$'+r'} & \multicolumn{2}{c}{'+r'$N$'+r'} & {'+r'$t/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo}/\si{\barn}$'+r'}','tabDataDeg',['S[table-format=2.1]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=3.0]','S[table-format=5.2]','@{${}\pm{}$}S[table-format=2.2]','S[table-format=3.1]'],["%2.1f","%4.0f","%2.0f","%3.0f","%5.2f","%2.2f","%3.1f"])
 
 
-plot = True
+
+#plot = False
 if(plot):
 	plt.cla()
 	plt.clf()
-name = 'Rutherford'
-Plot(x=theta,y=dsdO*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
-plt.plot(theta, dsdO2*10**24, 'mx', label='Wertepaare Theorie')
-plt.legend(loc='best')
-if(plot):
+	name = 'Rutherford'
+	plt.plot(theta, dsdO2*10**24, 'mx', label='Wertepaare Theorie')
+	Plot(x=theta,y=dsdO*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
 	plt.savefig('build/'+name+'.pdf')
 
-plot = True
+
+#plot = False
 if(plot):
 	plt.cla()
 	plt.clf()
-name = 'Rutherford2'
-Plot(x=theta[1:],y=dsdO[1:]*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
-plt.plot(theta[1:], dsdO2[1:]*10**24, 'mx', label='Wertepaare Theorie')
-plt.legend(loc='best')
-if(plot):
+	name = 'Rutherford2'
+	plt.plot(theta[1:], dsdO2[1:]*10**24, 'mx', label='Wertepaare Theorie')
+	Plot(x=theta[1:],y=dsdO[1:]*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
 	plt.savefig('build/'+name+'.pdf')
 
 #Z-Abhängigkeit
 x=np.array([79,13,83])
-'''I=np.array([2.85,0.68,0.35])
-n_array=np.array([5.9*10**28,6.2*10**28,2.9*10**28])
-I_Fehler=np.array([0.03,0.06,0.05])
-y=I/(n_array*noms(A2)*2*10**(-6)*dO)
-y_Fehler=np.sqrt(I_Fehler**2/noms(A2)**2+I**2/noms(A2)**4*stds(A2))/(n_array*2*10**(-6)*dO)
-y_array=unp.uarray(y,y_Fehler)
-'''
 dx=np.array([2,3,1])
 n_array=np.array([5.9*10**28,6.2*10**28,2.9*10**28])
 I=unp.uarray([2.85,0.68,0.35],[0.03,0.06,0.05])
@@ -232,7 +225,8 @@ y2_40=1/(4*np.pi*const.epsilon_0)**2*((x*z*const.e**2)/(4*E_a))**2*1/(np.sin(2*2
 #print('theo:', y2)
 
 makeTable([x,noms(y)*10**24,stds(y)*10**24,y2_30*10**24,y2_35*10**24,y2_40*10**24],r'{'+r'$Z$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,3}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,3.5}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,4}/\si{\barn}$'+r'}','tabZAbh',['S[table-format=2.0]','S[table-format=3.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=3.2]','S[table-format=3.2]','S[table-format=3.2]'],["%2.0f","%3.0f","%2.0f","%3.2f","%3.2f","%3.2f"])
-makeTable([x,dx,n_array/10**28,noms(I),stds(I)],r'{'+r'$Z$'+r'} & {'+r'$dx/\si{\micro\metre}$'+r'} & {'+r'$n/10^{28}\si{\metre^{-3}}$'+r'} & \multicolumn{2}{c}{'+r'$I_\alpha/\si{\second^{-1}}$'+r'}','tabZWerte',['S[table-format=2.0]','S[table-format=1.0]','S[table-format=1.1]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]'],["%2.0f","%1.0f","%1.1f","%1.2f","%1.2f"])
+makeTable([x,dx,n_array/10**28,noms(I),stds(I)],r'{'+r'$Z$'+r'} & {'+r'$d/\si{\micro\metre}$'+r'} & {'+r'$n/10^{28}\si{\metre^{-3}}$'+r'} & \multicolumn{2}{c}{'+r'$I_\theta/\si{\second^{-1}}$'+r'}','tabZWerte',['S[table-format=2.0]','S[table-format=1.0]','S[table-format=1.1]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]'],["%2.0f","%1.0f","%1.1f","%1.2f","%1.2f"])
+
 
 plt.cla()
 plt.clf()
@@ -242,5 +236,6 @@ plt.plot(x,y2_35*10**24,'kx',label=r'Theorie $\theta=3,5\si{\degree}$')
 plt.plot(x,y2_40*10**24,'yx',label=r'Theorie $\theta=4\si{\degree}$')
 plt.xlabel(r'$Z$')
 plt.ylabel(r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.legend(loc='best')
 plt.savefig('build/zAbh.pdf')

@@ -1,24 +1,34 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Die Naturkonstanten werden dem Paket Scipy \cite{scipy} entnommen.
+In Tabelle \ref{tab:ZWerte} befinden sich Werte die für spätere Rechnungen benötigt werden.
+
+\begin{table}
+	\centering
+	\caption{Einige Werte für Gold, Aluminium und Bismut.}
+	\input{content/tables/tabZWerte_korrekt.tex}
+	\label{tab:values}
+\end{table}
 
 \subsection{Bestimmung der Aktivität}
 
 Die Aktivität der Probe wird über das Zerfallsgesetz, sowie über eine Nullmessung bestimmt.
 Mit dem Zerfallsgesetz bestimmt sich die Aktivität über: 
 \[
-A = A_0 .e^{(-\frac{\ln(2)}{\tau}t)}\text{.}
+A = A_0 .e^{-\frac{\ln(2)}{\tau}t}\text{.}
 \]
 Dabei entspricht $A_0 = \SI{330(1)}{\kilo\becquerel}$ der Aktivität der Probe im Oktober 1994, $\tau = \SI{432.6(6)}{\second}$ der Halbwertszeit für $^{241}.{Am}$ und $t = \SI{7,665(13)e8}{\second}$ der seit Oktober 1994 vergangenen Zeit. Es ergibt sich:
 \[
 A_.{theo} = \SI{317.4(10)}{\kilo\becquerel} \text{.}
 \]
-Bei der $t = \SI{300}{\second}$ langen Nullmessung im Vakuum von $\SI{0,033}{\milli\bar}$ und ohne Folie wurden $N = 4539$ Teilchen registriert.
+Der Fehler $\sigma_{A_.{theo}}$ ergibt sich dabei aus dem Fehler auf $A_0$, da dieser überwiegt.
+Bei der $t = \SI{300}{\second}$ langen Nullmessung im Vakuum von $\SI{0,033}{\milli\bar}$ und ohne Folie wurden $N = \num{4539(68)}$ Teilchen registriert. Der Fehler $\sigma_N=\sqrt{N}$ entsteht durch die Poisson-Verteilung. 
 Damit ergibt sich die Aktivität pro Raumwinkelelement zu:
 \[
 \frac{\Omega A_.{exp}}{4\pi} = \frac{N}{t} = \SI{15,13(22)}{\becquerel} \text{.}
 \] 
+Der Fehler $\sigma_{A_.{exp}}=\frac{\sigma_N}{t}$ folgt aus der Gaußschen Fehlerfortpflanzung. 
 Das Raumwinkelelement $\frac{\Omega}{4\pi}$ bestimmt sich aus dem Verhältnis der vom Detektor abgedeckten Fläche zur Oberfläche einer Kugel, deren Radius $r = \SI{101}{\milli\metre}$ \cite{V16} dem Abstand der Quelle zum Detektor entspricht. Die abgedeckte Fläche wird wegen der Kollimation der $\SI{2}{\milli\metre}$ Schlitzblenden zu $\SI{4}{\milli\metre\squared}$ genähert. Der tatsächliche Wert ist als größer anzunehmen, weswegen eine zu große Aktivität zu erwarten ist. Es ergibt sich:
 \[
 \frac{\Omega}{4\pi} = \num{3,12e-5}\text{.}
@@ -125,6 +135,20 @@ Der Fehler $\sigma_d$ von $d$ berechnet sich mit der Gaußschen Fehlerfortpflanz
 
 \subsection{Untersuchung des differentiellen Streuquerschnitts für eine dünne Goldfolie}
 
+Für eine dünne Goldfolie mit $\SI{2}{\micro\metre}$ Dicke wird der differentielle Wirkungsquerschnitt untersucht.
+Der experimentelle differentielle Wirkungsquerschnitt lässt sich aus der Intensität $I=\frac{.dN}{.dt}$ bestimmen:
+\begin{equation}
+\left(\frac{.d\sigma}{.d\Omega}\right)_.{exp} = \frac{I}{Adn\Omega}\text{,}\label{eq:Rutherford}
+\end{equation}
+mit der Aktivität $A=\SI{15,13(22)}{\becquerel}$, die auf die Goldfolie trifft, der Teilchendichte $n$, der Dicke $d$ und dem Raumwinkel $\Omega=\pi r^2$, der vom Detektor abgedeckt wird. Mit $r=\SI{5}{\milli\metre}$ ergeben sich die Werte aus Tabelle \ref{tab:dataDeg}. Der Fehler auf $N$ ergibt sich wegen der Poisson-Verteilung zu $\sigma_N= \sqrt{N}$.
+Der Fehler $\sigma_.{exp}$ auf den differentiellen Wirkungsquerschnitt ergibt sich mit der Gaußschen Fehlerfortpflanzung zu:
+\begin{equation}
+\sigma_.{exp} =\sqrt{\left(\frac{\sigma_I}{Adn\Omega}\right)^2+\left(\frac{I\sigma_A}{A^2dn\Omega}\right)^2} 
+\text{,}\label{eq:errorRutherford}
+\end{equation}
+mit $\sigma_I=\frac{\sigma_N}{t}$.
+Die theoretischen Werte werden mit den Werten aus Tabelle \ref{tab:values} nach Formel \eqref{eq:RSF} berechnet. In  den Abbildungen \ref{fig:Rutherford} und \ref{fig:Rutherford2} sind die Werte gegenübergestellt. Zur besseren Veranschaulichung wird bei Abbildung \ref{fig:Rutherford2} das erste Wertepaar weggelassen.\\
+ 
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,keepaspectratio]{build/Rutherford.pdf}
@@ -141,7 +165,7 @@ Der Fehler $\sigma_d$ von $d$ berechnet sich mit der Gaußschen Fehlerfortpflanz
 
 \begin{table}
 	\centering
-	\caption{Die Anzahl der Counts $N$ und die gemessene Zeit $t$ in Abhängigkeit vom Winkel $\theta$.}
+	\caption{Die Anzahl der Counts $N$ und die gemessene Zeit $t$ in Abhängigkeit vom Winkel $\theta$, sowie die berechneten differentiellen Wirkungsquerschnitte.}
 	\input{content/tables/tabDataDeg.tex}
 	\label{tab:dataDeg}
 \end{table}
@@ -154,9 +178,9 @@ Der Fehler $\sigma_d$ von $d$ berechnet sich mit der Gaußschen Fehlerfortpflanz
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth-70pt,keepaspectratio]{build/Rutherford2.pdf}
+\includegraphics[width=\linewidth-70pt,keepaspectratio]{build/zAbh.pdf}
 \caption{Der experimentelle und  theoretischen differentielle Wirkungsquerschnitte $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen die Kernladungszahl $Z$.}
-\label{fig:Rutherford2}
+\label{fig:ZAbh}
 \end{figure}
 
 \begin{table}
@@ -166,9 +190,3 @@ Der Fehler $\sigma_d$ von $d$ berechnet sich mit der Gaußschen Fehlerfortpflanz
 	\label{tab:ZAbh}
 \end{table}
 
-\begin{table}
-	\centering
-	\caption{Die Werte zur Berechnung des differentiellen Wirkungsquerschnitts.}
-	\input{content/tables/tabZWerte.tex}
-	\label{tab:ZWerte}
-\end{table}
