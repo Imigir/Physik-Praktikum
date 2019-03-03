@@ -134,7 +134,7 @@ for i in range(len(U1_mit)):
 U_mit = unp.uarray(U_mit_m,U_mit_s)
 makeTable([p_mit,U1_mit,U2_mit,U3_mit,noms(U_mit),stds(U_mit)], r'{'+r'$p_\text{mit}/(\si{\milli\bar})$'+r'} & {'+r'$U_\text{high,mit}/\si{\volt}$'+r'} & {'+r'$U_\text{low,mit}/\si{\volt}$'+r'} & {'+r'$U_\text{mid,mit}/\si{\volt}$'+r'} & \multicolumn{2}{c}{'+r'$\bar{U}_\text{mit}/(\si{\volt})$'+r'}','tabDataMit',['S[table-format=3.2]','S[table-format=1.2]','S[table-format=1.2]','S[table-format=1.2]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]'],["%3.2f","%1.2f","%1.2f","%1.2f","%1.2f","%1.2f"])
 
-plot = False
+plot = True
 if(plot):
 	plt.cla()
 	plt.clf()
@@ -189,7 +189,7 @@ makeTable([theta*360/(2*np.pi),anzahl,t,noms(dsdO)*10**24,stds(dsdO)*10**24,dsdO
 #makeTable([theta*360/(2*np.pi),noms(dsdO)*10**24,stds(dsdO)*10**24,dsdO2*10**24], r'{'+r'$\theta/(\si{\degree})$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo}/\si{\barn}$'+r'}','tabDataDeg2',['S[table-format=2.1]','S[table-format=5.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=3.0]'],["%2.1f","%5.2f","%1.2f","%3.0f"])
 
 
-plot = False
+plot = True
 if(plot):
 	plt.cla()
 	plt.clf()
@@ -200,7 +200,7 @@ plt.legend(loc='best')
 if(plot):
 	plt.savefig('build/'+name+'.pdf')
 
-plot = False
+plot = True
 if(plot):
 	plt.cla()
 	plt.clf()
@@ -233,7 +233,7 @@ y2_40=1/(4*np.pi*const.epsilon_0)**2*((x*z*const.e**2)/(4*E_a))**2*1/(np.sin(2*2
 
 makeTable([x,noms(y)*10**24,stds(y)*10**24,y2_30*10**24,y2_35*10**24,y2_40*10**24],r'{'+r'$Z$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,3}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,3.5}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,4}/\si{\barn}$'+r'}','tabZAbh',['S[table-format=2.0]','S[table-format=3.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=3.2]','S[table-format=3.2]','S[table-format=3.2]'],["%2.0f","%3.0f","%2.0f","%3.2f","%3.2f","%3.2f"])
 makeTable([x,dx,n_array/10**28,noms(I),stds(I)],r'{'+r'$Z$'+r'} & {'+r'$dx/\si{\micro\metre}$'+r'} & {'+r'$n/10^{28}\si{\metre^{-3}}$'+r'} & \multicolumn{2}{c}{'+r'$I_\alpha/\si{\second^{-1}}$'+r'}','tabZWerte',['S[table-format=2.0]','S[table-format=1.0]','S[table-format=1.1]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]'],["%2.0f","%1.0f","%1.1f","%1.2f","%1.2f"])
-'''
+
 plt.cla()
 plt.clf()
 plt.errorbar(noms(x), noms(y)*10**24, xerr=stds(x), yerr=stds(y)*10**24, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
@@ -244,5 +244,3 @@ plt.xlabel(r'$Z$')
 plt.ylabel(r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$')
 plt.legend(loc='best')
 plt.savefig('build/zAbh.pdf')
-'''
-
