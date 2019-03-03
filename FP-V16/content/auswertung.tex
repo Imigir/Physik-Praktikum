@@ -17,7 +17,7 @@ A_.{theo} = \SI{317.4(10)}{\kilo\becquerel} \text{.}
 Bei der $t = \SI{300}{\second}$ langen Nullmessung im Vakuum von $\SI{0,033}{\milli\bar}$ und ohne Folie wurden $N = 4539$ Teilchen registriert.
 Damit ergibt sich die Aktivität pro Raumwinkelelement zu:
 \[
-\frac{4\pi A_.{exp}}{\Omega} = \frac{N}{t} = \SI{15,13}{\becquerel} \text{.}
+\frac{\Omega A_.{exp}}{4\pi} = \frac{N}{t} = \SI{15,13(22)}{\becquerel} \text{.}
 \] 
 Das Raumwinkelelement $\frac{\Omega}{4\pi}$ bestimmt sich aus dem Verhältnis der vom Detektor abgedeckten Fläche zur Oberfläche einer Kugel, deren Radius $r = \SI{101}{\milli\metre}$ \cite{V16} dem Abstand der Quelle zum Detektor entspricht. Die abgedeckte Fläche wird wegen der Kollimation der $\SI{2}{\milli\metre}$ Schlitzblenden zu $\SI{4}{\milli\metre\squared}$ genähert. Der tatsächliche Wert ist als größer anzunehmen, weswegen eine zu große Aktivität zu erwarten ist. Es ergibt sich:
 \[
@@ -25,5 +25,150 @@ Das Raumwinkelelement $\frac{\Omega}{4\pi}$ bestimmt sich aus dem Verhältnis de
 \]   
 Daraus folgt für die Aktivität:
 \[
-A_.{exp} = \SI{484.9}{\kilo\becquerel} \text{.}
+A_.{exp} = \SI{485(7)}{\kilo\becquerel} \text{.}
 \]
+
+\subsection{Form der vorverstärkten Impulse auf dem Oszilloskop}
+
+Es werden die vorverstärkten Impulse einmal mit und einmal ohne Amplifier betrachtet. Die Bilder sind in den Abbildungen \ref{fig:ohneAmplifier} und \ref{fig:mitAmplifier} zu sehen. Dabei ist die Spannung gegen die Zeit aufgetragen. In beiden Fällen ist ein Untergrundrauschen erkennbar.\\
+Ohne Amplifier steigt die Spannung sprunghaft auf einen Maximalwert an und fällt dann exponentiell in die Ruhelage zurück.
+Mit Amplifier ist eine Anstiegszeit von einigen $\si{\micro\second}$ zu erkennen. Die Kurve nimmt einen Gaußförmigen verlauf an, wobei die linke Flanke steiler ist als die Rechte.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,keepaspectratio]{content/images/ohneVerstaerker02.jpg}
+	\caption{Der Impulsverlauf am Oszilloskop ohne Amplifier.}
+	\label{fig:ohneAmplifier}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,keepaspectratio]{content/images/mitVerstaerker01.jpg}
+	\caption{Der Impulsverlauf am Oszilloskop mit Amplifier.}
+	\label{fig:mitAmplifier}
+\end{figure}
+
+\subsection{Bestimmung der Foliendicke mittels einer Energieverlustmessung}
+
+Durch eine Energieverlustmessung wird die Dicke einer Goldfolie bestimmt. Dazu wird einmal mit und einmal ohne Folie die Spannung $U$ der Impulse bei verschiedenen Drücken $p$ gemessen. Da die Impulshöhe schwankt, wird der Mittelwert aus der unteren Grenze, der oberen Grenze und dem vermuteten Mittel mit der Formel für den Mittelwert
+\[
+\mu_U = \frac{1}{N}\sum_{i=1}^N U_i
+\]
+und dessen Standardabweichung
+\[
+\sigma_U = \sqrt{\frac{1}{N(N-1)}\sum_{i=1}^N (U_i-\mu_U)^2}
+\]
+gebildet zu
+\[
+U = \mu_U \pm \sigma_U \text{.}
+\]
+Die Werte befinden sich in den Tabellen \ref{tab:dataOhne} und \ref{tab:dataMit}. Die Graphen sind in Abbildung \ref{fig:Foliendicke} zu sehen.
+Es werden lineare Ausgleichsrechnungen der Form
+\[
+U = ap + b
+\]
+durchgeführt. Dies ergibt die Parameter:
+\begin{align*}
+a_.{ohne} &= \SI{-1.213(20)e-2}{\volt\per\milli\per\bar}\\
+b_.{ohne} &= \SI{4.372(18)}{\milli\bar}\\
+a_.{mit}  &= \SI{-1.38(7)e-2}{\volt\per\milli\per\bar}\\
+b_.{mit}  &= \SI{3.47(6)}{\milli\bar}\text{.}
+\end{align*}
+Die Parameter $a_.{ohne}$ und $b_.{ohne}$ gehören dabei zur Messung ohne Folie, die Parameter $a_.{mit}$ und $b_.{mit}$ zu der mit Folie.
+Der Energieverlust lässt sich mit Formel \eqref{eq:dx} aus den Achsenabschnitten $b_.{ohne}$ und $b_.{mit}$ bestimmen. Dazu muss ein Umrechnungsfaktor $\kappa$ von der Spannung in die Energie bestimmt werden. Aus der Theorie ist mit $E_\alpha=\SI{5,486}{\mega\electronvolt}$ die Energie der $\alpha$-Teilchen im Vakuum bekannt. Es ergibt sich:
+\[
+\kappa = \frac{E_\alpha}{b_.{ohne}} = \SI{1.255(5)}{\mega\electronvolt\per\volt}\text{.}
+\]
+Der Fehler $\sigma_\kappa$ bestimmt sich nach der Gaußschen Fehlerfortpflanzung:
+\[
+\sigma_\kappa = \frac{E_\alpha}{b_.{ohne}}\sigma_{b_.{ohne}}\text{.}
+\]
+%Der Energieverlust lässt sich über die Spannungsdifferenz der y-Achsenabschnitte bestimmen, indem die Proportionalität zur Energie genutzt wird.
+%Aus der Theorie ist mit $E_\alpha=\SI{5,48}{\mega\electronvolt}$ die Energie der $\alpha$-Teilchen im Vakuum bekannt.
+Somit beträgt der Energieverlust:
+\[
+\Delta E = \kappa(b_.{ohne}-b_.{mit}) = \SI{1.13(8)}{\mega\electronvolt} \text{.}
+\]
+Der Fehler $\sigma_E$ berechnet sich über die Gaußsche Fehlerfortpflanzung:
+\begin{align*}
+\sigma_E &= \sqrt{(b_.{ohne}-b_.{mit})^2\sigma_\kappa^2+\kappa^2\left(\sigma_{b_.{ohne}}^2+\sigma_{b_.{mit}}^2\right)}\text{.}
+\end{align*}
+Es folgt mit Formel \eqref{eq:dx} und den Werten für Gold aus Tabelle \ref{tab:values} für die Dicke $d$ der Folie:
+\[
+d = \SI{2.62(18)}{\micro\metre}\text{.}
+\]
+Der Fehler $\sigma_d$ von $d$ berechnet sich mit der Gaußschen Fehlerfortpflanzung über:
+\[
+\sigma_d = \sigma_E\log\left(\frac{4m_eE_\alpha}{m_\alpha I}\right)^{-1}\frac{8\pi m_eE_\alpha\epsilon_0^2}{m_\alpha e^4z^2Zn}\text{.}
+\]
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,keepaspectratio]{build/Energieverlust.pdf}
+\caption{Die Spannung $U$ aufgetragen gegen den Druck $p$ mit und ohne Folie.}
+\label{fig:Foliendicke}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Spannungen $U_i$ zu den Drücken $p$ bei der Messung ohne Folie.}
+	\input{content/tables/tabDataOhne.tex}
+	\label{tab:dataOhne}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Die Spannungen $U_i$ zu den Drücken $p$ bei der Messung mit Folie.}
+	\input{content/tables/tabDataMit.tex}
+	\label{tab:dataMit}
+\end{table}
+
+\subsection{Untersuchung des differentiellen Streuquerschnitts für eine dünne Goldfolie}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,keepaspectratio]{build/Rutherford.pdf}
+\caption{Der experimentelle und  theoretische differentielle Wirkungsquerschnitt $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen den Winkel $\theta$.}
+\label{fig:Rutherford}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,keepaspectratio]{build/Rutherford2.pdf}
+\caption{Der experimentelle und  theoretische differentielle Wirkungsquerschnitt $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen den Winkel $\theta$ ohne den ersten Messwert.}
+\label{fig:Rutherford2}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Anzahl der Counts $N$ und die gemessene Zeit $t$ in Abhängigkeit vom Winkel $\theta$.}
+	\input{content/tables/tabDataDeg.tex}
+	\label{tab:dataDeg}
+\end{table}
+
+\subsection{Untersuchung des Einflusses von Merfachstreuung}
+
+
+
+\subsection{$Z$-Abhängigkeit des Wirkungsquerschnitts}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth-70pt,keepaspectratio]{build/Rutherford2.pdf}
+\caption{Der experimentelle und  theoretischen differentielle Wirkungsquerschnitte $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen die Kernladungszahl $Z$.}
+\label{fig:Rutherford2}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{der experimentelle differentielle Wirkungsquerschnitt, sowie die theoretischen differentiellen Wirkungsquerschnitte für $\theta=\SI{3}{\degree}$, $\theta=\SI{3,5}{\degree}$ und $\theta=\SI{4}{\degree}$ in Abhängigkeit von der Kernladungszahl $Z$.}
+	\input{content/tables/tabZAbh.tex}
+	\label{tab:ZAbh}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Die Werte zur Berechnung des differentiellen Wirkungsquerschnitts.}
+	\input{content/tables/tabZWerte.tex}
+	\label{tab:ZWerte}
+\end{table}
