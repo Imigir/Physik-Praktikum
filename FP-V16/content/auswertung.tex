@@ -2,11 +2,11 @@
 \label{sec:Auswertung}
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Die Naturkonstanten werden dem Paket Scipy \cite{scipy} entnommen.
-In Tabelle \ref{tab:ZWerte} befinden sich Werte die für spätere Rechnungen benötigt werden.
+In Tabelle \ref{tab:values} befinden sich Werte, die für spätere Rechnungen benötigt werden.
 
 \begin{table}
 	\centering
-	\caption{Einige Werte für Gold, Aluminium und Bismut.}
+	\caption{Die Kernladungszahl $Z$, die Dicke der Folie $d$, die Teilchendichte $n=\frac{\rho}{m}$ und eine Intensität $I_\theta$ für einen bestimmten Streuwinkel $\theta$ für Gold, Aluminium und Bismut.}
 	\input{content/tables/tabZWerte_korrekt.tex}
 	\label{tab:values}
 \end{table}
@@ -147,7 +147,7 @@ Der Fehler $\sigma_.{exp}$ auf den differentiellen Wirkungsquerschnitt ergibt si
 \text{,}\label{eq:errorRutherford}
 \end{equation}
 mit $\sigma_I=\frac{\sigma_N}{t}$.
-Die theoretischen Werte werden mit den Werten aus Tabelle \ref{tab:values} nach Formel \eqref{eq:RSF} berechnet. In  den Abbildungen \ref{fig:Rutherford} und \ref{fig:Rutherford2} sind die Werte gegenübergestellt. Zur besseren Veranschaulichung wird bei Abbildung \ref{fig:Rutherford2} das erste Wertepaar weggelassen.\\
+Die theoretischen Werte werden mit den Werten aus Tabelle \ref{tab:values} nach Formel \eqref{eq:RSF} berechnet. In  den Abbildungen \ref{fig:Rutherford} und \ref{fig:Rutherford2} sind die Werte gegenübergestellt. Zur besseren Veranschaulichung wird bei Abbildung \ref{fig:Rutherford2} die ersten beiden Wertepaare weggelassen.\\
  
 \begin{figure}
 \centering
@@ -159,7 +159,7 @@ Die theoretischen Werte werden mit den Werten aus Tabelle \ref{tab:values} nach 
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,keepaspectratio]{build/Rutherford2.pdf}
-\caption{Der experimentelle und  theoretische differentielle Wirkungsquerschnitt $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen den Winkel $\theta$ ohne den ersten Messwert.}
+\caption{Der experimentelle und  theoretische differentielle Wirkungsquerschnitt $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen den Winkel $\theta$ ohne die ersten beiden Messwerte.}
 \label{fig:Rutherford2}
 \end{figure}
 
@@ -172,14 +172,25 @@ Die theoretischen Werte werden mit den Werten aus Tabelle \ref{tab:values} nach 
 
 \subsection{Untersuchung des Einflusses von Merfachstreuung}
 
+Es wird untersucht, ob bei dickeren Folien Mehrfachstreuung auftritt. Dazu wird bei $\theta=\SI{6.3}{\degree}$ die Intensität gemessen.
+Bei einer Messzeit von $t=\SI{300}{\second}$ ergeben sich für eine $\SI{2}{\milli\metre}$ und eine $\SI{4}{\milli\metre}$ dicke Folie Zählraten von $N_{2.{mm}}=\num{2156(47)}$ und $N_{4.{mm}}=\num{1452(39)}$.
+Für die Intensität $I$ folgt:
+\begin{align*}
+I_{2.{mm}} &= \SI{7.19(16)}{\per\second}\\
+I_{4.{mm}} &= \SI{4.84(13)}{\per\second}\text{.}
+\end{align*}
+Die Fehler bestimmen sich wie in den vorherigen Kapiteln.
 
+\subsection{$Z$-Abhängigkeit des differentiellen Wirkungsquerschnitts}
 
-\subsection{$Z$-Abhängigkeit des Wirkungsquerschnitts}
+Es wird die $Z$-Abhängigkeit des differentiellen Wirkungsquerschnitts untersucht. Dafür werden die Intensitäten $I_\theta$ bei einer Streuung an Gold, Aluminium und Bismut bei gleichem Winkel $\theta$ bestimmt.\\
+Die Daten für die Dicken $d$ der Folien und der Intensitäten werden in diesem Versuchsteil zur Verfügung gestellt, allerdings ist der Winkel unbekannt. Deswegen werden die mit den Werten aus Tabelle \ref{tab:values} nach Formel \eqref{eq:Rutherford} berechneten differentiellen Wirkungsquerschnitte mit drei theoretischen Werten bei $\theta=\SI{3}{\degree}$, $\theta=\SI{3.5}{\degree}$ und $\theta=\SI{4}{\degree}$ verglichen. Diese berechnen sich nach Formel \eqref{eq:RSF}.\\
+Die berechneten Werte befinden sich in Abhängigkeit von $Z$ in Tabelle \ref{tab:ZAbh} und sind in Abbildung \ref{fig:ZAbh} gegeneinander aufgetragen.\\
 
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,keepaspectratio]{build/zAbh.pdf}
-\caption{Der experimentelle und  theoretischen differentielle Wirkungsquerschnitte $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen die Kernladungszahl $Z$.}
+\caption{Der experimentelle und die theoretischen differentiellen Wirkungsquerschnitte $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen die Kernladungszahl $Z$.}
 \label{fig:ZAbh}
 \end{figure}
 

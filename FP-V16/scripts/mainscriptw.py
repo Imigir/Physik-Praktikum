@@ -207,8 +207,8 @@ if(plot):
 	plt.cla()
 	plt.clf()
 	name = 'Rutherford2'
-	plt.plot(theta[1:], dsdO2[1:]*10**24, 'mx', label='Wertepaare Theorie')
-	Plot(x=theta[1:],y=dsdO[1:]*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
+	plt.plot(theta[2:], dsdO2[2:]*10**24, 'mx', label='Wertepaare Theorie')
+	Plot(x=theta[2:],y=dsdO[2:]*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
 	plt.savefig('build/'+name+'.pdf')
 
 #Z-Abhängigkeit
