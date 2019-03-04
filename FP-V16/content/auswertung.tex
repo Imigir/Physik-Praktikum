@@ -7,7 +7,7 @@ In Tabelle \ref{tab:values} befinden sich Werte, die für spätere Rechnungen be
 \begin{table}
 	\centering
 	\caption{Die Kernladungszahl $Z$, die Dicke der Folie $d$, die Teilchendichte $n=\frac{\rho}{m}$ und eine Intensität $I_\theta$ für einen bestimmten Streuwinkel $\theta$ für Gold, Aluminium und Bismut.}
-	\input{content/tables/tabZWerte_korrekt.tex}
+	\input{content/tables2/tabZWerte_korrekt.tex}
 	\label{tab:values}
 \end{table}
 
@@ -122,14 +122,14 @@ Der Fehler $\sigma_d$ von $d$ berechnet sich mit der Gaußschen Fehlerfortpflanz
 \begin{table}
 	\centering
 	\caption{Die Spannungen $U_i$ zu den Drücken $p$ bei der Messung ohne Folie.}
-	\input{content/tables/tabDataOhne.tex}
+	\input{content/tables2/tabDataOhne.tex}
 	\label{tab:dataOhne}
 \end{table}
 
 \begin{table}
 	\centering
 	\caption{Die Spannungen $U_i$ zu den Drücken $p$ bei der Messung mit Folie.}
-	\input{content/tables/tabDataMit.tex}
+	\input{content/tables2/tabDataMit.tex}
 	\label{tab:dataMit}
 \end{table}
 
@@ -140,7 +140,7 @@ Der experimentelle differentielle Wirkungsquerschnitt lässt sich aus der Intens
 \begin{equation}
 \left(\frac{.d\sigma}{.d\Omega}\right)_.{exp} = \frac{I}{Adn\Omega}\text{,}\label{eq:Rutherford}
 \end{equation}
-mit der Aktivität $A=\SI{15,13(22)}{\becquerel}$, die auf die Goldfolie trifft, der Teilchendichte $n$, der Dicke $d$ und dem Raumwinkel $\Omega=\pi r^2$, der vom Detektor abgedeckt wird. Mit $r=\SI{5}{\milli\metre}$ ergeben sich die Werte aus Tabelle \ref{tab:dataDeg}. Der Fehler auf $N$ ergibt sich wegen der Poisson-Verteilung zu $\sigma_N= \sqrt{N}$.
+mit der Aktivität $A=\SI{15,13(22)}{\becquerel}$, die auf die Goldfolie trifft, der Teilchendichte $n$, der Dicke $d$ und dem Raumwinkel $\Omega=\frac{\pi r^2}{a^2}$, der vom Detektor abgedeckt wird. Mit $r=\SI{5}{\milli\metre}$ und dem Abstand zwischen Quelle und Detektor $a=\SI{101}{\milli\meter}$ ergeben sich die Werte aus Tabelle \ref{tab:dataDeg}. Der Fehler auf $N$ ergibt sich wegen der Poisson-Verteilung zu $\sigma_N= \sqrt{N}$.
 Der Fehler $\sigma_.{exp}$ auf den differentiellen Wirkungsquerschnitt ergibt sich mit der Gaußschen Fehlerfortpflanzung zu:
 \begin{equation}
 \sigma_.{exp} =\sqrt{\left(\frac{\sigma_I}{Adn\Omega}\right)^2+\left(\frac{I\sigma_A}{A^2dn\Omega}\right)^2} 
@@ -166,7 +166,7 @@ Die theoretischen Werte werden mit den Werten aus Tabelle \ref{tab:values} nach 
 \begin{table}
 	\centering
 	\caption{Die Anzahl der Counts $N$ und die gemessene Zeit $t$ in Abhängigkeit vom Winkel $\theta$, sowie die berechneten differentiellen Wirkungsquerschnitte.}
-	\input{content/tables/tabDataDeg.tex}
+	\input{content/tables2/tabDataDeg.tex}
 	\label{tab:dataDeg}
 \end{table}
 
@@ -197,7 +197,8 @@ Die berechneten Werte befinden sich in Abhängigkeit von $Z$ in Tabelle \ref{tab
 \begin{table}
 	\centering
 	\caption{der experimentelle differentielle Wirkungsquerschnitt, sowie die theoretischen differentiellen Wirkungsquerschnitte für $\theta=\SI{3}{\degree}$, $\theta=\SI{3,5}{\degree}$ und $\theta=\SI{4}{\degree}$ in Abhängigkeit von der Kernladungszahl $Z$.}
-	\input{content/tables/tabZAbh.tex}
+	\input{content/tables2/tabZAbh.tex}
 	\label{tab:ZAbh}
 \end{table}
 
+%◙
