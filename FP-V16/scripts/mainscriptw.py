@@ -188,7 +188,7 @@ dsdO=(anzahl/t)/(A2*n*2*10**(-6)*dO)
 dsdO2=1/(4*np.pi*const.epsilon_0)**2*((Z*z*const.e**2)/(4*E_a))**2*1/(np.sin(theta*0.5))**4
 #print(dsdO)
 #print(dsdO2)
-makeTable([theta*360/(2*np.pi),noms(anzahl),stds(anzahl),t,noms(dsdO)*10**24,stds(dsdO)*10**24,dsdO2*10**24], r'{'+r'$\theta/\si{\degree}$'+r'} & \multicolumn{2}{c}{'+r'$N$'+r'} & {'+r'$t/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo}/\si{\barn}$'+r'}','tabDataDeg',['S[table-format=2.1]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=3.0]','S[table-format=5.2]','@{${}\pm{}$}S[table-format=2.2]','S[table-format=3.1]'],["%2.1f","%4.0f","%2.0f","%3.0f","%5.2f","%2.2f","%3.1f"])
+makeTable([theta*360/(2*np.pi),noms(anzahl),stds(anzahl),t,noms(dsdO)*10**24,stds(dsdO)*10**24,dsdO2*10**24], r'{'+r'$\theta/\si{\degree}$'+r'} & \multicolumn{2}{c}{'+r'$N$'+r'} & {'+r'$t/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo}/\si{\barn}$'+r'}','tabDataDeg',['S[table-format=2.1]','S[table-format=4.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=3.0]','S[table-format=3.1]','@{${}\pm{}$}S[table-format=2.1]','S[table-format=5.4]'],["%2.1f","%4.0f","%2.0f","%3.0f","%3.1f","%2.1f","%5.4f"])
 
 
 
