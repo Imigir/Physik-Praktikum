@@ -239,3 +239,10 @@ plt.ylabel(r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.legend(loc='best')
 plt.savefig('build/zAbh.pdf')
+
+"""
+%author = "K. Burchard, T. Götzke, O. Nagel, T. Papke, J. Petereid und M. Quade",
+%title = "Kernpraktikum 2010, Energie und Reichweite von Strahlung",
+%publisher = "Universität Potsdam",
+%url = "https://www.uni-potsdam.de/u/phys_gprakt/html/projekte/kernstrahlung/kernstrahlung_20.pdf",
+"""
