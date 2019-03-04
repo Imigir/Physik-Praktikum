@@ -7,13 +7,14 @@ Die $\alpha$-Teilchen werden aus dem Zerfall eines radioaktiven Isotops, hier $^
 \[
 ^{241}_{95}.{Am}\rightarrow ^{237}_{93}.{Np} + ^{4}_{2}.{\alpha}\text{.}
 \]
-Die möglichen Übergänge dieser Reaktion mit verschieden angeregten $^{237}_{93}.{Np}$-Ausgangsprodukten sind in Abbildung \ref{fig:uebergang} zu sehen. Der dominante Prozess ist der hier mit $\alpha_.3$ bezeichnete. Der Anteil an $\alpha$-Strahlung durch weiteren Zerfall des Neptuniums kann auf Grund seiner wesentlich höheren Halbwertszeit vernachlässigt werden.\\
+Die möglichen Übergänge dieser Reaktion mit verschieden angeregten $^{237}_{93}.{Np}$-Ausgangsprodukten sind in Abbildung \ref{fig:uebergang} zu sehen. Der dominante Prozess ist der hier mit $\alpha_.3$ bezeichnet. Der Anteil an $\alpha$-Strahlung durch weiteren Zerfall des Neptuniums kann auf Grund seiner wesentlich höheren Halbwertszeit vernachlässigt werden.\\
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-60pt,keepaspectratio]{content/images/uebergang.pdf}
 \caption{Übergangsschema des Isotops $^{241}_{95}.{Am}$.\cite{uebergang16}}
 \label{fig:uebergang}
 \end{figure}
+
 \subsection{Wechselwirkung geladener Teilchen mit Materie}
 \noindent Wechselwirkt ein geladenes Teilchen mit einer Masse $m\gg m_.e$, wobei $m_.e$ die Elektronenmasse ist, in Materie, so gibt es zwei Möglichkeiten der Wechselwirkung.
 Entweder das Teilchen wechselwirkt mit den Hüllenelektron, auf Grund des großen Massenunterschieds wird dabei zwar Energie abgegeben, jedoch ändert sich seine Flugrichtung nicht. Die andere Möglichkeit ist eine Wechselwirkung mit dem Coulombpotential des Kerns. Da ein $\alpha$-Teilchen zweifach positiv geladen ist, wird es stark aus seiner Bahn ausgelenkt und gibt nur einen kleinen Teil seiner Energie in Form von Bremsstrahlung an das Medium ab.
@@ -21,23 +22,16 @@ Auf Grund der Ausdehnung der Materie kommt es zu sehr vielen Wechselwirkungen, w
 \begin{equation}
 \frac{\mathrm{d}E}{\mathrm{d}x}=\frac{4\pi e^4z^2n Z}{m_.ev^2(4\pi\epsilon_.0)^2}\log{\left(\frac{2m_.ev^2}{I}\right)}\text{.}\label{eq:BBF}
 \end{equation} 
-Dabei ist $e$ die Elementarladung, $z=2$ die Ladungszahl des $\alpha$-Teilchens, $Z$ die Kernladungszahl der Atome des Mediums, $n$ die Anzahl der Atome pro $\si{\centi\meter^3}$, $v$ die Geschwindigkeit des $\alpha$-Teilchens und $I$ die mittlere Ionisationsenergie.
-Umformen liefert mit $v^2=\frac{E_.{\alpha}}{m_.{\alpha}}$ und Energie und Masse des $\alpha$-Teilchens $E_.{\alpha}$ und $m_.{\alpha}$
+Dabei ist $e$ die Elementarladung, $z=2$ die Ladungszahl des $\alpha$-Teilchens, $Z$ die Kernladungszahl der Atome des Mediums, $n$ die Anzahl der Atome pro $\si{\centi\meter^3}$, $v$ die Geschwindigkeit des $\alpha$-Teilchens und $I=(\SI{10}{\electronvolt})Z$ die mittlere Ionisationsenergie.
+Umformen liefert mit $v^2=\frac{2E_.{\alpha}}{m_.{\alpha}}$ und Energie und Masse des $\alpha$-Teilchens $E_.{\alpha}$ und $m_.{\alpha}$
 \begin{equation}
-dx=dE\frac{8\pi m_.e E_.{\alpha}\epsilon^2_.0}{m_.{\alpha}e^4z^2nZ}\log^{-1}\left(\frac{4m_.e E_.{\alpha}}{m_.{\alpha}}\right)\label{eq:dx}
+dx=dE\frac{8\pi m_.e E_.{\alpha}\epsilon^2_.0}{m_.{\alpha}e^4z^2nZ}\log^{-1}\left(\frac{4m_.e E_.{\alpha}}{Im_.{\alpha}}\right)\label{eq:dx}
 \end{equation}
-Für das Bremsvermögen in Luft genähert als Stickstoff ergibt sich daraus mit
-\begin{align*}
-n_.N &= \SI{2,69e25}{\metre^3} & Z_.N&=7 & I_.N&=\SI{70}{\electronvolt}\\
-m_.{\alpha}&=\SI{6,64e-27}{\kilo\gram} & z_.{\alpha}&=2 & E_.{\alpha}&=\SI{5,486}{\mega\electronvolt}
-\end{align*}:
+Für das Bremsvermögen in Luft genähert als Stickstoff ergibt sich daraus mit den Werten $n_.N = \SI{2,69e25}{\metre^{-3}}$, $Z_.N=7$, $I_.N=\SI{70}{\electronvolt}$, $m_.{\alpha}=\SI{6,64e-27}{\kilo\gram}$, $z_.{\alpha}=2$ und der Energie $E_.{\alpha}=\SI{5,486}{\mega\electronvolt}$ aus Abbildung \ref{fig:uebergang}:
 \begin{equation*}
 \left(\frac{dE}{dx}\right)_.{N}=\SI{0,40}{\mega\electronvolt}\text{.}
 \end{equation*}
-%und damit nach Integration für die Schichtdicke $d$ des absorbierenden Mediums
-%\begin{equation}
-%d=
-%\end{equation}
+
 \subsection{Der Rutherford'sche Wirkungsquerschnitt}
 Der Wirkungsquerschnitt $\sigma$ ist ein Maß für die Wahrscheinlichkeit der Wechselwirkung des $\alpha$-Teilchens im Medium.
 Der differentielle Wirkungsquerschnitt pro Raumwinkelelement $\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}$ ist gegeben durch die Rutherford-Streuformel
