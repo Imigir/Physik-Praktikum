@@ -164,9 +164,9 @@ DE = (uParams_ohne[1]-uParams_mit[1])*kappa
 print('kappa:', kappa/const.e)
 print('DE:', DE)
 print('DE:', DE/const.e)
-v2 = 2*E_a/m_a
-print('v2', np.sqrt(v2))
-d = DE/np.log(2*m_e*v2/I)*m_e*v2*4*np.pi*const.epsilon_0**2/(const.e**4*z**2*Z*n)
+v2 = E_a/m_a*(1+uParams_mit[1]/uParams_ohne[1])
+print('v2', unp.sqrt(v2))
+d = DE/unp.log(2*m_e*v2/I)*m_e*v2*4*np.pi*const.epsilon_0**2/(const.e**4*z**2*Z*n)
 print('d:', d)
 
 sigma_A = np.sqrt(4539)/300
@@ -198,7 +198,7 @@ if(plot):
 	plt.clf()
 	name = 'Rutherford'
 	plt.plot(theta, dsdO2*10**24, 'mx', label='Wertepaare Theorie')
-	Plot(x=theta,y=dsdO*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
+	Plot(x=theta,y=dsdO*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/10^{-24}\si{\meter^2}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
 	plt.savefig('build/'+name+'.pdf')
 
 
@@ -208,7 +208,7 @@ if(plot):
 	plt.clf()
 	name = 'Rutherford2'
 	plt.plot(theta[2:], dsdO2[2:]*10**24, 'mx', label='Wertepaare Theorie')
-	Plot(x=theta[2:],y=dsdO[2:]*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
+	Plot(x=theta[2:],y=dsdO[2:]*10**24,xname=r'$\theta$',yname=r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/10^{-24}\si{\meter^2}$',markername='Wertepaare Experiment',linear=False,save=False,Plot=plot)
 	plt.savefig('build/'+name+'.pdf')
 
 #Z-Abhängigkeit
@@ -246,3 +246,14 @@ plt.savefig('build/zAbh.pdf')
 %publisher = "Universität Potsdam",
 %url = "https://www.uni-potsdam.de/u/phys_gprakt/html/projekte/kernstrahlung/kernstrahlung_20.pdf",
 """
+
+#Mehrfachstreuung
+N2=unp.uarray(2156,np.sqrt(2156))
+N4=unp.uarray(1452,np.sqrt(1452))
+I2=N2/300
+I4=N4/300
+
+dsdO2m=I2/(A2*n*2*10**(-6)*dO)
+dsdO4m=I4/(A2*n*4*10**(-6)*dO)
+print(dsdO2m)
+print(dsdO4m)
