@@ -41,8 +41,8 @@ A_.{exp} = \SI{485(7)}{\kilo\becquerel} \text{.}
 \subsection{Form der vorverstärkten Impulse auf dem Oszilloskop}
 
 Es werden die vorverstärkten Impulse einmal mit und einmal ohne Amplifier betrachtet. Die Bilder sind in den Abbildungen \ref{fig:ohneAmplifier} und \ref{fig:mitAmplifier} zu sehen. Dabei ist die Spannung gegen die Zeit aufgetragen. In beiden Fällen ist ein Untergrundrauschen erkennbar.\\
-Ohne Amplifier steigt die Spannung sprunghaft auf einen Maximalwert an und fällt dann exponentiell in die Ruhelage zurück.
-Mit Amplifier ist eine Anstiegszeit von einigen $\si{\micro\second}$ zu erkennen. Die Kurve nimmt einen Gaußförmigen verlauf an, wobei die linke Flanke steiler ist als die Rechte.\\
+Ohne Amplifier steigt die Spannung sprunghaft auf einen Maximalwert von $\SI{140}{\milli\volt}$ an und fällt dann exponentiell in die Ruhelage zurück.
+Mit Amplifier ist eine Anstiegszeit von $\SI{1}{\micro\second}$ auf ein Maximum von $\SI{4,5}{\volt}$ zu erkennen. Die Kurve nimmt einen Gaußförmigen verlauf an, wobei die linke Flanke steiler ist als die Rechte.\\
 
 \begin{figure}
 	\centering
@@ -103,14 +103,18 @@ Der Fehler $\sigma_E$ berechnet sich über die Gaußsche Fehlerfortpflanzung:
 \begin{align*}
 \sigma_E &= \sqrt{(b_.{ohne}-b_.{mit})^2\sigma_\kappa^2+\kappa^2\left(\sigma_{b_.{ohne}}^2+\sigma_{b_.{mit}}^2\right)}\text{.}
 \end{align*}
-Es folgt mit Formel \eqref{eq:dx} und den Werten für Gold aus Tabelle \ref{tab:values} für die Dicke $d$ der Folie:
+Es folgt mit Formel \eqref{eq:dx} und
 \[
-d = \SI{2.62(18)}{\micro\metre}\text{.}
+v^2=\frac{2\bar{E}}{m_.{\alpha}}=\frac{E_{\alpha}}{m_.{\alpha}}\left(1+\frac{b_.{mit}}{b_.{ohne}}\right)
 \]
-Der Fehler $\sigma_d$ von $d$ berechnet sich mit der Gaußschen Fehlerfortpflanzung über:
+sowie den Werten für Gold aus Tabelle \ref{tab:values} für die Dicke $d$ der Folie:
 \[
-\sigma_d = \sigma_E\log\left(\frac{4m_eE_\alpha}{m_\alpha I}\right)^{-1}\frac{8\pi m_eE_\alpha\epsilon_0^2}{m_\alpha e^4z^2Zn}\text{.}
+d = \SI{2,56(17)}{\micro\metre}\text{.}
 \]
+Der Fehler von $d$ berechnet sich ebenfalls mit der Gaußschen Fehlerfortpflanzung.
+%\[
+%\sigma_d = \sigma_E\log\left(\frac{4m_eE_\alpha}{m_\alpha I}\right)^{-1}\frac{8\pi m_eE_\alpha\epsilon_0^2}{m_\alpha e^4z^2Zn}\text{.}
+%\]
 
 \begin{figure}
 \centering
@@ -136,7 +140,7 @@ Der Fehler $\sigma_d$ von $d$ berechnet sich mit der Gaußschen Fehlerfortpflanz
 \subsection{Untersuchung des differentiellen Wirkungsquerschnitts für eine dünne Goldfolie}
 
 Für eine dünne Goldfolie mit $\SI{2}{\micro\metre}$ Dicke wird der differentielle Wirkungsquerschnitt untersucht.
-Der experimentelle differentielle Wirkungsquerschnitt lässt sich aus der Intensität $I=\frac{.dN}{.dt}$ bestimmen:
+Der experimentelle differentielle Wirkungsquerschnitt lässt sich aus der Intensität $I=\frac{.dN}{.dt}$ bestimmen \cite{Kroeninger}:
 \begin{equation}
 \left(\frac{.d\sigma}{.d\Omega}\right)_.{exp} = \frac{I}{Adn\Omega}\text{,}\label{eq:Rutherford}
 \end{equation}
