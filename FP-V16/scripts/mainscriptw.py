@@ -174,7 +174,7 @@ sigma_A = np.sqrt(4539)/300
 
 
 #Differentieller WQ
-dO = np.pi/4/(10.1)**2
+dO = np.pi/4/(4.1)**2
 A2 = unp.uarray(15.13,sigma_A)
 A_exp = A2*np.pi*101**2
 print('A_exp= ',A_exp)
@@ -220,22 +220,23 @@ y=I/(n_array*A2*dx*10**(-6)*dO)
 y2_30=1/(4*np.pi*const.epsilon_0)**2*((x*z*const.e**2)/(4*E_a))**2*1/(np.sin(1.5*2*np.pi/360))**4
 y2_35=1/(4*np.pi*const.epsilon_0)**2*((x*z*const.e**2)/(4*E_a))**2*1/(np.sin(1.75*2*np.pi/360))**4
 y2_40=1/(4*np.pi*const.epsilon_0)**2*((x*z*const.e**2)/(4*E_a))**2*1/(np.sin(2*2*np.pi/360))**4
+y2_10=1/(4*np.pi*const.epsilon_0)**2*((x*z*const.e**2)/(4*E_a))**2*1/(np.sin(5*2*np.pi/360))**4
 
 #print('exp:', y)
 #print('theo:', y2)
 
-makeTable([x,noms(I),stds(I),noms(y)*10**24,stds(y)*10**24,y2_30*10**24,y2_35*10**24,y2_40*10**24],r'{'+r'$Z$'+r'} & \multicolumn{2}{c}{'+r'$I_\theta/\si{\second^{-1}}$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,3}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,3.5}/\si{\barn}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo,4}/\si{\barn}$'+r'}','tabZAbh',['S[table-format=2.0]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=3.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=3.2]','S[table-format=3.2]','S[table-format=3.2]'],["%2.0f","%1.2f","%1.2f","%3.0f","%2.0f","%3.2f","%3.2f","%3.2f"])
+makeTable([x,noms(I),stds(I),noms(y)*10**24,stds(y)*10**24,y2_10*10**24],r'{'+r'$Z$'+r'} & \multicolumn{2}{c}{'+r'$I_\theta/\si{\second^{-1}}$'+r'} & \multicolumn{2}{c}{'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{exp}/10^{-24}\si{\meter^2}$'+r'} & {'+r'$\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_\text{theo}/10^{-24}\si{\meter^2}$'+r'}','tabZAbh',['S[table-format=2.0]','S[table-format=1.2]','@{${}\pm{}$}S[table-format=1.2]','S[table-format=3.0]','@{${}\pm{}$}S[table-format=2.0]','S[table-format=3.2]'],["%2.0f","%1.2f","%1.2f","%3.0f","%2.0f","%3.2f"])
 makeTable([x,dx,n_array/10**28],r'{'+r'$Z$'+r'} & {'+r'$d/\si{\micro\metre}$'+r'} & {'+r'$n/10^{28}\si{\metre^{-3}}$'+r'}','tabZWerte',['S[table-format=2.0]','S[table-format=1.0]','S[table-format=1.1]'],["%2.0f","%1.0f","%1.1f"])
 
 
 plt.cla()
 plt.clf()
 plt.errorbar(noms(x), noms(y)*10**24, xerr=stds(x), yerr=stds(y)*10**24, fmt='rx', markersize=6, elinewidth=0.5, capsize=2, capthick=0.5, ecolor='g',barsabove=True ,label='Messwerte')
-plt.plot(x,y2_30*10**24,'bx',label=r'Theorie $\theta=3\si{\degree}$')
-plt.plot(x,y2_35*10**24,'kx',label=r'Theorie $\theta=3,5\si{\degree}$')
-plt.plot(x,y2_40*10**24,'yx',label=r'Theorie $\theta=4\si{\degree}$')
+plt.plot(x,y2_10*10**24,'bx',label=r'Theorie $\theta=10\si{\degree}$')
+#plt.plot(x,y2_35*10**24,'kx',label=r'Theorie $\theta=3,5\si{\degree}$')
+#plt.plot(x,y2_40*10**24,'yx',label=r'Theorie $\theta=4\si{\degree}$')
 plt.xlabel(r'$Z$')
-plt.ylabel(r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/\si{\barn}$')
+plt.ylabel(r'$\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}/10^{-24}\si{\meter^2}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.legend(loc='best')
 plt.savefig('build/zAbh.pdf')
