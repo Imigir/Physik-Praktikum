@@ -1,4 +1,73 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Die Konstanten werden SciPy \cite{scipy} entnommen.
+
+\subsection{Berechnung der theoretischen Werte}
+
+Zu Beginn werden die theoretischen Landefaktoren der Energieniveaus aus den Übergängen der roten Cadmiumlinie ($^3D_2 \rightarrow ^3P_1$) und der blauen Cadmiumlinie ($^3P_1 \rightarrow ^3S_1$) berechnet. 
+Anschließend werden das Dispersionsgebiet $\Delta\lambda_D$ und das Auflösungsvermögen $A$ bestimmt.
+Es werden dabei die Landefaktoren $g_im_i-g_jm_j$ aus Gleichung \ref{eq:} zu $g_{i,j}$ zusammengefasst.
+Für die rote Cadmiumlinie ergeben sich die Landefaktoren
+\[
+g_i=g_j=1\text{.}
+\]
+Daraus folgen für die Übergänge:
+\begin{align*}
+g_{i,j_\pi}&=0\\
+g_{i,j_{\sigma1}}&=1\\
+g_{i,j_{\sigma2}}&=-1 \text{.}
+\end{align*}
+Für die blaue Cadmiumlinie ergeben sich die Landefaktoren
+\begin{align*}
+g_i &= 1.5\\
+g_j &= 2 \text{.}
+\end{align*}
+Daraus folgen für die Übergänge:
+\begin{align*}
+g_{i,j_\pi}&=(-0.5,0,0.5)\\
+g_{i,j_{\sigma1}}&=(1.5,2)\\
+g_{i,j_{\sigma2}}&=(-1.5,-2) \text{.}
+\end{align*}
+Da die $g_{i,j_{\sigma}$ sehr dicht beisammen liegen, werden bei der Messung nur Aufspaltungen mit $g_{i,j_\sigma} = \pm 1.75$ gemessen.
+Das Dispersionsgebiet ergibt sich für die rote Linie mit $\lambda_.{rot}=\SI{643.8}{\nano\metre}$ und für die blaue Linie mit $\lambda_.{blau}=\SI{480}{\nano\metre}$ bei einer Lumma-Gehrcke Platte mit den Dimensionen $L={120}{\milli\metre}$, $d={4}{\milli\metre}$ und den Brechungsindizes $n(\SI{480}{\nano\metre})=1.4635$ und $n(\SI{643.8}{\nano\metre})=1.4567$ und Formel \eqref{eq:} zu:
+\[
+\Delta\lambda_D = \left{
+\begin{cases}
+\SI{4.891e-11}{\metre}\\
+\SI{2.695e-11}{\metre}
+\end{cases}
+\]
+
+\subsection{Kalibrierung des B-Feldes}
+
+Zunächst wird das B-Feld kalibriert. Hierzu wird die stärke des B-Feldes in Abhängigkeit von der Stromstärke I aufgenommen. Die Werte sind in Tabelle \ref{tab:B} aufgelistet und in Abbildung \ref{fig:B} graphisch dargestellt. Es wird eine lineare Ausgleichsrechnung der Form
+\[
+B(I) = aI+b
+\]
+durchgeführt. Dies liefert die Werte:
+\begin{align*}
+a &= \SI{}{\tesla\per\ampere}\\
+b &= \SI{}{\tesla}
+\end{align*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-130pt,height=\textheight-130pt,keepaspectratio]{build/Bfeldkali.pdf}
+	\caption{Die Kalibrationskurve des B-Feldes in Abhängigkeit der Stromstärke I.}
+	\label{fig:B}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte für die B-Feldkalibrierung.}
+	\input{build/tabIB1.tex}
+	/\input{build/tabIB2.tex}
+	\label{tab:B}
+\end{table}
+
+\subsection{Untersuchung des normalen Zeeman-Effekts}
+
+Zunächst wird der normale Zeeman-Effekt anhand des $\sigma$-Übergangs der roten Cadmiumlinie mit $\lambda=\SI{643.8}{\nano\metre}$ untersucht. 
+
+\subsection{Untersuchung des anormalen Zeeman-Effekts}
