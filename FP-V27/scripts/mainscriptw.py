@@ -21,6 +21,7 @@ import scipy.constants as const
 
 #Daten
 I, B  = np.genfromtxt('scripts/BFeldKali.txt',unpack=True)
+B = B/1000
 
 #x werte nun in mm
 print("I in ampere:", I)

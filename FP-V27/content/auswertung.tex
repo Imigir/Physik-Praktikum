@@ -5,7 +5,7 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 \subsection{Berechnung der theoretischen Werte}
 
-Zu Beginn werden die theoretischen Landefaktoren der Energieniveaus aus den Übergängen der roten Cadmiumlinie ($^3D_2 \rightarrow ^3P_1$) und der blauen Cadmiumlinie ($^3P_1 \rightarrow ^3S_1$) berechnet. 
+Zu Beginn werden die theoretischen Landefaktoren der Energieniveaus aus den Übergängen der roten Cadmiumlinie ($^3D_2 \rightarrow^3P_1$) und der blauen Cadmiumlinie ($^3P_1 \rightarrow^3S_1$) berechnet. 
 Anschließend werden das Dispersionsgebiet $\Delta\lambda_D$ und das Auflösungsvermögen $A$ bestimmt.
 Es werden dabei die Landefaktoren $g_im_i-g_jm_j$ aus Gleichung \ref{eq:} zu $g_{ij}$ zusammengefasst.
 Für die rote Cadmiumlinie ergeben sich die Landefaktoren
@@ -20,7 +20,7 @@ g_{ij_{\sigma2}}&=-1 \text{.}
 \end{align*}
 Für die blaue Cadmiumlinie ergeben sich die Landefaktoren
 \begin{align*}
-g_i &= 1.5\\
+g_i &= 1,5\\
 g_j &= 2 \text{.}
 \end{align*}
 Daraus folgen für die Übergänge:
@@ -29,7 +29,7 @@ g_{ij_\pi}&=(-0,5|0,5)\\
 g_{ij_{\sigma1}}&=(1,5|2)\\
 g_{ij_{\sigma2}}&=(-1,5|-2) \text{.}
 \end{align*}
-Dabei ist der Übergang $0\rightarrow0$ unterdrückt.
+Der $\pi$-Übergang $m_2=0\rightarrow m_1=0$ ist trotz $\Delta m=0$ unterdrückt.
 Da die $g_{ij_{\sigma}}$ sehr dicht beisammen liegen, werden bei der Messung nur Aufspaltungen mit $g_{ij_\sigma} = \pm 1,75$ gemessen.
 Das Dispersionsgebiet ergibt sich für die rote Linie mit $\lambda_.{rot}=\SI{643.8}{\nano\metre}$ und für die blaue Linie mit $\lambda_.{blau}=\SI{480}{\nano\metre}$ bei einer Lumma-Gehrcke Platte mit den Dimensionen $L=\SI{120}{\milli\metre}$, $d=\SI{4}{\milli\metre}$ und den Brechungsindizes $n(\SI{480}{\nano\metre})=1,4635$ und $n(\SI{643.8}{\nano\metre})=1,4567$ und Formel \eqref{eq:} zu:
 \[
@@ -56,8 +56,8 @@ B(I) = aI+b
 \]
 durchgeführt. Dies liefert die Werte:
 \begin{align*}
-a &= \SI{}{\tesla\per\ampere}\\
-b &= \SI{}{\tesla}
+a &= \SI{60.24(28)}{\milli\tesla\per\ampere}\\
+b &= \SI{0.1(3)}{\milli\tesla}
 \end{align*}
 
 \begin{figure}
@@ -77,6 +77,6 @@ b &= \SI{}{\tesla}
 
 \subsection{Untersuchung des normalen Zeeman-Effekts}
 
-Zunächst wird der normale Zeeman-Effekt anhand des $\sigma$-Übergangs der roten Cadmiumlinie mit $\lambda=\SI{643.8}{\nano\metre}$ untersucht. 
+Es wird der normale Zeeman-Effekt anhand der $\sigma$-Übergänge der roten Cadmiumlinie mit $\lambda=\SI{643.8}{\nano\metre}$ untersucht. Das Magnetfeld wird mit $\SI{5.5}{\ampere}$ induziert, was mit den Werten der Kalibrierung einem Magnetfeld von $\SI{633}{\milli\tesla}$ entspricht. In Abbildung \ref{fig:} ist die Aufnahme der Spektrallinien mit und ohne Magnetfeld zu sehen. Die gemessenen Werte für $\Delta s$ und für $\delta s$ sind in Tabelle \ref{tab:} eingetragen. 
 
-\subsection{Untersuchung des anormalen Zeeman-Effekts}
+\subsection{Untersuchung des anomalen Zeeman-Effekts}
