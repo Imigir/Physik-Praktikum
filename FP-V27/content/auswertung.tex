@@ -10,33 +10,32 @@ Anschließend werden das Dispersionsgebiet $\Delta\lambda_D$ und das Auflösungs
 Es werden dabei die Landefaktoren $g_im_i-g_jm_j$ aus Gleichung \ref{eq:} zu $g_{ij}$ zusammengefasst.
 Für die rote Cadmiumlinie ergeben sich die Landefaktoren
 \[
-g_i=g_j=1\text{.}
+g_{i_.{norm}}=g_{j_.{norm}}=1\text{.}
 \]
-Daraus folgen für die Übergänge mit der Auswahlregel $\Delta m=0,\pm 1$:
+Daraus folgen für die Übergänge mit der Auswahlregel $\Delta m=0 \lor \pm 1$:
 \begin{align*}
-g_{ij_\pi}&=0\\
-g_{ij_{\sigma1}}&=1\\
-g_{ij_{\sigma2}}&=-1 \text{.}
+g_{ij_.{norm,\pi}}&=0\\
+g_{ij_.{norm,\sigma}}&=\pm 1\\
 \end{align*}
 Für die blaue Cadmiumlinie ergeben sich die Landefaktoren
 \begin{align*}
-g_i &= 1,5\\
-g_j &= 2 \text{.}
+g_{i_.{anom}} &= 1,5\\
+g_{j_.{anom}} &= 2 \text{.}
 \end{align*}
 Daraus folgen für die Übergänge:
 \begin{align*}
-g_{ij_\pi}&=(-0,5|0,5)\\
-g_{ij_{\sigma1}}&=(1,5|2)\\
-g_{ij_{\sigma2}}&=(-1,5|-2) \text{.}
+g_{ij_.{anom,\pi}}&=\pm 0,5\\
+g_{ij_.{anom,\sigma1}}&= \pm 1,5\\
+g_{ij_.{anom,\sigma2}}&= \pm 2 \text{.}
 \end{align*}
 Der $\pi$-Übergang $m_2=0\rightarrow m_1=0$ ist trotz $\Delta m=0$ unterdrückt.
-Da die $g_{ij_{\sigma}}$ sehr dicht beisammen liegen, werden bei der Messung nur Aufspaltungen mit $g_{ij_\sigma} = \pm 1,75$ gemessen.
+Da die $g_{ij_.{anom,\sigma}}$ sehr dicht beisammen liegen, werden bei der Messung nur Aufspaltungen mit $g_{ij_.{anom,\sigma}} = \pm 1,75$ gemessen.
 Das Dispersionsgebiet ergibt sich für die rote Linie mit $\lambda_.{rot}=\SI{643.8}{\nano\metre}$ und für die blaue Linie mit $\lambda_.{blau}=\SI{480}{\nano\metre}$ bei einer Lumma-Gehrcke Platte mit den Dimensionen $L=\SI{120}{\milli\metre}$, $d=\SI{4}{\milli\metre}$ und den Brechungsindizes $n(\SI{480}{\nano\metre})=1,4635$ und $n(\SI{643.8}{\nano\metre})=1,4567$ und Formel \eqref{eq:} zu:
 \[
 \Delta\lambda_D =
 \begin{cases}
-\SI{4.891e-11}{\metre} \text{, für }\lambda=\SI{643.8}{\nano\metre}\\
-\SI{2.695e-11}{\metre} \text{, für }\lambda=\SI{480}{\nano\metre}
+\SI{48.91}{\pico\metre} \text{, für }\lambda=\SI{643.8}{\nano\metre}\\
+\SI{26.95}{\pico\metre} \text{, für }\lambda=\SI{480}{\nano\metre}
 \end{cases}\text{.}
 \]
 Das Auflösungsvermögen berechnet sich nach Formel \eqref{eq:} zu:
@@ -77,6 +76,83 @@ b &= \SI{0.1(3)}{\milli\tesla}
 
 \subsection{Untersuchung des normalen Zeeman-Effekts}
 
-Es wird der normale Zeeman-Effekt anhand der $\sigma$-Übergänge der roten Cadmiumlinie mit $\lambda=\SI{643.8}{\nano\metre}$ untersucht. Das Magnetfeld wird mit $\SI{5.5}{\ampere}$ induziert, was mit den Werten der Kalibrierung einem Magnetfeld von $\SI{633}{\milli\tesla}$ entspricht. In Abbildung \ref{fig:} ist die Aufnahme der Spektrallinien mit und ohne Magnetfeld zu sehen. Die gemessenen Werte für $\Delta s$ und für $\delta s$ sind in Tabelle \ref{tab:} eingetragen. 
+Es wird der normale Zeeman-Effekt anhand der $\sigma$-Übergänge der roten Cadmiumlinie mit $\lambda=\SI{643.8}{\nano\metre}$ untersucht. Das Magnetfeld wird mit $\SI{10.5}{\ampere}$ induziert, was mit den Werten der Kalibrierung einem Magnetfeld von $\SI{633}{\milli\tesla}$ entspricht.\\
+In Abbildung \ref{fig:rot_sigma} ist die Aufnahme der Spektrallinien mit und ohne Magnetfeld zu sehen. Die gemessenen Werte für $\Delta s$ und $\delta s$ sind zusammen mit den nach Formel \eqref{eq:} berechneten Werten für $\delta\lambda$ in Tabelle \ref{tab:rot_sigma} eingetragen. Es wird dabei der zuvor bestimmte Wert für $\Delta\lambda_D$ genutzt.
+Über alle Werte von $\delta\lambda$ gemittelt ergibt sich:
+\[
+\delta\lambda_.{norm,\sigma} = \SI{11.95(11)}{\pico\metre}\text{.}
+\]
+Mit Formel \eqref{eq:} ergibt sich für die $g_{ij}$:
+\[
+g_{ij_.{norm,\sigma}} = \pm\num{0.976(10)}\text{.}
+\]
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-130pt,height=\textheight-130pt,keepaspectratio]{content/images/rot_sigma.jpg}
+	\caption{Die Aufspaltung der roten Cadmium $\sigma$-Linien.}
+	\label{fig:rot_sigma}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte für $\Delta s$ und $\delta s$, sowie die berechneten Werte $\delta\lambda$ für die Aufspaltung der roten Cadmium $\sigma$-Linien.}
+	\input{content/tables/tabrotsigma.tex}
+	\label{tab:rot_sigma}
+\end{table}
 
 \subsection{Untersuchung des anomalen Zeeman-Effekts}
+
+Es wird der anomale Zeeman-Effekt anhand der $\sigma$- und $\pi$-Übergänge der blauen Cadmiumlinie mit $\lambda=\SI{480}{\nano\metre}$ untersucht. Zur Bestimmung von $\delta\lambda$ wird der passende Wert des zuvor bestimmten $\Delta\lambda_D$ genutzt. 
+
+\subsubsection{Untersuchung der $\sigma$-Linien}
+
+Das Magnetfeld wird mit $\SI{5.5}{\ampere}$ induziert, was mit den Werten der Kalibrierung einem Magnetfeld von $\SI{332}{\milli\tesla}$ entspricht. In Abbildung \ref{fig:blau_sigma} ist die Aufnahme der Spektrallinien mit und ohne Magnetfeld zu sehen. Die gemessenen Werte für $\Delta s$ und $\delta s$ sind zusammen mit den nach Formel \eqref{eq:} berechneten Werten für $\delta\lambda$ in Tabelle \ref{tab:blau_sigma} eingetragen.
+Über alle Werte von $\delta\lambda$ gemittelt ergibt sich:
+\[
+\delta\lambda_.{anom,\sigma} = \SI{6.21(3)}{\pico\metre}\text{.}
+\]
+Mit Formel \eqref{eq:} ergibt sich für die $g_{ij}$:
+\[
+g_{ij_.{anom,\sigma}} = \pm\num{1.714(13)}\text{.}
+\]
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-130pt,height=\textheight-130pt,keepaspectratio]{content/images/blau_sigma.jpg}
+	\caption{Die Aufspaltung der blauen Cadmium $\sigma$-Linien.}
+	\label{fig:blau_sigma}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte für $\Delta s$ und $\delta s$, sowie die berechneten Werte $\delta\lambda$ für die Aufspaltung der blauen Cadmium $\sigma$-Linien.}
+	\input{content/tables/tabblausigma.tex}
+	\label{tab:blau_sigma}
+\end{table}
+
+\subsubsection{Untersuchung der $\pi$-Linien}
+
+Das Magnetfeld wird mit $\SI{18}{\ampere}$ induziert, was mit den Werten der Kalibrierung einem Magnetfeld von $\SI{1.085}{\tesla}$ entspricht. In Abbildung \ref{fig:blau_pi} ist die Aufnahme der Spektrallinien mit und ohne Magnetfeld zu sehen. Die gemessenen Werte für $\Delta s$ und $\delta s$ sind zusammen mit den nach Formel \eqref{eq:} berechneten Werten für $\delta\lambda$ in Tabelle \ref{tab:blau_pi} eingetragen.
+Über alle Werte von $\delta\lambda$ gemittelt ergibt sich:
+\[
+\delta\lambda_.{anom,\pi} = \SI{5.85(5)}{\pico\metre}\text{.}
+\]
+Mit Formel \eqref{eq:} ergibt sich für die $g_{ij}$:
+\[
+g_{ij_.{anom,\pi}} = \pm\num{0.502(5)}\text{.}
+\]
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-130pt,height=\textheight-130pt,keepaspectratio]{content/images/blau_pi.jpg}
+	\caption{Die Aufspaltung der blauen Cadmium $\pi$-Linien.}
+	\label{fig:blau_pi}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte für $\Delta s$ und $\delta s$, sowie die berechneten Werte $\delta\lambda$ für die Aufspaltung der blauen Cadmium $\pi$-Linien.}
+	\input{content/tables/tabblaupi.tex}
+	\label{tab:blau_pi}
+\end{table}

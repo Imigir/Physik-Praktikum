@@ -27,7 +27,7 @@ B = B/1000
 print("I in ampere:", I)
 print("B in tesla:", B)
 #hier tabellen erzeugen
-makeTable([I,B], r'{$ I / \si{\ampere}$} & {$ B/ \si{\tesla}$}','tabIB1' , ['S[table-format=2.1]' , 'S[table-format=1.3]'] ,  ["%2.1f", "%1.3f"])
+makeTable([I[:11],B[:11],I[11:],B[11:]], r'{$ I / \si{\ampere}$} & {$ B/ \si{\tesla}$} & {$ I / \si{\ampere}$} & {$ B/ \si{\tesla}$}','tabIB1' , ['S[table-format=2.1]' , 'S[table-format=1.3]', 'S[table-format=2.1]' , 'S[table-format=1.3]'] ,  ["%2.1f", "%1.3f", "%2.1f", "%1.3f"])
 #makeTable([I[:],B[:]], r'{$ I/ \si{\ampere}$} & {$ B/ \si{\tesla}$}','tabIB2' , ['S[table-format=2.1]' , 'S[table-format=1.3]'] ,  ["%2.1f", "%1.3f"])
 
 #bfeld kalibrierung
@@ -124,10 +124,14 @@ ga2 = (h*clight/lambdaa**2)*sigmalambdaa2m*1/(ub* BvonI(18,tesla[0],tesla[1]))
 print('ga2 =' , ga2)
 print('B(18ampere) =',BvonI(18,tesla[0],tesla[1]))
 
-"""
+
 #tabellen
+"""
 makeTable([delta_sn,delta_sa1,delta_sa2], r'{$ \Delta s_{\text{norm},\sigma}/ px$} & {$ \Delta s_{\text{anorm},\sigma/}/ px$} & {$ \Delta s_{\text{anorm},\pi}/ px$}','tabdelta' , ['S[table-format=3.0]' , 'S[table-format=3.0]' , 'S[table-format=3.0]'] ,  ["%3.0f", "%3.0f", "%3.0f"])
 makeTable([sigma_sn,sigma_sa1,sigma_sa2], r'{$ \delta s_{\text{norm},\sigma} / px$} & {$ \delta s_{\text{anorm},\sigma}/ px $} & {$  \delta s_{\text{anorm},\pi}/ px $}','tabsigma' , ['S[table-format=3.0]' , 'S[table-format=3.0]' , 'S[table-format=3.0]'] ,  ["%3.0f", "%3.0f", "%3.0f"])
 makeTable([sigmalambdan*10**12,sigmalambdaa1*10**12,sigmalambdaa2*10**12], r'{$ \delta\lambda s_{\text{norm},\sigma}/ \si{\pico\meter}$} & {$  \delta\lambda s_{\text{anorm},\sigma}/ \si{\pico\meter}$} & {$  \delta\lambda s_{\text{norm},\pi}/ \si{\pico\meter}$}','deltalambda' , ['S[table-format=2.1]' , 'S[table-format=2.1]' , 'S[table-format=2.1]'] ,  ["%2.1f", "%2.1f", "%2.1f"])
 """
+makeTable([delta_sn,sigma_sn,sigmalambdan*10**12], r'{$ \Delta s_{\text{norm},\sigma}/ px$} & {$ \delta s_{\text{norm},\sigma}/ px $} & {$ \delta\lambda_{\text{norm},\sigma}/ \si{\pico\meter}$}','tabrotsigma' , ['S[table-format=3.0]' , 'S[table-format=3.0]' , 'S[table-format=1.2]'] ,  ["%3.0f", "%3.0f", "%1.2f"])
+makeTable([delta_sa,sigma_sa1,sigmalambdaa1*10**12], r'{$ \Delta s_{\text{anom}}/ px$} & {$ \delta s_{\text{anom},\sigma}/ px $} & {$  \delta\lambda_{\text{anom},\sigma}/ \si{\pico\meter}$}','tabblausigma' , ['S[table-format=3.0]' , 'S[table-format=3.0]' , 'S[table-format=1.2]'] ,  ["%3.0f", "%3.0f", "%1.2f"])
+makeTable([delta_sa,sigma_sa2,sigmalambdaa2*10**12], r'{$ \Delta s_{\text{anom}}/ px$} & {$ \delta s_{\text{anom},\pi}/ px $} & {$  \delta\lambda_{\text{anom},\pi}/ \si{\pico\meter}$}','tabblaupi' , ['S[table-format=3.0]' , 'S[table-format=3.0]' , 'S[table-format=1.2]'] ,  ["%3.0f", "%3.0f", "%1.2f"])
 
