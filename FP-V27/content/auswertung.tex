@@ -7,16 +7,16 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 Zu Beginn werden die theoretischen Landefaktoren der Energieniveaus aus den Übergängen der roten Cadmiumlinie ($^3D_2 \rightarrow ^3P_1$) und der blauen Cadmiumlinie ($^3P_1 \rightarrow ^3S_1$) berechnet. 
 Anschließend werden das Dispersionsgebiet $\Delta\lambda_D$ und das Auflösungsvermögen $A$ bestimmt.
-Es werden dabei die Landefaktoren $g_im_i-g_jm_j$ aus Gleichung \ref{eq:} zu $g_{i,j}$ zusammengefasst.
+Es werden dabei die Landefaktoren $g_im_i-g_jm_j$ aus Gleichung \ref{eq:} zu $g_{ij}$ zusammengefasst.
 Für die rote Cadmiumlinie ergeben sich die Landefaktoren
 \[
 g_i=g_j=1\text{.}
 \]
-Daraus folgen für die Übergänge:
+Daraus folgen für die Übergänge mit der Auswahlregel $\Delta m=0,\pm 1$:
 \begin{align*}
-g_{i,j_\pi}&=0\\
-g_{i,j_{\sigma1}}&=1\\
-g_{i,j_{\sigma2}}&=-1 \text{.}
+g_{ij_\pi}&=0\\
+g_{ij_{\sigma1}}&=1\\
+g_{ij_{\sigma2}}&=-1 \text{.}
 \end{align*}
 Für die blaue Cadmiumlinie ergeben sich die Landefaktoren
 \begin{align*}
@@ -25,18 +25,27 @@ g_j &= 2 \text{.}
 \end{align*}
 Daraus folgen für die Übergänge:
 \begin{align*}
-g_{i,j_\pi}&=(-0.5,0,0.5)\\
-g_{i,j_{\sigma1}}&=(1.5,2)\\
-g_{i,j_{\sigma2}}&=(-1.5,-2) \text{.}
+g_{ij_\pi}&=(-0,5|0,5)\\
+g_{ij_{\sigma1}}&=(1,5|2)\\
+g_{ij_{\sigma2}}&=(-1,5|-2) \text{.}
 \end{align*}
-Da die $g_{i,j_{\sigma}$ sehr dicht beisammen liegen, werden bei der Messung nur Aufspaltungen mit $g_{i,j_\sigma} = \pm 1.75$ gemessen.
-Das Dispersionsgebiet ergibt sich für die rote Linie mit $\lambda_.{rot}=\SI{643.8}{\nano\metre}$ und für die blaue Linie mit $\lambda_.{blau}=\SI{480}{\nano\metre}$ bei einer Lumma-Gehrcke Platte mit den Dimensionen $L={120}{\milli\metre}$, $d={4}{\milli\metre}$ und den Brechungsindizes $n(\SI{480}{\nano\metre})=1.4635$ und $n(\SI{643.8}{\nano\metre})=1.4567$ und Formel \eqref{eq:} zu:
+Dabei ist der Übergang $0\rightarrow0$ unterdrückt.
+Da die $g_{ij_{\sigma}}$ sehr dicht beisammen liegen, werden bei der Messung nur Aufspaltungen mit $g_{ij_\sigma} = \pm 1,75$ gemessen.
+Das Dispersionsgebiet ergibt sich für die rote Linie mit $\lambda_.{rot}=\SI{643.8}{\nano\metre}$ und für die blaue Linie mit $\lambda_.{blau}=\SI{480}{\nano\metre}$ bei einer Lumma-Gehrcke Platte mit den Dimensionen $L=\SI{120}{\milli\metre}$, $d=\SI{4}{\milli\metre}$ und den Brechungsindizes $n(\SI{480}{\nano\metre})=1,4635$ und $n(\SI{643.8}{\nano\metre})=1,4567$ und Formel \eqref{eq:} zu:
 \[
-\Delta\lambda_D = \left{
+\Delta\lambda_D =
 \begin{cases}
-\SI{4.891e-11}{\metre}\\
-\SI{2.695e-11}{\metre}
-\end{cases}
+\SI{4.891e-11}{\metre} \text{, für }\lambda=\SI{643.8}{\nano\metre}\\
+\SI{2.695e-11}{\metre} \text{, für }\lambda=\SI{480}{\nano\metre}
+\end{cases}\text{.}
+\]
+Das Auflösungsvermögen berechnet sich nach Formel \eqref{eq:} zu:
+\[
+A = 
+\begin{cases}
+\num{2.09e5} \text{, für }\lambda=\SI{643.8}{\nano\metre}\\
+\num{2.85e5} \text{, für }\lambda=\SI{480}{\nano\metre}
+\end{cases}\text{.}
 \]
 
 \subsection{Kalibrierung des B-Feldes}
@@ -61,8 +70,8 @@ b &= \SI{}{\tesla}
 \begin{table}
 	\centering
 	\caption{Die Messwerte für die B-Feldkalibrierung.}
-	\input{build/tabIB1.tex}
-	/\input{build/tabIB2.tex}
+	\input{content/tables/tabIB1.tex}
+	%\input{build/tabIB2.tex}
 	\label{tab:B}
 \end{table}
 
