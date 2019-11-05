@@ -62,161 +62,70 @@ plt.savefig('build/'+'Bfeldkali')
 #konstanten
 lambdan = ufloat(643.8*10**(-9),0)
 lambdaa = ufloat(480*10**(-9),0)
-lambdaDn = 4.89*10**(-11)
+lambdaDn = 4.891*10**(-11)
 lambdaDa = 2.695*10**(-11)
 h = const.h
 clight = const.c
 ub = const.physical_constants["Bohr magneton"][0]
 
-"""
+
 #normaler Zeemaneffekt
-ln, rn  = np.genfromtxt('scripts/normalB1.txt',unpack=True)
-mn = np.genfromtxt('scripts/normalB0.txt',unpack=True)
+delta_sn, sigma_sn  = np.genfromtxt('scripts/rot.txt',unpack=True)
 #ma1 und ma2 müssen noch in die datei
 
-#berechne sigma_s
-sigma_sn = rn - ln
-delta_sn =[]
-i = 0
-while i < len(mn)-1:
-	delta_sn.append(mn[i+1]-mn[i])
-	i = i+1
-
-
-
-print("delta:", delta_sn)
-
 #berechne delta lambda
-
 def sigmalambda(delta_s,sigma_s,deltalambda):
 	return 0.5*(sigma_s / delta_s)*deltalambda
 
-
 sigmalambdan = sigmalambda(delta_sn,sigma_sn,lambdaDn)
-print()
-
+print('sigmalambdan:', sigmalambdan)
 
 #mittlere sigmalambda
-
-def C(x,c):
-	return c+0*x
-x = np.linspace(1,10,10)
-params, covariance_matrix = curve_fit(C,x,sigmalambdan)
-#errors = unp.uarray(params, np.sqrt(np.diag(covariance_matrix)))
-errors =  uncertainties.correlated_values(params, covariance_matrix)[0]
-sigmalambdanm = errors
-print('sigmalamdanm:')
+sigmalambdanm = avg_and_sem(sigmalambdan)
+sigmalambdanm = unp.uarray(sigmalambdanm[0],sigmalambdanm[1])
 print('sigmalambdanm =' , sigmalambdanm)
 
-
-#hilfsplot der sigmalambdas
-
-plt.cla()
-plt.clf()
-plt.plot(x, sigmalambdan, 'rx', label='Die Messdaten')
-#plt.ylim(0, line(t[-1], *params)+0.1)
-#plt.xlim(0, t[-1]*100)
-plt.plot(x, C(x,unp.nominal_values(sigmalambdanm)), '-', label='Die gefittete Kurve')
-plt.xlabel(r'$I/\si{\ampere}$')
-plt.ylabel(r'$B /\si{\tesla} $')
-plt.legend(loc='best')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/'+'normal')
-
-
-
 #berechne g faktor von nomalem zeeman
-g = ((h*clight /lambdan) -(h*clight /(lambdan+sigmalambdanm)))*1/(ub* BvonI(9.5,tesla[0],tesla[1]))
+g = (h*clight/lambdan**2)*sigmalambdanm*1/(ub* BvonI(10.5,tesla[0],tesla[1]))
 print('g =' , g)
+print('B(10.5ampere) =',BvonI(10.5,tesla[0],tesla[1]))
+#mögliche ursache: b feld kalibrierung
 
-
-g2 = (h*clight/lambdan**2)*sigmalambdanm*1/(ub* BvonI(9.5,tesla[0],tesla[1]))
-print('g2 =' , g2)
-print('B(9.5ampoere) =',BvonI(9.5,tesla[0],tesla[1]))
-
-#mögliche ursache: b feld größer als das was gemessen wurde
 
 
 #annormaler zeemaneffekt sigmalinien
-la1, ra1 = np.genfromtxt('scripts/anormalB11.txt',unpack=True)
-ma1 = np.genfromtxt('scripts/anormalB01.txt',unpack=True)
+delta_sa, sigma_sa1, sigma_sa2 = np.genfromtxt('scripts/blau.txt',unpack=True)
 
-sigma_sa1 = ra1 - la1
-delta_sa1 =[]
-i = 0
-while i < len(mn)-1:
-	delta_sa1.append(ma1[i+1]-ma1[i])
-	i = i+1
+# sigma-linien
+sigmalambdaa1 = sigmalambda(delta_sa,sigma_sa1,lambdaDa)
+print('sigmalambdaa1:', sigmalambdaa1)
 
-sigmalambdaa1 = sigmalambda(delta_sa1,sigma_sa1,lambdaDa)
+#mittlere sigmalambda
+sigmalambdaa1m = avg_and_sem(sigmalambdaa1)
+sigmalambdaa1m = unp.uarray(sigmalambdaa1m[0],sigmalambdaa1m[1])
+print('sigmalambdaa1m =', sigmalambdaa1m)
 
-x = np.linspace(1,10,10)
-params, covariance_matrix = curve_fit(C,x,sigmalambdaa1)
-#errors = unp.uarray(params, np.sqrt(np.diag(covariance_matrix)))
-errors =  uncertainties.correlated_values(params, covariance_matrix)[0]
-sigmalambdaa1m = errors
-print('sigmalamdaa1m:')
-print('sigmalambdaa1m =' , sigmalambdaa1m)
-
-
-#hilfsplot der sigmalambdas
-
-plt.cla()
-plt.clf()
-plt.plot(x, sigmalambdaa1, 'rx', label='Die Messdaten')
-#plt.ylim(0, line(t[-1], *params)+0.1)
-#plt.xlim(0, t[-1]*100)
-plt.plot(x, C(x,unp.nominal_values(sigmalambdaa1m)), '-', label='Die gefittete Kurve')
-plt.xlabel(r'$I/\si{\ampere}$')
-plt.ylabel(r'$B /\si{\tesla} $')
-plt.legend(loc='best')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/'+'anormal1')
-
-ga1 = ((h*clight /lambdaa) -(h*clight /(lambdaa+sigmalambdaa1m)))*1/(ub* BvonI(5.9,tesla[0],tesla[1]))
+#berechne g faktor von anomalem zeeman
+ga1 = (h*clight/lambdaa**2)*sigmalambdaa1m*1/(ub* BvonI(5.5,tesla[0],tesla[1]))
 print('ga1 =' , ga1)
+print('B(5.5ampere) =',BvonI(5.5,tesla[0],tesla[1]))
 
+#pi-linien
+sigmalambdaa2 = sigmalambda(delta_sa,sigma_sa2,lambdaDa)
+print('sigmalambdaa2:', sigmalambdaa2)
 
+#mittlere sigmalambda
+sigmalambdaa2m = avg_and_sem(sigmalambdaa2)
+sigmalambdaa2m = unp.uarray(sigmalambdaa2m[0],sigmalambdaa2m[1])
+print('sigmalambdaa2m =', sigmalambdaa2m)
 
-la2, ra2 = np.genfromtxt('scripts/anormalB12.txt',unpack=True)
-ma2 = np.genfromtxt('scripts/anormalB02.txt',unpack=True)
-
-sigma_sa2 = ra2 - la2
-delta_sa2 =[]
-i = 0
-while i < len(mn)-1:
-	delta_sa2.append(ma2[i+1]-ma2[i])
-	i = i+1
-
-sigmalambdaa2 = sigmalambda(delta_sa2,sigma_sa2,lambdaDa)
-
-x = np.linspace(1,10,10)
-params, covariance_matrix = curve_fit(C,x,sigmalambdaa2)
-#errors = unp.uarray(params, np.sqrt(np.diag(covariance_matrix)))
-errors =  uncertainties.correlated_values(params, covariance_matrix)[0]
-sigmalambdaa2m = errors
-print('sigmalamdaa2m:')
-print('sigmalambdaa2m =' , sigmalambdaa2m)
-
-
-#hilfsplot der sigmalambdas
-
-plt.cla()
-plt.clf()
-plt.plot(x, sigmalambdaa2, 'rx', label='Die Messdaten')
-#plt.ylim(0, line(t[-1], *params)+0.1)
-#plt.xlim(0, t[-1]*100)
-plt.plot(x, C(x,unp.nominal_values(sigmalambdaa2m)), '-', label='Die gefittete Kurve')
-plt.xlabel(r'$I/\si{\ampere}$')
-plt.ylabel(r'$B /\si{\tesla} $')
-plt.legend(loc='best')
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/'+'anormal2')
-
-ga2 = ((h*clight /lambdaa) -(h*clight /(lambdaa+sigmalambdaa2m)))*1/(ub* BvonI(16.25,tesla[0],tesla[1]))
+#berechne g faktor von anomalem zeeman
+ga2 = (h*clight/lambdaa**2)*sigmalambdaa2m*1/(ub* BvonI(18,tesla[0],tesla[1]))
 print('ga2 =' , ga2)
+print('B(18ampere) =',BvonI(18,tesla[0],tesla[1]))
 
-
+"""
+#tabellen
 makeTable([delta_sn,delta_sa1,delta_sa2], r'{$ \Delta s_{\text{norm},\sigma}/ px$} & {$ \Delta s_{\text{anorm},\sigma/}/ px$} & {$ \Delta s_{\text{anorm},\pi}/ px$}','tabdelta' , ['S[table-format=3.0]' , 'S[table-format=3.0]' , 'S[table-format=3.0]'] ,  ["%3.0f", "%3.0f", "%3.0f"])
 makeTable([sigma_sn,sigma_sa1,sigma_sa2], r'{$ \delta s_{\text{norm},\sigma} / px$} & {$ \delta s_{\text{anorm},\sigma}/ px $} & {$  \delta s_{\text{anorm},\pi}/ px $}','tabsigma' , ['S[table-format=3.0]' , 'S[table-format=3.0]' , 'S[table-format=3.0]'] ,  ["%3.0f", "%3.0f", "%3.0f"])
 makeTable([sigmalambdan*10**12,sigmalambdaa1*10**12,sigmalambdaa2*10**12], r'{$ \delta\lambda s_{\text{norm},\sigma}/ \si{\pico\meter}$} & {$  \delta\lambda s_{\text{anorm},\sigma}/ \si{\pico\meter}$} & {$  \delta\lambda s_{\text{norm},\pi}/ \si{\pico\meter}$}','deltalambda' , ['S[table-format=2.1]' , 'S[table-format=2.1]' , 'S[table-format=2.1]'] ,  ["%2.1f", "%2.1f", "%2.1f"])
