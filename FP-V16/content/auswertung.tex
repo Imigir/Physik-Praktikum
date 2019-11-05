@@ -1,3 +1,4 @@
+
 \section{Auswertung}
 \label{sec:Auswertung}
 
@@ -144,7 +145,7 @@ Der experimentelle differentielle Wirkungsquerschnitt lässt sich aus der Intens
 \begin{equation}
 \left(\frac{.d\sigma}{.d\Omega}\right)_.{exp} = \frac{I}{Adn\Omega}\text{,}\label{eq:Rutherford}
 \end{equation}
-mit der Aktivität $A=\SI{15,13(22)}{\becquerel}$, die auf die Goldfolie trifft, der Teilchendichte $n$, der Dicke $d$ und dem Raumwinkel $\Omega=\frac{\pi r^2}{R^2}$, der vom Detektor abgedeckt wird. Es ergeben sich die Werte aus Tabelle \ref{tab:dataDeg}. Der Fehler auf $N$ ergibt sich wegen der Poisson-Verteilung zu $\sigma_N= \sqrt{N}$.
+mit der Aktivität $A=\SI{15,13(22)}{\becquerel}$, die auf die Goldfolie trifft, der Teilchendichte $n$, der Dicke $d$ und dem Raumwinkel $\Omega=\frac{\pi r^2}{a^2}$, der vom Detektor abgedeckt wird. Mit $r=\SI{5}{\milli\metre}$ und dem Abstand zwischen Quelle und Detektor $a=\SI{101}{\milli\meter}$ \cite{V16} ergeben sich die Werte aus Tabelle \ref{tab:dataDeg}. Der Fehler auf $N$ ergibt sich wegen der Poisson-Verteilung zu $\sigma_N= \sqrt{N}$.
 Der Fehler $\sigma_.{exp}$ auf den differentiellen Wirkungsquerschnitt ergibt sich mit der Gaußschen Fehlerfortpflanzung zu:
 \begin{equation}
 \sigma_.{exp} =\sqrt{\left(\frac{\sigma_I}{Adn\Omega}\right)^2+\left(\frac{I\sigma_A}{A^2dn\Omega}\right)^2} 
@@ -185,29 +186,23 @@ I_{\SI{2}{\micro\metre}} &= \SI{7.19(16)}{\per\second}\\
 I_{\SI{4}{\micro\metre}} &= \SI{4.84(13)}{\per\second}\text{.}
 \end{align*}
 Die Fehler bestimmen sich wie in den vorherigen Kapiteln.
-Mit Formel \ref{eq:Rutherford} ergibt sich daraus
-\begin{align*}
-\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_.{\SI{2}{\micro\meter}}&=\SI{8,61(23)e-23}{\meter^2}\\
-\left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_.{\SI{4}{\micro\meter}}&=\SI{2,90(9)e-23}{\meter^2}
-\end{align*}
+
 \subsection{$Z$-Abhängigkeit des differentiellen Wirkungsquerschnitts}
 
 Es wird die $Z$-Abhängigkeit des differentiellen Wirkungsquerschnitts untersucht. Dafür werden die Intensitäten $I_\theta$ bei einer Streuung an Gold, Aluminium und Bismut bei gleichem Winkel $\theta$ bestimmt.\\
-Die Daten für die Dicken $d$ der Folien und der Intensitäten werden in diesem Versuchsteil zur Verfügung gestellt. Es werden die mit den Werten aus Tabelle \ref{tab:values} nach Formel \eqref{eq:Rutherford} berechneten differentiellen Wirkungsquerschnitte mit den theoretischen Werten bei $\theta=\SI{10}{\degree}$ verglichen. Diese berechnen sich nach Formel \eqref{eq:RSF}.\\
+Die Daten für die Dicken $d$ der Folien und der Intensitäten werden in diesem Versuchsteil zur Verfügung gestellt, allerdings ist der Winkel unbekannt. Deswegen werden die mit den Werten aus Tabelle \ref{tab:values} nach Formel \eqref{eq:Rutherford} berechneten differentiellen Wirkungsquerschnitte mit drei theoretischen Werten bei $\theta=\SI{3}{\degree}$, $\theta=\SI{3.5}{\degree}$ und $\theta=\SI{4}{\degree}$ verglichen. Diese berechnen sich nach Formel \eqref{eq:RSF}.\\
 Die berechneten Werte befinden sich in Abhängigkeit von $Z$ in Tabelle \ref{tab:ZAbh} und sind in Abbildung \ref{fig:ZAbh} gegeneinander aufgetragen.\\
 
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth-70pt,keepaspectratio]{build/zAbh.pdf}
-\caption{Der experimentelle und der theoretische differentielle Wirkungsquerschnitt $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen die Kernladungszahl $Z$.}
+\caption{Der experimentelle und die theoretischen differentiellen Wirkungsquerschnitte $\frac{.d\sigma}{.d\Omega}$ aufgetragen gegen die Kernladungszahl $Z$.}
 \label{fig:ZAbh}
 \end{figure}
 
 \begin{table}
 	\centering
-	\caption{Die Intensität $I_\theta$ für einen bestimmten Streuwinkel $\theta=\SI{10}{\degree}$, der experimentelle differentielle Wirkungsquerschnitt, sowie der theoretische differentielle Wirkungsquerschnitt für denselben Winkel in Abhängigkeit von der Kernladungszahl $Z$.}
+	\caption{Die Intensität $I_\theta$ für einen bestimmten Streuwinkel $\theta$, der experimentelle differentielle Wirkungsquerschnitt, sowie die theoretischen differentiellen Wirkungsquerschnitte für $\theta=\SI{3}{\degree}$, $\theta=\SI{3,5}{\degree}$ und $\theta=\SI{4}{\degree}$ in Abhängigkeit von der Kernladungszahl $Z$.}
 	\input{content/tables2/tabZAbh.tex}
 	\label{tab:ZAbh}
 \end{table}
-
-%☻
