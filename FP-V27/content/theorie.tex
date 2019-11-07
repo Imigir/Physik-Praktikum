@@ -62,7 +62,7 @@ Der $\sigma$-Anteil besitzt demnach eine longitudinale und eine transversale Kom
 
 \subsection{Normaler und Anomaler Zeeman-Effekt, Paschen-Back-Effekt}
 
-Bei der Aufspaltung der Zustände im äußeren Magnetfeld sind nur die Anteile des magnetischen Moments aus Gl.\eqref{eq:mu_ges} von Belang, die parallel zu $\vec{B}$ ausgerichtet sind, da die senkrechten im zeitlichen Mittel verschwinden.
+Bei der Aufspaltung der Zustände im äußeren Magnetfeld sind nur die Anteile des magnetischen Moments aus Gleichung \eqref{eq:mu_ges} von Belang, die parallel zu $\vec{B}$ ausgerichtet sind, da die senkrechten im zeitlichen Mittel verschwinden.
 Der Betrag des magnetischen Moments berechnet sich dabei nach:
 \[
 \begin{split}
@@ -102,7 +102,7 @@ Für stärkere $\vec{B}$-Felder kommt es zum Paschen-Back-Effekt, der dazu führ
 \subsection{Die Lummer-Gehrcke-Platte}
 In Abbildung \ref{fig:LGP} ist der Querschnitt einer Lummer-Gehrcke-Platte zu sehen.
 Sie kann dazu verwendet werden eintreffendes Licht mit hoher Auflösung in die Spektrallinien zu zerlegen.
-Das Licht trifft auf ein Prisma und wird so auf eine planparallele Glasplatte gelenkt. Der Winkel der auftreffen liegt dabei nahe dem kritischen Winkel, sodass nach Eintreten in die Platte, ein Großteil des Lichts im Glas reflektiert, jedoch ein kleiner Anteil bei jedem Auftreffen auf die Oberflächen transmittiert. Diese austretenden Strahlen bilden ein Interferenzmuster, welches aufgenommen werden kann.
+Das Licht trifft auf ein Prisma und wird so auf die planparallele Platte gelenkt. Der Winkel der auftreffen liegt dabei nahe dem kritischen Winkel, sodass nach Eintreten in die Platte, ein Großteil des Lichts im Glas reflektiert, jedoch ein kleiner Anteil bei jedem Auftreffen auf die Oberflächen transmittiert. Diese austretenden Strahlen bilden ein Interferenzmuster, welches aufgenommen werden kann.
 Besteht der einfallende Lichtstrahl nicht aus Licht einer Wellenlänge $\lambda$, sondern zwei leicht um $\delta \lambda$ zu $\lambda$ verschiedene Wellenlängen, dürfen diese sich, mit der Dicke der Platte $d$ und dem Brechungsindex in der Platte $n$, maximal um
 \begin{equation}
 	\Delta\lambda_.{D} = \frac{\lambda^2}{2 \cdot d} \cdot \sqrt{\frac{1}{n^2-1}} \label{eq:disGebiet}
@@ -112,3 +112,20 @@ Das Auflösungsvermögen lässt sich mit der Länge der Lummer-Gehrcke-Platte $L
 \begin{equation}
 	A = \frac{\lambda}{\Delta\lambda} = \frac{L}{\lambda} \cdot \left(n^2-1\right), \label{eq:Aufloesung}
 \end{equation}
+Die Verschiebung der Wellenlängen um $\delta \lambda$ durch den Zeeman-Effekt macht sich im Interferenzbild durch eine Aufspaltung der Maxima in um $\delta s $ verschobene Maxima bemerkbar. Aus der Verschiebung $\delta s$ lässt sich, mit dem Abstand $\Delta s$ vom zugehörigen nicht aufgespaltenen Maxima zum Maxima nächst niedrigerer Ordnung, die Verschiebung der Wellenlänge $\delta \lambda$ berechnen zu
+\begin{equation}
+\delta \lambda = \frac{\delta s}{\Delta s} \Delta\lambda_\text{D} \label{eq:deltaLambda}
+\end{equation}
+und mit der Lichtgeschwindigkeit $c$ die Energieaufspaltung bestimmen:
+\begin{equation}
+E_.{Auf}=\frac{h c}{\lambda^2} \cdot (2\delta \lambda)\text{.} \label{eq:EaufExp}
+\end{equation}
+Ebenso ergibt sich damit für den Landé-Faktor
+\begin{equation}
+g_.{j}=\frac{h c}{\lambda^2 \cdot \mu_\text{B} B} \cdot (2\delta \lambda)\text{.} \label{eq:exgj}
+\end{equation}
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{content/images/LGP.pdf}
+\caption{Schematische Darstellung des Querschnitts einer Lummer-Gehrcke-Platte.\cite{V27}}
+\end{figure}
+%◘
