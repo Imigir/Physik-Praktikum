@@ -96,6 +96,9 @@ print('lambda_71:', lambda_71)
 
 #transversale Moden
 T00x, T00I  = np.genfromtxt('scripts/T00mode.txt',unpack=True) #mm,nA
+T00x = 15-T00x
+T00x = T00x[::-1]
+T00I = T00I[::-1]
 T01x, T01I  = np.genfromtxt('scripts/T01mode.txt',unpack=True) #mm.nA
 #T00x = T00x /1000 #m
 #T01x = T01x /1000 #m
@@ -116,12 +119,12 @@ print('b =', params[1], '±', errors[1])
 print('c =', params[2], '±', errors[2])
 
 #plot
-x = np.linspace(-0.5, 13.5,10000)
+x = np.linspace(-0.5, 14.5,10000)
 plt.cla()
 plt.clf()
 plt.plot(x, T00(x,params[0],params[1],params[2]), '-', label='Ausgleichskurve')
 plt.plot(T00x, T00I, 'rx', label='Messdaten')
-plt.xlim(-0.5, 13.5)
+plt.xlim(-0.5, 14.5)
 plt.xlabel(r'$\Delta x/\si{\milli\meter}$')
 plt.ylabel(r'$I / \si{\nano\ampere}$')
 plt.legend(loc='best')
