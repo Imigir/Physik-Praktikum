@@ -22,9 +22,8 @@ und
 \frac{\mathrm{d}n_.1}{\mathrm{d}t}=-\frac{\mathrm{d}n_.0}{\mathrm{d}t}
 \]
 Nach der Maxwell-Boltzmann-Verteilung ist im thermischen Gleichgewicht vorwiegend der Grundzustand besetzt, sodass die stimulierte Emission eines Photons unwahrscheinlich ist.
-Um eine konstante Verstärkung und Kohärenz zu erhalten, muss dem System deshalb ständig Energie zugeführt werden, damit die Besetzungsinversion $n_.1>n_.0$ auftritt. Dieser 'pumpen' genannte Vorgang wird über einen zusätzlichen Bestandteil des Lasers, das Pumpmaterial, gewährleistet. Dies wird über Entladung angeregt und gibt die Energie über Stöße an das aktive Material ab.\\
-Bisher wurde ein Zwei-Niveau-System betrachtet, welches jedoch nicht für einen Lasers geeignet ist. Sind die Zustände $n_.0$ und $n_.1$ nicht entartet, gilt
-$B_.{12}=B_.{21}$, sodass die Wahrscheinlichkeit für Absorption und stimulierte Emission gleich groß ist. Mit der Zeit stellt sich deshalb ein Gleichgewicht der Besetzungen ein und die Besetzungsinversion wird aufgehoben.\\ 
+Um eine konstante Verstärkung und Kohärenz zu erhalten, muss dem System deshalb ständig Energie zugeführt werden, damit die Besetzungsinversion $n_.1>n_.0$ auftritt. Dieser 'pumpen' genannte Vorgang wird über einen zusätzlichen Bestandteil des Lasers, das Pumpmaterial, gewährleistet, welches in diesem Versuch durch das Helium realisiert wird. Dies wird über über Anlegen einer Hochspannung angeregt und gibt die Energie über Stöße an das aktive Material ab.\\
+Bisher wurde ein Zwei-Niveau-System betrachtet, welches jedoch nicht für einen Lasers geeignet ist. Sind die Zustände $n_.0$ und $n_.1$ nicht entartet, gilt $B_.{12}=B_.{21}$, sodass die Wahrscheinlichkeit für Absorption und stimulierte Emission gleich groß ist. Mit der Zeit stellt sich deshalb ein Gleichgewicht der Besetzungen ein und da zusätzlich durch spontane Emission mehr Elektronen aus dem höheren Zustand fallen, wird die Besetzungsinversion aufgehoben.\\ 
 Ein Laser besteht neben dem aktiven Lasermaterial und einem Pumpmaterial aus einem optischen Resonator.
 Dieser besteht aus einem totalreflektierenden Spiegel auf der einen und einem nur teilreflektierendem Spiegel auf der anderen Seite des Lasermediums und dient dazu, dass das emittierte Licht möglichst lange im aktiven Material verbleibt, um dort möglichst oft die induzierte Emission auszulösen. Der teilreflektierende Spiegel dient dazu den Laserstrahl auszukoppeln. Grundsätzlich können Resonatoren aus zwei planen oder zwei sphärischen Spiegeln oder einer Mischung aus beidem. Um Strahlungsverluste zu vermeiden, werden die Spiegel so aufgestellt, dass ihre Brennpunkte aufeinander liegen. Damit das System optisch stabil ist, also die Verluste geringer sind als die Verstärkung, muss für die Resonatorparameter
 \[
@@ -32,5 +31,46 @@ g_.i = 1 - \frac{L}{r_.i}
 \]
 mit der Resonatorlänge $L$ und dem Krümmungsradius des jeweiligen Spiegels $r_.i$, gelten
 \begin{equation}
-0 \leq q_.1q_.2 < 1
+0 \leq g_.1g_.2 < 1\text{.}\label{eq:stabil}
 \end{equation}
+Im Falle zweier gleichartig gekrümmter Spiegel beträgt die maximale Resonatorlänge $L_.{max}=r_.1+r_.2$.
+Zum Herausfiltern einzelner zu verstärkender Wellenlängen können die Spiegel beschichtet werden, um die störenden Frequenzen zu absorbieren.
+
+\subsection{TEM-Moden}
+Auf Grund von mehreren erreichbaren Energiezuständen können auch verschiedene Frequenzen die Resonanzbedingung \eqref{eq:stabil} erfüllen. Dadurch kann es zu mehreren Laser-Moden kommen, die in zylindrischer Symmetrie als transversale elektromagnetische (TEM) Moden bezeichnet werden.
+Werden die Modenordnungen in radialer und Winkelrichtung und entlang der Symmetrieachse($z$-Richtung) mit $p, l$ und $q$ bezeichnet ergibt sich die Intensität der TEM-Moden mit den Laguerre-Polynomen $L^q_.p$ zu
+\begin{equation}
+I_.{plq} = I_.0 \cos^2 (l \varphi) \rho^2 \left[L^q_.{p}\left(\frac{(2 \rho)^2}{1+Z^2} \right)\right] ^2 \exp\left(-\rho \right)\text{.} \label{eq:intens}
+\end{equation}
+Dabei ist
+\[
+\rho = 2 \frac{r^2}{w^2_.0 \left(1+\left(\frac{z \lambda}{\pi w_.0^2}\right)^2\right)} = \frac{r^2}{w^2}
+\]
+mit dem minimalen Strahlradius $w_.0$.
+Wird die Symmetrie durch ein Brewsterfenster gebrochen, um polarisiertes LASER-Licht zu erhalten werden werden die Ordnungen Moden in $x$- und $y$- Richtung mit $m$ und $n$ bezeichnet.
+Die Intensität ergibt ich dann mit den Hermit-Polynomen $H_.m$ über
+\begin{equation}
+I_{mnq} = I_.0 \left(\frac{w_0}{w}\right)^2 \left[H_.m\left(\frac{\sqrt{2} x}{w}\right) \exp\left(\frac{-x^2}{w^2}\right) \right]^2 \left[H_n\left(\frac{\sqrt{2} y}{w}\right) \exp\left(\frac{-y^2}{w^2}\right) \right]^2\text{.}
+\label{eq:intens2}
+\end{equation}
+Für reine Moden in $z$-Richtung $\text{TEM}_.{00q}$ gilt in jedem Fall
+\begin{equation}
+I_{00q} = I_0 \exp\left(-\frac{2 r^2}{\omega ^2}\right)\text{.} \label{eq:gaus}
+\end{equation}
+
+\subsection{Intensität hinter einem Polarisationsfilter}
+Ein Polarisationsfilter lässt nur eine Polarisationsrichtung passieren. Falls die Polarisation des Lichts sich um den Winkel $\delta\phi$ von dem gefilterten unterscheidet, gilt für die Intensität des Lichtes hinter diesem
+\begin{equation}
+	I=I_.0 cos^2(\delta\phi), \label{eq:polar}
+\end{equation}
+wobei $I_.0$ die Intensität vor dem Polarisationsfilter bezeichnet.
+
+
+\subsection{Beugungsmuster verschiedener Wellenlängen am Gitter}
+Durch das Einbringen des Gitters in den Lichtstrahl wird dieser am Gitter gebeugt. Dies führt zu Interferenzeffekten hinter dem Gitter. Es bilden sich Intensitätsmaxima aus. Aus den Abständen zwischen diesen und dem Abstand zum Schirm kann die Wellenlänge des Lichtstrahles folgendermaßen bestimmt werden
+\begin{equation}
+	\lambda = \frac{g \sin(\arctan(x/b))}{n}, \label{eq:lambda}
+\end{equation}
+wobei $g$ die Gitterkonstante, $x$ den Abstand des Hauptmaxima der Ordnung $n$ zur optischen Achse des ursprünglichen Strahles und $b$ der Abstand zwischen dem Schirm und dem Gitter ist.
+
+
