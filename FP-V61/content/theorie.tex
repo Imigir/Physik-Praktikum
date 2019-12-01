@@ -36,11 +36,11 @@ mit der Resonatorlänge $L$ und dem Krümmungsradius des jeweiligen Spiegels $r_
 Im Falle zweier gleichartig gekrümmter Spiegel beträgt die maximale Resonatorlänge $L_.{max}=r_.1+r_.2$.
 Zum Herausfiltern einzelner zu verstärkender Wellenlängen können die Spiegel beschichtet werden, um die störenden Frequenzen zu absorbieren.
 
-\subsection{TEM-Moden}
+\subsection{TEM-Moden und longitudinale Moden}
 Auf Grund von mehreren erreichbaren Energiezuständen können auch verschiedene Frequenzen die Resonanzbedingung \eqref{eq:stabil} erfüllen. Dadurch kann es zu mehreren Laser-Moden kommen, die in zylindrischer Symmetrie als transversale elektromagnetische (TEM) Moden bezeichnet werden.
-Werden die Modenordnungen in radialer und Winkelrichtung und entlang der Symmetrieachse($z$-Richtung) mit $p, l$ und $q$ bezeichnet ergibt sich die Intensität der TEM-Moden mit den Laguerre-Polynomen $L^q_.p$ zu
+Werden die Modenordnungen in radialer und Winkelrichtung  mit $p$ und $l$ bezeichnet ergibt sich die Intensität der TEM-Moden mit den Laguerre-Polynomen $L^q_.p$ zu
 \begin{equation}
-I_.{plq} = I_.0 \cos^2 (l \varphi) \rho^2 \left[L^q_.{p}\left(\frac{(2 \rho)^2}{1+Z^2} \right)\right] ^2 \exp\left(-\rho \right)\text{.} \label{eq:intens}
+I_.{pl} = I_.0 \cos^2 (l \varphi) \rho^2 \left[L^q_.{p}\left(\frac{(2 \rho)^2}{1+Z^2} \right)\right] ^2 \exp\left(-\rho \right)\text{.} \label{eq:intens}
 \end{equation}
 Dabei ist
 \[
@@ -50,13 +50,26 @@ mit dem minimalen Strahlradius $w_.0$.
 Wird die Symmetrie durch ein Brewsterfenster gebrochen, um polarisiertes LASER-Licht zu erhalten werden werden die Ordnungen Moden in $x$- und $y$- Richtung mit $m$ und $n$ bezeichnet.
 Die Intensität ergibt ich dann mit den Hermit-Polynomen $H_.m$ über
 \begin{equation}
-I_{mnq} = I_.0 \left(\frac{w_0}{w}\right)^2 \left[H_.m\left(\frac{\sqrt{2} x}{w}\right) \exp\left(\frac{-x^2}{w^2}\right) \right]^2 \left[H_n\left(\frac{\sqrt{2} y}{w}\right) \exp\left(\frac{-y^2}{w^2}\right) \right]^2\text{.}
+I_{mn} = I_.0 \left(\frac{w_0}{w}\right)^2 \left[H_.m\left(\frac{\sqrt{2} x}{w}\right) \exp\left(\frac{-x^2}{w^2}\right) \right]^2 \left[H_n\left(\frac{\sqrt{2} y}{w}\right) \exp\left(\frac{-y^2}{w^2}\right) \right]^2\text{.}
 \label{eq:intens2}
 \end{equation}
-Für reine Moden in $z$-Richtung $\text{TEM}_.{00q}$ gilt in jedem Fall
+Moden entlang der Symmetrieachse($z$-Richtung) werden durch den Modenindex $q$ charakterisiert und als longitudinale elektromagnetische Moden (LEM) bezeichnet. Für reine longitudinale Moden $\text{LEM}_.{00q}$ gilt dabei
 \begin{equation}
 I_{00q} = I_0 \exp\left(-\frac{2 r^2}{\omega ^2}\right)\text{.} \label{eq:gaus}
 \end{equation}
+Da sich diese im Resonator als stehende Wellen ausbilden ist gilt also für die Wellenlänge der Mode $q$
+\[
+\lambda_.q = \frac{2L}{q}\text{.}
+\]
+und für ihre Frequenz mit der Lichtgeschwindigkeit $c$
+\[
+f_.q = q\frac{c}{2L}
+\]
+Der Frequenzabstand zwischen zwei benachbarten Moden $q$ und $q+1$ beträgt damit
+\[
+\Delta f = \frac{c}{2L}\text{.}
+\]
+
 
 \subsection{Intensität hinter einem Polarisationsfilter}
 Ein Polarisationsfilter lässt nur eine Polarisationsrichtung passieren. Falls die Polarisation des Lichts sich um den Winkel $\delta\phi$ von dem gefilterten unterscheidet, gilt für die Intensität des Lichtes hinter diesem
