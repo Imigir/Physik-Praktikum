@@ -25,14 +25,14 @@ Es wird die $.{TEM}_{00}$-Mode vermessen.
 In Tabelle \ref{tab:T00} sind die Messwerte eingetragen und in Abbildung \ref{fig:T00} graphisch dargestellt.
 Es wird eine Ausgleichsrechnung der Form
 \[
-I = a\exp\left(-2\frac{(x-c)^2}{b^2}\right)
+I(x) = a\exp\left(-2\frac{(x-c)^2}{b^2}\right)
 \] 
-basierend auf Formel \eqref{eq:} durchgeführt.
+basierend auf Formel \eqref{eq:gaus} durchgeführt.
 Es ergeben sich die Parameter:
 \begin{align*}
 a &= \SI{7.09(24)}{\micro\ampere}\\
 b &= \SI{5.20(21)}{\milli\metre}\\
-c &= \SI{7.42(10)}{\milli\metre}\text{.}
+c &= \SI{6.38(6)}{\milli\metre}\text{.}
 \end{align*}
 
 \begin{figure}
@@ -56,9 +56,9 @@ Es wird die $.{TEM}_{01}$-Mode vermessen.
 In Tabelle \ref{tab:T01} sind die Messwerte eingetragen und in Abbildung \ref{fig:T01} graphisch dargestellt.
 Es wird eine Ausgleichsrechnung der Form
 \[
-I = (x-c)^2a\exp\left(-2\frac{(x-c)^2}{b^2}\right)
+I(x) = (x-c)^2a\exp\left(-2\frac{(x-c)^2}{b^2}\right)
 \] 
-basierend auf Formel \eqref{eq:} durchgeführt.
+basierend auf Formel \eqref{eq:intens2} durchgeführt.
 Es ergeben sich die Parameter:
 \begin{align*}
 a &= \SI{35(5)}{\nano\ampere}\\
@@ -86,9 +86,9 @@ c &= \SI{6.43(20)}{\milli\metre}\text{.}
 Es wird die Polarisation des Lasers untersucht. Dafür wird die Intensität des Lasers bei verschiedenen Polarisationswinkeln gemessen. Die Werte sind in Tabelle \ref{tab:polarisation} eingetragen und in Abbildung \ref{fig:polarisation} graphisch dargestellt. 
 Es wird eine Ausgleichsrechnung der Form
 \[
-I = a\cos^2\left(bx+c\right)
+I(\varphi) = a\cos^2\left(b\varphi+c\right)
 \] 
-basierend auf Formel \eqref{eq:} durchgeführt.
+basierend auf Formel \eqref{eq:polar} durchgeführt.
 Es ergeben sich die Parameter:
 \begin{align*}
 a &= \SI{11.3(5)}{\micro\ampere}\\
@@ -127,10 +127,10 @@ Dabei ist $c_0$ die Lichtgeschwindigkeit und $f$ die Frequenz.
 
 \subsection{Bestimmung der Wellenlänge}
 
-Es wird die Wellenlänge des Lasers, durch Beugung an einem Gitter mit Gitterkonstanten $g=\SI{0.0125}{\milli\metre}$ bestimmt. Der Abstand des Gitters zur Diode beträgt $b=\SI{55}{\milli\metre}$. Die Abstände $x_n$ der Nebenmaxima der Ordnung $n$ zum Hauptmaximum, sowie die daraus nach Formel \eqref{eq:} berechneten Werte für $\lambda$ sind in Tabelle \ref{tab:welle} eingetragen.
+Es wird die Wellenlänge des Lasers, durch Beugung an einem Gitter mit Gitterkonstanten $g=\SI{0.0125}{\milli\metre}$ bestimmt. Der Abstand des Gitters zur Diode beträgt $b=\SI{55}{\milli\metre}$. Die Abstände $x_n$ der Nebenmaxima der Ordnung $n$ zum Hauptmaximum, sowie die daraus nach Formel \eqref{eq:lambda} berechneten Werte für $\lambda$ sind in Tabelle \ref{tab:welle} eingetragen.
 Gemittelt ergibt sich eine Wellenlänge von:
 \[
-\lambda = \SI{662(24)}{\nano\metre} \text{.}
+\lambda = \SI{640(17)}{\nano\metre} \text{.}
 \] 
 
 \begin{table}
