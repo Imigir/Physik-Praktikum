@@ -101,6 +101,9 @@ I0_schraeg = avg_and_sem([noms(I0_schraeg1),noms(I0_schraeg2)])
 I0_schraeg = unp.uarray(I0_schraeg[0],I0_schraeg[1])
 print('I0_schraeg', I0_schraeg)
 
+makeTable([noms([I0_gerade*300,I0_schraeg1*100,I0_schraeg2*100]),stds([I0_gerade*300,I0_schraeg1*100,I0_schraeg2*100]),[300,100,100],noms([I0_gerade,I0_schraeg1,I0_schraeg2]),stds([I0_gerade,I0_schraeg1,I0_schraeg2])], r'\multicolumn{2}{c}{'+r'$N_0$'+r'} & {'+r'$\Delta t_0/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$I_0/\si{\becquerel}$'+r'}','tabReferenzmessung',['S[table-format=5.0]','@{${}\pm{}$}S[table-format=3.0]','S[table-format=3.0]','S[table-format=3.1]','@{${}\pm{}$}S[table-format=1.1]'],["%5.0f","%3.0f","%3.0f","%3.1f","%1.1f"])
+
+
 #Würfel 2
 I2_gerade = unp.uarray(8054,103)/300
 I2_schraeg1 = unp.uarray(4864,81)/300
@@ -115,6 +118,9 @@ print('mu_23', mu_23)
 mu_2 = avg_and_sem([noms(mu_21),noms(mu_22),noms(mu_23)])
 print('mu_2', mu_2)
 
+makeTable([noms([I2_gerade*300,I2_schraeg1*300,I2_schraeg2*300]),stds([I2_gerade*300,I2_schraeg1*300,I2_schraeg2*300]),[300,300,300],noms([I2_gerade,I2_schraeg1,I2_schraeg2]),stds([I2_gerade,I2_schraeg1,I2_schraeg2]),noms([mu_21,mu_22,mu_23]),stds([mu_21,mu_22,mu_23])], r'\multicolumn{2}{c}{'+r'$N$'+r'} & {'+r'$\Delta t/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$I/\si{\becquerel}$'+r'} & \multicolumn{2}{c}{'+r'$\mu/\si{\per\centi\metre}$'+r'}','tabWuerfel2',['S[table-format=4.0]','@{${}\pm{}$}S[table-format=3.0]','S[table-format=3.0]','S[table-format=2.1]','@{${}\pm{}$}S[table-format=1.1]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]'],["%4.0f","%3.0f","%3.0f","%2.1f","%1.1f","%1.3f","%1.3f"])
+
+
 #Würfel 3
 I3_gerade = unp.uarray(24141,174)/200
 I3_schraeg1 = unp.uarray(21479,165)/200
@@ -128,57 +134,60 @@ print('mu_33', mu_33)
 mu_3 = avg_and_sem([noms(mu_31),noms(mu_32),noms(mu_33)])
 print('mu_3', mu_3)
 
+makeTable([noms([I3_gerade*200,I3_schraeg1*200,I3_schraeg2*200]),stds([I3_gerade*200,I3_schraeg1*200,I3_schraeg2*200]),[200,200,200],noms([I3_gerade,I3_schraeg1,I3_schraeg2]),stds([I3_gerade,I3_schraeg1,I3_schraeg2]),noms([mu_31,mu_32,mu_33]),stds([mu_31,mu_32,mu_33])], r'\multicolumn{2}{c}{'+r'$N$'+r'} & {'+r'$\Delta t/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$I/\si{\becquerel}$'+r'} & \multicolumn{2}{c}{'+r'$\mu/\si{\per\centi\metre}$'+r'}','tabWuerfel3',['S[table-format=5.0]','@{${}\pm{}$}S[table-format=3.0]','S[table-format=3.0]','S[table-format=3.1]','@{${}\pm{}$}S[table-format=1.1]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]'],["%5.0f","%3.0f","%3.0f","%3.1f","%1.1f","%1.3f","%1.3f"])
+
+
 #Würfel 5
 I5_1 = unp.uarray(25250,181)/300
-I5_1 = unp.log(I0_schraeg/I5_1)
-mu5_1 = I5_1/np.sqrt(2)
+I5_1log = unp.log(I0_schraeg/I5_1)
+mu5_1 = I5_1log/np.sqrt(2)
 print('mu5_1',mu5_1)
 I5_2 = unp.uarray(42856,234)/300
-I5_2 = unp.log(I0_schraeg/I5_2)
-mu5_3 = I5_2/np.sqrt(2)
+I5_2log = unp.log(I0_schraeg/I5_2)
+mu5_3 = I5_2log/np.sqrt(2)
 print('mu5_3',mu5_3)
 I5_3 = unp.uarray(25156,179)/300
-I5_3 = unp.log(I0_schraeg/I5_3)
-mu5_9 = I5_3/np.sqrt(2)
+I5_3log = unp.log(I0_schraeg/I5_3)
+mu5_9 = I5_3log/np.sqrt(2)
 print('mu5_9',mu5_9)
 I5_4 = unp.uarray(21835,167)/300
-I5_4 = unp.log(I0_schraeg/I5_4)
-mu5_7 = I5_4/np.sqrt(2)
+I5_4log = unp.log(I0_schraeg/I5_4)
+mu5_7 = I5_4log/np.sqrt(2)
 print('mu5_7',mu5_7)
 I5_5 = unp.uarray(8632,107)/300
-I5_5 = unp.log(I0_gerade/I5_5)
-mu5_4 = I5_5-mu5_1-mu5_7
+I5_5log = unp.log(I0_gerade/I5_5)
+mu5_4 = I5_5log-mu5_1-mu5_7
 print('mu5_4',mu5_4)
 I5_6 = unp.uarray(22108,168)/300
-I5_6 = unp.log(I0_gerade/I5_6)
+I5_6log = unp.log(I0_gerade/I5_6)
 I5_7 = unp.uarray(22048,167)/300
-I5_7 = unp.log(I0_gerade/I5_7)
-mu5_6 = I5_7-mu5_3-mu5_9
+I5_7log = unp.log(I0_gerade/I5_7)
+mu5_6 = I5_7log-mu5_3-mu5_9
 print('mu5_6',mu5_6)
 I5_8 = unp.uarray(22296,170)/300
-I5_8 = unp.log(I0_gerade/I5_8)
-mu5_2 = I5_8-mu5_1-mu5_3
+I5_8log = unp.log(I0_gerade/I5_8)
+mu5_2 = I5_8log-mu5_1-mu5_3
 print('mu5_2',mu5_2)
 I5_9 = unp.uarray(21250,165)/300
-I5_9 = unp.log(I0_gerade/I5_9)
-mu5_5 = I5_9-mu5_4-mu5_6
+I5_9log = unp.log(I0_gerade/I5_9)
+mu5_5 = I5_9log-mu5_4-mu5_6
 print('mu5_5',mu5_5)
 I5_10 = unp.uarray(8440,106)/300
-I5_10 = unp.log(I0_gerade/I5_10)
-mu5_8 = I5_10-mu5_7-mu5_9
+I5_10log = unp.log(I0_gerade/I5_10)
+mu5_8 = I5_10log-mu5_7-mu5_9
 print('mu5_8',mu5_8)
 I5_11 = unp.uarray(18139,153)/300
-I5_11 = unp.log(I0_schraeg/I5_11)
+I5_11log = unp.log(I0_schraeg/I5_11)
 I5_12 = unp.uarray(15245,141)/300
-I5_12 = unp.log(I0_schraeg/I5_12)
+I5_12log = unp.log(I0_schraeg/I5_12)
 I5_13 = unp.uarray(17586,150)/300
-I5_13 = unp.log(I0_schraeg/I5_13)
+I5_13log = unp.log(I0_schraeg/I5_13)
 I5_14 = unp.uarray(31775,201)/300
-I5_14 = unp.log(I0_schraeg/I5_14)
+I5_14log = unp.log(I0_schraeg/I5_14)
 I5_15 = unp.uarray(8680,107)/300
-I5_15 = unp.log(I0_schraeg/I5_15)
+I5_15log = unp.log(I0_schraeg/I5_15)
 I5_16 = unp.uarray(9966,114)/300
-I5_16 = unp.log(I0_schraeg/I5_16)
+I5_16log = unp.log(I0_schraeg/I5_16)
 
 mu_51 = avg_and_sem([noms(mu5_1),noms(mu5_9),noms(mu5_7),noms(mu5_4),noms(mu5_8)])
 print('mu_51',mu_51)
@@ -186,20 +195,22 @@ mu_52 = avg_and_sem([noms(mu5_3),noms(mu5_6),noms(mu5_2),noms(mu5_5)])
 print('mu_52',mu_52)
 
 I5 = unp.uarray([noms(I5_1),noms(I5_2),noms(I5_3),noms(I5_4),noms(I5_5),noms(I5_6),noms(I5_7),noms(I5_8),noms(I5_9),noms(I5_10),noms(I5_11),noms(I5_12),noms(I5_13),noms(I5_14),noms(I5_15),noms(I5_16)],[stds(I5_1),stds(I5_2),stds(I5_3),stds(I5_4),stds(I5_5),stds(I5_6),stds(I5_7),stds(I5_8),stds(I5_9),stds(I5_10),stds(I5_11),stds(I5_12),stds(I5_13),stds(I5_14),stds(I5_15),stds(I5_16)])
+I5log = unp.uarray([noms(I5_1log),noms(I5_2log),noms(I5_3log),noms(I5_4log),noms(I5_5log),noms(I5_6log),noms(I5_7log),noms(I5_8log),noms(I5_9log),noms(I5_10log),noms(I5_11log),noms(I5_12log),noms(I5_13log),noms(I5_14log),noms(I5_15log),noms(I5_16log)],[stds(I5_1log),stds(I5_2log),stds(I5_3log),stds(I5_4log),stds(I5_5log),stds(I5_6log),stds(I5_7log),stds(I5_8log),stds(I5_9log),stds(I5_10log),stds(I5_11log),stds(I5_12log),stds(I5_13log),stds(I5_14log),stds(I5_15log),stds(I5_16log)])
 
 M_5 = np.matmul(P_inv,A_T)
 #print('M_5', M_5)
-mu_5 = np.matmul(M_5,noms(I5))
+mu_5 = np.matmul(M_5,noms(I5log))
 mu_5 = unp.uarray(mu_5,mu_5)*0
 for i in range(M_5.shape[0]):
 	for j in range(M_5.shape[1]):
-		mu_5[i] += M_5[i][j]*I5[j]
+		mu_5[i] += M_5[i][j]*I5log[j]
 print('mu_5', mu_5)
 mu_51 = avg_and_sem(noms(mu_5[mu_5>0.5]))
 print('mu_51', mu_51)
 mu_52 = avg_and_sem(noms(mu_5[mu_5<0.5]))
 print('mu_52', mu_52)
 
+makeTable([noms(I5*300),stds(I5*300),[300,300,300,300,300,300,300,300,300,300,300,300,300,300,300,300],noms(I5),stds(I5),noms(I5log),stds(I5log)], r'\multicolumn{2}{c}{'+r'$N$'+r'} & {'+r'$\Delta t/\si{\second}$'+r'} & \multicolumn{2}{c}{'+r'$I/\si{\becquerel}$'+r'} & \multicolumn{2}{c}{'+r'$\log\left(\frac{I_0}{I}\right)$'+r'}','tabWuerfel5',['S[table-format=5.0]','@{${}\pm{}$}S[table-format=3.0]','S[table-format=3.0]','S[table-format=3.1]','@{${}\pm{}$}S[table-format=1.1]','S[table-format=1.3]','@{${}\pm{}$}S[table-format=1.3]'],["%5.0f","%3.0f","%3.0f","%3.1f","%1.1f","%1.3f","%1.3f"])
 
 
 #ohne die ersten 4 Werte
@@ -207,13 +218,13 @@ A = A[4:]
 A_T = np.transpose(A)
 P = np.matmul(A_T,A)
 P_inv = np.linalg.inv(P)
-I5=I5[4:]
+I5log = I5log[4:]
 M_5 = np.matmul(P_inv,A_T)
-mu_5 = np.matmul(M_5,noms(I5))
+mu_5 = np.matmul(M_5,noms(I5log))
 mu_5 = unp.uarray(mu_5,mu_5)*0
 for i in range(M_5.shape[0]):
 	for j in range(M_5.shape[1]):
-		mu_5[i] += M_5[i][j]*I5[j]
+		mu_5[i] += M_5[i][j]*I5log[j]
 print('mu_5', mu_5)
 mu_51 = avg_and_sem(noms(mu_5[mu_5>0.5]))
 print('mu_51', mu_51)

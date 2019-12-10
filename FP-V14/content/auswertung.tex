@@ -21,7 +21,7 @@ Um die Materialien im weiteren Verlauf über die Absorption bestimmen zu können
 I_.a = \frac{N_.a}{\Delta t_.a}
 \end{equation}
 Dabei entspricht $N_.a$ der Anzahl der Counts, also dem Integral über die Energieverteilung und $\Delta t$ der gemessenen Zeitspanne. Da laut Formel \eqref{eq:mu1} nur das Verhältnis von $I_0$ zu $I_.a$ relevant ist, ist es vorteilhaft nur die Counts des Photopeaks zu betrachten, da er eine gute Energieauflösung besitzt und Rauscheffekte einen geringeren Einfluss besitzen, als bei niedrigeren Energien.\\
-Die gemessenen für $N_0$ und $\Delta t_0$, sowie die daraus berechneten Intensitäten sind in Tabelle \ref{} eingetragen.
+Die gemessenen für $N_0$ und $\Delta t_0$, sowie die daraus berechneten Intensitäten sind in Tabelle \ref{tab:Referenzmessung} eingetragen.
 Gemittelt ergeben sich die Intensitäten zu:
 \begin{align*}
 I_.{0,gerade} &= \SI{168.8(8)}{\becquerel} \\
@@ -30,28 +30,49 @@ I_.{0,diag} &= \SI{165.4(12)}{\becquerel} \text{.}
 Dabei stammt die Unsicherheit von $I_.{0,gerade}$ aus der Gaußschen Fehlerfortpflanzung, während die Unsicherheit von $I_.{0,diag}$ die Unsicherheit auf den Mittelwert angibt.
 Im Folgenden wird $I_.{0,gerade}$ bei allen geraden Messungen und $I_.{0,diag}$ bei allen diagonalen Messungen als Referenzintensität $I_0$ verwendet.
 
+\begin{table}
+	\centering
+	\caption{Die Werte für $N_0$ und $\Delta t_0$, sowie die daraus berechneten Intensitäten $I_0$.}
+	\input{content/tables/tabReferenzmessung_2.tex}
+	\label{tab:Referenzmessung}
+\end{table}
+
 \subsection{Bestimmen des Absorptionskoeffizienten von Würfel 2}
 
-Es wird der Absorptionskoeffizient des zweiten Würfels bestimmt. Da bereits bekannt ist, dass der Würfel aus nur einem Material besteht, ist es ausreichend die selben Messungen wie bei der Referenzmessung durchzuführen. Diese sind in Tabelle \ref{} eingetragen. Zusätzlich sind die $d_.i$ der Messungen und die nach Formel \ref{eq:mu1} bestimmten Absorptionskoeffizienten $\mu$ in der Tabelle eingetragen. Die Unsicherheiten auf die einzelnen $I$ und $\mu$ stammen aus der Gaußschen Fehlerfortpflanzung.
+Es wird der Absorptionskoeffizient des zweiten Würfels bestimmt. Da bereits bekannt ist, dass der Würfel aus nur einem Material besteht, ist es ausreichend die selben Messungen wie bei der Referenzmessung durchzuführen. Diese sind in Tabelle \ref{tab:Würfel2} eingetragen. Zusätzlich sind die $d_.i$ der Messungen und die nach Formel \ref{eq:mu1} bestimmten Absorptionskoeffizienten $\mu$ in der Tabelle eingetragen. Die Unsicherheiten auf die einzelnen $I$ und $\mu$ stammen aus der Gaußschen Fehlerfortpflanzung.
 Gemittelt ergibt sich der Absorptionskoeffizient zu:
 \[
 \mu_2 = \SI{0.592(23)}{\per\centi\metre}\text{.}
 \]
 Dabei wird die Unsicherheit auf den Mittelwert angegeben.
 
+\begin{table}
+	\centering
+	\caption{Die Werte für $N$ und $\Delta t$, sowie die daraus berechneten Intensitäten $I$ und Absorptionskoeffizienten $\mu$ für Würfel 2.}
+	\input{content/tables/tabWuerfel2_2.tex}
+	\label{tab:Würfel2}
+\end{table}
+
 \subsection{Bestimmen des Absorptionskoeffizienten von Würfel 3}
 
-Es wird der Absorptionskoeffizient des dritten Würfels analog zum zweiten Würfel bestimmt. Auch hier ist bekannt, dass der Würfel aus einem einzigen Material besteht. Die Werte sind in Tabelle \ref{} eingetragen. Die Unsicherheiten auf die einzelnen $I$ und $\mu$ stammen aus der Gaußschen Fehlerfortpflanzung.
+Es wird der Absorptionskoeffizient des dritten Würfels analog zum zweiten Würfel bestimmt. Auch hier ist bekannt, dass der Würfel aus einem einzigen Material besteht. Die Werte sind in Tabelle \ref{tab:Würfel3} eingetragen. Die Unsicherheiten auf die einzelnen $I$ und $\mu$ stammen aus der Gaußschen Fehlerfortpflanzung.
 Gemittelt ergibt sich der Absorptionskoeffizient zu:
 \[
 \mu_3 = \SI{0.108(3)}{\per\centi\metre}\text{.}
 \]
 Dabei wird die Unsicherheit auf den Mittelwert angegeben.
 
+\begin{table}
+	\centering
+	\caption{Die Werte für $N$ und $\Delta t$, sowie die daraus berechneten Intensitäten $I$ und Absorptionskoeffizienten $\mu$ für Würfel 3.}
+	\input{content/tables/tabWuerfel3_2.tex}
+	\label{tab:Würfel3}
+\end{table}
+
 \subsection{Bestimmen der Absorptionskoeffizienten von Würfel 5}
 
-Der letzte untersuchte Würfel besteht aus einer Mischung der Materialien der Würfel 2 und 3. Somit müssen die Absorptionskoeffizienten der Einheitswürfel individuell bestimmt werden. Dazu werden Absorptionsmessungen nach dem Schema in Abschnitt \ref{} durchgeführt. Die gemessenen Werte, sowie die bestimmten Intensitäten sind in Tabelle \ref{} eingetragen. Die Unsicherheiten auf die einzelnen $I$ stammen aus der Gaußschen Fehlerfortpflanzung.
-Mit Formel \eqref{eq:mu2} und der Matrix A aus Abschnitt \ref{} ergeben sich die Werte der $\mu$ zu:
+Der letzte untersuchte Würfel besteht aus einer Mischung der Materialien der Würfel 2 und 3. Somit müssen die Absorptionskoeffizienten der Einheitswürfel individuell bestimmt werden. Dazu werden Absorptionsmessungen nach dem Schema in Abschnitt \ref{} durchgeführt. Die gemessenen Werte, sowie die bestimmten Intensitäten und Vektorelemente von $\vec{I}$ sind in Tabelle \ref{tab:Würfel5} eingetragen. Die Unsicherheiten auf die einzelnen $I$ und $\log\left(\frac{I_0}{I}\right)$ stammen aus der Gaußschen Fehlerfortpflanzung.\\
+Mit Formel \eqref{eq:mu2} und der Matrix $\bold{A}$ aus Abschnitt \ref{} ergeben sich die Werte der $\mu$ zu:
 \begin{align*}
 \mu_{5,1} &= \SI{0.538(6)}{\per\centi\metre}\\
 \mu_{5,2} &= \SI{0.145(5)}{\per\centi\metre}\\
@@ -71,3 +92,9 @@ Da in dem Würfel nur zwei Materialien vorhanden sind, wird ein Mittelwert über
 \end{align*}
 Hier wird die Unsicherheit auf den Mittelwert angegeben.
 
+\begin{table}
+	\centering
+	\caption{Die Werte für $N$ und $\Delta t$, sowie die daraus berechneten Intensitäten $I$ und Vektorelemente $\log\left(\frac{I_0}{I}\right)$ von $\vec{I}$ für Würfel 5.}
+	\input{content/tables/tabWuerfel5_2.tex}
+	\label{tab:Würfel5}
+\end{table}
