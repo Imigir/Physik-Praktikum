@@ -3,3 +3,65 @@
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
+\subsection{Energieverteilung}
+
+Es wird das Energiespektrum des $^{137}.{Cs}$-Strahlers untersucht. Dazu wird eine Messung ohne Aluminiumwürfel durchgeführt. Das aufgenommene Spektrum ist in Abbildung \ref{fig:energiespektrum} zu sehen. Der Photopeak ist dabei auf die Energie des ausgestrahlten $\gamma$-Quants von $\SI{662}{\kilo\electronvolt}$ kalibriert. Ab einer Energie von etwa $\SI{100}{\kilo\electronvolt}$ ist das Compton-Kontinuum zu erkennen. Normalerweise beginnt das Kontinuum bei geringeren Energien, der Detektor ist jedoch so eingestellt, dass nur Teilchen mit höheren Energien detektiert werden. Der Rückstreupeak ist bei etwa $\SI{220}{\kilo\electronvolt}$ und die Compton-Kante bei etwa $\SI{460}{\kilo\electronvolt}$ zu erkennen.
+
+\begin{figure}
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth]{build/Energiespektrum.pdf}
+\caption{Energiespektrum des $^{137}.{Cs}$-Strahlers.}
+\label{fig:energiespektrum}
+\end{figure}
+
+\subsection{Referenzmessung}
+
+Um die Materialien im weiteren Verlauf über die Absorption bestimmen zu können, wird eine Referenzmessung mit einem leeren Aluminiumwürfel durchgeführt. Mit den Daten wird die Intensität $I_0$ bestimmt. Dabei wird einmal gerade durch den Würfel und zweimal diagonal durch den Würfel gemessen.Die Intensitäten werden bestimmt über
+\begin{equation}
+I_.a = \frac{N_.a}{\Delta t_.a}
+\end{equation}
+Dabei entspricht $N_.a$ der Anzahl der Counts, also dem Integral über die Energieverteilung und $\Delta t$ der gemessenen Zeitspanne. Da laut Formel \eqref{eq:mu1} nur das Verhältnis von $I_0$ zu $I_.a$ relevant ist, ist es vorteilhaft nur die Counts des Photopeaks zu betrachten, da er eine gute Energieauflösung besitzt und Rauscheffekte einen geringeren Einfluss besitzen, als bei niedrigeren Energien.\\
+Die gemessenen für $N_0$ und $\Delta t_0$, sowie die daraus berechneten Intensitäten sind in Tabelle \ref{} eingetragen.
+Gemittelt ergeben sich die Intensitäten zu:
+\begin{align*}
+I_.{0,gerade} &= \SI{168.8(8)}{\becquerel} \\
+I_.{0,diag} &= \SI{165.4(12)}{\becquerel} \text{.}
+\end{align*}
+
+\subsection{Bestimmen des Absorptionskoeffizienten von Würfel 2}
+
+Es wird der Absorptionskoeffizient des zweiten Würfels bestimmt. Da bereits bekannt ist, dass der Würfel aus nur einem Material besteht, ist es ausreichend die selben Messungen wie bei der Referenzmessung durchzuführen. Diese sind in Tabelle \ref{} eingetragen. Zusätzlich sind die $d_.i$ der Messungen und die nach Formel \ref{eq:mu1} bestimmten Absorptionskoeffizienten $\mu$ in der Tabelle eingetragen.
+Gemittelt ergibt sich der Absorptionskoeffizient zu:
+\[
+\mu_2 = \SI{0.592(23)}{\per\centi\metre}\text{.}
+\]
+
+\subsection{Bestimmen des Absorptionskoeffizienten von Würfel 3}
+
+Es wird der Absorptionskoeffizient des dritten Würfels analog zum zweiten Würfel bestimmt. Auch hier ist bekannt, dass der Würfel aus einem einzigen Material besteht. Die Werte sind in Tabelle \ref{} eingetragen.
+Gemittelt ergibt sich der Absorptionskoeffizient zu:
+\[
+\mu_3 = \SI{0.108(3)}{\per\centi\metre}\text{.}
+\]
+
+\subsection{Bestimmen der Absorptionskoeffizienten von Würfel 5}
+
+Der letzte untersuchte Würfel besteht aus einer Mischung der Materialien der Würfel 2 und 3. Somit müssen die Absorptionskoeffizienten der Einheitswürfel individuell bestimmt werden. Dazu werden Absorptionsmessungen nach dem Schema in Abschnitt \ref{} durchgeführt. Die gemessenen Werte, sowie die bestimmten Intensitäten sind in Tabelle \ref{} eingetragen.
+Mit Formel \eqref{eq:mu2} und der Matrix A aus Abschnitt \ref{} ergeben sich die Werte der $\mu$ zu:
+\begin{align*}
+\mu_{5,1} &= \SI{0.538(6)}{\per\centi\metre}\\
+\mu_{5,2} &= \SI{0.145(5)}{\per\centi\metre}\\
+\mu_{5,3} &= \SI{0.108(5)}{\per\centi\metre}\\
+\mu_{5,4} &= \SI{0.574(6)}{\per\centi\metre}\\
+\mu_{5,5} &= \SI{0.127(6)}{\per\centi\metre}\\
+\mu_{5,6} &= \SI{0.168(5)}{\per\centi\metre}\\
+\mu_{5,7} &= \SI{0.615(6)}{\per\centi\metre}\\
+\mu_{5,8} &= \SI{0.574(6)}{\per\centi\metre}\\
+\mu_{5,9} &= \SI{0.542(5)}{\per\centi\metre}\text{.}
+\end{align*}
+Da in dem Würfel nur zwei Materialien vorhanden sind, wird ein Mittelwert über alle $\mu >\SI{0.5}{\per\centi\metre}$ und alle $\mu <\SI{0.5}{\per\centi\metre}$ gebildet. Es ergeben sich die Werte:
+\begin{align*}
+\mu_{5,a} &= \SI{0.569(14)}{\per\centi\metre}\\
+\mu_{5,b} &= \SI{0.137(12)}{\per\centi\metre}\text{.}
+\end{align*}
+
