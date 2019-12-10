@@ -112,18 +112,26 @@ c &= \num{1.39(8)}\text{.}
 
 \subsection{Vermessung der longitudinalen Moden}
 
-Es wird der Abstand zwischen den longitudinalen Moden für drei verschiedene Resonatorlängen vermessen.
+Es werden die Frequenzen $f$ der longitudinalen Moden für drei verschiedene Resonatorlängen vermessen. Die Werte sind in Tabelle \ref{tab:longitudinal} eingetragen.
 Für die Resonatorlängen $L_1=\SI{192}{\centi\metre}$, $L_2=\SI{120}{\centi\metre}$ und $L_3=\SI{71}{\centi\metre}$ ergeben sich gemittelt die Abstände:
 \begin{align*}
 \Delta\lambda_{192} &= \SI{385(3)}{\centi\metre}\\
 \Delta\lambda_{120} &= \SI{241.3(13)}{\centi\metre}\\
 \Delta\lambda_{71} &= \SI{142.2(6)}{\centi\metre}\text{.}
 \end{align*}
-Dies entspricht der Relation:
+Dabei ist $\Delta\lambda_n = \frac{c_0}{(f_{n+1}-f_n)}$.
+Es ist folgender Zusammenhang zu erkennen:
 \[
-\frac{\Delta\lambda}{2} = \frac{c_0}{2(f_{n+1}-f_n)} = L \text{.}
+\frac{\Delta\lambda}{2} = \frac{c_0}{2\Delta f} = L \text{,}
 \]
-Dabei ist $c_0$ die Lichtgeschwindigkeit und $f$ die Frequenz.
+mit der Lichtgeschwindigkeit im Vakuum $c_0$.
+
+\begin{table}
+	\centering
+	\caption{Die gemessenen Frequenzen bei $L_1=\SI{192}{\centi\metre}$, $L_2=\SI{120}{\centi\metre}$ und $L_3=\SI{71}{\centi\metre}$.}
+	\input{content/tables/tablongitudinal.tex}
+	\label{tab:longitudinal}
+\end{table}
 
 \subsection{Bestimmung der Wellenlänge}
 
