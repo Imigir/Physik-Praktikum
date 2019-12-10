@@ -1,15 +1,15 @@
- &  &  &  &  &  &  &  &  \\\section{Theorie}
+\section{Theorie}
 \label{sec:Theorie}
 
 \subsection{Tomographie mit $\gamma$-Strahlen}
 
-Die Tomographie ist ein Verfahren, welches verwendet wird, die räumliche Struktur und Zusammensetzung eines Objekts zu bestimmen, ohne dieses zu zerstören. Dabei wird das betrachtete Objekt aus verschiedenen Richtungen beispielsweise mit $\gamma$-Quanten bestrahlt, welche beim Durchdringen der Materie über Wechselwirkungen - welche in Abschnitt \ref{subsec:WW} erläutert werden - Energie an diese abgeben, sodass die Intensität abnimmt. Wird die ausgehende Intensität $I_.a$ mit der eingehenden $I_.0$ verglichen können so Querschnittsbilder verschiedener Projektionen erzeugt werden, mit Hilfe derer auf das Material des Objekts geschlossen werden kann. Da jedes Material einen bestimmten energieabhängigen Absorptionskoeffizienten $\mu$ besitzt, lässt sich $I_.a$ aus einem Objekt mit verschiedenen Materialtypen $i$ berechnen über
+Die Tomographie ist ein Verfahren, welches verwendet wird, die räumliche Struktur und Zusammensetzung eines Objekts zu bestimmen, ohne dieses zu zerstören. Dabei wird das betrachtete Objekt aus verschiedenen Richtungen beispielsweise mit $\gamma$-Quanten bestrahlt, welche beim Durchdringen der Materie über Wechselwirkungen - welche in Abschnitt \ref{subsec:WW} erläutert werden - Energie an diese abgeben, sodass die Intensität abnimmt. Wird die ausgehende Intensität $I_.a$ mit der eingehenden Intensität $I_.0$ verglichen können so Querschnittsbilder verschiedener Projektionen erzeugt werden, mit Hilfe derer auf das Material des Objekts geschlossen werden kann. Da jedes Material einen bestimmten energieabhängigen Absorptionskoeffizienten $\mu$ besitzt, lässt sich $I_.a$ aus einem Objekt mit verschiedenen Materialtypen $i$ berechnen über
 \begin{equation}
-I_.a = I_.0\mathrm{e}^{-\sum \mu_.i\d_.i}\text{,}\label{eq:Ia}
+I_.a = I_0\mathrm{e}^{-\sum \mu_.i d_.i}\text{,}\label{eq:Ia}
 \end{equation}
 beziehungsweise
 \begin{equation}
-\sum \mu_.i d_.i = \mathrm{ln}\left(\frac{I_.a}{I_.0}\right)\text{.}\label{eq:mu1}
+\sum \mu_.i d_.i = \mathrm{ln}\left(\frac{I_.0}{I_.a}\right)\text{.}\label{eq:mu1}
 \end{equation}
 Dabei sind $d_.i$ die Wegstrecken die im jeweiligen Material durchquert werden müssen.
 In diesem Versuch werden 3 x 3 Elementarwürfel mit $\SI{1}{\centi\meter}$-Kantenlänge in einer Ebene untersucht. Bei bekanntem $I_.0$ kann so ein Gleichungssystem zur Bestimmung der 9 Absorptionskoeffizienten aufgestellt werden:
@@ -42,6 +42,7 @@ Nach der Least-Square-Methode ergibt sich so für $\vec{\mu}$:
 \end{equation}
 
 \subsection{Wechselwirkung von $\gamma$-Quanten mit Materie}
+\label{subsec:WW}
 
 Im Wesentlichen erfolgt der Energieverlust beim Durchgang von $\gamma$-Quanten durch Materie durch drei Prozesse die in verschiedenen Energiebereichen dominieren.
 Eine Darstellung der Absorptionskoeffizienten der verschiedenen Prozesse in Abhängigkeit von der $\gamma$-Energie $E_.{\gamma}$, am Beispiel von Germanium sind in Abbildung \ref{fig:mus} zu sehen.
@@ -63,7 +64,7 @@ Es zeigt sich das bei Vorwärtsstreuung keinerlei Energie abgegeben wird und der
 
 \subsubsection{Die Paarerzeugung}
 
-Im Coulombfeld eines Atomkerns oder auch eines Hüllenelektrons kann es zur Erzeugung eines Elektron-Positron-Paares kommen. Da die Energieerhaltung gilt, muss dafür $E_.{\gamma} \greq 2m_.ec^2 = \SI{1024}{\kilo\eV}$, während der Atomkern oder das Hüllenelektron als Rückstoßpartner für die Impulserhaltung benötigt werden. Da die Rückstoßenergie proportional zur inversen Masse des Teilchens ist, wird im Falle der Paarerzeugung im Elektron-Potential eine wesentlich höhere Gesamtenergie benötigt, sodass sich die Schwellenenergie für diesen Prozess auf $E_.{\gamma} \greq 4m_.ec^2$ erhöht. Das entstehende Elektron verliert seine Energie durch Stöße und kann wieder eingefangen werden, während das Positron mit einem Elektron im Material annihilieren und so zwei weitere $\gamma$-Quanten mit einer Energie von $E_.{\gamma}=\SI{512}{\kilo\eV}$ erzeugen, die entweder im Material absorbiert werden oder das Material verlassen können. 
+Im Coulombfeld eines Atomkerns oder auch eines Hüllenelektrons kann es zur Erzeugung eines Elektron-Positron-Paares kommen. Da die Energieerhaltung gilt, muss dafür $E_.{\gamma} \geq 2m_.ec^2 = \SI{1024}{\kilo\eV}$, während der Atomkern oder das Hüllenelektron als Rückstoßpartner für die Impulserhaltung benötigt werden. Da die Rückstoßenergie proportional zur inversen Masse des Teilchens ist, wird im Falle der Paarerzeugung im Elektron-Potential eine wesentlich höhere Gesamtenergie benötigt, sodass sich die Schwellenenergie für diesen Prozess auf $E_.{\gamma} \geq 4m_.ec^2$ erhöht. Das entstehende Elektron verliert seine Energie durch Stöße und kann wieder eingefangen werden, während das Positron mit einem Elektron im Material annihilieren und so zwei weitere $\gamma$-Quanten mit einer Energie von $E_.{\gamma}=\SI{512}{\kilo\eV}$ erzeugen, die entweder im Material absorbiert werden oder das Material verlassen können. 
 Im Falle einer $Cs_.{55}^\text{137}$-Quelle kann dieser Prozess vernachlässigt werden, da die Energie mit $\SI{662}{\kilo\eV}$ zu gering ist.
 
 %♥☺◙☻♦♣♠
