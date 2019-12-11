@@ -109,8 +109,8 @@ I2_gerade = unp.uarray(8054,103)/300
 I2_schraeg1 = unp.uarray(4864,81)/300
 I2_schraeg2 = unp.uarray(8707,106)/300
 mu_21 = unp.log(I0_gerade/I2_gerade)/3
-mu_22 = unp.log(I0_schraeg/I2_schraeg1)/(3*np.sqrt(2))
-mu_23 = unp.log(I0_schraeg/I2_schraeg2)/(2*np.sqrt(2))
+mu_22 = unp.log(I0_schraeg1/I2_schraeg1)/(3*np.sqrt(2))
+mu_23 = unp.log(I0_schraeg2/I2_schraeg2)/(2*np.sqrt(2))
 print('mu_21', mu_21)
 print('mu_22', mu_22)
 print('mu_23', mu_23)
@@ -126,8 +126,8 @@ I3_gerade = unp.uarray(24141,174)/200
 I3_schraeg1 = unp.uarray(21479,165)/200
 I3_schraeg2 = unp.uarray(24197,176)/200
 mu_31 = unp.log(I0_gerade/I3_gerade)/3
-mu_32 = unp.log(I0_schraeg/I3_schraeg1)/(3*np.sqrt(2))
-mu_33 = unp.log(I0_schraeg/I3_schraeg2)/(2*np.sqrt(2))
+mu_32 = unp.log(I0_schraeg1/I3_schraeg1)/(3*np.sqrt(2))
+mu_33 = unp.log(I0_schraeg2/I3_schraeg2)/(2*np.sqrt(2))
 print('mu_31', mu_31)
 print('mu_32', mu_32)
 print('mu_33', mu_33)
@@ -139,19 +139,19 @@ makeTable([noms([I3_gerade*200,I3_schraeg1*200,I3_schraeg2*200]),stds([I3_gerade
 
 #Würfel 5
 I5_1 = unp.uarray(25250,181)/300
-I5_1log = unp.log(I0_schraeg/I5_1)
+I5_1log = unp.log(I0_schraeg2/I5_1)
 mu5_1 = I5_1log/np.sqrt(2)
 print('mu5_1',mu5_1)
 I5_2 = unp.uarray(42856,234)/300
-I5_2log = unp.log(I0_schraeg/I5_2)
+I5_2log = unp.log(I0_schraeg2/I5_2)
 mu5_3 = I5_2log/np.sqrt(2)
 print('mu5_3',mu5_3)
 I5_3 = unp.uarray(25156,179)/300
-I5_3log = unp.log(I0_schraeg/I5_3)
+I5_3log = unp.log(I0_schraeg2/I5_3)
 mu5_9 = I5_3log/np.sqrt(2)
 print('mu5_9',mu5_9)
 I5_4 = unp.uarray(21835,167)/300
-I5_4log = unp.log(I0_schraeg/I5_4)
+I5_4log = unp.log(I0_schraeg2/I5_4)
 mu5_7 = I5_4log/np.sqrt(2)
 print('mu5_7',mu5_7)
 I5_5 = unp.uarray(8632,107)/300
@@ -177,17 +177,17 @@ I5_10log = unp.log(I0_gerade/I5_10)
 mu5_8 = I5_10log-mu5_7-mu5_9
 print('mu5_8',mu5_8)
 I5_11 = unp.uarray(18139,153)/300
-I5_11log = unp.log(I0_schraeg/I5_11)
+I5_11log = unp.log(I0_schraeg2/I5_11)
 I5_12 = unp.uarray(15245,141)/300
-I5_12log = unp.log(I0_schraeg/I5_12)
+I5_12log = unp.log(I0_schraeg1/I5_12)
 I5_13 = unp.uarray(17586,150)/300
-I5_13log = unp.log(I0_schraeg/I5_13)
+I5_13log = unp.log(I0_schraeg2/I5_13)
 I5_14 = unp.uarray(31775,201)/300
-I5_14log = unp.log(I0_schraeg/I5_14)
+I5_14log = unp.log(I0_schraeg2/I5_14)
 I5_15 = unp.uarray(8680,107)/300
-I5_15log = unp.log(I0_schraeg/I5_15)
+I5_15log = unp.log(I0_schraeg1/I5_15)
 I5_16 = unp.uarray(9966,114)/300
-I5_16log = unp.log(I0_schraeg/I5_16)
+I5_16log = unp.log(I0_schraeg2/I5_16)
 
 mu_51 = avg_and_sem([noms(mu5_1),noms(mu5_9),noms(mu5_7),noms(mu5_4),noms(mu5_8)])
 print('mu_51',mu_51)

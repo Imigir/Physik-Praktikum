@@ -16,19 +16,14 @@ Es wird das Energiespektrum des $^{137}.{Cs}$-Strahlers untersucht. Dazu wird ei
 
 \subsection{Referenzmessung}
 
-Um die Materialien im weiteren Verlauf über die Absorption bestimmen zu können, wird eine Referenzmessung mit einem leeren Aluminiumwürfel durchgeführt. Mit den Daten wird die Intensität $I_0$ bestimmt. Dabei wird einmal gerade durch den Würfel und zweimal diagonal durch den Würfel gemessen.Die Intensitäten werden bestimmt über
+Um die Materialien im weiteren Verlauf über die Absorption bestimmen zu können, wird eine Referenzmessung mit einem leeren Aluminiumwürfel durchgeführt. Mit den Daten wird die Intensität $I_0$ bestimmt. Dabei wird einmal gerade durch den Würfel und zweimal diagonal durch den Würfel gemessen. Die erste Diagonalmessung geht durch die Hauptdiagonale des Würfels, die Zweite durch die erste Nebendiagonale. Die Intensitäten werden bestimmt über
 \begin{equation}
 I_.a = \frac{N_.a}{\Delta t_.a}
 \end{equation}
 Dabei entspricht $N_.a$ der Anzahl der Counts, also dem Integral über die Energieverteilung und $\Delta t$ der gemessenen Zeitspanne. Da laut Formel \eqref{eq:mu1} nur das Verhältnis von $I_0$ zu $I_.a$ relevant ist, ist es vorteilhaft nur die Counts des Photopeaks zu betrachten, da er eine gute Energieauflösung besitzt und Rauscheffekte einen geringeren Einfluss besitzen, als bei niedrigeren Energien.\\
-Die gemessenen für $N_0$ und $\Delta t_0$, sowie die daraus berechneten Intensitäten sind in Tabelle \ref{tab:Referenzmessung} eingetragen.
-Gemittelt ergeben sich die Intensitäten zu:
-\begin{align*}
-I_.{0,gerade} &= \SI{168.8(8)}{\becquerel} \\
-I_.{0,diag} &= \SI{165.4(12)}{\becquerel} \text{.}
-\end{align*}
-Dabei stammt die Unsicherheit von $I_.{0,gerade}$ aus der Gaußschen Fehlerfortpflanzung, während die Unsicherheit von $I_.{0,diag}$ die Unsicherheit auf den Mittelwert angibt.
-Im Folgenden wird $I_.{0,gerade}$ bei allen geraden Messungen und $I_.{0,diag}$ bei allen diagonalen Messungen als Referenzintensität $I_0$ verwendet.
+Die gemessenen Werte für $N_0$ und $\Delta t_0$, sowie die daraus berechneten Intensitäten $I_0$ sind in Tabelle \ref{tab:Referenzmessung} eingetragen.
+Dabei stammen die Unsicherheit von $I$ aus der Gaußschen Fehlerfortpflanzung.
+Im Folgenden wird $I_.{0,gerade}$ bei allen geraden Messungen, $I_.{0,diag1}$ bei allen Messungen durch die Hauptdiagonale und $I_.{0,diag2}$ für alle Nebendiagonalen als Referenzintensität $I_0$ verwendet.
 
 \begin{table}
 	\centering
@@ -42,7 +37,7 @@ Im Folgenden wird $I_.{0,gerade}$ bei allen geraden Messungen und $I_.{0,diag}$ 
 Es wird der Absorptionskoeffizient des zweiten Würfels bestimmt. Da bereits bekannt ist, dass der Würfel aus nur einem Material besteht, ist es ausreichend die selben Messungen wie bei der Referenzmessung durchzuführen. Diese sind in Tabelle \ref{tab:Würfel2} eingetragen. Zusätzlich sind die $d_.i$ der Messungen und die nach Formel \ref{eq:mu1} bestimmten Absorptionskoeffizienten $\mu$ in der Tabelle eingetragen. Die Unsicherheiten auf die einzelnen $I$ und $\mu$ stammen aus der Gaußschen Fehlerfortpflanzung.
 Gemittelt ergibt sich der Absorptionskoeffizient zu:
 \[
-\mu_2 = \SI{0.592(23)}{\per\centi\metre}\text{.}
+\mu_2 = \SI{0.592(22)}{\per\centi\metre}\text{.}
 \]
 Dabei wird die Unsicherheit auf den Mittelwert angegeben.
 
@@ -75,20 +70,20 @@ Der letzte untersuchte Würfel besteht aus einer Mischung der Materialien der W�
 Mit Formel \eqref{eq:mu2} und der Matrix $\bold{A}$ aus Abschnitt \ref{} ergeben sich die Werte der $\mu$ zu:
 \begin{align*}
 \mu_{5,1} &= \SI{0.538(6)}{\per\centi\metre}\\
-\mu_{5,2} &= \SI{0.145(5)}{\per\centi\metre}\\
+\mu_{5,2} &= \SI{0.143(6)}{\per\centi\metre}\\
 \mu_{5,3} &= \SI{0.108(5)}{\per\centi\metre}\\
-\mu_{5,4} &= \SI{0.574(6)}{\per\centi\metre}\\
-\mu_{5,5} &= \SI{0.127(6)}{\per\centi\metre}\\
-\mu_{5,6} &= \SI{0.168(5)}{\per\centi\metre}\\
-\mu_{5,7} &= \SI{0.615(6)}{\per\centi\metre}\\
-\mu_{5,8} &= \SI{0.574(6)}{\per\centi\metre}\\
-\mu_{5,9} &= \SI{0.542(5)}{\per\centi\metre}\text{.}
+\mu_{5,4} &= \SI{0.572(6)}{\per\centi\metre}\\
+\mu_{5,5} &= \SI{0.133(6)}{\per\centi\metre}\\
+\mu_{5,6} &= \SI{0.166(6)}{\per\centi\metre}\\
+\mu_{5,7} &= \SI{0.614(6)}{\per\centi\metre}\\
+\mu_{5,8} &= \SI{0.572(6)}{\per\centi\metre}\\
+\mu_{5,9} &= \SI{0.541(6)}{\per\centi\metre}\text{.}
 \end{align*}
 Die Unsicherheiten auf die einzelnen $\mu$ stammen aus der Gaußschen Fehlerfortpflanzung.
 Da in dem Würfel nur zwei Materialien vorhanden sind, wird ein Mittelwert über alle $\mu >\SI{0.5}{\per\centi\metre}$ und alle $\mu <\SI{0.5}{\per\centi\metre}$ gebildet. Es ergeben sich die Werte:
 \begin{align*}
-\mu_{5,a} &= \SI{0.569(14)}{\per\centi\metre}\\
-\mu_{5,b} &= \SI{0.137(12)}{\per\centi\metre}\text{.}
+\mu_{5,a} &= \SI{0.567(14)}{\per\centi\metre}\\
+\mu_{5,b} &= \SI{0.137(13)}{\per\centi\metre}\text{.}
 \end{align*}
 Hier wird die Unsicherheit auf den Mittelwert angegeben.
 
