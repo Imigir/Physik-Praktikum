@@ -18,23 +18,36 @@ In diesem Versuch werden 3 x 3 Elementarwürfel mit $\SI{1}{\centi\meter}$-Kante
 \end{equation*}
 wobei $\mathbf{A}$ die Designmatrix zur Beschreibung der Würfelgeometrie und der verschiedenen Projektionen, $\vec{mu}$ der 9-komponentige Vektor der Absorptionskoeffizienten und $\left(\vec{I}\right)_.i= \mathrm{ln}\left(\frac{I_.{a,i}}{I_.0}\right)$ ist.
 Zur Erhöhung der Messgenauigkeit werden mehr Projektionen vermessen als Elementarwürfel vorhanden sind, um so ein überbestimmtes Gleichungssystem zu erhalten.
-Eine mögliche Matrix $\mathbf{A}$ für 12 verschiedene Projektionen ist somit
-$
+Eine mögliche Matrix $\mathbf{A}$ für 16 verschiedene Projektionen ist somit
+\[
+\mathrm{\textbf{A}} = \left(
 \begin{matrix}
-1 & 1 & 1 &  &  &  &  &  &  \\
- &  &  & 1 & 1 & 1 &  &  &  \\
- &  &  &  &  &  & 1 & 1 & 1 \\
+\sqrt{2} &  &  &  &  &  &  &  & \\
+ &  & \sqrt{2} &  &  &  &  &  & \\
+ &  &  &  &  &  &  &  & \sqrt{2}\\
+ &  &  &  &  &  & \sqrt{2} &  &\\
 1 &  &  & 1 &  &  & 1 &  &  \\
  & 1 &  &  & 1 &  &  & 1 &  \\
  &  & 1 &  &  & 1 &  &  & 1 \\
-\sqrt{2} &  &  &  & \sqrt{2} &  &  &  & \sqrt{2} \\
- & \sqrt{2} &  &  &  & \sqrt{2} &  &  &  \\
+1 & 1 & 1 &  &  &  &  &  &  \\
+ &  &  & 1 & 1 & 1 &  &  &  \\
+ &  &  &  &  &  & 1 & 1 & 1 \\
  & \sqrt{2} &  & \sqrt{2} &  &  &  &  &  \\
  &  & \sqrt{2} &  & \sqrt{2} &  & \sqrt{2} &  &  \\
- &  &  & \sqrt{2} &  &  &  & \sqrt{2} &  \\
  &  &  &  &  & \sqrt{2} &  & \sqrt{2} &  \\
+\sqrt{2} &  &  &  & \sqrt{2} &  &  &  & \sqrt{2} \\
+ & \sqrt{2} &  &  &  & \sqrt{2} &  &  &  \\
+ &  &  & \sqrt{2} &  &  &  & \sqrt{2} &  \\
 \end{matrix}
-$
+\right)
+\]
+
+\begin{figure}
+\centering
+\includegraphics[keepaspectratio,width=0.6\textwidth]{content/images/Zeichnung.pdf}
+\caption{Schematische Darstellung der verwendeten Projektionen.}
+\label{fig:aufbau}
+\end{figure}
 
 Nach der Least-Square-Methode ergibt sich so für $\vec{\mu}$:
 \begin{equation}
