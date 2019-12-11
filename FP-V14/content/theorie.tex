@@ -21,7 +21,7 @@ wobei $\mathbf{A}$ die Designmatrix zur Beschreibung der Würfelgeometrie und de
 Zur Erhöhung der Messgenauigkeit werden mehr Projektionen vermessen als Elementarwürfel vorhanden sind, um so ein überbestimmtes Gleichungssystem zu erhalten.
 Eine mögliche Matrix $\mathbf{A}$ für 16 verschiedene Projektionen ist somit
 \[
-\mathrm{\textbf{A}} = \left(
+\mathbf{A} = \left(
 \begin{matrix}
 \sqrt{2} &  &  &  &  &  &  &  & \\
  &  & \sqrt{2} &  &  &  &  &  & \\
@@ -52,7 +52,7 @@ Eine mögliche Matrix $\mathbf{A}$ für 16 verschiedene Projektionen ist somit
 
 Nach der Least-Square-Methode ergibt sich so für $\vec{\mu}$:
 \begin{equation}
-\vec{\mu} = (\mathbf{A}^T A)^{-1} A^T \vec{I}\label{eq:mu2}
+\vec{\mu} = (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{A}^T \vec{I}\label{eq:mu2}
 \end{equation}
 
 \subsection{Wechselwirkung von $\gamma$-Quanten mit Materie}
