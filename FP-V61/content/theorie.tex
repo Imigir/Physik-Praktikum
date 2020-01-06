@@ -42,24 +42,38 @@ Zum Herausfiltern einzelner zu verstärkender Wellenlängen können die Spiegel 
 Auf Grund von mehreren erreichbaren Energiezuständen können auch verschiedene Frequenzen die Resonanzbedingung \eqref{eq:stabil} erfüllen. Dadurch kann es zu mehreren Laser-Moden kommen, die in zylindrischer Symmetrie als transversale elektromagnetische (TEM) Moden bezeichnet werden.
 Werden die Modenordnungen in radialer und Winkelrichtung  mit $p$ und $l$ bezeichnet ergibt sich die Intensität der TEM-Moden mit den Laguerre-Polynomen $L^q_.p$ zu
 \begin{equation}
-I_.{pl} = I_.0 \cos^2 (l \varphi) \rho^2 \left[L^q_.{p}\left(\frac{(2 \rho)^2}{1+Z^2} \right)\right] ^2 \exp\left(-\rho \right)\text{.} \label{eq:intens}
+I_.{pl} \propto \cos^2 (l \varphi) \frac{(2\rho)^4}{(1+Z^2)^{(1+l)}} \left[L^q_.{p}\left(\frac{(2 \rho)^2}{1+Z^2} \right)\right] ^2 \exp\left(-\frac{2\rho^2}{1+Z^2} \right)\text{.} \label{eq:intens}
 \end{equation}
 Dabei ist
 \[
-\rho = 2 \frac{r^2}{w^2_.0 \left(1+\left(\frac{z \lambda}{\pi w_.0^2}\right)^2\right)} = \frac{r^2}{w^2}
+\rho^2 = \frac{2\pi}{R\lambda}\text{ und } Z = \left(\frac{2z}{R}\right)
 \]
-mit dem minimalen Strahlradius $w_.0$.
 Wird die Symmetrie durch ein Brewsterfenster gebrochen, um polarisiertes LASER-Licht zu erhalten werden werden die Ordnungen Moden in $x$- und $y$- Richtung mit $m$ und $n$ bezeichnet.
 Die Intensität ergibt ich dann mit den Hermit-Polynomen $H_.m$ über
 \begin{equation}
-I_{mn} = I_.0 \left(\frac{w_0}{w}\right)^2 \left[H_.m\left(\frac{\sqrt{2} x}{w}\right) \exp\left(\frac{-x^2}{w^2}\right) \right]^2 \left[H_n\left(\frac{\sqrt{2} y}{w}\right) \exp\left(\frac{-y^2}{w^2}\right) \right]^2\text{.}
+I_{mn} = I_.0 \left(\frac{w_0}{w}\right)^2 \left[H_.m\left(\frac{\sqrt{2} x}{w}\right) \exp\left(\frac{-x^2}{w^2}\right) \right]^2 \left[H_n\left(\frac{\sqrt{2} y}{w}\right) \exp\left(\frac{-y^2}{w^2}\right) \right]^2
 \label{eq:intens2}
 \end{equation}
-Moden entlang der Symmetrieachse($z$-Richtung) werden durch den Modenindex $q$ charakterisiert und als longitudinale elektromagnetische Moden (LEM) bezeichnet. Für reine longitudinale Moden $\text{LEM}_.{00q}$ gilt dabei
+mit dem Strahlradius $w$.
+Dieser erfüllt die relation
+\[
+w (z) = w_0\sqrt{1+\left(\frac{z\lambda}{\pi}\right)^2}
+\]
+mit dem minimalen Strahlradius $w_0$.
+Moden entlang der Symmetrieachse ($z$-Richtung) werden durch den Modenindex $q$ charakterisiert und als longitudinale elektromagnetische Moden (LEM) bezeichnet. Für reine longitudinale Moden $\text{LEM}_.{00q}$ gilt dabei
 \begin{equation}
 I_{00q} = I_0 \exp\left(-\frac{2 r^2}{\omega ^2}\right)\text{.} \label{eq:gaus}
 \end{equation}
-Da sich diese im Resonator als stehende Wellen ausbilden ist gilt also für die Wellenlänge der Mode $q$
+
+\subsection{Multimodenbetrieb}
+Da die Resonatorlänge $L$ sehr viel größer als die Wellenlänge $\lambda$ des Lasers ist, erfüllen aufgrund der Dopplerverschiebung der Wellenlänge prinzipiell viele Frequenzen die Resonanzbedingung einer stehenden Welle im Resonator.
+Denn die Wellenlänge des Lasers ist nicht monochromatisch, sondern Gaußverteilt um die Wellenlänge des induzierten Übergangs (vergleiche Abbildung \ref{fig:doppler}). 
+Folglich gibt es mehrere Wellenlängen die für eine gegebene Resonatorlänge $L$ die Bedingung 
+\[
+L = n\frac{\lambda}{2}
+\]
+erfüllen. 
+Es gilt also für die Wellenlänge der stehenden Welle der Mode $q$
 \[
 \lambda_.q = \frac{2L}{q}\text{.}
 \]
@@ -67,11 +81,18 @@ und für ihre Frequenz mit der Lichtgeschwindigkeit $c$
 \[
 f_.q = q\frac{c}{2L}
 \]
+Das zeigt wie die Frequenz der entstehenden Moden abhängig von der Modenzahl $q$ ist. 
 Der Frequenzabstand zwischen zwei benachbarten Moden $q$ und $q+1$ beträgt damit
 \[
 \Delta f = \frac{c}{2L}\text{.}
 \]
 
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-50pt,height=\textheight-100pt,keepaspectratio]{content/images/multimode2.pdf}
+	\caption{Longitudinale Moden eines typischen polarisierten $\SI{8}{\mega\watt}$ HeNe-Lasers.}
+	\label{fig:doppler}
+\end{figure}
 
 \subsection{Intensität hinter einem Polarisationsfilter}
 Ein Polarisationsfilter lässt nur eine Polarisationsrichtung passieren. Falls die Polarisation des Lichts sich um den Winkel $\delta\phi$ von dem gefilterten unterscheidet, gilt für die Intensität des Lichtes hinter diesem

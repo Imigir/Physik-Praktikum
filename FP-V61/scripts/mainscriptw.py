@@ -10,6 +10,7 @@ from scipy import stats
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import uncertainties.unumpy as unp
+from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 import scipy.constants as const
 
 # BackwardsVNominal = []
@@ -69,6 +70,10 @@ plt.savefig('build/'+'stabilitat')
 
 
 #longitudinale Moden
+
+def lambda_fkt(L,a):
+	return a*L
+
 f_192  = np.genfromtxt('scripts/data1.txt',unpack=True) #MHz
 f_192 = f_192*10**6 #Hz
 lambda_192 = f_192[:len(f_192)-1]
@@ -93,6 +98,30 @@ for i in range(len(f_71)-1):
 lambda_71 = avg_and_sem(lambda_71)
 print('lambda_71:', lambda_71)
 
+lambda_ges=unp.uarray([lambda_71[0],lambda_120[0],lambda_192[0]],[lambda_71[1],lambda_120[1],lambda_192[1]])
+print('lambda_ges:', lambda_ges)
+
+L = np.array([71,120,192])
+params, covariance_matrix = curve_fit(lambda_fkt,L,noms(lambda_ges)*100)
+errors = np.sqrt(np.diag(covariance_matrix))
+print('Die Steigung der longitudinalen Mode:')
+print('a =', params[0], '±', errors[0])
+a = params[0]
+
+plt.cla()
+plt.clf()
+x = np.linspace(60,200)
+plt.plot(L, noms(lambda_ges)*100,'rx',label='Messwerte')
+#plt.errorbar(x, noms(lambda_ges)*100, yerr=stds(lambda_ges)*100, label='Messwerte',fmt='rx', capthick=0.5, linewidth='0.5',ecolor='g',capsize=1,markersize=1.5) 
+plt.plot(x, lambda_fkt(x,2), 'k-', label='Theorie')
+plt.plot(x, lambda_fkt(x,a), 'b-', label='Ausgleichsgerade')
+plt.xlabel(r'$L/\si{\centi\meter}$')
+plt.ylabel(r'$\Delta \lambda/\si{\centi\meter}$')
+plt.xlim(60,200)
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.04, w_pad=1.08)
+plt.savefig('build/'+'longitudinal')
+
 
 #transversale Moden
 T00x, T00I  = np.genfromtxt('scripts/T00mode.txt',unpack=True) #mm,nA
@@ -113,7 +142,7 @@ def T00(x,a,b,c):
 	
 params, covariance_matrix = curve_fit(T00,T00x,T00I)
 errors = np.sqrt(np.diag(covariance_matrix))
-print('Die Parameter der T00 mode:')
+print('Die Parameter der T00 Mode:')
 print('a =', params[0], '±', errors[0])
 print('b =', params[1], '±', errors[1])
 print('c =', params[2], '±', errors[2])

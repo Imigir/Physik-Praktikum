@@ -119,12 +119,24 @@ Für die Resonatorlängen $L_1=\SI{192}{\centi\metre}$, $L_2=\SI{120}{\centi\met
 \Delta\lambda_{120} &= \SI{241.3(13)}{\centi\metre}\\
 \Delta\lambda_{71} &= \SI{142.2(6)}{\centi\metre}\text{.}
 \end{align*}
-Dabei ist $\Delta\lambda_n = \frac{c_0}{(f_{n+1}-f_n)}$.
-Es ist folgender Zusammenhang zu erkennen:
+Dabei ist $\Delta\lambda_n = \frac{c_0}{(f_{n+1}-f_n)}$ mit der Lichtgeschwindigkeit im Vakuum $c_0$.
+Theoretisch ist folgender Zusammenhang zu erwarten:
 \[
-\frac{\Delta\lambda}{2} = \frac{c_0}{2\Delta f} = L \text{,}
+\Delta\lambda = \frac{c_0}{\Delta f} = 2L \text{.}
 \]
-mit der Lichtgeschwindigkeit im Vakuum $c_0$.
+Eine Ausgleichsrechnung der Form $\Delta\lambda(L) = aL$ liefert:
+\[
+a = \num{2.0063(18)}\text{.}
+\]
+Dies entspricht einer Abweichung vom Theoriewert von $\SI{0.3}{\%}$.
+Die Abhängigkeit der Frequenzdifferenzen von der Resonatorlänge ist in Abbildung \ref{fig:longitudinal} dargestellt.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-100pt,height=\textheight-100pt,keepaspectratio]{build/longitudinal.pdf}
+	\caption{Die gemessenen Differenzen $\Delta\lambda$ in Abhängigkeit der Resonatorlänge $L$.}
+	\label{fig:longitudinal}
+\end{figure}
 
 \begin{table}
 	\centering
