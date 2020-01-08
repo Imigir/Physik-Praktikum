@@ -67,17 +67,46 @@ I_{00q} = I_0 \exp\left(-\frac{2 r^2}{\omega ^2}\right)\text{.} \label{eq:gaus}
 
 \subsection{Multimodenbetrieb}
 Da die Resonatorlänge $L$ sehr viel größer als die Wellenlänge $\lambda$ des Lasers ist, erfüllen aufgrund der Dopplerverschiebung der Wellenlänge prinzipiell viele Frequenzen die Resonanzbedingung einer stehenden Welle im Resonator.
-Denn die Wellenlänge des Lasers ist nicht monochromatisch, sondern Gaußverteilt um die Wellenlänge des induzierten Übergangs (vergleiche Abbildung \ref{fig:doppler}). 
+Denn die Wellenlänge des Lasers ist nicht monochromatisch, sondern Gaußverteilt um die Wellenlänge des induzierten Übergangs. \\
+Die Geschwindigkeitsverteilung ist durch die Maxwell-Verteilung gegeben:
+\[
+P_v(v)=\sqrt{\frac{m_.N}{2\pi k_.BT}}\exp\left(-\frac{m_.Nv^2}{2k_.BT}\right)
+\]
+mit der Masse $m_.N$ von Neon, der Temperatur $T$ und der Boltzmann konstanten $k_.B$.
+Die Doppler-Verschiebung ist gegeben durch 
+\[
+f = f_0\left(1+\frac{v}{c}\right)
+\]
+mit der Ruhefrequenz $f_0$ und der Lichtgeschwindigkeit $c$.
+Auflösen nach $v$ ergibt die Frequenzabhängige Verteilung
+\begin{align*}
+P_f(f)&=\frac{c}{f_0}P_v\left(c\left(\frac{f}{f_0}-1\right)\right)\\
+	&= \sqrt{\frac{m_.Nc^2}{2\pi k_.BT}}\exp\left(-\frac{m_.Nc^2(f-f_0)^2}{2k_.BTf_0^2}\right)
+\end{align*}
+Dies entspricht der genannten Gauß-Form.
+Die Halbwertsbreite ist somit gegeben durch:
+\[
+\Delta f = \sqrt{\frac{8k_.BT\log(2)}{m_.Nc^2}}f_0
+\]
+Einsetzen von $f_0=c/\lambda_0$ mit $\lambda_0=\SI{632.8}{\nano\metre}$ bei Raumtemperatur $T=\SI{293.15}{\kelvin}$ ergibt:
+\[
+\Delta f = \SI{1.3}{\giga\hertz}\text{.}
+\]
+Vergleichsweise ist die Frequenzbreite der Resonator-Moden durch
+\[
+\Delta f_L = \frac{c}{2L} = \SI{375}{\mega\hertz}
+\]
+gegeben, also deutlich kleiner.
 Folglich gibt es mehrere Wellenlängen die für eine gegebene Resonatorlänge $L$ die Bedingung 
 \[
 L = n\frac{\lambda}{2}
 \]
-erfüllen. 
+erfüllen (vergleiche Abbildung \ref{fig:doppler}). Man spricht von einem Multimoden-Betrieb. 
 Es gilt also für die Wellenlänge der stehenden Welle der Mode $q$
 \[
 \lambda_.q = \frac{2L}{q}\text{.}
 \]
-und für ihre Frequenz mit der Lichtgeschwindigkeit $c$
+und für ihre Frequenz
 \[
 f_.q = q\frac{c}{2L}
 \]
