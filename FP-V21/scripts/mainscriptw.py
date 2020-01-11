@@ -49,19 +49,6 @@ import scipy.constants as const
 # params = unp.uarray(params, np.sqrt(np.diag(covar)))
 # makeNewTable([convert((r'$c_\text{1}$',r'$c_\text{2}$',r'$T_{\text{A}1}$',r'$T_{\text{A}2}$',r'$\alpha$',r'$D_1$',r'$D_2$',r'$A_1$',r'$A_2$',r'$A_3$',r'$A_4$'),strFormat),convert(np.array([paramsGes2[0],paramsGes1[0],deltat2*10**6,deltat1*10**6,-paramsDaempfung[0]*2,4.48*10**-6 *paramsGes1[0]/2*10**3, 7.26*10**-6 *paramsGes1[0]/2*10**3, (VierteMessung-2*deltat2*10**6)[0]*10**-6 *1410 /2*10**3, unp.uarray((VierteMessung[1]-VierteMessung[0])*10**-6 *1410 /2*10**3, 0), unp.uarray((VierteMessung[2]-VierteMessung[1])*10**-6 *2500 /2*10**3, 0),unp.uarray((VierteMessung[3]-VierteMessung[2])*10**-6 *1410 /2*10**3, 0)]),unpFormat,[[r'\meter\per\second',"",True],[r'\meter\per\second',"",True],[r'\micro\second',"",True],[r'\micro\second',"",True],[r'\per\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',"",True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'1.3f',True],[r'\milli\meter',r'2.2f',True]]),convert(np.array([2730,2730]),floatFormat,[r'\meter\per\second','1.0f',True])+convert((r'-',r'-'),strFormat)+convert(unp.uarray([57,6.05,9.9],[2.5,0,0]),unpFormat,[[r'\per\meter',"",True],[r'\milli\meter',r'1.2f',True],[r'\milli\meter',r'1.2f',True]])+convert((r'-',r'-',r'-',r'-'),strFormat),convert(np.array([(2730-paramsGes2[0])/2730*100,(2730-paramsGes1[0])/2730*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-'),strFormat)+convert(np.array([(-paramsDaempfung[0]*2-unp.uarray(57,2.5))/unp.uarray(57,2.5)*100,(4.48*10**-6 *paramsGes1[0]/2*10**3-6.05)/6.05*100, (-7.26*10**-6 *paramsGes1[0]/2*10**3+9.90)/9.90*100]),unpFormat,[r'\percent','',True])+convert((r'-',r'-',r'-',r'-'),strFormat)],r'{Wert}&{gemessen}&{Literaturwert\cite{cAcryl},\cite{alphaAcryl}}&{Abweichung}','Ergebnisse', ['c ','c',r'c','c'])
 
-"""
-N_E = np.genfromtxt('scripts/RolfBlank/0.Spe',unpack=True)
-
-plt.cla()
-plt.clf()
-plt.plot(E,N_E,'r-',label=r'Energiespektrum')
-plt.xlabel(r'$E/\si{\kilo\electronvolt}$')
-plt.ylabel(r'N')
-plt.xlim(0,800)
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.legend(loc='best')
-plt.savefig('build/Energiespektrum.pdf')
-"""
 
 #Erdmagnetfeld
 def B_field(I,N,R):
@@ -94,6 +81,51 @@ B_2 = B_H2+B_S2
 makeTable([v/1000,I_S1*1000,I_H1*1000,B_S1*10**6,B_H1*10**6,B_1*10**6], r'{$\nu/\si{\kilo\hertz}$} & {$I_\text{S,A}/\si{\milli\ampere}$} & {$I_\text{H,A}/\si{\milli\ampere}$} & {$B_\text{S,A}/\si{\micro\tesla}$} & {$B_\text{H,A}/\si{\micro\tesla}$} & {$B_\text{Ges,A}/\si{\micro\tesla}$}','messung1A', ['S[table-format=4.0]','S[table-format=3.0]','S[table-format=3.0]','S[table-format=3.2]','S[table-format=3.2]','S[table-format=3.2]'], ["%4.0f", "%3.0f", "%3.0f", "%3.2f", "%3.2f", "%3.2f"])
 makeTable([v/1000,I_S2*1000,I_H2*1000,B_S2*10**6,B_H2*10**6,B_2*10**6], r'{$\nu/\si{\kilo\hertz}$} & {$I_\text{S,B}/\si{\milli\ampere}$} & {$I_\text{H,B}/\si{\milli\ampere}$} & {$B_\text{S,B}/\si{\micro\tesla}$} & {$B_\text{H,B}/\si{\micro\tesla}$} & {$B_\text{Ges,B}/\si{\micro\tesla}$}','messung1B', ['S[table-format=4.0]','S[table-format=3.0]','S[table-format=3.0]','S[table-format=3.2]','S[table-format=3.2]','S[table-format=3.2]'], ["%4.0f", "%3.0f", "%3.0f", "%3.2f", "%3.2f", "%3.2f"])
 
+def Linear(x,a,b):
+	return a*x+b
+
+params1, covariance_matrix1 = curve_fit(Linear,v,B_1)
+errors1 = np.sqrt(np.diag(covariance_matrix1))
+params2, covariance_matrix2 = curve_fit(Linear,v,B_2)
+errors2 = np.sqrt(np.diag(covariance_matrix2))
+
+a1 = unp.uarray(params1[0],errors1[0])
+a2 = unp.uarray(params2[0],errors2[0])
+print('a1 =', a1)
+print('b1 =', unp.uarray(params1[1],errors1[1]))
+print('a2 =', a2)
+print('b2 =', unp.uarray(params2[1],errors2[1]))
+
+x = np.linspace(0,1100)
+plt.cla()
+plt.clf()
+plt.plot(v/1000,B_1*10**6,'rx',label=r'$B_\text{Ges,A}$')
+plt.plot(x,Linear(x,params1[0]*1000*10**6,params1[1]*10**6),'b-',label=r'Ausgleichsgerade1')
+plt.plot(v/1000,B_2*10**6,'mx',label=r'$B_\text{Ges,B}$')
+plt.plot(x,Linear(x,params2[0]*1000*10**6,params2[1]*10**6),'c-',label=r'Ausgleichsgerade2')
+plt.xlabel(r'$\nu/\si{\kilo\hertz}$')
+plt.ylabel(r'$B/\si{\micro\tesla}$')
+plt.xlim(0,1100)
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.legend(loc='best')
+plt.savefig('build/messung1.pdf')
+
+print('horizontal B field:', avg_and_sem([params1[1],params2[1]]))
+
+#Lande faktoren
+def Lande(a):
+	return 4*const.pi*const.m_e/(const.e*a)
+def Kernspin(g_F):
+	return 1/2*(2.0023/g_F-1)
+	
+g_F1 = Lande(a1)
+g_F2 = Lande(a2)
+print('g_F1:', g_F1)
+print('g_F2:', g_F2)
+I1 = Kernspin(g_F1)
+I2 = Kernspin(g_F2)
+print('I1:', I1)
+print('I2:', I2)
 
 
 

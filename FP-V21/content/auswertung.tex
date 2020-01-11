@@ -3,7 +3,7 @@
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
 
-\subsection{Bestimmung des vertikalen Erdmagnetfeldes}
+\subsection{Bestimmung des vertikalen Erdmagnetfelds}
 
 Das vertikale Magnetfeld wird durch ein vertikales Helmholtzspulenpaar kompensiert. Es kann also bei einem angelegten Strom von $\SI{229}{\milli\ampere}$ und Formel \ref{eq:Helmholtz} bestimmt werden zu:
 \[
@@ -11,9 +11,9 @@ B_.{Erde,vertikal} = \SI{35.1}{\micro\tesla}
 \]
 Die die Helmholtzspule besitzt dabei den Radius $R=\SI{11,735}{\centi\metre}$ und eine Windungszahl von $N=20$ \cite{V21}.
 
-\subsection{Bestimmung des horizontalen Erdmagnetfeldes und der Landé-Faktoren}
+\subsection{Bestimmung des horizontalen Erdmagnetfelds und der Landé-Faktoren}
 
-Es wird in Abhängigkeit der Modulationsfrequenz $\nu$ das benötigte horizontale B-Feld für die Resonanzen der beiden Rb-Isotope vermessen. Das gesamte B-Feld setzt sich zusammen aus dem der Sweep- und der Horizontalfeld-Spule. Die gemessenen Werte, sowie die nach Formel \ref{eq:Helmholtz} berechneten Werte der B-Felder sind in Tabelle \ref{tab:messung1} eingetragen. Hier sind die Werte für die Sweep-Spule gegeben als $R=\SI{16.39}{\centi\metre}$ und $N=11$, sowie für die Horizontalfeld-Spule $R=\SI{15.79}{\centi\metre}$ und $N=154$.
+Es wird in Abhängigkeit der Modulationsfrequenz $\nu$ das benötigte horizontale B-Feld für die Resonanzen der beiden Rb-Isotope vermessen. Das gesamte B-Feld setzt sich zusammen aus dem der Sweep- und der Horizontalfeld-Spule. Die gemessenen Werte, sowie die nach Formel \ref{eq:Helmholtz} berechneten Werte der B-Felder sind in Tabelle \ref{tab:messung1} eingetragen. Hier sind die Werte für die Sweep-Spule gegeben als $R=\SI{16.39}{\centi\metre}$ und $N=11$, sowie für die Horizontalfeld-Spule $R=\SI{15.79}{\centi\metre}$ und $N=154$ \cite{V21}.
 Es wird das gesamte horizontale B-Feld $B_.{Ges,i}$ der beiden Rb-Isotope gegen $\nu$ aufgetragen und eine lineare Ausgleichsrechnung der Form
 \[
 B_.{Ges,i}(\nu) = a_i\nu + b_i
@@ -21,25 +21,33 @@ B_.{Ges,i}(\nu) = a_i\nu + b_i
 durchgeführt (vergleiche Abbildung \ref{fig:messung1}).
 Es ergeben sich die Parameter:
 \begin{align*}
-a_1 &= \SI{}{\tesla\per\hertz}\\
-a_2 &= \SI{}{\tesla\per\hertz}\\
-b_1 &= \SI{}{\micro\tesla}\\
-b_2 &= \SI{}{\micro\tesla}\text{.}\\
+a_1 &= \SI{1.475(17)e-10}{\tesla\per\hertz}\\
+a_2 &= \SI{2.185(12)e-10}{\tesla\per\hertz}\\
+b_1 &= \SI{14.3(11)}{\micro\tesla}\\
+b_2 &= \SI{15.3(8)}{\micro\tesla}\text{.}\\
 \end{align*}
 Der Parameter $b$ entspricht hier dem horizontalen Erdmagnetfeld. Gemittelt ergibt sich so:
 \[
-B_.{Erde,horizontal} = \SI{}{\micro\tesla}\text{.}
+B_.{Erde,horizontal} = \SI{14.8(5)}{\micro\tesla}\text{.}
 \]
+Der Fehler ist hier der Fehler auf den Mittelwert.
 Die Landé-Faktoren sind mit dem Parameter $a$ mithilfe von Gleichung \eqref{eq:} verknüpft über
 \begin{equation*}
 g_{F,i}=\frac{4\pi m_e}{e a_i} \text{.}
 \end{equation*}
 Damit ergeben sich die Werte
 \begin{align*}
-g_{F,1} &= \num{}\\
-g_{F,2} &= \num{}\text{.}
+g_{F,1} &= \num{0.484(6)}\\
+g_{F,2} &= \num{0.327(18)}\text{.}
 \end{align*}
 Der Fehler stammt aus der Gaußschen Fehlerfortpflanzung.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{build/messung1.pdf}
+	\caption{Das gesamte horizontale B-Feld $B_.{Ges,i}$ aufgetragen gegen die Modulationsfrequenz $\nu$ für die beiden Rb-Isotope A und B.}
+	\label{fig:messung1}
+\end{figure}
 
 \begin{table}
 	\centering
@@ -48,3 +56,12 @@ Der Fehler stammt aus der Gaußschen Fehlerfortpflanzung.
 	\input{content/tables/messung1B.tex}
 	\label{tab:messung1}
 \end{table}
+
+\subsection{Bestimmung des Kernspins}
+
+Der Kernspin wird mit Formel \eqref{eq:} berechnet. Dabei ist $L=0$, $S=\frac{1}{2}$, $J=\frac{1}{2}$ und $g_J=2,0023$. 
+Somit ergeben sich die Werte:
+\begin{align*}
+I_.A &= \num{1.567(24)}\\
+I_.B &= \num{2.561(17)}
+\end{align*}
