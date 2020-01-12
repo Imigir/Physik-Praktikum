@@ -127,5 +127,21 @@ I2 = Kernspin(g_F2)
 print('I1:', I1)
 print('I2:', I2)
 
+#Zeeman_quad
+def Zeeman_ges(g_F,B,DE,M_F):
+	return g_F*const.physical_constants["Bohr magneton"][0]*B+(g_F*B*const.physical_constants["Bohr magneton"][0])**2*(1-2*M_F)/DE
+
+def Zeeman_quad(g_F,B,DE,M_F):
+	return (g_F*B*const.physical_constants["Bohr magneton"][0])**2*(1-2*M_F)/DE
+
+print('DE_G1:', Zeeman_ges(g_F1,B_1[-1],4.53*10**(-24),1))
+print('DE_G2:', Zeeman_ges(g_F2,B_2[-1],2.01*10**(-24),1))
+
+print('DE_q1:', Zeeman_quad(g_F1,B_1[-1],4.53*10**(-24),1))
+print('DE_q2:', Zeeman_quad(g_F2,B_2[-1],2.01*10**(-24),1))
+
+
+
+
 
 

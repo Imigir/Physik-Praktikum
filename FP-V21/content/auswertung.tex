@@ -7,11 +7,11 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 Das vertikale Magnetfeld wird durch ein vertikales Helmholtzspulenpaar kompensiert. Es kann also bei einem angelegten Strom von $\SI{229}{\milli\ampere}$ und Formel \ref{eq:Helmholtz} bestimmt werden zu:
 \[
-B_.{Erde,vertikal} = \SI{35.1}{\micro\tesla}
+B_.{Erde,vertikal} \approx \SI{35.1}{\micro\tesla}
 \]
 Die die Helmholtzspule besitzt dabei den Radius $R=\SI{11,735}{\centi\metre}$ und eine Windungszahl von $N=20$ \cite{V21}.
 
-\subsection{Bestimmung des horizontalen Erdmagnetfelds und der Landé-Faktoren}
+\subsection{Bestimmung des horizontalen Erdmagnetfelds und des Kernspins}
 
 Es wird in Abhängigkeit der Modulationsfrequenz $\nu$ das benötigte horizontale B-Feld für die Resonanzen der beiden Rb-Isotope vermessen. Das gesamte B-Feld setzt sich zusammen aus dem der Sweep- und der Horizontalfeld-Spule. Die gemessenen Werte, sowie die nach Formel \ref{eq:Helmholtz} berechneten Werte der B-Felder sind in Tabelle \ref{tab:messung1} eingetragen. Hier sind die Werte für die Sweep-Spule gegeben als $R=\SI{16.39}{\centi\metre}$ und $N=11$, sowie für die Horizontalfeld-Spule $R=\SI{15.79}{\centi\metre}$ und $N=154$ \cite{V21}.
 Es wird das gesamte horizontale B-Feld $B_.{Ges,i}$ der beiden Rb-Isotope gegen $\nu$ aufgetragen und eine lineare Ausgleichsrechnung der Form
@@ -41,7 +41,12 @@ g_{F,1} &= \num{0.484(6)}\\
 g_{F,2} &= \num{0.327(18)}\text{.}
 \end{align*}
 Der Fehler stammt aus der Gaußschen Fehlerfortpflanzung.
-
+Der Kernspin wird mit Formel \eqref{eq:} berechnet. Dabei ist $L=0$, $S=0,5$, $J=0,5$ und $g_J=2,0023$. 
+Somit ergeben sich die Werte:
+\begin{align*}
+I_.A &= \num{1.567(24)}\\
+I_.B &= \num{2.561(17)}
+\end{align*}
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{build/messung1.pdf}
@@ -57,25 +62,44 @@ Der Fehler stammt aus der Gaußschen Fehlerfortpflanzung.
 	\label{tab:messung1}
 \end{table}
 
-\subsection{Bestimmung des Kernspins}
-
-Der Kernspin wird mit Formel \eqref{eq:} berechnet. Dabei ist $L=0$, $S=\frac{1}{2}$, $J=\frac{1}{2}$ und $g_J=2,0023$. 
-Somit ergeben sich die Werte:
-\begin{align*}
-I_.A &= \num{1.567(24)}\\
-I_.B &= \num{2.561(17)}
-\end{align*}
-
 \subsection{Bestimmung des Isotopenverhältnisses}
 
-
+Das Isotopenverhältnis wird aus dem Verhältnis der Tiefe der Resonanzen der Rb-Isotope bestimmt, da diese Proportional zur Menge der Isotope in der Probe ist. In Abbildung \ref{fig:typisch} ist ein typischer Verlauf der Transparenzkurve der Probe bei $\nu=\SI{100}{\kilo\hertz}$ dargestellt.
+Das Verhältnis der Resonanztiefen ist gegeben als:
+\[
+\frac{\SI{43}{.{px}}}{\SI{19}{.{px}}} \approx 2,263 \text{.}
+\]
+Das in der Natur vorkommende Verhältnis ergibt sich zu:
+\[
+\frac{\text{Anteil}~ \ce{^{85}Rb}}{\text{Anteil}~ \ce{^{87}Rb}}=\frac{\SI{72,17}{\%}}{\SI{27,83}{\%}} \approx 2,593 \text{.}
+\]
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/TEK0006.pdf}
+	\caption{Transparenz der Probe in Abhängigkeit des Magnetfeldes bei $\nu=\SI{100}{\kilo\hertz}$. Das B-Feld ist nach links ansteigend.}
+	\label{fig:typisch}
+\end{figure}
 
 \subsection{Abschätzung des quadratischen Zeeman-Effekts}
 
-
+Die Energieaufspaltung durch den Zeeman-Effekt kann durch Formel \eqref{eq:} dargestellt werden. 
+Der zweite Term entspricht dem quadratischen Zeeman-Effekt. Die Hyperfeinstrukturaufspaltung der Isotope $\ce{^{85}Rb}$ und $\ce{^{87}Rb}$ des Grundzustandes beträgt \cite{V21}:
+\begin{align*}
+\Delta E_{85} &= \SI{2.01e-24}{\joule},\\
+\Delta E_{87} &= \SI{4.53e-24}{\joule}\text{.}
+\end{align*}
+Es wird für die Abschätzung das Magnetfeld bei $\nu=\SI{1000}{\kilo\hertz}$ verwendet und $M_F=1$ gesetzt. Einsetzen der $g_{F,i}$ und $B_{.{Ges},i}$ in die Gleichung liefert für den gesamten Zeeman-Effekt:
+\begin{align*}
+\Delta E_{.{Ges},85} &= \SI{7.25(9)e-28}{\joule}\\
+\Delta E_{.{Ges},87} &= \SI{7.07(4)e-28}{\joule},
+\end{align*}
+wobei der quadratische Term einen Beitrag von
+\begin{align*}
+\Delta E_{.{quadratisch},85} &= \SI{-1.161(27)e-31}{\joule}\\
+\Delta E_{.{quadratisch},87} &= \SI{-2.491(28)e-31}{\joule}
+\end{align*}
+liefert. Er ist somit drei Größenordnungen kleiner und kann vernachlässigt werden.
+Die Fehler stammen aus der Gaußschen Fehlerfortpflanzung.
 
 \subsection{Anpassung der ansteigenden Flanken an eine Exponentialfunktion}
 
-
-
-\subsection{Bestimmung des Verhältnisses der Landé-Faktoren mithilfe der Rabi-Oszillationen}
