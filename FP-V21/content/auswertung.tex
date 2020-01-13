@@ -40,13 +40,13 @@ Damit ergeben sich die Werte
 g_{F,1} &= \num{0.484(6)}\\
 g_{F,2} &= \num{0.327(18)}\text{.}
 \end{align*}
-Der Fehler stammt aus der Gaußschen Fehlerfortpflanzung.
 Der Kernspin wird mit Formel \eqref{eq:} berechnet. Dabei ist $L=0$, $S=0,5$, $J=0,5$ und $g_J=2,0023$. 
 Somit ergeben sich die Werte:
 \begin{align*}
 I_.A &= \num{1.567(24)}\\
 I_.B &= \num{2.561(17)}
 \end{align*}
+Die Fehler stammen aus der Gaußschen Fehlerfortpflanzung.
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{build/messung1.pdf}
@@ -101,5 +101,68 @@ wobei der quadratische Term einen Beitrag von
 liefert. Er ist somit drei Größenordnungen kleiner und kann vernachlässigt werden.
 Die Fehler stammen aus der Gaußschen Fehlerfortpflanzung.
 
-\subsection{Anpassung der ansteigenden Flanken an eine Exponentialfunktion}
+\subsection{Untersuchung der ansteigenden Flanken der Resonanzen}
 
+Es wird die ansteigende Flanke der Resonanzen in Abhängigkeit der Zeit $t$ untersucht. Dazu wird eine Ausgleichsrechnung der Form
+\[
+f(t)=1-\exp(-a(t-b))
+\]
+durchgeführt. Es werden die vom Oszilloskop gespeicherten Daten verwendet. Diese werden auf den Sättigungsbereich normiert.
+Es ergeben sich für die Resonanzen der Isotope die Parameter:
+\begin{align*}
+a_1 &= \SI{0.1201(4)}{\per\milli\second}\\
+b_1 &= \SI{-0.535(18)}{\milli\second}\\
+a_2 &= \SI{0.1531(10)}{\per\milli\second}\\
+b_2 &= \SI{-0.35(4)}{\milli\second}\\
+\end{align*}
+Die Messwerte und die Ausgleichskurven sind in den Abbildungen \ref{fig:messung2a} und \ref{fig:messung2b} dargestellt. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{build/image0.pdf}
+	\caption{Transparenz der Probe in Abhängigkeit der Zeit $t$ für die erste Resonanz.}
+	\label{fig:messung2a}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{build/image2.pdf}
+	\caption{Transparenz der Probe in Abhängigkeit der Zeit $t$ für die zweite Resonanz.}
+	\label{fig:messung2b}
+\end{figure}
+
+\subsection{Bestimmung des Verhältnisses der Landé-Faktoren mithilfe der Rabi-Oszillationen}
+
+Es wird die Periodendauer $T$ der Rabi-Oszillationen in Abhängigkeit von der RF-Amplitude $U$ für beide Resonanzen untersucht. Die Messwerte sind in Tabelle \ref{tab:oszi} eingetragen und in Abbildung \ref{fig:oszi} grafisch dargestellt.
+Es werden Ausgleichsrechnungen der Form:
+\[
+T(U)_i = a_i+b_i/(U-c_i)
+\] 
+durchgeführt. Es ergeben sich die Parameter:
+\begin{align*}
+a_1 &= \SI{-0.13(4)}{\milli\second}\\
+b_1 &= \SI{9.1(4)}{\milli\second\volt}\\
+c_1 &= \SI{-0.51(9)}{\volt}\\
+a_2 &= \SI{-0.14(8)}{\milli\second}\\
+b_2 &= \SI{7.0(8)}{\milli\second\volt}\\
+c_2 &= \SI{-0.66(25)}{\volt}\text{.}
+\end{align*}
+Das Verhältnis von den $b_i$ entspricht dem Verhältnis der Landé-Faktoren $g_{.F,i}$ und beträgt:
+\[
+\frac{b_1}{b_2}=\num{1.30(16)}\text{.}
+\]
+Der Fehler stammt aus der Gaußschen Fehlerfortpflanzung.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{build/oszillationen.pdf}
+	\caption{Periodendauer $T$ der Rabi-Oszillationen in Abhängigkeit von der RF-Amplitude $U$ für die beiden Rb-Isotope.}
+	\label{fig:oszi}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Messwerte der RF-Amplitude $U$, sowie den Periodendauer $T$ der Rabi-Oszillationen für die beiden Rb-Isotope.}
+	\input{content/tables/oszillationen.tex}
+	\label{tab:oszi}
+\end{table}

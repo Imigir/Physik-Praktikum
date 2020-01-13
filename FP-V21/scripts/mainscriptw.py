@@ -112,6 +112,7 @@ plt.savefig('build/messung1.pdf')
 
 print('horizontal B field:', avg_and_sem([params1[1],params2[1]]))
 
+
 #Lande faktoren
 def Lande(a):
 	return 4*const.pi*const.m_e/(const.e*a)
@@ -139,6 +140,125 @@ print('DE_G2:', Zeeman_ges(g_F2,B_2[-1],2.01*10**(-24),1))
 
 print('DE_q1:', Zeeman_quad(g_F1,B_1[-1],4.53*10**(-24),1))
 print('DE_q2:', Zeeman_quad(g_F2,B_2[-1],2.01*10**(-24),1))
+
+
+#exponential fit
+def exp_fkt(x,a,b):
+	return (1-np.exp(-a*(x-b)))
+	
+t,t,t,x0,y0,t = np.genfromtxt('scripts/TEK0000.CSV',unpack=True,delimiter=",") 
+y0 = np.array(y0[x0>=0])
+for i in range(len(y0)-1):
+	y0[i+1] = y0[i+1]-y0[0]
+y0[0] = 0
+y0 = y0/y0[-1]
+x0 = np.array(x0[x0>=0]*1000)
+t,t,t,x1,y1,t = np.genfromtxt('scripts/TEK0002.CSV',unpack=True,delimiter=",") 
+y1 = np.array(y1[x1>=0])
+for i in range(len(y1)-1):
+	y1[i+1] = y1[i+1]-y1[0]
+y1[0] = 0
+y1 = y1/y1[-1]
+x1 = np.array(x1[x1>=0]*1000)
+t,t,t,x2,y2,t = np.genfromtxt('scripts/TEK0003.CSV',unpack=True,delimiter=",") 
+y2 = y2[x2>=0]
+x2 = x2[x2>=0]
+y2 = y2[x2<=0.1]
+x2 = x2[x2<=0.1]*1000
+for i in range(len(y2)-1):
+	y2[i+1] = y2[i+1]-y2[0]
+y2[0] = 0
+y2 = y2/y2[-1]
+
+params0, covariance_matrix0 = curve_fit(exp_fkt,x0,y0,p0=(0.1,0))
+errors0 = np.sqrt(np.diag(covariance_matrix0))
+print('a0 =', unp.uarray(params0[0],errors0[0]))
+print('b0 =', unp.uarray(params0[1],errors0[1]))
+params1, covariance_matrix1 = curve_fit(exp_fkt,x1,y1,p0=(0.1,0))
+errors1 = np.sqrt(np.diag(covariance_matrix1))
+print('a1 =', unp.uarray(params1[0],errors1[0]))
+print('b1 =', unp.uarray(params1[1],errors1[1]))
+params2, covariance_matrix2 = curve_fit(exp_fkt,x2,y2,p0=(0.1,0))
+errors2 = np.sqrt(np.diag(covariance_matrix2))
+print('a2 =', unp.uarray(params2[0],errors2[0]))
+print('b2 =', unp.uarray(params2[1],errors2[1]))
+
+x = np.linspace(-1,105,1000)
+plt.cla()
+plt.clf()
+plt.plot(x0,y0,'r-',label=r'Messwerte')
+plt.plot(x,(exp_fkt(x,*params0)),'b-',label=r'Ausgleichskurve')
+plt.xlabel(r'$t/\si{\milli\second}$')
+plt.ylabel(r'Transparenz')
+plt.xlim(-1,80)
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.legend(loc='best')
+plt.savefig('build/image0.pdf')
+
+plt.cla()
+plt.clf()
+plt.plot(x1,y1,'r-',label=r'Messwerte')
+plt.plot(x,(exp_fkt(x,*params1)),'b-',label=r'Ausgleichskurve')
+plt.xlabel(r'$t/\si{\milli\second}$')
+plt.ylabel(r'Transparenz')
+plt.xlim(-1,60)
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.legend(loc='best')
+plt.savefig('build/image1.pdf')
+
+plt.cla()
+plt.clf()
+plt.plot(x2,y2,'r-',label=r'Messwerte')
+plt.plot(x,(exp_fkt(x,*params2)),'b-',label=r'Ausgleichskurve')
+plt.xlabel(r'$t/\si{\milli\second}$')
+plt.ylabel(r'Transparenz')
+plt.xlim(-1,100)
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.legend(loc='best')
+plt.savefig('build/image2.pdf')
+
+
+#Oszillationen
+print('Oszillationen')
+def hyper(x,a,b,c):
+	return a+b/(x-c)
+	
+v, T1, T2 = np.genfromtxt('scripts/oszillationen.txt',unpack=True) # V,micro s
+T1 = T1*10**(-3) #ms
+T2 = T2*10**(-3) #ms
+
+params1, covariance_matrix1 = curve_fit(hyper,v,T1)
+errors1 = np.sqrt(np.diag(covariance_matrix1))
+print('a1 =', unp.uarray(params1[0],errors1[0]))
+b1 = unp.uarray(params1[1],errors1[1])
+print('b1 =', b1)
+print('c1 =', unp.uarray(params1[2],errors1[2]))
+params2, covariance_matrix2 = curve_fit(hyper,v,T2)
+errors2 = np.sqrt(np.diag(covariance_matrix2))
+print('a2 =', unp.uarray(params2[0],errors2[0]))
+b2 = unp.uarray(params2[1],errors2[1])
+print('b2 =', b2)
+print('c2 =', unp.uarray(params2[2],errors2[2]))
+
+x = np.linspace(1,11,1000)
+plt.cla()
+plt.clf()
+plt.plot(v,T1,'rx',label=r'Messwerte Resonanz1')
+plt.plot(x,(hyper(x,*params1)),'b-',label=r'Ausgleichskurve')
+plt.plot(v,T2,'mx',label=r'Messwerte Resonanz2')
+plt.plot(x,(hyper(x,*params2)),'c-',label=r'Ausgleichskurve2')
+plt.xlabel(r'$U/\si{\volt}$')
+plt.ylabel(r'$T\si{milli\second}$')
+plt.xlim(1,11)
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.legend(loc='best')
+plt.savefig('build/oszillationen.pdf')
+
+print('Verhältnis:', b1/b2)
+makeTable([v,T1,T2], r'{$U/\si{\volt}$} & {$T_1/\si{\milli\second}$} & {$T_2/\si{\milli\second}$} ','oszillationen', ['S[table-format=1.0]','S[table-format=1.2]','S[table-format=1.2]'], ["%1.0f", "%1.2f", "%1.2f"])
+
+
+
 
 
 
