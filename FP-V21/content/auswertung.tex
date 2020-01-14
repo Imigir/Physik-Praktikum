@@ -7,11 +7,11 @@ Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{
 
 Das vertikale Magnetfeld wird durch ein vertikales Helmholtzspulenpaar kompensiert. Es kann also bei einem angelegten Strom von $\SI{229}{\milli\ampere}$ und Formel \ref{eq:Helmholtz} bestimmt werden zu:
 \[
-B_.{Erde,vertikal} \approx \SI{35.1}{\micro\tesla}
+B_.{Erde,v} \approx \SI{35.1}{\micro\tesla}
 \]
 Die die Helmholtzspule besitzt dabei den Radius $R=\SI{11,735}{\centi\metre}$ und eine Windungszahl von $N=20$ \cite{V21}.
 
-\subsection{Bestimmung des horizontalen Erdmagnetfelds und des Kernspins}
+\subsection{Bestimmung des horizontalen Erdmagnetfelds und der Kernspins}
 
 Es wird in Abhängigkeit der Modulationsfrequenz $\nu$ das benötigte horizontale B-Feld für die Resonanzen der beiden Rb-Isotope vermessen. Das gesamte B-Feld setzt sich zusammen aus dem der Sweep- und der Horizontalfeld-Spule. Die gemessenen Werte, sowie die nach Formel \ref{eq:Helmholtz} berechneten Werte der B-Felder sind in Tabelle \ref{tab:messung1} eingetragen. Hier sind die Werte für die Sweep-Spule gegeben als $R=\SI{16.39}{\centi\metre}$ und $N=11$, sowie für die Horizontalfeld-Spule $R=\SI{15.79}{\centi\metre}$ und $N=154$ \cite{V21}.
 Es wird das gesamte horizontale B-Feld $B_.{Ges,i}$ der beiden Rb-Isotope gegen $\nu$ aufgetragen und eine lineare Ausgleichsrechnung der Form
@@ -28,7 +28,7 @@ b_2 &= \SI{15.3(8)}{\micro\tesla}\text{.}\\
 \end{align*}
 Der Parameter $b$ entspricht hier dem horizontalen Erdmagnetfeld. Gemittelt ergibt sich so:
 \[
-B_.{Erde,horizontal} = \SI{14.8(5)}{\micro\tesla}\text{.}
+B_.{Erde,h} = \SI{14.8(5)}{\micro\tesla}\text{.}
 \]
 Der Fehler ist hier der Fehler auf den Mittelwert.
 Die Landé-Faktoren sind mit dem Parameter $a$ mithilfe von Gleichung \eqref{eq:} verknüpft über
@@ -64,14 +64,14 @@ Die Fehler stammen aus der Gaußschen Fehlerfortpflanzung.
 
 \subsection{Bestimmung des Isotopenverhältnisses}
 
-Das Isotopenverhältnis wird aus dem Verhältnis der Tiefe der Resonanzen der Rb-Isotope bestimmt, da diese Proportional zur Menge der Isotope in der Probe ist. In Abbildung \ref{fig:typisch} ist ein typischer Verlauf der Transparenzkurve der Probe bei $\nu=\SI{100}{\kilo\hertz}$ dargestellt.
+Das Isotopenverhältnis $\xi$ wird aus dem Verhältnis der Tiefe der Resonanzen der Rb-Isotope bestimmt, da diese Proportional zur Menge der Isotope in der Probe ist. In Abbildung \ref{fig:typisch} ist ein typischer Verlauf der Transparenzkurve der Probe bei $\nu=\SI{100}{\kilo\hertz}$ dargestellt.
 Das Verhältnis der Resonanztiefen ist gegeben als:
 \[
-\frac{\SI{43}{.{px}}}{\SI{19}{.{px}}} \approx 2,263 \text{.}
+\xi_.{exp} = \frac{\SI{43}{.{px}}}{\SI{19}{.{px}}} \approx 2,263 \text{.}
 \]
 Das in der Natur vorkommende Verhältnis ergibt sich zu:
 \[
-\frac{\text{Anteil}~ \ce{^{85}Rb}}{\text{Anteil}~ \ce{^{87}Rb}}=\frac{\SI{72,17}{\%}}{\SI{27,83}{\%}} \approx 2,593 \text{.}
+\xi_.{theo} = \frac{\text{Anteil}~ \ce{^{85}Rb}}{\text{Anteil}~ \ce{^{87}Rb}}=\frac{\SI{72,17}{\%}}{\SI{27,83}{\%}} \approx 2,593 \text{.}
 \]
 \begin{figure}
 	\centering
@@ -98,8 +98,7 @@ wobei der quadratische Term einen Beitrag von
 \Delta E_{.{quadratisch},85} &= \SI{-1.161(27)e-31}{\joule}\\
 \Delta E_{.{quadratisch},87} &= \SI{-2.491(28)e-31}{\joule}
 \end{align*}
-liefert. Er ist somit drei Größenordnungen kleiner und kann vernachlässigt werden.
-Die Fehler stammen aus der Gaußschen Fehlerfortpflanzung.
+liefert. Die Fehler stammen aus der Gaußschen Fehlerfortpflanzung.
 
 \subsection{Untersuchung der ansteigenden Flanken der Resonanzen}
 
@@ -131,7 +130,7 @@ Die Messwerte und die Ausgleichskurven sind in den Abbildungen \ref{fig:messung2
 	\label{fig:messung2b}
 \end{figure}
 
-\subsection{Bestimmung des Verhältnisses der Landé-Faktoren mithilfe der Rabi-Oszillationen}
+\subsection{Bestimmung des Verhältnisses der Landé-Faktoren}
 
 Es wird die Periodendauer $T$ der Rabi-Oszillationen in Abhängigkeit von der RF-Amplitude $U$ für beide Resonanzen untersucht. Die Messwerte sind in Tabelle \ref{tab:oszi} eingetragen und in Abbildung \ref{fig:oszi} grafisch dargestellt.
 Es werden Ausgleichsrechnungen der Form:
@@ -147,9 +146,9 @@ a_2 &= \SI{-0.14(8)}{\milli\second}\\
 b_2 &= \SI{7.0(8)}{\milli\second\volt}\\
 c_2 &= \SI{-0.66(25)}{\volt}\text{.}
 \end{align*}
-Das Verhältnis von den $b_i$ entspricht dem Verhältnis der Landé-Faktoren $g_{.F,i}$ und beträgt:
+Das Verhältnis $\eta$ von den $b_i$ entspricht dem Verhältnis der Landé-Faktoren $g_{.F,i}$ und ergibt sich zu:
 \[
-\frac{b_1}{b_2}=\num{1.30(16)}\text{.}
+\eta = \frac{b_1}{b_2}=\num{1.30(16)}\text{.}
 \]
 Der Fehler stammt aus der Gaußschen Fehlerfortpflanzung.
 
