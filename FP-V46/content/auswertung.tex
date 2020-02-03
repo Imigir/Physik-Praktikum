@@ -2,3 +2,71 @@
 \label{sec:Auswertung}
 
 Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt. Die Konstanten stammen aus SciPy \cite{scipy}
+
+\subsection{Vermessung des B-Feldes}
+
+\[
+B_.{max}=\SI{213}{\milli\tesla}
+\]
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight,keepaspectratio]{build/magnetfeld.pdf}
+	\caption{Das Magnetfeld in Abhängigkeit der $z$-Position.}
+	\label{fig:B}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte für die B-Feld Vermessung.}
+	\input{content/tables/magnetfeld.tex}
+	\input{content/tables/magnetfeld2.tex}
+	\label{tab:B}
+\end{table}
+
+\subsection{Untersuchung der Undotierten Probe}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight,keepaspectratio]{build/reinprobe.pdf}
+	\caption{Die Winkeldifferenz $\Delta\theta$ in Abhängig der quadratischen Wellenlänge für die undotierte Probe.}
+	\label{fig:undot}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte für die Messreihe mit der undotierten Probe.}
+	\input{content/tables/undotiert.tex}
+	\label{tab:undot}
+\end{table}
+
+\subsection{Untersuchung der Undotierten Probe}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight,keepaspectratio]{build/dotiert1.pdf}
+	\caption{Die normierte Winkeldifferenz $\Delta\theta$ in Abhängig der quadratischen Wellenlänge für die dotierte Probe mit $N=\SI{1.2e18}{\per\cubic\centi\metre}$.}
+	\label{fig:undot}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight,keepaspectratio]{build/dotiert2.pdf}
+	\caption{Die normierte Winkeldifferenz $\Delta\theta$ in Abhängig der quadratischen Wellenlänge für die dotierte Probe mit $N=\SI{2.8e18}{\per\cubic\centi\metre}$..}
+	\label{fig:undot}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Messwerte für die Messreihen mit den dotierten Proben ($N=~\SI{1.2e18}{\per\cubic\centi\metre}$ links, $N=\SI{2.8e18}{\per\cubic\centi\metre}$ rechts).}
+	\input{content/tables/dotiert1.tex}
+	\input{content/tables/dotiert2.tex}
+	\label{tab:undot}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight,keepaspectratio]{build/dotiert_dif.pdf}
+	\caption{Die normierte Winkeldifferenz $\Delta\theta$ in Abhängig der quadratischen Wellenlänge für die mit $N=\SI{1.2e18}{\per\cubic\centi\metre}$ (1) und $N=\SI{2.8e18}{\per\cubic\centi\metre}$ (2) dotierten Proben abzüglich den Werten der undotierten Probe.}
+	\label{fig:undot}
+\end{figure}

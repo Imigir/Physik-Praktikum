@@ -67,6 +67,8 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 #plt.legend(loc='best')
 plt.savefig('build/magnetfeld.pdf')
 
+makeTable([z[:10], B[:10]], r'{$z/\si{\milli\metre}$} & {$B/\si{\milli\tesla}$}', 'magnetfeld', ['S[table-format=2.0]', 'S[table-format=3.0]'], ["%2.0f", "%3.0f"])
+makeTable([z[9:], B[9:]], r'{$z/\si{\milli\metre}$} & {$B/\si{\milli\tesla}$}', 'magnetfeld2', ['S[table-format=2.0]', 'S[table-format=3.0]'], ["%2.0f", "%3.0f"])
 
 #reinprobe
 print('reinprobe')
@@ -96,6 +98,7 @@ plt.savefig('build/reinprobe.pdf')
 print('a=',unp.uarray(params[0],errors[0]))
 #print('b=',unp.uarray(params[1],errors[1]))
 #print('c=',unp.uarray(params[2],errors[2]))
+makeTable([l, t1, t2, tr], r'{$\lambda/\si{\micro\metre}$} & {$\theta_1/\si{\degree}$} & {$\theta_2/\si{\degree}$} & {$\Delta\theta_.{norm}/\si{.{rad}\per\metre}$}', 'undotiert', ['S[table-format=1.2]', 'S[table-format=3.0]', 'S[table-format=3.0]', 'S[table-format=2.0]'], ["%1.2f", "%3.0f", "%3.0f", "%2.0f"])
 
 
 #dotiert
@@ -115,6 +118,8 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 #plt.legend(loc='best')
 plt.savefig('build/dotiert1.pdf')
 
+makeTable([l, t1, t2, td1], r'{$\lambda/\si{\micro\metre}$} & {$\theta_1/\si{\degree}$} & {$\theta_2/\si{\degree}$} & {$\Delta\theta_.{norm}/\si{.{rad}\per\metre}$}', 'dotiert1', ['S[table-format=1.2]', 'S[table-format=3.0]', 'S[table-format=3.0]', 'S[table-format=2.0]'], ["%1.2f", "%3.0f", "%3.0f", "%2.0f"])
+
 l,t1,t2 = np.genfromtxt('scripts/dotiert2.txt',unpack=True) # micrometer, degree
 td2 = (t1-t2)/2
 td2 = 2*np.pi*td2/360 # rad
@@ -129,6 +134,9 @@ plt.ylabel(r'$\Delta\theta/\si{\text{rad}\per\metre}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 #plt.legend(loc='best')
 plt.savefig('build/dotiert2.pdf')
+
+makeTable([l, t1, t2, td2], r'{$\lambda/\si{\micro\metre}$} & {$\theta_1/\si{\degree}$} & {$\theta_2/\si{\degree}$} & {$\Delta\theta_.{norm}/\si{.{rad}\per\metre}$}', 'dotiert2', ['S[table-format=1.2]', 'S[table-format=3.0]', 'S[table-format=3.0]', 'S[table-format=2.0]'], ["%1.2f", "%3.0f", "%3.0f", "%2.0f"])
+
 
 #dif
 def squared(l,a):
