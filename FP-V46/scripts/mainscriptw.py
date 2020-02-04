@@ -139,14 +139,14 @@ makeTable([l, t1, t2, td2], r'{$\lambda/\si{\micro\metre}$} & {$\theta_1/\si{\de
 
 
 #dif
-def squared(l,a):
-	return a*l**2
+def squared(l,a,b):
+	return a*l**2+b
 
 td1_2=td1-tr
-params1, covariance_matrix = curve_fit(squared,l[1:],td1_2[1:])
+params1, covariance_matrix = curve_fit(squared,l,td1_2)
 errors1 = np.sqrt(np.diag(covariance_matrix))
 td2_2=td2-tr
-params2, covariance_matrix = curve_fit(squared,l[1:],td2_2[1:])
+params2, covariance_matrix = curve_fit(squared,l,td2_2)
 errors2 = np.sqrt(np.diag(covariance_matrix))
 
 x = np.linspace(0.9,2.7,1000)
@@ -154,11 +154,11 @@ plt.cla()
 plt.clf()
 plt.figure(figsize=(6,4))
 plt.plot(l**2,td1_2,'rx',label=r'Messwerte 1')
-plt.plot(l[0]**2,td1_2[0],'gx')
+#plt.plot(l[0]**2,td1_2[0],'gx')
 plt.plot(x**2,squared(x,*params1),'b-',label=r'Ausgleichsgerade 1')
 plt.plot(l**2,td2_2,'mx',label=r'Messwerte 2')
 plt.plot(x**2,squared(x,*params2),'c-',label=r'Ausgleichsgerade 2')
-plt.plot(l[0]**2,td2_2[0],'gx',label=r'Ignorierte Messwerte')
+#plt.plot(l[0]**2,td2_2[0],'gx',label=r'Ignorierte Messwerte')
 plt.xlabel(r'$\lambda^2/\si{\micro\metre\squared}$')
 plt.ylabel(r'$\Delta\theta_\text{dif}/\si{\text{rad}\per\metre}$')
 plt.xlim(0.9,7.2)
@@ -170,6 +170,8 @@ a1=unp.uarray(params1[0],errors1[0])
 a2=unp.uarray(params2[0],errors2[0])
 print('a1 =', a1)
 print('a2 =', a2)
+print('b1 =', unp.uarray(params1[1],errors1[1]))
+print('b2 =', unp.uarray(params2[1],errors2[1]))
 
 makeTable([l,td1, td2, tr, td1_2, td2_2], r'{$\lambda/\si{\micro\metre}$} & {$\Delta\theta_.{dot1}/\si{.{rad}\per\metre}$} & {$\Delta\theta_.{dot2}/\si{.{rad}\per\metre}$} & {$\Delta\theta_.{rein}/\si{.{rad}\per\metre}$} & {$\Delta\theta_.{dif1}/\si{.{rad}\per\metre}$} & {$\Delta\theta_.{dif2}/\si{.{rad}\per\metre}$}', 'dotiertdif', ['S[table-format=1.2]', 'S[table-format=2.0]', 'S[table-format=2.0]', 'S[table-format=2.0]', 'S[table-format=2.0]', 'S[table-format=2.0]'], ["%1.2f", "%2.0f", "%2.0f", "%2.0f", "%2.0f", "%2.0f"])
 
