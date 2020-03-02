@@ -24,7 +24,7 @@ In Halbleitern befindet sich zwischen den Bändern eine Energielücke der Ordnun
 Im Fall von Isolatoren hingegen ist die Bandlücke so groß, dass sie kaum überwunden werden kann, sodass auch keine Leitungselektronen entstehen.
 
 \subsection{Dotierung von Halbleitern}
-Durch Einbringen von Fremdatomen in einen Halbleiterkristall kann dessen Leitfähigkeit beeinflusst. Wird ein Donator, also ein Atom mit mehr Valenzelektronen als dem Halbleiter eingeführt entsteht eine ortsfeste positive Ladung, während das überschüssige Elektronen das Leitungsband erreicht und zu einer frei im Kristall beweglichen negativen Ladung wird. Dieser Prozess wird als n-Dotierung bezeichnet. Beim Gegenteil, der p-Dotierung, wird ein niedrigerwertiges Fremdatom eingebracht, sodass eine ortsfeste negative Ladung und ein frei bewegliches positives Defektelektron entstehen. Durch die Dotierung verändert sich das Gitterpotential an den betroffenen Stellen, sodass dessen Isotropie verloren geht.
+Durch Einbringen von Fremdatomen in einen Halbleiterkristall kann dessen Leitfähigkeit beeinflusst werden. Wird ein Donator, also ein Atom mit mehr Valenzelektronen als dem Halbleiter eingeführt entsteht eine ortsfeste positive Ladung, während das überschüssige Elektronen das Leitungsband erreicht und zu einer frei im Kristall beweglichen negativen Ladung wird. Dieser Prozess wird als n-Dotierung bezeichnet. Beim Gegenteil, der p-Dotierung, wird ein niedrigerwertiges Fremdatom eingebracht, sodass eine ortsfeste negative Ladung und ein frei bewegliches positives Defektelektron entstehen. Durch die Dotierung verändert sich das Gitterpotential an den betroffenen Stellen, sodass dessen Isotropie verloren geht.
 
 \subsection{Die effektive Masse $m^*$}
 Aufgrund der Komplexität der Bandstruktur in Festkörpern können für einfache Berechnungen Näherungen betrachtet werden.
@@ -32,6 +32,7 @@ Im Halbleiter lässt sich die Bandkante des Leitungsbandes näherungsweise über
 \begin{equation*}
 \epsilon(k) = \epsilon(0) + \sum\sum\frac{1}{2}\frac{\partial^2\epsilon}{\partial k_.i\partial k_.j}k^2 + \mathcal{O}(k^3)
 \end{equation*}
+darstellen.
 Der Vergleich mit
 \[
 \epsilon(k) = \frac{\hbar^2k^2}{2m}
@@ -45,7 +46,8 @@ Damit lässt sich der bereits beschriebene Drehwinkel $\theta$ berechnen als
 \begin{equation}
 \theta_.{frei} = \frac{e^3_.0}{8\pi^2\epsilon_.0c^3}\frac{1}{(m^*)^2}\frac{NBL}{n}\lambda^2\text{.}\label{eq:theta2}
 \end{equation}
-Dabei ist $e_.0$ die Elementarladung, $N$ die Anzahl der freien Ladungsträger pro Volumen, $B$ die magnetische Flussdichte und $\lambda$ die Wellenlänge des Lichts.
+Dabei ist $e_.0$ die Elementarladung, $N$ die Anzahl der Ladungsträger pro Volumen, $B$ die magnetische Flussdichte und $\lambda$ die Wellenlänge des Lichts.
+Diese Gleichung gilt nur für große Frequenzen und wenn die Ladungsträger als frei angenommen werden können, da sonst eine vom Gitter abhängige Resonanz bei $\omega=\omega_.0$ auftritt.
 Es zeigt sich also die Abhängigkeit $\theta\propto \lambda^2$ wenn viele freie Ladungsträger vorhanden sind, also für hochdotierte Halbleiter. Ist der Halbleiter undotiert und hat somit ausschließlich gebundene Elektronen zeigt sich hingegen eine Proportionalität von
 \begin{equation}
 \theta\propto\frac{1}{\lambda^2}\text{.}\label{eq:theta3}
