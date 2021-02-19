@@ -1,0 +1,161 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\subsection{Überprüfung der Stabilitätsbedingung}
+
+Es wird die Stabilitätsbedingung für zwei Resonatoren überprüft, indem der maximal mögliche Abstand der Resonatorspiegel ermittelt wird unter dem der Laser stabil ist. Der Wert wird mit der Theorie verglichen. Der erste Resonator besitzt einen planaren und einen konkaven Spiegel mit Krümmungsradius $r_1=\SI{140}{\centi\metre}$.    
+Der zweite Resonator nutzt anstelle des planaren Spiegels einen weiteren konkaven Spiegel mit einem Krümmungsradius von $r_2=\SI{140}{\centi\metre}$. 
+Mit Formel \eqref{eq:stabil} ergeben sich die theoretischen Kurven aus Abbildung \ref{fig:stabilität}. 
+Die Stabilitätsbedingung ist für alle Werte zwischen $0$ und $1$ erfüllt. Daraus folgt für den ersten Resonator ein maximaler Abstand der Resonatorspiegel von $L=\SI{140}{\centi\metre}$. Dies entspricht dem maximal möglichen Abstand, der experimentell erreicht werden konnte.
+Bei dem zweiten Resonator ist theoretisch ein maximaler Resonatorabstand von $L=\SI{280}{\centi\metre}$ möglich. Im Experiment wurde die Stabilitätsbedingung die gesamte Breite des Aufbaus von $L=\SI{192}{\centi\metre}$ bestätigt. Für die weiteren Versuche wird die zweite Resonatorkonfiguration verwendet.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-100pt,height=\textheight-100pt,keepaspectratio]{build/stabilitat.pdf}
+	\caption{Stabilitätskurven der beiden Resonatorkonfiguration in Abhängigkeit von der Resonatorlänge $L$.}
+	\label{fig:stabilität}
+\end{figure}
+
+\subsection{Vermessung der transversalen Moden}
+\subsubsection{Vermessung der $\mathrm{TEM}_{00}$-Mode}
+
+Es wird die $.{TEM}_{00}$-Mode vermessen.
+In Tabelle \ref{tab:T00} sind die Messwerte eingetragen und in Abbildung \ref{fig:T00} graphisch dargestellt.
+Es wird eine Ausgleichsrechnung der Form
+\[
+I(x) = a\exp\left(-2\frac{(x-c)^2}{b^2}\right)
+\] 
+basierend auf Formel \eqref{eq:gaus} durchgeführt.
+Es ergeben sich die Parameter:
+\begin{align*}
+a &= \SI{7.09(24)}{\micro\ampere}\\
+b &= \SI{5.20(21)}{\milli\metre}\\
+c &= \SI{6.38(6)}{\milli\metre}\text{.}
+\end{align*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-100pt,height=\textheight-100pt,keepaspectratio]{build/T00.pdf}
+	\caption{Die gemessene Stromstärke $I$ der $\text{TEM}_{00}$ Mode entlang der Horizontalen $x$ der Mode gegen den eingestellten Abstand an der Mikrometerschiene $\Delta x$ aufgetragen.}
+	\label{fig:T00}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die gemessene Stromstärke $I$ entlang der Horizontalen der $\text{TEM}_{\text{00}}$ Mode mit dem eingestellten Abstand an der Mikrometerschiene $\Delta x$.}
+	\input{content/tables/tabT00.tex}
+	\label{tab:T00}
+\end{table}
+
+
+\subsubsection{Vermessung der $.{TEM}_{01}$-Mode}
+
+Es wird die $.{TEM}_{01}$-Mode vermessen.
+In Tabelle \ref{tab:T01} sind die Messwerte eingetragen und in Abbildung \ref{fig:T01} graphisch dargestellt.
+Es wird eine Ausgleichsrechnung der Form
+\[
+I(x) = (x-c)^2a\exp\left(-2\frac{(x-c)^2}{b^2}\right)
+\] 
+basierend auf Formel \eqref{eq:intens2} durchgeführt.
+Es ergeben sich die Parameter:
+\begin{align*}
+a &= \SI{35(5)}{\nano\ampere}\\
+b &= \SI{6.0(3)}{\milli\metre}\\
+c &= \SI{6.43(20)}{\milli\metre}\text{.}
+\end{align*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-100pt,height=\textheight-100pt,keepaspectratio]{build/T01.pdf}
+	\caption{Die gemessene Stromstärke $I$ der $\text{TEM}_{01}$ Mode entlang der Horizontalen $x$ der Mode gegen den eingestellten Abstand an der Mikrometerschiene $\Delta x$ aufgetragen.}
+	\label{fig:T01}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die gemessene Stromstärke $I$ entlang der Horizontalen der $\text{TEM}_{\text{01}}$ Mode mit dem eingestellten Abstand an der Mikrometerschiene $\Delta x$}
+	\input{content/tables/tabT011.tex}
+	\input{content/tables/tabT012.tex}
+	\label{tab:T01}
+\end{table}
+
+\subsection{Bestimmung der Polarisation}
+
+Es wird die Polarisation des Lasers untersucht. Dafür wird die Intensität des Lasers bei verschiedenen Polarisationswinkeln gemessen. Die Werte sind in Tabelle \ref{tab:polarisation} eingetragen und in Abbildung \ref{fig:polarisation} graphisch dargestellt. 
+Es wird eine Ausgleichsrechnung der Form
+\[
+I(\varphi) = a\cos^2\left(b\varphi+c\right)
+\] 
+basierend auf Formel \eqref{eq:polar} durchgeführt.
+Es ergeben sich die Parameter:
+\begin{align*}
+a &= \SI{11.3(5)}{\micro\ampere}\\
+b &= \SI{0.902(21)}{\per\milli\metre}\\
+c &= \num{1.39(8)}\text{.}
+\end{align*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-100pt,height=\textheight-100pt,keepaspectratio]{build/Polarisation.pdf}
+	\caption{Die gemessene Stromstärke $I$ in Abhängigkeit des Polarisationswinkels $\varphi$.}
+	\label{fig:polarisation}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Der Polarisationswinkel $\varphi$ und die zugehörige gemessene Stromstärke $I$.}
+	\input{content/tables/tabpolarisation.tex}
+	\label{tab:polarisation}
+\end{table}
+
+\subsection{Vermessung der longitudinalen Moden}
+
+Es werden die Frequenzen $f$ der longitudinalen Moden für drei verschiedene Resonatorlängen vermessen. Die Werte sind in Tabelle \ref{tab:longitudinal} eingetragen.
+Für die Resonatorlängen $L_1=\SI{192}{\centi\metre}$, $L_2=\SI{120}{\centi\metre}$ und $L_3=\SI{71}{\centi\metre}$ ergeben sich gemittelt die Abstände:
+\begin{align*}
+\Delta\lambda_{192} &= \SI{385(3)}{\centi\metre}\\
+\Delta\lambda_{120} &= \SI{241.3(13)}{\centi\metre}\\
+\Delta\lambda_{71} &= \SI{142.2(6)}{\centi\metre}\text{.}
+\end{align*}
+Dabei ist $\Delta\lambda_n = \frac{c_0}{(f_{n+1}-f_n)}$ mit der Lichtgeschwindigkeit im Vakuum $c_0$.
+Theoretisch ist folgender Zusammenhang zu erwarten:
+\[
+\Delta\lambda = \frac{c_0}{\Delta f} = 2L \text{.}
+\]
+Eine Ausgleichsrechnung der Form $\Delta\lambda(L) = aL$ liefert:
+\[
+a = \num{2.0063(18)}\text{.}
+\]
+Dies entspricht einer Abweichung vom Theoriewert von $\SI{0.3}{\%}$.
+Die Abhängigkeit der Frequenzdifferenzen von der Resonatorlänge ist in Abbildung \ref{fig:longitudinal} dargestellt.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-100pt,height=\textheight-100pt,keepaspectratio]{build/longitudinal.pdf}
+	\caption{Die gemessenen Differenzen $\Delta\lambda$ in Abhängigkeit der Resonatorlänge $L$.}
+	\label{fig:longitudinal}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die gemessenen Frequenzen bei $L_1=\SI{192}{\centi\metre}$, $L_2=\SI{120}{\centi\metre}$ und $L_3=\SI{71}{\centi\metre}$.}
+	\input{content/tables/tablongitudinal.tex}
+	\label{tab:longitudinal}
+\end{table}
+
+\subsection{Bestimmung der Wellenlänge}
+
+Es wird die Wellenlänge des Lasers, durch Beugung an einem Gitter mit Gitterkonstanten $g=\SI{0.0125}{\milli\metre}$ bestimmt. Der Abstand des Gitters zur Diode beträgt $b=\SI{55}{\milli\metre}$. Die Abstände $x_n$ der Nebenmaxima der Ordnung $n$ zum Hauptmaximum, sowie die daraus nach Formel \eqref{eq:lambda} berechneten Werte für $\lambda$ sind in Tabelle \ref{tab:welle} eingetragen.
+Gemittelt ergibt sich eine Wellenlänge von:
+\[
+\lambda = \SI{640(17)}{\nano\metre} \text{.}
+\] 
+
+\begin{table}
+	\centering
+	\caption{Die Ordnung $n$ der Nebenmaxima, ihr Abstand $x_n$ zum Hauptmaximum, sowie die berechnete Wellenlänge $\lambda$.}
+	\input{content/tables/tabwelle.tex}
+	\label{tab:welle}
+\end{table}

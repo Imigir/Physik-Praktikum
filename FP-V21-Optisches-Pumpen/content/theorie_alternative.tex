@@ -1,0 +1,138 @@
+\section{Theorie}
+
+\subsection{Gesamtdrehimpuls}
+Der Gesamtdrehimpuls $\vec{J}$ einer Elektronenhülle eines Atoms setzt sich aus Bahndrehimpuls $\vec{L}$ und Spin $\vec{S}$ wie folgt zusammen:
+\begin{equation}
+  \vec{J} = \vec{L} + \vec{S} \text{.}
+\end{equation}
+
+Zu diesen Größen existiert ebenfalls ein magnetisches Moment $\vec{\mu}$. Dieses setzt sich für die einzelnen Drehimpulse wie folgt zusammen:
+\begin{align}
+  \vec{\mu}_\text{L} =& - g_\text{L} \mu_\text{B} \vec{L} & \left| \vec{L} \right| =& g_\text{L} \mu_\text{B} \sqrt{L \left( L + 1 \right)} \label{eq:L} \\
+  \vec{\mu}_\text{S} =& g_\text{S} \mu_\text{B} \vec{S} & \left| \vec{S} \right| =&  g_\text{S} \mu_\text{B} \sqrt{S \left( S + 1 \right)} \label{eq:S}
+\end{align}
+
+\begin{center}
+  \tiny {($ \mu_\text{B} \: \hat{=} \: \text{Bohrsches Magneton}$)}
+\end{center}
+
+Für den Gesamtdrehimpuls $\vec{J}$ lautet das magnetische Moment $\vec{\mu}$ dann
+\begin{align}
+  \vec{\mu_\text{J}} =& \vec{\mu_\text{S}} + \vec{\mu_\text{L}} = -g_\text{J} \mu_\text{B} \vec{J} & \left| \vec{\mu_\text{J}} \right| =& -g_{J} \mu_\text{B} \sqrt{J \left( J + 1 \right)}
+\end{align}
+Dabei trägt lediglich der zu $\vec{J}$ parallele Teil zum magnetischen Moment bei, wie auch durch den Land\'{e}-Faktor berücksichtigt wird. Es lässt sich auch in Abbildung \ref{fig:mu-J} erkennen, dass das magnetische Moment $\vec{\mu}$ eine Präzisionsbewegung um $\vec{J}$ vollführt und sich somit die senkrechten Komponenten herausmitteln.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.7]{Text/Bilder/Grafik.png}
+  \caption{Darstellung verschiedener magnetischer Momente von Spin, Drehimpuls und Gesamtdrehimpuls, Abbildung entnommen aus \cite[225]{buch}.}
+  \label{fig:mu-J}
+\end{figure}
+
+Aus Abbildung \ref{fig:mu-J} lässt sich ebenfalls die Beziehung
+\begin{equation}
+  \left| \vec{\mu_\text{J}} \right| = \left| \vec{\mu_\text{S}} \right| \cdot \cos{\alpha}+ \left| \vec{\mu_\text{L}} \right| \cdot{cos{\beta}}
+\end{equation}
+
+\begin{center}
+  \tiny {($ \alpha \: \hat{=} \: \sphericalangle \left( \vec{J}, \vec{L} \right) $, $ \beta \: \hat{=} \: \sphericalangle \left( \vec{J}, \vec{S} \right)$)}
+\end{center}
+
+entnehmen. Damit folgt mit den Gleichungen \eqref{eq:L} und \eqref{eq:S} der Zusammenhang
+\begin{equation}
+  g_\text{J} \mu_{B} \cdot \sqrt{J \left( J+ 1 \right)} = g_\text{S} \mu_{B} \cdot \sqrt{S \left( S + 1 \right)} \cdot \cos{\alpha} + g_\text{L} \mu_{B} \cdot \sqrt{L \left( L + 1\right)} \cos{\beta}  \text{.}
+\end{equation}
+
+\FloatBarrier
+
+Über den Cosinussatz lassen sich auch die Relationen
+\begin{align}
+  \cos{\alpha} =& \frac{ \left| \vec{S} \right|^2 - \left| \vec{L} \right|^2 + \left| \vec{J} \right|^2 } { 2 \left| \vec{L} \right| \left| \vec{J} \right| ^2} \\
+  \cos{\beta} =& \frac{ - \left| \vec{S} \right|^2 + \left| \vec{L} \right|^2 + \left| \vec{J} \right|^2}{2 \left| \vec{S} \right| \left| \vec{J} \right| ^2}
+\end{align}
+
+
+herleiten.
+Damit ergibt sich für den Landé-Faktor $g_\text{J}$ der Zusammenhang
+\begin{equation}
+  g_\text{J} = \frac{ \left(g_\text{s} + 1 \right) J \left( J + 1 \right) + \left(g_\text{S} -1 \right) \left[ S \left( S + 1 \right) - L\left( L - 1 \right) \right] }{2 J \left( J + 1 \right)} . \label{eq:elg}
+\end{equation}
+
+\subsection{Kernspin und Hyperfeinstruktur}
+Bei schwachen Magnetfeldern koppelt der Gesamtdrehimpuls $\vec{J}$ der Elektronenhülle ebenfalls an den Kernspin $\vec{I}$ des Atoms. Es ergibt sich daraus für den Gesamtdrehimpuls $\vec{F}$ des Atoms die Relation
+\begin{equation}
+  \vec{F} = \vec{J} + \vec{I} \text{.}
+\end{equation}
+Für diesen lässt sich ein magnetisches Moment $\vec{\mu}$ definieren:
+\begin{align}
+  \vec{\mu}_\text{F} =& - \mu_\text{F} \mu_{b} \vec{L} & \left| \vec{\mu}_\text{F} \right| =& g_\text{F} \mu_\text{B} \sqrt{F \left( F + 1\right)}
+\end{align}
+Die Kopplung des magnetischen Moments $\vec{\mu}_\text{F}$ mit dem magnetischen Feld der Elektronenhülle  hat die Hyperfeinstruktur zur Folge. Die maximale Anzahl der Aufspaltungen ergibt sich dabei aus
+\begin{equation}
+  \max{\left(2 J+1, 2 I+1 \right)} \text{.}
+\end{equation}
+
+Dabei kann $F$ alle ganzzahligen Werte zwischen $\left| I - J \right|$ und $ I + J $ annehmen.
+\subsection{Zeeman-Effekt}
+Durch Anlegung eines äußeren magnetischen Feldes kommt es zu zusätzlichen Zeeman-Aufspaltungen, aufgrund derer sich $2F+1$ Unterniveaus ausbilden, wobei die Aufspaltungen mit $M_\text{F}=-F, -F+1, ..., F-1, F$ gekenntzeichnet werden. Die Energiedifferenz $\Delta E$ ist dabei jedoch unabhängig von $M_\text{F}$ und gegeben durch
+\begin{equation}
+  \Delta E = g_\text{F} \mu_\text{B} \left| \vec{B} \right| ,
+\end{equation}
+wobei der Land\'e Faktor gegeben ist durch
+\begin{equation}
+  g_\text{F} = g_\text{J} \cdot \frac{F \left( F + 1 \right) + J \left( J + 1 \right) - I \left( I + 1 \right)}{2 F\left( F + 1 \right)} \label{eq:g_F}.
+\end{equation}
+
+
+\subsection{Optisches Pumpen} \label{sec:OP}
+Die Verteilung der äußeren Hüllelektronen erfolgt statistisch nach Boltzmann. Das Verhältnis der temperaturabhängigen Besetzungszahlen $ N_\text{1} $ und $ N_\text{2} $ lautet dabei
+\begin{equation}
+  \frac{N_2}{N_1} = \frac{g_2 \exp{\left( - \frac{W_2}{k_\text{B} T} \right)} } { g_1 \exp{\left( - \frac{W_2}{k_\text{B} T} \right) } } .
+\end{equation}
+\begin{center}
+  \tiny{($k_\text{B} \: \hat{=} \: \text{Boltzmann-Konstante}$, $T \: \hat{=} \: \text{Temperatur}$, $W_i \: \hat{=} \: \text{Energie des jeweiligen Niveaus}$, $g_i \: \hat{=} \: \text{statistische Gewichtungsfakoren}$)}
+\end{center}
+
+Beim optischen Pumpen werden die Niveaus jedoch entegegen der thermischen Verteilung besetzt. Es ist also möglich, die Verteilung der äußeren Hüllenelektronen zu invertieren und somit eine größere Besetzung höherer Energiezustände zu erreichen. \\
+Dies kann durch Absorption von Photonen erreicht werden. Um von einem Elektron absorbiert zu werden, muss die Energie des Photons genau der Energiedifferenz zwischen zwei Niveaus entsprechen. Dabei wird jedoch zwischen 3 verschiedenen Strahlungsübergangsarten, die in Tabelle \ref{tab:Uebergang} beschrieben sind, unterschieden.
+\input{Text/Tabellen/Uebergang.tex}
+In diesem Versuch wird das aus $\ce{^{85}Rb}$ und $\ce{^{87}Rb}$ bestehende Gas mit rechtszirkularen Licht betrahlt, weshalb vom niedrigeren Niveau $n_0$ zum höheren Niveau $n_1$ nur Übergänge erlaubt sind, bei denen $\symup{\Delta} M = 1 $ erfüllt ist. Beim Zurückfallen der Elektronen sind jedoch auch Vorgänge erlaubt, bei denen $\symup{\Delta} M = 0, -1 $ gilt. Dies hat zur Folge, dass energieärmere Niveaus leergepumpt werden.
+\\
+Beim Übergang zum energieärmeren Niveau unter Aussendung eines Photons muss jedoch zwischen stimulierter und sponater Emission unterschieden werden. \\
+Bei der spontanen Emission kommt es zu einer spontanen Abregung von $n_1$ nach $n_0$ unter Aussendung eines Photons. Es lässt sich zeigen, dass die spontane Emission proportional zu $f^3$ ist, wobei $f$ die Frequenz des RF-Felds ist. \\
+Bei der stimulierten Emission trifft dagegen ein Photon, dessen Energie genau der Energiedifferenz der Niveaus entspricht, auf das angeregte Niveau $n_1$. Dabei wird der Übergang der Niveaus stimuliert, wodurch das stimulierende und stimulierte Photon über die selbe Wellenlänge, Ausbreitungsrichtung und Phase verfügen, womit sie kohärent zueinander sind.
+Die Prozesse sind in Abbildung \ref{fig:AbEm} schematisch dargestellt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth-120pt,height=\textheight-120pt,keepaspectratio]{Text/Bilder/AbEm.png}
+  \caption{Schema zur Absorbtion und Emission, Abbildung entnommen aus \cite{AbEm}.}
+  \label{fig:AbEm}
+\end{figure}
+
+
+\subsection{Einfluss des Hochfrequentfeldes}
+Wie bereits in Kapitel \ref{sec:OP} erwähnt, besitzt die spontane Emission eine $f^3$-Proportionalität. Dies hat zur Folge, dass bei höheren Frequenzen vermehrt die spontane Emission auftritt, während dies bei niedrigeren nicht mehr der Fall ist. Erreicht das RF-Feld also eine passende Frequenz, findet bevorzugt stimulierte Emission statt. Da die Elektronen so aus den angeregten Zuständen fallen, ist es wieder möglich, dass die entsprechenden Atome wieder Photonen absorbieren, wodurch das Gas an Transparenz verliert.
+Es lässt sich zeigen, dass für die in Abbildung \ref{fig:Trans} gezeigte Resonanzstelle $B_\text{m}$ der Zusammenhang
+\begin{equation}
+  hf=g_\text{J}\mu_\text{B} \Delta M_\text{J} B_\text{m} \leftrightarrow B_\text{m} = \frac{4 \pi m_0}{\epsilon g_\text{j}} f \label{eq:B_m}
+\end{equation}
+gilt. Bei $B=0$ befindet sich ebenfalls ein Minimum, da es ohne äußeres Magnetfeld zu keiner Zeemann-Aufspaltung kommen kann.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth-120pt,height=\textheight-120pt,keepaspectratio]{Text/Bilder/Trans.png}
+  \caption{Transparenz des Gases bei angelegten RF-Feld, Abbildung entnommen aus \cite{sample}.}
+  \label{fig:Trans}
+\end{figure}
+
+\subsection{Quadratischer Zeeman Effekt}
+Im Falle großer Magnetfelder entstehen aufgrund der Wechselwirkungen des Spins mit dem Bahndrehimpuls und der Wechselwirkung der magnetischen Momente weitere Effekte, welche bei der Zeemann-Aufspaltung berücksichtigt werden müssen.
+Für diesen Fall ergibt sich für die Zeemann-Aufspaltung der Zusammenhang
+\begin{equation}
+  U_\text{HF} = g_\text{F} \mu_\text{B} B + g^2_\text{F} \mu^2_\text{B} B^2 \frac{\left( 1 - 2 M_\text{F} \right)}{\Delta E_\text{HF}} \label{eq:??}.
+\end{equation}
+
+\begin{center}
+  \tiny {($ \Delta E_\text{HF} \: \hat{=} \: \text{Energiedifferenz zwischen den Energieniveaus}$)}
+\end{center}

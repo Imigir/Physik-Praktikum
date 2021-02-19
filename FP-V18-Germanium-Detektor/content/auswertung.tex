@@ -1,0 +1,259 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+Die Graphen werden sowohl mit Matplotlib \cite{matplotlib} als auch NumPy \cite{numpy} erstellt. Die Fehlerrechnung wird mithilfe von Uncertainties \cite{uncertainties} durchgeführt.
+
+\subsection{Kalibrierung des Detektors}
+
+Der Detektor wird mit einem $^{152}.{Eu}$-Strahler kalibriert, da dieser ein linienreiches Spektrum für eine möglichst exakte Kalibrierung besitzt.
+Für die Kalibrierung wird das $\gamma$-Spektrum der Probe über eine Messdauer von $\SI{2723}{\second}$ aufgenommen. Das Spektrum ist in Abbildung \ref{fig:SpektrumEu} zu sehen. Je eine Ausgleichsrechnung für die einzelnen Energiepeaks der Form
+\begin{equation}
+N(K)=a \cdot\exp\left(-\frac{1}{2}\left(\frac{K-b}{\sigma}\right)^2\right)+c \label{eq:gaussFit}
+\end{equation}
+ergibt die Werte in Tabelle \ref{tab:parameterEu}. Der Parameter $a$ gibt dabei die Höhe der Peaks, $b$ die Position und $c$ die Höhe des Untergrundes an. Die Standardabweichung $\sigma$ ist gemäß der Gaußschen Glockenkurve ein Maß für die Breite des Peaks.\\
+Den Werten von $b$ werden die entsprechenden Energien aus der Literatur \cite{MARTIN20131497} zugeordnet.
+Für die weiteren Ausgleichsrechnungen werden nur die Peaks mit einer Emissionswahrscheinlichkeit über $\SI{2}{\percent}$ berücksichtigt, da der Untergrund die Ergebnisse verfälscht.\\
+Die Energieabhängigkeit der Kanäle wird über eine lineare Ausgleichsrechnung der Form
+\[
+E_\gamma(K) = m\cdot K+n
+\]  
+bestimmt. Dabei werden die Unsicherheiten der Werte aufgrund ihrer geringen Größe nicht mit berücksichtigt. In Abbildung \ref{fig:Kalibrierung} sind die Energien gegen $K$ aufgetragen.
+Für die Parameter ergibt sich:
+\begin{align*}
+m	&=	\SI{0.402916(21)}{\kilo\electronvolt}\text{,}\\
+n	&=	\SI{-3.04(4)}{\kilo\electronvolt}\text{.}
+\end{align*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/EU152_1-4000.pdf}
+	%\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/T1.pdf}
+	\caption{Das Spektrum eines $^{152}.{Eu}$-Strahlers, bei einer Messzeit von $\SI{2723}{\second}$, mit der Kanalnummer $K$ und der Anzahl der im Kanal nachgewiesenen Ereignisse $N$.}
+	\label{fig:SpektrumEu}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Parameter der gefitteten Peaks des Spektrums von $^{152}.{Eu}$ mit den zugeordneten Energien und Wahrscheinlichkeiten aus der Literatur \cite{MARTIN20131497}.}
+	\input{content/tables/a-korrekteFehler.tex}
+	\label{tab:parameterEu}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/EnergieKali.pdf}
+	\caption{Die Energie $E_\gamma$ gegen die Kanalnummer $K$ aufgetragen, wobei die Unsicherheit des einzelnen Wertepaares sich durch die Unsicherheit der Position der Gaußkurve und der Unsicherheit des Literaturwertes für $E_\gamma$ ergibt.}
+	\label{fig:Kalibrierung}
+\end{figure}
+
+\subsection{Bestimmung der Effizienz des Detektors}
+
+Zur Bestimmung der Effizienz wird die Vollenergienachweiswahrscheinlichkeit $Q$ berechnet. Dafür müssen die Aktivität $A$, der Raumwinkel $\Omega$, sowie der Inhalt $Z$ der Peaks bestimmt werden.\\
+Nach Herstellerangaben beträgt die Aktivität der Probe am 01.10.2000 $\SI{4.13(6)}{\kilo\becquerel}$ und besitzt eine Halbwertszeit von $\SI{4943(5)}{\day}$ \cite{V18}. Betrachtet man die Zeitdifferenz von $\SI{6626(1)}{\day}$ zur Versuchsdurchführung am 21.11.2018, ergibt sich mit Formel \eqref{eq:A} eine aktuelle Aktivität von:
+\[
+A_.{Eu}=\SI{1.631(24)}{\kilo\becquerel}\text{.}
+\]
+Der Raumwinkel $\Omega$ bestimmt sich nach Formel \eqref{eq:Omega} zu:
+\[
+\frac{\Omega}{4\pi} = \num{0.016}
+\]
+Dabei ist der Radius $r=\SI{2.25}{\centi\metre}$ und der Abstand der Probe zum Detektor ergibt sich zu $a=\SI{8.31}{\centi\metre}$ \cite{V18}.
+Der Flächeninhalt $Z$ der Gaußkurven bestimmt sich nach
+\begin{equation}
+Z = a\sqrt{2\pi\sigma^2} \label{eq:I_Gaus}
+\end{equation}
+mit den Werten für $a$ und $\sigma$ aus Tabelle \ref{tab:parameterEu}.
+Mithilfe von Formel \eqref{eq:Q} und den Literaturwerten für die Wahrscheinlichkeiten \cite{MARTIN20131497} wird $Q$ bestimmt.
+Mithilfe der Energiekalibrierung werden die Energien $E_\gamma$ der Peaks über die Kanalnummern bestimmt. Die Ergebnisse sind in Tabelle \ref{tab:Q} eingetragen.\\
+In Abbildung \ref{fig:Q} wird $Q$ gegen $E_\gamma$ aufgetragen und es wird eine Ausgleichsrechnung der Form
+\[
+Q(E_\gamma)=q\cdot \left(\frac{E_\gamma}{\SI{1}{\kilo\electronvolt}}\right)^p
+\] 
+durchgeführt. Dabei wird zusätzlich der erste Wert nicht mit in die Ausgleichsrechnung mit einbezogen, da hier die Energie unter $\SI{150}{\kilo\electronvolt}$ liegt.  
+Es ergeben sich die Parameter:
+\begin{align*}
+q	&=	\num{81(12)}\text{,}\\
+p	&=	\num{-1.025(23)}\text{.}
+\end{align*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/Q.pdf}
+	\caption{Die Vollenergienachweiswahrscheinlichkeit $Q$ gegen die Energie $E_\gamma$ aufgetragen.}
+	\label{fig:Q}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die berechneten Peakinhalte $Z$, die berechneten Vollenergienachweiswahrscheinlichkeiten $Q$, sowie die berechneten Energien $E_\gamma$. Zudem die aus der Literatur entnommenen Energien $E_\gamma^.{lit}$ und Emissions-Wahrscheinlichkeiten $W$ \cite{MARTIN20131497}.}
+	\input{content/tables/a2-korrekteFehler.tex}
+	\label{tab:Q}
+\end{table}
+
+\subsection{Untersuchung des Spektrums von $^{137}.{Cs}$}
+
+Es wird das Spektrum von $^{137}.{Cs}$ bei einer Messzeit von $\SI{4543}{\second}$ aufgenommen. Das Spektrum ist in Abbildung \ref{fig:SpektrumCs} zu sehen. Der Rückstreupeak wird obwohl es sich nicht um einen Gaußpeak handelt wie der Photopeak als Gaußförmig genähert. Das dies eine gute Näherung ist, lässt sich anhand der Fehler in Tabelle \ref{tab:parameterCs} erkennen. Es werden also der Photopeak und der Rückstreupeak mithilfe zweier Ausgleichsrechnungen gemäß Formel \eqref{eq:gaussFit} untersucht. Es ergeben sich die Werte aus Tabelle \ref{tab:parameterCs}. Die Energien bestimmen sich wie zuvor über die Kalibrierung aus dem Parameter $b$.    
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/Cs137.pdf}
+	\caption{Das Spektrum eines $^{137}.{Cs}$-Strahlers, bei einer Messzeit von $\SI{4543}{\second}$.}
+	\label{fig:SpektrumCs}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Parameter der gefitteten Peaks des Spektrums von $^{137}.{Cs}$ mit den ermittelten Energien, wobei es sich beim zweiten Peak um den Rückstreupeak handelt.}
+	\input{content/tables/b-korrekteFehler.tex}
+	\label{tab:parameterCs}
+\end{table}
+
+\noindent Des Weiteren werden die Halbwerts- und die Zehntelwertsbreite des Photopeaks bestimmt. Hierzu werden die linke und die rechte Flanke des Peaks durch Geraden der Form 
+\begin{equation}
+N(K) = mK+n	\label{eq:Gerade}
+\end{equation}
+approximiert (vergleiche Abbildung \ref{fig:2tel} und \ref{fig:10tel}). Die Werte sind in Tabelle \ref{tab:geradenBreite} eingetragen, wobei sie von oben nach unten durchnummeriert sind. Mit einer Peakhöhe von $H=2913$ ergeben sich die in Energien umgerechneten Breiten zu:
+\begin{align*}
+B_{1/2} &= \frac{H/2-n_2}{m_2}-\frac{H/2-n_1}{m_1} \equiv \SI{2.18(4)}{\kilo\electronvolt}\text{,}\\
+B_{1/10} &= \frac{H/10-n_4}{m_4}-\frac{H/10-n_3}{m_3} \equiv \SI{4.07(13)}{\kilo\electronvolt}\text{.}
+\end{align*}
+Dabei ergeben sich die Fehler aus der Gaußschen Fehlerfortpflanzung.
+Betrachtet man das Verhältnis der Breiten, so ergibt sich ein Wert von 
+\[
+\frac{B_{1/10}}{B_{1/2}} = \num{1.87(7)}\text{.}
+\]
+Dies entspricht dem Wert des Verhältnisses bei einer Gaußkurve von $\num{1.823}$.
+Der theoretische Wert für die Halbwertsbreite ergibt sich mit Formel \eqref{eq:dE} zu:
+\[
+B_{1/2,theo} = \SI{1.031352(19)}{\kilo\electronvolt}\text{.}
+\]
+Dies entspricht weniger als der Hälfte des experimentellen Wertes.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/Cs137Halb.pdf}
+	\caption{Die Bestimmung der Halbwertsbreite des $^{137}.{Cs}$-Strahlers. Die gelben Werte werden in die Ausgleichsrechnung der linken Flanke mit einbezogen, die roten in die der Rechten. Die grünen Werte werden in den Ausgleichsrechnungen nicht berücksichtigt.}
+	\label{fig:2tel}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/Cs137Zehntel.pdf}
+	\caption{Die Bestimmung der Zehntelwertsbreite des $^{137}.{Cs}$-Strahlers. Die gelben Werte werden in die Ausgleichsrechnung der linken Flanke mit einbezogen, die roten in die der Rechten. Die grünen Werte werden in den Ausgleichsrechnungen nicht berücksichtigt.}
+	\label{fig:10tel}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Parameter der Ausgleichsgeraden zur Bestimmung der Halbwertsbreite (HWB) und Zehntelwertsbreite (ZWB) des Vollenergiepeaks des Spektrums von $^{137}.{Cs}$.}
+	\input{content/tables/geraden1-korrekteFehler.tex}
+	\label{tab:geradenBreite}
+\end{table}
+
+\newpage
+\noindent Als nächstes wird das Compton-Kontinuum untersucht. Die theoretische Lage der Compton-Kante berechnet sich mit der Energie des Photopeaks mit Formel \eqref{eq:Emax} zu:
+\[
+E_.{Compton,Theo} = \SI{477.147(19)}{\kilo\electronvolt}\text{.}
+\]
+Der Experimentelle Wert wird über den Schnittpunkt zweier Geraden der Form \eqref{eq:Gerade} bestimmt (vergleiche  Abbildung \ref{fig:Emax}). Mit den Parametern aus Tabelle \ref{tab:geradenEmax} ergibt sich ein Wert von:
+\[
+E_.{Compton,Exp} = \SI{469.8(10)}{\kilo\electronvolt}\text{.}
+\]
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/Cs137Emax.pdf}
+	\caption{Die Bestimmung der Position der Compton-Kante des $^{137}.{Cs}$-Strahlers. Die blauen Werte werden in die Ausgleichsrechnung der linken Flanke mit einbezogen, die roten in die der Rechten. Die grünen Werte werden in den Ausgleichsrechnungen nicht berücksichtigt.}
+	\label{fig:Emax}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Parameter der gefitteten Geraden zur Bestimmung der Position der Compton-Kante des Spektrums von $^{137}.{Cs}$.}
+	\input{content/tables/geraden2-korrekteFehler.tex}
+	\label{tab:geradenEmax}
+\end{table}
+
+\newpage
+\noindent Es werden die Inhalte des Kontinuums und des Photopeaks ermittelt. Der Inhalt des Photopeaks berechnet sich nach Formel \eqref{eq:I_Gaus}. Die Anzahl der Ereignisse im Bereich des Compton-Kontinuums wird bestimmt, indem die Daten durch eine Ausgleichskurve nach Formel \eqref{eq:sigmadiff}, welche durch einen Streckungsfaktor $a$ und einen Achsenabschnitt $b$ ergänzt wurde, approximiert werden (vergleiche Abbildung \ref{fig:Comptonkontinuum}). Es ergeben sich die Parameter:
+\begin{align*}
+a	&= \num{4.99(22)e32}{}\text{,}\\
+b	&= \SI{15.4(19)}{\metre\squared\per\kilo\per\electronvolt}\text{.}\\
+\end{align*}
+Die Integration der Kurve liefert den Inhalt des Kontinuums.
+Es ergeben sich für die Inhalte die Werte:
+\begin{align*}
+I_.{Photo} 	 &= \num{1.62(3)e4}\text{,}\\
+I_.{Compton} &= \num{5.95(7)e4}\text{.}\\
+\end{align*} 
+Das ergibt ein Verhältnis der Inhalte von:
+\[
+\frac{I_.{Compton}}{I_.{Photo}} = \num{3.67(7)}\text{.}
+\]
+Der theoretische Wert des Verhältnisses $V_.{theo}$ bestimmt sich mit dem Extinktionskoeffizienten des Photopeaks von $\SI{0.0075}{\per\centi\per\metre}$ und dem des Kontinuums von $\SI{0.37}{\per\centi\per\metre}$ gemäß Abbildung \ref{fig:Wirkungsquerschnitt}, sowie Formel \eqref{eq:Nd} zu: 
+\[
+V_.{theo} = \num{26.5(18)}\text{.}
+\]
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/Cs137Kon.pdf}
+	\caption{Die Approximation des Compton-Kontinuums des $^{137}.{Cs}$-Strahlers.}
+	\label{fig:Comptonkontinuum}
+\end{figure}
+
+\subsection{Bestimmung der Aktivität einer unbekannten Probe}
+
+Es wird die Aktivität einer weiteren Probe bestimmt. Das Spektrum wird über eine Messzeit von $\SI{6312}{\second}$ aufgenommen und ist in Abbildung \ref{fig:Ba} zu sehen. Mit den Ergebnissen wird geklärt, ob es sich um eine $^{125}.{Sb}$- oder eine $^{133}.{Ba}$-Probe handelt.
+Dazu werden die Peaks des Spektrums durch Formel \eqref{eq:gaussFit} approximiert. Die Parameter befinden sich in Tabelle \ref{tab:parameterBa}. Die bestimmten Energien werden mit der Literatur \cite{KHAZOV2011855} verglichen. Es ist zu erkennen, dass es sich bei der Probe um $^{133}.{Ba}$ handelt.\\
+Gemäß Formel \eqref{eq:Q} wird die Aktivität ermittelt. Dabei wird $Z$ nach Formel \eqref{eq:I_Gaus} berechnet. Werden die Ergebnisse der Aktivitäten der Peaks mit einer Energie über $\SI{150}{\kilo\electronvolt}$ aus Tabelle \ref{tab:ABa} gemittelt, so ergibt sich eine mittlere Aktivität von:
+\[
+A_.{Ba} = \SI{1263(9)}{\becquerel}\text{.}
+\]
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/D.pdf}
+	\caption{Das Spektrum des Strahlers, bei einer Messzeit von $\SI{6312}{\second}$.}
+	\label{fig:Ba}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Parameter der gefitteten Peaks des Spektrums mit den ermittelten Energien. Zudem die aus der Literatur entnommenen Energien $E_\gamma^\text{lit}$ \cite{KHAZOV2011855}.}
+	\input{content/tables/D-korrekteFehler.tex}
+	\label{tab:parameterBa}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Die berechneten Peakinhalte $Z$, die mit den Vollenergienachweiswahrscheinlichkeiten $Q$ berechneten Aktivitäten $A$,  sowie die berechneten Energien $E_\gamma$.  Zudem die aus der Literatur entnommenen Energien $E_\gamma^\text{lit}$ und Emissions-Wahrscheinlichkeiten $W$ \cite{KHAZOV2011855}.}
+	\input{content/tables/D2-korrekteFehler.tex}
+	\label{tab:ABa}
+\end{table}
+
+\subsection{Identifizierung der aktiven Nuklide in einer Zerfallsreihe}
+
+Anhand des Spektrums eines unbekannten Strahlers wird versucht einige aktive Nuklide einer Zerfallsreihe zu bestimmen. Das Spektrum des Strahlers wurde über einen Zeitraum von $\SI{4489}{\second}$ aufgenommen und ist in Abbildung \ref{fig:SpektrumUnbekannt} zu sehen. Es wird wie bei der Untersuchung von $^{133}.{Ba}$ vorgegangen. Die Parameter der Ausgleichsrechnung befinden sich in Tabelle \ref{tab:parameterUnbekannt}. Durch Vergleich der berechneten Energien mit der Literatur \cite{V18} lassen sich $^{234}.{Th}$, $^{226}.{Ra}$, $^{214}.{Pb}$ und $^{214}.{Bi}$ als aktive Nuklide identifizieren. Die Werte für $Z$ und $A$ werden analog zu $^{133}.{Ba}$ berechnet und befinden sich in Tabelle \ref{tab:AUnbekannt}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth-60pt,height=\textheight-60pt,keepaspectratio]{content/images/unbekannt.pdf}
+	\caption{Das aufgenommene Spektrum einer unbekannten Probe, bei einer Messzeit von $\SI{4489}{\second}$.}
+	\label{fig:SpektrumUnbekannt}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Die Parameter der gefitteten Peaks des unbekannten Spektrums mit den ermittelten Energien.}
+	\input{content/tables/unbekannt-korrekteFehler.tex}
+	\label{tab:parameterUnbekannt}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Die zu den aus der Literatur entnommenen Energien $E_\gamma^\text{lit}$ und Emissions-Wahrscheinlichkeiten $W$ \cite{V18} zugeordneten Energien, sowie die zugehörigen Elemente.}
+	\input{content/tables/unbekannt2-korrekteFehler.tex}
+	\label{tab:AUnbekannt}
+\end{table}
+
